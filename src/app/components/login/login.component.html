@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container">
+    <div class = "container_content droite">
+        <div class = "container_logo_and_description">
+            <!--
+            <span (click)="fermerFormulaire()"  class="close">x</span>-->
+            <div class="container_description">
+                <p>Login To Your Dashboard </p>
+            </div>
+        
+        </div>
+        <div class = "container_form">
+            <form (ngSubmit)="onSubmit()">
+                <div class="my_container_input_1">
+                    <label for="username">Username</label>
+                    <input class = "input" name="username" [(ngModel)]="username" id="username" type="text" placeholder="Enter your username " aria-label="default input example" id="cnx_user" required>
+                </div>
+                <div class="my_container_input_2">
+                    <label>Password</label>
+                    <input class = "input" name="password" [(ngModel)]="password" type="password" placeholder="********" aria-label="default input example" id="cnx_pass" required>
+                    
+                </div>
+              
+                <div class="oumy">
+                    <div class="remember_me">
+                        <input class="checkbox" type="checkbox">
+                        <p>Remember me</p>
+                    </div>
+                    <H5>
+                        <a routerLink="/reset-password">Forget Password?</a>
+                    </H5>
+                </div>
+             
+                <div class = "my_container_input_3">
+                    <button type="submit" class="btn btn-success"><p>Log In</p></button>
+                    <span>Don't Have an account?<p><a routerLink="/register">Signup</a></p></span>
+                </div>
+            </form>
+          
+        </div>
+        <div class="footer-login">
+            <app-footer></app-footer>
+        </div>
+      
+    </div>
+</div>
+<app-footers></app-footers>
