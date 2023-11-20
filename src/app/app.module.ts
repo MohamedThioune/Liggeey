@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FootersComponent } from './components/footers/footers.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     HeaderComponent,
     FootersComponent,
     HomeComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

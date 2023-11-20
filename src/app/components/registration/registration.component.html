@@ -1,18 +1,14 @@
 <app-header></app-header>
 <main>
     <div class="card border-light border-0">
-        <div class=" card-header" style="    margin-top: 63px;        "> 
-            
-            <h3 style="color:#8299AA">Create Your Account</h3>
+        <div class=" card-header"> 
+            <span class="create_account">Create Your Account</span>
             <div class="candidate-employe">
-                <!--
-                    <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" style="width: 20px;border:1px solid #FFFF;margin-right:5px;background-color:#DDE8F8;"/>
-                -->
-                <button (click)="showCandidate()" class="btn btn-outline-secondary  candidate">
+                <button (click)="showCandidate()" class="btn btn-outline-secondary">
                     <i class="fa fa-user"></i>
                     <span>Candidate</span>
                 </button>
-                <button (click)="showEmployer()" class="btn btn-outline-secondary  employer">
+                <button (click)="showEmployer()" class="btn btn-outline-secondary">
                     <i class="fa fa-shopping-bag"></i>
                     <span>Employer</span>
                 </button>
@@ -20,11 +16,9 @@
         </div>
      
         <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="canditate">
-         
-            
-            <div class="card-body p-4">
-                <div class="row g-3" style="display: flex;">
-                    <div class="col-md-6 " style="margin-right: 1rem;">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6  p-2">
                         <label for="email">
                             Email
                             <p>*</p>
@@ -34,7 +28,7 @@
                                 formControlName="email">
                         </div>
                     </div>
-                    <div class="col-md-6 p-2">
+                    <div class="col-md-6  p-2">
                         <label for="password">Password
                             <p>*</p>
                         </label>
@@ -43,10 +37,9 @@
                                 formControlName="password">
                         </div>
                     </div>
-                  
                 </div>
-                <div class="row g-3 " style="display: flex;">
-                    <div class="col-md-6 p-2" style="margin-right: 1rem;">
+                <div class="row g-3">
+                    <div class="col-md-6 p-2">
                         <label for="firstName">Fist Name
                             <p>*</p>
                         </label>
@@ -65,8 +58,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row g-3 " style="display: flex;">
-                    <div class="col-md-6 p-2" style="margin-right: 1rem;">
+                <div class="row g-3">
+                    <div class="col-md-6 p-2">
                         <label for="name"> Name
                             <p>*</p>
                         </label>
@@ -86,42 +79,16 @@
                     </div>
                 </div>
             </div>
-            
             <div class="card-footer p-3  ">
-                
-        <button type="submit" class="btn btn-outline-secondary  create"><span>Register</span></button>
+                <a class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </a>      
             </div>
-            <div class="clear"></div><br />
+                    <div class="clear"></div><br />
         </form>
 
          <form [formGroup]="formCompagny" (ngSubmit)="inscriptionCompagny()" *ngIf="employer">
             <div class="card-body p-4" >
-              <!--
-                <div class="row g-3" style="display: flex;">
-                    <div class="col-md-6 " style="margin-right: 1rem;">
-                        <label for="email">
-                            Company Name
-                            <p>*</p>
-                        </label>
-                        <div class="input-group">
-                            <input type="text" name="nameCompagny" class="form-control" id="nameCompagny" placeholder="Livelearn"
-                                formControlName="nameCompagny">
-                        </div>
-                    </div>
+                <div class="row g-3">
                     <div class="col-md-6 p-2">
-                        <label for="password">Full Compagny Name
-                            <p>*</p>
-                        </label>
-                        <div class="input-group">
-                            <input type="text" name="fullNameCompagny" class="form-control" id="fullNameCompagny" placeholder="Livelearn"
-                                formControlName="fullNameCompagny">
-                        </div>
-                    </div>
-                  
-                </div>
-            -->
-                <div class="row g-3 " style="display: flex;">
-                    <div class="col-md-6 p-2" style="margin-right: 1rem;">
                         <label for="firstNameCompagny">Fist Name
                             <p>*</p>
                         </label>
@@ -140,8 +107,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row g-3 " style="display: flex;">
-                    <div class="col-md-6 p-2" style="margin-right: 1rem;">
+                <div class="row g-3">
+                    <div class="col-md-6 p-2">
                         <label for="emailCompagny"> Email
                             <p>*</p>
                         </label>
@@ -160,8 +127,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row g-3 " style="display: flex;">
-                    <div class="col-md-6 p-2" style="margin-right: 1rem;">
+                <div class="row g-3">
+                    <div class="col-md-6 p-2">
                         <label for="passwordCompagny"> Password
                             <p>*</p>
                         </label>
@@ -180,8 +147,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row g-3" style="display: flex;">
-                    <div class="col-md-6 " style="margin-right: 1rem;">
+                <div class="row g-3">
+                    <div class="col-md-6">
                         <label for="bedrijf">
                             Bedrijf
                             <p>*</p>
@@ -193,12 +160,8 @@
                     </div>
                 </div>
             </div>
-            
             <div class="card-footer p-3  ">
-                
-        <!--      <a href="#" class="btn btn-secondary border-0 pb-2 float-end me-4 rounded-0">Annuler</a> --> 
-        <button type="submit" class="btn btn-outline-secondary  create"><span>Register</span></button>
-
+                <a class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </a>      
             </div>
             <div class="clear"></div><br />
         </form>
