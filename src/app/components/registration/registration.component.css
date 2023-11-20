@@ -1,13 +1,4 @@
-*{
-  padding: 0;
-  margin: 0;
-  max-width: 100%;
-  max-height: 100%;
-  box-sizing: border-box;
-  outline : none;
 
-  
-}
 /* Main container */
 main {
    display : flex;
@@ -20,50 +11,76 @@ main {
   .card {
     border: none;
     border-radius: 0;
-  /*  border: 1px solid blue;*/
 
   }
 
   .card-header {
-    color: #007bff;
     border: none;
     border-radius: 0;
-    padding: 20px 0;
     text-align: center;
-    margin-bottom: 44px;
-    margin-top: 63px;
-  /*  border: 1px solid green;*/
+    padding-top: 63px;
+    background: none;
   }
-  .card-header h3{
-    margin-bottom: 3rem;
+
+  .card-header .create_account{
+    color:#202124;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+
+  }
+  .card-header span{
+    font-weight: bold;
+  }
+  .candidate-employe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+
+  }
+  
+  .candidate-employe button{
+    width: 260px;
+    color: #1AC4A2;
+    background:  #DDF6F1; 
+    border: none;
+    cursor: pointer;
+  }
+  .candidate-employe i{
+    margin-right: 5px;
+  }
+  .candidate{
+    border: 1px solid red;
+    margin-right: 30px;
+  }
+  .candidate-employe button:hover{
+    color: #FFF;
+    background: var(--color-four, #1AC4A2); 
   }
   
   .card-body {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 15px;
-    width:100%;
+    padding-bottom: 58px;
   }
 
   .card-footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
     border: none;
+    background: none;
   }
-  .card-footer button{
-    border: 1px solid #8299AA ;
-    background-color: #1967D2;
+  .card-footer a{
+    border: none ;
+    background-color: #1AC4A2;
     color: #FFFF;
     width: 550px;
     height: 60px;
+    font-weight: bold;
     border-radius: 8px;
   }
-  .card-footer span{
-    font-weight: bold;
-  }
-
   /* Form styling */
   .form-control {
     border: 1px solid transparent;
@@ -75,22 +92,10 @@ main {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
    
   }
-
   form{
     height: 100%;
     width: 981px; 
-
-
    }
-.row{
-  margin-bottom: 2rem;
-
-}
-
-.create:hover{
-  background-color: #8299AA;
-
-}  
   .input-group-text {
     background-color: #f8f9fa;
     border: 1px solid #ced4da;
@@ -100,13 +105,11 @@ main {
   
   /* Label styling */
   label {
-    font-weight: 400;
-    margin-bottom: 3px;
+    font-weight: bold;
+    margin-bottom: 6px;
     display: flex;
     
   }
-
-
   /* Add margin and spacing */
   .m-4 {
     margin: 1.5rem;
@@ -120,12 +123,11 @@ main {
     background-color:#F0F5F7 ;
   }
 
-  
   /* Adjust spacing between buttons */
   .btn {
-    margin: 0.25rem;
+    margin: 0.3rem;
     padding:15px ;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 80%;
   }
   
@@ -135,42 +137,7 @@ main {
     color: red;
     margin: 1px 2px 0px 10px;
   }
-.livelearn{
-    margin-right: 50%;
-}
-.col{
-    display: flex;
-}
-.candidate-employe{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.candidate-employe button{
-width: 15rem;
-}
-.candidate-employe i{
-  margin-right: 5px;
-}
-.candidate{
-  color: #1967D2;
-  background-color: #DDE8F8;
-  border: none;
-  cursor: pointer;
-  margin-right: 1rem;
-}
-.employer{
-  color: #FFFF;
-  background-color: #1967D2;
-  border: none;
-  cursor: pointer;
-}
-.card-header span{
-  font-weight: bold;
-}
 .footer-register{
   width: 550px;
-margin-left: 13.5rem;
-margin-top: 10px;
+  margin-left: 13.5rem;
 }
