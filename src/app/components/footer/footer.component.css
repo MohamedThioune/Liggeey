@@ -1,9 +1,11 @@
+.button_connexion{
+  padding-bottom: 145px;
+}
 .ligne-horizontale {
     border: none; /* Supprime la bordure par défaut */
     border-top: 2px solid #F5F6F8; /* Épaisseur et couleur de la ligne */
-    width: 280px;
+    width: 50%;
     height: 1px;
-    
   }
   .ligne-horizontale.gauche{
     margin: 0rem 0.75rem 0rem 0rem;
@@ -11,60 +13,37 @@
   .ligne-horizontale.droite{
     margin: 0rem 0rem 0rem 0.75rem;
   }
-  .footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 146.49px;
-}
-.footer button{
-    padding: 10px ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .separateur{
     display: flex;
-    margin-top: 17px;
-    margin-bottom: 0.5rem;
-    width: 500px;
-    height: 40px;
-    
+    padding-bottom: 30px;
   }
-  .boutton{
-    display: flex;
-    align-items: center;
-    width: 550px;
-height: 45px;
-
+  .left{
+    border: 1px solid #043356;
+    color: #043356;
+    /*margin-right: 30px;*/
+    padding-top: 10px ;
+    padding-right: 55px;
+    padding-bottom: 15px;
+    padding-left: 21px;
 
   }
-  .boutton i{
-    margin-right: 10px;
+  .right{
+    border: 1px solid #D93025 ;
+    color: #D93025;
+    padding-top: 10px ;
+    padding-right: 55px;
+    padding-bottom: 15px;
+    padding-left: 21px;
+
   }
-  .boutton a{
-    text-decoration: none;
-  }
-  .bouton-outline {
+   a{
     background: #FFFF; /* Fond transparent */
     cursor: pointer; /* Curseur de type main (pointeur) */
     border-radius: 8px;
-    width: 260px;
-    height: 45px;
-    padding-top: 14px;
-    padding-bottom: 15px;
-   
+    font-weight: bold;
+    font-size: 14px;
   }
-  
-  .bouton-outline.gauche{
-    border: 1px solid #30A3F7;
-    color: #30A3F7;
-    display: flex;
-  }
-  .bouton-outline.droite{
-    border: 1px solid #E87E77 ;
-    color: #E87E77;
-    display: flex;
-    margin-left: 30px;
+  a i{
+    margin-right: 5px;
   }

@@ -1,31 +1,22 @@
-*{
-    --main_col :#198754;  
-}
-/* a{
-    text-decoration: none;
-    color : inherit;
 
-} */
-*{
-    padding: 0;
-    margin: 0;
-    max-width: 100%;
-    max-height: 100%;
-    box-sizing: border-box;
-    outline : none;
-}
+
 .container{
-    display : flex;
-    justify-content: center;
-    align-items: center;
-   background-color: #FFFF;
-  
+  width: 550px;
+  margin: 0 auto;
+
+
 }
 .container_description{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 63px;
+    text-align: center;
+
+}
+.container_description p {
+    font-size: 24px;
+    font-weight: bold;
+ }
+
+ .container_content{
+    padding-top: 63px;
 }
 .close{
     background-color: #F0F5F7;
@@ -35,46 +26,23 @@
     padding-bottom: 10px;
     line-height: 1.5;
 }
-
-.container_description p {
-   font-size: 24px;
-   font-weight: bold;
-   text-align: center;
+.container_form{
 }
-
-form{
-    width: 550px;
-    height: 381px;
-}
-
-
 
 .input{
-    /* width: calc(100% -50px); */
-    width: 550px;
-    height: 60px;
     padding: 25px;
+    height: 60px;
     border : 1px solid transparent;
     border-radius: 8px;
  /*   background-color:#F0F5F7 ;*/
 }
-
 .input:focus{
     outline : none;
-    border : 2px solid #1967D2;
-    color : #1967D2;
+    border : 2px solid #1AC4A2;
+    color : #1AC4A2;
 }
 .input:valid{
     background-color:#F0F5F7
-
-}
-.btn{
-    width: 100%;
-    height : 40px;
-    border : none;
-    cursor: pointer;
-    color : white;
-    font-size : 20px;
 }
 
 .my_container_input_1, .my_container_input_2, .my_container_input_3, .forget_password{
@@ -96,71 +64,31 @@ form{
     font-weight: bold;
     margin-bottom: 8px;
 }
-.my_container_input_3 button{
-    border-radius: 8px;
-    background-color:#1967D2;   
-    width: 550px;
-    height: 60px;
-    font-weight: 300;
-
-}
-.my_container_input_3{
-    display: flex;
+.my_container_input_3 {
+    justify-content: center;
     align-items: center;
 }
 .my_container_input_3 span{
-    margin-top: 17px;
-    margin-bottom: 38px;
     display: flex;
     color: #696969;
     font-size: 14px;
-    font-weight: 400;
-
+    font-weight: bold;
+    padding-top: 17px;
 }
 .my_container_input_3 span p a{
     font-size: 15px;
     font-weight: 600;
     color: #202124;
+    text-decoration: none;
 }
-
-
-.ligne-horizontale {
-    border: none; /* Supprime la bordure par défaut */
-    border-top: 2px solid #F5F6F8; /* Épaisseur et couleur de la ligne */
-    width: 40%;
-    
-  }
-  .ligne-horizontale.gauche{
-    margin: 0rem 0.75rem 0rem 0rem;
-  }
-  .ligne-horizontale.droite{
-    margin: 0rem 0.75rem 0rem 0rem;
-  }
-
-  .separateur{
-    display: flex;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    
-  }
-  .bouton-outline {
-    background: transparent; /* Fond transparent */
-    padding: 10px 10px; /* Rembourrage du bouton */
-    cursor: pointer; /* Curseur de type main (pointeur) */
-    border-radius: 5px;
-    width: 1rem;
-  }
-  
-  .bouton-outline.gauche{
-    margin-right: 2rem;
-    border: 1px solid #043356;
-    color: #043356;
-  }
-  .bouton-outline.droite{
-    border: 1px solid #E87E77 ;
-    color: #E87E77;
-  }
-  
+.my_container_input_3 button{
+    border-radius: 8px;
+    background-color:#1AC4A2;   
+    width: 100%;
+    height: 60px;
+    font-weight: bold;
+    font-size: 15px;
+}
 .forget_password{
     margin-top: 30px;
     display : flex;
@@ -179,15 +107,10 @@ form{
     flex-direction: row;
     justify-content : flex-start;
     cursor : pointer;
-
-
 }
 .remember_me p{
     color: #696969;
     margin-left: 5px;
-}
-.remember_me input{
-    
 }
 .oumy{
     display: flex;
@@ -198,19 +121,14 @@ form{
     margin-top: 34px;
 }
 .oumy H5 a{
-
+    font-size: 14px;
+    font-weight: bold;
     color: #202124;
-
-}
-
-a{
-    text-decoration: none;
 }
 
 
-.footer-login{
-    margin-top: 2rem;
-}
+
+
 
 
 
