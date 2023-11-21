@@ -4,13 +4,13 @@
     background: #F5F7FC;
 }
 .definition_home {
-    color: var(--color-two, #202124);
+    color:  #202124;
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 14px;
 }
 .descript_home {
-    color: var(--color-two, #202124);
+    color:  #202124;
     font-size: 15px;
     font-weight: bold;
 }
@@ -31,28 +31,19 @@
     border-radius: 50%;
 
 }
-
-
-.image_home{
-    width: 413.47px;
-    height: 400.789px;
-    border-radius: 413.47px;
-    background: var(--color-white, #FFF);
-}
-.image_home img{
-    width:100%;
-    height: 100%;
-    object-fit: contain;
-    margin: auto;
-}
 .text_home{
     width: 635px;
     height: 179px;
 }
 .content_image_home{
-    width: 413.47px;
-    height: 400.789px;
-    margin-left: 90px;
+  height: 400px;
+  margin: 0 auto;
+  width: fit-content;
+}
+.content_image_home img{
+  width:100%;
+  height: 100%;
+  object-fit: contain;
 }
 .content_home{
     padding-top:96px ;
@@ -72,12 +63,12 @@
 }
 
 .title_description{
-    color: var(--color-white, #FFF);
+    color: #FFF;
     font-size: 26px;
     font-weight: bold;
 }
 .content_description{
-    color: var(--color-white, #FFF);
+    color: #FFF;
     font-size: 14px;
     font-weight: bold;
     padding-bottom: 17px;
@@ -87,7 +78,7 @@
     width: 50%;
     height: 300px;
     opacity: 0.9;
-    background: var(--color-two, #202124);
+    background:  #202124;
     padding-top: 24px;
     padding-left: 34px;
 
@@ -97,7 +88,7 @@
 }
 .description_banner.left  a{
     border-radius: 8px;
-    background: var(--color-white, #FFF);
+    background: #FFF;
     color: #202124;
     font-size: 15px;
     font-weight: 700;
@@ -105,12 +96,12 @@
 }
 .description_banner.right a{
     border-radius: 8px;
-    background: var(--color-white, #FFF);
+    background: #FFF;
     font-size: 15px;
     font-weight: 700;
     padding: 17px 42px 15px 43px;
     color: #1AC4A2;
-  
+
 }
 
 .image_banner{
@@ -132,19 +123,19 @@
     text-align: center;
 }
 .header_popular_job span{
-    color: var(--color-two, #202124);
+    color:  #202124;
     font-size: 30px;
     font-weight: bold;
 }
 .header_popular_job p{
-    color: var(--text-color, #696969);
+    color: #696969;
     font-size: 15px;
    /* font-weight: 400;*/
-   font-weight: bold;    
+   font-weight: bold;
 }
 .items_job{
     margin-top: 33px;
-    /*border: 1px solid var(--border-color, #ECEDF2);*/
+    /*border: 1px solid  #ECEDF2;*/
 }
 .tabs{
     display: flex;
@@ -154,7 +145,7 @@
 }
 .tabs .frame{
     border-radius: 8px;
-    border: 1px solid var(--border-color, #ECEDF2);
+    border: 1px solid  #ECEDF2;
     padding: 7px 20px 4px 20px;
     text-align: center;
     background: #F0F5F7;
@@ -168,7 +159,7 @@
     background-color: #FFFF;
 }
 .tabs .frame p{
-    color: var(--color-two, #202124);
+    color:  #202124;
     font-size: 15px;
     /*font-weight: 400;*/
     font-weight: bold;
@@ -176,7 +167,7 @@
 .items_job .job_list_1{
     margin-bottom: 30px;
     border-radius: 8px;
-    border: 1px solid var(--border-color, #ECEDF2);
+    border: 1px solid  #ECEDF2;
     background: #FFF;
 }
  .job_list_1 .content_job_list_1{
@@ -184,20 +175,21 @@
 }
 .logo{
     width: 50px;
-    height: 50px;  
+    height: 50px;
     margin: 32px 21px 74px 32px;
 }
 .logo .content_logo{
     width: 50px;
     height: 50px;
     border-radius: 8px;
+    overflow: hidden;
 }
 .logo .content_logo img{
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    object-fit: contain;
-    margin: auto;
+    /*border-radius: 50%;*/
+    object-fit: cover;
+    /*margin: auto;*/
 }
 .description_job{
     padding-top: 32px;
@@ -291,12 +283,12 @@
     padding-left: 0;
 }
 .description_skills .slills_title{
-    color: var(--color-two, #202124);
+    color:  #202124;
     font-size: 40px;
     font-weight: bold;
 }
 .description_skills .slills_{
-    color: var(--text-color, #696969);
+    color: #696969;
     font-size: 15px;
     font-weight: 400;
     margin-top: 59px;
@@ -309,16 +301,16 @@
    margin-right: 11px;
 }
 .description_skills ul li p{
-    color: var(--color-two, #202124);
+    color:  #202124;
     font-size: 15px;
     font-weight: bold;
  }
- 
+
 
 .description_skills .download_button {
     margin-top: 47px;
     display: flex;
-  
+
 }
 .description_skills .download_button a{
     border-radius: 8px;
@@ -326,7 +318,7 @@
     color: #FFFF;
     font-size: 15px;
     font-weight: bold;
-   
+
 }
 .apple{
     padding: 8px 10px 10px 10px;
@@ -349,11 +341,12 @@
 }
 /*section articles*/
 .all_articles{
-    background: var(--Gray-6, #F2F2F2);}
-    .articles{
-        padding-top: 95px;
-        padding-bottom: 100px;
-    }
+    background:  #F2F2F2;
+}
+.articles{
+    padding-top: 95px;
+    padding-bottom: 100px;
+}
 .article_1{
     border: 1px solid rgba(0, 0, 0, 0.15);
     background: #FFF;
@@ -374,12 +367,12 @@
     margin-bottom: 50px;
 }
 .articles .header_articles span{
-    color: var(--color-two, #202124);
+    color:  #202124;
     font-size: 30px;
     font-weight: bold;
 }
 .articles .header_articles p{
-    color: var(--text-color, #696969);
+    color: #696969;
     font-size: 15px;
     font-weight: 400;
 }
@@ -418,10 +411,10 @@
 .description_article a{
     color: #5B5B6C;
     text-decoration: underline;
-  
+
 }
 .header_featured span{
-    color: var(--color-two, #202124);
+    color:  #202124;
     font-size: 30px;
     font-weight: bold;
 }
@@ -431,7 +424,7 @@
 }
 .candidat_featured .featured .browser{
     display: flex;
-    color: var(--color-four, #1AC4A2);
+    color: #1AC4A2;
     font-size: 14px;
     font-weight: bold;
 }
@@ -455,7 +448,7 @@
 .content_candidate{
     height: 330px;
     border-radius: 8px;
-    border: 1px solid var(--border-color, #ECEDF2);
+    border: 1px solid  #ECEDF2;
     background: #FFF;
 
     /* Shadow / 1 */
@@ -478,8 +471,8 @@
 
 .info_candidat a{
     border-radius: 8px;
-    background: var(--color-four, #EFFBF8);
-    color: var(--color-white, #1AC4A2);
+    background: #EFFBF8;
+    color: #1AC4A2;
     font-size: 15px;
     font-weight: bold;
     padding: 17px 60px 15px 60px;
@@ -511,7 +504,7 @@
     margin-bottom: 38px;
 }
 .location_candidat p{
-    color: var(--text-color, #696969);
+    color: #696969;
     font-size: 14px;
     font-weight: 400;
 }
@@ -551,23 +544,23 @@
     color:#202124 ;
     font-size: 24px;
     font-weight: 700;
- 
+
   }
   .text_recruting .recrut{
     color:#1AC4A2 ;
     margin: auto;
   }
- 
+
   .text_recruting a{
     border-radius: 8px;
-    background-color:#1AC4A2 ; 
+    background-color:#1AC4A2 ;
     text-decoration: none;
     font-size: 15px;
     font-weight: bold;
     color: #FFF !important;
     padding: 17px 32px 15px 34px;
   }
- 
+
   .content_image_recruting img{
      width: 100%;
      height: 100%;
@@ -579,62 +572,66 @@
     margin-bottom: 100px;
 }
 .content_item{
-    height: 220px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color, #ECEDF2);
-    background: #FFF;
-    margin-bottom: 30px;
-    text-align: center;
-
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+  border-radius: 8px;
+  border: 1px solid #ECEDF2;
+  background: #FFF;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 45px 15px;
+}
+.content_item:hover{
+  box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.content_item:hover .item_left{
+  background: #1AC4A2;
+}
+.content_item:hover .item_left i{
+  color: white;
 }
 
 .content_item .item_left{
-    width: 70px;
-    height: 70px;
-    border-radius: 300px;
-    background: #ECEDF2;
-    color: #1AC4A2;
-    margin-top: 40px;
-    margin-left: 90px;
-    margin-bottom: 24px;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  overflow: hidden;
+  background: #ECEDF2;
+  margin: 0 auto 20px;
+  padding: 17px;
+  display: grid;
+  align-content: center;
 }
 
-.content_item .item_left img{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: auto;
-
+.content_item i{
+    color: #1AC4A2;
+    font-size: 30px;
 }
 .content_item .item_right span{
-    color: var(--color-four, #202124);
+    color: #202124;
     font-size: 18px;
     font-weight: bold;
 }
 .content_item .item_right span:hover{
-    color: var(--color-four, #34A853);
+    color: #34A853;
 
 }
 
 .content_item .item_right p{
-    color: var(--text-color, #696969);
+    color: #696969;
     font-size: 14px;
     font-weight: bold;
+  margin-bottom: 0px;
 }
 .header_categories{
     text-align: center;
     padding-bottom: 50px;
 }
 .header_categories span{
-    color: var(--color-two, #202124);
+    color:  #202124;
     font-size: 30px;
     font-weight: bold;
 }
 .header_categories p{
-    color: var(--text-color, #696969);
+    color: #696969;
     font-size: 15px;
     font-weight: bold;
 }
