@@ -18,10 +18,13 @@
     display: flex;
     padding-bottom: 30px;
   }
+  .separateur span{
+    color: #C7C7C7;
+    position: relative; top: -0.5em;
+  }
   .left{
     border: 1px solid #043356;
     color: #043356;
-    /*margin-right: 30px;*/
     padding-top: 10px ;
     padding-right: 55px;
     padding-bottom: 15px;

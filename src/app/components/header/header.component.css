@@ -139,7 +139,7 @@ header ul li:last-child a{
 .second-nav li span{
     font-size: 16px;
     font-weight: bold;
-    color: #1967D2;
+    /*color: #1967D2;*/
 
 }
 .second-nav li p{
@@ -188,20 +188,17 @@ input[type="search"]:focus {
     margin-right:12px
 }
 .info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 .info p{
     color: #64748B;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 700;
 }
 .info span{
     color: #047857;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 800;
 }
 .separateur{
     height: 1px;
@@ -231,7 +228,7 @@ input[type="search"]:focus {
 nav ul li span{
     font-size: 16px;
     font-weight: 400;
-    color: #64748B;
+   /* color: #64748B;*/
     font-weight: bold;
 
 }
@@ -253,7 +250,7 @@ nav ul li span{
 }
 .join .hiring{
     color: #FFF;
-    border: 1px solid var(--color-white, #FFF);
+    border: 1px solid #FFF;
     background-color: #1AC4A2;
     text-align: center;
     cursor: pointer;
@@ -265,7 +262,7 @@ nav ul li span{
 
 }
   .join .login{
-    color: var(--text-color, #696969);
+    color: #696969;
     font-size: 15px;
     font-weight: bold;
   }

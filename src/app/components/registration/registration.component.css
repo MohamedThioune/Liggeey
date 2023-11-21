@@ -56,7 +56,7 @@ main {
   }
   .candidate-employe button:hover{
     color: #FFF;
-    background: var(--color-four, #1AC4A2); 
+    background-color: #1AC4A2; 
   }
   
   .card-body {

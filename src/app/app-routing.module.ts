@@ -9,11 +9,19 @@ import { FootersComponent } from './components/footers/footers.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AboutComponent } from './components/about/about.component';
+import { CategorieComponent } from './components/categorie/categorie.component';
+import { JobOneComponent } from './components/job-one/job-one.component';
+import { JobTwoComponent } from './components/job-two/job-two.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  
 
+  { path: 'categorie', component: CategorieComponent },
+
+  { path: 'job', component: JobOneComponent },
+
+  { path: 'joba', component: JobTwoComponent },
+  
   { path: '', component: HomeComponent },
 
   { path: 'about', component: AboutComponent },

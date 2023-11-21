@@ -61,6 +61,10 @@ ul li p{
     font-weight: 500;
     color:#696969;
 }
+.jobs .browse-jobs .browse_categorie{
+    color: #1AC4A2;
+    font-weight: 700;
+}
 
 .content_logo{
     width: 238px;
@@ -78,8 +82,9 @@ ul li p{
     display: flex;
     flex-direction: column;
 }
-.call_2{
-    color: #34A853;
+.call .call_2{
+    color: #1AC4A2;
+    font-weight: bold;
 }
 .social{
     width: 159px;

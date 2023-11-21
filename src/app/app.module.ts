@@ -14,6 +14,9 @@ import { FootersComponent } from './components/footers/footers.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AboutComponent } from './components/about/about.component';
+import { CategorieComponent } from './components/categorie/categorie.component';
+import { JobOneComponent } from './components/job-one/job-one.component';
+import { JobTwoComponent } from './components/job-two/job-two.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { AboutComponent } from './components/about/about.component';
     HomeComponent,
     ResetPasswordComponent,
     AboutComponent,
+    CategorieComponent,
+    JobOneComponent,
+    JobTwoComponent,
   ],
   imports: [
     BrowserModule,

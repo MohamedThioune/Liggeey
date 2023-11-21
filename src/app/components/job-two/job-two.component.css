@@ -1,0 +1,250 @@
+ /*section image menu about*/
+ .image_menu_about{
+    margin-bottom: 75px;
+    /*border: 1px solid magenta;*/
+  }
+  .image_about{
+     position: relative;
+  }
+  .description_about{
+     position: absolute;
+     top: 100px;
+     left:373px;
+     color: #FFF;
+  }
+  .description_about span{
+     font-size: 53px;
+     font-weight: 600;
+  }
+ 
+  .content_image_about{
+     height: 480px;
+  }
+  .content_image_about img{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+  }
+  .content_image_about{
+    height: 480px;
+  }
+  /* section jobs*/
+.jobs{
+    margin-top: 150px;
+    margin-bottom: 130px;
+}
+.header_popular_job{
+    text-align: center;
+}
+.header_popular_job span{
+    color: #202124;
+    font-size: 30px;
+    font-weight: bold;
+}
+.header_popular_job p{
+    color: #696969;
+    font-size: 15px;
+   font-weight: bold;    
+}
+.items_job{
+    margin-top: 33px;
+    width: 695px;
+    margin-left: 50px;
+}
+.tabs{
+    display: flex;
+    height: 29px;
+    justify-content: center;
+    margin-top: 40px;
+}
+.tabs .frame{
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    padding: 7px 20px 4px 20px;
+    text-align: center;
+    background-color: #F0F5F7;
+
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+    margin-right: 15px;
+
+}
+.tabs .frame:hover{
+    background-color: #FFFF;
+}
+.tabs .frame p{
+    color: #202124;
+    font-size: 15px;
+    font-weight: bold;
+}
+.items_job .job_list_1{
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    background-color: #FFF;
+}
+ .job_list_1 .content_job_list_1{
+    display: flex;
+}
+.logo{
+    width: 50px;
+    height: 50px;  
+    margin: 32px 21px 74px 32px;
+}
+.logo .content_logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+}
+.logo .content_logo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    margin: auto;
+}
+.description_job{
+    padding-top: 32px;
+}
+.description_job_{
+    display: flex;
+}
+
+.description_job .bookmark{
+    position: relative;
+}
+.description_job .bookmark svg,
+.description_job .bookmark p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.description_job .bookmark p {
+    margin-left: 90px;
+  text-align: center;
+  line-height: 30px; /* Assurez-vous que le contenu est centré verticalement */
+  font-size: 16px; /* Ajustez la taille de la police au besoin */
+}
+
+.description_job span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.description_job .info{
+    display: flex;
+    height: 34px;
+    margin-top: 10px;
+}
+.description_job .info .info_item{
+    display: flex;
+    margin-right: 12px;
+}
+.description_job .info .info_item svg{
+    margin-right: 11px;
+}
+.description_job .info .info_item p{
+    color: #696969;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.description_job .time .content_time{
+    text-align: center;
+    background-color: #DAE1E6;
+    border-radius: 60px;
+    width: 90px;
+    margin-right: 15px;
+}
+.description_job .time .content_time p{
+    font-size: 13px;
+    font-weight: bold;
+    color: #043356;
+}
+.description_job .tags .content_tags{
+    text-align: center;
+    background-color: #DDF6F1;
+    border-radius: 60px;
+    width: 90px;
+    margin-right: 15px;
+
+}
+.description_job .tags .content_tags p{
+    font-size: 13px;
+    font-weight: bold;
+    color: #1AC4A2;
+}
+.description_job .all_info{
+    display: flex;
+}
+.sidebar{
+    border: 1px solid magenta;
+}
+.content_sidebar{
+
+    border: 1px solid rebeccapurple;
+    width: 390px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background-color: #F5F7FC;
+}
+.job_type{
+    width: 122px;
+    height: 229px;
+    border: 1px solid rebeccapurple;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.posted{
+    width: 121px;
+    height: 269px;
+    border: 1px solid rebeccapurple;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.level{
+    width: 144px;
+    height: 262px;
+    border: 1px solid rebeccapurple;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.salary{
+    width: 331px;
+    height: 103px;
+    border: 1px solid rebeccapurple;
+    margin-bottom: 16px;
+    margin-left: 30px;
+
+}
+.tags_job{
+    width: 306px;
+    height: 104px;
+    border: 1px solid rebeccapurple;
+    margin-bottom: 42px;
+    margin-left: 30px;
+}
+/*pagination*/
+.pagination{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+ }
+ .pagination .page{
+    width: 268px;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ .pagination .page .centre_pagination{
+    color: #FFF;
+ }

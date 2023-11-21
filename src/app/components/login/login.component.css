@@ -2,9 +2,6 @@
 
 .container{
   width: 550px;
-  margin: 0 auto;
-
-
 }
 .container_description{
     text-align: center;
@@ -25,8 +22,6 @@
     padding-left: 10px;
     padding-bottom: 10px;
     line-height: 1.5;
-}
-.container_form{
 }
 
 .input{
@@ -99,9 +94,7 @@
 .checkbox{
     border: 1px solid #BADEDA;
 }
-.forget_password p {
-    color : var(--main_col)
-}
+
 .remember_me{
     display : flex;
     flex-direction: row;

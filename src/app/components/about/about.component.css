@@ -63,7 +63,7 @@ padding-bottom: 130px;
     border-radius: 8px;
     margin-top: 28px;
     border: 1px solid #1CA774;
-    background: var(--bleu-v, #1AC4A2);
+    background-color:#1AC4A2;
     color: #FFFF;
     font-weight: 400;
     font-size: 16px;
@@ -211,7 +211,7 @@ padding-bottom: 130px;
     font-weight: bold;
  }
  .description_team p{
-    color: var(--bleu-v, #1AC4A2);
+    color: #1AC4A2;
     font-size: 13px;
     font-weight: 700;
     margin: auto;
