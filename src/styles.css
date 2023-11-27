@@ -22,3 +22,6 @@ body {
     background-color: #FFFF !important;
     font-family: "Roboto-Regular";
 }
+.container-fluid{
+  max-width: 1380px !important;
+}
