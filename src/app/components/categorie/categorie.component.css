@@ -1,14 +1,73 @@
  /*section image menu about*/
  .image_menu_about{
+   background-image: url("../../../assets/img/categori.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   position: relative;
+   height: 480px;
+
+
    /*border: 1px solid magenta;*/
  }
- .image_about{
-    position: relative;
+ .color{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../assets/img/categori.png"), lightgray 50% / cover no-repeat; }
+
+  .search_about{
+   display: flex;
+   align-items: center;
+   background-color: #FFF;
+   color:  #696969;
+   justify-content: space-between;
+   padding-left: 31px;
+   padding-right: 20Px;
+   border-radius: 8px;
+   border: 1px solid var(--border-color, #ECEDF2);
+   background: #FFF;
+   position: absolute;
+   top: 250px;
+   width: 1160px;
+   height: 100px;
+
+/* Shadow / 1 */
+box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+ }
+  .search_about p{
+   color:  #696969;
+   font-size: 15px;
+   font-weight: bold;
+   margin-left: 21px;
+
+ }
+
+  .search_about .limit{
+   width: 1px;
+   height: 60px;
+   background: var(--border-color, #ECEDF2);
+ }
+  .search_about a{
+   text-align: center;
+   padding: 12px 20px 10px 24px;
+   color: #FFF;
+   font-size: 15px;
+   font-weight: bold;
+   border-radius: 8px;
+   background: #1AC4A2;
+ }
+ .search_about .categorie{
+   width: 227px;
+justify-content: space-between;
  }
  .description_about{
     position: absolute;
-    top: 100px;
-    left:473px;
+    top: 100px; /* Ajustez la distance depuis le haut selon vos besoins */
+    left: 50%; /* Centrez horizontalement */
+    transform: translateX(-50%); /* Ajustez pour centrer correctement */
     color: #FFF;
  }
  .description_about span{
@@ -16,20 +75,11 @@
     font-weight: 700;
  }
 
- .content_image_about{
-    height: 480px;
- }
- .content_image_about img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
- }
- .content_image_about{
-     height: 480px;
- }
+
 /* section jobs*/
 .jobs{
    margin-top: 150px;
+   margin-bottom: 130px;
 }
 .header_popular_job{
    text-align: center;
@@ -40,15 +90,17 @@
    font-weight: bold;
    /*font-weight: 600;*/
 }
-
+.header_popular_job p{
+   color: #696969;
+   font-size: 15px;
+  font-weight: bold;    
+}
 .items_job{
    margin-top: 33px;
 }
 .tabs{
-   display: flex;
-   height: 29px;
-   justify-content: center;
-   margin-top: 40px;
+   padding: 30px 0 30px 0;
+   border: 1px solid rebeccapurple;
 }
 .tabs .frame{
    border-radius: 8px;
@@ -92,7 +144,6 @@
 .logo .content_logo img{
    width: 100%;
    height: 100%;
-   border-radius: 50%;
    object-fit: contain;
    margin: auto;
 }
@@ -101,25 +152,29 @@
 }
 .description_job_{
    display: flex;
+   padding-bottom: 15px;
+   justify-content: space-between;
+   width: 400px;
 }
-
+/*
 .description_job .bookmark{
    position: relative;
 }
 .description_job .bookmark svg,
-.description_job .bookmark p {
+.description_job .bookmark button {
  position: absolute;
  top: 0;
- left: 0;
  width: 100%;
  height: 100%;
-}
-
-.description_job .bookmark p {
-   margin-left: 90px;
  text-align: center;
- line-height: 30px; /* Assurez-vous que le contenu est centré verticalement */
+ font-size: 16px; 
+}
+*/
+
+.description_job .bookmark button{
+ text-align: center;
  font-size: 16px; /* Ajustez la taille de la police au besoin */
+ border: none;
 }
 
 .description_job span{
@@ -130,8 +185,6 @@
 }
 .description_job .info{
    display: flex;
-   height: 34px;
-   margin-top: 10px;
 }
 .description_job .info .info_item{
    display: flex;
@@ -146,47 +199,44 @@
    font-weight: bold;
 }
 
-.description_job .open_job{
-   text-align: center;
+.description_job .time .content_time{
    background-color: #DAE1E6;
    border-radius: 60px;
-   width: 90px;
    margin-right: 15px;
+   padding: 5px;
 }
-
+.description_job .time .content_time p{
+   margin: 0;
+   line-height: 1.5;
+   font-size: 13px;
+   font-weight: bold;
+   color: #043356;
+}
 .description_job .tags .content_tags{
-   text-align: center;
    background-color: #DDF6F1;
    border-radius: 60px;
-   width: 90px;
    margin-right: 15px;
+   padding: 5px 10px;
 
 }
 .description_job .tags .content_tags p{
    font-size: 13px;
    font-weight: bold;
    color: #1AC4A2;
+   margin: 0;
+   line-height: 1.5;
 }
 .description_job .all_info{
    display: flex;
 }
 
 .pagination{
-   padding-top: 100px;
+   padding-top: 50px;
    display: flex;
    justify-content: center;
    text-align: center;
 }
-.pagination .page{
-   width: 268px;
-   height: 44px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-}
-.pagination .page .centre_pagination{
-   color: #FFF;
-}
+
 /*section candidate*/
 .featured_candidates{
    padding-top: 140px;
@@ -370,19 +420,15 @@ text-align: center;
    padding-top: 95px;
    padding-bottom: 100px;
 }
-.article_1{
-   border: 1px solid rgba(0, 0, 0, 0.15);
-   background-color: #FFF;
-}
+
 .card_article{
+   border: 1px solid red;
+
    border-radius: 10px 10px 0px 0px;
    border: 1px solid rgba(0, 0, 0, 0.15);
    background: #FFF;
+}
 
-}
-.top_article{
-   margin-bottom: 40px;
-}
 .articles .header_articles {
    text-align: center;
    margin-bottom: 50px;
@@ -392,41 +438,36 @@ text-align: center;
    font-size: 30px;
    font-weight: bold;
 }
-
-.image_article{
-   margin-top: 26px;
-   margin-right: 19px;
-   margin-left: 19px;
-   width: 210px;
-   height: 146px;
-}
-.content_image_article{
-   width: 210px;
-   height: 146px;
-   border-radius: 10px;
-}
-.content_image_article img{
-   width: 100%;
-   height: 100%;
-   border-radius: 10px;
-   object-fit: cover;
-}
-.description_article{
-   margin-top: 29px;
-
-}
-.description_article span{
-   color: #333;
+.card-body .tops p{
+   color: #202124;
    font-size: 18px;
    font-weight: bold;
 }
-.description_article p{
-   color: #000;
-   font-size: 16px;
-   font-weight: 400;
+.date_comment{
+   display: flex;
 }
-.description_article a{
-   color: #5B5B6C;
-   text-decoration: underline;
- 
+.date_comment p{
+   color: #696969;
+   font-size: 14px;
+   font-weight: 600;
+}
+.date_comment svg{
+   line-height: -1.5;
+}
+.date{
+   margin-right: 10px;
+}
+.comment{
+   margin-left: 10px;
+
+}
+.read_more a{
+   text-decoration: none;
+   margin-right: 5px;
+   color: #043356;
+   font-size: 14px;
+   font-weight: 600;
+}
+ul li{
+   list-style: none;
 }

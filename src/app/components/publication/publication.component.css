@@ -1,0 +1,65 @@
+/*sectiont recruting*/
+.recruting{
+    margin-bottom: 139px;
+ }
+  .recruting_now{
+     border-radius: 8px;
+     overflow: hidden;
+  }
+  .recruting_now.one{
+    background: #EEE;
+  }
+  .recruting_now.two{
+    background: #F5F0E5;
+  }
+  .recruting_now.tree{
+    background: #EBEEF6;
+  }
+  .recrutement{
+    border-radius: 8px;
+   /* background: #EEE;*/
+    display: flex;
+  }
+  .content_recruting_now{
+     display: flex;
+     width: 410px;
+     height: 234px;
+     border-radius: 8px;
+     background: #EEE;
+  }
+  .content_image_recruting{
+     width: 50%;
+  }
+  .text_recruting{
+    width: 50%;
+    padding-top: 51px;
+    padding-bottom: 49px;
+    padding-left: 41px;
+    color:#202124 ;
+    font-size: 24px;
+    font-weight: 700;
+ 
+  }
+  .text_recruting .recrut{
+    color:#1AC4A2 ;
+    margin: 0;
+  }
+ 
+  .text_recruting a{
+    border-radius: 8px;
+    background-color:#1AC4A2 ; 
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFF !important;
+    padding: 13px 32px 13px 34px;
+  }
+ 
+  .content_image_recruting img{
+     width: 100%;
+     height: 100%;
+     margin: auto;
+     object-fit: cover;
+  }
+ 
+ 

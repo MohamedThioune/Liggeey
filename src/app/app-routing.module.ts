@@ -15,6 +15,7 @@ import { JobTwoComponent } from './components/job-two/job-two.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  
 
   { path: 'categorie', component: CategorieComponent },
 

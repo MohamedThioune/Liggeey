@@ -17,6 +17,10 @@ import { AboutComponent } from './components/about/about.component';
 import { CategorieComponent } from './components/categorie/categorie.component';
 import { JobOneComponent } from './components/job-one/job-one.component';
 import { JobTwoComponent } from './components/job-two/job-two.component';
+import { PublicationComponent } from './components/publication/publication.component';
+import { NextDirective } from './next.directive';
+import { PrevDirective } from './prev.directive';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,9 @@ import { JobTwoComponent } from './components/job-two/job-two.component';
     CategorieComponent,
     JobOneComponent,
     JobTwoComponent,
+    PublicationComponent,
+    NextDirective,
+    PrevDirective,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +47,7 @@ import { JobTwoComponent } from './components/job-two/job-two.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
