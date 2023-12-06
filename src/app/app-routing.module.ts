@@ -15,10 +15,10 @@ import { JobTwoComponent } from './components/job-two/job-two.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
 import {SkillsFirstComponent} from "./components/skills-first/skills-first.component";
+import {OurAppsComponent} from "./components/our-apps/our-apps.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-
 
   { path: 'categorie', component: CategorieComponent },
 
@@ -43,8 +43,9 @@ const routes: Routes = [
 
   { path: 'footer', component: FooterComponent },
 
-
   { path: 'reset-password', component: ResetPasswordComponent },
+
+  { path: 'app', component: OurAppsComponent },
 
   { path: 'skills-first', component: SkillsFirstComponent },
   { path:'',redirectTo: '/login', pathMatch: 'full'}

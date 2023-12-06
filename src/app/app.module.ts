@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
 
 import { SkillsFirstComponent } from './components/skills-first/skills-first.component';
+import { OurAppsComponent } from './components/our-apps/our-apps.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SkillsFirstComponent } from './components/skills-first/skills-first.com
     PrevDirective,
     CategoryEmploiComponent,
     SkillsFirstComponent,
+    OurAppsComponent,
   ],
   imports: [
     BrowserModule,
