@@ -1,14 +1,7 @@
  /*section image menu about*/
  .image_menu_about{
-   background-image: url("../../../assets/img/categori.png");
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center;
    position: relative;
    height: 480px;
-
-
-   /*border: 1px solid magenta;*/
  }
  .color{
    position: absolute;
@@ -16,23 +9,26 @@
    left: 0;
    width: 100%;
    height: 100%;
-   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../assets/img/categori.png"), lightgray 50% / cover no-repeat; }
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../assets/img/categori.png"), lightgray 50% / cover no-repeat; 
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+}
 
   .search_about{
    display: flex;
+   flex-wrap: wrap;
    align-items: center;
    background-color: #FFF;
    color:  #696969;
    justify-content: space-between;
-   padding-left: 31px;
-   padding-right: 20Px;
+   padding: 18px 20px 15px 31px;
    border-radius: 8px;
-   border: 1px solid var(--border-color, #ECEDF2);
+   border: 1px solid  #ECEDF2;
    background: #FFF;
    position: absolute;
    top: 250px;
-   width: 1160px;
-   height: 100px;
+   width: 71%;
 
 /* Shadow / 1 */
 box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
@@ -42,17 +38,16 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
    font-size: 15px;
    font-weight: bold;
    margin-left: 21px;
-
  }
 
   .search_about .limit{
    width: 1px;
    height: 60px;
-   background: var(--border-color, #ECEDF2);
+   background: #ECEDF2;
  }
   .search_about a{
    text-align: center;
-   padding: 12px 20px 10px 24px;
+   padding: 17px 40px 15px 44px;
    color: #FFF;
    font-size: 15px;
    font-weight: bold;
@@ -61,7 +56,7 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
  }
  .search_about .categorie{
    width: 227px;
-justify-content: space-between;
+   justify-content: space-between;
  }
  .description_about{
     position: absolute;
@@ -70,11 +65,10 @@ justify-content: space-between;
     transform: translateX(-50%); /* Ajustez pour centrer correctement */
     color: #FFF;
  }
- .description_about span{
+ .description_about h2{
     font-size: 53px;
     font-weight: 700;
  }
-
 
 /* section jobs*/
 .jobs{
@@ -97,6 +91,13 @@ justify-content: space-between;
 }
 .items_job{
    margin-top: 33px;
+}
+.items_job ul{
+   top: 0;
+   padding-left: 0;
+}
+.items_job ul li{
+   list-style: none;
 }
 .tabs{
    padding: 30px 0 30px 0;
@@ -151,26 +152,14 @@ justify-content: space-between;
    padding-top: 32px;
 }
 .description_job_{
-   display: flex;
    padding-bottom: 15px;
-   justify-content: space-between;
-   width: 400px;
 }
-/*
-.description_job .bookmark{
-   position: relative;
-}
-.description_job .bookmark svg,
-.description_job .bookmark button {
- position: absolute;
- top: 0;
- width: 100%;
- height: 100%;
- text-align: center;
- font-size: 16px; 
-}
-*/
 
+.description_job .bookmark{
+   position: absolute;
+   top: 35px; 
+   right: 25px; 
+}
 .description_job .bookmark button{
  text-align: center;
  font-size: 16px; /* Ajustez la taille de la police au besoin */
@@ -237,11 +226,8 @@ justify-content: space-between;
    text-align: center;
 }
 
+
 /*section candidate*/
-.featured_candidates{
-   padding-top: 140px;
-   padding-bottom: 140px;
-}
 
 .header_featured{
    text-align: center;
@@ -250,24 +236,23 @@ justify-content: space-between;
 .header_featured span{
    color: #1AC4A2;
    font-weight: bold;
-font-size: 32px;
-text-align: center;
+   font-size: 32px;
+   text-align: center;
 }
 .candidat_featured .featured{
    display: flex;
    justify-content: space-between;
 }
-
-
 .card-body a{
    color: #5B5B6C;
    text-decoration: underline;
 }
 .candidate{
    margin-bottom: 15px;
+   text-align: center;
 }
 .content_candidate{
-   height: 330px;
+   padding: 45px 15px;
    border-radius: 8px;
    border: 1px solid #ECEDF2;
    background: #FFF;
@@ -278,12 +263,13 @@ text-align: center;
 .content_image_candidate{
    width: 90px;
    height: 90px;
-   margin: 30px 70px 16px 70px;
+   margin: 0 auto 20px;
+   border-radius: 90px;
+
 }
 .content_image_candidate img{
    width: 100%;
    height: 100%;
-   border-radius: 90px;
    object-fit: cover;
 }
 .content_candidate{
@@ -414,7 +400,7 @@ text-align: center;
  }
 /*section articles*/
 .all_articles{
-   background:#F2F2F2;
+   /*background:#F2F2F2;*/
 }
 .articles{
    padding-top: 95px;
@@ -422,11 +408,15 @@ text-align: center;
 }
 
 .card_article{
-   border: 1px solid red;
-
    border-radius: 10px 10px 0px 0px;
    border: 1px solid rgba(0, 0, 0, 0.15);
    background: #FFF;
+}
+.card_article .content_image {
+   text-align: center;
+}
+.card_article .content_image img{
+   padding: 10px 11px ;
 }
 
 .articles .header_articles {
@@ -471,3 +461,87 @@ text-align: center;
 ul li{
    list-style: none;
 }
+@media screen and (max-width: 1079px) and (min-width: 768px){  
+   .search_about a{
+      padding: 17px 32px 15px 30px;
+   margin-left: 25px;
+ }
+   .search_about{
+       width: 97%;
+   }
+   .search_about .categorie{
+      width: 127px;
+   }
+   .items_job .job_list_1{
+      padding-bottom: 20px;
+   }
+  
+
+}
+@media all and (min-width: 300px) and (max-width: 767px){ 
+   .description_about h2
+   {
+       font-size: 33px;
+    }
+    .header_popular_job span{
+      font-size: 22px;
+   }
+   .header_popular_job p{
+      font-size: 15px;
+   }
+   .description_job_ span{
+      font-size: 15px;
+   }
+   .header_featured span{
+      font-size: 22px;
+   }
+   .articles .header_articles span{
+      font-size: 20px;
+   }
+   .card_article{
+      margin-bottom: 16px;
+   }
+   .jobs{
+      margin-top: 80px;
+      margin-bottom: 60px;
+  }
+  .job_list_1 .content_job_list_1 .logo{
+      margin: 32px 11px 74px 12px;
+  }
+  .description_job span{
+      font-size: 14px;
+  }
+  .description_job .info{
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+  }
+  .description_job .all_info{
+      padding-bottom: 15px;
+  }
+  .categories{
+      margin-bottom: 50px;
+  }
+   .search_about {
+      top: 100;
+      left: 50;
+   }
+   .search_about a{
+      padding: 17px 22px 15px 20px;
+    }
+    .search_about .categorie{
+      width: 100%;
+    }
+    .search_about .keywords{
+      width: 100%;
+    }
+    .search_about .location{
+      width: 100%;
+    }
+    .card_article .content_image {
+      width: 100%;
+   }
+   .card-body{
+      width: 100%;
+   }
+ }

@@ -1,0 +1,129 @@
+.items_job{
+    margin-top: 33px;
+}
+.items_job .job_list_1{
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    background-color: #FFF;
+}
+ .job_list_1 .content_job_list_1{
+    display: flex;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+    margin: 32px 21px 74px 32px;
+}
+.logo .content_logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.logo .content_logo img{
+    width: 100%;
+    height: 100%;
+    /*border-radius: 50%;*/
+    object-fit: cover;
+    /*margin: auto;*/
+}
+.description_job{
+    padding-top: 32px;
+}
+.description_job_{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+.description_job .bookmark{
+    position: absolute;
+    top: 35px; 
+    right: 25px; 
+}
+.description_job .bookmark button{
+  text-align: center;
+  font-size: 16px; /* Ajustez la taille de la police au besoin */
+  border: none;
+}
+
+.description_job span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: bold;
+}
+.description_job .info{
+    display: flex;
+}
+.description_job .info .info_item{
+    display: flex;
+    margin-right: 12px;
+}
+.description_job .info .info_item svg{
+    margin-right: 11px;
+}
+.description_job .info .info_item p{
+    color: #696969;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.description_job .time .content_time{
+    background-color: #DAE1E6;
+    border-radius: 60px;
+    margin-right: 15px;
+    padding: 5px;
+}
+.description_job .time .content_time p{
+    margin: 0;
+    line-height: 1.5;
+    font-size: 13px;
+    font-weight: bold;
+    color: #043356;
+}
+.description_job .tags .content_tags{
+    background-color: #DDF6F1;
+    border-radius: 60px;
+    margin-right: 15px;
+    padding: 5px 10px;
+
+}
+.description_job .tags .content_tags p{
+    font-size: 13px;
+    font-weight: bold;
+    color: #1AC4A2;
+    margin: 0;
+    line-height: 1.5;
+}
+.description_job .all_info{
+    display: flex;
+}
+.pagination{
+    padding-top: 50px;
+    margin: 0 auto;
+ }
+@media all and (min-width: 300px) and (max-width: 767px){ 
+    .items_job{
+        margin: 33px 0;
+    }
+.jobs{
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+.job_list_1 .content_job_list_1 .logo{
+    margin: 32px 11px 74px 12px;
+}
+.description_job span{
+    font-size: 14px;
+}
+.description_job .info{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+.description_job .all_info{
+    padding-bottom: 15px;
+}
+
+
+}

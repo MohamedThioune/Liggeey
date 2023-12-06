@@ -1,17 +1,21 @@
  /*section image menu about*/
 .image_menu_about{
    background-image: url("../../../assets/img/about.png");
-   background-size: cover;
    height: 480px;
+   position: relative;
    margin-bottom: 110px;
+
 }
 .color{
    position: absolute;
    top: 0;
-   bottom: 0;
    left: 0;
-   right: 0;
-   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../assets/img/about.png"), lightgray 50% / cover no-repeat; 
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
 }
 .image_about{
    position: relative;
@@ -22,7 +26,7 @@
    left: 0px;
    color: #FFF;
 }
-.description_about span{
+.description_about h2{
    font-size: 53px;
    font-weight: 700;
 }
@@ -58,13 +62,11 @@ margin-bottom: 130px;
 }
 
 .description_story_about span{
-    width: 308px;
     color: #05264E;
     font-size: 32px;
     font-weight: 700;
 }
 .description_story_about .description_story{
-    width: 660px;
     color: #4F5E64;
     font-size: 16px;
     font-weight: 500;
@@ -129,17 +131,16 @@ margin-bottom: 130px;
     font-weight: 500;
    font-size: 14px;
    margin-top: 12px;
-
-
  }
  /*section mission*/
  .mission{
-   margin-bottom: 107px;
+   border: 1px solid #FFF;
  }
 
  .content_map_mission{
-   width: 490px;
+   margin-bottom: 107px;
    height: 493px;
+   width: 490px
 }
 .content_map_mission img{
    width: 100%;
@@ -168,14 +169,12 @@ margin-bottom: 130px;
  }
 
 .description_mission span{
-    width: 308px;
     color: #05264E;
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 13px;
 }
 .description_mission .description_{
-    width: 660px;
     color: #4F5E64;
     font-size: 16px;
     font-weight: 500;
@@ -234,14 +233,79 @@ margin-bottom: 130px;
     font-weight: 700;
     margin: auto;
  }
- .job_offer{
-   border: 1px solid blueviolet;
-    display: flex;
-    justify-content: center;
-    margin-left: 75px;
-    margin-right: 75px;
-    height: 234.004px;
-    margin-top: 114px;
-    margin-bottom: 139px;
- }
- 
+
+ @media all and (min-width: 300px) and (max-width: 767px){ 
+   .image_menu_about{
+      width: 100%;
+   }
+   .content_map_mission{
+      height: 360px;
+      margin: 0 auto;
+      width: 100%;
+}
+   .description_about h2{
+      font-size: 33px;
+      padding-bottom: 25px;
+   }
+   .description_about p{
+      font-size: 10px;
+   }
+   .description_story_about{
+      padding-bottom: 25px;
+   }
+   .help_about{
+      margin-bottom: 60px;
+    }
+    .header_help_about span{
+      font-size: 25px;
+   }
+   .header_help_about p{
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 400;
+   }
+   .description_story_about span{
+       font-size: 22px;
+   }
+   .description_story_about .description_story{
+      font-size: 12px;
+  }
+  .content_button_about_story a{
+   font-size: 13px;
+   padding: 13px 18px;
+   }
+   .image_menu_about{
+      margin-bottom: 55px;
+   }
+   .content_body_help_about_1{
+    margin-bottom: 16px;
+   }
+   .content_body_help_about_1 h1{
+      font-size: 38px;
+    }
+    .content_body_help_about_1 span{
+      font-size: 10px;
+       font-weight: bold;
+    }
+    .content_body_help_about_1 p{
+       font-size: 10px;
+    }
+    .content_list_mission ul li p{
+      color: #000;
+      font-size: 12px;
+      font-weight: bold;
+   }
+   .description_mission{
+      padding-top:50px ;
+   }
+    .description_mission span{
+      font-size: 22px;
+  }
+  .description_mission .description_{
+      font-size: 12px; 
+  }
+  .person_teams{
+   padding:75px 0 79px 0 ;
+   margin-bottom: 14px;
+}
+}

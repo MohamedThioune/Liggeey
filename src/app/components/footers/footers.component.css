@@ -7,7 +7,6 @@
     padding-top: 43px;
     padding-bottom: 43px;
 }
-
 .inner span{
     font-size: 30px;
     font-weight: bold;
@@ -15,14 +14,12 @@
 .my_container_form{
     display: flex;
     justify-content: center;
-    padding: 28px 29px 24px 28px;
+    padding: 28px 425px 24px 28px;
     border-radius: 8px;
     position: relative;
     background-color: #FFF;
 }
 input[type="email"] {
-    width: 492px;
-    height: 100%;
     border-radius: 8px;
     border: none;
 }
@@ -140,4 +137,57 @@ ul li p{
      font-size: 14px;
      font-weight: bold;
      color: #696969;
+ }
+ @media screen and (max-width: 1079px) and (min-width: 768px){  
+    .my_container_form{
+        padding: 28px 137px 24px 28px;    
+    }
+    .inner{
+        text-align: center;
+    }
+
+ }
+ @media all and (min-width: 300px) and (max-width: 767px){ 
+    .my_container_form{
+        margin-top: 28px;
+        width: 100%;
+        padding: 28px 10px 24px 0px;
+
+    }
+    ul{
+        display: block;
+    }
+    ul li{
+        padding-top: 30px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(25, 103, 210, 0.24);
+    }
+    ul li:first-child{
+        border-bottom: none;
+    }
+    ul li:last-child{
+        border-bottom: none;
+    }
+    .inner{
+    }
+    .inner span{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .inner p{
+        margin-top: 11px;
+    }
+    .mobile{
+        display: none;
+    }
+    .about{
+        display: none;
+    }
+    .employers{
+        display: none;
+    }
+    .jobs{
+        display: none;
+    }
+
  }

@@ -28,7 +28,7 @@ header ul {
 header .second-nav ul li {
     margin : 0px;
     font-weight: 400;
-    
+
 }
 header ul li a i {
     margin : 10px 5px;
@@ -40,25 +40,26 @@ header ul li a {
     color : gray;
     width : 100%;
     height : 100%;
-    padding : 8px 20px;
+    padding: 8px 20px;
     font-weight: bold;
 }
 
-header ul li a:nth-child(3){
+/*header ul li a:nth-child(3){
     min-width: 80px;
-}
+}*/
 header ul li a:hover{
     color :#175428;
 }
+/*
 header ul li a.active_lien_navbar {
     background-color :#175428;
     color : white;
-}
+}*/
 header .header_container_logo{
     display : flex;
     font-size :16px;
     font-weight : 400;
-    
+
 }
 header .header_container_logo .content_image img{
     width: 100%;
@@ -67,7 +68,7 @@ header .header_container_logo .content_image img{
     margin: auto;
 }
 
-header .header_container_logo p 
+header .header_container_logo p
 {
     font-size:15px;
     width:18px;
@@ -83,47 +84,7 @@ header .header_container_logo img {
     height: 93px;
 
 }
-header ul li:last-child a{
-    padding :0px;
-}
 
-@media only screen and (max-width : 875px) {
-    header{
-        padding : 1vh 1vw;
-    }
-}
-@media only screen and (max-width : 789px){
-    header{
-        flex-direction: column;
-    }
-    header .header_container_logo{
-        max-width: none;
-        font-size: 15px;
-    }
-    nav {
-        margin-top : 10px;
-    }
-}
-
-@media only screen and (max-width : 283px){
-    header {
-        font-size: 12px;
-    }
-    header ul li a {
-        font-size : 12px;
-    }
-}
-@media only screen and (max-width :410px) and (min-width :331px){
-    header ul li a i {
-        margin : 10px 25px;
-    }
-    header ul li:last-child {
-        display : flex;
-        box-sizing: border-box;
-        max-width: none !important;
-
-    }
-}
 /*second nav */
 .second-nav{
     display: flex;
@@ -149,8 +110,9 @@ header ul li:last-child a{
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    padding-left: 83px;
+    padding-left: 91px;
     padding-right: 22px;
+    color: #64748B;
 }
 .Language i{
     font-size: 24px;
@@ -208,7 +170,7 @@ input[type="search"]:focus {
 
 }
 .info span{
-    color: #047857;
+    color: #1AC4A2;
     font-size: 16px;
     font-weight: 800;
     margin: 0;
@@ -228,17 +190,30 @@ input[type="search"]:focus {
 }
 .cathegories{
     display: flex;
-    width: 300px;
-    height: 22px;
     justify-content: space-evenly;
     align-items: center;
+    color: #696969;
 }
-.categories{
-    width: 104px;
-    height: 24px;
-    margin-left: 53px;
-    margin-right: 53px;
-    display:flex
+.header_container_logo .categories{
+    padding-left: 53px;
+    padding-right: 128px;
+    display:flex;
+    align-items:center;
+}
+
+.categories svg{
+    margin-right: 10px;
+}
+.categories .dropdown-menu{
+    margin: 25px 0 ;
+    padding:  42.5px 0px  23.5px 0px;
+    background-color:#FFF;
+}
+.categories .dropdown-menu a{
+  padding-bottom: 20px;
+  font-size: 16px;
+    font-weight: 600;
+    color: #696969;
 }
 nav ul li span{
     font-size: 16px;
@@ -250,11 +225,6 @@ nav ul li span{
 .join{
     display: flex;
     align-items: center;
-    margin-left: 33px;
-    justify-content: flex-end;
-    width: 409px;
-    height: 50px;
-
 }
 .join span{
     font-size: 16px;
@@ -273,7 +243,7 @@ nav ul li span{
     font-weight: 700;
     margin-left: 30px;
     margin-right: 30px;
-    padding: 10px 12px 10px 12px ;
+    padding: 10px 17px 10px 15px ;
 
 }
   .join .login{
@@ -282,3 +252,46 @@ nav ul li span{
     font-weight: bold;
   }
 
+.first-nav{
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media all and (min-width: 300px) and (max-width: 767px){ 
+    header ul li a:hover{
+        color :#1AC4A2;
+    }
+    .header_container_logo{
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
+    .header_container_logo .categories svg{
+       margin-right: 5px;
+    }
+    .header_container_logo .categories{
+        align-items:center;
+       padding: 19px 16px;
+    }
+    header .header_container_logo .content_image{
+        width: 100px;
+        height: 35.616px;   
+    }
+    header .header_container_logo .content_image img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        margin: auto;
+    }
+    .categories .dropdown-menu{
+        margin: 0;
+    }
+    .dropdown-menu-right{
+        padding: 25px 0 25px 0;
+    }
+    
+    .second-nav{
+        padding-bottom: 25px;
+    }
+
+}

@@ -91,7 +91,7 @@
     line-height: 1.5; /* Ajuster la hauteur de ligne pour centrer verticalement le texte */
 
 }
-.text_home h1{
+.text_home h2{
     color: #202124;
     font-size: 47px;
     font-weight: 700;
@@ -129,9 +129,9 @@
     width: 50%;
     opacity: 0.9;
     background-color: #202124;
-    padding-top: 54px;
-    padding-left: 34px;
-    padding-bottom: 56px;
+    padding-top: 14px;
+    padding-left: 24px;
+    padding-bottom: 36px;
 
 }
 .right{
@@ -143,16 +143,16 @@
     color: #202124;
     font-size: 15px;
     font-weight: 700;
-    padding: 17px 42px 15px 43px;
+    padding: 17px 62px 15px 63px;
 }
 .description_banner.right a{
     border-radius: 8px;
     background-color: #FFF;
     font-size: 15px;
     font-weight: 700;
-    padding: 15px 42px 13px 43px;
+    padding: 17px 62px 15px 63px;
     color: #1AC4A2;
-  
+
 }
 
 .image_banner{
@@ -190,7 +190,7 @@
 
 .tabs ul li{
     border-radius: 8px;
-    background: var(--color-bg-2, #F0F5F7);
+    background:  #F0F5F7;
     padding: 3px 20px 0px 20px;
     margin-left: 20px;
 
@@ -235,45 +235,34 @@
 }
 .logo{
     width: 50px;
-    height: 50px;  
+    height: 50px;
     margin: 32px 21px 74px 32px;
 }
 .logo .content_logo{
     width: 50px;
     height: 50px;
     border-radius: 8px;
+    overflow: hidden;
 }
 .logo .content_logo img{
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    object-fit: contain;
-    margin: auto;
+    /*border-radius: 50%;*/
+    object-fit: cover;
+    /*margin: auto;*/
 }
 .description_job{
     padding-top: 32px;
 }
 .description_job_{
     display: flex;
+    justify-content: space-between;
     padding-bottom: 15px;
 }
-/*
 .description_job .bookmark{
-    position: relative;
-}
-.description_job .bookmark svg,
-.description_job .bookmark button {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 16px; 
-}
-*/
-.description_job .bookmark{
-    padding-left: 50px;
-
+    position: absolute;
+    top: 35px; 
+    right: 25px; 
 }
 .description_job .bookmark button{
   text-align: center;
@@ -285,7 +274,6 @@
     color: #202124;
     font-size: 18px;
     font-weight: bold;
-
 }
 .description_job .info{
     display: flex;
@@ -369,7 +357,7 @@
     font-size: 15px;
     font-weight: bold;
  }
- 
+
 
 .description_skills .download_button {
     margin-top: 47px;
@@ -383,7 +371,9 @@
     color: #FFFF;
     font-size: 13px;
     font-weight: bold;
-   
+}
+.description_skills .download_button a svg{
+  margin-right: 5px;
 }
 .apple{
     margin-right: 20px;
@@ -402,10 +392,13 @@
 .all_articles{
     padding-top: 95px;
     padding-bottom: 100px;
+    background:  #F2F2F2;
 }
 .article_1{
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: #FFF;
+    padding-top: 18px;
+    padding-bottom: 20px;
 }
 .card_article{
     border-radius: 10px 10px 0px 0px;
@@ -414,7 +407,7 @@
     overflow: hidden;
 }
 .top_article{
-    margin-bottom: 45px;
+    margin-bottom: 16px;
 }
 .articles .header_articles {
     text-align: center;
@@ -432,9 +425,10 @@
 }
 .image_description_article{
     display: flex;
+    flex-wrap: wrap;
 }
 .content_image_article{
-    padding: 26px 19px  27px 30px;
+    padding: 26px 0px  0px 30px;
     border-radius: 10px;
 }
 .content_image_article img{
@@ -445,7 +439,6 @@
 }
 .description_article{
     margin-top: 29px;
-
 }
 .description_article span{
     color: #333;
@@ -460,13 +453,17 @@
 .description_article a{
     color: #5B5B6C;
     text-decoration: underline;
-  
+
 }
 
 /*section candidate*/
 .featured_candidates{
     padding-top: 140px;
     padding-bottom: 140px;
+}
+.candidat_featured_{
+    margin-bottom:51px;
+    border:1px solid transparent
 }
 .row .item:nth-child(n+5) {
     display: none;
@@ -502,23 +499,21 @@
     font-size: 16px;
     font-weight: 500;
     margin-top: 25px;
-
 }
 
 .card-body a{
     color: #5B5B6C;
     text-decoration: underline;
 }
-.candidate{
-    border: 1px solid red;
-}
+
 .content_candidate{
-    border: 1px solid green;
     text-align: center;
     padding: 31px  30px;
     border-radius: 8px;
     border: 1px solid #ECEDF2;
     background: #FFF;
+    margin-bottom: 16px;
+
 
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
@@ -542,7 +537,7 @@
     color: #1AC4A2;
     font-size: 15px;
     font-weight: bold;
-    padding: 10px 35px 13px 35px;
+    padding: 17px 61px 15px 70px;
 }
 .info_candidat a:hover{
     background-color: #1AC4A2;
@@ -579,62 +574,6 @@
     margin-left: 50%;
 }
 
- /*sectiont recruting*/
- .recruting{
-    padding: 114px 0 139px 0;
- }
-  .recruting_now{
-     border-radius: 8px;
-    /* background: #EEE;*/
-     overflow: hidden;
-     margin-bottom: 30px;
-  }
-  .recruting_now.group_2{
-    background-color: #F5F0E5;
-}
-.recruting_now.group_3{
-    background-color: #EBEEF6;
-}
-  .recrutement{
-    border-radius: 8px;
-    background: #EEE;
-    display: flex;
-    padding-left: 41px;
-  }
-
-  .text_recruting{
-    width: 50%;
-    color:#202124 ;
-    font-size: 24px;
-    font-weight: 700;
-    padding-top: 51px;
-    padding-bottom: 49px;
-
- 
-  }
-  .text_recruting .recrut{
-    color:#1AC4A2 ;
-    margin: auto;
-  }
- 
-  .text_recruting a{
-    border-radius: 8px;
-    background-color:#1AC4A2 ; 
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
-    color: #FFF !important;
-    padding: 13px 32px 11px 34px;
-  }
-  .content_image_recruting{
-    width: 50%;
- }
-  .content_image_recruting img{
-     width: 100%;
-     height: 100%;
-     margin: auto;
-     object-fit: cover;
-  }
  /* section categories */
  .categories{
     margin-bottom: 100px;
@@ -645,7 +584,7 @@
     background: #FFF;
     margin-bottom: 30px;
     text-align: center;
-    padding: 45px 15px
+    padding: 45px 15px;
     /* Shadow / 1
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05); */
 }
@@ -669,7 +608,7 @@
 }
 .content_item:hover {
     border-radius: 8px;
-    border: 1px solid var(--border-color, #ECEDF2);
+    border: 1px solid  #ECEDF2;
     background: #FFF;
 
     /* Shadow / 1 */
@@ -698,6 +637,7 @@
     color: #696969;
     font-size: 14px;
     font-weight: bold;
+  margin-bottom: 0px;
 }
 .header_categories{
     text-align: center;
@@ -712,4 +652,210 @@
     color: #696969;
     font-size: 15px;
     font-weight: bold;
+}
+
+@media screen and (max-width: 1079px) and (min-width: 768px){  
+    .description_banner.left  a{
+    padding: 10px 12px 10px 3px;
+    }
+  .description_banner.right  a{
+    padding: 10px 12px 10px 3px;
+    }
+    .info_candidat a{
+        padding: 15px 25px 13px 20px;
+    }
+    .content_mobile_images{
+        width: 367px;
+    }
+    .image_home{
+        width: 368px;
+        height:369.967px;
+    }
+}
+
+
+@media all and (min-width: 300px) and (max-width: 767px){ 
+    .new_remote{
+        display: flex;
+        align-items: center;
+        border-radius: 42px;
+        background-color: #1ac4a226;
+        padding: 15px 10px 16px 10px;
+        
+    }
+    .new_remote p{
+        padding-left: 15px;
+        color: #4F4F4F;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0; /* Supprimer la marge par défaut du paragraphe */
+        line-height: 1.5; /* Ajuster la hauteur de ligne pour centrer verticalement le texte */
+    
+    }
+    .text_home h2{
+        color: #202124;
+        font-size: 27px;
+        font-weight: 700;
+    }
+    .definition_home {
+        color: #202124;
+        font-size: 15px;
+        font-weight: 700;
+        padding-bottom: 50px;
+    }
+    .hiring_work {
+        display: flex;
+        align-items: center;
+        padding-bottom: 32px;
+    }
+    .hiring_work .hiring{
+        padding: 14px 17px 13px 17px;
+        border-radius: 8px;
+        color: #FFF;
+        font-weight: 700;
+        border: 1px solid  #FFF;
+        background-color:  #1AC4A2;
+    }
+    .hiring_work .work{
+        color: #696969;
+        font-size: 15px;
+        font-weight: 400;
+        padding-left: 15px;
+    }
+    .image_home{
+        width: 285px;
+        height:269.967px;
+        border-radius: 100%;
+        margin: 0 auto;
+    }
+    .content_home{
+        padding-top:46px ;
+        padding-bottom: 15px;
+    }
+    .content_home_{
+        padding-bottom: 43px;
+    }
+    .number_candidates{
+        font-weight: 600;
+        padding-right: 20px;
+        margin: 0;
+        line-height: -1.5;
+    }
+    .title_description{
+        color: #FFF;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .banner{
+        margin-top: 60px;
+    }
+    .description_banner.left  a{
+        font-size: 10px;
+        padding: 7px 10px 5px 10px;   
+     }
+    .description_banner.right  a{
+        padding: 7px 10px 5px 10px;   
+        font-size: 10px;
+    }
+    .content_description{
+        color: #FFF;
+        font-size: 10px;
+        font-weight: bold;
+        padding-bottom: 17px;
+        padding-top: 13px;
+    }
+    .banner_left{
+        padding-bottom: 16px;
+    }
+    .tabs{
+    padding: 30px 0 30px 0;
+}
+
+.tabs ul li{
+    padding: 3px 10px 0px 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+
+}
+.content_mobile_images{
+    width: 285px;
+    height: 285px;
+    margin: 0 auto;
+    padding-top: 27px;
+}
+.description_skills{
+    padding-top:88px ;
+    padding-bottom: 20px;
+}
+.description_skills .slills_title{
+    color: #202124;
+    font-size: 30px;
+    font-weight: bold;
+}
+.description_skills .slills_{
+    color: #696969;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 29px;
+    margin-bottom: 20px;
+}
+.info_candidat a{
+    padding: 5px 80px 3px 70px;
+}
+.jobs{
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+.job_list_1 .content_job_list_1 .logo{
+    margin: 32px 11px 74px 12px;
+}
+.description_job span{
+    font-size: 14px;
+}
+.description_job .info{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+.description_job .all_info{
+    padding-bottom: 15px;
+}
+.categories{
+    margin-bottom: 50px;
+}
+.featured{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card_article{
+    margin-bottom: 16px;
+}
+.info_candidat a{
+    padding: 17px 80px 15px 70px;
+}
+.featured_candidates{
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.bullet{
+    margin-left: 50%;
+}
+
+.description_skills .download_button {
+    margin-top: 27px;
+}
+.description_article{
+    width: 100%;
+    padding-left: 16px;
+}
+
+.content_image_article{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content_image_article{
+    padding: 16px 19px;
+    border-radius: 10px;
+}
 }

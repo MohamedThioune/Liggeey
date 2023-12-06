@@ -12,6 +12,8 @@ import { AboutComponent } from './components/about/about.component';
 import { CategorieComponent } from './components/categorie/categorie.component';
 import { JobOneComponent } from './components/job-one/job-one.component';
 import { JobTwoComponent } from './components/job-two/job-two.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -34,6 +36,11 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent },
 
   { path: 'footers', component: FootersComponent },
+
+  { path: 'emploi', component: CategoryEmploiComponent },
+  
+
+  { path: 'footer', component: FooterComponent },
   
   { path: 'reset-password', component: ResetPasswordComponent },
   

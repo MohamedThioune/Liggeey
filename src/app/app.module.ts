@@ -21,6 +21,9 @@ import { PublicationComponent } from './components/publication/publication.compo
 import { NextDirective } from './next.directive';
 import { PrevDirective } from './prev.directive';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PublicationComponent,
     NextDirective,
     PrevDirective,
+    CategoryEmploiComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
