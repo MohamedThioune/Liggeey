@@ -14,6 +14,16 @@ import { FootersComponent } from './components/footers/footers.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AboutComponent } from './components/about/about.component';
+import { CategorieComponent } from './components/categorie/categorie.component';
+import { JobOneComponent } from './components/job-one/job-one.component';
+import { JobTwoComponent } from './components/job-two/job-two.component';
+import { PublicationComponent } from './components/publication/publication.component';
+import { NextDirective } from './next.directive';
+import { PrevDirective } from './prev.directive';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
+
 import { SkillsFirstComponent } from './components/skills-first/skills-first.component';
 
 @NgModule({
@@ -28,6 +38,13 @@ import { SkillsFirstComponent } from './components/skills-first/skills-first.com
     HomeComponent,
     ResetPasswordComponent,
     AboutComponent,
+    CategorieComponent,
+    JobOneComponent,
+    JobTwoComponent,
+    PublicationComponent,
+    NextDirective,
+    PrevDirective,
+    CategoryEmploiComponent,
     SkillsFirstComponent,
   ],
   imports: [
@@ -36,6 +53,8 @@ import { SkillsFirstComponent } from './components/skills-first/skills-first.com
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxPaginationModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
