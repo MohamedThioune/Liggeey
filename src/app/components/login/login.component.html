@@ -11,6 +11,7 @@
             
             </div>
             <div class = "container_form">
+                
                 <form (ngSubmit)="onSubmit()">
                     <div class="my_container_input_1">
                         <label for="username">Username</label>
@@ -20,10 +21,10 @@
                         <label>Password</label>
                         <input class = "input" name="password" [(ngModel)]="password" type="password" placeholder="********" aria-label="default input example" id="cnx_pass" required>
                     </div>
-                    <div class="oumy">
+                    <div class="remember">
                         <div class="remember_me">
                             <input class="checkbox" type="checkbox">
-                            <p>Remember me</p>
+                            <span>Remember me</span>
                         </div>
                         <H5>
                             <a routerLink="/reset-password">Forget Password?</a>
@@ -35,10 +36,11 @@
                         <span>Don't Have an account?<p><a routerLink="/register">Signup</a></p></span>
                     </div>
                 </form>
-            
+
             </div>
-                <app-footer></app-footer>      
         </div>
     </div>
+    <app-footer></app-footer>      
 </section>
+
 <app-footers></app-footers>

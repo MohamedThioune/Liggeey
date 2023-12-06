@@ -1,9 +1,6 @@
 
 /* Main container */
 main {
-   display : flex;
-   justify-content: center;
-   align-items: center;
    background-color: #FFFF;
   }
   
@@ -56,13 +53,18 @@ main {
   }
   .candidate-employe button:hover{
     color: #FFF;
-    background: var(--color-four, #1AC4A2); 
+    background-color: #1AC4A2; 
   }
   
   .card-body {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     padding-bottom: 58px;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
   }
 
   .card-footer{
@@ -85,17 +87,12 @@ main {
   .form-control {
     border: 1px solid transparent;
     border-radius: 8px;
-    padding: 15px;
-    margin: 0.5rem 0rem 0rem 0rem;
-    width: 470px;
+    padding:17px 82px 15px 83px;
     height: 56px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
    
   }
-  form{
-    height: 100%;
-    width: 981px; 
-   }
+
   .input-group-text {
     background-color: #f8f9fa;
     border: 1px solid #ced4da;
@@ -137,7 +134,5 @@ main {
     color: red;
     margin: 1px 2px 0px 10px;
   }
-.footer-register{
-  width: 550px;
-  margin-left: 13.5rem;
-}
+
+
