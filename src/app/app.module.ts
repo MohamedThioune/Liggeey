@@ -14,6 +14,7 @@ import { FootersComponent } from './components/footers/footers.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AboutComponent } from './components/about/about.component';
+import { SkillsFirstComponent } from './components/skills-first/skills-first.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AboutComponent } from './components/about/about.component';
     HomeComponent,
     ResetPasswordComponent,
     AboutComponent,
+    SkillsFirstComponent,
   ],
   imports: [
     BrowserModule,
