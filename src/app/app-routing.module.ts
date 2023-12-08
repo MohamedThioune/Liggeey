@@ -14,10 +14,20 @@ import { JobOneComponent } from './components/job-one/job-one.component';
 import { JobTwoComponent } from './components/job-two/job-two.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
+<<<<<<< HEAD
+=======
+import {SkillsFirstComponent} from "./components/skills-first/skills-first.component";
+import {OurAppsComponent} from "./components/our-apps/our-apps.component";
+>>>>>>> 3c71b05f0fedf6800ee3f07c4d936879cd3ef412
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  
+
+  { path: 'categorie', component: CategorieComponent },
+
+  { path: 'job', component: JobOneComponent },
+
+  { path: 'joba', component: JobTwoComponent },
 
   { path: 'categorie', component: CategorieComponent },
 
@@ -28,7 +38,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
 
   { path: 'about', component: AboutComponent },
-  
+
   { path: 'register', component: RegistrationComponent },
 
   { path: 'courses', component: CoursesComponent },
@@ -38,13 +48,22 @@ const routes: Routes = [
   { path: 'footers', component: FootersComponent },
 
   { path: 'emploi', component: CategoryEmploiComponent },
+<<<<<<< HEAD
   
 
   { path: 'footer', component: FooterComponent },
   
+=======
+
+
+  { path: 'footer', component: FooterComponent },
+
+>>>>>>> 3c71b05f0fedf6800ee3f07c4d936879cd3ef412
   { path: 'reset-password', component: ResetPasswordComponent },
-  
-  
+
+  { path: 'app', component: OurAppsComponent },
+
+  { path: 'skills-first', component: SkillsFirstComponent },
   { path:'',redirectTo: '/login', pathMatch: 'full'}
 ];
 
