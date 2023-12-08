@@ -23,6 +23,7 @@
     "jquery": "^3.7.1",
     "ngx-pagination": "^6.0.3",
     "notyf": "^3.10.0",
+    "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
