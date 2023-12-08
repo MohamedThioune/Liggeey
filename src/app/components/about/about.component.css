@@ -12,7 +12,11 @@
    left: 0;
    width: 100%;
    height: 100%;
+<<<<<<< HEAD
    background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../assets/img/about.png"), lightgray 50% / cover no-repeat; 
+=======
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../assets/img/about.png"), lightgray 50% / cover no-repeat;
+>>>>>>> 3c71b05f0fedf6800ee3f07c4d936879cd3ef412
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
@@ -149,15 +153,14 @@ margin-bottom: 130px;
    object-fit: cover;
 }
 .content_list_mission ul {
-   margin-top: 0; 
+   margin-top: 0;
    padding-left: 0;
    list-style: none; /* Supprimer les puces par défaut */
-   padding: 0; 
+   padding: 0;
 }
  .content_list_mission ul li{
     display: flex;
-    /*align-items: center;*/
-    margin-bottom: 29px;
+   margin-bottom: 23px;
  }
  .content_list_mission ul li svg{
    margin-right: 8px;
@@ -227,6 +230,13 @@ margin-bottom: 130px;
     font-size: 17px;
     font-weight: bold;
  }
+ .description_team p:first-child{
+   color: #05264E;
+   font-size: 19px;
+   font-style: normal;
+   font-weight: 500;
+   margin-bottom: 8px;
+ }
  .description_team p{
     color: #1AC4A2;
     font-size: 13px;
@@ -234,12 +244,20 @@ margin-bottom: 130px;
     margin: auto;
  }
 
+<<<<<<< HEAD
  @media all and (min-width: 300px) and (max-width: 767px){ 
+=======
+ @media all and (min-width: 300px) and (max-width: 767px){
+>>>>>>> 3c71b05f0fedf6800ee3f07c4d936879cd3ef412
    .image_menu_about{
       width: 100%;
    }
    .content_map_mission{
+<<<<<<< HEAD
       height: 360px;
+=======
+     height: 400px;
+>>>>>>> 3c71b05f0fedf6800ee3f07c4d936879cd3ef412
       margin: 0 auto;
       width: 100%;
 }
@@ -248,7 +266,12 @@ margin-bottom: 130px;
       padding-bottom: 25px;
    }
    .description_about p{
+<<<<<<< HEAD
       font-size: 10px;
+=======
+     font-size: 15px;
+     line-height: 25px;
+>>>>>>> 3c71b05f0fedf6800ee3f07c4d936879cd3ef412
    }
    .description_story_about{
       padding-bottom: 25px;
@@ -261,17 +284,17 @@ margin-bottom: 130px;
    }
    .header_help_about p{
       color: #FFF;
-      font-size: 12px;
+     font-size: 16px;
       font-weight: 400;
    }
    .description_story_about span{
-       font-size: 22px;
+     font-size: 28px;
    }
    .description_story_about .description_story{
-      font-size: 12px;
+      font-size: 15px;
   }
   .content_button_about_story a{
-   font-size: 13px;
+   font-size: 16px;
    padding: 13px 18px;
    }
    .image_menu_about{
@@ -284,16 +307,17 @@ margin-bottom: 130px;
       font-size: 38px;
     }
     .content_body_help_about_1 span{
-      font-size: 10px;
-       font-weight: bold;
+      font-size: 20px;
+      font-weight: bold;
     }
     .content_body_help_about_1 p{
-       font-size: 10px;
+       font-size: 16px;
     }
     .content_list_mission ul li p{
       color: #000;
-      font-size: 12px;
+      font-size: 18px;
       font-weight: bold;
+      margin-bottom: 0;
    }
    .description_mission{
       padding-top:50px ;
@@ -302,10 +326,13 @@ margin-bottom: 130px;
       font-size: 22px;
   }
   .description_mission .description_{
-      font-size: 12px; 
+      font-size: 17px;
   }
   .person_teams{
    padding:75px 0 79px 0 ;
    margin-bottom: 14px;
 }
+  h3{
+     margin-bottom: 25px;
+  }
 }
