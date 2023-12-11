@@ -24,11 +24,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
 
-<<<<<<< HEAD
-=======
 import { SkillsFirstComponent } from './components/skills-first/skills-first.component';
 import { OurAppsComponent } from './components/our-apps/our-apps.component';
->>>>>>> 3c71b05f0fedf6800ee3f07c4d936879cd3ef412
 
 @NgModule({
   declarations: [
@@ -49,11 +46,8 @@ import { OurAppsComponent } from './components/our-apps/our-apps.component';
     NextDirective,
     PrevDirective,
     CategoryEmploiComponent,
-<<<<<<< HEAD
-=======
     SkillsFirstComponent,
     OurAppsComponent,
->>>>>>> 3c71b05f0fedf6800ee3f07c4d936879cd3ef412
   ],
   imports: [
     BrowserModule,

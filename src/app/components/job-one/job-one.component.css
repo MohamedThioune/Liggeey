@@ -44,7 +44,7 @@
     height: 60px;
     background: #ECEDF2;
   }
-   .search_about a{
+   .search_about button{
     text-align: center;
     padding: 17px 40px 15px 44px;
     color: #FFF;
@@ -57,6 +57,21 @@
     width: 227px;
     justify-content: flex-start;
   }
+  .search_about input{
+   border-radius: 4px;
+   border: 1px solid #D0D5DD;
+   font-size:16px;
+   font-weight:bold;
+   width:100%;
+   border:none;
+   background-color: transparent;
+   padding: 10px 19px 8px 24px;
+
+}
+input[type="search"]:focus {
+   outline: none;
+ }
+
    .image_menu_about h2{
      font-size: 47px;
      font-weight: 700;
@@ -209,23 +224,7 @@
     justify-content: center;
     text-align: center;
  }
- @media screen and (max-width: 1079px) and (min-width: 768px){
-   .search_about a{
-   padding: 7px 22px 5px 23px;
-   margin-left: 25px;
- }
-   .search_about{
-       width: 97%;
-     display: none;
-   }
-   .search_about .categorie{
-      width: 145px;
-    }
-    .items_job .job_list_1{
-      padding-bottom: 20px;
-   }
 
-}
 @media all and (min-width: 300px) and (max-width: 767px){
 
 .jobs{
@@ -235,10 +234,6 @@
 .job_list_1 .content_job_list_1 .logo{
    margin: 32px 11px 74px 12px;
 }
-.description_about h2
-   {
-       font-size: 23px;
-    }
 .description_job span{
    font-size: 14px;
 }
@@ -254,20 +249,14 @@
    margin-bottom: 50px;
 }
 .search_about {
-   top: 0;
-   right: 0;
-  display: none;
+   padding:10px 27px;  
 }
-.search_about a{
+
+.search_about button{
    padding: 17px 22px 15px 20px;
  }
- .search_about .categorie{
-   width: 100%;
- }
- .search_about .keywords{
-   width: 100%;
- }
- .search_about .location{
-   width: 100%;
- }
+
+   .image_menu_about h2{
+      font-size: 27px;
+   }
 }

@@ -90,6 +90,9 @@ export class CategorieComponent implements OnInit {
 
     }
   ]; 
+  submit(){
+    alert('ok')
+  }
 }
 
 
