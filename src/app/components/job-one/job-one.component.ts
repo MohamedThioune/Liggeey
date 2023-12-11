@@ -91,4 +91,7 @@ export class JobOneComponent implements OnInit {
 
     }
   ]; 
+  submit(){
+    alert("ok");
+  }
 }
