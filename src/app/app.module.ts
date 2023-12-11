@@ -23,7 +23,6 @@ import { PrevDirective } from './prev.directive';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
-
 import { SkillsFirstComponent } from './components/skills-first/skills-first.component';
 import { OurAppsComponent } from './components/our-apps/our-apps.component';
 

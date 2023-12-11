@@ -280,6 +280,10 @@ nav ul li span{
       width: 171px;
       height: fit-content;
     }
+    header .header_container_logo .content_image{
+        width: 100px;
+        height: 35.616px;   
+    }
     header .header_container_logo .content_image img{
         width: 100%;
         height: 100%;
@@ -294,9 +298,10 @@ nav ul li span{
       top: 29px !important;
       left: 13px !important;
     }
-
+       
     .second-nav{
         padding-bottom: 25px;
     }
+    }
+ 
 
-}
