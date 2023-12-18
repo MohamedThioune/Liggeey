@@ -47,7 +47,7 @@ header ul li a {
     min-width: 80px;
 }*/
 header ul li a:hover{
-    color :#175428;
+    color :#1AC4A2;
 }
 /*
 header ul li a.active_lien_navbar {
@@ -302,6 +302,6 @@ nav ul li span{
     .second-nav{
         padding-bottom: 25px;
     }
-    }
+}
  
 

@@ -29,6 +29,7 @@
 .description_about h2{
    font-size: 53px;
    font-weight: 700;
+   padding-bottom: 25px;
 }
 .description_about p{
    font-size: 14px;
@@ -251,7 +252,6 @@ margin-bottom: 130px;
 }
    .description_about h2{
       font-size: 33px;
-      padding-bottom: 25px;
    }
    .description_about p{
      font-size: 15px;

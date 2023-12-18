@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-job-one',
-  templateUrl: './job-one.component.html',
-  styleUrls: ['./job-one.component.css']
+  selector: 'app-detail-job',
+  templateUrl: './detail-job.component.html',
+  styleUrls: ['./detail-job.component.css']
 })
-export class JobOneComponent implements OnInit {
+export class DetailJobComponent implements OnInit {
+  identifiant:number | null = 0;
   someArrayOfThings!:any
+
+
+  constructor(private route : ActivatedRoute) { }
+
   ngOnInit(): void {
+    this.identifiant = +this.route.snapshot.params['id'];
+
   }
-  
-  constructor() {}
   p: number = 1;
   collection: any[] = this.someArrayOfThings=[
     {
@@ -90,8 +96,6 @@ export class JobOneComponent implements OnInit {
       "logo": "../../../assets/img/logo_5.svg"
 
     }
-  ]; 
-  submit(){
-    alert("ok");
-  }
+  ];
+
 }
