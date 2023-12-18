@@ -74,9 +74,6 @@ input[type="search"]:focus {
 .featured_candidates{
     padding-bottom: 140px;
 }
-.row .item:nth-child(n+5) {
-    display: none;
-  }
 .featured{
     display: flex;
     flex-direction: column;    
