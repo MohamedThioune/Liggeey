@@ -99,8 +99,10 @@
     display: flex;
 }
 .pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 50px;
-    margin: 0 auto;
  }
 @media all and (min-width: 300px) and (max-width: 767px){ 
     .items_job{

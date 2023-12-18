@@ -6,6 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./job-two.component.css']
 })
 export class JobTwoComponent implements OnInit {
+  currentColor: string = '#ECEDF2';
+
+  changeColor() {
+    this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
+  }
+  currentChangeColor() {
+    this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
+  }
 
   constructor() { }
 

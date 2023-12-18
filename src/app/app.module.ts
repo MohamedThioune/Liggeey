@@ -14,8 +14,7 @@ import { FootersComponent } from './components/footers/footers.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AboutComponent } from './components/about/about.component';
-import { CategorieComponent } from './components/categorie/categorie.component';
-import { JobOneComponent } from './components/job-one/job-one.component';
+import { JobOneComponent } from './components/jobs/job-one/job-one.component';
 import { JobTwoComponent } from './components/job-two/job-two.component';
 import { PublicationComponent } from './components/publication/publication.component';
 import { NextDirective } from './next.directive';
@@ -25,6 +24,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
 import { SkillsFirstComponent } from './components/skills-first/skills-first.component';
 import { OurAppsComponent } from './components/our-apps/our-apps.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { DetailCategorieComponent } from './components/categories/detail-categorie/detail-categorie.component';
+import { CategorieComponent } from './components/categories/categorie/categorie.component';
+import { DetailJobComponent } from './components/jobs/detail-job/detail-job.component';
+import { JobsComponent } from './components/jobs/jobs.component';
+import { CandidatesComponent } from './components/candidates/candidates.component';
+import { ListCandidatesComponent } from './components/candidates/list-candidates/list-candidates.component';
+import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +55,13 @@ import { OurAppsComponent } from './components/our-apps/our-apps.component';
     CategoryEmploiComponent,
     SkillsFirstComponent,
     OurAppsComponent,
+    CategoriesComponent,
+    DetailCategorieComponent,
+    DetailJobComponent,
+    JobsComponent,
+    CandidatesComponent,
+    ListCandidatesComponent,
+    DetailCandidatComponent,
   ],
   imports: [
     BrowserModule,
