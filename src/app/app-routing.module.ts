@@ -9,16 +9,29 @@ import { FootersComponent } from './components/footers/footers.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AboutComponent } from './components/about/about.component';
-import { CategorieComponent } from './components/categorie/categorie.component';
-import { JobOneComponent } from './components/job-one/job-one.component';
+import { JobOneComponent } from './components/jobs/job-one/job-one.component';
 import { JobTwoComponent } from './components/job-two/job-two.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
 import {SkillsFirstComponent} from "./components/skills-first/skills-first.component";
 import {OurAppsComponent} from "./components/our-apps/our-apps.component";
+import { CategorieComponent } from './components/categories/categorie/categorie.component';
+import { DetailJobComponent } from './components/jobs/detail-job/detail-job.component';
+import { ListCandidatesComponent } from './components/candidates/list-candidates/list-candidates.component';
+import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+
+  { path: 'detail', component: DetailJobComponent },
+
+  { path: 'list-candidat', component: ListCandidatesComponent },
+
+  { path: 'detail-candidat', component: DetailCandidatComponent },
+
+  { path: 'job', component: JobOneComponent },
+
+  { path: 'joba', component: JobTwoComponent },
 
   { path: 'categorie', component: CategorieComponent },
 

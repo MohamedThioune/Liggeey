@@ -1,14 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-categorie',
-  templateUrl: './categorie.component.html',
-  styleUrls: ['./categorie.component.css']
+  selector: 'app-job-one',
+  templateUrl: './job-one.component.html',
+  styleUrls: ['./job-one.component.css']
 })
-export class CategorieComponent implements OnInit {
+export class JobOneComponent implements OnInit {
   someArrayOfThings!:any
+  currentColor: string = '#ECEDF2';
+  isClass1Visible = true;
+
+  changeColor() {
+    this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
+  }
+  currentChangeColor() {
+    this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
+  }
   ngOnInit(): void {
   }
+  
   constructor() {}
   p: number = 1;
   collection: any[] = this.someArrayOfThings=[
@@ -90,6 +100,13 @@ export class CategorieComponent implements OnInit {
 
     }
   ]; 
+  submit(){
+    alert("ok");
+  }
+  show(){
+    alert("ok")
+  }
+  toggleClass() {
+    this.isClass1Visible = !this.isClass1Visible;
+  }
 }
-
-

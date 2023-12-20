@@ -34,13 +34,19 @@ main {
     justify-content: center;
     align-items: center;
     padding-top: 50px;
-
   }
   
   .candidate-employe button{
     width: 260px;
     color: #1AC4A2;
     background:  #DDF6F1; 
+    border: none;
+    cursor: pointer;
+  }
+  .candidate-employe button:first-child{
+    width: 260px;
+    color: #FFF;
+    background:  #1AC4A2; 
     border: none;
     cursor: pointer;
   }
@@ -74,7 +80,7 @@ main {
     border: none;
     background: none;
   }
-  .card-footer a{
+  .card-footer button{
     border: none ;
     background-color: #1AC4A2;
     color: #FFFF;

@@ -425,7 +425,6 @@
     flex-wrap: wrap;
 }
 .content_image_article{
-
     border-radius: 10px;
   width: 240px;
 }
@@ -692,7 +691,6 @@
         border-radius: 42px;
         background-color: #1ac4a226;
         padding: 15px 10px 16px 10px;
-
     }
     .new_remote p{
         padding-left: 15px;
@@ -701,7 +699,6 @@
         font-weight: 500;
         margin: 0; /* Supprimer la marge par défaut du paragraphe */
         line-height: 1.5; /* Ajuster la hauteur de ligne pour centrer verticalement le texte */
-
     }
     .text_home h2{
         color: #202124;

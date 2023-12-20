@@ -2,6 +2,7 @@
  .image_menu_about{
    position: relative;
    height: 480px;
+  padding: 100px 0 0;
  }
  .color{
    position: absolute;
@@ -9,35 +10,33 @@
    left: 0;
    width: 100%;
    height: 100%;
-   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../assets/img/categori.png"), lightgray 50% / cover no-repeat; 
+   /*background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../assets/img/categori.png"), lightgray 50% / cover no-repeat; */
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
 }
 
-  .search_about{
+.search_about{
    display: flex;
    flex-wrap: wrap;
    align-items: center;
-   background-color: #FFF;
+   position: relative;
    color:  #696969;
    justify-content: space-between;
-   padding: 18px 20px 15px 31px;
    border-radius: 8px;
-   border: 1px solid  #ECEDF2;
+   border: 1px solid #ECEDF2;
    background: #FFF;
-   position: absolute;
-   top: 250px;
-   width: 71%;
-
+   width: 100%;
+    padding: 10px 37px;
 /* Shadow / 1 */
 box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
  }
   .search_about p{
-   color:  #696969;
-   font-size: 15px;
-   font-weight: bold;
-   margin-left: 21px;
+    color: #696969;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 11px;
+    margin-bottom: 0;
  }
 
   .search_about .limit{
@@ -45,7 +44,7 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
    height: 60px;
    background: #ECEDF2;
  }
-  .search_about a{
+  .search_about button{
    text-align: center;
    padding: 17px 40px 15px 44px;
    color: #FFF;
@@ -56,8 +55,32 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
  }
  .search_about .categorie{
    width: 227px;
-   justify-content: space-between;
+   justify-content: flex-start;
  }
+ .search_about input{
+   border-radius: 4px;
+   border: 1px solid #D0D5DD;
+   font-size:16px;
+   font-weight:bold;
+   width:100%;
+   border:none;
+   background-color: transparent;
+   padding: 10px 19px 8px 24px;
+
+}
+input[type="search"]:focus {
+   outline: none;
+ }
+
+  .image_menu_about h2{
+    font-size: 47px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+    position: relative;
+    margin-bottom: 60px;
+ }
+
  .description_about{
     position: absolute;
     top: 100px; /* Ajustez la distance depuis le haut selon vos besoins */
@@ -87,7 +110,7 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 .header_popular_job p{
    color: #696969;
    font-size: 15px;
-  font-weight: bold;    
+  font-weight: bold;
 }
 .items_job{
    margin-top: 33px;
@@ -134,7 +157,7 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
 .logo{
    width: 50px;
-   height: 50px;  
+   height: 50px;
    margin: 32px 21px 74px 32px;
 }
 .logo .content_logo{
@@ -157,8 +180,8 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 
 .description_job .bookmark{
    position: absolute;
-   top: 35px; 
-   right: 25px; 
+   top: 35px;
+   right: 25px;
 }
 .description_job .bookmark button{
  text-align: center;
@@ -384,7 +407,7 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 
  .text_recruting a{
    border-radius: 8px;
-   background-color:#1AC4A2 ; 
+   background-color:#1AC4A2 ;
    text-decoration: none;
    font-size: 15px;
    font-weight: bold;
@@ -461,24 +484,8 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 ul li{
    list-style: none;
 }
-@media screen and (max-width: 1079px) and (min-width: 768px){  
-   .search_about a{
-      padding: 17px 32px 15px 30px;
-   margin-left: 25px;
- }
-   .search_about{
-       width: 97%;
-   }
-   .search_about .categorie{
-      width: 127px;
-   }
-   .items_job .job_list_1{
-      padding-bottom: 20px;
-   }
-  
 
-}
-@media all and (min-width: 300px) and (max-width: 767px){ 
+@media all and (min-width: 300px) and (max-width: 767px){
    .description_about h2
    {
        font-size: 33px;
@@ -522,26 +529,18 @@ ul li{
   .categories{
       margin-bottom: 50px;
   }
-   .search_about {
-      top: 100;
-      left: 50;
-   }
-   .search_about a{
-      padding: 17px 22px 15px 20px;
-    }
-    .search_about .categorie{
-      width: 100%;
-    }
-    .search_about .keywords{
-      width: 100%;
-    }
-    .search_about .location{
-      width: 100%;
-    }
     .card_article .content_image {
       width: 100%;
    }
    .card-body{
       width: 100%;
    }
+   .search_about {
+      padding:10px 27px;
+   }
+
+   .search_about button{
+      padding: 17px 22px 15px 20px;
+    }
+
  }

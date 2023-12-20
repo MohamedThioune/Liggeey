@@ -35,3 +35,20 @@ body {
   height: 100%;
   background: #00000029;
 }
+.ngx-pagination .current {
+  background: #1ac4a2 !important;
+}
+
+@media all and (min-width: 300px) and (max-width: 767px){
+  .search_about .categorie {
+    width: 100% !important;
+    margin-bottom: 25px;
+  }
+  .search_about button {
+    padding: 10px 22px 10px 20px !important;
+  }
+
+
+
+
+}
