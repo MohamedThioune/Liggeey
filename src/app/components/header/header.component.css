@@ -250,7 +250,30 @@ nav ul li span{
     font-size: 15px;
     font-weight: bold;
   }
-
+  .account{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 17%;
+}
+.account .content_image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+/* background-image: url("../../../assets/img/image_account.png"), lightgray 50% / cover no-repeat; */
+}
+.account .content_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+/* background-image: url("../../../assets/img/image_account.png"), lightgray 50% / cover no-repeat; */
+}
+.account p{
+    margin: 0;
+    color: #202124;
+    font-size: 15px;
+    font-weight: 600;
+}
 .first-nav{
   justify-content: space-between;
   width: 100%;

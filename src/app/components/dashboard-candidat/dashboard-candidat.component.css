@@ -1,0 +1,113 @@
+/*left menu*/
+.content_left_menu{
+    /*border: 1px solid #ECEDF2;*/
+    border: 1px solid red;
+
+    background: #FFF;
+    width: 314px;
+    height: 1626px;
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.content_right_menu{
+    background-color: #FFF;
+    border: 1px solid red;
+    width: 1036px;
+    height: 1626px;
+}
+.image_job_applies{
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    background-color: #E6EBEF;
+    border-radius: 8px;
+}
+.applies_job{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.applies_job span{
+    color:  #043356;
+    font-size: 30px;
+    font-weight: bold;
+}
+.applies_job p{
+    color: #202124;
+    font-size: 15px;
+    font-weight: 600;
+}
+.image_job_alert{
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    background-color: #FCEBEA;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alert_job{
+    border: 1px solid rebeccapurple;
+}
+.alert_job{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.alert_job span{
+    color:  #D93025;
+    font-size: 30px;
+    font-weight: bold;
+}
+.alert_job p{
+    color: #202124;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+.image_job_favorites{
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    background-color: #DDF6F1;
+    border-radius: 8px;
+}
+.favorites_job{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.favorites_job span{
+    color:  #1AC4A2;
+    font-size: 30px;
+    font-weight: bold;
+}
+.favorites_job p{
+    color: #202124;
+    font-size: 15px;
+    font-weight: 600;
+}
+
