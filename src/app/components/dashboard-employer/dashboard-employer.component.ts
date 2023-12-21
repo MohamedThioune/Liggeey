@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard-candidat',
-  templateUrl: './dashboard-candidat.component.html',
-  styleUrls: ['./dashboard-candidat.component.css']
+  selector: 'app-dashboard-employer',
+  templateUrl: './dashboard-employer.component.html',
+  styleUrls: ['./dashboard-employer.component.css']
 })
-export class DashboardCandidatComponent implements OnInit {
+export class DashboardEmployerComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
 
   collection: any[] = this.someArrayOfThings=[
@@ -14,42 +14,42 @@ export class DashboardCandidatComponent implements OnInit {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     }
     ,{
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     },
     {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"php"
     },
     {
@@ -57,45 +57,45 @@ export class DashboardCandidatComponent implements OnInit {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     }
     ,{
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     },
     {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     }
-  ]; 
+  ];
   constructor() { }
 
   ngOnInit(): void {
