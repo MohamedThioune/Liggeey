@@ -19,6 +19,8 @@ import { CategorieComponent } from './components/categories/categorie/categorie.
 import { DetailJobComponent } from './components/jobs/detail-job/detail-job.component';
 import { ListCandidatesComponent } from './components/candidates/list-candidates/list-candidates.component';
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
+import { DashboardCandidatComponent } from './components/dashboard-candidat/dashboard-candidat.component';
+import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,7 +33,7 @@ const routes: Routes = [
   
   { path: 'job', component: JobOneComponent },
 
-  { path: 'joba', component: JobTwoComponent },
+  { path: 'dashboard-employer', component: DashboardEmployerComponent },
 
   { path: 'categorie', component: CategorieComponent },
 
@@ -53,14 +55,16 @@ const routes: Routes = [
 
   { path: 'emploi', component: CategoryEmploiComponent },
 
-
   { path: 'footer', component: FooterComponent },
 
   { path: 'reset-password', component: ResetPasswordComponent },
 
   { path: 'app', component: OurAppsComponent },
 
+  { path: 'dashboard-candidat', component: DashboardCandidatComponent },
+
   { path: 'skills-first', component: SkillsFirstComponent },
+  
   { path:'',redirectTo: '/login', pathMatch: 'full'}
 ];
 

@@ -457,6 +457,7 @@ opacity: 0.15;
 .sidebar .bottom_sidebar{
    background-color: #F5F7FC;
    padding: 30px 0 25px 31px ;
+   border-radius: 8px;
 }
 
  .sidebar .bottom_sidebar .compagny .inner .inner_1 {
@@ -478,14 +479,14 @@ opacity: 0.15;
     font-weight: 500;
  }
  .sidebar .bottom_sidebar .compagny .inner .inner_1 .social i{
-  margin-right: 15px;
+  margin-right: 20px;
  }
  .sidebar .bottom_sidebar .compagny .inner .inner_1 .social i:hover{
    color:#C39DEA ;
   }
- .sidebar .bottom_sidebar .compagny .inner .inner_1 .social i:last-child{
+ /* .sidebar .bottom_sidebar .compagny .inner .inner_1 .social i:last-child{
     margin-right: 0px;
-   }
+   } */
    @media all and (min-width: 300px) and (max-width: 767px){ 
    .content_job_list_1 .info_all{
       justify-content: space-evenly;
@@ -502,7 +503,12 @@ opacity: 0.15;
    .content_job_list_1 .info .info_item{
       margin-bottom: 10px;
    }
+   .job_info{
+      display: block;
+   }
+   
    .job_info a{
       padding: 8px 63px 6px 65px;
+      margin-bottom: 10px;
    }
 }

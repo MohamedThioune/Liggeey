@@ -92,6 +92,7 @@ input[type="search"]:focus {
     border: 1px solid #C4C4C4;
     background-color:  #FFF;
     font-weight: 700;
+    cursor: pointer;
   }
   .buttons svg{
     margin-right: 10px;
@@ -248,14 +249,23 @@ input[type="search"]:focus {
    margin-bottom: 50px;
 }
 .search_about {
-   padding:10px 27px;  
+   padding:10px 27px;
 }
 
 .search_about button{
-   padding: 17px 22px 15px 20px;
+  padding: 8px 22px 8px 20px;
  }
 
    .image_menu_about h2{
       font-size: 27px;
    }
+  .search_about .categorie {
+    width: 100% !important;
+    margin-bottom: 25px;
+  }
+
+}
+
+ @media screen and (max-width: 1079px) and (min-width: 768px) {
+
 }
