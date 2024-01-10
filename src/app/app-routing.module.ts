@@ -25,6 +25,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ChartDashbordComponent } from './components/chart-dashbord/chart-dashbord.component';
 import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { DetailBlogComponent } from './components/detail-blog/detail-blog.component';
 
 const routes: Routes = [
   
@@ -77,7 +79,11 @@ const routes: Routes = [
   { path: 'dashboard-candidat', component: DashboardCandidatComponent },
 
   { path: 'skills-first', component: SkillsFirstComponent },
-  
+
+  { path: 'blog', component: BlogComponent },
+
+  { path: 'detail-article', component: DetailBlogComponent },
+
   { path:'',redirectTo: '/login', pathMatch: 'full'}
 ];
 

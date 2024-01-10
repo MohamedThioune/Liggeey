@@ -37,6 +37,8 @@ import { DashboardEmployerComponent } from './components/dashboard-employer/dash
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { DetailBlogComponent } from './components/detail-blog/detail-blog.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { ResumeCandidatComponent } from './components/candidates/resume-candidat
     SidebarComponent,
     ProfilCandidatComponent,
     ResumeCandidatComponent,
+    BlogComponent,
+    DetailBlogComponent
   ],
   imports: [
     BrowserModule,
