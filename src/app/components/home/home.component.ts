@@ -21,7 +21,9 @@ currentCategories: any[] = [];
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
       this.candidates=data.candidates
-      this.artikels=data.artikels
+      this.artikels=data.artikels  
+      console.log(this.artikels,this.artikels.length);
+          
     })
     this.homeService.getCategories().subscribe((data:any)=>{
       this.categoriesTab=data.categories;
@@ -29,6 +31,8 @@ currentCategories: any[] = [];
       this.sub=data.sub
 
       this.currentCategories=this.categories
+      console.log(this.categoriesTab,this.topics,this.sub);
+      
     })
   }
   

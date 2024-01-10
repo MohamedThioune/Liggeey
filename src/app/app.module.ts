@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -32,9 +32,11 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { CandidatesComponent } from './components/candidates/candidates.component';
 import { ListCandidatesComponent } from './components/candidates/list-candidates/list-candidates.component';
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
-import { DashboardCandidatComponent } from './components/dashboard-candidat/dashboard-candidat.component';
+import { DashboardCandidatComponent } from './components/candidates/dashboard-candidat/dashboard-candidat.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
-
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
+import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,9 @@ import { DashboardEmployerComponent } from './components/dashboard-employer/dash
     DetailCandidatComponent,
     DashboardCandidatComponent,
     DashboardEmployerComponent,
+    SidebarComponent,
+    ProfilCandidatComponent,
+    ResumeCandidatComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,9 @@ import { DashboardEmployerComponent } from './components/dashboard-employer/dash
     ReactiveFormsModule,
     FormsModule,
     NgxPaginationModule,
-
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA, // Ignorer les erreurs de schéma dans ce module
   ],
   providers: [],
   bootstrap: [AppComponent]

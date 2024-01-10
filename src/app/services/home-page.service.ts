@@ -21,4 +21,8 @@ export class HomePageService {
     return this.http.get('https://www.livelearn.nl/wp-json/custom/v1/tags', { headers });
 
   }
+  getDetailCandidate(id:number | null):Observable<any>{
+      return this.http.post(`http://wp12.influid.nl/wp-json/custom/v1/candidate/detail/?id=${id}`,{});
+  }
+
 }

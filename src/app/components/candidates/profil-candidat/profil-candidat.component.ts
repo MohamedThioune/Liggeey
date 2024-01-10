@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Chart} from 'chart.js'
 
 @Component({
-  selector: 'app-dashboard-employer',
-  templateUrl: './dashboard-employer.component.html',
-  styleUrls: ['./dashboard-employer.component.css']
+  selector: 'app-profil-candidat',
+  templateUrl: './profil-candidat.component.html',
+  styleUrls: ['./profil-candidat.component.css']
 })
-export class DashboardEmployerComponent implements OnInit {
+export class ProfilCandidatComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
@@ -25,42 +24,42 @@ export class DashboardEmployerComponent implements OnInit {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 111.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"Php"
     }
     ,{
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 111.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"Php"
     },
     {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 111.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"php"
     },
     {
@@ -68,86 +67,48 @@ export class DashboardEmployerComponent implements OnInit {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 111.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"Php"
     }
     ,{
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 111.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"Php"
     },
     {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 111.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/image_account.png",
+      "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"Php"
     }
-  ];
+  ]; 
+  constructor() { }
 
   ngOnInit(): void {
-  }
-  constructor() {
-    this.renderChat();
-   }
-
-  renderChat(){
-    const data = [
-      { year: 2010, count: 10 },
-      { year: 2011, count: 20 },
-      { year: 2012, count: 15 },
-      { year: 2013, count: 25 },
-      { year: 2014, count: 22 },
-      { year: 2015, count: 30 },
-      { year: 2016, count: 28 },
-    ];
-   const myChart= new Chart("myChart",{
-          type: 'bubble',
-          options: {
-            animation: false,
-            plugins: {
-              legend: {
-                display: false
-              },
-              tooltip: {
-                enabled: false
-              }
-            }
-          },
-          data: {
-            labels: data.map(row => row.year),
-            datasets: [
-              {
-                label: 'Acquisitions by year',
-                data: data.map(row => row.count)
-              }
-            ]
-          }
-    })
-
   }
 
 }

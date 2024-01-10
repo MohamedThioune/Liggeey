@@ -3,10 +3,10 @@
   <div class="container-fluid">
         <div class="content_job_list_1">
             <div class="content_logo">
-               <img src="../../../assets/img/compagny_1.png" alt="">          
+               <img [src]=candidat.image alt="">          
             </div>
           <div class="description_job">
-            <h2>Amadou Ndiaye</h2>
+            <h2>{{candidat.first_name}} {{candidat.last_name}}</h2>
             <p class="profil">UI Designer</p>
           </div>
           <div class="info_all">
@@ -28,27 +28,27 @@
                 </div>
             </div>
             <div class="info">
-            <span class="info_item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
-                <path d="M6.49973 0C2.91572 0 0 2.91611 0 6.50051C0 9.06172 1.07228 11.6525 3.10093 13.9927C4.61613 15.7407 6.11772 16.731 6.18096 16.7723C6.27777 16.8356 6.38879 16.8673 6.49981 16.8673C6.61075 16.8673 6.72177 16.8356 6.81865 16.7723C6.88181 16.731 8.38364 15.7407 9.89884 13.9928C11.9276 11.6525 13 9.06172 13 6.50051C12.9999 2.91611 10.0839 0 6.49973 0ZM6.49973 15.5691C5.30431 14.6783 1.16535 11.25 1.16535 6.50051C1.16535 3.55868 3.55829 1.16535 6.49973 1.16535C9.44139 1.16535 11.8346 3.55868 11.8346 6.50051C11.8346 11.25 7.69523 14.6783 6.49973 15.5691Z" fill="#696969"/>
-                <path d="M6.50007 3.91943C5.07756 3.91943 3.92029 5.07679 3.92029 6.49945C3.92029 7.92173 5.07756 9.07885 6.50007 9.07885C7.92258 9.07885 9.07978 7.92173 9.07978 6.49945C9.07978 5.07686 7.92251 3.91943 6.50007 3.91943ZM6.50007 7.91349C5.72014 7.91349 5.08564 7.27915 5.08564 6.49945C5.08564 5.71936 5.72014 5.08479 6.50007 5.08479C7.27993 5.08479 7.91443 5.71936 7.91443 6.49945C7.91443 7.27915 7.27993 7.91349 6.50007 7.91349Z" fill="#696969"/>
-                </svg>
-                <p>Nederland, NL</p>
-            </span>
-            <span class="info_item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                <g clip-path="url(#clip0_3074_584)">
-                    <path d="M12.8033 2.19668C11.3867 0.780147 9.50332 0 7.5 0C5.49668 0 3.61327 0.780147 2.19668 2.19668C0.780147 3.61327 0 5.49668 0 7.5C0 9.50332 0.780147 11.3867 2.19668 12.8033C3.61327 14.2199 5.49668 15 7.5 15C8.87147 15 10.2134 14.6263 11.3807 13.9192C11.6575 13.7515 11.746 13.3912 11.5783 13.1144C11.4107 12.8376 11.0503 12.7492 10.7736 12.9168C9.78935 13.513 8.65737 13.8281 7.5 13.8281C4.01065 13.8281 1.17188 10.9893 1.17188 7.5C1.17188 4.01065 4.01065 1.17188 7.5 1.17188C10.9893 1.17188 13.8281 4.01065 13.8281 7.5C13.8281 8.74772 13.4571 9.96223 12.7551 11.0123C12.5752 11.2813 12.6475 11.6452 12.9165 11.825C13.1856 12.0049 13.5494 11.9326 13.7293 11.6636C14.5606 10.4201 15 8.9804 15 7.5C15 5.49668 14.2199 3.61327 12.8033 2.19668Z" fill="#696969"/>
-                    <path d="M7.50001 2.22656C7.1764 2.22656 6.91407 2.48889 6.91407 2.8125V7.25731L4.7655 9.40588C4.53666 9.63469 4.53666 10.0057 4.7655 10.2345C4.8799 10.3489 5.02985 10.4061 5.17982 10.4061C5.32979 10.4061 5.47973 10.3489 5.59413 10.2345L7.91432 7.91432C8.02422 7.80445 8.08594 7.65539 8.08594 7.5V2.8125C8.08594 2.48889 7.82362 2.22656 7.50001 2.22656Z" fill="#696969"/>
-                </g>
-                <defs>
-                    <clipPath id="clip0_3074_584">
-                    <rect width="15" height="15" fill="white"/>
-                    </clipPath>
-                </defs>
-                </svg>
-                <p>Member Since,Aug 19, 2020</p>
-            </span>
+              <span class="info_item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
+                  <path d="M6.49973 0C2.91572 0 0 2.91611 0 6.50051C0 9.06172 1.07228 11.6525 3.10093 13.9927C4.61613 15.7407 6.11772 16.731 6.18096 16.7723C6.27777 16.8356 6.38879 16.8673 6.49981 16.8673C6.61075 16.8673 6.72177 16.8356 6.81865 16.7723C6.88181 16.731 8.38364 15.7407 9.89884 13.9928C11.9276 11.6525 13 9.06172 13 6.50051C12.9999 2.91611 10.0839 0 6.49973 0ZM6.49973 15.5691C5.30431 14.6783 1.16535 11.25 1.16535 6.50051C1.16535 3.55868 3.55829 1.16535 6.49973 1.16535C9.44139 1.16535 11.8346 3.55868 11.8346 6.50051C11.8346 11.25 7.69523 14.6783 6.49973 15.5691Z" fill="#696969"/>
+                  <path d="M6.50007 3.91943C5.07756 3.91943 3.92029 5.07679 3.92029 6.49945C3.92029 7.92173 5.07756 9.07885 6.50007 9.07885C7.92258 9.07885 9.07978 7.92173 9.07978 6.49945C9.07978 5.07686 7.92251 3.91943 6.50007 3.91943ZM6.50007 7.91349C5.72014 7.91349 5.08564 7.27915 5.08564 6.49945C5.08564 5.71936 5.72014 5.08479 6.50007 5.08479C7.27993 5.08479 7.91443 5.71936 7.91443 6.49945C7.91443 7.27915 7.27993 7.91349 6.50007 7.91349Z" fill="#696969"/>
+                  </svg>
+                  <p>{{candidat.country}}</p>
+              </span>
+              <span class="info_item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <g clip-path="url(#clip0_3074_584)">
+                      <path d="M12.8033 2.19668C11.3867 0.780147 9.50332 0 7.5 0C5.49668 0 3.61327 0.780147 2.19668 2.19668C0.780147 3.61327 0 5.49668 0 7.5C0 9.50332 0.780147 11.3867 2.19668 12.8033C3.61327 14.2199 5.49668 15 7.5 15C8.87147 15 10.2134 14.6263 11.3807 13.9192C11.6575 13.7515 11.746 13.3912 11.5783 13.1144C11.4107 12.8376 11.0503 12.7492 10.7736 12.9168C9.78935 13.513 8.65737 13.8281 7.5 13.8281C4.01065 13.8281 1.17188 10.9893 1.17188 7.5C1.17188 4.01065 4.01065 1.17188 7.5 1.17188C10.9893 1.17188 13.8281 4.01065 13.8281 7.5C13.8281 8.74772 13.4571 9.96223 12.7551 11.0123C12.5752 11.2813 12.6475 11.6452 12.9165 11.825C13.1856 12.0049 13.5494 11.9326 13.7293 11.6636C14.5606 10.4201 15 8.9804 15 7.5C15 5.49668 14.2199 3.61327 12.8033 2.19668Z" fill="#696969"/>
+                      <path d="M7.50001 2.22656C7.1764 2.22656 6.91407 2.48889 6.91407 2.8125V7.25731L4.7655 9.40588C4.53666 9.63469 4.53666 10.0057 4.7655 10.2345C4.8799 10.3489 5.02985 10.4061 5.17982 10.4061C5.32979 10.4061 5.47973 10.3489 5.59413 10.2345L7.91432 7.91432C8.02422 7.80445 8.08594 7.65539 8.08594 7.5V2.8125C8.08594 2.48889 7.82362 2.22656 7.50001 2.22656Z" fill="#696969"/>
+                  </g>
+                  <defs>
+                      <clipPath id="clip0_3074_584">
+                      <rect width="15" height="15" fill="white"/>
+                      </clipPath>
+                  </defs>
+                  </svg>
+                  <p>{{candidat.member_since}}</p>
+              </span>
             </div>
             <div class="job_info">
               <a class="btn" routerLink="" routerLinkActive="active_lien_navbar"> Download CV </a>
@@ -59,7 +59,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 </section>
@@ -106,7 +105,7 @@
                     </svg>
                     <div class="date">
                       <p>Experience</p>
-                      <span>0-2 Years</span>
+                      <span>{{candidat.experience}} Years</span>
                     </div>
                   </div>
                   <div class="calendrier">
@@ -115,8 +114,8 @@
                       <path d="M8.50052 5.12549C6.64031 5.12549 5.12695 6.63895 5.12695 8.49936C5.12695 10.3593 6.64031 11.8724 8.50052 11.8724C10.3607 11.8724 11.874 10.3593 11.874 8.49936C11.874 6.63905 10.3606 5.12549 8.50052 5.12549ZM8.50052 10.3485C7.48061 10.3485 6.65088 9.51897 6.65088 8.49936C6.65088 7.47924 7.48061 6.64941 8.50052 6.64941C9.52033 6.64941 10.3501 7.47924 10.3501 8.49936C10.3501 9.51897 9.52033 10.3485 8.50052 10.3485Z" fill="#043356"/>
                     </svg>
                     <div class="date">
-                      <p>Age:</p>
-                      <span>28-33 Years </span>
+                      <p>Age</p>
+                      <span>{{candidat.age}} </span>
                     </div>
                   </div>
                   <div class="calendrier">
@@ -131,8 +130,8 @@
                       </defs>
                     </svg>
                     <div class="date">
-                      <p>Gender:</p>
-                      <span> Male</span>
+                      <p>Gender</p>
+                      <span> {{candidat.gender}}</span>
                     </div>
                   </div>
                   <div class="calendrier">
@@ -147,9 +146,9 @@
                         </clipPath>
                       </defs>
                     </svg>
-                    <div class="date">
-                      <p>Language:</p>
-                      <span>English, French</span>
+                    <div class="date" *ngFor="let language of candidat.language">
+                      <p>Language</p>
+                      <span>{{language}}</span>
                     </div>
                   </div>
                   <div class="calendrier">
@@ -164,8 +163,8 @@
                         </defs>
                       </svg>
                     <div class="date">
-                      <p>Education Level:</p>
-                      <span> Master Degree</span>
+                      <p>Education Level</p>
+                      <span>{{candidat.education_level}}</span>
                     </div>
                   </div>
                 </div>
@@ -176,10 +175,18 @@
                     <div class="inner_1">
                       <span> Social media</span>
                       <p class="social">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        <a style="text-decoration: none;color:#696969" href="https://www.linkedin.com/in/oumy-ndiaye-" target="_blank">
+                          <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a style="text-decoration: none;color:#696969" href="https://www.linkedin.com/in/oumy-ndiaye-" target="_blank">
+                          <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a style="text-decoration: none;color:#696969" href="https://www.linkedin.com/in/oumy-ndiaye-" target="_blank">
+                          <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a style="text-decoration: none;color:#696969" href="https://www.linkedin.com/in/oumy-ndiaye-" target="_blank">
+                          <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
                       </p>
                     </div>
                   </div>
@@ -207,12 +214,7 @@
             <div class="job_description">
               <p>Candidates About</p>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedLorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              </p>
-              <br/>
-              <p>
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedLorem Ipsum  is simply dummy text of the printing and typesetting industry.
+               {{candidat.biographical_info}}
               </p>
             </div>
             <div class="education">
@@ -232,17 +234,17 @@
                     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#FFFFFF" font-size="16" font-family="Arial, sans-serif">H</text>
                     </svg>
                   </span>
-                
                 </div>
                 <div class="">
-                  <div class="education_1">
+                  <div class="education_1" *ngFor="let education of candidat.educations">
                     <div class="head_education_1">
-                      <span>Bachlors in Fine Arts</span>
-                      <span class="time">2012 - 2014</span>
+                      <span>{{education.diploma}}</span>
+                      <span class="time">{{education.year}}</span>
                     </div>
-                    <p style="color: #D93025;font-size:15px;font-weight:bold">Modern College</p>
-                    <p style="color: #696969;font-size:15px;font-weight:bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                    <p style="color: #D93025;font-size:15px;font-weight:bold">{{education.school}}</p>
+                    <p style="color: #696969;font-size:15px;font-weight:bold">{{education.description}}</p>
                   </div>
+                  <!--
                   <div class="education_1">
                     <div class="head_education_1">
                       <span>Computer Science </span>
@@ -251,11 +253,9 @@
                     <p style="color: #D93025;font-size:15px;font-weight:bold">Harvard University</p>
                     <p style="color: #696969;font-size:15px;font-weight:bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                   </div>
+                  -->
                 </div>
               </div>
-             
-              
-             
             </div>
             <div class="work_experience">
               <p>Work & Experience</p>
@@ -277,14 +277,15 @@
                 
                 </div>
                 <div class="">
-                  <div class="education_1">
+                  <div class="education_1" *ngFor="let experience of candidat.experiences">
                     <div class="head_education_1">
-                      <span>Product Designer</span>
-                      <span class="time">2012 - 2014</span>
+                      <span>{{experience.company}}</span>
+                      <span class="time">{{experience.year}}</span>
                     </div>
-                    <p style="color: #043356;font-size:15px;font-weight:bold">Spotify Inc</p>
-                    <p style="color: #696969;font-size:15px;font-weight:bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                    <p style="color: #043356;font-size:15px;font-weight:bold">{{experience.job}}</p>
+                    <p style="color: #696969;font-size:15px;font-weight:bold">{{experience.description}}</p>
                   </div>
+                  <!--
                   <div class="education_1">
                     <div class="head_education_1">
                       <span>Sr UX Engineer </span>
@@ -293,16 +294,13 @@
                     <p style="color: #043356;font-size:15px;font-weight:bold">Dropbox Inc</p>
                     <p style="color: #696969;font-size:15px;font-weight:bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                   </div>
+                  -->
                 </div>
               </div>
-             
-              
-             
             </div>
-   
             <div class="share">
               <div class="social">
-                <a class="btn facebook" routerLink="" routerLinkActive="active_lien_navbar"> 
+                <a style="color: #FFF;" class="btn facebook" routerLink="" routerLinkActive="active_lien_navbar"> 
                     Download CV
                 </a>
               </div>

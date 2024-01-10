@@ -19,17 +19,29 @@ import { CategorieComponent } from './components/categories/categorie/categorie.
 import { DetailJobComponent } from './components/jobs/detail-job/detail-job.component';
 import { ListCandidatesComponent } from './components/candidates/list-candidates/list-candidates.component';
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
-import { DashboardCandidatComponent } from './components/dashboard-candidat/dashboard-candidat.component';
+import { DashboardCandidatComponent } from './components/candidates/dashboard-candidat/dashboard-candidat.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ChartDashbordComponent } from './components/chart-dashbord/chart-dashbord.component';
+import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
+import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  
+  { path: 'resume', component: ResumeCandidatComponent },
 
+  { path: 'profil', component: ProfilCandidatComponent },
+
+  { path: 'chart', component: ChartDashbordComponent },
+  
   { path: 'detail', component: DetailJobComponent },
 
   { path: 'list-candidat', component: ListCandidatesComponent },
 
-  { path: 'detail-candidat', component: DetailCandidatComponent },
+  { path: 'sidebar', component: SidebarComponent },
+  
+
+  { path: 'detail-candidat/:id', component: DetailCandidatComponent },
   
   { path: 'job', component: JobOneComponent },
 
@@ -37,13 +49,14 @@ const routes: Routes = [
 
   { path: 'categorie', component: CategorieComponent },
 
-  { path: 'job', component: JobOneComponent },
-
   { path: 'joba', component: JobTwoComponent },
   
   { path: '', component: HomeComponent },
 
   { path: 'about', component: AboutComponent },
+
+  { path: 'login', component: LoginComponent },
+
 
   { path: 'register', component: RegistrationComponent },
 
