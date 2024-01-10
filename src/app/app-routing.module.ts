@@ -21,6 +21,8 @@ import { ListCandidatesComponent } from './components/candidates/list-candidates
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
 import {BlogComponent} from "./components/blog/blog.component";
 import {DetailBlogComponent} from "./components/detail-blog/detail-blog.component";
+import { DashboardCandidatComponent } from './components/dashboard-candidat/dashboard-candidat.component';
+import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -33,7 +35,7 @@ const routes: Routes = [
 
   { path: 'job', component: JobOneComponent },
 
-  { path: 'joba', component: JobTwoComponent },
+  { path: 'dashboard-employer', component: DashboardEmployerComponent },
 
   { path: 'categorie', component: CategorieComponent },
 
@@ -55,14 +57,19 @@ const routes: Routes = [
 
   { path: 'emploi', component: CategoryEmploiComponent },
 
-
   { path: 'footer', component: FooterComponent },
 
   { path: 'reset-password', component: ResetPasswordComponent },
 
   { path: 'app', component: OurAppsComponent },
 
+  { path: 'dashboard-candidat', component: DashboardCandidatComponent },
+
   { path: 'skills-first', component: SkillsFirstComponent },
+
+  { path: 'blog', component: BlogComponent },
+
+  { path: 'detail-article', component: DetailBlogComponent },
 
   { path: 'blog', component: BlogComponent },
 
