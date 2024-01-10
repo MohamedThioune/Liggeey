@@ -19,6 +19,8 @@ import { CategorieComponent } from './components/categories/categorie/categorie.
 import { DetailJobComponent } from './components/jobs/detail-job/detail-job.component';
 import { ListCandidatesComponent } from './components/candidates/list-candidates/list-candidates.component';
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
+import {BlogComponent} from "./components/blog/blog.component";
+import {DetailBlogComponent} from "./components/detail-blog/detail-blog.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -61,6 +63,11 @@ const routes: Routes = [
   { path: 'app', component: OurAppsComponent },
 
   { path: 'skills-first', component: SkillsFirstComponent },
+
+  { path: 'blog', component: BlogComponent },
+
+  { path: 'detail-article', component: DetailBlogComponent },
+
   { path:'',redirectTo: '/login', pathMatch: 'full'}
 ];
 

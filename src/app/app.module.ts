@@ -32,6 +32,8 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { CandidatesComponent } from './components/candidates/candidates.component';
 import { ListCandidatesComponent } from './components/candidates/list-candidates/list-candidates.component';
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { DetailBlogComponent } from './components/detail-blog/detail-blog.component';
 
 
 @NgModule({
@@ -62,6 +64,8 @@ import { DetailCandidatComponent } from './components/candidates/detail-candidat
     CandidatesComponent,
     ListCandidatesComponent,
     DetailCandidatComponent,
+    BlogComponent,
+    DetailBlogComponent,
   ],
   imports: [
     BrowserModule,
