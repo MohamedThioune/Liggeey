@@ -1,3 +1,6 @@
+.dashboard{
+    background-color: #FFF;
+}
 /*left menu*/
 .left_menu{
     position: fixed;
@@ -56,6 +59,10 @@
 .content_right_menu{
     background-color: #FFF;
     height: fit-content;
+    margin-left: 14%;
+}
+.first_row{
+    margin:30px 0 16px ;
 }
 .image_job_applies{
     width: 70px;
@@ -169,6 +176,8 @@
     border: 1px solid  #ECEDF2;
     background: #FFF;
     padding: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
     
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);}
@@ -191,9 +200,8 @@
     background: #F0F5F7;
 }
 .content_map_menu{
-    display: block;
-    width: 100%;
     height: 500px;
+    width: 100%;
     border-radius: 8px;
     border: 1px solid  #ECEDF2;
     background: #FFF;
@@ -210,7 +218,7 @@
     border-radius: 8px;
     border: 1px solid #ECEDF2;
     background: #FFF;
-    margin-top: 48px;
+    margin:48px 15px 121px 15px;
 
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
@@ -343,26 +351,9 @@
     visibility:hidden;
 }
  @media all and (min-width: 300px) and (max-width: 767px){ 
-    /* .logo{
-        margin: 22px 11px 74px 12px;
-     }
-     .content_map_menu{
-        width: 300px;
-    }
-    .left_menu{
-        display: none;
-    }
-    .content_map_menu{
-        object-fit: contain;
-        width: 100%;
-    }
-    .all_info{
-        margin-bottom: 25px;
-    }
-  
-    .applicants ul{
+    .content_right_menu{
         margin: 0;
-     } */
+    }
      .logo{
         margin: 32px 11px 74px 12px;
         border-radius: 8px;
@@ -372,9 +363,6 @@
         border-radius: 8px;
         overflow: hidden;
      }
-     .content_map_menu{
-        width: 100%;
-    }
     /* .left_menu{
         width: 100%;
         display: none;
@@ -420,6 +408,7 @@
         visibility:visible;
         background-color: #DDF6F1;
         margin-top: 30px;
+        margin-left: 15px;
         color: #1AC4A2;
     }
     .content_map_menu{

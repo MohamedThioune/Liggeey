@@ -1,5 +1,4 @@
 <section>
-    <div class="container-fluid">
       <button class="show_sidebar" *ngIf="showButton" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>
       <div class="d-flex" style="width: 100%;">
         <div class="left_menu" [class.left_menu_show]="isSidebarVisible" [class.left_menu]="!isSidebarVisible">
@@ -354,13 +353,10 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn" routerLink="" routerLinkActive="active_lien_navbar">Save</a>
                 </div>
-                <!--
                 <div class="card-footer p-3  ">
-                    <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </button>      
+                    <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>      
                 </div>
-                -->
                         <div class="clear"></div><br />
               </form>
             </div>
@@ -414,6 +410,5 @@
             </div>
         </div>
       </div>
-    </div>
 </section>
 <app-footers></app-footers>

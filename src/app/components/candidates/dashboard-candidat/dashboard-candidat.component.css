@@ -63,6 +63,7 @@
 .right_menu{
     width: fit-content;
     margin-bottom: 121px;
+    margin-left: 15%;
 }
 .content_right_menu{
     background-color: #FFF;

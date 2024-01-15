@@ -1,6 +1,5 @@
 <app-header></app-header>
 <section style="background-color: #FFF;">
-    <div class="container-fluid">
       <button class="show_sidebar" *ngIf="showButton" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>
       <div class="d-flex" style="width: 100%;">
         <div class="left_menu" [class.left_menu_show]="isSidebarVisible" [class.left_menu]="!isSidebarVisible">
@@ -309,6 +308,5 @@
             </div>
         </div>
       </div>
-    </div>
 </section>
 <app-footers></app-footers>

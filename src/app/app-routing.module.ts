@@ -25,11 +25,72 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ChartDashbordComponent } from './components/chart-dashbord/chart-dashbord.component';
 import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { DetailBlogComponent } from './components/detail-blog/detail-blog.component';
+import { BlogComponent } from './components/blogs/blog/blog.component';
+import { DetailBlogComponent } from './components/blogs/detail-blog/detail-blog.component';
+import { AppliesJobsComponent } from './components/candidates/applies-jobs/applies-jobs.component';
+import { TopicCandidatComponent } from './components/candidates/topic-candidat/topic-candidat.component';
+import { BadgeCandidatComponent } from './components/badge-candidat/badge-candidat.component';
+import { CertificatCandidatComponent } from './components/certificat-candidat/certificat-candidat.component';
+import { SkillsCandidatComponent } from './components/skills-candidat/skills-candidat.component';
+import { AssessmentCandidatComponent } from './components/assessment-candidat/assessment-candidat.component';
+import { CourseCandidatComponent } from './components/course-candidat/course-candidat.component';
+import { ReviewCandidatComponent } from './components/review-candidat/review-candidat.component';
+import { JobAlertCandidatComponent } from './components/job-alert-candidat/job-alert-candidat.component';
+import { JobFavoriteCandidatComponent } from './components/job-favorite-candidat/job-favorite-candidat.component';
+import { CvCandidatComponent } from './components/cv-candidat/cv-candidat.component';
+import { ChangePasswordCandidatComponent } from './components/change-password-candidat/change-password-candidat.component';
+import { DeleteProfilCandidatComponent } from './components/delete-profil-candidat/delete-profil-candidat.component';
+import { ListCompagnyComponent } from './components/compagnies/list-compagny/list-compagny.component';
+import { DetailCompagnyComponent } from './components/compagnies/detail-compagny/detail-compagny.component';
+import { ProfilCompagnyComponent } from './components/profil-compagny/profil-compagny.component';
+import { DeleteProfilCompagnyComponent } from './components/delete-profil-compagny/delete-profil-compagny.component';
+import { ChangePasswordCompagnyComponent } from './components/change-password-compagny/change-password-compagny.component';
+import { ResumeAlertCompagnyComponent } from './components/resume-alert-compagny/resume-alert-compagny.component';
+import { ManageJobCompagnyComponent } from './components/manage-job-compagny/manage-job-compagny.component';
+import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/post-new-job-compagny.component';
 
 const routes: Routes = [
   
+  
+  
+  { path: 'post-compagny', component: PostNewJobCompagnyComponent },
+
+  { path: 'manage-compagny', component: ManageJobCompagnyComponent },
+
+  { path: 'resume-compagny', component: ResumeAlertCompagnyComponent },
+
+  { path: 'change-compagny', component: ChangePasswordCompagnyComponent },
+
+  { path: 'delete-compagny', component: DeleteProfilCompagnyComponent },
+
+  { path: 'profil-compagny', component: ProfilCompagnyComponent },
+
+  { path: 'list-compagny', component: ListCompagnyComponent },
+
+  { path: 'delete', component: DeleteProfilCandidatComponent }, 
+
+  { path: 'change', component: ChangePasswordCandidatComponent }, 
+
+  { path: 'cv', component: CvCandidatComponent }, 
+
+  { path: 'favorite', component: JobFavoriteCandidatComponent }, 
+
+  { path: 'alert', component: JobAlertCandidatComponent }, 
+
+  { path: 'review', component: ReviewCandidatComponent }, 
+
+  { path: 'course', component: CourseCandidatComponent }, 
+
+  { path: 'assessment', component: AssessmentCandidatComponent }, 
+
+  { path: 'skills', component: SkillsCandidatComponent }, 
+
+  { path: 'certificat', component: CertificatCandidatComponent }, 
+
+  { path: 'badge', component: BadgeCandidatComponent },
+
+  { path: 'topic', component: TopicCandidatComponent },
+
   { path: 'resume', component: ResumeCandidatComponent },
 
   { path: 'profil', component: ProfilCandidatComponent },
@@ -40,8 +101,11 @@ const routes: Routes = [
 
   { path: 'list-candidat', component: ListCandidatesComponent },
 
+  { path: 'applies', component: AppliesJobsComponent },
+
   { path: 'sidebar', component: SidebarComponent },
   
+  { path: 'detail-compagny', component: DetailCompagnyComponent },
 
   { path: 'detail-candidat/:id', component: DetailCandidatComponent },
   

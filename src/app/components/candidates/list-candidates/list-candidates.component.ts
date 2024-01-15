@@ -10,10 +10,10 @@ export class ListCandidatesComponent implements OnInit {
   categoriesTab:any
   topics:any
   sub:any
-candidates:any;
-activeTab: string = 'all';
-currentCategories: any[] = [];
-p: number = 1;
+  candidates:any;
+  activeTab: string = 'all';
+  currentCategories: any[] = [];
+  p: number = 1;
 
   constructor(private homeService:HomePageService) { }
 

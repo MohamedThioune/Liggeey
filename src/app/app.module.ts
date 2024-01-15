@@ -37,8 +37,31 @@ import { DashboardEmployerComponent } from './components/dashboard-employer/dash
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { DetailBlogComponent } from './components/detail-blog/detail-blog.component';
+import { BlogComponent } from './components/blogs/blog/blog.component';
+import { DetailBlogComponent } from './components/blogs/detail-blog/detail-blog.component';
+import { BlogsComponent } from './components/blogs/blogs.component';
+import { AppliesJobsComponent } from './components/candidates/applies-jobs/applies-jobs.component';
+import { TopicCandidatComponent } from './components/candidates/topic-candidat/topic-candidat.component';
+import { BadgeCandidatComponent } from './components/badge-candidat/badge-candidat.component';
+import { CertificatCandidatComponent } from './components/certificat-candidat/certificat-candidat.component';
+import { SkillsCandidatComponent } from './components/skills-candidat/skills-candidat.component';
+import { AssessmentCandidatComponent } from './components/assessment-candidat/assessment-candidat.component';
+import { CourseCandidatComponent } from './components/course-candidat/course-candidat.component';
+import { ReviewCandidatComponent } from './components/review-candidat/review-candidat.component';
+import { JobAlertCandidatComponent } from './components/job-alert-candidat/job-alert-candidat.component';
+import { JobFavoriteCandidatComponent } from './components/job-favorite-candidat/job-favorite-candidat.component';
+import { CvCandidatComponent } from './components/cv-candidat/cv-candidat.component';
+import { ChangePasswordCandidatComponent } from './components/change-password-candidat/change-password-candidat.component';
+import { DeleteProfilCandidatComponent } from './components/delete-profil-candidat/delete-profil-candidat.component';
+import { ListCompagnyComponent } from './components/compagnies/list-compagny/list-compagny.component';
+import { CompagniesComponent } from './components/compagnies/compagnies.component';
+import { DetailCompagnyComponent } from './components/compagnies/detail-compagny/detail-compagny.component';
+import { ProfilCompagnyComponent } from './components/profil-compagny/profil-compagny.component';
+import { DeleteProfilCompagnyComponent } from './components/delete-profil-compagny/delete-profil-compagny.component';
+import { ChangePasswordCompagnyComponent } from './components/change-password-compagny/change-password-compagny.component';
+import { ResumeAlertCompagnyComponent } from './components/resume-alert-compagny/resume-alert-compagny.component';
+import { ManageJobCompagnyComponent } from './components/manage-job-compagny/manage-job-compagny.component';
+import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/post-new-job-compagny.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +97,30 @@ import { DetailBlogComponent } from './components/detail-blog/detail-blog.compon
     ProfilCandidatComponent,
     ResumeCandidatComponent,
     BlogComponent,
-    DetailBlogComponent
+    DetailBlogComponent,
+    BlogsComponent,
+    AppliesJobsComponent,
+    TopicCandidatComponent,
+    BadgeCandidatComponent,
+    CertificatCandidatComponent,
+    SkillsCandidatComponent,
+    AssessmentCandidatComponent,
+    CourseCandidatComponent,
+    ReviewCandidatComponent,
+    JobAlertCandidatComponent,
+    JobFavoriteCandidatComponent,
+    CvCandidatComponent,
+    ChangePasswordCandidatComponent,
+    DeleteProfilCandidatComponent,
+    ListCompagnyComponent,
+    CompagniesComponent,
+    DetailCompagnyComponent,
+    ProfilCompagnyComponent,
+    DeleteProfilCompagnyComponent,
+    ChangePasswordCompagnyComponent,
+    ResumeAlertCompagnyComponent,
+    ManageJobCompagnyComponent,
+    PostNewJobCompagnyComponent,
   ],
   imports: [
     BrowserModule,
