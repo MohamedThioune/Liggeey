@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomePageService } from 'src/app/services/home-page.service';
 
 @Component({
   selector: 'app-categorie',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategorieComponent implements OnInit {
   someArrayOfThings!:any
+  categories:any;
+
+  constructor(private homeService:HomePageService) {}
   ngOnInit(): void {
+    this.homeService.getInfoHomepage().subscribe((data:any)=>{
+      this.categories=data.categories
+      console.log(this.categories);
+      
+    })
   }
-  constructor() {}
   p: number = 1;
   collection: any[] = this.someArrayOfThings=[
     {

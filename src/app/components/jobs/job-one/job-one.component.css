@@ -170,8 +170,15 @@ input[type="search"]:focus {
    border: none;
   }
  .description_job .bookmark_hidden{
-   display: none;
+   position: absolute;
+   bottom: -40px;
+   right: 370px;
 }
+.description_job .bookmark_hidden button{
+   text-align: center;
+   font-size: 16px; /* Ajustez la taille de la police au besoin */
+   border: none;
+  }
  .description_job span{
     color: #202124;
     font-size: 18px;
@@ -539,12 +546,10 @@ font-weight: 400;
       padding-top:20px ;
       padding-bottom: 20px;
    }
-   
    .search_about button{
       padding: 17px 22px 15px 20px;
     }
-   
-      .image_menu_about h2{
-         font-size: 27px;
-      }
+   .image_menu_about h2{
+      font-size: 27px;
+   }
    }
