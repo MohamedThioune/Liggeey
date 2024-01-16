@@ -301,7 +301,7 @@
     <div class="candidat_featured">
       <div class="row candidat_featured_">
         <div class="col-md-3 item" *ngFor="let candidate of candidates">
-            <div class="content_candidate">
+            <div class="content_candidate"  [routerLink]="['/detail-candidat',candidate.ID]">
               <div class="content_image_candidate">
                 <img [src]=candidate.image alt="Image Of Candidate">
               </div>

@@ -36,7 +36,7 @@
             <button class="btn" routerLinkActive="active_lien_navbar">Find Resume</button>
           </div>
     </form>
-    </div>
+  </div>
 </section>
 <section class="featured_candidates">
     <div class="container-fluid">
@@ -51,7 +51,7 @@
         <div class="row" style="margin-bottom: 100px;">
           <div class="col-md-4 item" *ngFor="let candidate of candidates | paginate: { itemsPerPage: 9, currentPage: p }"  >
               <div class="content_candidate">
-                <div class="content_image_candidate">
+                <div class="content_image_candidate" [routerLink]="['/detail-candidat',candidate.ID]">
                   <img [src]=candidate.image alt="Image Of Candidate">
                 </div>
                 <div class="info_candidat">
@@ -69,7 +69,7 @@
                     <p>Design</p>
                     <p>Digital</p>
                   </div>
-                  <a class="btn" routerLink="register" routerLinkActive="active_lien_navbar">Register Account</a>
+                  <a class="btn" [routerLink]="['register']" routerLinkActive="active_lien_navbar">Register Account</a>
                 </div>
               </div>
           </div>
@@ -79,5 +79,5 @@
       </div>
     </div>
     </div>
-  </section>
+</section>
   <app-footers></app-footers>

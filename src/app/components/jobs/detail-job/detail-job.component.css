@@ -45,6 +45,7 @@
 
  .description_job .info{
     display: flex;
+    flex-wrap: wrap;
  }
  .description_job .info .info_item{
     display: flex;
@@ -262,6 +263,7 @@
 }
 .description_job_1 .info{
    display: flex;
+   flex-wrap: wrap;
    padding-top: 14px;
 }
 .description_job_1 .info .info_item{
@@ -437,4 +439,18 @@
       margin: 32px 11px 0 12px;
 
    }
+   .sidebar .top_sidebar .location .content_maps{
+      width: 250px;
+      height: 250px;
+      position: relative;
+   }
+   .sidebar .top_sidebar .skills{
+      display: none;
+      flex-wrap: wrap;
+   }
+   .description_job_1 .bookmark{
+      display: none;
+      position: absolute;
+      right: 40px; 
+    }
 }
