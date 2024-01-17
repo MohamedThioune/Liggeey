@@ -10,15 +10,17 @@ export class ListCompagnyComponent implements OnInit {
   categoriesTab:any
   topics:any
   sub:any
-  candidates:any;
+  employers:any;
   activeTab: string = 'all';
   currentCategories: any[] = [];
   p: number = 1;
   constructor(private homeService:HomePageService) { }
 
   ngOnInit(): void {
-    this.homeService.getInfoHomepage().subscribe((data:any)=>{
-      this.candidates=data.candidates      
+    this.homeService.getAllCompagny().subscribe((data:any)=>{
+      this.employers=data  
+      console.log(this.employers);
+          
     })
   }
 

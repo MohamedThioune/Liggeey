@@ -97,7 +97,7 @@ const routes: Routes = [
 
   { path: 'chart', component: ChartDashbordComponent },
   
-  { path: 'detail', component: DetailJobComponent },
+  { path: 'detail-job/:id', component: DetailJobComponent },
 
   { path: 'list-candidat', component: ListCandidatesComponent },
 
@@ -105,7 +105,7 @@ const routes: Routes = [
 
   { path: 'sidebar', component: SidebarComponent },
   
-  { path: 'detail-compagny', component: DetailCompagnyComponent },
+  { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
 
   { path: 'detail-candidat/:id', component: DetailCandidatComponent },
   
