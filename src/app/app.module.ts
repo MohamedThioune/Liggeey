@@ -62,6 +62,7 @@ import { ChangePasswordCompagnyComponent } from './components/change-password-co
 import { ResumeAlertCompagnyComponent } from './components/resume-alert-compagny/resume-alert-compagny.component';
 import { ManageJobCompagnyComponent } from './components/manage-job-compagny/manage-job-compagny.component';
 import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/post-new-job-compagny.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +122,7 @@ import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/
     ResumeAlertCompagnyComponent,
     ManageJobCompagnyComponent,
     PostNewJobCompagnyComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
