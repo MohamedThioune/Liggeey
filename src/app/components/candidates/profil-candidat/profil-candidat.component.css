@@ -207,7 +207,6 @@
    .form-control {
      border-radius: 8px;
      padding:17px 82px 15px 21px;
-     height: 56px;
      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
      background-color: #F0F5F7;
      border: none;
@@ -353,6 +352,7 @@
         width: fit-content;
         visibility: visible;
         margin-bottom: 30px;
+        margin-left: 0;
     }
     .all_info{
         margin-bottom: 25px;

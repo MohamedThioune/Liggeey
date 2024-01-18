@@ -48,11 +48,18 @@ import { ChangePasswordCompagnyComponent } from './components/change-password-co
 import { ResumeAlertCompagnyComponent } from './components/resume-alert-compagny/resume-alert-compagny.component';
 import { ManageJobCompagnyComponent } from './components/manage-job-compagny/manage-job-compagny.component';
 import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/post-new-job-compagny.component';
+import {ContactComponent} from "./components/contact/contact.component";
+import { PassportAllCandidatComponent } from './components/passport-all-candidat/passport-all-candidat.component';
+import { AppicantsAllCompagnyComponent } from './components/appicants-all-compagny/appicants-all-compagny.component';
 
 const routes: Routes = [
+
   
   
-  
+  { path: 'applicant', component: AppicantsAllCompagnyComponent },
+
+  { path: 'passport', component: PassportAllCandidatComponent },
+
   { path: 'post-compagny', component: PostNewJobCompagnyComponent },
 
   { path: 'manage-compagny', component: ManageJobCompagnyComponent },
@@ -67,25 +74,25 @@ const routes: Routes = [
 
   { path: 'list-compagny', component: ListCompagnyComponent },
 
-  { path: 'delete', component: DeleteProfilCandidatComponent }, 
+  { path: 'delete', component: DeleteProfilCandidatComponent },
 
-  { path: 'change', component: ChangePasswordCandidatComponent }, 
+  { path: 'change', component: ChangePasswordCandidatComponent },
 
-  { path: 'cv', component: CvCandidatComponent }, 
+  { path: 'cv', component: CvCandidatComponent },
 
-  { path: 'favorite', component: JobFavoriteCandidatComponent }, 
+  { path: 'favorite', component: JobFavoriteCandidatComponent },
 
-  { path: 'alert', component: JobAlertCandidatComponent }, 
+  { path: 'alert', component: JobAlertCandidatComponent },
 
-  { path: 'review', component: ReviewCandidatComponent }, 
+  { path: 'review', component: ReviewCandidatComponent },
 
-  { path: 'course', component: CourseCandidatComponent }, 
+  { path: 'course', component: CourseCandidatComponent },
 
-  { path: 'assessment', component: AssessmentCandidatComponent }, 
+  { path: 'assessment', component: AssessmentCandidatComponent },
 
-  { path: 'skills', component: SkillsCandidatComponent }, 
+  { path: 'skills', component: SkillsCandidatComponent },
 
-  { path: 'certificat', component: CertificatCandidatComponent }, 
+  { path: 'certificat', component: CertificatCandidatComponent },
 
   { path: 'badge', component: BadgeCandidatComponent },
 
@@ -108,7 +115,7 @@ const routes: Routes = [
   { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
 
   { path: 'detail-candidat/:id', component: DetailCandidatComponent },
-  
+
   { path: 'job', component: JobOneComponent },
 
   { path: 'dashboard-employer', component: DashboardEmployerComponent },
@@ -116,7 +123,7 @@ const routes: Routes = [
   { path: 'categorie', component: CategorieComponent },
 
   { path: 'joba', component: JobTwoComponent },
-  
+
   { path: '', component: HomeComponent },
 
   { path: 'about', component: AboutComponent },
@@ -146,7 +153,9 @@ const routes: Routes = [
 
   { path: 'blog', component: BlogComponent },
 
-  { path: 'detail-article', component: DetailBlogComponent },
+  { path: 'detail-article/:id', component: DetailBlogComponent },
+
+  { path: 'contact', component: ContactComponent },
 
   { path:'',redirectTo: '/login', pathMatch: 'full'}
 ];

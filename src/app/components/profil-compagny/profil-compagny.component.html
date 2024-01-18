@@ -342,8 +342,12 @@
                               <p>*</p>
                           </label>
                           <div class="input-group">
-                              <input type="email" name="email" class="form-control" id="email" placeholder="Sénégal"
-                                  formControlName="email">
+                            <select class="form-control fieldSelect" id="nature" formControlName="nature">
+                              <option value="">---</option>
+                              <option>
+                                Senegal
+                              </option>
+                            </select>
                           </div>
                       </div>
                       <div class="col-md-6 col-sm-6   p-2">
@@ -351,18 +355,22 @@
                               <p>*</p>
                           </label>
                           <div class="input-group">
-                              <input type="text" name="password" class="form-control" id="password" placeholder="Dakar"
-                                  formControlName="password">
+                            <select class="form-control fieldSelect" id="nature" formControlName="nature">
+                              <option value="">---</option>
+                              <option>
+                                Dakar
+                              </option>
+                          </select>>
                           </div>
                       </div>
                   </div>
-                  <div class="row g-3" style="width:100%">
+                  <div class="row g-3">
                       <div class="col-md-12 col-sm-12 p-2">
                           <label for="firstName">Complete Address
                               <p>*</p>
                           </label>
                           <div class="input-group">
-                              <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Dakar ouakam"
+                              <input type="text" name="firstName" class="form-control" id="firstName" placeholder="329 Queensberry Street, North Melbourne VIC 3051, Australia."
                                   formControlName="firstName">
                           </div>
                       </div>

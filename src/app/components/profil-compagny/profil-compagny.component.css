@@ -79,7 +79,7 @@
     font-size: 30px;
     font-weight: 600;
 }
-.content_right_menu p:first-child{
+.content_right_menu p:nth-child(2){
     color: #696969;
     font-size: 15px;
     font-weight: 600;
@@ -220,7 +220,6 @@
      border-radius: 8px;
      padding:17px 82px 15px 21px;
      height: 56px;
-     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
      background-color: #F0F5F7;
      border: none;
      width: 688.438px;

@@ -180,7 +180,25 @@
                 <div class="cv_upload">
                     <p>Drop files here to upload</p>
                     <p>To upload file size is (Max 5Mb) and allowed file types are (.doc, .docx, .pdf)</p>
-                    <a class="btn" routerLink="" routerLinkActive="active_lien_navbar"> Upload Resume </a>
+                    <form>
+                      <div class="card-body">
+                          <div class="row">
+                              <div class="col-md-6 col-sm-6 p-2" style="margin: 0 auto;">
+                                  <div class="input-group">
+                                      <input type="file" name="file" class="form-control" id="file" placeholder="My CV"
+                                          formControlName="file">
+                                  </div>
+                              </div>
+                            
+                          </div> 
+                      </div>
+                      <!--
+                      <div class="card-footer p-3  ">
+                          <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </button>      
+                      </div>
+                      -->
+                              <div class="clear"></div><br />
+                  </form>                  <!-- <a class="btn" routerLink="" routerLinkActive="active_lien_navbar"> Upload Resume </a> --> 
                 </div>
                 <div class="row">
                     <div class="col-md-3 cv">
