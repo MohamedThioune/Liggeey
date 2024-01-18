@@ -66,13 +66,7 @@
     margin-bottom: 121px;
 }
 .content_right_menu{
-    background-color: #FFF;
-    height: fit-content;
-    border-radius: 8px;
-    border: 1px solid #ECEDF2;
-    margin-left: 16%;
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+
 }
 
 .map_menu{
@@ -109,20 +103,20 @@
     border-radius: 0;
     display: flex;
   }
-  
+
   /* Label styling */
   label {
     font-weight: bold;
     margin-bottom: 6px;
     display: flex;
     color: #202124;
-    
+
   }
   /* Add margin and spacing */
   .m-4 {
     margin: 1.5rem;
   }
-  
+
   /* Clear float */
   .clear {
     clear: both;
@@ -138,7 +132,7 @@
     border-radius: 8px;
     width: 80%;
   }
-  
+
   /* Optional styles for the text with asterisk (*) */
 label p {
     font-weight: bold;
@@ -210,7 +204,7 @@ label p {
   padding: 0 30px;
 }
 .education .header_education .add {
-  display: flex;  
+  display: flex;
 }
 .education .header_education .add p{
   color: #D93025;
@@ -280,7 +274,7 @@ label p {
   padding: 0 30px;
 }
 .work .header_work .add {
-  display: flex;  
+  display: flex;
 }
 .work .header_work .add p{
   color: #D93025;
@@ -350,7 +344,7 @@ label p {
   padding: 0 30px;
 }
 .awards .header_awards .add {
-  display: flex;  
+  display: flex;
 }
 .awards .header_awards .add p{
   color: #D93025;
@@ -420,7 +414,7 @@ label p {
   padding: 0 30px;
 }
 .skills .header_skills .add {
-  display: flex;  
+  display: flex;
 }
 .skills .header_skills .add p{
   color: #D93025;
@@ -438,7 +432,7 @@ label p {
   margin: 0 130px 0 25px;
   background-color: #F5F7FC;
   padding: 23px 0 69px 25px;
-  
+
 }
 .skills .content_skills p{
   color: #043356;
@@ -473,7 +467,7 @@ label p {
     visibility:hidden;
 }
 
- @media all and (min-width: 300px) and (max-width: 767px){ 
+ @media all and (min-width: 300px) and (max-width: 767px){
     .logo{
         margin: 32px 11px 74px 12px;
         border-radius: 8px;
@@ -498,7 +492,7 @@ label p {
         margin-top: 30px;
         color: #1AC4A2;
     }
-   
+
     .close{
         visibility: visible;
         background-color: #F0F5F7;
@@ -521,7 +515,7 @@ label p {
         width: fit-content;
         visibility: visible;
         margin-bottom: 30px;
-        
+
     }
     .all_info{
         margin-bottom: 25px;

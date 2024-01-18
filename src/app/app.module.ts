@@ -63,6 +63,8 @@ import { ResumeAlertCompagnyComponent } from './components/resume-alert-compagny
 import { ManageJobCompagnyComponent } from './components/manage-job-compagny/manage-job-compagny.component';
 import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/post-new-job-compagny.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-candidat.component';
+import { SidebarCompanyComponent } from './components/sidebar-company/sidebar-company.component';
 
 @NgModule({
   declarations: [
@@ -123,6 +125,8 @@ import { ContactComponent } from './components/contact/contact.component';
     ManageJobCompagnyComponent,
     PostNewJobCompagnyComponent,
     ContactComponent,
+    SidebarCandidatComponent,
+    SidebarCompanyComponent,
   ],
   imports: [
     BrowserModule,

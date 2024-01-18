@@ -63,15 +63,6 @@
 .right_menu{
     width: 100%;
     margin-bottom: 121px;
-    margin-left: 15%;
-}
-.content_right_menu{
-    background-color: #FFF;
-    height: fit-content;
-    border-radius: 8px;
-    /*border: 1px solid #ECEDF2;*/
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
 .content_right_menu span:first-child{
   color:  #202124;
@@ -80,8 +71,8 @@
 }
 .map_menu{
     border-radius: 8px;
-    margin-top: 56px;
-    border: 1px solid  #ECEDF2; 
+    margin-top: 35px;
+    border: 1px solid  #ECEDF2;
     background: #FFF;
     padding: 30px;
     width: 100%;
@@ -147,7 +138,7 @@
  .show_sidebar{
     visibility:hidden;
 }
- @media all and (min-width: 300px) and (max-width: 767px){ 
+ @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     margin: 32px 11px 74px 12px;
     border-radius: 8px;

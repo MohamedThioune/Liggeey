@@ -105,7 +105,7 @@ export class DashboardCandidatComponent implements OnInit {
       "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"Php"
     }
-  ]; 
+  ];
   constructor() { }
 
   ngOnInit(): void {
