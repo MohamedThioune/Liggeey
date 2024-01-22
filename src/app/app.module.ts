@@ -1,4 +1,4 @@
-import { NgModule,NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule,NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -34,7 +34,6 @@ import { ListCandidatesComponent } from './components/candidates/list-candidates
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
 import { DashboardCandidatComponent } from './components/candidates/dashboard-candidat/dashboard-candidat.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
 import { BlogComponent } from './components/blogs/blog/blog.component';
@@ -65,6 +64,8 @@ import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/
 import { ContactComponent } from './components/contact/contact.component';
 import { PassportAllCandidatComponent } from './components/passport-all-candidat/passport-all-candidat.component';
 import { AppicantsAllCompagnyComponent } from './components/appicants-all-compagny/appicants-all-compagny.component';
+import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-candidat.component';
+import { SidebarCompanyComponent } from './components/sidebar-company/sidebar-company.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,6 @@ import { AppicantsAllCompagnyComponent } from './components/appicants-all-compag
     DetailCandidatComponent,
     DashboardCandidatComponent,
     DashboardEmployerComponent,
-    SidebarComponent,
     ProfilCandidatComponent,
     ResumeCandidatComponent,
     BlogComponent,
@@ -127,6 +127,8 @@ import { AppicantsAllCompagnyComponent } from './components/appicants-all-compag
     ContactComponent,
     PassportAllCandidatComponent,
     AppicantsAllCompagnyComponent,
+    SidebarCandidatComponent,
+    SidebarCompanyComponent,
   ],
   imports: [
     BrowserModule,
@@ -138,6 +140,7 @@ import { AppicantsAllCompagnyComponent } from './components/appicants-all-compag
   ],
   schemas: [
     NO_ERRORS_SCHEMA, // Ignorer les erreurs de schéma dans ce module
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]

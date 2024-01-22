@@ -21,7 +21,6 @@ import { ListCandidatesComponent } from './components/candidates/list-candidates
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
 import { DashboardCandidatComponent } from './components/candidates/dashboard-candidat/dashboard-candidat.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ChartDashbordComponent } from './components/chart-dashbord/chart-dashbord.component';
 import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
@@ -51,11 +50,15 @@ import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/
 import {ContactComponent} from "./components/contact/contact.component";
 import { PassportAllCandidatComponent } from './components/passport-all-candidat/passport-all-candidat.component';
 import { AppicantsAllCompagnyComponent } from './components/appicants-all-compagny/appicants-all-compagny.component';
+import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-candidat.component';
+import { SidebarCompanyComponent } from './components/sidebar-company/sidebar-company.component';
 
 const routes: Routes = [
 
   
   
+  { path: 'side', component: SidebarCompanyComponent },
+
   { path: 'applicant', component: AppicantsAllCompagnyComponent },
 
   { path: 'passport', component: PassportAllCandidatComponent },
@@ -110,7 +113,7 @@ const routes: Routes = [
 
   { path: 'applies', component: AppliesJobsComponent },
 
-  { path: 'sidebar', component: SidebarComponent },
+  { path: 'sidebar', component: SidebarCandidatComponent },
   
   { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
 

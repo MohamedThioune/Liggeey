@@ -63,7 +63,6 @@
 .right_menu{
     width: 100%;
     margin-bottom: 121px;
-    margin-left: 15%;
 }
 .content_right_menu{
     background-color: #FFF;
@@ -259,8 +258,11 @@
     font-weight: 600;
     margin-bottom: 17px;
 }
-.livraison .detail p{
-    margin: 0;
+.livraison .detail a{
+    color: #47A99E;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
 }
 .livraison .all_items{
     display: flex;
@@ -348,11 +350,6 @@
 
 
  /*****************************************************badge********************************************************/
-.right_menu{
-    width: 100%;
-    margin-bottom: 121px;
-    margin-left: 15%;
-}
 .content_right_menu{
     background-color: #FFF;
     height: fit-content;
@@ -513,12 +510,13 @@
     font-size: 23px;
     font-weight: 600;
 }
-.badge_certificate p:last-child{
+.badge_certificate a{
     color:  #1AC4A2;
     font-size: 19px;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
+    text-decoration: none;
 }
 .livraison{
     border-radius: 4px;
@@ -573,9 +571,11 @@
     color: #043356;
     font-size: 20px;
 }
-.livraison .detail-badge p:last-child{
+.livraison .detail-badge a{
     color: #47A99E;
     font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
 }
 .livraison .detail-badge p{
     margin: 0;
@@ -636,12 +636,7 @@
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
-.right_menu{
-    width: fit-content;
-    visibility: visible;
-    margin-bottom: 30px;
-    margin-left: 0;
-}
+
 .head_map_menu span{
     font-size: 20px;
 }
@@ -660,11 +655,6 @@
  }
 
  /**********************skills*************************************************/
-.right_menu{
-    width: 100%;
-    margin-bottom: 121px;
-    margin-left: 15%;
-}
 .content_right_menu{
     background-color: #FFF;
     height: fit-content;
@@ -897,12 +887,7 @@
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
-.right_menu{
-    width: fit-content;
-    visibility: visible;
-    margin-bottom: 30px;
-    margin-left: 0;
-}
+
 .head_map_menu span{
     font-size: 20px;
 }
@@ -919,11 +904,7 @@
 
  }
  /**************************assessment**************************************************/
-.right_menu{
-    width: 100%;
-    margin-bottom: 121px;
-    margin-left: 15%;
-}
+
 .content_right_menu{
     background-color: #FFF;
     height: fit-content;
@@ -1157,12 +1138,7 @@ table tbody tr th {
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
-.right_menu{
-    width: fit-content;
-    visibility: visible;
-    margin-bottom: 30px;
-    margin-left: 0;
-}
+
 .head_map_menu span{
     font-size: 20px;
 }
@@ -1180,11 +1156,6 @@ table tbody tr th {
 
  }
  /************************prefered course ***********************************/
-.right_menu{
-    width: 100%;
-    margin-bottom: 121px;
-    margin-left: 15%;
-}
 .content_right_menu{
     background-color: #FFF;
     height: fit-content;
@@ -1433,12 +1404,7 @@ table tbody tr th {
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
-.right_menu{
-    width: fit-content;
-    visibility: visible;
-    margin-bottom: 30px;
-    margin-left: 0;
-}
+
 .head_map_menu span{
     font-size: 20px;
 }
@@ -1456,11 +1422,6 @@ table tbody tr th {
 
  }
  /********************review***************************/
-.right_menu{
-    width: 100%;
-    margin-bottom: 121px;
-    margin-left: 15%;
-}
 .content_right_menu{
     background-color: #FFF;
     height: fit-content;
@@ -1702,12 +1663,7 @@ table tbody tr th {
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
-.right_menu{
-    width: fit-content;
-    visibility: visible;
-    margin-bottom: 30px;
-    margin-left: 0;
-}
+
 .head_map_menu span{
     font-size: 20px;
 }

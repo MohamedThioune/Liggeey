@@ -61,17 +61,7 @@
     line-height: 50px;
 }
 .right_menu{
-    width: 100%;
     margin-bottom: 121px;
-    margin-left: 15%;
-}
-.content_right_menu{
-    background-color: #FFF;
-    height: fit-content;
-    border-radius: 8px;
-    /*border: 1px solid #ECEDF2;*/
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
 .content_right_menu span:first-child{
   color:  #202124;
@@ -80,8 +70,8 @@
 }
 .map_menu{
     border-radius: 8px;
-    margin-top: 56px;
-    border: 1px solid  #ECEDF2; 
+    margin-top: 35px;
+    border: 1px solid  #ECEDF2;
     background: #FFF;
     padding: 30px;
     width: 100%;
@@ -122,7 +112,31 @@
     border-radius: 0;
     display: flex;
   }
-  
+  /* Masquer le champ de fichier réel */
+.input-group input[type="file"] {
+  display: none;
+}
+.input-group{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+/* Styliser le bouton de remplacement */
+.input-group label {
+  background-color: #3498db; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur du texte */
+  padding: 10px 15px; /* Espacement intérieur */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de pointage au survol */
+  display: inline-block;
+}
+
+/* Style facultatif pour indiquer que le bouton est cliquable */
+.input-group label:hover {
+  background-color: #2980b9; /* Couleur de fond au survol */
+}
+
   /* Label styling */
   label {
     font-weight: bold;
@@ -207,7 +221,7 @@ label p {
  .show_sidebar{
     visibility:hidden;
 }
- @media all and (min-width: 300px) and (max-width: 767px){ 
+ @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     margin: 32px 11px 74px 12px;
     border-radius: 8px;
