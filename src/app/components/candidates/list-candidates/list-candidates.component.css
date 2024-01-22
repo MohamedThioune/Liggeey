@@ -4,6 +4,9 @@
    background-color: #F3F5FB;
    padding: 150px;
   }
+a{
+    text-decoration: none;
+}
 
    .search_about{
     display: flex;
@@ -101,12 +104,12 @@ input[type="search"]:focus {
     color: #5B5B6C;
     text-decoration: underline;
 }
-
 .content_candidate{
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
     text-align: center;
     padding: 31px  30px;
     border-radius: 8px;
-    border: 1px solid #ECEDF2;
     background: #FFF;
     margin-bottom: 16px;
     /* Shadow / 1 */

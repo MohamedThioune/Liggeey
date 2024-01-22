@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomePageService } from 'src/app/services/home-page.service';
 
 @Component({
   selector: 'app-job-one',
@@ -9,6 +10,7 @@ export class JobOneComponent implements OnInit {
   someArrayOfThings!:any
   currentColor: string = '#ECEDF2';
   isClass1Visible = true;
+  artikels:any
 
   changeColor() {
     this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
@@ -16,10 +18,15 @@ export class JobOneComponent implements OnInit {
   currentChangeColor() {
     this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
   }
+  constructor(private homeService:HomePageService) {}
   ngOnInit(): void {
+    this.homeService.getInfoHomepage().subscribe((data:any)=>{  
+      this.artikels=data.artikels
+      console.log(this.artikels, this.artikels.length);
+
+    })
   }
   
-  constructor() {}
   p: number = 1;
   collection: any[] = this.someArrayOfThings=[
     {
