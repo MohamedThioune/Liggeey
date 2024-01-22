@@ -4,7 +4,6 @@
     margin-bottom: 121px;
 }
 .content_right_menu{
-
 }
 
 .map_menu{
@@ -44,20 +43,17 @@
     border-radius: 0;
     display: flex;
   }
-
   /* Label styling */
   label {
     font-weight: bold;
     margin-bottom: 6px;
     display: flex;
     color: #202124;
-
   }
   /* Add margin and spacing */
   .m-4 {
     margin: 1.5rem;
   }
-
   /* Clear float */
   .clear {
     clear: both;
@@ -73,7 +69,6 @@
     border-radius: 8px;
     width: 80%;
   }
-
   /* Optional styles for the text with asterisk (*) */
 label p {
     font-weight: bold;
@@ -373,7 +368,6 @@ label p {
   margin: 0 130px 0 25px;
   background-color: #F5F7FC;
   padding: 23px 0 69px 25px;
-
 }
 .skills .content_skills p{
   color: #043356;

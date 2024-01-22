@@ -1,5 +1,4 @@
 import { Component, OnInit ,HostListener} from '@angular/core';
-import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-applies-jobs',

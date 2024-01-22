@@ -1,6 +1,56 @@
+/*left menu*/
+.left_menu{
+   /* border: 1px solid #ECEDF2;*/
+   border: 1px solid red;
+    background: #FFF;
+    width: 20%;
+    margin-right: 30px;
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
 
+.content_left_menu ul {
+    top: 0;
+    padding-left: 0;
+    padding-top: 74px;
+}
+.content_left_menu ul li{
+    display: flex;
+    align-items: center;
+    padding: 8px 0 6px 17px;
+    margin-left: 20px;
+    margin-right: 14px;
+    color: #696969;
+    background-color: #FFF;
+    margin-bottom: 13px;
+    cursor: pointer;
+}
+.content_left_menu ul li a{
+    display: flex;
+    border: none;
+    background-color:transparent;
+    text-decoration:none;
+    align-items:center
+}
+.content_left_menu ul li:hover {
+  background-color: #E6EBEF;
+  color: #043356;
+  border-radius: 8px;
+}
+.content_left_menu ul li svg{
+    margin-right: 21px;
+}
+.content_left_menu ul li:hover svg path {
+    fill: #043356; /* Changez cette couleur selon vos besoins */
+  }
+.content_left_menu ul li p{
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 50px;
+}
 .right_menu{
-    margin-bottom: 121px;
+    width: fit-content;
 }
 .content_right_menu{
     background-color: #FFF;
@@ -9,6 +59,7 @@
 .image_job_applies{
     width: 70px;
     height: 70px;
+    flex-shrink: 0;
     background-color: #E6EBEF;
     border-radius: 8px;
 }
@@ -37,6 +88,7 @@
 .image_job_alert{
     width: 70px;
     height: 70px;
+    flex-shrink: 0;
     background-color: #FCEBEA;
     border-radius: 8px;
     display: flex;
@@ -73,6 +125,7 @@
 .image_job_favorites{
     width: 70px;
     height: 70px;
+    flex-shrink: 0;
     background-color: #DDF6F1;
     border-radius: 8px;
 }
@@ -104,6 +157,7 @@
     border: 1px solid  #ECEDF2;
     background: #FFF;
     padding: 30px;
+    
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);}
 .head_map_menu{
@@ -119,19 +173,25 @@
     color: #696969;
     font-size: 14px;
     font-weight: 400;
+    line-height: normal;
     padding: 15px 47px 14px 22px;
     border-radius: 8px;
     background: #F0F5F7;
 }
 .content_map_menu{
-    max-width: 1540px;
-    height: 375px;
+    width: 1000px;
+    height: 500px;
     border-radius: 8px;
     border: 1px solid  #ECEDF2;
     background: #FFF;
     margin-top: 35px;
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.content_map_menu img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 .applicants{
     border-radius: 8px;
@@ -264,11 +324,8 @@
  .description_job .all_info{
     display: flex;
  }
- .show_sidebar{
-    visibility:hidden;
-  }
 
- @media all and (min-width: 300px) and (max-width: 767px){
+ @media all and (min-width: 300px) and (max-width: 767px){ 
     .logo{
         margin: 32px 11px 74px 12px;
         border-radius: 8px;
@@ -279,17 +336,21 @@
         overflow: hidden;
      }
      .content_map_menu{
-        max-width: 500px;
+        width: 100%;
+    }
+    .left_menu{
+        width: 100%;
+        display: none;
+    }
+    .show_sidebar{
+        visibility:visible;
     }
     .right_menu{
-        visibility: visible;
-        margin-bottom: 30px;
+        /*display: none;*/
     }
-    .right_menu_show{
-        visibility: visible;
-    }
-    .left_menu_show{
-        display: none;
+    .content_map_menu{
+        object-fit: contain;
+        width: 100%;
     }
     .all_info{
         margin-bottom: 25px;
@@ -297,15 +358,4 @@
     .applicants ul{
         margin: 0px;
     }
-    .show_sidebar{
-        border: none;
-        border-radius: 8px;
-        padding: 10px 13px 8px 13px;
-        font-size: 16px;
-        font-weight: 600;
-        visibility:visible;
-        background-color: #DDF6F1;
-        margin-top: 30px;
-        color: #1AC4A2;
-      }
  }

@@ -118,7 +118,11 @@ const routes: Routes = [
   { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
 
   { path: 'detail-candidat/:id', component: DetailCandidatComponent },
+  
+  { path: 'detail-compagny', component: DetailCompagnyComponent },
 
+  { path: 'detail-candidat/:id', component: DetailCandidatComponent },
+  
   { path: 'job', component: JobOneComponent },
 
   { path: 'dashboard-employer', component: DashboardEmployerComponent },

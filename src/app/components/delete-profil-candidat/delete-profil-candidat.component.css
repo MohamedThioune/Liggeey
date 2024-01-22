@@ -160,7 +160,7 @@
      border-radius: 8px;
      padding:17px 82px 15px 21px;
      height: 56px;
-     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);*/
      background-color: #F0F5F7;
      border: none;
      width: 688.438px;
@@ -178,7 +178,6 @@
      border-radius: 0;
      display: flex;
    }
-
    /* Label styling */
    label {
      font-weight: bold;
@@ -191,7 +190,6 @@
    .m-4 {
      margin: 1.5rem;
    }
-
    /* Clear float */
    .clear {
      clear: both;
@@ -199,7 +197,6 @@
    #password-employer, #confirm-password{
      background-color:#F0F5F7 ;
    }
-
    /* Adjust spacing between buttons */
    .btn {
      margin: 0.3rem;
@@ -207,7 +204,6 @@
      border-radius: 8px;
      width: 80%;
    }
-
    /* Optional styles for the text with asterisk (*) */
  label p {
      font-weight: bold;
@@ -243,7 +239,6 @@
         margin-top: 30px;
         color: #1AC4A2;
     }
-
     .close{
         visibility: visible;
         background-color: #F0F5F7;
