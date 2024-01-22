@@ -11,8 +11,8 @@
 <section class="content-blog">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-8 col-md-6" *ngFor="let article of artikels">
-        <div class="content-card-blog d-flex flex-wrap">
+      <div class="col-lg-8 col-md-6" >
+        <div class="content-card-blog d-flex flex-wrap" *ngFor="let article of artikels">
           <div class="card_article"  [routerLink]="['/detail-article',article.ID]">
             <div class="rectangle_article">
               <div class="content_image">

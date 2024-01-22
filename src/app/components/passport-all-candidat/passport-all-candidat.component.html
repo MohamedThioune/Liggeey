@@ -1,0 +1,706 @@
+<app-header></app-header>
+<button class="show_sidebar" *ngIf="showButton" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>
+<section class="content-page-dashboard">
+  <app-sidebar-candidat></app-sidebar-candidat>
+  <div class="right_menu">
+    <div class="content_right_menu">
+        <div class="map_menu">
+          <div class="head_map_menu">
+              <span>Skills Passport</span>
+              <a href="">Download the mobile app</a>
+          </div>
+          <div class="row" style="margin-top:74px">
+            <div class="col-md-4" style="margin-bottom: 16px;">
+                <div class="applies_job">
+                    <div class="image_job_applies">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                            <g clip-path="url(#clip0_2880_1709)">
+                              <path d="M24.375 0.000244141H11.25C10.2554 0.000244141 9.30161 0.395332 8.59835 1.09859C7.89509 1.80186 7.5 2.75568 7.5 3.75024C6.50544 3.75024 5.55161 4.14533 4.84835 4.84859C4.14509 5.55186 3.75 6.50568 3.75 7.50024V26.2502C3.75 27.2448 4.14509 28.1986 4.84835 28.9019C5.55161 29.6052 6.50544 30.0002 7.5 30.0002H20.625C21.6196 30.0002 22.5734 29.6052 23.2766 28.9019C23.9799 28.1986 24.375 27.2448 24.375 26.2502C25.3696 26.2502 26.3234 25.8552 27.0266 25.1519C27.7299 24.4486 28.125 23.4948 28.125 22.5002V3.75024C28.125 2.75568 27.7299 1.80186 27.0266 1.09859C26.3234 0.395332 25.3696 0.000244141 24.375 0.000244141ZM24.375 24.3752V7.50024C24.375 6.50568 23.9799 5.55186 23.2766 4.84859C22.5734 4.14533 21.6196 3.75024 20.625 3.75024H9.375C9.375 3.25296 9.57254 2.77605 9.92418 2.42442C10.2758 2.07279 10.7527 1.87524 11.25 1.87524H24.375C24.8723 1.87524 25.3492 2.07279 25.7008 2.42442C26.0525 2.77605 26.25 3.25296 26.25 3.75024V22.5002C26.25 22.9975 26.0525 23.4744 25.7008 23.8261C25.3492 24.1777 24.8723 24.3752 24.375 24.3752ZM5.625 7.50024C5.625 7.00296 5.82254 6.52605 6.17417 6.17442C6.52581 5.82279 7.00272 5.62524 7.5 5.62524H20.625C21.1223 5.62524 21.5992 5.82279 21.9508 6.17442C22.3025 6.52605 22.5 7.00296 22.5 7.50024V26.2502C22.5 26.7475 22.3025 27.2244 21.9508 27.5761C21.5992 27.9277 21.1223 28.1252 20.625 28.1252H7.5C7.00272 28.1252 6.52581 27.9277 6.17417 27.5761C5.82254 27.2244 5.625 26.7475 5.625 26.2502V7.50024Z" fill="white"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2880_1709">
+                                <rect width="30" height="30" fill="white" transform="translate(0 0.000244141)"/>
+                              </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="description_job_applies ">
+                        <p>Your Courses </p>
+                        <span>5</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-bottom: 16px;">
+                <div class="alert_job">
+                    <div class="image_job_alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
+                            <g clip-path="url(#clip0_2880_1733)">
+                              <path d="M22.6055 0.000244141H10.9805L9.04297 1.93774V7.75024H3.23047L1.29297 9.68774V29.1532L3.23047 31.0002H18.8209L20.668 29.1532V23.2502H26.7388L28.418 21.4032V5.81274L22.6055 0.000244141ZM22.6055 2.73858L25.6796 5.81274H22.6055V2.73858ZM18.7305 29.0627H3.23047V9.68774H9.04297V21.4032L10.9805 23.2502H18.7305V29.0627ZM26.4805 21.3127H10.9805V1.93774H20.668V7.75024H26.4805V21.3127Z" fill="white"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2880_1733">
+                                <rect width="31" height="31" fill="white" transform="translate(0 0.000244141)"/>
+                              </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="description_job_alert ">
+                        <p>Course in progress</p>
+                        <span>5</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-bottom: 16px;">
+                <div class="favorites_job">
+                    <div class="image_job_favorites">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
+                            <g clip-path="url(#clip0_2880_1725)">
+                              <path d="M22.6055 0.000244141H10.9805L9.04297 1.93774V7.75024H3.23047L1.29297 9.68774V29.1532L3.23047 31.0002H18.8209L20.668 29.1532V23.2502H26.7388L28.418 21.4032V5.81274L22.6055 0.000244141ZM22.6055 2.73858L25.6796 5.81274H22.6055V2.73858ZM18.7305 29.0627H3.23047V9.68774H9.04297V21.4032L10.9805 23.2502H18.7305V29.0627ZM26.4805 21.3127H10.9805V1.93774H20.668V7.75024H26.4805V21.3127Z" fill="white"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2880_1725">
+                                <rect width="31" height="31" fill="white" transform="translate(0 0.000244141)"/>
+                              </clipPath>
+                            </defs>
+                          </svg>
+                    </div>
+                    <div class="description_job_favorites ">
+                        <p>Course Done</p>
+                        <span>5</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <ul class="nav nav-tabs all">
+            <li class="nav-item">
+                <a class="nav-link active" [class.active]="ongletSelectionne === 'All'" (click)="selectionnerOnglet('All')"  aria-current="page">All</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [class.active]="ongletSelectionne === 'Topics'" (click)="selectionnerOnglet('Topics')" >Topics</a>
+            </li>  
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Badges / Certificates</a>
+                <div class="dropdown-menu">
+                    <a class="nav-link" [class.active]="ongletSelectionne === 'Badges'" (click)="selectionnerOnglet('Badges')">Badges</a>
+                    <a class="nav-link" [class.active]="ongletSelectionne === 'Certificates'" (click)="selectionnerOnglet('Certificates')">Certificates</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [class.active]="ongletSelectionne === 'Skills'" (click)="selectionnerOnglet('Skills')" >Skills</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [class.active]="ongletSelectionne === 'Assessments'" (click)="selectionnerOnglet('Assessments')" >Assessments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [class.active]="ongletSelectionne === 'Course'" (click)="selectionnerOnglet('Course')">Preferred Course type</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [class.active]="ongletSelectionne === 'Reviews'" (click)="selectionnerOnglet('Reviews')">Reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <div class="map_menu" *ngIf="ongletSelectionne === 'Topics'|| ongletSelectionne === 'All'">
+            <div class="livraison" id="livraison">
+                <div class="content_image_livraison_livraison">
+                    <img src="../../../assets/img/livraison.png" alt="">
+                </div>
+                <div class="" style="width: 100%;padding-top:30px;padding-left:36px;padding-right:36px">
+                    <div class="detail">
+                        <p>(Detail) Handel</p>
+                        <a href="">See Course</a>
+                    </div>
+                    <div class="all_items">
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                    </div>
+                
+                    
+                </div>
+            </div>
+            <div class="livraison">
+                <div class="content_image_livraison_livraison">
+                    <img src="../../../assets/img/livraison.png" alt="">
+                </div>
+                <div class="" style="width: 100%;padding-top:30px;padding-left:36px;padding-right:36px">
+                    <div class="detail">
+                        <p>(Detail) Handel</p>
+                        <a href="">See Course</a>
+                    </div>
+                    <div class="all_items">
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                        <div class="items">
+                            <p>Audicien</p>
+                            <p>Edelsmit</p>
+                            <p>Kleermaker</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="map_menu" *ngIf="ongletSelectionne === 'Badges' || ongletSelectionne === 'All'" >
+              <div class="badge_certificate">
+                <p>Badges/Certificat</p>
+                <a href="">See All</a>
+              </div>
+              <div class="livraison">
+                <div class="content_image_livraison-badge">
+                    <img src="../../../assets/img/radial.png" alt="">
+                </div>
+                <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
+                    <div class="profil">
+                        <p>Complete and verified profile </p>
+                        <p>Awarded for : <span>Profil Livelearn </span></p>
+                        <p>Date Awarded : <span>Jul 2022</span></p>
+                    </div>
+                    <div class="detail-badge">
+                        <p>Pdf :<span>Badge</span></p>
+                        <a href="">Achieved</a>
+                    </div>
+                  
+                </div>
+              </div>
+              <div class="livraison">
+                <div class="content_image_livraison-badge">
+                    <img src="../../../assets/img/radial.png" alt="">
+                </div>
+                <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
+                    <div class="profil">
+                        <p>Complete and verified profile </p>
+                        <p>Awarded for : <span>Profil Livelearn </span></p>
+                        <p>Date Awarded : <span>Jul 2022</span></p>
+                    </div>
+                    <div class="detail-badge">
+                        <p>Pdf :<span>Badge</span></p>
+                        <a href="">Achieved</a>
+                    </div>
+                  
+                </div>
+              </div>
+              <div class="livraison">
+                <div class="content_image_livraison-badge">
+                    <img src="../../../assets/img/radial.png" alt="">
+                </div>
+                <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
+                    <div class="profil">
+                        <p>Complete and verified profile </p>
+                        <p>Awarded for : <span>Profil Livelearn </span></p>
+                        <p>Date Awarded : <span>Jul 2022</span></p>
+                    </div>
+                    <div class="detail-badge">
+                        <p>Pdf :<span>Badge</span></p>
+                        <a href="">Achieved</a>
+                    </div>
+                  
+                </div>
+              </div>
+          </div>
+          <div class="map_menu" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
+              <div class="badge_certificate">
+                <p>Badges/Certificat</p>
+                <a href="">See All</a>
+              </div>
+                <div class="row">
+                  <div class="col-md-2 document">
+                      <div class="content_image_document">
+                          <img src="../../../assets/img/pdf.png" alt="">
+                      </div>
+                      <p>document 1. pdf</p>
+                      <p>230.mb</p>
+                  </div>
+                  <div class="col-md-2 document">
+                    <div class="content_image_document">
+                        <img src="../../../assets/img/document.png" alt="">
+                    </div>
+                    <p>document 1. png</p>
+                    <p>230.mb</p>
+                  </div>
+                  <div class="col-md-2 document">
+                    <div class="content_image_document">
+                        <img src="../../../assets/img/word.png" alt="">
+                    </div>
+                    <p>document 1. word</p>
+                    <p>230.mb</p>
+                  </div>
+                  <div class="col-md-2 document">
+                    <div class="content_image_document">
+                        <img src="../../../assets/img/pdf.png" alt="">
+                    </div>
+                    <p>document 1. pdf</p>
+                    <p>230.mb</p>
+                  </div>
+                  <div class="col-md-2 document">
+                    <div class="content_image_document">
+                        <img src="../../../assets/img/document.png" alt="">
+                    </div>
+                    <p>document 1. png</p>
+                    <p>230.mb</p>
+                  </div>
+                  <div class="col-md-2 document">
+                    <div class="content_image_document">
+                        <img src="../../../assets/img/word.png" alt="">
+                    </div>
+                    <p>document 1. word</p>
+                    <p>230.mb</p>
+                  </div>
+                  <div class="col-md-2 document">
+                    <div class="content_image_document">
+                        <img src="../../../assets/img/pdf.png" alt="">
+                    </div>
+                    <p>document 1. pdf</p>
+                    <p>230.mb</p>
+                </div>
+                <div class="col-md-2 document">
+                  <div class="content_image_document">
+                      <img src="../../../assets/img/document.png" alt="">
+                  </div>
+                  <p>document 1. png</p>
+                  <p>230.mb</p>
+                </div>
+                <div class="col-md-2 document">
+                  <div class="content_image_document">
+                      <img src="../../../assets/img/word.png" alt="">
+                  </div>
+                  <p>document 1. word</p>
+                  <p>230.mb</p>
+                </div>
+                <div class="col-md-2 document">
+                  <div class="content_image_document">
+                      <img src="../../../assets/img/pdf.png" alt="">
+                  </div>
+                  <p>document 1. pdf</p>
+                  <p>230.mb</p>
+                </div>
+                </div>                 
+          </div>
+          <div class="map_menu" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
+              <div class="badge_certificate">
+                <p>Skills</p>
+                <a href="">See All</a>
+              </div>
+                <div class="row">
+                    <div class="col-md-2 document" style="position: relative;">
+                    <div class="content_image_document">
+                        <img src="../../../assets/img/pourcent.png" alt="">
+                        <p  style="position:absolute;top:30%;right:40%">48%</p>
+                    </div>
+                    <p>Greenkeeper</p>
+                    </div>
+                    <div class="col-md-2 document" style="position: relative;">
+                        <div class="content_image_document">
+                            <img src="../../../assets/img/pourcent.png" alt="">
+                            <p  style="position:absolute;top:30%;right:40%">48%</p>
+                        </div>
+                        <p>Greenkeeper</p>
+                        </div>
+                        <div class="col-md-2 document" style="position: relative;">
+                            <div class="content_image_document">
+                                <img src="../../../assets/img/pourcent.png" alt="">
+                                <p  style="position:absolute;top:30%;right:40%">48%</p>
+                            </div>
+                            <p>Greenkeeper</p>
+                        </div>
+                        <div class="col-md-2 document" style="position: relative;">
+                            <div class="content_image_document">
+                                <img src="../../../assets/img/pourcent.png" alt="">
+                                <p  style="position:absolute;top:30%;right:40%">48%</p>
+                            </div>
+                            <p>Greenkeeper</p>
+                        </div>
+                        <div class="col-md-2 document" style="position: relative;">
+                            <div class="content_image_document">
+                                <img src="../../../assets/img/pourcent.png" alt="">
+                                <p  style="position:absolute;top:30%;right:40%">48%</p>
+                            </div>
+                            <p>Greenkeeper</p>
+                        </div>
+                        <div class="col-md-2 document" style="position: relative;">
+                            <div class="content_image_document">
+                                <img src="../../../assets/img/pourcent.png" alt="">
+                                <p  style="position:absolute;top:30%;right:40%">48%</p>
+                            </div>
+                            <p>Greenkeeper</p>
+                        </div>
+                        <div class="col-md-2 document" style="position: relative;">
+                            <div class="content_image_document">
+                                <img src="../../../assets/img/pourcent.png" alt="">
+                                <p  style="position:absolute;top:30%;right:40%">48%</p>
+                            </div>
+                            <p>Greenkeeper</p>
+                        </div>
+                        <div class="col-md-2 document" style="position: relative;">
+                            <div class="content_image_document">
+                                <img src="../../../assets/img/pourcent.png" alt="">
+                                <p  style="position:absolute;top:30%;right:40%">48%</p>
+                            </div>
+                            <p>Greenkeeper</p>
+                        </div>
+                        <div class="col-md-2 document" style="position: relative;">
+                            <div class="content_image_document">
+                                <img src="../../../assets/img/pourcent.png" alt="">
+                                <p  style="position:absolute;top:30%;right:40%">48%</p>
+                            </div>
+                            <p>Greenkeeper</p>
+                        </div>
+                        <div class="col-md-2 document" style="position: relative;">
+                            <div class="content_image_document">
+                                <img src="../../../assets/img/pourcent.png" alt="">
+                                <p  style="position:absolute;top:30%;right:40%">48%</p>
+                            </div>
+                            <p>Greenkeeper</p>
+                        </div>
+                </div>                 
+          </div>
+          <div class="map_menu"  *ngIf="ongletSelectionne === 'Assessments' || ongletSelectionne === 'All'">
+              <div class="badge_certificate">
+                <p>Assessment</p>
+                <a href="">See All</a>
+              </div>
+              <table class="table">
+                <thead class="thead table_head">
+                  <tr>
+                    <th scope="col">Questionnaire</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Manage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                        WordPress Assessments
+                    </th>
+                    <td>6 April 2019</td>
+                    <td>18 %</td>
+                    <td>
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
+                            <g clip-path="url(#clip0_2894_9547)">
+                              <path d="M25.0787 13.6345C22.5655 8.78891 18.1581 5.85669 13.2808 5.85669C8.40357 5.85669 3.9887 8.78891 1.49787 13.6345L1.28906 14L1.48296 14.3734C3.99616 19.2189 8.40357 22.1511 13.2808 22.1511C18.1581 22.1511 22.5729 19.2578 25.0787 14.3734L25.2726 14L25.0787 13.6345ZM13.2808 20.5567C9.08221 20.5567 5.22665 18.1145 2.98939 14C5.22665 9.88558 9.08221 7.44336 13.2808 7.44336C17.4794 7.44336 21.2902 9.89336 23.5648 14C21.2902 18.1145 17.472 20.5567 13.2808 20.5567Z" fill="black"/>
+                              <path d="M13.5004 8.68789C12.4893 8.69558 11.503 9.01563 10.6661 9.60759C9.82927 10.1996 9.17939 11.0369 8.79856 12.0139C8.41773 12.9908 8.32304 14.0635 8.52645 15.0966C8.72986 16.1296 9.22224 17.0766 9.94141 17.818C10.6606 18.5594 11.5743 19.0618 12.5671 19.2619C13.5599 19.462 14.5873 19.3508 15.5195 18.9423C16.4518 18.5337 17.247 17.8462 17.8048 16.9666C18.3626 16.087 18.658 15.0547 18.6536 14.0001C18.6507 13.2981 18.5149 12.6036 18.2542 11.9564C17.9935 11.3092 17.6128 10.7221 17.1341 10.2286C16.6554 9.7351 16.088 9.34498 15.4645 9.0806C14.8409 8.81622 14.1735 8.68276 13.5004 8.68789ZM13.5004 17.8034C12.7862 17.7958 12.09 17.5681 11.4994 17.1492C10.9088 16.7302 10.4501 16.1386 10.1808 15.4486C9.91154 14.7586 9.84376 14.001 9.98599 13.271C10.1282 12.5409 10.4741 11.871 10.9802 11.3453C11.4863 10.8196 12.1301 10.4616 12.8306 10.3163C13.5312 10.1709 14.2573 10.2447 14.9178 10.5284C15.5782 10.812 16.1436 11.2929 16.5429 11.9105C16.9422 12.5282 17.1576 13.2552 17.1621 14.0001C17.1641 14.5015 17.0706 14.9982 16.8871 15.4616C16.7036 15.925 16.4337 16.3458 16.0931 16.6996C15.7525 17.0534 15.348 17.3332 14.9029 17.5226C14.4578 17.7121 13.9811 17.8076 13.5004 17.8034Z" fill="black"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2894_9547">
+                                <rect width="26.8472" height="28" fill="white" transform="translate(0.0078125)"/>
+                              </clipPath>
+                            </defs>
+                          </svg>
+                      </button>
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                            <g clip-path="url(#clip0_2894_9551)">
+                              <path d="M18.9913 24.5556H6.33267C6.0662 24.549 5.80357 24.4878 5.55981 24.3753C5.31604 24.2629 5.0959 24.1014 4.91198 23.9002C4.72806 23.699 4.58395 23.462 4.4879 23.2027C4.39184 22.9434 4.34571 22.6668 4.35216 22.3889V8.1106H5.73713V22.3889C5.73052 22.4772 5.7407 22.5659 5.76709 22.6501C5.79348 22.7342 5.83556 22.8121 5.89091 22.8792C5.94625 22.9463 6.01377 23.0014 6.08959 23.0412C6.1654 23.081 6.24801 23.1048 6.33267 23.1112H18.9913C19.076 23.1048 19.1586 23.081 19.2344 23.0412C19.3102 23.0014 19.3778 22.9463 19.4331 22.8792C19.4885 22.8121 19.5305 22.7342 19.5569 22.6501C19.5833 22.5659 19.5935 22.4772 19.5869 22.3889V8.1106H20.9719V22.3889C20.9783 22.6668 20.9322 22.9434 20.8361 23.2027C20.7401 23.462 20.596 23.699 20.412 23.9002C20.2281 24.1014 20.008 24.2629 19.7642 24.3753C19.5204 24.4878 19.2578 24.549 18.9913 24.5556Z" fill="black"/>
+                              <path d="M21.5136 6.50011H3.66124C3.47758 6.50011 3.30144 6.42402 3.17157 6.28857C3.04171 6.15313 2.96875 5.96943 2.96875 5.77789C2.96875 5.58634 3.04171 5.40264 3.17157 5.2672C3.30144 5.13176 3.47758 5.05566 3.66124 5.05566H21.5136C21.6972 5.05566 21.8734 5.13176 22.0032 5.2672C22.1331 5.40264 22.2061 5.58634 22.2061 5.77789C22.2061 5.96943 22.1331 6.15313 22.0032 6.28857C21.8734 6.42402 21.6972 6.50011 21.5136 6.50011Z" fill="black"/>
+                              <path d="M14.7344 9.38892H16.1193V20.2222H14.7344V9.38892Z" fill="black"/>
+                              <path d="M9.19531 9.38892H10.5803V20.2222H9.19531V9.38892Z" fill="black"/>
+                              <path d="M16.1202 4.23211H14.8045V2.88878H10.511V4.23211H9.19531V2.88878C9.19487 2.51788 9.33124 2.16102 9.57618 1.89211C9.82112 1.62321 10.1559 1.46288 10.511 1.44434H14.8045C15.1596 1.46288 15.4944 1.62321 15.7393 1.89211C15.9843 2.16102 16.1206 2.51788 16.1202 2.88878V4.23211Z" fill="black"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2894_9551">
+                                <rect width="24.9296" height="26" fill="white" transform="translate(0.195312)"/>
+                              </clipPath>
+                            </defs>
+                          </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                        WordPress Assessments
+                    </th>
+                    <td>6 April 2019</td>
+                    <td>18 %</td>
+                    <td>
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
+                            <g clip-path="url(#clip0_2894_9547)">
+                              <path d="M25.0787 13.6345C22.5655 8.78891 18.1581 5.85669 13.2808 5.85669C8.40357 5.85669 3.9887 8.78891 1.49787 13.6345L1.28906 14L1.48296 14.3734C3.99616 19.2189 8.40357 22.1511 13.2808 22.1511C18.1581 22.1511 22.5729 19.2578 25.0787 14.3734L25.2726 14L25.0787 13.6345ZM13.2808 20.5567C9.08221 20.5567 5.22665 18.1145 2.98939 14C5.22665 9.88558 9.08221 7.44336 13.2808 7.44336C17.4794 7.44336 21.2902 9.89336 23.5648 14C21.2902 18.1145 17.472 20.5567 13.2808 20.5567Z" fill="black"/>
+                              <path d="M13.5004 8.68789C12.4893 8.69558 11.503 9.01563 10.6661 9.60759C9.82927 10.1996 9.17939 11.0369 8.79856 12.0139C8.41773 12.9908 8.32304 14.0635 8.52645 15.0966C8.72986 16.1296 9.22224 17.0766 9.94141 17.818C10.6606 18.5594 11.5743 19.0618 12.5671 19.2619C13.5599 19.462 14.5873 19.3508 15.5195 18.9423C16.4518 18.5337 17.247 17.8462 17.8048 16.9666C18.3626 16.087 18.658 15.0547 18.6536 14.0001C18.6507 13.2981 18.5149 12.6036 18.2542 11.9564C17.9935 11.3092 17.6128 10.7221 17.1341 10.2286C16.6554 9.7351 16.088 9.34498 15.4645 9.0806C14.8409 8.81622 14.1735 8.68276 13.5004 8.68789ZM13.5004 17.8034C12.7862 17.7958 12.09 17.5681 11.4994 17.1492C10.9088 16.7302 10.4501 16.1386 10.1808 15.4486C9.91154 14.7586 9.84376 14.001 9.98599 13.271C10.1282 12.5409 10.4741 11.871 10.9802 11.3453C11.4863 10.8196 12.1301 10.4616 12.8306 10.3163C13.5312 10.1709 14.2573 10.2447 14.9178 10.5284C15.5782 10.812 16.1436 11.2929 16.5429 11.9105C16.9422 12.5282 17.1576 13.2552 17.1621 14.0001C17.1641 14.5015 17.0706 14.9982 16.8871 15.4616C16.7036 15.925 16.4337 16.3458 16.0931 16.6996C15.7525 17.0534 15.348 17.3332 14.9029 17.5226C14.4578 17.7121 13.9811 17.8076 13.5004 17.8034Z" fill="black"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2894_9547">
+                                <rect width="26.8472" height="28" fill="white" transform="translate(0.0078125)"/>
+                              </clipPath>
+                            </defs>
+                        </svg>
+                      </button>
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                            <g clip-path="url(#clip0_2894_9551)">
+                              <path d="M18.9913 24.5556H6.33267C6.0662 24.549 5.80357 24.4878 5.55981 24.3753C5.31604 24.2629 5.0959 24.1014 4.91198 23.9002C4.72806 23.699 4.58395 23.462 4.4879 23.2027C4.39184 22.9434 4.34571 22.6668 4.35216 22.3889V8.1106H5.73713V22.3889C5.73052 22.4772 5.7407 22.5659 5.76709 22.6501C5.79348 22.7342 5.83556 22.8121 5.89091 22.8792C5.94625 22.9463 6.01377 23.0014 6.08959 23.0412C6.1654 23.081 6.24801 23.1048 6.33267 23.1112H18.9913C19.076 23.1048 19.1586 23.081 19.2344 23.0412C19.3102 23.0014 19.3778 22.9463 19.4331 22.8792C19.4885 22.8121 19.5305 22.7342 19.5569 22.6501C19.5833 22.5659 19.5935 22.4772 19.5869 22.3889V8.1106H20.9719V22.3889C20.9783 22.6668 20.9322 22.9434 20.8361 23.2027C20.7401 23.462 20.596 23.699 20.412 23.9002C20.2281 24.1014 20.008 24.2629 19.7642 24.3753C19.5204 24.4878 19.2578 24.549 18.9913 24.5556Z" fill="black"/>
+                              <path d="M21.5136 6.50011H3.66124C3.47758 6.50011 3.30144 6.42402 3.17157 6.28857C3.04171 6.15313 2.96875 5.96943 2.96875 5.77789C2.96875 5.58634 3.04171 5.40264 3.17157 5.2672C3.30144 5.13176 3.47758 5.05566 3.66124 5.05566H21.5136C21.6972 5.05566 21.8734 5.13176 22.0032 5.2672C22.1331 5.40264 22.2061 5.58634 22.2061 5.77789C22.2061 5.96943 22.1331 6.15313 22.0032 6.28857C21.8734 6.42402 21.6972 6.50011 21.5136 6.50011Z" fill="black"/>
+                              <path d="M14.7344 9.38892H16.1193V20.2222H14.7344V9.38892Z" fill="black"/>
+                              <path d="M9.19531 9.38892H10.5803V20.2222H9.19531V9.38892Z" fill="black"/>
+                              <path d="M16.1202 4.23211H14.8045V2.88878H10.511V4.23211H9.19531V2.88878C9.19487 2.51788 9.33124 2.16102 9.57618 1.89211C9.82112 1.62321 10.1559 1.46288 10.511 1.44434H14.8045C15.1596 1.46288 15.4944 1.62321 15.7393 1.89211C15.9843 2.16102 16.1206 2.51788 16.1202 2.88878V4.23211Z" fill="black"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2894_9551">
+                                <rect width="24.9296" height="26" fill="white" transform="translate(0.195312)"/>
+                              </clipPath>
+                            </defs>
+                          </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                        WordPress Assessments
+                    </th>
+                    <td>6 April 2019</td>
+                    <td>18 %</td>
+                    <td>
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
+                            <g clip-path="url(#clip0_2894_9547)">
+                              <path d="M25.0787 13.6345C22.5655 8.78891 18.1581 5.85669 13.2808 5.85669C8.40357 5.85669 3.9887 8.78891 1.49787 13.6345L1.28906 14L1.48296 14.3734C3.99616 19.2189 8.40357 22.1511 13.2808 22.1511C18.1581 22.1511 22.5729 19.2578 25.0787 14.3734L25.2726 14L25.0787 13.6345ZM13.2808 20.5567C9.08221 20.5567 5.22665 18.1145 2.98939 14C5.22665 9.88558 9.08221 7.44336 13.2808 7.44336C17.4794 7.44336 21.2902 9.89336 23.5648 14C21.2902 18.1145 17.472 20.5567 13.2808 20.5567Z" fill="black"/>
+                              <path d="M13.5004 8.68789C12.4893 8.69558 11.503 9.01563 10.6661 9.60759C9.82927 10.1996 9.17939 11.0369 8.79856 12.0139C8.41773 12.9908 8.32304 14.0635 8.52645 15.0966C8.72986 16.1296 9.22224 17.0766 9.94141 17.818C10.6606 18.5594 11.5743 19.0618 12.5671 19.2619C13.5599 19.462 14.5873 19.3508 15.5195 18.9423C16.4518 18.5337 17.247 17.8462 17.8048 16.9666C18.3626 16.087 18.658 15.0547 18.6536 14.0001C18.6507 13.2981 18.5149 12.6036 18.2542 11.9564C17.9935 11.3092 17.6128 10.7221 17.1341 10.2286C16.6554 9.7351 16.088 9.34498 15.4645 9.0806C14.8409 8.81622 14.1735 8.68276 13.5004 8.68789ZM13.5004 17.8034C12.7862 17.7958 12.09 17.5681 11.4994 17.1492C10.9088 16.7302 10.4501 16.1386 10.1808 15.4486C9.91154 14.7586 9.84376 14.001 9.98599 13.271C10.1282 12.5409 10.4741 11.871 10.9802 11.3453C11.4863 10.8196 12.1301 10.4616 12.8306 10.3163C13.5312 10.1709 14.2573 10.2447 14.9178 10.5284C15.5782 10.812 16.1436 11.2929 16.5429 11.9105C16.9422 12.5282 17.1576 13.2552 17.1621 14.0001C17.1641 14.5015 17.0706 14.9982 16.8871 15.4616C16.7036 15.925 16.4337 16.3458 16.0931 16.6996C15.7525 17.0534 15.348 17.3332 14.9029 17.5226C14.4578 17.7121 13.9811 17.8076 13.5004 17.8034Z" fill="black"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2894_9547">
+                                <rect width="26.8472" height="28" fill="white" transform="translate(0.0078125)"/>
+                              </clipPath>
+                            </defs>
+                        </svg>
+                      </button>
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                            <g clip-path="url(#clip0_2894_9551)">
+                              <path d="M18.9913 24.5556H6.33267C6.0662 24.549 5.80357 24.4878 5.55981 24.3753C5.31604 24.2629 5.0959 24.1014 4.91198 23.9002C4.72806 23.699 4.58395 23.462 4.4879 23.2027C4.39184 22.9434 4.34571 22.6668 4.35216 22.3889V8.1106H5.73713V22.3889C5.73052 22.4772 5.7407 22.5659 5.76709 22.6501C5.79348 22.7342 5.83556 22.8121 5.89091 22.8792C5.94625 22.9463 6.01377 23.0014 6.08959 23.0412C6.1654 23.081 6.24801 23.1048 6.33267 23.1112H18.9913C19.076 23.1048 19.1586 23.081 19.2344 23.0412C19.3102 23.0014 19.3778 22.9463 19.4331 22.8792C19.4885 22.8121 19.5305 22.7342 19.5569 22.6501C19.5833 22.5659 19.5935 22.4772 19.5869 22.3889V8.1106H20.9719V22.3889C20.9783 22.6668 20.9322 22.9434 20.8361 23.2027C20.7401 23.462 20.596 23.699 20.412 23.9002C20.2281 24.1014 20.008 24.2629 19.7642 24.3753C19.5204 24.4878 19.2578 24.549 18.9913 24.5556Z" fill="black"/>
+                              <path d="M21.5136 6.50011H3.66124C3.47758 6.50011 3.30144 6.42402 3.17157 6.28857C3.04171 6.15313 2.96875 5.96943 2.96875 5.77789C2.96875 5.58634 3.04171 5.40264 3.17157 5.2672C3.30144 5.13176 3.47758 5.05566 3.66124 5.05566H21.5136C21.6972 5.05566 21.8734 5.13176 22.0032 5.2672C22.1331 5.40264 22.2061 5.58634 22.2061 5.77789C22.2061 5.96943 22.1331 6.15313 22.0032 6.28857C21.8734 6.42402 21.6972 6.50011 21.5136 6.50011Z" fill="black"/>
+                              <path d="M14.7344 9.38892H16.1193V20.2222H14.7344V9.38892Z" fill="black"/>
+                              <path d="M9.19531 9.38892H10.5803V20.2222H9.19531V9.38892Z" fill="black"/>
+                              <path d="M16.1202 4.23211H14.8045V2.88878H10.511V4.23211H9.19531V2.88878C9.19487 2.51788 9.33124 2.16102 9.57618 1.89211C9.82112 1.62321 10.1559 1.46288 10.511 1.44434H14.8045C15.1596 1.46288 15.4944 1.62321 15.7393 1.89211C15.9843 2.16102 16.1206 2.51788 16.1202 2.88878V4.23211Z" fill="black"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2894_9551">
+                                <rect width="24.9296" height="26" fill="white" transform="translate(0.195312)"/>
+                              </clipPath>
+                            </defs>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                        WordPress Assessments
+                    </th>
+                    <td>6 April 2019</td>
+                    <td>18 %</td>
+                    <td>
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="28" viewBox="0 0 27 28" fill="none">
+                            <g clip-path="url(#clip0_2894_9547)">
+                              <path d="M25.0787 13.6345C22.5655 8.78891 18.1581 5.85669 13.2808 5.85669C8.40357 5.85669 3.9887 8.78891 1.49787 13.6345L1.28906 14L1.48296 14.3734C3.99616 19.2189 8.40357 22.1511 13.2808 22.1511C18.1581 22.1511 22.5729 19.2578 25.0787 14.3734L25.2726 14L25.0787 13.6345ZM13.2808 20.5567C9.08221 20.5567 5.22665 18.1145 2.98939 14C5.22665 9.88558 9.08221 7.44336 13.2808 7.44336C17.4794 7.44336 21.2902 9.89336 23.5648 14C21.2902 18.1145 17.472 20.5567 13.2808 20.5567Z" fill="black"/>
+                              <path d="M13.5004 8.68789C12.4893 8.69558 11.503 9.01563 10.6661 9.60759C9.82927 10.1996 9.17939 11.0369 8.79856 12.0139C8.41773 12.9908 8.32304 14.0635 8.52645 15.0966C8.72986 16.1296 9.22224 17.0766 9.94141 17.818C10.6606 18.5594 11.5743 19.0618 12.5671 19.2619C13.5599 19.462 14.5873 19.3508 15.5195 18.9423C16.4518 18.5337 17.247 17.8462 17.8048 16.9666C18.3626 16.087 18.658 15.0547 18.6536 14.0001C18.6507 13.2981 18.5149 12.6036 18.2542 11.9564C17.9935 11.3092 17.6128 10.7221 17.1341 10.2286C16.6554 9.7351 16.088 9.34498 15.4645 9.0806C14.8409 8.81622 14.1735 8.68276 13.5004 8.68789ZM13.5004 17.8034C12.7862 17.7958 12.09 17.5681 11.4994 17.1492C10.9088 16.7302 10.4501 16.1386 10.1808 15.4486C9.91154 14.7586 9.84376 14.001 9.98599 13.271C10.1282 12.5409 10.4741 11.871 10.9802 11.3453C11.4863 10.8196 12.1301 10.4616 12.8306 10.3163C13.5312 10.1709 14.2573 10.2447 14.9178 10.5284C15.5782 10.812 16.1436 11.2929 16.5429 11.9105C16.9422 12.5282 17.1576 13.2552 17.1621 14.0001C17.1641 14.5015 17.0706 14.9982 16.8871 15.4616C16.7036 15.925 16.4337 16.3458 16.0931 16.6996C15.7525 17.0534 15.348 17.3332 14.9029 17.5226C14.4578 17.7121 13.9811 17.8076 13.5004 17.8034Z" fill="black"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2894_9547">
+                                <rect width="26.8472" height="28" fill="white" transform="translate(0.0078125)"/>
+                              </clipPath>
+                            </defs>
+                        </svg>
+                      </button>
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                            <g clip-path="url(#clip0_2894_9551)">
+                              <path d="M18.9913 24.5556H6.33267C6.0662 24.549 5.80357 24.4878 5.55981 24.3753C5.31604 24.2629 5.0959 24.1014 4.91198 23.9002C4.72806 23.699 4.58395 23.462 4.4879 23.2027C4.39184 22.9434 4.34571 22.6668 4.35216 22.3889V8.1106H5.73713V22.3889C5.73052 22.4772 5.7407 22.5659 5.76709 22.6501C5.79348 22.7342 5.83556 22.8121 5.89091 22.8792C5.94625 22.9463 6.01377 23.0014 6.08959 23.0412C6.1654 23.081 6.24801 23.1048 6.33267 23.1112H18.9913C19.076 23.1048 19.1586 23.081 19.2344 23.0412C19.3102 23.0014 19.3778 22.9463 19.4331 22.8792C19.4885 22.8121 19.5305 22.7342 19.5569 22.6501C19.5833 22.5659 19.5935 22.4772 19.5869 22.3889V8.1106H20.9719V22.3889C20.9783 22.6668 20.9322 22.9434 20.8361 23.2027C20.7401 23.462 20.596 23.699 20.412 23.9002C20.2281 24.1014 20.008 24.2629 19.7642 24.3753C19.5204 24.4878 19.2578 24.549 18.9913 24.5556Z" fill="black"/>
+                              <path d="M21.5136 6.50011H3.66124C3.47758 6.50011 3.30144 6.42402 3.17157 6.28857C3.04171 6.15313 2.96875 5.96943 2.96875 5.77789C2.96875 5.58634 3.04171 5.40264 3.17157 5.2672C3.30144 5.13176 3.47758 5.05566 3.66124 5.05566H21.5136C21.6972 5.05566 21.8734 5.13176 22.0032 5.2672C22.1331 5.40264 22.2061 5.58634 22.2061 5.77789C22.2061 5.96943 22.1331 6.15313 22.0032 6.28857C21.8734 6.42402 21.6972 6.50011 21.5136 6.50011Z" fill="black"/>
+                              <path d="M14.7344 9.38892H16.1193V20.2222H14.7344V9.38892Z" fill="black"/>
+                              <path d="M9.19531 9.38892H10.5803V20.2222H9.19531V9.38892Z" fill="black"/>
+                              <path d="M16.1202 4.23211H14.8045V2.88878H10.511V4.23211H9.19531V2.88878C9.19487 2.51788 9.33124 2.16102 9.57618 1.89211C9.82112 1.62321 10.1559 1.46288 10.511 1.44434H14.8045C15.1596 1.46288 15.4944 1.62321 15.7393 1.89211C15.9843 2.16102 16.1206 2.51788 16.1202 2.88878V4.23211Z" fill="black"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_2894_9551">
+                                <rect width="24.9296" height="26" fill="white" transform="translate(0.195312)"/>
+                              </clipPath>
+                            </defs>
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>          
+          </div>
+          <div class="map_menu" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
+              <div class="badge_certificate">
+                  <p>Preferred Course type</p>
+                  <a href="">See All</a>
+              </div>
+              <div class="row">
+                <div class="col-md-3 item_course">
+                    <div class="content_image_course">
+                        <img src="../../../assets/img/course_image.png" alt="">
+                    </div>
+                    <p>UI design</p>
+                    <div class="author">
+                        <span>By:<p>Samanthan wiliams</p></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12.1 18.5502L12 18.6502L11.89 18.5502C7.14 14.2402 4 11.3902 4 8.50024C4 6.50024 5.5 5.00024 7.5 5.00024C9.04 5.00024 10.54 6.00024 11.07 7.36024H12.93C13.46 6.00024 14.96 5.00024 16.5 5.00024C18.5 5.00024 20 6.50024 20 8.50024C20 11.3902 16.86 14.2402 12.1 18.5502ZM16.5 3.00024C14.76 3.00024 13.09 3.81024 12 5.08024C10.91 3.81024 9.24 3.00024 7.5 3.00024C4.42 3.00024 2 5.41024 2 8.50024C2 12.2702 5.4 15.3602 10.55 20.0302L12 21.3502L13.45 20.0302C18.6 15.3602 22 12.2702 22 8.50024C22 5.41024 19.58 3.00024 16.5 3.00024Z" fill="black"/>
+                        </svg>
+                    </div>
+                    <div class="time">
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                                <path d="M6.74995 10.5852L8.99993 9.08521V5.33521M2.25 9.08521C2.25 9.97163 2.42459 10.8494 2.76381 11.6683C3.10302 12.4873 3.60022 13.2314 4.22701 13.8582C4.8538 14.485 5.59791 14.9822 6.41685 15.3214C7.23578 15.6606 8.11352 15.8352 8.99993 15.8352C9.88635 15.8352 10.7641 15.6606 11.583 15.3214C12.402 14.9822 13.1461 14.485 13.7729 13.8582C14.3996 13.2314 14.8968 12.4873 15.2361 11.6683C15.5753 10.8494 15.7499 9.97163 15.7499 9.08521C15.7499 8.19879 15.5753 7.32104 15.2361 6.50209C14.8968 5.68315 14.3996 4.93903 13.7729 4.31224C13.1461 3.68544 12.402 3.18824 11.583 2.84902C10.7641 2.5098 9.88635 2.33521 8.99993 2.33521C8.11352 2.33521 7.23578 2.5098 6.41685 2.84902C5.59791 3.18824 4.8538 3.68544 4.22701 4.31224C3.60022 4.93903 3.10302 5.68315 2.76381 6.50209C2.42459 7.32104 2.25 8.19879 2.25 9.08521Z" stroke="#3D4D59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            4h
+                        </p>
+                        <p>$ 400</p>
+                    </div>
+                </div>
+                <div class="col-md-3 item_course">
+                    <div class="content_image_course">
+                        <img src="../../../assets/img/course_image.png" alt="">
+                    </div>
+                    <p>UI design</p>
+                    <div class="author">
+                        <span>By:<p>Samanthan wiliams</p></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12.1 18.5502L12 18.6502L11.89 18.5502C7.14 14.2402 4 11.3902 4 8.50024C4 6.50024 5.5 5.00024 7.5 5.00024C9.04 5.00024 10.54 6.00024 11.07 7.36024H12.93C13.46 6.00024 14.96 5.00024 16.5 5.00024C18.5 5.00024 20 6.50024 20 8.50024C20 11.3902 16.86 14.2402 12.1 18.5502ZM16.5 3.00024C14.76 3.00024 13.09 3.81024 12 5.08024C10.91 3.81024 9.24 3.00024 7.5 3.00024C4.42 3.00024 2 5.41024 2 8.50024C2 12.2702 5.4 15.3602 10.55 20.0302L12 21.3502L13.45 20.0302C18.6 15.3602 22 12.2702 22 8.50024C22 5.41024 19.58 3.00024 16.5 3.00024Z" fill="black"/>
+                        </svg>
+                    </div>
+                    <div class="time">
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                                <path d="M6.74995 10.5852L8.99993 9.08521V5.33521M2.25 9.08521C2.25 9.97163 2.42459 10.8494 2.76381 11.6683C3.10302 12.4873 3.60022 13.2314 4.22701 13.8582C4.8538 14.485 5.59791 14.9822 6.41685 15.3214C7.23578 15.6606 8.11352 15.8352 8.99993 15.8352C9.88635 15.8352 10.7641 15.6606 11.583 15.3214C12.402 14.9822 13.1461 14.485 13.7729 13.8582C14.3996 13.2314 14.8968 12.4873 15.2361 11.6683C15.5753 10.8494 15.7499 9.97163 15.7499 9.08521C15.7499 8.19879 15.5753 7.32104 15.2361 6.50209C14.8968 5.68315 14.3996 4.93903 13.7729 4.31224C13.1461 3.68544 12.402 3.18824 11.583 2.84902C10.7641 2.5098 9.88635 2.33521 8.99993 2.33521C8.11352 2.33521 7.23578 2.5098 6.41685 2.84902C5.59791 3.18824 4.8538 3.68544 4.22701 4.31224C3.60022 4.93903 3.10302 5.68315 2.76381 6.50209C2.42459 7.32104 2.25 8.19879 2.25 9.08521Z" stroke="#3D4D59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            4h
+                        </p>
+                        <p>$ 400</p>
+                    </div>
+                </div>
+                <div class="col-md-3 item_course">
+                    <div class="content_image_course">
+                        <img src="../../../assets/img/course_image.png" alt="">
+                    </div>
+                    <p>UI design</p>
+                    <div class="author">
+                        <span>By:<p>Samanthan wiliams</p></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12.1 18.5502L12 18.6502L11.89 18.5502C7.14 14.2402 4 11.3902 4 8.50024C4 6.50024 5.5 5.00024 7.5 5.00024C9.04 5.00024 10.54 6.00024 11.07 7.36024H12.93C13.46 6.00024 14.96 5.00024 16.5 5.00024C18.5 5.00024 20 6.50024 20 8.50024C20 11.3902 16.86 14.2402 12.1 18.5502ZM16.5 3.00024C14.76 3.00024 13.09 3.81024 12 5.08024C10.91 3.81024 9.24 3.00024 7.5 3.00024C4.42 3.00024 2 5.41024 2 8.50024C2 12.2702 5.4 15.3602 10.55 20.0302L12 21.3502L13.45 20.0302C18.6 15.3602 22 12.2702 22 8.50024C22 5.41024 19.58 3.00024 16.5 3.00024Z" fill="black"/>
+                        </svg>
+                    </div>
+                    <div class="time">
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                                <path d="M6.74995 10.5852L8.99993 9.08521V5.33521M2.25 9.08521C2.25 9.97163 2.42459 10.8494 2.76381 11.6683C3.10302 12.4873 3.60022 13.2314 4.22701 13.8582C4.8538 14.485 5.59791 14.9822 6.41685 15.3214C7.23578 15.6606 8.11352 15.8352 8.99993 15.8352C9.88635 15.8352 10.7641 15.6606 11.583 15.3214C12.402 14.9822 13.1461 14.485 13.7729 13.8582C14.3996 13.2314 14.8968 12.4873 15.2361 11.6683C15.5753 10.8494 15.7499 9.97163 15.7499 9.08521C15.7499 8.19879 15.5753 7.32104 15.2361 6.50209C14.8968 5.68315 14.3996 4.93903 13.7729 4.31224C13.1461 3.68544 12.402 3.18824 11.583 2.84902C10.7641 2.5098 9.88635 2.33521 8.99993 2.33521C8.11352 2.33521 7.23578 2.5098 6.41685 2.84902C5.59791 3.18824 4.8538 3.68544 4.22701 4.31224C3.60022 4.93903 3.10302 5.68315 2.76381 6.50209C2.42459 7.32104 2.25 8.19879 2.25 9.08521Z" stroke="#3D4D59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            4h
+                        </p>
+                        <p>$ 400</p>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="map_menu" *ngIf="ongletSelectionne === 'Reviews' || ongletSelectionne === 'All'">
+              <div class="badge_certificate">
+                  <p>Review</p>
+                  <a href="">See All</a>
+                </div>
+              <div class="livraison">
+                <div class="content_image_livraison">
+                    <img src="../../../assets/img/instructor_images.png" alt="">
+                </div>
+                <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
+                    <div class="profil">
+                        <p style="margin-bottom: 0;">Oscar Cafeo</p>
+                        <p style="margin-top: 0;">Beautiful courses</p>
+                        <p>Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement tantaneously eel valiantly petted this along across highhandedly much.</p>
+                    </div>
+                    <div class="detail">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                    </div>
+                </div>
+              </div>
+              <div class="livraison">
+                <div class="content_image_livraison">
+                    <img src="../../../assets/img/image 51.png" alt="">
+                </div>
+                <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
+                    <div class="profil">
+                        <p style="margin-bottom: 0;">Oscar Cafeo</p>
+                        <p style="margin-top: 0;">Beautiful courses</p>
+                        <p>Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement tantaneously eel valiantly petted this along across highhandedly much.</p>
+                    </div>
+                    <div class="detail">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                            <path d="M5.80262 0.452219L4.21589 3.81352L0.665805 4.35428C0.0291704 4.45075 -0.225969 5.27076 0.235712 5.74043L2.80412 8.35534L2.19664 12.0492C2.0873 12.7169 2.76038 13.217 3.32412 12.9048L6.5 11.1607L9.67588 12.9048C10.2396 13.2145 10.9127 12.7169 10.8034 12.0492L10.1959 8.35534L12.7643 5.74043C13.226 5.27076 12.9708 4.45075 12.3342 4.35428L8.78411 3.81352L7.19738 0.452219C6.91308 -0.146926 6.08935 -0.154542 5.80262 0.452219Z" fill="#FFC78B"/>
+                          </svg>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<app-footers></app-footers>
