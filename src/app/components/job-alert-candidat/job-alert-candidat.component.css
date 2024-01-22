@@ -63,7 +63,6 @@
 .right_menu{
     width: 100%;
     margin-bottom: 121px;
-    margin-left: 15%;
 }
 .content_right_menu{
     background-color: #FFF;
@@ -214,6 +213,7 @@ thead th {
     width: fit-content;
     visibility: visible;
     margin-bottom: 30px;
+    margin-left: 0;
 }
 .all_info{
     margin-bottom: 25px;

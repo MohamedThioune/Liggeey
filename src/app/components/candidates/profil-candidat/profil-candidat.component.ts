@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profil-candidat',
@@ -7,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilCandidatComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
-  isSidebarVisible = false;
+  isSidebarVisible = true;
   showButton = true;
-
+  form_profil!:FormGroup;
+  form_social!:FormGroup;
+  form_contact!:FormGroup;
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = false;
+    console.log(this.isSidebarVisible);
+    
   }
   fermerSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
@@ -106,9 +110,35 @@ export class ProfilCandidatComponent implements OnInit {
       "domaine":"Php"
     }
   ]; 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.form_profil = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password:['',[]],
+      firstName:['',[]],
+      lastName:['',[]],
+      name:['',[]],
+      username:['',[]]
+    });
+    this.form_social = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password:['',[]],
+      firstName:['',[]],
+      lastName:['',[]],
+      name:['',[]],
+      username:['',[]]
+    });
+    this.form_contact = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password:['',[]],
+      firstName:['',[]],
+      lastName:['',[]],
+      name:['',[]],
+      username:['',[]]
+    });
+
+
   }
 
 }

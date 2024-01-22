@@ -21,6 +21,7 @@
 body {
     background-color: #FFFF !important;
     font-family: "Roboto-Regular";
+    padding-top: 180px;
 }
 .container-fluid{
   max-width: 1380px !important;
@@ -38,7 +39,23 @@ body {
 .ngx-pagination .current {
   background: #1ac4a2 !important;
 }
-
+.content-page-dashboard{
+  display: flex;
+}
+.right_menu{
+  width: 100%;
+}
+.title-page{
+  color: #202124;
+  font-size: 23px;
+  font-family: "Roboto-Bold";
+  margin-top: 20px;
+}
+.sub-title-page{
+  color: #202124;
+  font-size: 18px;
+  font-weight: 600;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
   .search_about .categorie {
     width: 100% !important;
@@ -46,6 +63,35 @@ body {
   }
   .search_about button {
     padding: 10px 22px 10px 20px !important;
+  }
+  .content_left_menu{
+    top: 0;
+    padding-left: 0;
+    padding-top: 0px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    background: white;
+  }
+  .content_left_menu ul{
+    padding-top: 39px !important;
+  }
+  .content_left_menu ul li{
+    margin-bottom: 0px !important;
+  }
+  .close{
+    visibility: visible;
+    background-color: unset !important;
+    margin-left: unset !important;
+    padding-right: unset !important;
+    padding-left: unset !important;
+    padding-bottom: unset !important;
+    line-height: unset !important;
+    right: 35px;
+    top: 20px;
+    z-index: 999;
+    position: fixed;
   }
 
 

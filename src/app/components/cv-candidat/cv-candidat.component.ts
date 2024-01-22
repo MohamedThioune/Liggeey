@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cv-candidat',
@@ -9,7 +10,7 @@ export class CvCandidatComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
-
+  myForm!:FormGroup
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = false;
@@ -106,9 +107,12 @@ export class CvCandidatComponent implements OnInit {
       "domaine":"Php"
     }
   ]; 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.myForm = this.fb.group({
+      file:['',[]],
+    });
   }
 
 }

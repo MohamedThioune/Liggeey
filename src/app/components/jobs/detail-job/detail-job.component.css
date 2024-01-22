@@ -27,6 +27,9 @@
     height: 100%;
     object-fit: contain;
  }
+ .description_job{
+   text-align: center;
+ }
 
  .description_job .bookmark{
    width: 50px;

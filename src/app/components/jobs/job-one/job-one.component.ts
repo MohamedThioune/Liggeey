@@ -10,7 +10,7 @@ export class JobOneComponent implements OnInit {
   someArrayOfThings!:any
   currentColor: string = '#ECEDF2';
   isClass1Visible = true;
-  artikels:any
+  jobs:any
 
   changeColor() {
     this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
@@ -20,10 +20,8 @@ export class JobOneComponent implements OnInit {
   }
   constructor(private homeService:HomePageService) {}
   ngOnInit(): void {
-    this.homeService.getInfoHomepage().subscribe((data:any)=>{  
-      this.artikels=data.artikels
-      console.log(this.artikels, this.artikels.length);
-
+    this.homeService.getAllJob().subscribe((data:any)=>{  
+      this.jobs=data
     })
   }
   
