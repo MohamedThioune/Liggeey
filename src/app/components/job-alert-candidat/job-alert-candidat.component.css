@@ -79,8 +79,8 @@
 }
 .map_menu{
     border-radius: 8px;
-    margin-top: 56px;
-    border: 1px solid  #ECEDF2; 
+    margin-top: 30px;
+    border: 1px solid  #ECEDF2;
     background: #FFF;
     padding: 30px;
     width: 100%;
@@ -135,7 +135,7 @@ table tbody tr td button{
 tr td:nth-child(2) {
   color: #696969;
   font-size: 15px;
-  font-weight: 600; 
+  font-weight: 600;
 }
 tr td:nth-child(3) {
     color:  #696969;
@@ -165,7 +165,7 @@ thead th {
  .show_sidebar{
     visibility:hidden;
 }
- @media all and (min-width: 300px) and (max-width: 767px){ 
+ @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     margin: 32px 11px 74px 12px;
     border-radius: 8px;

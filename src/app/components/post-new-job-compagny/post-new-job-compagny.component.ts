@@ -7,17 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostNewJobCompagnyComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
-  isSidebarVisible = false;
-  showButton = true;
 
-  toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = false;
-  }
-  fermerSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = true;
-  }
   collection: any[] = this.someArrayOfThings=[
     {
       "color":"#4947D0",
@@ -105,7 +95,7 @@ export class PostNewJobCompagnyComponent implements OnInit {
       "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"Php"
     }
-  ]; 
+  ];
   constructor() { }
 
   ngOnInit(): void {

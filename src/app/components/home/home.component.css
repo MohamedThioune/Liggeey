@@ -777,96 +777,101 @@
     }
     .tabs{
     padding: 30px 0 30px 0;
-}
+    }
   .description_banner {
     padding: 20px 21px 20px;
+    }
+  .tabs ul li{
+    padding: 3px 10px 0px 10px;
+    margin-left: 0px;
+    margin-bottom: 25px;
+    width: 50%;
+
   }
-.tabs ul li{
-  padding: 3px 10px 0px 10px;
-  margin-left: 0px;
-  margin-bottom: 25px;
-  width: 50%;
-
-}
-.content_mobile_images{
-  width: 100%;
-  height: fit-content;
-  margin: 0 auto;
-  margin-top: 27px;
-}
-.description_skills{
-    padding-top:88px ;
-    padding-bottom: 20px;
-}
-.description_skills .slills_title{
-    color: #202124;
-    font-size: 30px;
-    font-weight: bold;
-}
-.description_skills .slills_{
-    color: #696969;
-    font-size: 15px;
-    font-weight: 400;
-    margin-top: 29px;
-    margin-bottom: 20px;
-}
-.info_candidat a{
-    padding: 5px 80px 3px 70px;
-}
-.jobs{
-    margin-top: 80px;
-    margin-bottom: 60px;
-}
-.job_list_1 .content_job_list_1 .logo{
-    margin: 32px 11px 74px 12px;
-}
-.description_job span{
-    font-size: 14px;
-}
-.description_job .info{
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-}
-.description_job .all_info{
-    padding-bottom: 15px;
-}
-.categories{
-    margin-bottom: 50px;
-}
-.featured{
-    display: flex;
-    flex-wrap: wrap;
-}
-.card_article{
-    margin-bottom: 16px;
-}
-.info_candidat a{
-    padding: 17px 80px 15px 70px;
-}
-.featured_candidates{
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-.bullet{
-    margin-left: 50%;
-}
-
-.description_skills .download_button {
-    margin-top: 27px;
-}
-.description_article{
+  .content_mobile_images{
     width: 100%;
-    padding-left: 16px;
-}
-
-.content_image_article{
-    width: 100%;
+    height: fit-content;
     margin: 0 auto;
-}
+    margin-top: 27px;
+  }
+  .description_skills{
+      padding-top:88px ;
+      padding-bottom: 20px;
+  }
+  .description_skills .slills_title{
+      color: #202124;
+      font-size: 30px;
+      font-weight: bold;
+  }
+  .description_skills .slills_{
+      color: #696969;
+      font-size: 15px;
+      font-weight: 400;
+      margin-top: 29px;
+      margin-bottom: 20px;
+  }
+  .info_candidat a{
+      padding: 5px 80px 3px 70px;
+  }
+  .jobs{
+      margin-top: 80px;
+      margin-bottom: 60px;
+  }
+  .job_list_1 .content_job_list_1 .logo{
+      margin: 32px 11px 74px 12px;
+  }
+  .description_job span{
+      font-size: 14px;
+  }
+  .description_job .info{
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+  }
+  .description_job .all_info{
+      padding-bottom: 15px;
+  }
+  .categories{
+      margin-bottom: 50px;
+  }
+  .featured{
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .card_article{
+      margin-bottom: 16px;
+  }
+  .info_candidat a{
+      padding: 17px 80px 15px 70px;
+  }
+  .featured_candidates{
+      padding-top: 60px;
+      padding-bottom: 60px;
+  }
+  .bullet{
+      margin-left: 50%;
+  }
 
-.content_image_article{
-    padding: 16px 19px;
-    border-radius: 10px;
-}
+  .description_skills .download_button {
+      margin-top: 27px;
+  }
+  .description_article{
+      width: 100%;
+
+  }
+
+  .content_image_article{
+      width: 100%;
+      margin: 0 auto;
+  }
+
+  .content_image_article{
+      padding: 16px 19px;
+      border-radius: 10px;
+  }
+  .article_1{
+    padding: 10px 0px;
+  }
+
+
 }

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangePasswordCompagnyComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
+
   isSidebarVisible = false;
   showButton = true;
 
@@ -105,7 +106,7 @@ export class ChangePasswordCompagnyComponent implements OnInit {
       "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"Php"
     }
-  ]; 
+  ];
   constructor() { }
 
   ngOnInit(): void {

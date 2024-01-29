@@ -1,6 +1,6 @@
+<button class="show_sidebar" *ngIf="showButton" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>
+
 <div class="content-sidbar">
-    <!--
-     <button class="show_sidebar" *ngIf="showButton" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>--> 
      <div class="left_menu" [class.left_menu_show]="isSidebarVisible" [class.left_menu]="!isSidebarVisible">
      <span  class="close" (click)="fermerSidebar()">x</span>
        <div class="content_left_menu">
@@ -185,5 +185,4 @@
        </div>
      </div>
    </div>
-   
-   
+

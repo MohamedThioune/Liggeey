@@ -8,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarCandidatComponent implements OnInit {
 
   isSidebarVisible = false;
- 
+  showButton = true;
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    this.showButton = false;
+  }
   fermerSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;  
-    console.log(this.isSidebarVisible);
-      
+    this.isSidebarVisible = !this.isSidebarVisible;
+    this.showButton = true;
   }
   constructor() { }
 

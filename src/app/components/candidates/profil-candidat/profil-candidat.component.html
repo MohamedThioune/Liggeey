@@ -1,13 +1,10 @@
 <app-header></app-header>
-<button class="show_sidebar" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>
 <section class="content-page-dashboard">
   <app-sidebar-candidat></app-sidebar-candidat>
   <div class="right_menu" [class.right_menu_show]="!isSidebarVisible" [class.right_menu]="isSidebarVisible">
       <div class="content_right_menu">
-          <div class="map_menu">
-              <div class="head_map_menu">
-                  <span>My Profile</span>
-              </div>
+         <!-- <div class="map_menu">
+
               <div class="d-flex">
                 <div class="content_map_menu">
                   <svg xmlns="http://www.w3.org/2000/svg" width="136" height="135" viewBox="0 0 136 135" fill="none">
@@ -19,10 +16,24 @@
                 <p>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</p>
               </div>
               </div>
-          </div>
+          </div>-->
           <form [formGroup]="form_profil">
             <div class="card-body">
-                <div class="row">
+              <h2 class="mt-0 ml-0">My Profile</h2>
+
+              <div class="image-container">
+                <div class="default-image" [style.backgroundImage]="'url(' + (uploadedImage || '../../../assets/img/user-default.png') + ')'">
+                  <!-- Image par défaut ou image téléchargée -->
+                </div>
+                <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+                <label for="fileInput" class="upload-button">
+                  Télécharger une image
+                </label>
+                <!-- Bouton pour télécharger une nouvelle image -->
+              </div>
+
+
+              <div class="row">
                     <div class="col-md-6 col-sm-6 p-2">
                         <label for="email">
                           Full Name
@@ -33,6 +44,7 @@
                                 formControlName="email">
                         </div>
                     </div>
+
                     <div class="col-md-6 col-sm-6   p-2">
                         <label for="password">Job Title
                             <p>*</p>
@@ -42,108 +54,102 @@
                                 formControlName="password">
                         </div>
                     </div>
-                </div>
-                <div class="row g-3">
-                    <div class="col-md-6 col-sm-6   p-2">
-                        <label for="firstName">Phone
-                            <p>*</p>
-                        </label>
-                        <div class="input-group">
-                            <input type="text" name="firstName" class="form-control" id="firstName" placeholder="0 123 456 7890"
-                                formControlName="firstName">
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6   p-2">
-                        <label for="firstName">Email address
-                            <p>*</p>
-                        </label>
-                        <div class="input-group">
-                            <input type="text" name="lastName" class="form-control" id="lastName" placeholder="creativelayers"
-                                formControlName="lastName">
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-3">
-                    <div class="col-md-6 col-sm-6   p-2">
-                        <label for="name"> Experience
-                            <p>*</p>
-                        </label>
-                        <div class="input-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="5-10 Years"
-                                formControlName="name">
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6   p-2">
-                        <label for="name"> Age
-                            <p>*</p>
-                        </label>
-                        <div class="input-group">
-                            <input type="text" name="username" class="form-control" id="username" placeholder="23 - 27 Years"
-                                formControlName="username">
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-3">
                   <div class="col-md-6 col-sm-6   p-2">
-                      <label for="name"> Education Levels
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="name" class="form-control" id="name" placeholder="Certificate"
-                              formControlName="name">
-                      </div>
+                    <label for="firstName">Phone
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="firstName" class="form-control" id="firstName" placeholder="0 123 456 7890"
+                             formControlName="firstName">
+                    </div>
                   </div>
+
                   <div class="col-md-6 col-sm-6   p-2">
-                      <label for="name"> Languages
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="username" class="form-control" id="username" placeholder="English, Turkish"
-                              formControlName="username">
-                      </div>
+                    <label for="firstName">Email address
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="lastName" class="form-control" id="lastName" placeholder="creativelayers"
+                             formControlName="lastName">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Experience
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="name" class="form-control" id="name" placeholder="5-10 Years"
+                             formControlName="name">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Age
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="username" class="form-control" id="username" placeholder="23 - 27 Years"
+                             formControlName="username">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Education Levels
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Certificate"
+                             formControlName="name">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Languages
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="username" class="form-control" id="username" placeholder="English, Turkish"
+                             formControlName="username">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name">Categories
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
+                             formControlName="name">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Allow In Search & Listing
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="username" class="form-control" id="username" placeholder="Yes"
+                             formControlName="username">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Description</label>
+                      <textarea name="" id="" rows="8"></textarea>
+                      <button type="submit" class="btn btn-save">Save</button>
+                    </div>
                   </div>
                 </div>
-                <div class="row g-3">
-                  <div class="col-md-6 col-sm-6   p-2">
-                      <label for="name">Categories
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
-                              formControlName="name">
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-sm-6   p-2">
-                      <label for="name"> Allow In Search & Listing
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="username" class="form-control" id="username" placeholder="Yes"
-                              formControlName="username">
-                      </div>
-                  </div>
-                </div>
+
             </div>
-            <!--
-            <div class="card-footer p-3  ">
-                <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </button>      
-            </div>
-            -->
-                    <div class="clear"></div><br />
           </form>
-          <div class="applicants">
-              <div class="header_applicants">
-                  <span>Description</span>
-                  <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present
-                  </p>
-                  <a class="btn" routerLink="" routerLinkActive="active_lien_navbar">Save</a>
-              </div>
-          </div>
       </div>
-      <div class="social">
-        <span>Social Network</span>
+      <div class="card-modife social-block">
         <form [formGroup]="form_social">
           <div class="card-body">
+             <h2>Social Network</h2>
               <div class="row">
                   <div class="col-md-6 col-sm-6 p-2">
                       <label for="email">
@@ -164,38 +170,33 @@
                               formControlName="password">
                       </div>
                   </div>
-              </div>
-              <div class="row g-3">
                   <div class="col-md-6 col-sm-6   p-2">
-                      <label for="firstName">Linkedin
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="firstName" class="form-control" id="firstName" placeholder=""
-                              formControlName="firstName">
-                      </div>
+                    <label for="firstName">Linkedin
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="firstName" class="form-control" id="firstName" placeholder=""
+                             formControlName="firstName">
+                    </div>
                   </div>
                   <div class="col-md-6 col-sm-6   p-2">
-                      <label for="firstName">Google Plus
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="lastName" class="form-control" id="lastName" placeholder=""
-                              formControlName="lastName">
-                      </div>
+                    <label for="firstName">Google Plus
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="lastName" class="form-control" id="lastName" placeholder=""
+                             formControlName="lastName">
+                    </div>
                   </div>
               </div>
+              <button class="btn btn-save create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>
           </div>
-          <div class="card-footer p-3  ">
-              <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>      
-          </div>
-                  <div class="clear"></div><br />
         </form>
       </div>
-      <div class="contact">
-        <span>Contact Information</span>
+      <div class="card-modife contact-infos">
         <form [formGroup]="form_contact">
           <div class="card-body">
+               <h2>Contact Information</h2>
               <div class="row g-3">
                   <div class="col-md-6 col-sm-6 p-2">
                       <label for="email">
@@ -216,28 +217,18 @@
                               formControlName="password">
                       </div>
                   </div>
-              </div>
-              <div class="row g-3" style="width:100%">
                   <div class="col-md-12 col-sm-12 p-2">
-                      <label for="firstName">Complete Address
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Dakar ouakam"
-                              formControlName="firstName">
-                      </div>
+                  <label for="firstName">Complete Address
+                    <p>*</p>
+                  </label>
+                  <div class="input-group">
+                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Dakar ouakam"
+                           formControlName="firstName">
                   </div>
+                </div>
               </div>
+             <button class="btn btn-save create " type="submit"> Save </button>
           </div>
-          <div class="content_map">
-            <img src="../../../assets/img/map-2.png" alt="">
-          </div>
-          
-          <div class="card-footer p-3  ">
-              <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>      
-          </div>
-          
-                  <div class="clear"></div><br />
         </form>
       </div>
   </div>
