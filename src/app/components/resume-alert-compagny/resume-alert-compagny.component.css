@@ -18,7 +18,7 @@
 .map_menu{
     border-radius: 8px;
     margin-top: 56px;
-    border: 1px solid  #ECEDF2; 
+    border: 1px solid  #ECEDF2;
     background: #FFF;
     padding: 30px;
     width: 100%;
@@ -63,7 +63,7 @@ tr th {
 tr td:nth-child(2) {
   color: #696969;
   font-size: 15px;
-  font-weight: 400; 
+  font-weight: 400;
 }
 tr td:nth-child(3) {
     color:  #696969;
@@ -91,7 +91,7 @@ thead th {
  .show_sidebar{
     visibility:hidden;
 }
- @media all and (min-width: 300px) and (max-width: 767px){ 
+ @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     margin: 32px 11px 74px 12px;
     border-radius: 8px;
@@ -120,4 +120,19 @@ thead th {
 .all_info{
     margin-bottom: 25px;
 }
+   .table th, .table td {
+     padding: 0.35rem;
+     min-width: 150px;
+   }
+   tr th {
+     font-size: 15px;
+   }
+   .table{
+     display: block;
+     width: 100%;
+     overflow-x: auto;
+   }
+   .map_menu{
+     padding: 15px;
+   }
  }

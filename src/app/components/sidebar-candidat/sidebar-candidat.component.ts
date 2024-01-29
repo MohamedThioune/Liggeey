@@ -11,11 +11,12 @@ export class SidebarCandidatComponent implements OnInit {
 
   isSidebarVisible = false;
   userConnect:any;
-
+  showButton=false;
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+  }
   fermerSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;  
-    console.log(this.isSidebarVisible);
-      
+    this.isSidebarVisible = !this.isSidebarVisible;
   }
   deconnexion(){
     this.usagerService.deconnexion()

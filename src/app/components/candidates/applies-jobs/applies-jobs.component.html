@@ -1,6 +1,5 @@
 <app-header></app-header>
-<button class="show_sidebar" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>
-<section class="content-page-dashboard" *ngIf="isWebScreen()">
+<section class="content-page-dashboard" >
   <app-sidebar-candidat></app-sidebar-candidat>
   <div class="right_menu">
     <div class="content_right_menu">
@@ -294,9 +293,9 @@
     </button>
   </div>
 </section>
-<section class="content-page-dashboard" *ngIf="isMobileScreen()">
-  <app-sidebar-candidat *ngIf="!isSidebarVisible"></app-sidebar-candidat>
-  <div class="right_menu"  [class.right_menu_show]="!isSidebarVisible" [class.right_menu]="isSidebarVisible">
+<section class="content-page-dashboard" >
+  <app-sidebar-candidat ></app-sidebar-candidat>
+  <div class="right_menu">
     <div class="content_right_menu">
       <p class="title-page">Applied Jobs</p>
       <div class="map_menu">

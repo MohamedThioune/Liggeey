@@ -1,109 +1,76 @@
-
 <app-header></app-header>
-<button class="show_sidebar" *ngIf="showButton" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>
 <section class="content-page-dashboard">
   <app-sidebar-company></app-sidebar-company>
   <div class="right_menu">
-      <div class="content_right_menu">
-        <span>Post a new job offer</span>
-          <div class="map_menu">
-              <div class="head_map_menu">
-                  <span>Add Offer</span>
-              </div>
-            <form [formGroup]="myForm">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 p-2">
-                            <label for="email">
-                                Title
-                                <p>*</p>
-                            </label>
-                            <div class="input-group">
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Title"
-                                    formControlName="email">
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 p-2">
-                            <label for="email">
-                                Description
-                            </label>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--
-                <div class="card-footer p-3  ">
-                    <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </button>      
-                </div>
-                -->
-                        <div class="clear"></div><br />
-            </form>
-          </div>
-      </div>
-      <div class="social">
-        <form [formGroup]="form">
+    <h2 class="title-page">Post a new job offer</h2>
+    <div class="content_right_menu">
+      <div class="map_menu">
+        <form>
           <div class="card-body">
-              <div class="row">
-                  <div class="col-md-6 col-sm-6 p-2">
-                      <label for="email">
-                        Contract type
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="email" name="email" class="form-control" id="email" placeholder="www.facebook.com/Invision"
-                              formControlName="email">
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-sm-6   p-2">
-                      <label for="password">Level of experience
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="password" class="form-control" id="password" placeholder=""
-                              formControlName="password">
-                      </div>
-                  </div>
+            <div class="form-group">
+              <label>
+                Title <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="text" name="email" class="form-control" id="" placeholder="Title">
               </div>
-              <div class="row g-3">
-                  <div class="col-md-6 col-sm-6   p-2">
-                      <label for="firstName">Skills
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="firstName" class="form-control" id="firstName" placeholder=""
-                              formControlName="firstName">
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-sm-6   p-2">
-                      <label for="firstName">Langues
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="lastName" class="form-control" id="lastName" placeholder=""
-                              formControlName="lastName">
-                      </div>
-                  </div>
-              </div>
-              <div class="row g-3">
-                <div class="col-md-12 col-sm-12 p-2">
-                    <label for="firstName">Application deadline
-                        <p>*</p>
-                    </label>
-                    <div class="input-group">
-                        <input type="text" name="firstName" class="form-control" id="firstName" placeholder="26.10.2023"
-                            formControlName="firstName">
-                    </div>
-                </div>
             </div>
+            <div class="form-group">
+              <label>
+                Description
+              </label>
+              <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <button class="btn btn-save create" type="submit"> Save </button>
           </div>
-          <div class="card-footer p-3  ">
-              <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>      
-          </div>
-                  <div class="clear"></div><br />
         </form>
       </div>
+    </div>
+    <div class="social">
+      <form>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 p-2">
+              <label for="email">
+                Contract type  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="email" name="email" class="form-control" id="email" placeholder="www.facebook.com/Invision">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 p-2">
+              <label for="password">Level of experience  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="text" name="password" class="form-control" id="password" placeholder="">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 p-2">
+              <label for="firstName">Skills  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6  p-2">
+              <label for="firstName">Langues  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="text" name="lastName" class="form-control" id="lastName" placeholder="">
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 p-2">
+              <label for="firstName">Application deadline  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="26.10.2023">
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-save create " type="submit"> Save </button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
 <app-footers></app-footers>

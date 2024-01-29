@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 })
 export class ChangePasswordCompagnyComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
+
   isSidebarVisible = false;
   showButton = true;
   myForm!: FormGroup;

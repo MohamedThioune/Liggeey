@@ -7,6 +7,21 @@ import { FormGroup,FormBuilder,Validators } from '@angular/forms';
   styleUrls: ['./profil-candidat.component.css']
 })
 export class ProfilCandidatComponent implements OnInit {
+
+  uploadedImage: any; // Pour stocker l'image téléchargée
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e: any) => {
+        this.uploadedImage = e.target.result;
+      };
+    }
+  }
+
+
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = true;
   showButton = true;
@@ -16,7 +31,7 @@ export class ProfilCandidatComponent implements OnInit {
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     console.log(this.isSidebarVisible);
-    
+
   }
   fermerSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
@@ -109,7 +124,7 @@ export class ProfilCandidatComponent implements OnInit {
       "logo": "../../../assets/img/Rectangle 112.png",
       "domaine":"Php"
     }
-  ]; 
+  ];
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {

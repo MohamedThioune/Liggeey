@@ -1,3 +1,4 @@
+
 .content_left_menu ul {
     top: 0;
     padding-left: 0;
@@ -39,13 +40,16 @@
     line-height: 50px;
 }
 .right_menu{
-    width: 95%;
+    width: 100%;
     margin-bottom: 121px;
+    margin-left: 15%;
 }
 .content_right_menu{
     background-color: #FFF;
     height: fit-content;
     border-radius: 8px;
+    /*border: 1px solid #ECEDF2;*/
+    /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
 .content_right_menu span:first-child{
@@ -55,7 +59,7 @@
 }
 .map_menu{
     border-radius: 8px;
-    margin-top: 25px;
+    margin-top: 56px;
     border: 1px solid  #ECEDF2;
     background: #FFF;
     padding: 30px;
@@ -192,9 +196,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 100px;
+    margin-bottom: 71px;
 }
-.map_menu .all p:nth-child(4){
+.map_menu .all p:nth-child(7){
     color: #FFF;
     font-size: 23px;
     font-weight: 500;
@@ -208,55 +213,50 @@
     font-weight: 600;
     margin: 0;
 }
-.badge_certificate{
-    display: flex;
-    margin: 76px 0 13px;
-}
-.badge_certificate p:first-child{
-    color:  #828282;
-    font-size: 19px;
-    font-weight: 400;
-    margin-right: 16px;
-}
-.badge_certificate p:last-child{
-    color: #4F4F4F;
-    font-size: 19px;
-    font-weight: 600;
-}
 .livraison{
     border-radius: 4px;
     border: 1px solid rgba(33, 36, 44, 0.16);
     background: #FFF;
     display: flex;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 55px;
 }
-.document{
-    border-radius: 5px;
-    border: 1px solid  #ECEDF2;
-    background: #FFF;
-    text-align: center;
-    padding: 32px 12px;
-    margin: 26px;
+.content_image_livraison{
+    width: 148px;
+    height: 148px;
+    margin: 42px 31px 41px 42px;
+    border-radius: 100%;
+    overflow: hidden;
 }
-.document .content_image_document{
-    width: 95px;
-    height: 95px;
-    margin: 0 auto 22px;
-}
-.document .content_image_document img{
+.content_image_livraison img{
     width: 100%;
     height: 100%;
+    margin: 0;
 }
-.document .content_image_document p{
-    color: #47A99E;
+.livraison .profil{
+    font-size: 18px;
+    font-weight: 500;
+}
+.livraison .profil p:first-child{
+    color: #000;
     font-size: 20px;
     font-weight: 600;
 }
-.document p{
-    color: #051D2F;
+.livraison .profil p{
+    color: #868686;
+    font-size: 18px;
+    font-weight: 500;
+}
+.livraison .profil span{
+    color: #043356;
     font-size: 18px;
     font-weight: 600;
+}
+.livraison .detail {
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    width: 8%;
 }
 
  .show_sidebar{
