@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable ,throwError} from 'rxjs';
 import { User } from '../interfaces/user';
 import { Usager } from '../interfaces/usager';
 import { UserResetPassword } from '../interfaces/user-reset-password';
 import { UsagerCompany } from '../interfaces/usager-company';
+import { catchError, tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +37,10 @@ export class UsagerService {
       last_name: usager.lastName,
       name:usager.name,
       username:usager. username,
-      roles: ["subscriber"]
+      roles: ["subscriber"],
+      acf:{
+        "is_liggeey":"candidate"
+      },
     };    
     return this.http.post<Usager>(" http://wp12.influid.nl/wp-json/wp/v2/users", requestBody, { headers });
   }
@@ -54,6 +59,9 @@ export class UsagerService {
       first_name: usager.firstNameCompagny,
       last_name: usager.lastNameCompagny,
       bedrijf:usager.bedrijf,
+      acf:{
+        "is_liggeey":"chief"
+      },   
     };    
     return this.http.post<any>(" http://wp12.influid.nl/wp-json/custom/v1/register/company", requestBody, { headers });
   }
@@ -83,4 +91,9 @@ export class UsagerService {
     }
     return this.http.post<UserResetPassword>('https://livelearn.nl/wp-json/bdpwr/v1/set-password',bodyRequestPassword, { headers });
   }
+
+  deconnexion() {
+    localStorage.removeItem('access_token');
+    window.location.href = "login";
+  } 
 }

@@ -59,7 +59,7 @@
           <p>Last 6 Months</p>
         </div>
 
-        <div class="content_map_menu" id="container"></div>
+        <div class="content_map_menu"></div>
 
       </div>
       <div class="applicants">
@@ -139,7 +139,7 @@
 </section>
 <section class="content-page-dashboard" *ngIf="isMobileScreen()">
   <app-sidebar-candidat *ngIf="!isSidebarVisible"></app-sidebar-candidat>
-  <div class="right_menu"  [class.right_menu_show]="!isSidebarVisible" [class.right_menu]="isSidebarVisible">
+  <div class="right_menu"  [class.right_menu_show]="isSidebarVisible" [class.right_menu]="!isSidebarVisible">
     <div class="content_right_menu">
       <div class="row" style="margin-top:30px;margin-right:0px">
         <div class="col-md-4" style="margin-bottom: 16px;">

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import {Chart} from 'chart.js'
+import * as Highcharts from 'highcharts';
+
 
 @Component({
   selector: 'app-dashboard-employer',
@@ -10,14 +12,22 @@ export class DashboardEmployerComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
-
+  isMobile!: boolean;
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = false;
   }
-  fermerSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = true;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event:Event) {
+    this.isMobile = window.innerWidth < 768; 
+  }
+
+  isWebScreen(): boolean {
+    return !this.isMobile;
+  }
+
+  isMobileScreen(): boolean {
+    return this.isMobile;
   }
   collection: any[] = this.someArrayOfThings=[
     {
@@ -109,45 +119,10 @@ export class DashboardEmployerComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+
   }
   constructor() {
-    this.renderChat();
    }
 
-  renderChat(){
-    const data = [
-      { year: 2010, count: 10 },
-      { year: 2011, count: 20 },
-      { year: 2012, count: 15 },
-      { year: 2013, count: 25 },
-      { year: 2014, count: 22 },
-      { year: 2015, count: 30 },
-      { year: 2016, count: 28 },
-    ];
-   const myChart= new Chart("myChart",{
-          type: 'bubble',
-          options: {
-            animation: false,
-            plugins: {
-              legend: {
-                display: false
-              },
-              tooltip: {
-                enabled: false
-              }
-            }
-          },
-          data: {
-            labels: data.map(row => row.year),
-            datasets: [
-              {
-                label: 'Acquisitions by year',
-                data: data.map(row => row.count)
-              }
-            ]
-          }
-    })
-
-  }
 
 }

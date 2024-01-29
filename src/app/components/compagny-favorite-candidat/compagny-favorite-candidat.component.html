@@ -4,10 +4,10 @@
   <app-sidebar-company></app-sidebar-company>
   <div class="right_menu">
     <div class="content_right_menu">
-      <span>All Aplicants</span>
+      <span>Favorites</span>
         <div class="map_menu">
           <div class="head_map_menu">
-            <span>Applicant</span>
+            <span>My favorite candidates</span>
             <div class="d-flex">
               <input type="search" placeholder="Search" name="" id="search">
               <p>Last 6 Months
@@ -17,18 +17,6 @@
               </p>
             </div>
            
-          </div>
-          <div class="d-flex profil">
-            <p>Senior Product Designer</p>
-            <div class="d-flex">
-              <p>Total(s): 34</p>
-              <p>Approved: 2</p>
-              <p>Rejected(s): 8
-                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
-                  <path d="M7.76408 0.493663L7.5341 0.163823C7.46173 0.0608136 7.36543 0.00406517 7.26252 0.00406517C7.15966 0.00406517 7.06325 0.0608136 6.99087 0.163823L4.36746 3.9006L1.74101 0.159676C1.66875 0.0566672 1.57234 0 1.46948 0C1.36662 0 1.27016 0.0566672 1.19784 0.159676L0.967803 0.487484C0.818024 0.700656 0.818024 1.04789 0.967803 1.26107L4.0949 5.7311C4.16716 5.83403 4.26345 5.90655 4.36723 5.90655H4.36843C4.47134 5.90655 4.56764 5.83395 4.6399 5.7311L7.76408 1.27318C7.83646 1.17025 7.87619 1.02895 7.8763 0.882446C7.8763 0.73586 7.83646 0.596509 7.76408 0.493663Z" fill="#2F2D51"/>
-                </svg>
-              </p>
-            </div>
           </div>
           <div class="applicants">
             <ul class="row">
@@ -147,7 +135,14 @@
                   </div>
                 </div>
               </li>
-              </ul>
+            </ul>
+            <div class="pagination">
+                <pagination-controls (pageChange)="p = $event"
+                previousLabel="Previous"
+                nextLabel="Next"
+                ></pagination-controls>
+              </div>
+
           </div>
         </div>
     </div>

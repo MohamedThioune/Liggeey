@@ -109,6 +109,7 @@ export class ManageJobCompagnyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

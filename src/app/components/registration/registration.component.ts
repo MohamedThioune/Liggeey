@@ -137,16 +137,19 @@ export class RegistrationComponent implements OnInit {
             message: this.message
           });
           if (typeR == "success") {
-            this.route.navigate(['/courses']);
+            this.route.navigate(['/login']);
           }
         },
-        error => {          
+        error => { 
+          console.log(error.error);
+                   
           ToastNotification.open({
             type: 'error',
             message: error.error.message
           });
         });
     } else {
+      console.log(this.message);
       ToastNotification.open({
         type: 'error',
         message: this.message.message
