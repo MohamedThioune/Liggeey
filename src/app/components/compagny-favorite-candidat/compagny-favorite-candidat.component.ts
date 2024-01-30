@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-assessment-candidat',
-  templateUrl: './assessment-candidat.component.html',
-  styleUrls: ['./assessment-candidat.component.css']
+  selector: 'app-compagny-favorite-candidat',
+  templateUrl: './compagny-favorite-candidat.component.html',
+  styleUrls: ['./compagny-favorite-candidat.component.css']
 })
-export class AssessmentCandidatComponent implements OnInit {
+export class CompagnyFavoriteCandidatComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
-  isCollapsedJobs = true;
-  isCollapsedEmployers = false;
-  isCollapsedAbout = false;
-  isCollapsedMobile = false;
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
@@ -28,42 +24,42 @@ export class AssessmentCandidatComponent implements OnInit {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     }
     ,{
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     },
     {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"php"
     },
     {
@@ -71,57 +67,45 @@ export class AssessmentCandidatComponent implements OnInit {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     }
     ,{
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     },
     {
       "profil":"Catalyst",
       "location":"Dakar",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Figma"
     },
     {
       "profil":"Figma",
       "location":"Nederland, NL",
       "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
+      "logo": "../../../assets/img/image_account.png",
       "domaine":"Php"
     }
   ]; 
-  toggleCollapseJobs() {
-    this.isCollapsedJobs = !this.isCollapsedJobs;
-  }
-  toggleCollapseEmployers() {
-    this.isCollapsedEmployers = !this.isCollapsedEmployers;
-  }
-  toggleCollapseAbout() {
-    this.isCollapsedAbout = !this.isCollapsedAbout;
-  }
-  toggleCollapseMobile() {
-    this.isCollapsedMobile = !this.isCollapsedMobile;
-  }
   constructor() { }
 
   ngOnInit(): void {

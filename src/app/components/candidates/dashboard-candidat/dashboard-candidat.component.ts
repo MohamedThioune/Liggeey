@@ -1,5 +1,5 @@
-import { Component, OnInit,HostListener } from '@angular/core';
-import * as Highcharts from 'highcharts';
+import {AfterViewInit, Component, OnInit,HostListener } from '@angular/core';
+import { Chart } from 'chart.js/auto';
 
 @Component({
   selector: 'app-dashboard-candidat',
@@ -9,16 +9,21 @@ import * as Highcharts from 'highcharts';
 export class DashboardCandidatComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
-    isMobile!: boolean;
+  isMobile!: boolean;
+  chart: any;
+  showButton = true;
+
+  constructor() { 
+    this.isMobile = window.innerWidth < 768; 
+
+  }
+ 
+  ngOnInit(): void {}
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     console.log(this.isSidebarVisible);
     
-  }
-  ngOnInit(): void {
-    Highcharts.chart('container', this.options);
-
   }
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {
@@ -31,6 +36,9 @@ export class DashboardCandidatComponent implements OnInit {
 
   isMobileScreen(): boolean {
     return this.isMobile;
+  }
+  ngAfterViewInit(): void {
+    this.createChart();
   }
   collection: any[] = this.someArrayOfThings=[
     {
@@ -120,9 +128,28 @@ export class DashboardCandidatComponent implements OnInit {
       "domaine":"Php"
     }
   ];
-  constructor() { 
-    this.isMobile = window.innerWidth < 768; 
-
+  createChart() {
+    this.chart = new Chart('MyChart', {
+      type: 'line',
+      data: {
+        labels: ['2022-05-10', '2022-05-11', '2022-05-12', '2022-05-13', '2022-05-14', '2022-05-15', '2022-05-16', '2022-05-17'],
+        datasets: [
+          {
+            label: 'Sales',
+            data: [467, 576, 572, 79, 92, 574, 573, 576],
+            backgroundColor: 'blue'
+          },
+          {
+            label: 'Profit',
+            data: [542, 542, 536, 327, 17, 0.00, 538, 541],
+            backgroundColor: 'limegreen'
+          }
+        ]
+      },
+      options: {
+        aspectRatio: 2.5
+      }
+    });
   }
   public options: any = {
     Chart: {

@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(private usagerService: UsagerService, private route: Router) { }
   username: string = '';
   password: string = '';
+
   ngOnInit(): void {
     this.initForm();
   }
@@ -24,12 +25,26 @@ export class LoginComponent implements OnInit {
     
     this.usagerService.connection(user).subscribe(
       (data:any) => {
-        const  token  = btoa(user.username + ':' + user.password);
-        if (token) {          
-          this.usagerService.storeToken(token); 
-         this.usagerService.getToken(); 
-          console.log(this.usagerService.getToken());
-          this.route.navigate(['/courses']);
+        
+        //const  token  = btoa(user.username + ':' + user.password);
+        const token = btoa(JSON.stringify(data));
+      
+        // Stockage dans le local storage
+        this.usagerService.storeToken(token); 
+        
+          // Récupération du token depuis le local storage
+          const storedToken = this.usagerService.getToken();
+        if (storedToken ) {          
+                    // Décodage de la base64
+          const decodedToken = atob(storedToken);
+
+          // Parse du JSON pour obtenir l'objet original
+          const userObject = JSON.parse(decodedToken);
+          if(userObject.acf.is_liggeey == "candidate"){          
+            this.route.navigate(['/dashboard-candidat/',userObject.id]);
+          } else if(userObject.acf.is_liggeey == 1){          
+            this.route.navigate(['/dashboard-employer/',userObject.id]);
+          }
         }else {
           console.log('noconnect');
           ToastNotification.open({

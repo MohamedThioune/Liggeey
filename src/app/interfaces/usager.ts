@@ -7,4 +7,5 @@ export interface Usager {
     firstName: String;
     lastName: String;
     roles:String;
+    avatar_urls:[]
 }
