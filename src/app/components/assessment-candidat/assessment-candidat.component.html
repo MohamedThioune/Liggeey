@@ -1,5 +1,6 @@
 <section>
     <button class="show_sidebar" *ngIf="showButton" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>
+
     <div class="d-flex">
       <div class="left_menu" [class.left_menu_show]="isSidebarVisible" [class.left_menu]="!isSidebarVisible">
         <span  class="close" (click)="fermerSidebar()">x</span>
@@ -20,7 +21,7 @@
                         </clipPath>
                       </defs>
                   </svg>
-                  
+
                   <p>Dashboard</p>
                   <!--
                   <a routerLink="">
@@ -169,7 +170,7 @@
                 </li>
             </ul>
         </div>
-      </div> 
+      </div>
       <div class="right_menu">
           <div class="content_right_menu">
               <div class="map_menu">
@@ -415,7 +416,7 @@
                         </td>
                       </tr>
                     </tbody>
-                  </table>          
+                  </table>
               </div>
           </div>
       </div>

@@ -11,6 +11,7 @@
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
+
 .close{
     visibility: hidden;
     background-color: #F0F5F7;
@@ -81,7 +82,7 @@
 .map_menu{
     border-radius: 8px;
     margin-top: 56px;
-    border: 1px solid  #ECEDF2; 
+    border: 1px solid  #ECEDF2;
     background: #FFF;
     padding: 30px;
     width: 100%;
@@ -265,7 +266,7 @@ table tbody tr th {
   }
   tr td:nth-child(2) {
     font-size: 16px;
-    font-weight: 600; 
+    font-weight: 600;
     color: #212121;
   }
   tr td:nth-child(3) {
@@ -289,7 +290,7 @@ table tbody tr th {
  .show_sidebar{
     visibility:hidden;
 }
- @media all and (min-width: 300px) and (max-width: 767px){ 
+ @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     margin: 32px 11px 74px 12px;
     border-radius: 8px;
