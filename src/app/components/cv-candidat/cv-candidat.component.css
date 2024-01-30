@@ -143,13 +143,11 @@
     margin-bottom: 6px;
     display: flex;
     color: #202124;
-
   }
   /* Add margin and spacing */
   .m-4 {
     margin: 1.5rem;
   }
-
   /* Clear float */
   .clear {
     clear: both;
@@ -165,7 +163,6 @@
     border-radius: 8px;
     width: 80%;
   }
-
   /* Optional styles for the text with asterisk (*) */
 label p {
     font-weight: bold;

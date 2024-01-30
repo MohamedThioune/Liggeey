@@ -31,7 +31,6 @@ export class ProfilCandidatComponent implements OnInit {
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     console.log(this.isSidebarVisible);
-
   }
   fermerSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;

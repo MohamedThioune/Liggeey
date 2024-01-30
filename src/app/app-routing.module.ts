@@ -21,13 +21,11 @@ import { ListCandidatesComponent } from './components/candidates/list-candidates
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
 import { DashboardCandidatComponent } from './components/candidates/dashboard-candidat/dashboard-candidat.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
-import { ChartDashbordComponent } from './components/chart-dashbord/chart-dashbord.component';
 import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
 import { BlogComponent } from './components/blogs/blog/blog.component';
 import { DetailBlogComponent } from './components/blogs/detail-blog/detail-blog.component';
 import { AppliesJobsComponent } from './components/candidates/applies-jobs/applies-jobs.component';
-import { CertificatCandidatComponent } from './components/certificat-candidat/certificat-candidat.component';
 import { SkillsCandidatComponent } from './components/skills-candidat/skills-candidat.component';
 import { CourseCandidatComponent } from './components/course-candidat/course-candidat.component';
 import { JobAlertCandidatComponent } from './components/job-alert-candidat/job-alert-candidat.component';
@@ -52,6 +50,7 @@ import { CompagnyFavoriteCandidatComponent } from './components/compagny-favorit
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
+
   
 
   { path: 'compagny-candidat/:id', component: CompagnyFavoriteCandidatComponent  ,canActivate: [AuthGuard]},
@@ -90,13 +89,9 @@ const routes: Routes = [
 
   { path: 'skills', component: SkillsCandidatComponent },
 
-  { path: 'certificat', component: CertificatCandidatComponent },
-
   { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'profil-candidat/:id', component: ProfilCandidatComponent,canActivate: [AuthGuard] },
-
-  { path: 'chart', component: ChartDashbordComponent },
   
   { path: 'detail-job/:id', component: DetailJobComponent },
 

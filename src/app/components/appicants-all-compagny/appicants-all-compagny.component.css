@@ -71,7 +71,7 @@
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
-.content_right_menu h1{
+.content_right_menu span{
   color:  #202124;
   font-size: 26px;
   font-weight: 600;
@@ -96,7 +96,7 @@
 .head_map_menu span{
     color: #202124;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: bold;
 }
 .head_map_menu p{
   border-radius: 8px;
@@ -146,6 +146,10 @@ input[type="search"]:focus
 .map_menu .profil p:nth-child(3){
     color:  #D93025;
 }
+
+input[type="search"]:focus {
+    outline: none;
+  }
 .input-group {
     background-color: #F0F5F7;
     border: none;
@@ -164,6 +168,26 @@ input[type="search"]:focus
 .applicants ul{
     margin-left: 0px;
     margin-right: 0px;
+  }
+/************applicants*********************/
+.applicants{
+    border-radius: 8px;
+   /* border: 1px solid #ECEDF2;*/
+    background: #FFF;
+    margin:48px 15px 121px 15px;
+
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.header_applicants{
+    padding: 30px;
+}
+.header_applicants span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: 600;
+}
+.applicants ul{
     top: 0;
     padding-left: 0;
  }
@@ -185,6 +209,8 @@ input[type="search"]:focus
     height: 50px;
    border-radius: 100%;
    overflow: hidden;
+   margin: 32px 21px 74px 32px;
+
  }
  .logo img{
     width: 100%;
@@ -195,11 +221,31 @@ input[type="search"]:focus
    width: 85%;
    margin-left: 15px;
  }
+
+ .logo .content_logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+ }
+ .logo .content_logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: auto;
+ }
+ .description_job{
+    padding-top: 32px;
+    width: 100%;
+ }
+
  .description_job_ span:first-child{
     color:  #202124;
     font-size: 18px;
  } 
  .description_job .bookmark{
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
  }
  .description_job .bookmark button{
    text-align: center;
@@ -226,7 +272,6 @@ input[type="search"]:focus
  .description_job .info .info_item svg{
     margin-right: 11px;
  }
-
  .description_job .info .info_item p{
     color: #696969;
     font-size: 14px;
@@ -341,7 +386,6 @@ input:focus-visible {
     border-radius: 8px;
     overflow: hidden;
   }
-
 .show_sidebar{
     border: none;
     border-radius: 8px;
@@ -427,5 +471,7 @@ input:focus-visible {
      width: 75%;
    }
 
-
+.all_info{
+    margin-bottom: 25px;
+}
  }

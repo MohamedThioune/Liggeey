@@ -40,7 +40,6 @@ import { BlogComponent } from './components/blogs/blog/blog.component';
 import { DetailBlogComponent } from './components/blogs/detail-blog/detail-blog.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { AppliesJobsComponent } from './components/candidates/applies-jobs/applies-jobs.component';
-import { CertificatCandidatComponent } from './components/certificat-candidat/certificat-candidat.component';
 import { SkillsCandidatComponent } from './components/skills-candidat/skills-candidat.component';
 import { CourseCandidatComponent } from './components/course-candidat/course-candidat.component';
 import { JobAlertCandidatComponent } from './components/job-alert-candidat/job-alert-candidat.component';
@@ -100,7 +99,6 @@ import { CompagnyFavoriteCandidatComponent } from './components/compagny-favorit
     DetailBlogComponent,
     BlogsComponent,
     AppliesJobsComponent,
-    CertificatCandidatComponent,
     SkillsCandidatComponent,
     CourseCandidatComponent,
     JobAlertCandidatComponent,
