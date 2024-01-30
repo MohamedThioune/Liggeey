@@ -40,13 +40,8 @@ import { BlogComponent } from './components/blogs/blog/blog.component';
 import { DetailBlogComponent } from './components/blogs/detail-blog/detail-blog.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { AppliesJobsComponent } from './components/candidates/applies-jobs/applies-jobs.component';
-import { TopicCandidatComponent } from './components/candidates/topic-candidat/topic-candidat.component';
-import { BadgeCandidatComponent } from './components/badge-candidat/badge-candidat.component';
-import { CertificatCandidatComponent } from './components/certificat-candidat/certificat-candidat.component';
 import { SkillsCandidatComponent } from './components/skills-candidat/skills-candidat.component';
-import { AssessmentCandidatComponent } from './components/assessment-candidat/assessment-candidat.component';
 import { CourseCandidatComponent } from './components/course-candidat/course-candidat.component';
-import { ReviewCandidatComponent } from './components/review-candidat/review-candidat.component';
 import { JobAlertCandidatComponent } from './components/job-alert-candidat/job-alert-candidat.component';
 import { JobFavoriteCandidatComponent } from './components/job-favorite-candidat/job-favorite-candidat.component';
 import { CvCandidatComponent } from './components/cv-candidat/cv-candidat.component';
@@ -66,6 +61,7 @@ import { PassportAllCandidatComponent } from './components/passport-all-candidat
 import { AppicantsAllCompagnyComponent } from './components/appicants-all-compagny/appicants-all-compagny.component';
 import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-candidat.component';
 import { SidebarCompanyComponent } from './components/sidebar-company/sidebar-company.component';
+import { CompagnyFavoriteCandidatComponent } from './components/compagny-favorite-candidat/compagny-favorite-candidat.component';
 
 @NgModule({
   declarations: [
@@ -103,13 +99,8 @@ import { SidebarCompanyComponent } from './components/sidebar-company/sidebar-co
     DetailBlogComponent,
     BlogsComponent,
     AppliesJobsComponent,
-    TopicCandidatComponent,
-    BadgeCandidatComponent,
-    CertificatCandidatComponent,
     SkillsCandidatComponent,
-    AssessmentCandidatComponent,
     CourseCandidatComponent,
-    ReviewCandidatComponent,
     JobAlertCandidatComponent,
     JobFavoriteCandidatComponent,
     CvCandidatComponent,
@@ -129,6 +120,7 @@ import { SidebarCompanyComponent } from './components/sidebar-company/sidebar-co
     AppicantsAllCompagnyComponent,
     SidebarCandidatComponent,
     SidebarCompanyComponent,
+    CompagnyFavoriteCandidatComponent,
   ],
   imports: [
     BrowserModule,

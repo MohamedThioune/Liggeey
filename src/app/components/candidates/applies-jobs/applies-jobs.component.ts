@@ -10,16 +10,6 @@ export class AppliesJobsComponent implements OnInit {
   isSidebarVisible = false;
   showButton = true;
   isMobile!: boolean;
-
-
-  toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = false;
-  }
-  fermerSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = true;
-  }
   constructor() {
     this.isMobile = window.innerWidth < 768; 
 

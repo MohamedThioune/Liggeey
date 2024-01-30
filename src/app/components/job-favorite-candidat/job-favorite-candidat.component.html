@@ -3,20 +3,22 @@
   <app-sidebar-candidat></app-sidebar-candidat>
   <div class="right_menu">
       <div class="content_right_menu">
-        <span>Favorite Jobs</span>
+        <h1 class="title-page">Favorite Jobs</h1>
           <div class="map_menu">
-            <div class="head_map_menu">
-                <span>My Applied Jobs</span>
-                <p>Last 6 Months
-                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
-                    <path d="M5.1066 4.86424L8.9782 1.07685C9.06782 0.989247 9.11719 0.872312 9.11719 0.747627C9.11719 0.622941 9.06782 0.506006 8.9782 0.418408L8.69315 0.139492C8.50741 -0.0419999 8.20552 -0.0419999 8.02006 0.139492L4.76893 3.31986L1.51419 0.135963C1.42457 0.0483653 1.30511 -3.34045e-07 1.17772 -3.39492e-07C1.05019 -3.44945e-07 0.93072 0.0483653 0.841032 0.135963L0.556052 0.414879C0.466434 0.502546 0.417064 0.619412 0.417064 0.744097C0.417064 0.868783 0.466434 0.985718 0.556052 1.07332L4.43118 4.86424C4.52108 4.95205 4.64112 5.00028 4.76872 5C4.89681 5.00028 5.01677 4.95205 5.1066 4.86424Z" fill="#696969"/>
-                  </svg>
-                </p>
+            <div class="dropdown select-job">
+              <button class="btn dropdown-toggle button-dropdown" type="button" id="dropdownjob" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Last 6 months
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownjob">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
             </div>
             <table class="table">
               <thead class="thead table_head">
                 <tr>
-                  <th scope="col">Job Title</th>
+                  <th scope="col">Job Title </th>
                   <th scope="col">Date Applied</th>
                   <th scope="col">Status</th>
                   <th scope="col">Action</th>
@@ -24,7 +26,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">
+                  <th class="frist-th" scope="row">
                     <svg xmlns="http://www.w3.org/2000/svg" width="51" height="50" viewBox="0 0 51 50" fill="none">
                       <rect x="0.304688" width="49.9993" height="50" rx="8" fill="#4947D0"/>
                     </svg>
