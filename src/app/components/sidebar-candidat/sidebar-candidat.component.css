@@ -26,20 +26,28 @@
   padding-left: 0;
   padding-top: 74px;
 }
-.content_left_menu ul li a{
+.content_left_menu ul li{
   display: flex;
   align-items: center;
-  padding: 10px 0 10px 15px;
+  padding: 5px 0 5px 15px;
   margin-left: 20px;
   margin-right: 14px;
   color: #696969;
-  margin-bottom: 8px;
+  background-color: #FFF;
+  cursor: pointer;
+  margin-bottom: 3px;
 }
-.content_left_menu ul li a:hover {
+.content_left_menu ul li a{
+  display: flex;
+  border: none;
+  background-color:transparent;
+  text-decoration:none;
+  align-items:center
+}
+.content_left_menu ul li:hover {
   background-color: #E6EBEF;
-  color: #696969;
+  color: #043356;
   border-radius: 8px;
-  text-decoration: none;
 }
 .content_left_menu ul li svg{
   margin-right: 21px;
@@ -52,6 +60,15 @@
   font-size: 15px;
   font-weight: 600;
   line-height: 50px;
+}
+.content_left_menu ul li a{
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 50px;
+  color: #696969;
+}
+.content_left_menu ul li:hover a{
+  color: #043356;
 }
 .right_menu{
   width: fit-content;

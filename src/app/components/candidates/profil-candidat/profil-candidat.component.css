@@ -271,7 +271,6 @@ h2 {
   width: 77%;
 }
 
-
  @media all and (min-width: 300px) and (max-width: 767px){
    .card-body{
      padding: 35px 25px !important;

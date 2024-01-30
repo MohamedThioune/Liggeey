@@ -296,6 +296,7 @@ input:focus-visible {
   padding: 10px 25px;
   margin-right: 10px;
 }
+
 .btn:focus, .btn.focus {
   outline: 0;
   box-shadow: none !important;
