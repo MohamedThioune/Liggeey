@@ -21,7 +21,6 @@ import { ListCandidatesComponent } from './components/candidates/list-candidates
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
 import { DashboardCandidatComponent } from './components/candidates/dashboard-candidat/dashboard-candidat.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ChartDashbordComponent } from './components/chart-dashbord/chart-dashbord.component';
 import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
@@ -48,11 +47,22 @@ import { ChangePasswordCompagnyComponent } from './components/change-password-co
 import { ResumeAlertCompagnyComponent } from './components/resume-alert-compagny/resume-alert-compagny.component';
 import { ManageJobCompagnyComponent } from './components/manage-job-compagny/manage-job-compagny.component';
 import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/post-new-job-compagny.component';
+import {ContactComponent} from "./components/contact/contact.component";
+import { PassportAllCandidatComponent } from './components/passport-all-candidat/passport-all-candidat.component';
+import { AppicantsAllCompagnyComponent } from './components/appicants-all-compagny/appicants-all-compagny.component';
+import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-candidat.component';
+import { SidebarCompanyComponent } from './components/sidebar-company/sidebar-company.component';
 
 const routes: Routes = [
+
   
   
-  
+  { path: 'side', component: SidebarCompanyComponent },
+
+  { path: 'applicant', component: AppicantsAllCompagnyComponent },
+
+  { path: 'passport', component: PassportAllCandidatComponent },
+
   { path: 'post-compagny', component: PostNewJobCompagnyComponent },
 
   { path: 'manage-compagny', component: ManageJobCompagnyComponent },
@@ -67,25 +77,25 @@ const routes: Routes = [
 
   { path: 'list-compagny', component: ListCompagnyComponent },
 
-  { path: 'delete', component: DeleteProfilCandidatComponent }, 
+  { path: 'delete', component: DeleteProfilCandidatComponent },
 
-  { path: 'change', component: ChangePasswordCandidatComponent }, 
+  { path: 'change', component: ChangePasswordCandidatComponent },
 
-  { path: 'cv', component: CvCandidatComponent }, 
+  { path: 'cv', component: CvCandidatComponent },
 
-  { path: 'favorite', component: JobFavoriteCandidatComponent }, 
+  { path: 'favorite', component: JobFavoriteCandidatComponent },
 
-  { path: 'alert', component: JobAlertCandidatComponent }, 
+  { path: 'alert', component: JobAlertCandidatComponent },
 
-  { path: 'review', component: ReviewCandidatComponent }, 
+  { path: 'review', component: ReviewCandidatComponent },
 
-  { path: 'course', component: CourseCandidatComponent }, 
+  { path: 'course', component: CourseCandidatComponent },
 
-  { path: 'assessment', component: AssessmentCandidatComponent }, 
+  { path: 'assessment', component: AssessmentCandidatComponent },
 
-  { path: 'skills', component: SkillsCandidatComponent }, 
+  { path: 'skills', component: SkillsCandidatComponent },
 
-  { path: 'certificat', component: CertificatCandidatComponent }, 
+  { path: 'certificat', component: CertificatCandidatComponent },
 
   { path: 'badge', component: BadgeCandidatComponent },
 
@@ -97,13 +107,17 @@ const routes: Routes = [
 
   { path: 'chart', component: ChartDashbordComponent },
   
-  { path: 'detail', component: DetailJobComponent },
+  { path: 'detail-job/:id', component: DetailJobComponent },
 
   { path: 'list-candidat', component: ListCandidatesComponent },
 
   { path: 'applies', component: AppliesJobsComponent },
 
-  { path: 'sidebar', component: SidebarComponent },
+  { path: 'sidebar', component: SidebarCandidatComponent },
+  
+  { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
+
+  { path: 'detail-candidat/:id', component: DetailCandidatComponent },
   
   { path: 'detail-compagny', component: DetailCompagnyComponent },
 
@@ -146,7 +160,9 @@ const routes: Routes = [
 
   { path: 'blog', component: BlogComponent },
 
-  { path: 'detail-article:id', component: DetailBlogComponent },
+  { path: 'detail-article/:id', component: DetailBlogComponent },
+
+  { path: 'contact', component: ContactComponent },
 
   { path:'',redirectTo: '/login', pathMatch: 'full'}
 ];

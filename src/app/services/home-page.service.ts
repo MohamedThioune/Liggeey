@@ -26,5 +26,14 @@ export class HomePageService {
   }
   getDetailArticle(id:number | null):Observable<any>{
     return this.http.post(`http://wp12.influid.nl/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
-}
+  }
+  getAllCompagny():Observable<any>{
+    return this.http.get('http://wp12.influid.nl/wp-json/custom/v1/companies',{  });
+  }
+  getDetailCompagny(id:number | null):Observable<any>{
+    return this.http.post(`http://wp12.influid.nl/wp-json/custom/v1/company/detail/?id=${id}`,{});
+  }
+  getAllJob():Observable<any>{
+    return this.http.get('http://wp12.influid.nl/wp-json/custom/v1/jobs',{  });
+  }
 }

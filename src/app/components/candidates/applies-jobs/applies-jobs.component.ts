@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-applies-jobs',
@@ -9,6 +9,8 @@ export class AppliesJobsComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
+  isMobile!: boolean;
+
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
@@ -18,6 +20,24 @@ export class AppliesJobsComponent implements OnInit {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = true;
   }
+  constructor() {
+    this.isMobile = window.innerWidth < 768; 
+
+   }
+   ngOnInit(): void {
+  }
+   @HostListener('window:resize', ['$event'])
+   onResize(event:Event) {
+     this.isMobile = window.innerWidth < 768; 
+   }
+ 
+   isWebScreen(): boolean {
+     return !this.isMobile;
+   }
+ 
+   isMobileScreen(): boolean {
+     return this.isMobile;
+   }
   collection: any[] = this.someArrayOfThings=[
     {
       "color":"#4947D0",
@@ -106,9 +126,5 @@ export class AppliesJobsComponent implements OnInit {
       "domaine":"Php"
     }
   ]; 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
