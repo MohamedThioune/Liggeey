@@ -1,5 +1,4 @@
 <app-header></app-header>
-<button class="show_sidebar" (click)="toggleSidebar()" style="left: 0;">Show Sidebar</button>
 <section class="content-page-dashboard" *ngIf="isWebScreen()">
   <app-sidebar-candidat></app-sidebar-candidat>
   <div class="right_menu" >
@@ -59,7 +58,11 @@
           <p>Last 6 Months</p>
         </div>
 
-        <div class="content_map_menu"></div>
+        <div class="content_map_menu">
+          <div class="chart-container">
+            <canvas id="MyChart"></canvas>
+          </div>
+        </div>
 
       </div>
       <div class="applicants">

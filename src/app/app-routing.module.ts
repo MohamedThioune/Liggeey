@@ -78,7 +78,7 @@ const routes: Routes = [
 
   { path: 'delete-candidat/:id', component: DeleteProfilCandidatComponent ,canActivate: [AuthGuard]},
 
-  { path: 'change-candidat:/id', component: ChangePasswordCandidatComponent ,canActivate: [AuthGuard]},
+  { path: 'change-candidat/:id', component: ChangePasswordCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'cv-candidat/:id', component: CvCandidatComponent ,canActivate: [AuthGuard]},
 
