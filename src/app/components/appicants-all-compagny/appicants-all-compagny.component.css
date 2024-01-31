@@ -377,6 +377,7 @@ input:focus-visible {
   margin-bottom: 45px;
 }
 
+
  @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     border-radius: 8px;
@@ -471,7 +472,6 @@ input:focus-visible {
      width: 75%;
    }
 
-.all_info{
-    margin-bottom: 25px;
-}
+
+
  }
