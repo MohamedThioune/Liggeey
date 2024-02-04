@@ -1,65 +1,12 @@
 .dashboard{
     background-color: #FFF;
 }
-/*left menu*/
-.left_menu{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    border: 1px solid #ECEDF2;
-    background: #FFF;
-    width: 14%;
-    height: 100%;
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
-}
-.close{
-    visibility: hidden;
-    background-color: #F0F5F7;
-    margin-left: 27.5rem;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    line-height: 1.5;
-}
-.content_left_menu ul {
-    top: 0;
-    padding-left: 0;
-    padding-top: 74px;
-}
-.content_left_menu ul li{
-    display: flex;
-    align-items: center;
-    padding: 8px 0 6px 17px;
-    margin-left: 20px;
-    margin-right: 14px;
-    color: #696969;
-    background-color: #FFF;
-    margin-bottom: 13px;
-    cursor: pointer;
-}
-.content_left_menu ul li:hover {
-  background-color: #E6EBEF;
-  color: #043356;
-  border-radius: 8px;
-}
-.content_left_menu ul li svg{
-    margin-right: 21px;
-}
-.content_left_menu ul li p{
-    margin: 0;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 50px;
-}
 .right_menu{
-    width: fit-content;
+    margin-bottom: 121px;
 }
 .content_right_menu{
     background-color: #FFF;
     height: fit-content;
-    margin-left: 14%;
 }
 .first_row{
     margin:30px 0 16px ;
@@ -178,7 +125,7 @@
     padding: 30px;
     margin-left: 15px;
     margin-right: 15px;
-    
+
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);}
 .head_map_menu{
@@ -200,14 +147,10 @@
     background: #F0F5F7;
 }
 .content_map_menu{
-    height: 500px;
     width: 100%;
     border-radius: 8px;
-    border: 1px solid  #ECEDF2;
     background: #FFF;
-    margin-top: 35px;
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+    margin-top: 15px;
 }
 .content_map_menu img{
     width: 100%;
@@ -276,9 +219,7 @@
     justify-content: space-between;
  } */
  .description_job .bookmark{
-    position: absolute;
-    bottom: 100px;
-    right: 40px;
+
  }
  .description_job .bookmark button{
    text-align: center;
@@ -304,7 +245,7 @@
  .description_job .info .info_item svg{
     margin-right: 11px;
  }
- 
+
  .description_job .info .info_item p{
     color: #696969;
     font-size: 14px;
@@ -348,36 +289,21 @@
  .show_sidebar{
     visibility:hidden;
 }
- @media all and (min-width: 300px) and (max-width: 767px){ 
+ @media all and (min-width: 300px) and (max-width: 767px){
     .content_right_menu{
-        margin: 0;
+      margin-top: 75px;
     }
-     .logo{
-        margin: 32px 11px 74px 12px;
-        border-radius: 8px;
-        overflow: hidden;
-     }
-     .logo .content_logo{
-        border-radius: 8px;
-        overflow: hidden;
-     }
-    /* .left_menu{
-        width: 100%;
-        display: none;
-    } */
-    .left_menu_show{
-        visibility: visible;
-        width: 100%;
-        border: 1px solid #ECEDF2;
-        background: #FFF;
-        margin: 30px 0 ;
-        /* Shadow / 1 */
-        box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
-    }
-    .left_menu{
-        width: 100%;
-        display: none;
-    }
+   .right_menu {
+     width: 100% !important;
+     padding: unset;
+   }
+   .first_row .col-md-4 {
+     margin-bottom: 33px;
+   }
+   .applies_job{
+     padding: 30px;
+     box-shadow: unset;
+   }
     .right_menu{
         width: fit-content;
         visibility: visible;
@@ -386,6 +312,26 @@
     }
     .right_menu_show{
         display: none;
+    }
+
+    .show_sidebar{
+        border: none;
+        border-radius: 8px;
+        padding: 10px 13px 8px 13px;
+        font-size: 16px;
+        font-weight: 600;
+        visibility:visible;
+        background-color: #DDF6F1;
+        margin-top: 30px;
+        margin-left: 15px;
+        color: #1AC4A2;
+    }
+    .right_menu{
+        visibility: visible;
+        margin-bottom: 30px;
+    }
+    .right_menu_show{
+        visibility: visible;
         width: 100%;
     }
     .close{
@@ -445,9 +391,9 @@
         width: 100%;
     }
     .all_info{
-        margin-top: 25px;
+        margin-top: 10px;
         margin-bottom: 15px;
-    } 
+    }
     .applicants ul{
         margin: 0px;
     }
@@ -456,9 +402,7 @@
         padding: 0px ;
      }
      .description_job .bookmark{
-        position: absolute;
-        bottom: 75px;
-        left: 70px;
+
      }
- 
+
  }

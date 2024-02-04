@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  login_url: "https://liggeey.com/login"
 };
