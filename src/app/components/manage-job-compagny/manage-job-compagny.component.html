@@ -25,18 +25,19 @@
             <th scope="col">Applications</th>
             <th scope="col">Created & Expired</th>
             <th scope="col">Status</th>
-            <th scope="col">Action</th>
+          <!--  <th scope="col">Action</th>-->
           </tr>
           </thead>
           <tbody>
-          <tr>
+          <tr *ngFor="let job of openJobs">
             <th scope="row">
-              Senior Full Stack Engineer, Creator Success
+              {{job.title}}
             </th>
-            <td>3+ Applied</td>
-            <td>October 27, 2017
-              April 25, 2011</td>
+            <td>{{appliedNumber}}+ Applied</td>
+            <td>{{job.posted_at}}
+              {{job.expired_at}}</td>
             <td>Active</td>
+            <!--
             <td>
               <button>
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -79,7 +80,9 @@
                 </svg>
               </button>
             </td>
+            -->
           </tr>
+          <!--
           <tr>
             <th scope="row">
               Senior Product Designer
@@ -232,6 +235,7 @@
               </button>
             </td>
           </tr>
+          -->
           </tbody>
         </table>
       </div>

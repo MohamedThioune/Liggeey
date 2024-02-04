@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder ,FormGroup,Validators} from '@angular/forms';
+import { HomePageService } from 'src/app/services/home-page.service';
+import { UsagerService } from 'src/app/services/usager.service';
 
 @Component({
   selector: 'app-post-new-job-compagny',
@@ -10,105 +12,12 @@ export class PostNewJobCompagnyComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
-  myForm!:FormGroup
-  form!:FormGroup
-  toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = false;
-  }
-  fermerSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = true;
-  }
-  collection: any[] = this.someArrayOfThings=[
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"php"
-    },
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-  ]; 
-  constructor(private fb: FormBuilder) { }
+  myForm!:FormGroup;
+  form!:FormGroup;
+  userConnect:any;
+  post:any;
+
+  constructor(private fb: FormBuilder,private homeService:HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -120,6 +29,29 @@ export class PostNewJobCompagnyComponent implements OnInit {
       firstName:['',[]],
       lastName:['',[]]
     });
-  }
+   // Récupération du token depuis le local storage
+   const storedToken = this.usagerService.getToken();
+    
+   if (storedToken) {   
+               // Décodage de la base64
+     const decodedToken = atob(storedToken);
 
+     // Parse du JSON pour obtenir l'objet original
+     this. userConnect = JSON.parse(decodedToken);
+   }
+   
+  this.homeService.postNewJob(this.userConnect.id).subscribe((data:any)=>{
+    this.post=data
+  })
+}
+
+
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    this.showButton = false;
+  }
+  fermerSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    this.showButton = true;
+  }
 }

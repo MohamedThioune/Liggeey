@@ -12,13 +12,7 @@ export class ResumeCandidatComponent implements OnInit {
   showButton = true;
   myForm!:FormGroup
   isMobile!: boolean;
-  toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-  }
-  fermerSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = true;
-  }
+
   constructor(private fb: FormBuilder) {
     this.isMobile = window.innerWidth < 768; 
 
@@ -40,6 +34,14 @@ export class ResumeCandidatComponent implements OnInit {
     this.myForm = this.fb.group({
       file: ['', [Validators.required, Validators.email]],
     });
+  }
+  
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+  }
+  fermerSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    this.showButton = true;
   }
 
 }

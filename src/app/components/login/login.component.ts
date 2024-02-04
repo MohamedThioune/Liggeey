@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           const userObject = JSON.parse(decodedToken);
           if(userObject.acf.is_liggeey == "candidate"){          
             this.route.navigate(['/dashboard-candidat/',userObject.id]);
-          } else if(userObject.acf.is_liggeey == 1){          
+          } else if(userObject.acf.is_liggeey == "chief"){          
             this.route.navigate(['/dashboard-employer/',userObject.id]);
           }
         }else {

@@ -10,10 +10,11 @@ export class AppliesJobsComponent implements OnInit {
   isSidebarVisible = false;
   showButton = true;
   isMobile!: boolean;
+
   constructor() {
     this.isMobile = window.innerWidth < 768; 
-
    }
+   
    ngOnInit(): void {
   }
    @HostListener('window:resize', ['$event'])
@@ -28,93 +29,5 @@ export class AppliesJobsComponent implements OnInit {
    isMobileScreen(): boolean {
      return this.isMobile;
    }
-  collection: any[] = this.someArrayOfThings=[
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"php"
-    },
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-  ]; 
 
 }

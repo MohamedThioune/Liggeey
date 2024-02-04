@@ -7,123 +7,14 @@ import { FormGroup,FormBuilder,Validators } from '@angular/forms';
   styleUrls: ['./profil-candidat.component.css']
 })
 export class ProfilCandidatComponent implements OnInit {
-
-  uploadedImage: any; // Pour stocker l'image téléchargée
-
-  onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = (e: any) => {
-        this.uploadedImage = e.target.result;
-      };
-    }
-  }
-
-
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = true;
   showButton = true;
   form_profil!:FormGroup;
   form_social!:FormGroup;
   form_contact!:FormGroup;
-  toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    console.log(this.isSidebarVisible);
-  }
-  fermerSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = true;
-  }
-  collection: any[] = this.someArrayOfThings=[
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"php"
-    },
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-  ];
+  uploadedImage: any; // Pour stocker l'image téléchargée
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -151,8 +42,26 @@ export class ProfilCandidatComponent implements OnInit {
       name:['',[]],
       username:['',[]]
     });
+  }
 
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e: any) => {
+        this.uploadedImage = e.target.result;
+      };
+    }
+  }
 
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    console.log(this.isSidebarVisible);
+  }
+  fermerSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    this.showButton = true;
   }
 
 }
