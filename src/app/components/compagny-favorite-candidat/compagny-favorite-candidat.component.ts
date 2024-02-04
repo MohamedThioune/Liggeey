@@ -11,10 +11,10 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
-  userConnect:any
-  applicants:any
+  userConnect:any;
+  applicants:any;
 
-  constructor(private homeService:HomePageService,private usagerService: UsagerService) { }
+  constructor(private usagerService:UsagerService,private homeService:HomePageService) { }
 
   ngOnInit(): void {
          // Récupération du token depuis le local storage
@@ -28,10 +28,10 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
      this. userConnect = JSON.parse(decodedToken);
    }
     this.homeService.getCandidatCompagny(this.userConnect.id).subscribe((data:any)=>{
-      this.applicants=data
+      this.applicants=data      
      })
   }
-
+  
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = false;
@@ -40,5 +40,4 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = true;
   }
-
 }

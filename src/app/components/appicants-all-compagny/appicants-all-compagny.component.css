@@ -61,7 +61,6 @@
     line-height: 50px;
 }
 .right_menu{
-    width: 100%;
     margin-bottom: 121px;
 }
 .content_right_menu{
@@ -92,11 +91,12 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    margin-left: 12px;
 }
 .head_map_menu span{
     color: #202124;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: bold;
 }
 .head_map_menu p{
   border-radius: 8px;
@@ -115,12 +115,59 @@
     color:  #696969;
     font-size: 15px;
     font-weight: 400;
+    margin-right: 14px;
 }
-.input-group-text {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    border-radius: 0;
+input[type="search"]:focus 
+{
+    outline: none;
+}
+.map_menu .profil{
     display: flex;
+    justify-content: space-between;
+    background-color:#F5F7FC;
+    padding:27px 31px 24px 20px;
+    margin-left:12px;
+    border-radius: 8px;
+
+}
+.map_menu .profil p{
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+.map_menu .profil p:first-child{
+    color:  #043356;
+}
+.map_menu .profil p:nth-child(2){
+    color:  #1AC4A2;
+    padding-left: 53px;
+    padding-right: 35px;
+}
+.map_menu .profil p:nth-child(3){
+    color:  #D93025;
+}
+
+input[type="search"]:focus {
+    outline: none;
+  }
+.input-group {
+    background-color: #F0F5F7;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    width: 112.333px;
+    height: 45px;
+  }
+
+.header_applicants p{
+  color: #202124;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.applicants ul{
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
 .header_applicants p{
@@ -163,12 +210,11 @@
    width: 85%;
    margin-left: 15px;
  }
- /* .description_job_{
-    border: 1px solid green;
-    display: flex;
-    padding-bottom: 15px;
-    justify-content: space-between;
- } */
+
+ .description_job_ span:first-child{
+    color:  #202124;
+    font-size: 18px;
+ } 
  .description_job .bookmark{
  }
  .description_job .bookmark button{
@@ -196,7 +242,6 @@
  .description_job .info .info_item svg{
     margin-right: 11px;
  }
-
  .description_job .info .info_item p{
     color: #696969;
     font-size: 14px;
@@ -302,7 +347,6 @@ input:focus-visible {
   margin-bottom: 45px;
 }
 
-
  @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     border-radius: 8px;
@@ -312,7 +356,6 @@ input:focus-visible {
     border-radius: 8px;
     overflow: hidden;
   }
-
 .show_sidebar{
     border: none;
     border-radius: 8px;
@@ -344,7 +387,6 @@ input:focus-visible {
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
 .right_menu{
-    width: fit-content;
     visibility: visible;
     margin-bottom: 30px;
 }
@@ -398,7 +440,4 @@ input:focus-visible {
    .description_job{
      width: 75%;
    }
-
-
-
  }

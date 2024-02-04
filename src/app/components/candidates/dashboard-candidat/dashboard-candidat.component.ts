@@ -36,7 +36,6 @@ export class DashboardCandidatComponent implements OnInit {
   isMobileScreen(): boolean {
     return this.isMobile;
   }
-
   ngAfterViewInit(): void {
     this.createChart();
   }

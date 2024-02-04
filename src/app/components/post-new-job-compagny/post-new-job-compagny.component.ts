@@ -45,7 +45,6 @@ export class PostNewJobCompagnyComponent implements OnInit {
   })
 }
 
-
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = false;

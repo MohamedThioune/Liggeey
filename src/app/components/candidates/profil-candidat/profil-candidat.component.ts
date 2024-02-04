@@ -7,13 +7,14 @@ import { FormGroup,FormBuilder,Validators } from '@angular/forms';
   styleUrls: ['./profil-candidat.component.css']
 })
 export class ProfilCandidatComponent implements OnInit {
+
+  uploadedImage: any; // Pour stocker l'image téléchargée
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = true;
   showButton = true;
   form_profil!:FormGroup;
   form_social!:FormGroup;
   form_contact!:FormGroup;
-  uploadedImage: any; // Pour stocker l'image téléchargée
 
   constructor(private fb: FormBuilder) { }
 

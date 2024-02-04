@@ -53,9 +53,7 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
       console.log(this.homeCompagny);
       
       this.homeCompagny.application.forEach((element:any) => {
-        this.applicant=element
-        console.log(this.applicant);
-        
+        this.applicant=element        
       });
      })
   }
