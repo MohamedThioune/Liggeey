@@ -51,9 +51,11 @@
         <div class="row" style="margin-bottom: 100px;">
           <div class="col-md-3 item" *ngFor="let employer of employers | paginate: { itemsPerPage: 12, currentPage: p }"  >
               <div class="content_candidate">
+                <!--
                 <button>
                     <i class="fa fa-bookmark"></i>
                 </button>
+                -->
                 <div class="content_image_candidate" [routerLink]="['/detail-compagny',employer.ID]">
                   <img [src]=employer.company_logo alt="Image Of Candidate">
                 </div>

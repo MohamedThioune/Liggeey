@@ -11,102 +11,7 @@ export class DeleteProfilCandidatComponent implements OnInit {
   isSidebarVisible = false;
   showButton = true;
   myForm!:FormGroup
-  toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = false;
-  }
-  fermerSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    this.showButton = true;
-  }
-  collection: any[] = this.someArrayOfThings=[
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"php"
-    },
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-  ]; 
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -115,6 +20,15 @@ export class DeleteProfilCandidatComponent implements OnInit {
       firstName:['',[]],
       name:['',[]]
     });
+  }
+  
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    this.showButton = false;
+  }
+  fermerSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    this.showButton = true;
   }
 
 }
