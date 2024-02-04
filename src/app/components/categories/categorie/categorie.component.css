@@ -288,6 +288,7 @@ input[type="search"]:focus {
    height: 90px;
    margin: 0 auto 20px;
    border-radius: 90px;
+   overflow: hidden;
 
 }
 .content_image_candidate img{

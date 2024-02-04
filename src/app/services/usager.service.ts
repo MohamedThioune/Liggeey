@@ -92,6 +92,39 @@ export class UsagerService {
     return this.http.post<UserResetPassword>('https://livelearn.nl/wp-json/bdpwr/v1/set-password',bodyRequestPassword, { headers });
   }
 
+  applyJob(usager: Usager): Observable<any> {
+    const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + base64Credentials,
+      'Content-Type': 'application/json;charset=UTF-8',
+     
+    });
+    const requestBody = {
+      userApplyId:usager.email,
+      jobAppliedId: usager.password,
+    };    
+    return this.http.post<any>("http://wp12.influid.nl/wp-json/custom/v1/apply", requestBody, { headers });
+  }
+  favoritesCompagny(usager: Usager): Observable<any> {
+    const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + base64Credentials,
+      'Content-Type': 'application/json;charset=UTF-8',
+     
+    });
+    const requestBody = {
+      userApplyId:usager.email,
+      jobAppliedId: "compagny",
+      ID:3792
+    };    
+    return this.http.post<any>("http://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody, { headers });
+  }
+  manageJob(id: string): Observable<any> {
+    const requestBody = {
+      userApplyId:id
+    };    
+    return this.http.post<any>("http://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
+  }
   deconnexion() {
     localStorage.removeItem('access_token');
     window.location.href = "login";

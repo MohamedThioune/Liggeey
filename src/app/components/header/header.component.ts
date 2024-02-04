@@ -29,10 +29,9 @@ export class HeaderComponent implements OnInit {
       this. userConnect = JSON.parse(decodedToken);
       if(this.userConnect.acf.is_liggeey == "candidate"){ 
         this.candidate=true         
-      } else if(this.userConnect.acf.is_liggeey == 1){  
+      } else if(this.userConnect.acf.is_liggeey == "chief"){  
         this.compagny=true        
       }
-      console.log(this.userConnect.acf);
     }
   }
   @HostListener('window:resize', ['$event'])

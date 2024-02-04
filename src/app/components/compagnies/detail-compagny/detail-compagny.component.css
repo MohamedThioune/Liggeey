@@ -175,6 +175,9 @@
     font-size: 15px;
     font-weight: 600;
   }
+  .gallery{
+   margin-bottom: 24px;
+  }
   .gallery .content_image{
    width: 202px;
    height: 204px;
@@ -482,6 +485,12 @@
     margin-right: 0px;
    } */
    @media all and (min-width: 300px) and (max-width: 767px){ 
+   .description_job .all-info{
+      display: block;
+   }
+   .description_job .all-info .all-location{
+      margin-bottom: 25px;
+   }
    .description_job{
       margin-bottom: 25px;
    }
@@ -535,4 +544,8 @@
       padding: 30px 0 25px 11px ;
 
    }
+   .gallery .content_image{
+      width: 302px;
+      height: 204px;
+     }
 }
