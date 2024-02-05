@@ -11,96 +11,18 @@ export class CategorieComponent implements OnInit {
   categories:any;
   artikels:any
   candidates:any
+  p: number = 1;
+
   constructor(private homeService:HomePageService) {}
+
   ngOnInit(): void {
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
       this.candidates=data.candidates
-      this.artikels=data.artikels
-      console.log(this.categories);
-      
+      this.artikels=data.artikels      
     })
   }
-  p: number = 1;
-  collection: any[] = this.someArrayOfThings=[
-    {
-      "color":"#4947D0",
-      "profil":"Ingénieur logiciel (Android), bibliothèques",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_1.svg"
-    },
-    {
-      "profil":"Recruiting Coordinator",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_2.svg"
 
-    }
-    ,{
-      "profil":"Senior Product Designer",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_3.svg"
-
-    },
-    {
-      "profil":"Web Developer",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_4.svg"
-    },
-    {
-      "profil":"Sr. Full Stack Engineer",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_5.svg"
-    },
-    {
-      "profil":"Senior Product Designer",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_2.svg"
-    },
-    {
-      "color":"#4947D0",
-      "profil":"Ingénieur logiciel (Android), bibliothèques",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_1.svg"
-    },
-    {
-      "profil":"Recruiting Coordinator",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_5.svg"
-    }
-    ,{
-      "profil":"Senior Product Designer",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_4.svg"
-    },
-    {
-      "profil":"Web Developer",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_3.svg"
-    },
-    {
-      "profil":"Sr. Full Stack Engineer",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_2.svg"
-    },
-    {
-      "profil":"Senior Product Designer",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_5.svg"
-
-    }
-  ]; 
   submit(){
     alert('ok')
   }

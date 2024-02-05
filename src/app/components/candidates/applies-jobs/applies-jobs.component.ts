@@ -10,6 +10,7 @@ export class AppliesJobsComponent implements OnInit {
   isSidebarVisible = false;
   showButton = true;
   isMobile!: boolean;
+  
   constructor() {
     this.isMobile = window.innerWidth < 768; 
    }

@@ -47,19 +47,7 @@ export class HeaderComponent implements OnInit {
     return this.isMobile;
   }
 
-  options = [
-    {
-  id: 1, name: 'Option 1' },
-      { 
-     
-  id: 2, name: 'Option 2' },
-      { 
-    
-  id: 3, name: 'Option 3' },
-  
- ]
- selectedOption: number = 1; // default selected option
- deconnexion(){
-  this.usagerService.deconnexion()
-}
+  deconnexion(){
+    this.usagerService.deconnexion()
+  }
 }
