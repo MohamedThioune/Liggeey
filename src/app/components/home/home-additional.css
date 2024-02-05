@@ -1,0 +1,348 @@
+
+.card-text {
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+.card-body a{
+    color: #5B5B6C;
+    text-decoration: underline;
+}
+
+.content_candidate{
+    text-align: center;
+    padding: 31px  30px;
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+    margin-bottom: 16px;
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.content_image_candidate{
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.content_image_candidate img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info_candidat a{
+    border-radius: 8px;
+    background-color: #EFFBF8;
+    color: #1AC4A2;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 17px 61px 15px 70px;
+}
+.info_candidat a:hover{
+    background-color: #1AC4A2;
+    color: #FFFF;
+}
+
+.info_candidat .location_candidat{
+    display: flex;
+    justify-content: center;
+}
+.location_candidat svg{
+    margin-right: 10px;
+}
+.info_candidat .name_candidat{
+    color: #202124;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.info_candidat .profil_candidat{
+    color: #202124;
+    font-size: 14px;
+    font-weight: 400;
+}
+.header_featured{
+    margin-bottom: 38px;
+}
+.location_candidat p{
+    color: #696969;
+    font-size: 14px;
+    font-weight: 400;
+}
+.bullet{
+    margin-left: 50%;
+}
+
+ /* section categories */
+ .categories{
+    margin-bottom: 100px;
+}
+.content_item{
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 45px 15px;
+    /* Shadow / 1
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05); */
+}
+
+.content_item .item_left{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background: #ECEDF2;
+    margin: 0 auto 20px;
+    align-items: center;
+    display: grid;
+}
+.content_item .item_left i{
+    color: #1AC4A2;
+    font-size: 30px;
+}
+.content_item .item_left svg{
+    color: #1AC4A2;
+    font-size: 30px;
+}
+.content_item:hover {
+    border-radius: 8px;
+    border: 1px solid  #ECEDF2;
+    background: #FFF;
+
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+
+}
+.content_item:hover .item_left {
+    background-color: #1AC4A2;
+}
+.content_item:hover .item_left i{
+    color: #FFF;
+}
+.content_item:hover .item_left svg{
+    color: #FFF;
+}
+.content_item:hover .item_right span{
+    color: #1AC4A2;
+}
+
+.content_item .item_right span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: bold;
+}
+.content_item .item_right p{
+    color: #696969;
+    font-size: 14px;
+    font-weight: bold;
+  margin-bottom: 0px;
+}
+.header_categories{
+    text-align: center;
+    padding-bottom: 50px;
+}
+.header_categories span{
+    color: #202124;
+    font-size: 30px;
+    font-weight: bold;
+}
+.header_categories p{
+    color: #696969;
+    font-size: 15px;
+    font-weight: bold;
+}
+.nav-tabs {
+  border-bottom: 0px solid #dee2e6 !important;
+}
+.nav-item .active{
+  border-radius: 8px !important;
+  border: 1px solid #ECEDF2 !important;
+  background: #FFF !important;
+  /* box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05); */
+}
+.description_article .title{
+  color: #333;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+@media all and (min-width: 300px) and (max-width: 767px){
+    .new_remote{
+        display: flex;
+        align-items: center;
+        border-radius: 42px;
+        background-color: #1ac4a226;
+        padding: 15px 10px 16px 10px;
+    }
+    .new_remote p{
+        padding-left: 15px;
+        color: #4F4F4F;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0; /* Supprimer la marge par défaut du paragraphe */
+        line-height: 1.5; /* Ajuster la hauteur de ligne pour centrer verticalement le texte */
+    }
+    .text_home h2{
+        color: #202124;
+        font-size: 27px;
+        font-weight: 700;
+    }
+    .hiring_work {
+        display: flex;
+        align-items: center;
+        padding-bottom: 32px;
+    }
+    .hiring_work .hiring{
+        padding: 14px 17px 13px 17px;
+        border-radius: 8px;
+        color: #FFF;
+        font-weight: 700;
+        border: 1px solid  #FFF;
+        background-color:  #1AC4A2;
+    }
+    .hiring_work .work{
+        color: #696969;
+        font-size: 15px;
+        font-weight: 400;
+        padding-left: 15px;
+    }
+    .image_home{
+        width: 285px;
+        height:269.967px;
+        border-radius: 100%;
+        margin: 0 auto;
+    }
+    .content_home{
+        padding-top:46px ;
+        padding-bottom: 15px;
+    }
+    .content_home_{
+        padding-bottom: 43px;
+    }
+    .number_candidates{
+        font-weight: 600;
+        padding-right: 20px;
+        margin: 0;
+        line-height: -1.5;
+    }
+    .title_description{
+        color: #FFF;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .banner{
+        margin-top: 60px;
+    }
+    .description_banner.left  a{
+        font-size: 10px;
+        padding: 7px 10px 5px 10px;
+     }
+    .description_banner.right  a{
+        padding: 7px 10px 5px 10px;
+        font-size: 10px;
+    }
+    .content_description{
+      color: #FFF;
+      font-size: 10px;
+      font-weight: bold;
+      padding-bottom: 0;
+      padding-top: 13px;
+      margin-bottom: 20px;
+    }
+    .banner_left{
+        padding-bottom: 16px;
+    }
+    .tabs{
+    padding: 30px 0 30px 0;
+    }
+  .description_banner {
+    padding: 20px 21px 20px;
+    }
+  .tabs ul li{
+    padding: 3px 10px 0px 10px;
+    margin-left: 0px;
+    margin-bottom: 25px;
+    width: 50%;
+
+  }
+  .content_mobile_images{
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+    margin-top: 27px;
+  }
+  .description_skills{
+      padding-top:88px ;
+      padding-bottom: 20px;
+  }
+  .description_skills .slills_title{
+      color: #202124;
+      font-size: 30px;
+      font-weight: bold;
+  }
+  .description_skills .slills_{
+      color: #696969;
+      font-size: 15px;
+      font-weight: 400;
+      margin-top: 29px;
+      margin-bottom: 20px;
+  }
+  .info_candidat a{
+      padding: 5px 80px 3px 70px;
+  }
+  .jobs{
+      margin-top: 80px;
+      margin-bottom: 60px;
+  }
+  .description_job span{
+      font-size: 14px;
+  }
+  .description_job .info{
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+  }
+  .description_job .all_info{
+      padding-bottom: 15px;
+  }
+  .categories{
+      margin-bottom: 50px;
+  }
+  .featured{
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .card_article{
+      margin-bottom: 16px;
+  }
+  .featured_candidates{
+      padding-top: 60px;
+      padding-bottom: 60px;
+  }
+  .bullet{
+      margin-left: 50%;
+  }
+
+  .description_skills .download_button {
+      margin-top: 27px;
+  }
+  .description_article{
+      width: 100%;
+  }
+  .content_image_article{
+      width: 100%;
+      margin: 0 auto;
+      padding: 16px 19px;
+      border-radius: 10px;
+  }
+  .article_1{
+    padding: 10px 0px;
+  }
+
+
+}
