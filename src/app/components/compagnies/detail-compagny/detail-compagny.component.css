@@ -65,44 +65,6 @@
    border: none;
    background-color: transparent;
   }
- .content_job_list_1 .info_all{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
- }
-.content_job_list_1  .info_all p{
-    margin: 0;
- }
-  .content_job_list_1 .info{
-     display: flex;
-     align-items: center;
-  }
-  .content_job_list_1 .info .info_item{
-     display: flex;
-     margin-right: 32px;
-  }
-  .content_job_list_1 .info .info_item svg{
-     margin-right: 10px;
-  }
-  .content_job_list_1 .info .info_item p{
-     color: #696969;
-     font-size: 14px;
-     font-weight: bold;
-     margin: 0;
-  }
-  .content_job_list_1 .time .content_time{
-     background-color: #DAE1E6;
-     border-radius: 60px;
-     margin-right: 15px;
-     padding: 5px 18px 5px 19px;
-  }
-  .content_job_list_1 .time .content_time p{
-     margin: 0;
-     font-size: 14px;
-     font-weight: bold;
-     color: #043356;
-  }
   .content_job_list_1 .tags .content_tags{
      background-color: #DDF6F1;
      border-radius: 60px;
@@ -118,21 +80,6 @@
      padding: 5px 20px 5px 19px;
  
   }
-  .content_job_list_1 .tags .content_urgent{
-    background-color: #F2ECD3;
-    border-radius: 60px;
-    margin-right: 15px;
- 
- }
- .content_job_list_1 .tags .content_urgent p{
-    font-size: 13px;
-    font-weight: bold;
-    color: #FDC000;
-    margin: 0;
-    line-height: 1.5;
-    padding: 5px 20px 5px 19px;
- 
- }
   .content_job_list_1 .all_info{
      display: flex;
      justify-content: center;
@@ -162,18 +109,9 @@
     font-size: 15px;
     font-weight: 600;
   }
-  .job_description{
-    padding: 83px 0 50px 0;
-  }
-  .job_description p:first-child {
-    font-weight: bold;
-    font-size: 18px;
-    color:#202124
-  }
-  .job_description p{
-    color:  #696969;
-    font-size: 15px;
-    font-weight: 600;
+
+  .gallery{
+   margin-bottom: 24px;
   }
   .gallery{
    margin-bottom: 24px;
@@ -195,52 +133,7 @@
    font-weight: 400;
    margin-top: 15px;
   } 
-  .key{
-    padding-bottom: 67px;
-  }
-  .key p{
-    font-weight: bold;
-    font-size: 18px;
-    color:#202124
-  }
-  .key ul li{
-    color:  #696969;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 10px;
-  }
-  .skill{
-    padding-bottom: 100px;
-  }
-  .skill p{
-    font-weight: bold;
-    font-size: 18px;
-    color:#202124
-  }
-  .skill ul li{
-    color:  #696969;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 10px;
-  }
-  .related_jobs{
-   margin-top: 50px;
-    padding-bottom: 93px;
-  }
- 
-  .related_jobs span{
-    color: #000;
-    font-size: 26px;
-    font-weight: 700;
-  }
-  .related_jobs p{
-    color:  #696969;
-    font-size: 15px;
-    font-weight: 400;
-    margin-bottom: 30px;
-  }
   
- 
  .items_job .job_list_2{
     margin-bottom: 30px;
     border-radius: 8px;
@@ -258,30 +151,26 @@
 }
 /* related Job*/
 .related_jobs{
-   padding-bottom: 93px;
- }
-
- .related_jobs span{
-   color: #000;
-   font-size: 26px;
-   font-weight: 700;
- }
- .related_jobs p{
-   color:  #696969;
-   font-size: 15px;
-   font-weight: 400;
-   margin-bottom: 30px;
- }
+   margin-top: 50px;
+    padding-bottom: 93px;
+  }
  
-
+  .related_jobs span{
+    color: #000;
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .related_jobs p{
+    color:  #696969;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
 .items_job .job_list_2{
    margin-bottom: 30px;
    border-radius: 8px;
    border: 1px solid #ECEDF2;
    background-color: #FFF;
-}
-.job_list_2 .content_job_list_2{
-   display: flex;
 }
 .content_logo_1{
    width: 50px;
@@ -289,7 +178,7 @@
    border-radius: 8px;
    margin: 32px 21px 0 32px;
 }
-.content_logo img{
+.content_logo_1 img{
    width: 100%;
    height: 100%;
    object-fit: contain;
@@ -298,8 +187,6 @@
 .description_job_1{
    padding: 32px 0 28px ;
 }
-
-
 .description_job_1 .bookmark{
   position: absolute;
   right: 40px; 
@@ -361,22 +248,6 @@
    display: flex;
 }
 /*sidebar*/
-.sidebar .top_sidebar .overview{
-   margin-bottom: 53px;
-}
-.sidebar .top_sidebar .overview p:first-child{
-   color: #202124;
-   font-size: 18px;
-   font-weight: 600;
-}
-.sidebar .top_sidebar .overview .calendrier{
-   display: flex;
-   align-items: center;
-   margin-bottom: 29px;
-}
-.sidebar .top_sidebar .overview .calendrier p{
-   margin: 0;
-}
 .sidebar svg{
    margin-right: 15px;
 }
@@ -398,28 +269,6 @@
    height: 100%;
    object-fit: contain;
 }
-.sidebar .top_sidebar .skills p:first-child{
-   color: #202124;
-   font-size: 18px;
-   font-weight: 600;
-}
-.sidebar .top_sidebar .skills span{
-   padding: 7px 20px 5px 20px;
-   align-items: flex-start;
-   border-radius: 4px;
-   background:  #FFF;
-   color: #696969;
-   font-size: 15px;
-   font-weight: 500;
-   margin-right: 15px;
-}
-.sidebar .center_sidebar{
-   padding: 30px 30px;
-   background-color: #F5F7FC;
-   border-radius: 8px;
-   margin:9px 0 64px;
-}
-
 .sidebar .bottom_sidebar{
    background-color: #F5F7FC;
    margin-top: 94px;
@@ -429,16 +278,6 @@
 }
 .sidebar .bottom_sidebar .compagny .head{
    display: flex;
-}
-.sidebar .bottom_sidebar .compagny .head_description span{
-   color:  #202124;
-   font-size: 18px;
-   font-weight: 600;
-}
-.sidebar .bottom_sidebar .compagny .head_description p{
-   color:  #043356;
-   font-size: 14px;
-   font-weight: 400;
 }
 .sidebar .bottom_sidebar .compagny .inner {
    margin-top: 20px;
@@ -477,13 +316,6 @@
    background-color: #D1DAE3;
    padding: 17px 0 15px 0px;   
 }
-.content_link{
-   margin-top: 30px;
-   text-align: center;
-}
- /* .sidebar .bottom_sidebar .compagny .inner .inner_1 .social i:last-child{
-    margin-right: 0px;
-   } */
    @media all and (min-width: 300px) and (max-width: 767px){ 
    .description_job .all-info{
       display: block;
@@ -498,12 +330,6 @@
       width: 50px;
       height: 45px;
     }
-   .content_job_list_1 .info_all{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-   }
    .all_info {
       display: flex;
       flex-direction: column;
@@ -539,10 +365,6 @@
    }
    .content_job_list_1 .info .info_item{
       margin-bottom: 10px;
-   }
-   .sidebar .center_sidebar{
-      padding: 30px 0 25px 11px ;
-
    }
    .gallery .content_image{
       width: 302px;

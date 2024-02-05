@@ -15,9 +15,7 @@ export class DetailCompagnyComponent implements OnInit {
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];    
     this.HomePageService.getDetailCompagny( this.identifiant).subscribe(data=>{
-      this.employer=data 
-      console.log( this.employer);
-           
+      this.employer=data            
     })
   }
 

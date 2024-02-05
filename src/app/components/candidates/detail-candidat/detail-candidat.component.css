@@ -2,8 +2,6 @@
 .image_menu_about{
     background-color: #F5F7FC;
    }
-
-
     .image_menu_about h2{
      color: #202124;
      font-size: 26px;
@@ -102,21 +100,6 @@
      padding: 5px 20px 5px 19px;
 
   }
-  .content_job_list_1 .tags .content_urgent{
-    background-color: #F2ECD3;
-    border-radius: 60px;
-    margin-right: 15px;
-
- }
- .content_job_list_1 .tags .content_urgent p{
-    font-size: 13px;
-    font-weight: bold;
-    color: #FDC000;
-    margin: 0;
-    line-height: 1.5;
-    padding: 5px 20px 5px 19px;
-
- }
   .content_job_list_1 .all_info{
      display: flex;
      justify-content: center;
@@ -156,18 +139,9 @@
     font-size: 18px;
     color:#202124
   }
-  .job_description p{
-    color:  #696969;
-    font-size: 15px;
-    font-weight: 600;
-  }
-  .education{
-   border: 1px solid transparent;
-}
 .education .education_1 {
    padding-left: 44px;
    margin-bottom: 64px;
-
 }
 .education .education_1 p:first-child{
    color:#D93025 ;
@@ -190,9 +164,6 @@
    background-color: #FAE0DF;
    border-radius: 60px;
    padding: 5px 17px 5px 19px;
-}
-.education{
-   border: 1px solid transparent;
 }
 
 .education hr{
@@ -283,60 +254,6 @@ opacity: 0.15;
   .social i{
     margin-right: 5px;
   }
-  .facebook{
-    padding:13px 66px 11px 64px ;
-    background-color: #043356;
-    color: #FFF;
-    font-size: 14px;
-    font-weight: 700;
-    margin-right: 10px;
-    border-radius: 8px;
-  }
-  .twitter{
-    padding:13px 31px 11px 50px ;
-    background-color: #BC91E8;
-    color: #FFF;
-    font-size: 14px;
-    font-weight: 700;
-    margin-right: 10px;
-    border-radius: 8px;
-
-  }
-  .google{
-    padding:13px 53px 11px 53px ;
-    background-color: #D93025;
-    color: #FFF;
-    font-size: 14px;
-    font-weight: 700;
-    border-radius: 8px;
-
-  }
-  .related_jobs{
-    padding-bottom: 93px;
-  }
-
-  .related_jobs span{
-    color: #000;
-    font-size: 26px;
-    font-weight: 700;
-  }
-  .related_jobs p{
-    color:  #696969;
-    font-size: 15px;
-    font-weight: 400;
-    margin-bottom: 30px;
-  }
-
-
- .items_job .job_list_2{
-    margin-bottom: 30px;
-    border-radius: 8px;
-    border: 1px solid #ECEDF2;
-    background-color: #FFF;
- }
- .job_list_2 .content_job_list_2{
-    display: flex;
- }
  .sidebar .top_sidebar{
     padding: 30px 0 30px 51px;
     background-color: #F5F7FC;
@@ -417,9 +334,6 @@ opacity: 0.15;
  .sidebar .bottom_sidebar .compagny .inner .inner_1 .social i:hover{
    color:#C39DEA ;
   }
- /* .sidebar .bottom_sidebar .compagny .inner .inner_1 .social i:last-child{
-    margin-right: 0px;
-   } */
    @media all and (min-width: 300px) and (max-width: 767px){
    .description_job{
       margin-bottom: 25px;

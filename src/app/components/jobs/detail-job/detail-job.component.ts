@@ -74,7 +74,7 @@ export class DetailJobComponent implements OnInit {
       ToastNotification.open({
         type: 'error',
         message: this.message.message
-      });      // Ajoutez ici des actions en cas de données manquantes
+      });
     }
   }
 
@@ -102,7 +102,6 @@ export class DetailJobComponent implements OnInit {
               // if (typeR == "success") {
               //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
               // }
-              console.log('Postulation réussie', response);
             },
           // Gestion des erreurs
           (error) => {            
