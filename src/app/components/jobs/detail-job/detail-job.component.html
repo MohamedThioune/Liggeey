@@ -62,9 +62,9 @@
               </div>
             </div>
             <div class="job_info">
-              <a class="btn" routerLink="" routerLinkActive="active_lien_navbar"> Apply For Job  </a>
+              <a class="btn" (click)="applyJob()" routerLinkActive="active_lien_navbar" [disabled]="applyJobs"> Apply For Job  </a>
               <div class="bookmark">
-                <button>
+                <button (click)="favoritesJob()">
                   <i class="fa fa-bookmark"></i>
                 </button>
             </div>
