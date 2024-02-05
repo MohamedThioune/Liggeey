@@ -44,9 +44,7 @@ export class PassportAllCandidatComponent implements OnInit {
   }
 
   selectionnerOnglet(onglet: string): void {
-    this.ongletSelectionne = onglet;
-    console.log( this.ongletSelectionne);
-    
+    this.ongletSelectionne = onglet;    
   }
 
 }

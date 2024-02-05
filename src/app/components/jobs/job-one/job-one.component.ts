@@ -11,13 +11,8 @@ export class JobOneComponent implements OnInit {
   currentColor: string = '#ECEDF2';
   isClass1Visible = true;
   jobs:any
+  p: number = 1;
 
-  changeColor() {
-    this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
-  }
-  currentChangeColor() {
-    this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
-  }
   constructor(private homeService:HomePageService) {}
   ngOnInit(): void {
     this.homeService.getAllJob().subscribe((data:any)=>{  
@@ -25,86 +20,12 @@ export class JobOneComponent implements OnInit {
     })
   }
   
-  p: number = 1;
-  collection: any[] = this.someArrayOfThings=[
-    {
-      "color":"#4947D0",
-      "profil":"Ingénieur logiciel (Android), bibliothèques",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_1.svg"
-    },
-    {
-      "profil":"Recruiting Coordinator",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_2.svg"
-
-    }
-    ,{
-      "profil":"Senior Product Designer",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_3.svg"
-
-    },
-    {
-      "profil":"Web Developer",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_4.svg"
-    },
-    {
-      "profil":"Sr. Full Stack Engineer",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_5.svg"
-    },
-    {
-      "profil":"Senior Product Designer",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_2.svg"
-    },
-    {
-      "color":"#4947D0",
-      "profil":"Ingénieur logiciel (Android), bibliothèques",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_1.svg"
-    },
-    {
-      "profil":"Recruiting Coordinator",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_5.svg"
-    }
-    ,{
-      "profil":"Senior Product Designer",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_4.svg"
-    },
-    {
-      "profil":"Web Developer",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_3.svg"
-    },
-    {
-      "profil":"Sr. Full Stack Engineer",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_2.svg"
-    },
-    {
-      "profil":"Senior Product Designer",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/logo_5.svg"
-
-    }
-  ]; 
+  changeColor() {
+    this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
+  }
+  currentChangeColor() {
+    this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
+  }
   submit(){
     alert("ok");
   }
@@ -114,4 +35,5 @@ export class JobOneComponent implements OnInit {
   toggleClass() {
     this.isClass1Visible = !this.isClass1Visible;
   }
+
 }

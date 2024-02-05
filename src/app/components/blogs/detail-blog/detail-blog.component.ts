@@ -13,12 +13,9 @@ export class DetailBlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];  
-    console.log(this.identifiant);
       
     this.HomePageService.getDetailArticle( this.identifiant).subscribe(data=>{
-      this.article=data     
-      console.log(this.article);
-       
+      this.article=data            
     })
   }
 
