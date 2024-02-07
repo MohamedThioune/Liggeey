@@ -142,7 +142,7 @@
 
               </div>
             </div>
-            </div>
+          </div>
         </div>
   </div>
 </section>
@@ -219,30 +219,44 @@
               </div>
               <div class="card-body">
                 <div class="tops">
-                <span>How to reach your goals?</span>
+                <span>{{artikels[0].post_title}}</span>
                 </div>
-                <p class="card-text">In this article, discover 5 key steps to<br>acquire new skills with Livelearn <br> and land a job.
+                <p class="card-text">{{artikels[0].short_description}}
                 </p>
-                <a href="">Read More</a>
+                <a href="{{artikels[0].permalink}}">Read More</a>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-8" >
-          <div class="article_1 top_article" *ngFor="let artikel of artikels">
+          <div class="article_1 top_article">
             <div class="image_description_article">
                 <div class="content_image_article">
                   <img src="../../../assets/img/article_1.png" alt="Job Image">
                 </div>
               <div class="description_article">
-                <p class="title">{{artikel.post_title}}</p>
-                <p>{{artikel.short_description}}</p>
+                <p class="title">{{artikels[1].post_title}}</p>
+                <p>{{artikels[1].short_description}}</p>
 
-              <p> <a href="{{artikel.permalink}}">Read More</a></p>
+              <p> <a href="{{artikels[1].permalink}}">Read More</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="article_1 top_article">
+            <div class="image_description_article">
+                <div class="content_image_article">
+                  <img src="../../../assets/img/article_1.png" alt="Job Image">
+                </div>
+              <div class="description_article">
+                <p class="title">{{artikels[2].post_title}}</p>
+                <p>{{artikels[2].short_description}}</p>
+
+                <p><a href="{{artikels[2].permalink}}">Read More</a></p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
