@@ -1,0 +1,144 @@
+
+/* Main container */
+main {
+   background-color: #FFFF;
+  }
+  
+  /* Card styling */
+  .card {
+    border: none;
+    border-radius: 0;
+
+  }
+
+  .card-header {
+    border: none;
+    border-radius: 0;
+    text-align: center;
+    padding-top: 63px;
+    background: none;
+  }
+
+  .card-header .create_account{
+    color:#202124;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+
+  }
+  .card-header span{
+    font-weight: bold;
+  }
+  .candidate-employe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+  }
+  
+  .candidate-employe button{
+    width: 260px;
+    color: #1AC4A2;
+    background:  #DDF6F1; 
+    border: none;
+    cursor: pointer;
+  }
+  .candidate-employe button:first-child{
+    width: 260px;
+    color: #FFF;
+    background:  #1AC4A2; 
+    border: none;
+    cursor: pointer;
+  }
+  .candidate-employe i{
+    margin-right: 5px;
+  }
+  .candidate{
+    border: 1px solid red;
+    margin-right: 30px;
+  }
+  .candidate-employe button:hover{
+    color: #FFF;
+    background-color: #1AC4A2; 
+  }
+  
+  .card-body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 58px;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: none;
+  }
+  .card-footer button{
+    border: none ;
+    background-color: #1AC4A2;
+    color: #FFFF;
+    width: 550px;
+    height: 60px;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  /* Form styling */
+  .form-control {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding:17px 82px 15px 83px;
+    height: 56px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+   
+  }
+
+  .input-group-text {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0;
+    display: flex;
+  }
+  
+  /* Label styling */
+  label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: flex;
+    
+  }
+  /* Add margin and spacing */
+  .m-4 {
+    margin: 1.5rem;
+  }
+  
+  /* Clear float */
+  .clear {
+    clear: both;
+  }
+  #password-employer, #confirm-password{
+    background-color:#F0F5F7 ;
+  }
+
+  /* Adjust spacing between buttons */
+  .btn {
+    margin: 0.3rem;
+    padding:15px ;
+    border-radius: 8px;
+    width: 80%;
+  }
+  
+  /* Optional styles for the text with asterisk (*) */
+  p {
+    font-weight: bold;
+    color: red;
+    margin: 1px 2px 0px 10px;
+  }
+
+

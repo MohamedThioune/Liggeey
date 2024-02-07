@@ -1,0 +1,224 @@
+/*section image menu about*/
+.image_menu_about{
+    position: relative;
+   background-color: #F3F5FB;
+   padding: 150px;
+  }
+
+a{
+    text-decoration: none;
+}
+
+   .search_about{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    color:  #696969;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+    width: 100%;
+     padding: 10px 37px;
+ /* Shadow / 1 */
+ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+
+  }
+   .search_about p{
+     color: #696969;
+     font-size: 15px;
+     font-weight: bold;
+     margin-left: 11px;
+     margin-bottom: 0;
+  }
+
+   .search_about .limit{
+    width: 1px;
+    height: 60px;
+    background: #ECEDF2;
+  }
+   .search_about button{
+    text-align: center;
+    padding: 17px 40px 15px 44px;
+    color: #FFF;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    background: #043356;
+  }
+  .search_about input{
+   border-radius: 4px;
+   border: 1px solid #D0D5DD;
+   font-size:16px;
+   font-weight:bold;
+   width:100%;
+   border:none;
+   background-color: transparent;
+   padding: 10px 19px 8px 24px;
+}
+input[type="search"]:focus {
+   outline: none;
+ }
+
+   .image_menu_about h2{
+     font-size: 47px;
+     font-weight: 700;
+     color: #FFFFFF;
+     text-align: center;
+     position: relative;
+     margin-bottom: 60px;
+  }
+  /*section candidate*/
+.featured_candidates{
+    padding-bottom: 140px;
+}
+.featured{
+    display: flex;
+    flex-direction: column;
+}
+
+.featured .browser{
+    display: flex;
+    color: #1AC4A2;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.featured .browser p{
+    margin-left: 7px;
+}
+
+.card-body span{
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+}
+.card-text {
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+.card-body a{
+    color: #5B5B6C;
+    text-decoration: underline;
+}
+.content_candidate{
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    text-align: center;
+    padding: 31px  30px;
+    border-radius: 8px;
+    background: #FFF;
+    margin-bottom: 16px;
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.content_image_candidate{
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.content_image_candidate img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info_candidat a{
+    border-radius: 8px;
+    background-color: #EDF1F3;
+    color: #043356;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px 61px 13px 70px;
+    margin-top: 15px;
+}
+.info_candidat a:hover{
+    background-color: #043356;
+    color: #FFFF;
+}
+
+.info_candidat .location_candidat{
+    display: flex;
+    justify-content: center;
+}
+.location_candidat svg{
+    margin-right: 10px;
+}
+.info_candidat .name_candidat{
+    color: #202124;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.info_candidat .profil_candidat{
+    color: #202124;
+    font-size: 14px;
+    font-weight: 400;
+}
+.header_featured{
+    border: 1px solid transparent;
+    padding-top: 59px;
+    padding-bottom: 59px;
+    display: flex;
+}
+.header_featured span{
+    text-align: center;
+    color: #202124;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #EDF1F3;
+    color: #043356;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 10px;
+    padding: 15px 56px 14px 56px;
+    border-radius: 8px;
+}
+.location_candidat p{
+    color: #696969;
+    font-size: 14px;
+    font-weight: 400;
+}
+.tab_candidate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tab_candidate p{
+padding: 7px 20px 4px 20px;
+border-radius: 30px;
+background: #F0F5F7;
+margin-right: 5px;
+font-weight: bold;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+@media all and (min-width: 300px) and (max-width: 767px){
+    .header_featured {
+        flex-direction: column; /* Pile les éléments les uns sur les autres sur des écrans étroits */
+        align-items: center; /* Centre les éléments horizontalement sur des écrans étroits */
+      }
+      .header_featured span{
+        margin-bottom: 10px;
+      }
+      .search_about{
+        width: fit-content;
+        padding-top:20px ;
+        padding-bottom: 20px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+      }
+
+    .image_menu_about{
+        padding: 0;
+    }
+
+}

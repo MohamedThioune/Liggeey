@@ -1,0 +1,308 @@
+<div class="coontent-skill-fisrt">
+  <app-header></app-header>
+  <div class="content-top-skill position-relative">
+    <div class="absolute-element"></div>
+    <div class="container-fluid">
+      <h1>All Article</h1>
+    </div>
+  </div>
+</div>
+
+<section class="content-blog">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8 col-md-6" >
+        <div class="content-card-blog d-flex flex-wrap" *ngFor="let article of artikels">
+          <div class="card_article"  [routerLink]="['/detail-article',article.ID]">
+            <div class="rectangle_article">
+              <div class="content_image">
+                <img [src]=article.image class="img-fluid"/>
+              </div>
+              <div class="card-body">
+                <div class="date_comment">
+                  <p class="date">
+                    August 31, 2021
+                  </p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                    <circle cx="2.5" cy="2.5" r="2.5" fill="#696969"/>
+                  </svg>
+                  <p class="comment">
+                    12 Comment
+                  </p>
+                </div>
+                <div class="tops">
+                  <p>{{article.post_title}}</p>
+                </div>
+                <p class="card-text">{{article.short_description}}
+                </p>
+                <span class="read_more">
+                      <a href="">Read More</a>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M9.33358 5.53176L3.99343 0.191706C3.86992 0.068097 3.70504 0 3.52924 0C3.35343 0 3.18856 0.068097 3.06504 0.191706L2.67178 0.584873C2.41588 0.841066 2.41588 1.25745 2.67178 1.51326L7.15604 5.99751L2.6668 10.4867C2.54329 10.6104 2.4751 10.7751 2.4751 10.9508C2.4751 11.1267 2.54329 11.2915 2.6668 11.4152L3.06007 11.8083C3.18368 11.9319 3.34846 12 3.52426 12C3.70006 12 3.86494 11.9319 3.98845 11.8083L9.33358 6.46336C9.45738 6.33936 9.52538 6.1738 9.52499 5.99781C9.52538 5.82112 9.45738 5.65566 9.33358 5.53176Z" fill="#043356"/>
+                      </svg>
+                    </span>
+              </div>
+            </div>
+          </div>
+          <!--
+          <div class="card_article">
+            <div class="rectangle_article">
+              <div class="content_image">
+                <img src="../../../assets/img/article1.png" class="img-fluid"/>
+              </div>
+              <div class="card-body">
+                <div class="date_comment">
+                  <p class="date">
+                    August 31, 2021
+                  </p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                    <circle cx="2.5" cy="2.5" r="2.5" fill="#696969"/>
+                  </svg>
+                  <p class="comment">
+                    12 Comment
+                  </p>
+                </div>
+                <div class="tops">
+                  <p>Attract Sales And Profits</p>
+                </div>
+                <p class="card-text">In this article, discover 5 key steps to acquire new skills with Livelearn and land a job.
+                </p>
+                <span class="read_more">
+                      <a href="">Read More</a>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M9.33358 5.53176L3.99343 0.191706C3.86992 0.068097 3.70504 0 3.52924 0C3.35343 0 3.18856 0.068097 3.06504 0.191706L2.67178 0.584873C2.41588 0.841066 2.41588 1.25745 2.67178 1.51326L7.15604 5.99751L2.6668 10.4867C2.54329 10.6104 2.4751 10.7751 2.4751 10.9508C2.4751 11.1267 2.54329 11.2915 2.6668 11.4152L3.06007 11.8083C3.18368 11.9319 3.34846 12 3.52426 12C3.70006 12 3.86494 11.9319 3.98845 11.8083L9.33358 6.46336C9.45738 6.33936 9.52538 6.1738 9.52499 5.99781C9.52538 5.82112 9.45738 5.65566 9.33358 5.53176Z" fill="#043356"/>
+                      </svg>
+                    </span>
+              </div>
+            </div>
+          </div>
+          <div class="card_article">
+            <div class="rectangle_article">
+              <div class="content_image">
+                <img src="../../../assets/img/article1.png" class="img-fluid"/>
+              </div>
+              <div class="card-body">
+                <div class="date_comment">
+                  <p class="date">
+                    August 31, 2021
+                  </p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                    <circle cx="2.5" cy="2.5" r="2.5" fill="#696969"/>
+                  </svg>
+                  <p class="comment">
+                    12 Comment
+                  </p>
+                </div>
+                <div class="tops">
+                  <p>Attract Sales And Profits</p>
+                </div>
+                <p class="card-text">In this article, discover 5 key steps to acquire new skills with Livelearn and land a job.
+                </p>
+                <span class="read_more">
+                      <a href="">Read More</a>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M9.33358 5.53176L3.99343 0.191706C3.86992 0.068097 3.70504 0 3.52924 0C3.35343 0 3.18856 0.068097 3.06504 0.191706L2.67178 0.584873C2.41588 0.841066 2.41588 1.25745 2.67178 1.51326L7.15604 5.99751L2.6668 10.4867C2.54329 10.6104 2.4751 10.7751 2.4751 10.9508C2.4751 11.1267 2.54329 11.2915 2.6668 11.4152L3.06007 11.8083C3.18368 11.9319 3.34846 12 3.52426 12C3.70006 12 3.86494 11.9319 3.98845 11.8083L9.33358 6.46336C9.45738 6.33936 9.52538 6.1738 9.52499 5.99781C9.52538 5.82112 9.45738 5.65566 9.33358 5.53176Z" fill="#043356"/>
+                      </svg>
+                    </span>
+              </div>
+            </div>
+          </div>
+          <div class="card_article">
+            <div class="rectangle_article">
+              <div class="content_image">
+                <img src="../../../assets/img/article1.png" class="img-fluid"/>
+              </div>
+              <div class="card-body">
+                <div class="date_comment">
+                  <p class="date">
+                    August 31, 2021
+                  </p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                    <circle cx="2.5" cy="2.5" r="2.5" fill="#696969"/>
+                  </svg>
+                  <p class="comment">
+                    12 Comment
+                  </p>
+                </div>
+                <div class="tops">
+                  <p>Attract Sales And Profits</p>
+                </div>
+                <p class="card-text">In this article, discover 5 key steps to acquire new skills with Livelearn and land a job.
+                </p>
+                <span class="read_more">
+                      <a href="">Read More</a>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M9.33358 5.53176L3.99343 0.191706C3.86992 0.068097 3.70504 0 3.52924 0C3.35343 0 3.18856 0.068097 3.06504 0.191706L2.67178 0.584873C2.41588 0.841066 2.41588 1.25745 2.67178 1.51326L7.15604 5.99751L2.6668 10.4867C2.54329 10.6104 2.4751 10.7751 2.4751 10.9508C2.4751 11.1267 2.54329 11.2915 2.6668 11.4152L3.06007 11.8083C3.18368 11.9319 3.34846 12 3.52426 12C3.70006 12 3.86494 11.9319 3.98845 11.8083L9.33358 6.46336C9.45738 6.33936 9.52538 6.1738 9.52499 5.99781C9.52538 5.82112 9.45738 5.65566 9.33358 5.53176Z" fill="#043356"/>
+                      </svg>
+                    </span>
+              </div>
+            </div>
+          </div>
+          <div class="card_article">
+            <div class="rectangle_article">
+              <div class="content_image">
+                <img src="../../../assets/img/article1.png" class="img-fluid"/>
+              </div>
+              <div class="card-body">
+                <div class="date_comment">
+                  <p class="date">
+                    August 31, 2021
+                  </p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                    <circle cx="2.5" cy="2.5" r="2.5" fill="#696969"/>
+                  </svg>
+                  <p class="comment">
+                    12 Comment
+                  </p>
+                </div>
+                <div class="tops">
+                  <p>Attract Sales And Profits</p>
+                </div>
+                <p class="card-text">In this article, discover 5 key steps to acquire new skills with Livelearn and land a job.
+                </p>
+                <span class="read_more">
+                      <a href="">Read More</a>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M9.33358 5.53176L3.99343 0.191706C3.86992 0.068097 3.70504 0 3.52924 0C3.35343 0 3.18856 0.068097 3.06504 0.191706L2.67178 0.584873C2.41588 0.841066 2.41588 1.25745 2.67178 1.51326L7.15604 5.99751L2.6668 10.4867C2.54329 10.6104 2.4751 10.7751 2.4751 10.9508C2.4751 11.1267 2.54329 11.2915 2.6668 11.4152L3.06007 11.8083C3.18368 11.9319 3.34846 12 3.52426 12C3.70006 12 3.86494 11.9319 3.98845 11.8083L9.33358 6.46336C9.45738 6.33936 9.52538 6.1738 9.52499 5.99781C9.52538 5.82112 9.45738 5.65566 9.33358 5.53176Z" fill="#043356"/>
+                      </svg>
+                    </span>
+              </div>
+            </div>
+          </div>
+          <div class="card_article">
+            <div class="rectangle_article">
+              <div class="content_image">
+                <img src="../../../assets/img/article1.png" class="img-fluid"/>
+              </div>
+              <div class="card-body">
+                <div class="date_comment">
+                  <p class="date">
+                    August 31, 2021
+                  </p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                    <circle cx="2.5" cy="2.5" r="2.5" fill="#696969"/>
+                  </svg>
+                  <p class="comment">
+                    12 Comment
+                  </p>
+                </div>
+                <div class="tops">
+                  <p>Attract Sales And Profits</p>
+                </div>
+                <p class="card-text">In this article, discover 5 key steps to acquire new skills with Livelearn and land a job.
+                </p>
+                <span class="read_more">
+                      <a href="">Read More</a>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M9.33358 5.53176L3.99343 0.191706C3.86992 0.068097 3.70504 0 3.52924 0C3.35343 0 3.18856 0.068097 3.06504 0.191706L2.67178 0.584873C2.41588 0.841066 2.41588 1.25745 2.67178 1.51326L7.15604 5.99751L2.6668 10.4867C2.54329 10.6104 2.4751 10.7751 2.4751 10.9508C2.4751 11.1267 2.54329 11.2915 2.6668 11.4152L3.06007 11.8083C3.18368 11.9319 3.34846 12 3.52426 12C3.70006 12 3.86494 11.9319 3.98845 11.8083L9.33358 6.46336C9.45738 6.33936 9.52538 6.1738 9.52499 5.99781C9.52538 5.82112 9.45738 5.65566 9.33358 5.53176Z" fill="#043356"/>
+                      </svg>
+                    </span>
+              </div>
+            </div>
+          </div>
+          -->
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="filter-blog">
+          <h3>Search by Keywords</h3>
+          <form action="">
+            <div class="position-relative">
+              <i class="fa fa-search"></i>
+              <input type="search" name="" id="search-filter" placeholder="Search by Keywords">
+            </div>
+            <div class="search-by-categories">
+              <h3>Categories</h3>
+              <ul>
+                <li>
+                  <button class="btn btn-filter-categorie">
+                    Education
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-filter-categorie">
+                    Information
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-filter-categorie">
+                    Interview
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-filter-categorie">
+                    Job Seeking
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-filter-categorie">
+                    Jobs
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-filter-categorie">
+                    Learn
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-filter-categorie">
+                    Skill
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-filter-categorie">
+                    Travel
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="recent-post-blog">
+              <h3>Recent Posts</h3>
+              <div class="d-flex recent-post align-items-center">
+                <div class="centent-img">
+                  <img src="../../../assets/img/article1.png"/>
+                </div>
+                <div>
+                  <p class="title-recent-post">Attract Sales And Profits</p>
+                  <p class="date-recent-post">August 9, 2023</p>
+                </div>
+              </div>
+              <div class="d-flex recent-post align-items-center">
+                <div class="centent-img">
+                  <img src="../../../assets/img/article1.png"/>
+                </div>
+                <div>
+                  <p class="title-recent-post">Attract Sales And Profits</p>
+                  <p class="date-recent-post">August 9, 2023</p>
+                </div>
+              </div>
+              <div class="d-flex recent-post align-items-center">
+                <div class="centent-img">
+                  <img src="../../../assets/img/article1.png"/>
+                </div>
+                <div>
+                  <p class="title-recent-post">Attract Sales And Profits</p>
+                  <p class="date-recent-post">August 9, 2023</p>
+                </div>
+              </div>
+            </div>
+            <div class="tags-block">
+              <h3>Tags</h3>
+              <div class="d-flex flex-wrap tags-block">
+                <p>app</p>
+                <p>administrative</p>
+                <p>android</p>
+                <p>wordpress</p>
+                <p>design</p>
+                <p>react</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<app-footers></app-footers>

@@ -1,0 +1,56 @@
+.button_connexion{
+  padding-bottom: 145px;
+  text-align: center;
+}
+.ligne-horizontale {
+    border: none; /* Supprime la bordure par défaut */
+    border-top: 2px solid #F5F6F8; /* Épaisseur et couleur de la ligne */
+    width: 241px;
+    height: 1px;
+  }
+  .ligne-horizontale.gauche{
+    margin: 0rem 0.75rem 0rem 0rem;
+  }
+  .ligne-horizontale.droite{
+    margin: 0rem 0rem 0rem 0.75rem;
+  }
+
+.separateur{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  .separateur span{
+    color: #C7C7C7;
+    position: relative; top: -0.5em;
+  }
+  .left{
+    border: 1px solid #043356;
+    color: #043356;
+    padding:10px 62px 15px 39px ;
+  }
+  .right{
+    border: 1px solid #D93025 ;
+    color: #D93025;
+    padding:10px 81px 15px 21px ;
+  }
+   a{
+    background: #FFFF; /* Fond transparent */
+    cursor: pointer; /* Curseur de type main (pointeur) */
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 300px) and (max-width: 767px){  
+    .button_connexion{
+      padding-bottom: 70px;
+    }
+       .left{
+          margin-bottom: 16px;
+        } 
+        .right,.left{
+          padding:10px 21px 15px 21px ;
+        }
+    }
+

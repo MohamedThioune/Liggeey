@@ -1,0 +1,324 @@
+ /*section image menu about*/
+.image_menu_about{
+   background-image: url("../../../assets/img/about.png");
+   height: 480px;
+   position: relative;
+   margin-bottom: 110px;
+
+}
+
+.color{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../assets/img/about.png"), lightgray 50% / cover no-repeat;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+.image_about{
+   position: relative;
+}
+.description_about{
+   position: absolute;
+   top: 90px;
+   left: 0px;
+   color: #FFF;
+}
+.description_about h2{
+   font-size: 53px;
+   font-weight: 700;
+   padding-bottom: 25px;
+}
+.description_about p{
+   font-size: 14px;
+   font-weight: 400;
+   color: #FFF;
+}
+.content_image_about{
+   height: 480px;
+}
+.content_image_about img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+.content_image_about{
+    height: 480px;
+}
+.about_story{
+margin-bottom: 130px;
+}
+.content_map_story_about{
+   height: 360px;
+   margin: 0 auto;
+   width: 100%;
+}
+
+.content_map_story_about img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.description_story_about span{
+    color: #05264E;
+    font-size: 32px;
+    font-weight: 700;
+}
+.description_story_about .description_story{
+    color: #4F5E64;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 13px;
+}
+.content_button_about_story a{
+    border-radius: 8px;
+    margin-top: 28px;
+    border: 1px solid #1CA774;
+    background-color:#1AC4A2;
+    color: #FFFF;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    padding: 16px 21px;
+
+}
+ /*section help*/
+
+ .help_about{
+   background-color: #1AC4A2;
+   margin-bottom: 130px;
+ }
+
+ .content_help_about{
+   padding-top: 54px;
+   padding-bottom: 102px;
+ }
+ .header_help_about{
+    color: #FFFF;
+    text-align: center;
+    padding-bottom: 30px;
+ }
+ .header_help_about span{
+    color: #FFF;
+    font-size: 35px;
+    font-weight: bold;
+ }
+ .header_help_about p{
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+ }
+ .content_body_help_about_1{
+    padding:23px 53px 37px 40px;
+    color: #F8F9FA;
+    border-radius: 9.6px;
+    background: rgba(255, 255, 255, 0.10);
+ }
+ .content_body_help_about_1 h1{
+   color:  #FFF;
+   font-size: 48px;
+   font-weight: bold;
+ }
+ .content_body_help_about_1 span{
+   font-size: 20px;
+    font-size: 20px;
+    font-weight: bold;
+ }
+ .content_body_help_about_1 p{
+    font-size: 14px;
+    font-weight: 500;
+   font-size: 14px;
+   margin-top: 12px;
+ }
+ /*section mission*/
+ .mission{
+   border: 1px solid #FFF;
+ }
+
+ .content_map_mission{
+   margin-bottom: 107px;
+   height: 493px;
+   width: 490px
+}
+.content_map_mission img{
+   width: 100%;
+   height: 100%;
+   margin: auto;
+   object-fit: cover;
+}
+.content_list_mission ul {
+   margin-top: 0;
+   padding-left: 0;
+   list-style: none; /* Supprimer les puces par défaut */
+   padding: 0;
+}
+ .content_list_mission ul li{
+    display: flex;
+   margin-bottom: 23px;
+ }
+ .content_list_mission ul li svg{
+   margin-right: 8px;
+}
+ .content_list_mission ul li p{
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+ }
+
+.description_mission span{
+    color: #05264E;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 13px;
+}
+.description_mission .description_{
+    color: #4F5E64;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 39px;
+
+}
+/* section teams*/
+.person_teams{
+   background: rgba(241, 245, 248, 0.66);
+   padding:75px 0 119px 0 ;
+   margin-bottom: 114px;
+}
+
+ .header_team{
+    text-align: center;
+    margin-bottom: 41px;
+ }
+ .header_team span{
+    color: #05264E;
+    font-size: 35px;
+    font-weight: 700;
+ }
+ .header_team p{
+    color: #4F5E64;
+    font-size: 14px;
+    font-weight: bold;
+ }
+ .content_team_element{
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: #FFF;
+    overflow: hidden;
+ }
+ .content_image_team{
+   height: fit-content;
+   border-radius: 8px;
+   overflow: hidden;
+   margin: 10px ;
+ }
+ .content_image_team img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+ }
+ .description_team{
+   padding: 18px 0 17px 16px;
+ }
+ .description_team span{
+    color: #05264E;
+    font-size: 17px;
+    font-weight: bold;
+ }
+ .description_team p:first-child{
+   color: #05264E;
+   font-size: 19px;
+   font-style: normal;
+   font-weight: 500;
+   margin-bottom: 8px;
+ }
+ .description_team p{
+    color: #1AC4A2;
+    font-size: 13px;
+    font-weight: 700;
+    margin: auto;
+ }
+
+ @media all and (min-width: 300px) and (max-width: 767px){
+   .image_menu_about{
+      width: 100%;
+   }
+   .content_map_mission{
+     height: 400px;
+      margin: 0 auto;
+      width: 100%;
+}
+   .description_about h2{
+      font-size: 33px;
+   }
+   .description_about p{
+     font-size: 15px;
+     line-height: 25px;
+
+   }
+   .description_story_about{
+      padding-bottom: 25px;
+   }
+   .help_about{
+      margin-bottom: 60px;
+    }
+    .header_help_about span{
+      font-size: 25px;
+   }
+   .header_help_about p{
+      color: #FFF;
+     font-size: 16px;
+      font-weight: 400;
+   }
+   .description_story_about span{
+     font-size: 28px;
+   }
+   .description_story_about .description_story{
+      font-size: 15px;
+  }
+  .content_button_about_story a{
+   font-size: 16px;
+   padding: 13px 18px;
+   }
+   .image_menu_about{
+      margin-bottom: 55px;
+   }
+   .content_body_help_about_1{
+    margin-bottom: 16px;
+   }
+   .content_body_help_about_1 h1{
+      font-size: 38px;
+    }
+    .content_body_help_about_1 span{
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .content_body_help_about_1 p{
+       font-size: 16px;
+    }
+    .content_list_mission ul li p{
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 0;
+   }
+   .description_mission{
+      padding-top:50px ;
+   }
+    .description_mission span{
+      font-size: 22px;
+  }
+  .description_mission .description_{
+      font-size: 17px;
+  }
+  .person_teams{
+   padding:75px 0 79px 0 ;
+   margin-bottom: 14px;
+}
+  h3{
+     margin-bottom: 25px;
+  }
+}

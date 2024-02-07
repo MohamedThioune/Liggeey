@@ -1,0 +1,336 @@
+<app-header></app-header>
+
+<section class="description_home">
+  <div class="container-fluid">
+    <div class="content_home_">
+      <div class="content_home">
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="new_remote">
+              <span>NEW</span>
+              <p>Hire remote tech talent based on real #skills</p>
+            </div>
+            <div class="text_home">
+              <h2>Build your remote digital <br> workforce</h2>
+              <span class="definition_home">Our League A software implementation <br> team is waiting for you</span>
+            </div>
+            <div class="hiring_work">
+              <a class="btn hiring" routerLink="register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
+              <a class="work" routerLink="register" routerLinkActive="active_lien_navbar">How does it work</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+              <div class="image_home">
+                <img src="../../../assets/img/images.png" alt="menu image">
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <p class="number_candidates">10k+ Candidates</p>
+        <div class="">
+          <div class="jobholder">
+            <div class=" ">
+                <span class="content_users_1">
+                  <img src="../../../assets/img/eclipse_menu_1.png" alt="">
+                </span>
+            </div>
+            <div class=" ">
+              <span class="content_users_1">
+                <img src="../../../assets/img/eclipse_menu_1.png" alt="">
+              </span>
+          </div>
+          <div class=" ">
+            <span class="content_users_1">
+              <img src="../../../assets/img/eclipse_menu_1.png" alt="">
+            </span>
+          </div>
+          <div class=" ">
+            <span class="content_users_1">
+              <img src="../../../assets/img/eclipse_menu_1.png" alt="">
+            </span>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="banner">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="banner_left">
+          <div class="description_banner left">
+            <span class="title_description">Employers</span>
+            <p class="content_description">Sit amet, consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt. Labore et <br> dolore nostrud exercitation.</p>
+            <a class="btn" routerLink="register" routerLinkActive="active_lien_navbar">Register Account</a>
+          </div>
+          <div class="image_banner">
+            <img src="../../../assets/img/banner_left.png" alt="banner left">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="banner_right">
+          <div class="description_banner right">
+            <span class="title_description">Candidate</span>
+            <p class="content_description">Sit amet, consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt. Labore et <br> dolore nostrud exercitation.</p>
+            <a class="btn" routerLink="/register" routerLinkActive="active_lien_navbar">Register Account</a>
+          </div>
+          <div class="image_banner">
+            <img src="../../../assets/img/banner_right.png" alt="banner right">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="jobs">
+  <div class="container-fluid">
+    <div class="most_jobs">
+      <div class="header_popular_job">
+        <span>Most Popular Jobs</span>
+        <p>Know your worth and find the job that qualify your life</p>
+        <div class="tabs">
+          <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" [class.active]="activeTab === 'all' " (click)="changeTab('all')" aria-current="page">All</a>
+            </li>
+            <li class="nav-item">
+              <a  [class.active]="activeTab === 'mainCategories'" (click)="changeTab('mainCategories')" class="nav-link">Main categories</a>
+            </li>
+            <li class="nav-item">
+              <a [class.active]="activeTab === 'topics'" (click)="changeTab('topics')" class="nav-link">Topics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  [class.active]="activeTab === 'sub'" (click)="changeTab('sub')">Sub</a>
+            </li>
+            <!--
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Marketing</a>
+            </li>
+            -->
+          </ul>
+        </div>
+        <app-category-emploi [category]="currentCategories"></app-category-emploi>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="categories">
+  <div class="container-fluid">
+        <div class="content_categories">
+          <div class="header_categories">
+            <span>Category</span>
+            <p>Emplois en direct - 293 ajoutés aujourd'hui..</p>
+          </div>
+          <div class="row ">
+            <div class="col-md-3" *ngFor="let categorie of categories">
+              <div class="content_item">
+                <div class="item_left">
+                    <i class="fa fa-language"></i>
+                </div>
+                <div class="item_right">
+                  <span>{{categorie.cat_name}}</span>
+                  <p>(21 open positions)</p>
+                </div>
+
+              </div>
+            </div>
+            </div>
+            <div class="col-md-3">
+              <div class="content_item">
+                <div class="item_left">
+                  <i class="fa fa-solid fa-bullhorn"></i>
+                </div>
+                <div class="item_right">
+                  <span>Customer / Services</span>
+                  <p>(45 open positions)</p>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-md-3">
+              <div class="content_item">
+                <div class="item_left">
+                    <i class="fa fa-language"></i>
+                </div>
+                <div class="item_right">
+                  <span>Accounting / Finance</span>
+                  <p>(2 open positions)</p>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="content_item">
+                <div class="item_left">
+                  <i class="fa fa-lock"></i>
+                </div>
+                <div class="item_right">
+                  <span>Accounting / Finance</span>
+                  <p>(2 open positions)</p>
+                </div>
+              </div>
+            </div>
+        </div>
+  </div>
+</section>
+<section class="skills">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="description_skills">
+          <span class="slills_title">Boost your skills with LiveLearn</span>
+          <p class="slills_">LiveLearn offers you a unique opportunity to acquire new <br> skills. Download the application and develop your potential <br> today.</p>
+          <ul>
+            <li class="skills_list">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13" fill="none">
+                  <path d="M15.7656 0.841261C15.4532 0.528824 14.9467 0.528824 14.6342 0.841261L5.0497 10.4258L1.36558 6.74172C1.05317 6.42929 0.546674 6.42932 0.234206 6.74172C-0.0782314 7.05413 -0.0782314 7.56063 0.234206 7.87307L4.48401 12.1228C4.79633 12.4352 5.3032 12.435 5.61539 12.1228L15.7656 1.97264C16.078 1.66023 16.078 1.1537 15.7656 0.841261Z" fill="#202124"/>
+                </svg>
+              </span>
+              <p>Technical skills (coding, design, data science).</p>
+            </li>
+            <li class="skills_list">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13" fill="none">
+                  <path d="M15.7656 0.841261C15.4532 0.528824 14.9467 0.528824 14.6342 0.841261L5.0497 10.4258L1.36558 6.74172C1.05317 6.42929 0.546674 6.42932 0.234206 6.74172C-0.0782314 7.05413 -0.0782314 7.56063 0.234206 7.87307L4.48401 12.1228C4.79633 12.4352 5.3032 12.435 5.61539 12.1228L15.7656 1.97264C16.078 1.66023 16.078 1.1537 15.7656 0.841261Z" fill="#202124"/>
+                </svg>
+              </span>
+              <p>Technical skills (coding, design, data science).</p>
+            </li>
+            <li class="skills_list">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13" fill="none">
+                  <path d="M15.7656 0.841261C15.4532 0.528824 14.9467 0.528824 14.6342 0.841261L5.0497 10.4258L1.36558 6.74172C1.05317 6.42929 0.546674 6.42932 0.234206 6.74172C-0.0782314 7.05413 -0.0782314 7.56063 0.234206 7.87307L4.48401 12.1228C4.79633 12.4352 5.3032 12.435 5.61539 12.1228L15.7656 1.97264C16.078 1.66023 16.078 1.1537 15.7656 0.841261Z" fill="#202124"/>
+                </svg>
+              </span>
+              <p>Technical skills (coding, design, data science).</p>
+            </li>
+          </ul>
+          <div class="download_button">
+            <a class="btn apple"  routerLink="register" routerLinkActive="active_lien_navbar">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M27.7063 32.955C26.1138 34.4988 24.375 34.255 22.7013 33.5238C20.93 32.7763 19.305 32.7438 17.4363 33.5238C15.0963 34.5313 13.8613 34.2388 12.4638 32.955C4.53377 24.7813 5.70377 12.3338 14.7063 11.8788C16.9 11.9925 18.4275 13.0813 19.7113 13.1788C21.6288 12.7888 23.465 11.6675 25.5125 11.8138C27.9663 12.0088 29.8188 12.9838 31.0375 14.7388C25.9675 17.7775 27.17 24.4563 31.8175 26.325C30.8913 28.7625 29.6888 31.1838 27.69 32.9713L27.7063 32.955ZM19.5488 11.7813C19.305 8.1575 22.2463 5.1675 25.6263 4.875C26.0975 9.0675 21.8238 12.1875 19.5488 11.7813Z" fill="white"/>
+                </svg>
+
+              Download on the<br> Apple Store
+            </a>
+            <a class="btn play_store" routerLink="register" routerLinkActive="active_lien_navbar">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.431 17.424L23.8665 12.9885L9.54 4.93649C8.5905 4.42349 7.701 4.35149 6.921 4.91249L19.431 17.424ZM24.6225 22.617L29.2335 20.0235C30.1335 19.5195 30.627 18.8055 30.627 18.0135C30.627 17.223 30.1335 16.5075 29.235 16.0035L25.0605 13.659L20.361 18.357L24.6225 22.617ZM6.15 6.00299C6.054 6.29849 6 6.62849 6 6.98999V29.0475C6 29.619 6.126 30.111 6.354 30.5025L18.4995 18.3555L6.15 6.00299ZM19.431 19.2855L7.353 31.365C7.584 31.4535 7.833 31.5 8.0955 31.5C8.5635 31.5 9.051 31.362 9.5475 31.086L23.43 23.2905L19.431 19.2855Z" fill="white"/>
+              </svg>
+              Get in on <br>Google Play</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+          <div class="content_mobile_images">
+            <img src="../../../assets/img/app-mobile-livelearn.png" alt="">
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="all_articles">
+  <div class="container-fluid">
+    <div class="articles">
+      <div class="header_articles">
+        <span>Recent News Articles</span>
+        <p>Fresh employment news is published regularly.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card_article">
+            <div class="rectangle_article">
+              <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
+                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+              </div>
+              <div class="card-body">
+                <div class="tops">
+                <span>How to reach your goals?</span>
+                </div>
+                <p class="card-text">In this article, discover 5 key steps to<br>acquire new skills with Livelearn <br> and land a job.
+                </p>
+                <a href="">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8" >
+          <div class="article_1 top_article" *ngFor="let artikel of artikels">
+            <div class="image_description_article">
+                <div class="content_image_article">
+                  <img src="../../../assets/img/article_1.png" alt="Job Image">
+                </div>
+              <div class="description_article">
+                <p class="title">{{artikel.post_title}}</p>
+                <p>{{artikel.short_description}}</p>
+
+              <p> <a href="{{artikel.permalink}}">Read More</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="featured_candidates">
+  <div class="container-fluid">
+    <div class="featured">
+      <div class="header_featured">
+        <span>Featured Candidates</span>
+        <p>Lorem ipsum dolor sit amet elit, sed do eiusmod tempor</p>
+      </div>
+      <span class="browser">Browser All
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M9.33355 5.53176L3.9934 0.191706C3.86989 0.068097 3.70501 0 3.5292 0C3.3534 0 3.18852 0.068097 3.06501 0.191706L2.67175 0.584873C2.41585 0.841066 2.41585 1.25745 2.67175 1.51326L7.156 5.99751L2.66677 10.4867C2.54326 10.6104 2.47507 10.7751 2.47507 10.9508C2.47507 11.1267 2.54326 11.2915 2.66677 11.4152L3.06004 11.8083C3.18365 11.9319 3.34843 12 3.52423 12C3.70003 12 3.86491 11.9319 3.98842 11.8083L9.33355 6.46336C9.45735 6.33936 9.52535 6.1738 9.52496 5.99781C9.52535 5.82112 9.45735 5.65566 9.33355 5.53176Z" fill="#1AC4A2"/>
+          </svg>
+        </p>
+      </span>
+    </div>
+    <div class="candidat_featured">
+      <div class="row candidat_featured_">
+        <div class="col-md-3 item" *ngFor="let candidate of candidates">
+            <div class="content_candidate"  [routerLink]="['/detail-candidat',candidate.ID]">
+              <div class="content_image_candidate">
+                <img [src]=candidate.image alt="Image Of Candidate">
+              </div>
+              <div class="info_candidat">
+                <span class="name_candidat">{{candidate.first_name}} {{candidate.last_name}}</span>
+                <p class="profil_candidat">{{candidate.work_as}}</p>
+                <div class="location_candidat">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18" fill="none">
+                    <path d="M7.38986 0.15625C3.80585 0.15625 0.890137 3.07236 0.890137 6.65676C0.890137 9.21797 1.96242 11.8087 3.99107 14.149C5.50626 15.8969 7.00786 16.8873 7.0711 16.9286C7.1679 16.9919 7.27892 17.0235 7.38994 17.0235C7.50088 17.0235 7.6119 16.9919 7.70878 16.9286C7.77195 16.8873 9.27378 15.8969 10.789 14.1491C12.8178 11.8087 13.8901 9.21797 13.8901 6.65676C13.8901 3.07236 10.974 0.15625 7.38986 0.15625ZM7.38986 15.7254C6.19444 14.8346 2.05549 11.4063 2.05549 6.65676C2.05549 3.71493 4.44843 1.3216 7.38986 1.3216C10.3315 1.3216 12.7247 3.71493 12.7247 6.65676C12.7247 11.4063 8.58536 14.8346 7.38986 15.7254Z" fill="#696969"/>
+                    <path d="M7.39021 4.07568C5.9677 4.07568 4.81042 5.23304 4.81042 6.6557C4.81042 8.07798 5.9677 9.2351 7.39021 9.2351C8.81272 9.2351 9.96992 8.07798 9.96992 6.6557C9.96992 5.23311 8.81264 4.07568 7.39021 4.07568ZM7.39021 8.06974C6.61028 8.06974 5.97578 7.4354 5.97578 6.6557C5.97578 5.87561 6.61028 5.24104 7.39021 5.24104C8.17007 5.24104 8.80456 5.87561 8.80456 6.6557C8.80456 7.4354 8.17007 8.06974 7.39021 8.06974Z" fill="#696969"/>
+                  </svg>
+                  <p>{{candidate.country}}</p>
+                </div>
+                <a class="btn" routerLink="register" routerLinkActive="active_lien_navbar">Register Account</a>
+              </div>
+            </div>
+        </div>
+      </div>
+      <span class="bullet" appPrev>
+        <svg xmlns="http://www.w3.org/2000/svg" width="92" height="9" viewBox="0 0 92 9" fill="none">
+          <circle cx="52" cy="4.15625" r="4" fill="#BFC8CB"/>
+          <circle cx="4" cy="4.15625" r="4" fill="#BFC8CB"/>
+          <circle cx="70" cy="4.15625" r="4" fill="#BFC8CB"/>
+          <circle cx="88" cy="4.15625" r="4" fill="#BFC8CB"/>
+          <rect x="18" y="0.15625" width="20" height="8" rx="4" fill="#202124"/>
+        </svg>
+      </span>
+    </div>
+  </div>
+</section>
+<app-publication></app-publication>
+<app-footers></app-footers>

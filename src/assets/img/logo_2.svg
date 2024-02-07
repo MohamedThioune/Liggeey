@@ -1,0 +1,35 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="50" height="50" fill="#F4F4F7"/>
+<g id="Categorie" clip-path="url(#clip0_2503_5700)">
+<rect width="1440" height="3548" transform="translate(-107 -1085)" fill="white"/>
+<g id="Group 1000001545">
+<g id="Group 1520">
+<g id="job_list">
+<g id="2">
+<g id="Rectangle 10" filter="url(#filter0_d_2503_5700)">
+<rect x="-32" y="-32" width="630" height="156" rx="8" fill="white"/>
+<rect x="-31.5" y="-31.5" width="629" height="155" rx="7.5" stroke="#ECEDF2"/>
+</g>
+<g id="logo">
+<rect id="Rectangle 111" width="50" height="50" rx="8" fill="#6FD945"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_2503_5700" x="-47" y="-41" width="660" height="186" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="6"/>
+<feGaussianBlur stdDeviation="7.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.25098 0 0 0 0 0.309804 0 0 0 0 0.407843 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2503_5700"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2503_5700" result="shape"/>
+</filter>
+<clipPath id="clip0_2503_5700">
+<rect width="1440" height="3548" fill="white" transform="translate(-107 -1085)"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,175 @@
+<app-header></app-header>
+<main>
+    <div class="card border-light border-0">
+        <div class="container">
+            <div class=" card-header"> 
+                <span class="create_account">Create Your Account</span>
+                <div class="candidate-employe">
+                    <button (click)="showCandidate()" class="btn btn-outline-secondary">
+                        <i class="fa fa-user"></i>
+                        <span>Candidate</span>
+                    </button>
+                    <button (click)="showEmployer()" class="btn btn-outline-secondary">
+                        <i class="fa fa-shopping-bag"></i>
+                        <span>Employer</span>
+                    </button>
+                </div>
+            </div>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="canditate">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6 col-sm-6  p-2">
+                                <label for="email">
+                                    Email
+                                    <p>*</p>
+                                </label>
+                                <div class="input-group">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="aaondiaye@gmail.com"
+                                        formControlName="email">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6   p-2">
+                                <label for="password">Password
+                                    <p>*</p>
+                                </label>
+                                <div class="input-group">
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="********"
+                                        formControlName="password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6 col-sm-6   p-2">
+                                <label for="firstName">Fist Name
+                                    <p>*</p>
+                                </label>
+                                <div class="input-group">
+                                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder=""
+                                        formControlName="firstName">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6   p-2">
+                                <label for="firstName">Last Name
+                                    <p>*</p>
+                                </label>
+                                <div class="input-group">
+                                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder=""
+                                        formControlName="lastName">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6 col-sm-6   p-2">
+                                <label for="name"> Name
+                                    <p>*</p>
+                                </label>
+                                <div class="input-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
+                                        formControlName="name">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6   p-2">
+                                <label for="name"> UserName
+                                    <p>*</p>
+                                </label>
+                                <div class="input-group">
+                                    <input type="text" name="username" class="form-control" id="username" placeholder="Mbayame"
+                                        formControlName="username">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer p-3  ">
+                        <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </button>      
+                    </div>
+                            <div class="clear"></div><br />
+                </form>
+           
+             <form [formGroup]="formCompagny" (ngSubmit)="inscriptionCompagny()" *ngIf="employer">
+                <div class="card-body" >
+                    <div class="row g-3">
+                        <div class="col-md-6 p-2">
+                            <label for="firstNameCompagny">Fist Name
+                                <p>*</p>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" name="firstNameCompagny" class="form-control" id="firstNameCompagny" placeholder="Livelearn"
+                                    formControlName="firstNameCompagny">
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <label for="lastNameCompagny">Last Name
+                                <p>*</p>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" name="lastNameCompagny" class="form-control" id="lastNameCompagny" placeholder="Liggey"
+                                    formControlName="lastNameCompagny">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6 p-2">
+                            <label for="emailCompagny"> Email
+                                <p>*</p>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" name="emailCompagny" class="form-control" id="emailCompagny" placeholder="Ndiaye"
+                                    formControlName="emailCompagny">
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <label for="phoneCompagny"> Phone
+                                <p>*</p>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" name="phoneCompagny" class="form-control" id="phoneCompagny" placeholder="Mbayame"
+                                    formControlName="phoneCompagny">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6 p-2">
+                            <label for="passwordCompagny"> Password
+                                <p>*</p>
+                            </label>
+                            <div class="input-group">
+                                <input  type="password" name="passwordCompagny" class="form-control" id="passwordCompagny" placeholder="**********"
+                                    formControlName="passwordCompagny">
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-2">
+                            <label for="confirmPasswordCompagny"> Confirm Password
+                                <p>*</p>
+                            </label>
+                            <div class="input-group">
+                                <input style="background-color:F0F5F7 ;" type="password" id="confirmPasswordCompagny" name="confirmPasswordCompagny" class="form-control" placeholder="********"
+                                    formControlName="confirmPasswordCompagny">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-12 p-2">
+                            <label for="bedrijf">
+                                Bedrijf
+                                <p>*</p>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" name="bedrijf" class="form-control" id="bedrijf" placeholder="Livelearn"
+                                    formControlName="bedrijf">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="card-footer p-3  ">
+                    <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </button>      
+                </div>
+                <div class="clear"></div><br />
+            </form>
+        </div>
+     
+        <app-footer></app-footer>
+    </div>
+</main>
+<app-footers></app-footers>

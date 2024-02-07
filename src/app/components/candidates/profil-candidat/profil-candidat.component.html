@@ -1,0 +1,236 @@
+<app-header></app-header>
+<section class="content-page-dashboard">
+  <app-sidebar-candidat></app-sidebar-candidat>
+  <div class="right_menu" [class.right_menu_show]="!isSidebarVisible" [class.right_menu]="isSidebarVisible">
+      <div class="content_right_menu">
+         <!-- <div class="map_menu">
+
+              <div class="d-flex">
+                <div class="content_map_menu">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="136" height="135" viewBox="0 0 136 135" fill="none">
+                      <rect x="0.710938" width="135" height="135" rx="8" fill="#FF3365"/>
+                  </svg>
+                </div>
+              <div class="description_map">
+                <p>Browse</p>
+                <p>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</p>
+              </div>
+              </div>
+          </div>-->
+          <form [formGroup]="form_profil">
+            <div class="card-body">
+              <h2 class="mt-0 ml-0">My Profile</h2>
+
+              <div class="image-container">
+                <div class="default-image" [style.backgroundImage]="'url(' + (uploadedImage || '../../../assets/img/user-default.png') + ')'">
+                  <!-- Image par défaut ou image téléchargée -->
+                </div>
+                <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+                <label for="fileInput" class="upload-button">
+                  Télécharger une image
+                </label>
+                <!-- Bouton pour télécharger une nouvelle image -->
+              </div>
+
+
+              <div class="row">
+                    <div class="col-md-6 col-sm-6 p-2">
+                        <label for="email">
+                          Full Name
+                            <p>*</p>
+                        </label>
+                        <div class="input-group">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Amadou"
+                                formControlName="email">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6   p-2">
+                        <label for="password">Job Title
+                            <p>*</p>
+                        </label>
+                        <div class="input-group">
+                            <input type="text" name="password" class="form-control" id="password" placeholder="UI Designer"
+                                formControlName="password">
+                        </div>
+                    </div>
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="firstName">Phone
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="firstName" class="form-control" id="firstName" placeholder="0 123 456 7890"
+                             formControlName="firstName">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="firstName">Email address
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="lastName" class="form-control" id="lastName" placeholder="creativelayers"
+                             formControlName="lastName">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Experience
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="name" class="form-control" id="name" placeholder="5-10 Years"
+                             formControlName="name">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Age
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="username" class="form-control" id="username" placeholder="23 - 27 Years"
+                             formControlName="username">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Education Levels
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Certificate"
+                             formControlName="name">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Languages
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="username" class="form-control" id="username" placeholder="English, Turkish"
+                             formControlName="username">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name">Categories
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
+                             formControlName="name">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="name"> Allow In Search & Listing
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="username" class="form-control" id="username" placeholder="Yes"
+                             formControlName="username">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Description</label>
+                      <textarea name="" id="" rows="8"></textarea>
+                      <button type="submit" class="btn btn-save">Save</button>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </form>
+      </div>
+      <div class="card-modife social-block">
+        <form [formGroup]="form_social">
+          <div class="card-body">
+             <h2>Social Network</h2>
+              <div class="row">
+                  <div class="col-md-6 col-sm-6 p-2">
+                      <label for="email">
+                        Facebook
+                          <p>*</p>
+                      </label>
+                      <div class="input-group">
+                          <input type="email" name="email" class="form-control" id="email" placeholder="www.facebook.com/Invision"
+                              formControlName="email">
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6   p-2">
+                      <label for="password">Twitter
+                          <p>*</p>
+                      </label>
+                      <div class="input-group">
+                          <input type="text" name="password" class="form-control" id="password" placeholder=""
+                              formControlName="password">
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="firstName">Linkedin
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="firstName" class="form-control" id="firstName" placeholder=""
+                             formControlName="firstName">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6   p-2">
+                    <label for="firstName">Google Plus
+                      <p>*</p>
+                    </label>
+                    <div class="input-group">
+                      <input type="text" name="lastName" class="form-control" id="lastName" placeholder=""
+                             formControlName="lastName">
+                    </div>
+                  </div>
+              </div>
+              <button class="btn btn-save create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>
+          </div>
+        </form>
+      </div>
+      <div class="card-modife contact-infos">
+        <form [formGroup]="form_contact">
+          <div class="card-body">
+               <h2>Contact Information</h2>
+              <div class="row g-3">
+                  <div class="col-md-6 col-sm-6 p-2">
+                      <label for="email">
+                        Country
+                          <p>*</p>
+                      </label>
+                      <div class="input-group">
+                          <input type="email" name="email" class="form-control" id="email" placeholder="Sénégal"
+                              formControlName="email">
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6   p-2">
+                      <label for="password">City
+                          <p>*</p>
+                      </label>
+                      <div class="input-group">
+                          <input type="text" name="password" class="form-control" id="password" placeholder="Dakar"
+                              formControlName="password">
+                      </div>
+                  </div>
+                  <div class="col-md-12 col-sm-12 p-2">
+                  <label for="firstName">Complete Address
+                    <p>*</p>
+                  </label>
+                  <div class="input-group">
+                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Dakar ouakam"
+                           formControlName="firstName">
+                  </div>
+                </div>
+              </div>
+             <button class="btn btn-save create " type="submit"> Save </button>
+          </div>
+        </form>
+      </div>
+  </div>
+</section>
+
+<app-footers></app-footers>
