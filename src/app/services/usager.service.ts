@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable ,throwError} from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Usager } from '../interfaces/usager';
 import { UserResetPassword } from '../interfaces/user-reset-password';
 import { UsagerCompany } from '../interfaces/usager-company';
-import { catchError, tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -21,7 +20,7 @@ export class UsagerService {
       'Content-Type': 'application/json;charset=UTF-8',
      
     });
-    return this.http.post('http://wp12.influid.nl/wp-json/wp/v2/users/me',{}, { headers });
+    return this.http.post('https://wp12.influid.nl/wp-json/wp/v2/users/me',{}, { headers });
   }
   inscription(usager: Usager): Observable<any> {
     const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
@@ -42,7 +41,7 @@ export class UsagerService {
         "is_liggeey":"candidate"
       },
     };    
-    return this.http.post<Usager>(" http://wp12.influid.nl/wp-json/wp/v2/users", requestBody, { headers });
+    return this.http.post<Usager>(" https://wp12.influid.nl/wp-json/wp/v2/users", requestBody, { headers });
   }
   inscriptionCompagny(usager: UsagerCompany): Observable<any> {
     const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
@@ -63,7 +62,7 @@ export class UsagerService {
         "is_liggeey":"chief"
       },   
     };    
-    return this.http.post<any>(" http://wp12.influid.nl/wp-json/custom/v1/register/company", requestBody, { headers });
+    return this.http.post<any>(" https://wp12.influid.nl/wp-json/custom/v1/register/company", requestBody, { headers });
   }
   storeToken(token: string): void {
     localStorage.setItem('access_token', token);
@@ -92,39 +91,6 @@ export class UsagerService {
     return this.http.post<UserResetPassword>('https://livelearn.nl/wp-json/bdpwr/v1/set-password',bodyRequestPassword, { headers });
   }
 
-  applyJob(usager: Usager): Observable<any> {
-    const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
-    const headers = new HttpHeaders({
-      'Authorization': 'Basic ' + base64Credentials,
-      'Content-Type': 'application/json;charset=UTF-8',
-     
-    });
-    const requestBody = {
-      userApplyId:usager.email,
-      jobAppliedId: usager.password,
-    };    
-    return this.http.post<any>("http://wp12.influid.nl/wp-json/custom/v1/apply", requestBody, { headers });
-  }
-  favoritesCompagny(usager: Usager): Observable<any> {
-    const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
-    const headers = new HttpHeaders({
-      'Authorization': 'Basic ' + base64Credentials,
-      'Content-Type': 'application/json;charset=UTF-8',
-     
-    });
-    const requestBody = {
-      userApplyId:usager.email,
-      jobAppliedId: "compagny",
-      ID:3792
-    };    
-    return this.http.post<any>("http://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody, { headers });
-  }
-  manageJob(id: string): Observable<any> {
-    const requestBody = {
-      userApplyId:id
-    };    
-    return this.http.post<any>("http://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
-  }
   deconnexion() {
     localStorage.removeItem('access_token');
     window.location.href = "login";
