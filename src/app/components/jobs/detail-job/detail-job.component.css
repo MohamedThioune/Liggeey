@@ -430,10 +430,6 @@
    background-color: #D1DAE3;
    padding: 17px 0 15px 0px;   
 }
-.content_link{
-   margin-top: 30px;
-   text-align: center;
-}
 @media all and (min-width: 300px) and (max-width: 767px){ 
    .facebook,.twitter{
       margin-bottom: 10px;

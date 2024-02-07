@@ -81,18 +81,6 @@ input[type="search"]:focus {
     margin-bottom: 60px;
  }
 
- .description_about{
-    position: absolute;
-    top: 100px; /* Ajustez la distance depuis le haut selon vos besoins */
-    left: 50%; /* Centrez horizontalement */
-    transform: translateX(-50%); /* Ajustez pour centrer correctement */
-    color: #FFF;
- }
- .description_about h2{
-    font-size: 53px;
-    font-weight: 700;
- }
-
 /* section jobs*/
 .jobs{
    margin-top: 150px;
@@ -107,11 +95,6 @@ input[type="search"]:focus {
    font-weight: bold;
    /*font-weight: 600;*/
 }
-.header_popular_job p{
-   color: #696969;
-   font-size: 15px;
-  font-weight: bold;
-}
 .items_job{
    margin-top: 33px;
 }
@@ -121,30 +104,6 @@ input[type="search"]:focus {
 }
 .items_job ul li{
    list-style: none;
-}
-.tabs{
-   padding: 30px 0 30px 0;
-   border: 1px solid rebeccapurple;
-}
-.tabs .frame{
-   border-radius: 8px;
-   border: 1px solid #ECEDF2;
-   padding: 7px 20px 4px 20px;
-   text-align: center;
-   background-color: #F0F5F7;
-
-   /* Shadow / 1 */
-   box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
-   margin-right: 15px;
-
-}
-.tabs .frame:hover{
-   background-color: #FFFF;
-}
-.tabs .frame p{
-   color: #202124;
-   font-size: 15px;
-   font-weight: bold;
 }
 .items_job .job_list_1{
    margin-bottom: 30px;
@@ -249,7 +208,6 @@ input[type="search"]:focus {
    text-align: center;
 }
 
-
 /*section candidate*/
 
 .header_featured{
@@ -282,6 +240,7 @@ input[type="search"]:focus {
 
    /* Shadow / 1 */
    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+   text-align: center;
 }
 .content_image_candidate{
    width: 90px;
@@ -295,9 +254,6 @@ input[type="search"]:focus {
    width: 100%;
    height: 100%;
    object-fit: cover;
-}
-.content_candidate{
-   text-align: center;
 }
 
 .info_candidat a{
@@ -318,10 +274,7 @@ input[type="search"]:focus {
    justify-content: center;
    padding-top: 10px;
 }
-.info_candidat .filiere_candidat{
-   display: flex;
-   justify-content: center;
-}
+
 .location_candidat svg{
    margin-right: 10px;
 }
@@ -331,11 +284,6 @@ input[type="search"]:focus {
    font-size: 18px;
    font-weight: bold;
    padding-bottom: 10px;
-}
-.info_candidat .profil_candidat{
-   color: #202124;
-   font-size: 14px;
-   font-weight: 400;
 }
 
 .location_candidat p{
@@ -363,69 +311,9 @@ input[type="search"]:focus {
    font-size: 13px;
    font-weight: bold;
  }
-.bullet{
-   margin-left: 50%;
-}
 
-/*sectiont recruting*/
-.recruting{
-   padding: 114px 0 139px 0;
-}
- .recruting_now{
-    border-radius: 8px;
-    background: #EEE;
-    overflow: hidden;
-    margin-bottom: 30px;
- }
- .recrutement{
-   border-radius: 8px;
-   background: #EEE;
-   display: flex;
- }
- .content_recruting_now{
-    display: flex;
-    width: 410px;
-    height: 234px;
-    border-radius: 8px;
-    background: #EEE;
- }
- .content_image_recruting{
-    width: 50%;
- }
- .text_recruting{
-   width: 50%;
-   padding-top: 15px;
-   padding-left: 41px;
-   color:#202124 ;
-   font-size: 24px;
-   font-weight: 700;
-
- }
- .text_recruting .recrut{
-   color:#1AC4A2 ;
-   margin: auto;
- }
-
- .text_recruting a{
-   border-radius: 8px;
-   background-color:#1AC4A2 ;
-   text-decoration: none;
-   font-size: 15px;
-   font-weight: bold;
-   color: #FFF !important;
-   padding: 17px 32px 15px 34px;
- }
-
- .content_image_recruting img{
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    object-fit: cover;
- }
 /*section articles*/
-.all_articles{
-   /*background:#F2F2F2;*/
-}
+
 .articles{
    padding-top: 95px;
    padding-bottom: 100px;
@@ -487,16 +375,6 @@ ul li{
 }
 
 @media all and (min-width: 300px) and (max-width: 767px){
-   .description_about h2
-   {
-       font-size: 33px;
-    }
-    .header_popular_job span{
-      font-size: 22px;
-   }
-   .header_popular_job p{
-      font-size: 15px;
-   }
    .description_job_ span{
       font-size: 15px;
    }
@@ -539,9 +417,7 @@ ul li{
    .search_about {
       padding:10px 27px;
    }
-
    .search_about button{
       padding: 17px 22px 15px 20px;
     }
-
  }

@@ -76,28 +76,6 @@ label p {
 .bottom-element {
   margin-bottom: 40px;
 }
-.description_map{
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid red;
-    justify-content: space-between;
-}
-.description_map p:first-child{
-    font-size: 18px;
-    font-weight: 600;
-    color: #202124;
-}
-.description_map p{
-    color:  #696969;
-    font-size: 14px;
-    font-weight: 500;
-}
-.description_map label{
-    color: #202124;
-    font-size: 15px;
-    font-weight: 400;
-}
 
 .applicants{
   border-radius: 8px;
@@ -220,9 +198,7 @@ label p {
 .work .content_work {
   margin-bottom: 38px;
 }
-.work .content_work p{
 
-}
 .work .content_work p:last-child{
   color: #696969;
   font-size: 15px;
@@ -369,9 +345,6 @@ label p {
   padding: 11px 20px !important;
   margin-left: 0px;
 }
- .show_sidebar{
-    visibility:hidden;
-}
 .form-group-cv input{
   background: none !important;
   border: none !important;
@@ -382,40 +355,12 @@ label p {
 }
 
  @media all and (min-width: 300px) and (max-width: 767px){
-    .logo{
-        margin: 32px 11px 74px 12px;
-        border-radius: 8px;
-        overflow: hidden;
-     }
-     .logo .content_logo{
-        border-radius: 8px;
-        overflow: hidden;
-     }
-    .show_sidebar{
-        border: none;
-        border-radius: 8px;
-        padding: 10px 13px 8px 13px;
-        font-size: 16px;
-        font-weight: 600;
-        visibility:visible;
-        background-color: #DDF6F1;
-        margin-top: 30px;
-        color: #1AC4A2;
-    }
     .right_menu{
         visibility: visible;
         margin-bottom: 30px;
-
-    }
-    .all_info{
-        margin-bottom: 25px;
     }
     .applicants ul{
         margin: 0px;
-    }
-    .contact .content_map{
-      width: 100%;
-      height: 617px;
     }
     .form-control {
       width: 388.438px;
@@ -429,6 +374,5 @@ label p {
      font-size: 16px;
      margin-bottom: 8px;
    }
-
 
  }

@@ -12,9 +12,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
-      this.artikels=data.artikels  
-      console.log(this.artikels);
-          
+      this.artikels=data.artikels            
     })
   }
 

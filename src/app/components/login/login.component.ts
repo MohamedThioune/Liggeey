@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit {
         }
       },
       error =>{
-        console.log(error,user);
         ToastNotification.open({
           type: 'error',
           message: "Identifiant ou mot de passe incorrects: assurez vous de les avoir bien saisis "
@@ -67,9 +66,5 @@ export class LoginComponent implements OnInit {
   initForm() {
     this.username = '';
     this.password = '';
-  }
-  fermerFormulaire() {
-    // Placez ici le code pour fermer le formulaire, par exemple en masquant l'élément ou en effectuant d'autres actions nécessaires.
-    console.log('Formulaire fermé');
   }
 }

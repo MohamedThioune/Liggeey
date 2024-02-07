@@ -35,7 +35,6 @@ export class SidebarCandidatComponent implements OnInit {
    
          // Parse du JSON pour obtenir l'objet original
          this. userConnect = JSON.parse(decodedToken);
-         console.log(this.userConnect.acf.is_liggeey);
        }
   }
 
