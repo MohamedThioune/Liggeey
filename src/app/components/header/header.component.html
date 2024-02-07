@@ -152,14 +152,12 @@
             <li class="skills"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills Fist</a></li>
           </ul>
       </ul>
-      
       <div class="join" *ngIf="!userConnect">
-          <span>Apply as an  IT Specialist</span>
+          <a class="btn " routerLink="/register" routerLinkActive="active_lien_navbar">Apply as an  IT Specialist</a
           <a class="btn hiring" routerLink="/register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
           <a routerLink="/login" class="login" routerLinkActive="active_lien_navbar"> Login </a>
       </div>
       <div class="account" *ngIf="userConnect">
-     
         <div class="content_image">
           <img [src]=userConnect.avatar_urls[96] alt="Image User Connect">
         </div>
@@ -237,7 +235,6 @@
               </svg>
               <p>Logout</p>
             </a>
-           
           </div>
 
         </div>
