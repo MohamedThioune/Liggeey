@@ -20,7 +20,7 @@ export class UsagerService {
       'Content-Type': 'application/json;charset=UTF-8',
      
     });
-    return this.http.post('https://wp12.influid.nl/wp-json/wp/v2/users/me',{}, { headers });
+    return this.http.post('https://www.livelearn.nl/wp-json/wp/v2/users/me',{}, { headers });
   }
   inscription(usager: Usager): Observable<any> {
     const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
@@ -41,7 +41,7 @@ export class UsagerService {
         "is_liggeey":"candidate"
       },
     };    
-    return this.http.post<Usager>(" https://wp12.influid.nl/wp-json/wp/v2/users", requestBody, { headers });
+    return this.http.post<Usager>(" https://www.livelearn.nl/wp-json/wp/v2/users", requestBody, { headers });
   }
   inscriptionCompagny(usager: UsagerCompany): Observable<any> {
     const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
@@ -62,7 +62,7 @@ export class UsagerService {
         "is_liggeey":"chief"
       },   
     };    
-    return this.http.post<any>(" https://wp12.influid.nl/wp-json/custom/v1/register/company", requestBody, { headers });
+    return this.http.post<any>(" https://www.livelearn.nl/wp-json/custom/v1/register/company", requestBody, { headers });
   }
   storeToken(token: string): void {
     localStorage.setItem('access_token', token);
