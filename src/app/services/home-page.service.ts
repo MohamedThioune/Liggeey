@@ -9,7 +9,7 @@ export class HomePageService {
 
   constructor(private http: HttpClient) { }
   getInfoHomepage(): Observable<any> {
-    return this.http.get('https://wp12.influid.nl/wp-json/custom/v1/homepage');
+    return this.http.get('https://www.livelearn.nl/wp-json/custom/v1/homepage');
   }
   getCategories(): Observable<any>{
     const base64Credentials = btoa("peinda" + ':' + "1234ok");
@@ -22,26 +22,26 @@ export class HomePageService {
 
   }
   getDetailCandidate(id:number | null):Observable<any>{
-      return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/candidate/detail/?id=${id}`,{});
+      return this.http.post(`https://www.livelearn.nl/wp-json/custom/v1/candidate/detail/?id=${id}`,{});
   }
   getDetailArticle(id:number | null):Observable<any>{
-    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
+    return this.http.post(`https://www.livelearn.nl/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
   }
   getAllCompagny():Observable<any>{
-    return this.http.get('https://wp12.influid.nl/wp-json/custom/v1/companies',{  });
+    return this.http.get('https://www.livelearn.nl/wp-json/custom/v1/companies',{  });
   }
   getDetailCompagny(id:number | null):Observable<any>{
-    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/company/detail/?id=${id}`,{});
+    return this.http.post(`https://www.livelearn.nl/wp-json/custom/v1/company/detail/?id=${id}`,{});
   }
   getAllJob():Observable<any>{
-    return this.http.get('https://wp12.influid.nl/wp-json/custom/v1/jobs',{  });
+    return this.http.get('https://www.livelearn.nl/wp-json/custom/v1/jobs',{  });
   }
   applyJob(idUser: number,idJob:number): Observable<any> { 
     const requestBody = {
       userApplyId:idUser,
       jobAppliedId: idJob,
     };   
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/apply/`,requestBody);
+    return this.http.post<any>(`https://www.livelearn.nl/wp-json/custom/v1/apply/`,requestBody);
   }
   favoritesJob(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
@@ -49,7 +49,7 @@ export class HomePageService {
       jobAppliedId: "job",
       ID:idJob
     };    
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
+    return this.http.post<any>("https://www.livelearn.nl/wp-json/custom/v1/favorites", requestBody);
   }
   favoritesCandidate(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
@@ -57,21 +57,21 @@ export class HomePageService {
       jobAppliedId: "candidate",
       ID:idJob
     };    
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
+    return this.http.post<any>("https://www.livelearn.nl/wp-json/custom/v1/favorites", requestBody);
   }
   manageJob(id: number): Observable<any> { 
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/jobs/?userApplyId=${id}`,{});
+    return this.http.post<any>(`https://www.livelearn.nl/wp-json/custom/v1/user/jobs/?userApplyId=${id}`,{});
   }
   postNewJob(id: number): Observable<any> { 
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/jobs/?userApplyId=${id}`,{});
+    return this.http.post<any>(`https://www.livelearn.nl/wp-json/custom/v1/user/jobs/?userApplyId=${id}`,{});
   }
   getApplicantUser(id: number): Observable<any> { 
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/applicants/?userApplyId=${id}`,{});
+    return this.http.post<any>(`https://www.livelearn.nl/wp-json/custom/v1/user/applicants/?userApplyId=${id}`,{});
   }
   getCandidatCompagny(id: number): Observable<any> { 
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/favorites/?userApplyId=${id}`,{});
+    return this.http.post<any>(`https://www.livelearn.nl/wp-json/custom/v1/user/favorites/?userApplyId=${id}`,{});
   }
   homeCompagny(id: number): Observable<any> { 
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/home/?userApplyId=${id}`,{});
+    return this.http.post<any>(`https://www.livelearn.nl/wp-json/custom/v1/user/home/?userApplyId=${id}`,{});
   }
 }
