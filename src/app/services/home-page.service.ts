@@ -78,3 +78,4 @@ export class HomePageService {
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/home/?userApplyId=${id}`,{});
   }
 }
+
