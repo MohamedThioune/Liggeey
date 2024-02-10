@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="content-detail-article">
   <div class="inter-content-detail">
-    <h1>Keep your face always toward the sunshine - and shadows will fall behind you.</h1>
+    <h1>{{article.title}}</h1>
     <div class="block-detail-article d-flex align-items-center">
       <div class="img-block">
        <!-- <img src="../../../assets/img/person_5.png" />-->
@@ -13,17 +13,10 @@
     </div>
   </div>
   <div class="content-img-detail-article">
-    <!-- <img src="../../../assets/img/article1.png" />--> 
-    <img [src]="article.image" alt="">
+    <img [src]="article.image" alt="Image Of Article">
   </div>
   <div class="inter-content-detail">
     <div class="content-text">
-    <!--  <p>Aliquam hendrerit sollicitudin purus, quis rutrum mi accumsan nec. Quisque bibendum orci ac nibh facilisis, at malesuada orci congue. Nullam tempus sollicitudin cursus. Ut et adipiscing erat. Curabitur this is a text link libero tempus congue.
-
-        Duis mattis laoreet neque, et ornare neque sollicitudin at. Proin sagittis dolor sed mi elementum pretium. Donec et justo ante. Vivamus egestas sodales est, eu rhoncus urna semper eu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer tristique elit lobortis purus bibendum, quis dictum metus mattis. Phasellus posuere felis sed eros porttitor mattis. Curabitur massa magna, tempor in blandit id, porta in ligula. Aliquam laoreet nisl massa, at interdum mauris sollicitudin et.</p>
-      <p>Aliquam hendrerit sollicitudin purus, quis rutrum mi accumsan nec. Quisque bibendum orci ac nibh facilisis, at malesuada orci congue. Nullam tempus sollicitudin cursus. Ut et adipiscing erat. Curabitur this is a text link libero tempus congue.
-
-        Duis mattis laoreet neque, et ornare neque sollicitudin at. Proin sagittis dolor sed mi elementum pretium. Donec et justo ante. Vivamus egestas sodales est, eu rhoncus urna semper eu. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer tristique elit lobortis purus bibendum, quis dictum metus mattis. Phasellus posuere felis sed eros porttitor mattis. Curabitur massa magna, tempor in blandit id, porta in ligula. Aliquam laoreet nisl massa, at interdum mauris sollicitudin et.</p>-->
         <p>{{article.short_description}}</p>
     </div>
     <div class="d-flex btn-sociaux align-items-center">

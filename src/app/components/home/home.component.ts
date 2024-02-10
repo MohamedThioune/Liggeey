@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HomePageService } from 'src/app/services/home-page.service';
+import { UsagerService } from 'src/app/services/usager.service';
 
 @Component({
   selector: 'app-home',
@@ -8,28 +9,62 @@ import { HomePageService } from 'src/app/services/home-page.service';
 })
 export class HomeComponent implements OnInit {
   categoriesTab:any
+  candidatsTab:string[]=[]
   topics:any
   sub:any
 categories:any;
 candidates:any;
-artikels:any
+article:any;
+jobs:any;
+descr:any;
 activeTab: string = 'all';
 currentCategories: any[] = [];
-  constructor(private homeService:HomePageService) { }
+
+userConnect:any;
+candidate=false;
+compagny=false;
+  constructor(private homeService:HomePageService,private usagerService: UsagerService) { 
+    
+  }
 
   ngOnInit(): void {
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
+      
       this.categories=data.categories
       this.candidates=data.candidates
-      this.artikels=data.artikels                  
+      this.article=data.artikels
+      this.currentCategories=data.jobs  
+      this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)                      
+      this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      this.article[0].short_description =   this.article[0].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      this.article[1].post_title =   this.article[1].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      this.article[1].short_description =   this.article[1].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      this.article[2].short_description =   this.article[2].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      this.article[2].post_title =   this.article[2].post_title.replace(/<[^>]*>/g, '').post_title.replace(/[^\w\s]/gi, '');
+
     })
     this.homeService.getCategories().subscribe((data:any)=>{
       this.categoriesTab=data.categories;
       this.topics=data.topics;
       this.sub=data.sub
 
-      this.currentCategories=this.categories      
+      //this.currentCategories=this.categories      
     })
+        // Récupération du token depuis le local storage
+        const storedToken = this.usagerService.getToken();
+    
+        if (storedToken) {   
+                    // Décodage de la base64
+          const decodedToken = atob(storedToken);
+    
+          // Parse du JSON pour obtenir l'objet original
+          this. userConnect = JSON.parse(decodedToken);
+          if(this.userConnect.acf.is_liggeey == "candidate"){ 
+            this.candidate=true         
+          } else if(this.userConnect.acf.is_liggeey == "chief"){  
+            this.compagny=true        
+          }
+        }
   }
   
   changeTab(tab: string): void {

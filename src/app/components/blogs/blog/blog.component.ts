@@ -12,7 +12,12 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
-      this.artikels=data.artikels            
+      this.artikels=data.artikels
+      this.artikels.forEach((article:any) => {
+        article.title =   article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+        article.short_description = article.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');  
+      });
+          
     })
   }
 
