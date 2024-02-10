@@ -15,8 +15,10 @@ export class JobOneComponent implements OnInit {
 
   constructor(private homeService:HomePageService) {}
   ngOnInit(): void {
-    this.homeService.getAllJob().subscribe((data:any)=>{  
-      this.jobs=data
+    this.homeService.getInfoHomepage().subscribe((data:any)=>{  
+      this.jobs=data.jobs
+      console.log( this.jobs);
+      
     })
   }
   

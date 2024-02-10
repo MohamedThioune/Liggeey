@@ -14,7 +14,7 @@
               <h2>Build your remote digital <br> workforce</h2>
               <span class="definition_home">Our League A software implementation <br> team is waiting for you</span>
             </div>
-            <div class="hiring_work">
+            <div class="hiring_work" *ngIf="!userConnect">
               <a class="btn hiring" routerLink="register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
               <a class="work" routerLink="register" routerLinkActive="active_lien_navbar">How does it work</a>
             </div>
@@ -30,26 +30,12 @@
         <p class="number_candidates">10k+ Candidates</p>
         <div class="">
           <div class="jobholder">
-            <div class=" ">
+            <div class=" " *ngFor="let image of candidatsTab">
                 <span class="content_users_1">
-                  <img src="../../../assets/img/eclipse_menu_1.png" alt="">
+                  <img [src]="image" alt="">
                 </span>
             </div>
-            <div class=" ">
-              <span class="content_users_1">
-                <img src="../../../assets/img/eclipse_menu_1.png" alt="">
-              </span>
-          </div>
-          <div class=" ">
-            <span class="content_users_1">
-              <img src="../../../assets/img/eclipse_menu_1.png" alt="">
-            </span>
-          </div>
-          <div class=" ">
-            <span class="content_users_1">
-              <img src="../../../assets/img/eclipse_menu_1.png" alt="">
-            </span>
-          </div>
+        
         </div>
         </div>
       </div>
@@ -96,6 +82,7 @@
         <span>Most Popular Jobs</span>
         <p>Know your worth and find the job that qualify your life</p>
         <div class="tabs">
+          <!--
           <ul class="nav nav-tabs justify-content-center">
             <li class="nav-item">
               <a class="nav-link active" [class.active]="activeTab === 'all' " (click)="changeTab('all')" aria-current="page">All</a>
@@ -109,12 +96,11 @@
             <li class="nav-item">
               <a class="nav-link"  [class.active]="activeTab === 'sub'" (click)="changeTab('sub')">Sub</a>
             </li>
-            <!--
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Marketing</a>
             </li>
-            -->
           </ul>
+          -->
         </div>
         <app-category-emploi [category]="currentCategories"></app-category-emploi>
       </div>
@@ -133,16 +119,17 @@
             <div class="col-md-3" *ngFor="let categorie of categories">
               <div class="content_item">
                 <div class="item_left">
-                    <i class="fa fa-language"></i>
+                  <img [src]="categorie.cat_image" alt="">
                 </div>
                 <div class="item_right">
                   <span>{{categorie.cat_name}}</span>
-                  <p>(21 open positions)</p>
+                  <p>({{categorie.open_position}} open positions)</p>
                 </div>
 
               </div>
             </div>
         </div>
+      </div>
   </div>
 </section>
 <section class="skills">
@@ -214,15 +201,15 @@
           <div class="card_article">
             <div class="rectangle_article">
               <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
-                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+                <img [src]="article[0].image" class="img-fluid"/>
               </div>
               <div class="card-body">
                 <div class="tops">
-                <span>{{artikels[0].post_title}}</span>
+                <span>{{article[0].post_title}}</span>
                 </div>
-                <p class="card-text">{{artikels[0].short_description}}
+                <p class="card-text">{{article[0].short_description}}
                 </p>
-                <a href="{{artikels[0].permalink}}">Read More <a>
+                <a [routerLink]="['/detail-article',article[0].ID]">Read More</a>
               </div>
             </div>
           </div>
@@ -231,26 +218,26 @@
              <div class="article_1 top_article">
                <div class="image_description_article">
                 <div class="content_image_article">
-                  <img src="../../../assets/img/article_1.png" alt="Job Image">
+                  <img [src]="article[1].image" alt="Job Image">
                 </div>
               <div class="description_article">
-                <p class="title">{{artikels[1].post_title}}</p>
-                <p>{{artikels[1].short_description}}</p>
+                <p class="title">{{article[1].post_title}}</p>
+                <p>{{article[1].short_description}}</p>
 
-              <p> <a href="{{artikels[1].permalink}}">Read More</a></p>
+              <p> <a [routerLink]="['/detail-article',article[1].ID]">Read More</a></p>
               </div>
             </div>
           </div>
           <div class="article_1 top_article">
             <div class="image_description_article">
                 <div class="content_image_article">
-                  <img src="../../../assets/img/article_1.png" alt="Job Image">
+                  <img [src]="article[2].image" alt="Job Image">
                 </div>
               <div class="description_article">
-                <p class="title">{{artikels[2].post_title}}</p>
-                <p>{{artikels[2].short_description}}</p>
+                <p class="title">{{article[2].post_title}}</p>
+                <p>{{article[2].short_description}}</p>
 
-                <p><a href="{{artikels[2].permalink}}">Read More</a></p>
+                <p><a [routerLink]="['/detail-article',article[2].ID]">Read More</a></p>
               </div>
             </div>
           </div>
@@ -266,13 +253,14 @@
         <span>Featured Candidates</span>
         <p>Lorem ipsum dolor sit amet elit, sed do eiusmod tempor</p>
       </div>
-      <span class="browser">Browser All
+     <!--<span class="browser">Browser All
         <p>
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
             <path d="M9.33355 5.53176L3.9934 0.191706C3.86989 0.068097 3.70501 0 3.5292 0C3.3534 0 3.18852 0.068097 3.06501 0.191706L2.67175 0.584873C2.41585 0.841066 2.41585 1.25745 2.67175 1.51326L7.156 5.99751L2.66677 10.4867C2.54326 10.6104 2.47507 10.7751 2.47507 10.9508C2.47507 11.1267 2.54326 11.2915 2.66677 11.4152L3.06004 11.8083C3.18365 11.9319 3.34843 12 3.52423 12C3.70003 12 3.86491 11.9319 3.98842 11.8083L9.33355 6.46336C9.45735 6.33936 9.52535 6.1738 9.52496 5.99781C9.52535 5.82112 9.45735 5.65566 9.33355 5.53176Z" fill="#1AC4A2"/>
           </svg>
         </p>
       </span>
+      --> 
     </div>
     <div class="candidat_featured">
       <div class="row candidat_featured_">
