@@ -3,17 +3,26 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Liggey_Platform": {
+    "liggeeyapp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
+	//"server": {
+  	 // "builder": "@angular-devkit/build-angular:server",
+  	 // "options": {
+    	  //  "outputPath": "dist/server",
+    	   // "main": "src/main.server.ts",
+    	  //  "tsConfig": "src/tsconfig.server.json"
+  	 // }
+	//}
+
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/liggey-platform",
+            "outputPath": "dist/liggeeyapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +82,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Liggey_Platform:build:production"
+              "browserTarget": "liggeeyapp:build:production"
             },
             "development": {
-              "browserTarget": "Liggey_Platform:build:development"
+              "browserTarget": "liggeeyapp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Liggey_Platform:build"
+            "browserTarget": "liggeeyapp:build"
           }
         },
         "test": {
