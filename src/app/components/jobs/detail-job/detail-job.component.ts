@@ -34,8 +34,8 @@ export class DetailJobComponent implements OnInit {
       }
       
     this.identifiant = +this.route.snapshot.params['id'];
-    this.HomePageService.getDetailCompagny( this.identifiant).subscribe(data=>{
-      this.job = data                  
+    this.HomePageService.getDetailJob( this.identifiant).subscribe(data=>{
+      this.job = data                        
     })
   }
   applyJob() {

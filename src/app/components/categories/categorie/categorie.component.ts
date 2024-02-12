@@ -20,6 +20,11 @@ export class CategorieComponent implements OnInit {
       this.categories=data.categories
       this.candidates=data.candidates
       this.artikels=data.artikels      
+      this.artikels.forEach((element:any) => {
+        element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+        element.post_title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      });
+      
     })
   }
 

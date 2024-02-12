@@ -2,6 +2,7 @@
  <div class="container-fluid">
     <nav class="second-nav">
       <ul>
+        <!--
         <li class="search" >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M7.66732 13.9999C11.1651 13.9999 14.0007 11.1644 14.0007 7.66659C14.0007 4.16878 11.1651 1.33325 7.66732 1.33325C4.16951 1.33325 1.33398 4.16878 1.33398 7.66659C1.33398 11.1644 4.16951 13.9999 7.66732 13.9999Z" stroke="#64748B" stroke-linecap="round" stroke-linejoin="round"/>
@@ -9,15 +10,18 @@
           </svg>
           <input type="search" placeholder="Search" />
         </li>
+        -->
         <li class="Language dropdown">
             <i class="fa fa-language"></i>
             <p  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</p>
+            <!--
             <i class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="fa fa-caret-down"></i>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#">English</a>
               <a class="dropdown-item" href="#">Frensh</a>
               <a class="dropdown-item" href="#">Deutsh</a>
             </div>
+            -->
 
         </li>
         <li class="Light-Tel">
@@ -153,10 +157,11 @@
           </ul>
       </ul>
       <div class="join" *ngIf="!userConnect">
-          <a class="btn " routerLink="/register" routerLinkActive="active_lien_navbar">Apply as an  IT Specialist</a>
-          <a class="btn hiring" routerLink="/register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
-          <a routerLink="/login" class="login" routerLinkActive="active_lien_navbar"> Login </a>
+        <a class="btn" routerLink="/register" routerLinkActive="active_lien_navbar">Apply as an IT Specialist</a>
+        <a class="btn hiring" routerLink="/register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
+        <a routerLink="/login" class="login" routerLinkActive="active_lien_navbar">Login</a>
       </div>
+      
       <div class="account" *ngIf="userConnect">
         <div class="content_image">
           <img [src]=userConnect.avatar_urls[96] alt="Image User Connect">
@@ -244,6 +249,7 @@
 </header>
 <header class="mobile-header" *ngIf="isMobileScreen()">
   <div class="container-fluid">
+    <!--
      <nav class="second-nav">
        <ul style="width:100%;display: flex;justify-content:space-between;">
           <li class="time">
@@ -259,6 +265,7 @@
           </li>
        </ul>
      </nav>
+     -->
      <div class="separateur"></div>
      <nav class="first-nav">
        <ul class="header_container_logo">
