@@ -35,7 +35,7 @@
                   <img [src]="image" alt="">
                 </span>
             </div>
-        
+
         </div>
         </div>
       </div>
@@ -200,13 +200,13 @@
         <div class="col-md-4">
           <div class="card_article">
             <div class="rectangle_article">
-              <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
-                <img [src]="article[0].image" class="img-fluid"/>
+              <div class="bg-image img-article hover-overlay" mdbRipple rippleColor="light">
+                <img [src]="article[0].image"/>
               </div>
               <div class="card-body">
-                <div class="tops">
-                <span>{{article[0].post_title}}</span>
-                </div>
+                <p class="tops">
+                    {{article[0].post_title}}
+                </p>
                 <p class="card-text">{{article[0].short_description}}
                 </p>
                 <a [routerLink]="['/detail-article',article[0].ID]">Read More</a>
@@ -221,8 +221,8 @@
                   <img [src]="article[1].image" alt="Job Image">
                 </div>
               <div class="description_article">
-                <p class="title">{{article[1].post_title}}</p>
-                <p>{{article[1].short_description}}</p>
+                <p class="tops">{{article[1].post_title}}</p>
+                <p class="card-text">{{article[1].short_description}}</p>
 
               <p> <a [routerLink]="['/detail-article',article[1].ID]">Read More</a></p>
               </div>
@@ -234,8 +234,8 @@
                   <img [src]="article[2].image" alt="Job Image">
                 </div>
               <div class="description_article">
-                <p class="title">{{article[2].post_title}}</p>
-                <p>{{article[2].short_description}}</p>
+                <p class="tops">{{article[2].post_title}}</p>
+                <p class="card-text">{{article[2].short_description}}</p>
 
                 <p><a [routerLink]="['/detail-article',article[2].ID]">Read More</a></p>
               </div>
@@ -260,7 +260,7 @@
           </svg>
         </p>
       </span>
-      --> 
+      -->
     </div>
     <div class="candidat_featured">
       <div class="row candidat_featured_">
