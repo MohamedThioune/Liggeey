@@ -66,6 +66,9 @@ compagny=false;
           }
         }
   }
+
+ 
+  
   
   changeTab(tab: string): void {
     this.activeTab = tab;

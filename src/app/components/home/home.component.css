@@ -461,7 +461,9 @@
     font-weight: 400;
 }
 .bullet{
-    margin-left: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
 
  /* section categories */
@@ -476,6 +478,7 @@
     margin-bottom: 30px;
     text-align: center;
     padding: 45px 15px;
+    cursor:pointer
     /* Shadow / 1
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05); */
 }
@@ -717,9 +720,6 @@
   .featured_candidates{
       padding-top: 60px;
       padding-bottom: 60px;
-  }
-  .bullet{
-      margin-left: 50%;
   }
 
   .description_skills .download_button {
