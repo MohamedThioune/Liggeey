@@ -18,8 +18,8 @@ export class DetailJobComponent implements OnInit {
     type: '',
     message: ''
   };
-  constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef
-    ) { }
+
+  constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
       // Récupération du token depuis le local storage
@@ -75,6 +75,7 @@ export class DetailJobComponent implements OnInit {
         type: 'error',
         message: this.message.message
       });
+      this.router.navigate(['/login']);
     }
   }
 

@@ -94,6 +94,8 @@ const routes: Routes = [
   { path: 'profil-candidat/:id', component: ProfilCandidatComponent,canActivate: [AuthGuard] },
   
   { path: 'detail-job/:id', component: DetailJobComponent },
+  
+  { path: 'detail-category/:id', component: CategorieComponent },
 
   { path: 'list-candidat', component: ListCandidatesComponent ,canActivate: [AuthGuard]},
 
@@ -113,7 +115,7 @@ const routes: Routes = [
 
   { path: 'dashboard-employer/:id', component: DashboardEmployerComponent,canActivate: [AuthGuard] },
 
-  { path: 'categorie', component: CategorieComponent },
+ // { path: 'categorie', component: CategorieComponent },
 
   { path: 'joba', component: JobTwoComponent },
 

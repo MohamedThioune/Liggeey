@@ -8,6 +8,7 @@
     border-radius: 8px;
     border: 1px solid #ECEDF2;
     background-color: #FFF;
+    cursor: pointer;
 }
  .job_list_1 .content_job_list_1{
     display: flex;

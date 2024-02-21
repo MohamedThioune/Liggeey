@@ -1,5 +1,7 @@
 import { Component, OnInit,HostListener } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Usager } from 'src/app/interfaces/usager';
+import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 
 @Component({
@@ -10,9 +12,13 @@ import { UsagerService } from 'src/app/services/usager.service';
 export class HeaderComponent implements OnInit {
   isMobile!: boolean;
   userConnect:any;
+  categories:any
+  category:any
   candidate=false;
   compagny=false;
-  constructor(private usagerService: UsagerService) { 
+  identifiant:number | null = 0;
+
+  constructor(private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ) { 
     this.isMobile = window.innerWidth < 768; 
 
   }
@@ -20,7 +26,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
-    
+    this.identifiant = +this.route.snapshot.params['id'];
+
     if (storedToken) {   
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
@@ -32,7 +39,15 @@ export class HeaderComponent implements OnInit {
       } else if(this.userConnect.acf.is_liggeey == "chief"){  
         this.compagny=true        
       }
-    }
+    }    
+      this.homeService.getInfoHomepage().subscribe((data:any)=>{
+        this.categories=data.categories
+        console.log( this.categories);
+    })
+    this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
+      this.category = data                        
+    })
+
   }
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {
