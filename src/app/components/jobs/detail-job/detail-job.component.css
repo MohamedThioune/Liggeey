@@ -114,7 +114,7 @@
    justify-content: center;
    margin-top: 30px;
  }
- .job_info a{
+ .job_info .btn-apply{
    color: #FFF;
    font-weight: bold;
    font-size: 15px;
@@ -221,7 +221,7 @@
    font-weight: 400;
    margin-bottom: 30px;
  }
- 
+
 
 .items_job .job_list_2{
    margin-bottom: 30px;
@@ -251,7 +251,7 @@
 
 .description_job_1 .bookmark{
   position: absolute;
-  right: 40px; 
+  right: 40px;
 }
 .description_job_1 .bookmark button{
  text-align: center;
@@ -401,7 +401,7 @@
    align-items: center;
    justify-content: space-between;
    margin-bottom: 15px;
-  
+
 }
 .sidebar .bottom_sidebar .compagny .inner .inner_1 span{
    color:  #202124;
@@ -428,9 +428,11 @@
    font-weight: 600;
    border-radius: 8px;
    background-color: #D1DAE3;
-   padding: 17px 0 15px 0px;   
+   padding: 17px 0 15px 0px;
 }
-@media all and (min-width: 300px) and (max-width: 767px){ 
+
+
+@media all and (min-width: 300px) and (max-width: 767px){
    .facebook,.twitter{
       margin-bottom: 10px;
    }
@@ -450,6 +452,6 @@
    .description_job_1 .bookmark{
       display: none;
       position: absolute;
-      right: 40px; 
+      right: 40px;
     }
 }

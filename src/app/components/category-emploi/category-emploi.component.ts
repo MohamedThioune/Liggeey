@@ -19,6 +19,9 @@ export class CategoryEmploiComponent implements OnInit {
    
     
   }
+  getOffset(date: Date): number {
+    return this.homeService.getOffsetFromNow(date);
+  }
 
 
 }

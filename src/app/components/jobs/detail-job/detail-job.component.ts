@@ -10,6 +10,8 @@ import { ToastNotification } from 'src/app/notification/ToastNotification';
   styleUrls: ['./detail-job.component.css']
 })
 export class DetailJobComponent implements OnInit {
+
+
   identifiant:number | null = 0;
   job:any;
   userConnect:any;
@@ -18,24 +20,25 @@ export class DetailJobComponent implements OnInit {
     type: '',
     message: ''
   };
-  constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef
-    ) { }
+  selectedFileName: string | undefined;
+
+  constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
       // Récupération du token depuis le local storage
       const storedToken = this.usagerService.getToken();
-    
-      if (storedToken) {   
+
+      if (storedToken) {
                   // Décodage de la base64
         const decodedToken = atob(storedToken);
-  
+
         // Parse du JSON pour obtenir l'objet original
         this. userConnect = JSON.parse(decodedToken);
       }
-      
+
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailJob( this.identifiant).subscribe(data=>{
-      this.job = data                        
+      this.job = data
     })
   }
   applyJob() {
@@ -48,12 +51,12 @@ export class DetailJobComponent implements OnInit {
           (response) => {
             this.applyJobs=true ;
             this.cdr.detectChanges(); // Force la détection des changements
-         
+
             let typeR = "error"
             if (<any>response ) {
               typeR = "success";
               this.message= "Votre demande d'emploi a été soumise avec success."
-            }          
+            }
             ToastNotification.open({
               type: typeR,
               message: this.message
@@ -67,7 +70,7 @@ export class DetailJobComponent implements OnInit {
             ToastNotification.open({
               type: 'error',
               message: error.error.message
-            });          
+            });
           }
         );
     } else {
@@ -75,8 +78,11 @@ export class DetailJobComponent implements OnInit {
         type: 'error',
         message: this.message.message
       });
+      this.router.navigate(['/login']);
     }
   }
+
+
 
   bonjour(){
     alert('ok')
@@ -94,7 +100,7 @@ export class DetailJobComponent implements OnInit {
               if (<any>response ) {
                 typeR = "success";
                 this.message= "Votre nouveau job favori a été ajouté."
-              }          
+              }
               ToastNotification.open({
                 type: typeR,
                 message: this.message
@@ -104,18 +110,18 @@ export class DetailJobComponent implements OnInit {
               // }
             },
           // Gestion des erreurs
-          (error) => {            
+          (error) => {
             ToastNotification.open({
               type: 'error',
               message: error.error.message
-            }); 
+            });
           }
         );
-    } else {      
+    } else {
       ToastNotification.open({
         type: 'error',
         message: this.message.message
-      });  
+      });
     }
   }
 

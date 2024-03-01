@@ -71,6 +71,20 @@ subs {
 .third h4 small {
   color: #1AC4A2;
 }
+.sub-title {
+  color: #033357;
+  font-size: 28px;
+  line-height: 38px;
+  margin-bottom: 31px;
+}
+.sub-title span{
+  color: #1ac4a2;
+  font-weight: 700;
+}
+.description-text{
+  font-size: 19px;
+  line-height: 37px;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
   .online-course {
     width: 50%;

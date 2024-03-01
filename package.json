@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr":"npm run serve:ssr"
+    "serve:ssr": "npm run serve:ssr"
   },
   "private": true,
   "dependencies": {
@@ -29,7 +29,7 @@
     "notyf": "^3.10.0",
     "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.6.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
