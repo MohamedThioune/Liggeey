@@ -1,7 +1,6 @@
 <app-header></app-header>
 <section class="image_menu_about">
   <div class="container-fluid">
-    <form>
           <div class="search_about">
             <div class="keywords d-flex align-items-center ">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -15,7 +14,7 @@
                 <path d="M9.88976 0C4.92728 0 0.890137 4.03769 0.890137 9.0007C0.890137 12.547 2.37483 16.1342 5.18373 19.3745C7.2817 21.7948 9.36083 23.166 9.4484 23.2232C9.58243 23.3109 9.73615 23.3547 9.88987 23.3547C10.0435 23.3547 10.1972 23.3109 10.3313 23.2232C10.4188 23.166 12.4983 21.7948 14.5962 19.3747C17.4053 16.1342 18.8901 12.547 18.8901 9.0007C18.89 4.03769 14.8525 0 9.88976 0ZM9.88976 21.5573C8.23456 20.3239 2.50371 15.577 2.50371 9.0007C2.50371 4.92741 5.81701 1.61357 9.88976 1.61357C13.9628 1.61357 17.2765 4.92741 17.2765 9.0007C17.2765 15.577 11.5451 20.3239 9.88976 21.5573Z" fill="#696969"/>
                 <path d="M9.89025 5.42676C7.92062 5.42676 6.31824 7.02925 6.31824 8.99909C6.31824 10.9684 7.92062 12.5706 9.89025 12.5706C11.8599 12.5706 13.4621 10.9684 13.4621 8.99909C13.4621 7.02935 11.8598 5.42676 9.89025 5.42676ZM9.89025 10.957C8.81034 10.957 7.93181 10.0787 7.93181 8.99909C7.93181 7.91897 8.81034 7.04033 9.89025 7.04033C10.97 7.04033 11.8486 7.91897 11.8486 8.99909C11.8486 10.0787 10.97 10.957 9.89025 10.957Z" fill="#696969"/>
               </svg>
-              <input placeholder="City or postcode" type="search" name="" id="">
+              <input [(ngModel)]="searchCountry"  placeholder="City or postcode" type="search" name="" id="">
             </div>
             <div class="limit"></div>
             <div class="categorie d-flex">
@@ -35,7 +34,6 @@
             </div>
             <button class="btn" routerLinkActive="active_lien_navbar">Find Resume</button>
           </div>
-    </form>
   </div>
 </section>
 <section class="featured_candidates">
@@ -49,7 +47,7 @@
       </div>
       <div class="candidat_featured">
         <div class="row" style="margin-bottom: 100px;">
-          <div class="col-md-4 item" *ngFor="let candidate of candidates | paginate: { itemsPerPage: 9, currentPage: p }"  >
+          <div class="col-md-4 item" *ngFor="let candidate of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }"  >
               <div class="content_candidate">
                 <div class="content_image_candidate" [routerLink]="['/detail-candidat',candidate.ID]">
                   <img [src]=candidate.image alt="Image Of Candidate">

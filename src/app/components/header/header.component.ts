@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   candidate=false;
   compagny=false;
   identifiant:number | null = 0;
+  loading: boolean = true;
 
   constructor(private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ) { 
     this.isMobile = window.innerWidth < 768; 
@@ -31,22 +32,30 @@ export class HeaderComponent implements OnInit {
     if (storedToken) {   
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
+      this.loading=false
+console.log(this.loading);
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
+      this.loading=false
+
       if(this.userConnect.acf.is_liggeey == "candidate"){ 
         this.candidate=true         
       } else if(this.userConnect.acf.is_liggeey == "chief"){  
         this.compagny=true        
       }
+      
+
     }    
-      this.homeService.getInfoHomepage().subscribe((data:any)=>{
-        this.categories=data.categories
-        console.log( this.categories);
+   //console.log(this.userConnect);
+    this.homeService.getInfoHomepage().subscribe(data=>{
+      this.categories=data.categories
+     // console.log(data);
+      
     })
-    this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
-      this.category = data                        
-    })
+    // this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
+    //   this.category = data   
+    // })
 
   }
   @HostListener('window:resize', ['$event'])

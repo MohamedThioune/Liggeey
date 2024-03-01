@@ -79,9 +79,6 @@ export class DetailJobComponent implements OnInit {
     }
   }
 
-  bonjour(){
-    alert('ok')
-  }
   favoritesJob() {
     // Assurez-vous que this.userConnect et this.job sont définis
     if (this.userConnect && this.job && this.job.ID) {
@@ -115,8 +112,10 @@ export class DetailJobComponent implements OnInit {
     } else {      
       ToastNotification.open({
         type: 'error',
-        message: this.message.message
-      });  
+        message: "please log in first"
+      });        
+      this.router.navigate(['/login']);
+
     }
   }
 

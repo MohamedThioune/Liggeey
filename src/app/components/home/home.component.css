@@ -375,6 +375,7 @@
     color: #1AC4A2;
     font-size: 14px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .featured .browser p{
