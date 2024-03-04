@@ -1,6 +1,7 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { JobCompagny } from '../interfaces/job-compagny';
 
 @Injectable({
   providedIn: 'root'
@@ -89,5 +90,19 @@ export class HomePageService {
     const offsetHours = Math.floor(offsetMinutes / 60);
     return offsetHours;
   }
+  postJob(job:JobCompagny,userApplyId: number): Observable<any> { 
+    const requestBody = {
+      userApplyId:userApplyId,
+      title:job.title,
+      description: job.description,
+      job_level_of_experience: job.job_level_of_experience,
+      job_contract: job.job_contract,
+      job_langues:job.job_langues,
+      job_application_deadline:job. job_application_deadline,
+   
+    };    
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/postJob`,requestBody);
+  }
+
 }
 

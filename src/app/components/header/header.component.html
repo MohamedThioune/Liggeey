@@ -403,3 +403,123 @@
      </nav>
   </div>
 </header>
+
+
+<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div *ngIf="showLoginBlock" class="block-login">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Login to Liggeey</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="my_container_input_1 form-group">
+              <label for="username">Username</label>
+              <input class = "input" name="username" id="username" type="text" placeholder="Enter your username " aria-label="default input example" id="cnx_user" required>
+            </div>
+            <div class="my_container_input_2 form-group">
+              <label>Password</label>
+              <input class = "input" name="password"  type="password" placeholder="********" aria-label="default input example" id="cnx_pass" required>
+            </div>
+            <div class="remember">
+              <div class="remember_me">
+                <input class="checkbox" type="checkbox">
+                <span>Remember me</span>
+              </div>
+              <div class="forget-passwoord">
+                <a class="btn" routerLink="/reset-password">Forget Password?</a>
+              </div>
+            </div>
+            <div class="d-grid">
+              <button type="submit" id="login-btn" class="btn btn-forgeet-passwoord" (click)="switchToApplyBlock()">Log In</button>
+              <div class="d-flex justify-content-center">
+                <p class="account-texte mb-0">Don't have an account? <b><a routerLink="/register">Signup</a></b></p>
+              </div>
+            </div>
+            <div class="d-flex hr-block align-items-center mt-2 mb-5">
+              <div class="hr-element"></div>
+              <p class="mb-0 or-text">Or</p>
+              <div class="hr-element"></div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center facebook-google-btn mb-4">
+              <button class="btn btn-facebook">
+                <img src="../../../../assets/img/facebook-icon.svg" alt="facebook">
+                Login via Facebook
+              </button>
+              <button class="btn btn-google">
+                <img src="../../../../assets/img/google-icon.svg" alt="more">
+                Login via Google+
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div *ngIf="!showLoginBlock" class="block-apply">
+        <div class="modal-header">
+          <h5 class="modal-title" id="">Apply to this webdesigner Job</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div  *ngIf="showFirstStep" class="first-step">
+              <div class="my_container_input_1 form-group">
+                <label for="username">Fisrt Name</label>
+                <input class = "input" name="username" id="Fisrt-Name" type="text" placeholder="" aria-label="default input example" value="Mouhamed" required>
+              </div>
+              <div class="my_container_input_2 form-group">
+                <label>Last Name</label>
+                <input class = "input" name=""  type="text" placeholder="" aria-label="default input example" id="Last-Name" value="Thioune" required>
+              </div>
+              <div class="my_container_input_2 form-group">
+                <label>Email</label>
+                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="Mouhamed@livelearn.nl" required>
+              </div>
+              <div class="my_container_input_2 form-group">
+                <label>Phone Number</label>
+                <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="77 456 65 78" required>
+              </div>
+
+              <div class="d-grid">
+                <button (click)="goToSecondStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Continue</button>
+              </div>
+            </div>
+            <div *ngIf="showSecondStep" class="second-step">
+              <div class="second-block">
+                <label for="">Select your cv</label>
+                <div class="custom-pdf-container">
+                  <embed src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />
+                </div>
+                <label for="">Or Upload a new one</label>
+                <div class="custom-file">
+                  <input type="file" id="customFileInput" (change)="onFileSelected($event)" />
+                  <label for="customFileInput" class="custom-file-label">{{ selectedFileName || 'Choose file' }}</label>
+                </div>
+                <button (click)="goToFinalStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Apply</button>
+              </div>
+            </div>
+            <div *ngIf="!showFirstStep && !showSecondStep" class="final-step">
+              <div class="loader">
+                <svg class="circular">
+                  <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2"  stroke-color="#f00" stroke-miterlimit="10"/>
+                </svg>
+                <svg class="suc">
+                  <path class="checkmark__check" fill="none" d="M10.7,20.4l5.3,5.3l12.4-12.5"></path>
+                </svg>
+              </div>
+              <p class="text-success-apply">Your application has been submitted successfully! <br>
+                You can now discover other opportunities.</p>
+              <a href="" class="btn btn-other-opportunuties">Others opportunities</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
