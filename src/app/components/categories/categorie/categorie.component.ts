@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-categorie',
@@ -27,16 +28,36 @@ export class CategorieComponent implements OnInit {
     message: ''
   };
   job:any;
-
-  constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef) {}
+  searchTitle: string = ''; // Variable pour stocker la valeur de recherche
+  searchLocation:string ='';
+  isLoading: boolean = true;
+  currentDate!: Date;
+  sentDate: any;
+  constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
+    this.currentDate = new Date();
+    this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data  
       this.category.jobs.forEach((element:any) => {
-        this.job=element        
-      }); 
+        const postedDate = new Date(element.posted_at);
+        const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
+        const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
+        const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+    
+     
+        if (differenceInDays > 30) {
+          const differenceInMonths = Math.floor(differenceInDays / 30);
+          element.duration = differenceInMonths + ' month(s)';
+        } else {
+          element.duration = differenceInDays + ' day(s)';
+        }
+      });    
+      setTimeout(() => {
+        this.isLoading = false; // Cela masquera le loader
+      },2000); // Délai de 2 secondes (ajustez selon vos besoins)
                            
     })
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
@@ -49,6 +70,7 @@ export class CategorieComponent implements OnInit {
       });
       
     })
+    
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
     
@@ -60,6 +82,20 @@ export class CategorieComponent implements OnInit {
       this. userConnect = JSON.parse(decodedToken);
     }
   }
+ 
+  get filteredJobs() {
+    if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
+      return this.category.jobs.filter((job:any) => {
+        const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
+        const placeMatch = this.searchLocation.trim() === '' || job.company.country.toLowerCase().includes(this.searchLocation.toLowerCase());
+        return titleMatch && placeMatch;
+      });
+    } else {
+      return this.category.jobs;
+    }
+  }
+
+
 
   favoritesJob() {
     // Assurez-vous que this.userConnect et this.job sont définis
@@ -99,16 +135,7 @@ export class CategorieComponent implements OnInit {
     }
   }
 
-  submit(): void {
-    // Naviguer vers la route de recherche avec les paramètres de recherche
-    this.router.navigate(['/recherche'], {
-      queryParams: {
-        title: this.job.title,
-        location: this.job.company.country,
-        category: this.category.name,
-      }
-    });
-}
+
 
 
 }

@@ -67,7 +67,7 @@
    padding: 10px 19px 8px 24px;
 
 }
-input[type="search"]:focus {
+input[type="text"]:focus {
    outline: none;
  }
 
@@ -220,15 +220,7 @@ input[type="search"]:focus {
 .items_job{
     margin-top: 33px;
 }
-.items_job .job_list_1{
-    margin-bottom: 30px;
-    border-radius: 8px;
-    border: 1px solid #ECEDF2;
-    background-color: #FFF;
-}
- .job_list_1 .content_job_list_1{
-    display: flex;
-}
+
 .logo{
     width: 50px;
     height: 50px;  
@@ -315,7 +307,6 @@ input[type="search"]:focus {
    color: #FFF;
 }
 .content_sidebar ul li svg{
-flex-shrink: 0;
 border-radius: 20px;
 background:#FFF;
 margin-right: 10px;

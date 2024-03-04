@@ -10,7 +10,7 @@
    left: 0;
    width: 100%;
    height: 100%;
-   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../../assets/img/categori.png"), lightgray 50% / cover no-repeat; 
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../../assets/img/categori.png"), lightgray 50% / cover no-repeat;
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
@@ -68,7 +68,7 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
    padding: 10px 19px 8px 24px;
 
 }
-input[type="search"]:focus {
+input[type="text"]:focus {
    outline: none;
  }
 
@@ -379,6 +379,7 @@ input[type="search"]:focus {
 ul li{
    list-style: none;
 }
+
 
 @media all and (min-width: 300px) and (max-width: 767px){
    .description_job_ span{
