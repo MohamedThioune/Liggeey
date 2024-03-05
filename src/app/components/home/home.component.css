@@ -519,6 +519,7 @@
     width: 100%;
     height: 100%;
     margin: 0;
+    object-fit: scale-down;
 }
 .content_item .item_left i{
     color: #1AC4A2;

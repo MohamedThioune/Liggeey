@@ -139,6 +139,8 @@ form h2 {
   margin-bottom: 30px;
   text-align: left;
   border-radius: 14px;
+  min-height: 425px;
+  position: relative;
 }
 .card-emploie:hover {
   box-shadow: 1px 1px #d7d7d7;
@@ -210,6 +212,10 @@ form h2 {
   padding: 8px 20px;
   font-size: 15px;
   border: 1px solid #123455;
+}
+.content-footer-card {
+  position: absolute;
+  bottom: 32px;
 }
 .new-absolute-element{
   position: absolute;
@@ -299,6 +305,9 @@ form h2 {
   .right_menu{
     width: 100% !important;
     padding: 0 20px;
+  }
+  body {
+    padding-top: 83px;
   }
 
 
