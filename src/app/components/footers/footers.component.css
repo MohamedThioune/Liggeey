@@ -1,7 +1,6 @@
 .content-footer{
   position: relative;
-  z-index: 999;
-  background: white;
+  padding: 70px 0 0;
 }
 .new-letter{
     background-color: #E9FAF6;
@@ -48,22 +47,36 @@ ul{
     margin-top: 0;
     padding-left: 0;
  }
-ul li{
-    display: flex;
-    flex-direction: column;
-    padding-top: 100px;
-    padding-bottom: 100px;
+ul .item_1{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin-right: 20px;
 }
-
-ul li span{
-    font-size: 18px;
-    font-weight: bold;
-    padding-bottom: 24px;
+ul li{
+  display: block;
+  margin-right: 20px;
+  width: 18%;
+}
+ul li:last-child{
+  margin-right: 0px;
+}
+.sub-element-footer {
+  font-size: 17px;
+  color: #1e1e1e;
+  margin: 0 15px;
+}
+ul li .title-footer{
+  font-size: 20px;
+  font-family: "Roboto-Medium";
+  margin-bottom: 24px;
+  color: black;
 }
 ul li p{
-    font-size: 14px;
-    font-weight: 500;
-    color:#696969;
+  font-size: 15px;
+  font-weight: 500;
+  color: #696969;
+  margin-bottom: 6px;
 }
 .jobs .browse-jobs .browse_categorie{
     color: #1AC4A2;
@@ -71,9 +84,10 @@ ul li p{
 }
 
 .content_logo{
-    width: 238px;
-    height: 78px;
-    margin-bottom: 36px;
+  width: auto;
+  height: 68px;
+  margin-bottom: 36px;
+  margin-left: -55px;
 }
 .content_logo img{
     width: 100%;
@@ -132,16 +146,74 @@ ul li p{
      background-color: #ECEDF2;
  }
  .resaux-sociaux{
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     padding-top: 39px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-top: 28px;
+   border-top: 1px solid #cdcdcd;
  }
  .resaux-sociaux p{
      font-size: 14px;
      font-weight: bold;
      color: #696969;
  }
+
+ .content-link-footer{
+   display: grid;
+ }
+.content-link-footer .link-footer{
+  color: #1e1e1e !important;
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+.about-element{
+  position: absolute;
+}
+.content-app-footer .title-download {
+  font-size: 26px;
+  font-family: "Roboto-Medium";
+  margin-bottom: 20px;
+}
+.content-app-footer .description{
+  font-size: 18px;
+  width: 55%;
+  margin: 0 auto 35px;
+  color: #545454;
+  line-height: 31px;
+}
+.content-app-footer .btn-download{
+  height: 55px;
+}
+.content-img-app-footer{
+  width: 871px;
+  margin: 0 auto;
+}
+.content-app-footer .btn-download img, .content-img-app-footer img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#el-1{
+  right: 10%;
+  top: 10%;
+}
+#el-2{
+  right: 22%;
+  bottom: 10%;
+}
+#el-3{
+  left: 52%;
+  bottom: 50%;
+}
+#el-4{
+  left: 2%;
+  top: 18%;
+}
+#el-5{
+  right: 85%;
+  bottom: 26%;
+}
+
  @media screen and (max-width: 1079px) and (min-width: 768px){
     .my_container_form{
         padding: 28px 137px 24px 28px;

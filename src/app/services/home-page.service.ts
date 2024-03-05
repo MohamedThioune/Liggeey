@@ -1,6 +1,7 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { JobCompagny } from '../interfaces/job-compagny';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,9 @@ export class HomePageService {
   }
   getDetailJob(id:number | null):Observable<any>{
     return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/job/?id=${id}`,{});
+  }
+  getDetailCategory(id:number | null):Observable<any>{
+    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/category/detail/?id=${id}`,{});
   }
   applyJob(idUser: number,idJob:number): Observable<any> { 
     const requestBody = {
@@ -77,5 +81,32 @@ export class HomePageService {
   homeCompagny(id: number): Observable<any> { 
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/home/?userApplyId=${id}`,{});
   }
+  getOffsetFromNow(date: Date): number {
+    const currentDate = new Date();
+    const targetDate = new Date(date);
+    const offsetMilliseconds = targetDate.getTime() - currentDate.getTime();
+    const offsetSeconds = Math.floor(offsetMilliseconds / 1000);
+    const offsetMinutes = Math.floor(offsetSeconds / 60);
+    const offsetHours = Math.floor(offsetMinutes / 60);
+    return offsetHours;
+  }
+  postJob(job:JobCompagny,userApplyId: number): Observable<any> { 
+    const requestBody = {
+      userApplyId:userApplyId,
+      title:job.title,
+      description: job.description,
+      job_level_of_experience: job.job_level_of_experience,
+      job_contract: job.job_contract,
+      job_langues:job.job_langues,
+      job_application_deadline:job. job_application_deadline,
+   
+    };    
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/postJob`,requestBody);
+  }
+
+  profilJob(id: number): Observable<any> { 
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/postJob?userApplyId=${id}`,{});
+  }
+
 }
 

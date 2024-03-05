@@ -1,22 +1,57 @@
 <div class="items_job">
-    <div class="row">
-      <div class="col-md-6 col-sm-6" *ngFor="let categorie of category | paginate: { itemsPerPage: 10, currentPage: p }" >
-        <div class="job_list_1" [routerLink]="['/detail-job',categorie.ID]">
+    <div class="content-emploi">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let categorie of category | paginate: { itemsPerPage: 6, currentPage: p }" >
+          <div class="card-emploie">
+            <div class="content-img">
+              <img [src]="categorie.company.logo" alt="Job Image">
+            </div>
+            <p class="name-company">Alakham</p>
+            <p class="name-job">{{categorie.title}}</p>
+            <div class="d-flex align-items-center">
+              <div class="content-element content-localisation d-flex align-items-center">
+                <i class='fa fa-map-marker mr-1'></i>
+                <p class="localisation-job mb-0">{{categorie.company.place}}</p>
+              </div>
+              <div class="content-element type-job d-flex align-items-center">
+                <i class='fa fa-clock-o mr-1'></i>
+                <p class="job-type-text mb-0">Full Time</p>
+              </div>
+              <div class="content-element categorie-content d-flex align-items-center">
+                <i class='fa fa-list-alt mr-1'></i>
+                <p class="text-categori mb-0">Design</p>
+              </div>
+            </div>
+            <p class="description-job">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedLorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <div class="content-footer-card align-items-center">
+              <button class="btn btn-apply-job" data-toggle="modal" data-target="#modal-apply">Apply Now</button>
+              <a [routerLink]="['/detail-job',categorie.ID]" class="btn btn-view-job">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--    <div class="row">
+      <div class="col-md-6 col-sm-6" >
+        <div class="job_list_1" >
           <div class="content_job_list_1">
             <div class="logo">
               <span class="content_logo">
-                <img [src]="categorie.company.logo" alt="Job Image">
+
               </span>
             </div>
             <div class="description_job">
               <div class="description_job_">
-                <span>{{categorie.title}}</span>
+                <span></span>
+                &lt;!&ndash;
                 <div class="bookmark">
                     <button>
                       <i class="fa fa-bookmark"></i>
                     </button>
 
                 </div>
+                &ndash;&gt;
               </div>
 
               <div class="info">
@@ -31,7 +66,7 @@
                       </clipPath>
                     </defs>
                   </svg>
-                  <p>{{categorie.company.place}}</p>
+                  <p></p>
                 </span>
                 <span class="info_item">
                   <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
@@ -52,15 +87,16 @@
                       </clipPath>
                     </defs>
                   </svg>
-                  <p>{{categorie.posted_at}}</p>
+                  <p>{{categorie.duration}}</p>
                 </span>
               </div>
               <div class="all_info">
                 <div class="time">
                   <div class="content_time">
-                    <p>Temps plein</p>
+                    <p>Full Time</p>
                   </div>
                 </div>
+                &lt;!&ndash;
                 <div class="tags">
                   <div class="content_tags">
                     <p>Privé</p>
@@ -73,6 +109,7 @@
                   </div>
 
                 </div>
+                &ndash;&gt;
               </div>
 
             </div>
@@ -84,5 +121,7 @@
     </div>
     <div class="pagination">
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
+    </div>-->
+
+
   </div>

@@ -141,6 +141,14 @@ section{
 .read-more-block{
   margin-bottom: 110px;
 }
+.content-top-skill h1{
+  color: #FFF;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 64px;
+  width: 45%;
+  margin-bottom: 25px;
+}
 @media (min-width: 300px) and (max-width: 767px){
   .content-top-skill h1{
     font-size: 40px;

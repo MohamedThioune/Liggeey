@@ -1,13 +1,9 @@
-.items_job{
-    margin-top: 33px;
-}
-
-
 .items_job .job_list_1{
     margin-bottom: 30px;
     border-radius: 8px;
     border: 1px solid #ECEDF2;
     background-color: #FFF;
+    cursor: pointer;
 }
  .job_list_1 .content_job_list_1{
     display: flex;
@@ -106,9 +102,12 @@
     align-items: center;
     padding-top: 50px;
  }
+
+
+
 @media all and (min-width: 300px) and (max-width: 767px){
     .items_job{
-        margin: 33px 0;
+        margin: 0;
     }
 .jobs{
     margin-top: 80px;

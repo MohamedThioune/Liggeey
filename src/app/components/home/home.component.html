@@ -1,6 +1,7 @@
-<app-header></app-header>
+<app-loader *ngIf="isLoading"></app-loader>
+<app-header *ngIf="!isLoading"></app-header>
 
-<section class="description_home">
+<section class="description_home css-selector">
   <div class="container-fluid">
     <div class="content_home_">
       <div class="content_home">
@@ -8,11 +9,11 @@
           <div class="col-md-6 col-sm-6">
             <div class="new_remote">
               <span>NEW</span>
-              <p>Hire remote tech talent based on real #skills</p>
+              <p>Your remote tech talent selected by real #skills</p>
             </div>
             <div class="text_home">
-              <h2>Build your remote digital <br> workforce</h2>
-              <span class="definition_home">Our League A software implementation <br> team is waiting for you</span>
+              <h2>Build your remote digital workforce based on skills</h2>
+              <span class="definition_home">Embrace the future of work with our top digital Talent. Not just remote, but fully supported by the LIGGÉEY team.</span>
             </div>
             <div class="hiring_work" *ngIf="!userConnect">
               <a class="btn hiring" routerLink="register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
@@ -35,7 +36,7 @@
                   <img [src]="image" alt="">
                 </span>
             </div>
-        
+
         </div>
         </div>
       </div>
@@ -51,7 +52,7 @@
         <div class="banner_left">
           <div class="description_banner left">
             <span class="title_description">Employers</span>
-            <p class="content_description">Sit amet, consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt. Labore et <br> dolore nostrud exercitation.</p>
+            <p class="content_description">Unlock a world of remote talent<br>click the button to register your company and discover the next level of skilled professionals for your team.</p>
             <a class="btn" routerLink="register" routerLinkActive="active_lien_navbar">Register Account</a>
           </div>
           <div class="image_banner">
@@ -63,7 +64,7 @@
         <div class="banner_right">
           <div class="description_banner right">
             <span class="title_description">Candidate</span>
-            <p class="content_description">Sit amet, consectetur adipiscing elit, sed <br> do eiusmod tempor incididunt. Labore et <br> dolore nostrud exercitation.</p>
+            <p class="content_description">Find your next career opportunity <br>register as a candidate now to connect with remote jobs tailored to your skills and aspirations.</p>
             <a class="btn" routerLink="/register" routerLinkActive="active_lien_navbar">Register Account</a>
           </div>
           <div class="image_banner">
@@ -80,7 +81,7 @@
     <div class="most_jobs">
       <div class="header_popular_job">
         <span>Most Popular Jobs</span>
-        <p>Know your worth and find the job that qualify your life</p>
+        <p>Discover popular remote jobs across diverse industries on our platform.</p>
         <div class="tabs">
           <!--
           <ul class="nav nav-tabs justify-content-center">
@@ -113,11 +114,11 @@
         <div class="content_categories">
           <div class="header_categories">
             <span>Category</span>
-            <p>Emplois en direct - 293 ajoutés aujourd'hui..</p>
+            <p>Explore diverse job categories on our platform for a tailored remote career experience.</p>
           </div>
           <div class="row">
             <div class="col-md-3" *ngFor="let categorie of categories">
-              <div class="content_item">
+              <div class="content_item" [routerLink]="['/detail-category',this.categorie.cat_ID]">
                 <div class="item_left">
                   <img [src]="categorie.cat_image" alt="">
                 </div>
@@ -138,7 +139,7 @@
       <div class="col-md-6">
         <div class="description_skills">
           <span class="slills_title">Boost your skills with LiveLearn</span>
-          <p class="slills_">LiveLearn offers you a unique opportunity to acquire new <br> skills. Download the application and develop your potential <br> today.</p>
+          <p class="slills_">LiveLean offers a unique environment for acquiring new skills. Download the app now to easily showcase and upgrade your skills in:</p>
           <ul>
             <li class="skills_list">
               <span>
@@ -146,7 +147,7 @@
                   <path d="M15.7656 0.841261C15.4532 0.528824 14.9467 0.528824 14.6342 0.841261L5.0497 10.4258L1.36558 6.74172C1.05317 6.42929 0.546674 6.42932 0.234206 6.74172C-0.0782314 7.05413 -0.0782314 7.56063 0.234206 7.87307L4.48401 12.1228C4.79633 12.4352 5.3032 12.435 5.61539 12.1228L15.7656 1.97264C16.078 1.66023 16.078 1.1537 15.7656 0.841261Z" fill="#202124"/>
                 </svg>
               </span>
-              <p>Technical skills (coding, design, data science).</p>
+              <p>Technical skills  (Coding, Design, Data Science)</p>
             </li>
             <li class="skills_list">
               <span>
@@ -154,7 +155,7 @@
                   <path d="M15.7656 0.841261C15.4532 0.528824 14.9467 0.528824 14.6342 0.841261L5.0497 10.4258L1.36558 6.74172C1.05317 6.42929 0.546674 6.42932 0.234206 6.74172C-0.0782314 7.05413 -0.0782314 7.56063 0.234206 7.87307L4.48401 12.1228C4.79633 12.4352 5.3032 12.435 5.61539 12.1228L15.7656 1.97264C16.078 1.66023 16.078 1.1537 15.7656 0.841261Z" fill="#202124"/>
                 </svg>
               </span>
-              <p>Technical skills (coding, design, data science).</p>
+              <p>Essential skills (Communication, Leadership, Creativity)</p>
             </li>
             <li class="skills_list">
               <span>
@@ -162,18 +163,18 @@
                   <path d="M15.7656 0.841261C15.4532 0.528824 14.9467 0.528824 14.6342 0.841261L5.0497 10.4258L1.36558 6.74172C1.05317 6.42929 0.546674 6.42932 0.234206 6.74172C-0.0782314 7.05413 -0.0782314 7.56063 0.234206 7.87307L4.48401 12.1228C4.79633 12.4352 5.3032 12.435 5.61539 12.1228L15.7656 1.97264C16.078 1.66023 16.078 1.1537 15.7656 0.841261Z" fill="#202124"/>
                 </svg>
               </span>
-              <p>Technical skills (coding, design, data science).</p>
+              <p>Practical skills (Finance, Cooking, Health)</p>
             </li>
           </ul>
           <div class="download_button">
-            <a class="btn apple"  routerLink="register" routerLinkActive="active_lien_navbar">
+            <a class="btn apple"  href="https://apps.apple.com/nl/app/livelearn/id1666976386" routerLinkActive="active_lien_navbar">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M27.7063 32.955C26.1138 34.4988 24.375 34.255 22.7013 33.5238C20.93 32.7763 19.305 32.7438 17.4363 33.5238C15.0963 34.5313 13.8613 34.2388 12.4638 32.955C4.53377 24.7813 5.70377 12.3338 14.7063 11.8788C16.9 11.9925 18.4275 13.0813 19.7113 13.1788C21.6288 12.7888 23.465 11.6675 25.5125 11.8138C27.9663 12.0088 29.8188 12.9838 31.0375 14.7388C25.9675 17.7775 27.17 24.4563 31.8175 26.325C30.8913 28.7625 29.6888 31.1838 27.69 32.9713L27.7063 32.955ZM19.5488 11.7813C19.305 8.1575 22.2463 5.1675 25.6263 4.875C26.0975 9.0675 21.8238 12.1875 19.5488 11.7813Z" fill="white"/>
                 </svg>
 
               Download on the<br> Apple Store
             </a>
-            <a class="btn play_store" routerLink="register" routerLinkActive="active_lien_navbar">
+            <a class="btn play_store" href="https://play.google.com/store/apps/details? id=com.livelearn.livelearn_mobile_app&pli=1" routerLinkActive="active_lien_navbar">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.431 17.424L23.8665 12.9885L9.54 4.93649C8.5905 4.42349 7.701 4.35149 6.921 4.91249L19.431 17.424ZM24.6225 22.617L29.2335 20.0235C30.1335 19.5195 30.627 18.8055 30.627 18.0135C30.627 17.223 30.1335 16.5075 29.235 16.0035L25.0605 13.659L20.361 18.357L24.6225 22.617ZM6.15 6.00299C6.054 6.29849 6 6.62849 6 6.98999V29.0475C6 29.619 6.126 30.111 6.354 30.5025L18.4995 18.3555L6.15 6.00299ZM19.431 19.2855L7.353 31.365C7.584 31.4535 7.833 31.5 8.0955 31.5C8.5635 31.5 9.051 31.362 9.5475 31.086L23.43 23.2905L19.431 19.2855Z" fill="white"/>
               </svg>
@@ -189,12 +190,12 @@
     </div>
   </div>
 </section>
-<section class="all_articles">
+<section class="all_articles css-selector">
   <div class="container-fluid">
     <div class="articles">
       <div class="header_articles">
-        <span>Recent News Articles</span>
-        <p>Fresh employment news is published regularly.</p>
+        <span>Our recent articles</span>
+        <p>To help you stay informed about the latest news and updates, enabling a successful career.</p>
       </div>
       <div class="row">
         <div class="col-md-4">
@@ -205,9 +206,9 @@
               </div>
               <div class="card-body">
                 <div class="tops">
-                <span>{{article[0].post_title}}</span>
+                <span>{{article[0].post_title  | slice:0:40}}</span>
                 </div>
-                <p class="card-text">{{article[0].short_description}}
+                <p class="card-text">{{article[0].short_description  | slice:0:100}}
                 </p>
                 <a [routerLink]="['/detail-article',article[0].ID]">Read More</a>
               </div>
@@ -250,21 +251,21 @@
   <div class="container-fluid">
     <div class="featured">
       <div class="header_featured">
-        <span>Featured Candidates</span>
-        <p>Lorem ipsum dolor sit amet elit, sed do eiusmod tempor</p>
+        <span>Featured Talent </span>
+        <p>Meet our standout candidates – to ensure you have access to a pool of ready-to-work talent matching your requirements.</p>
       </div>
-     <!--<span class="browser">Browser All
+      <span [routerLink]="['/list-candidat']" class="browser">Browser All 
         <p>
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
             <path d="M9.33355 5.53176L3.9934 0.191706C3.86989 0.068097 3.70501 0 3.5292 0C3.3534 0 3.18852 0.068097 3.06501 0.191706L2.67175 0.584873C2.41585 0.841066 2.41585 1.25745 2.67175 1.51326L7.156 5.99751L2.66677 10.4867C2.54326 10.6104 2.47507 10.7751 2.47507 10.9508C2.47507 11.1267 2.54326 11.2915 2.66677 11.4152L3.06004 11.8083C3.18365 11.9319 3.34843 12 3.52423 12C3.70003 12 3.86491 11.9319 3.98842 11.8083L9.33355 6.46336C9.45735 6.33936 9.52535 6.1738 9.52496 5.99781C9.52535 5.82112 9.45735 5.65566 9.33355 5.53176Z" fill="#1AC4A2"/>
           </svg>
         </p>
       </span>
-      --> 
+      
     </div>
     <div class="candidat_featured">
       <div class="row candidat_featured_">
-        <div class="col-md-3 item" *ngFor="let candidate of candidates">
+        <div class="col-md-3 item" *ngFor="let candidate of candidates" style="cursor: pointer;">
             <div class="content_candidate"  [routerLink]="['/detail-candidat',candidate.ID]">
               <div class="content_image_candidate">
                 <img [src]=candidate.image alt="Image Of Candidate">
@@ -279,7 +280,7 @@
                   </svg>
                   <p>{{candidate.country}}</p>
                 </div>
-                <a class="btn" routerLink="register" routerLinkActive="active_lien_navbar">Register Account</a>
+                <a class="btn" [routerLink]="['detail-candidat',candidate.ID]" routerLinkActive="active_lien_navbar">Register Account</a>
               </div>
             </div>
         </div>
