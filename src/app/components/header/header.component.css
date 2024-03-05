@@ -146,7 +146,7 @@ header .header_container_logo img {
     border:none;
     background-color: transparent;
 }
-input[type="search"]:focus {
+input[type="text"]:focus {
     outline: none;
   }
 .search svg{

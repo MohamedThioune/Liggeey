@@ -14,14 +14,14 @@
                   Company name (optional)  <span class="important">*</span>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="text" class="form-control" id="" placeholder="Invisionn">
+                  <input type="text" value="{{profil.title}}" name="title" formControlName="title" class="form-control" id="title" placeholder="Invisionn">
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 ">
                 <label for="password">Email address  <span class="important">*</span>
                 </label>
                 <div class="input-group">
-                  <input type="email" name="password" class="form-control" id="" placeholder="creativelayers">
+                  <input type="email" value="{{profil.email}}" name="email" class="form-control" id="email" placeholder="xxx@gmail.com">
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 ">
@@ -159,7 +159,7 @@
                   <option>
                     Dakar
                   </option>
-                </select>>
+                </select>
               </div>
             </div>
             <div class="col-md-12 col-sm-12 p-2">
