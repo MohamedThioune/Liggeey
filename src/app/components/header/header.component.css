@@ -438,7 +438,8 @@ nav ul li span{
   position:absolute;
   top:30px;
   left:30px;
-  width:40px;height:40px;
+  width:40px;
+  height:40px;
 }
 .text-success-apply{
   font-size: 20px;
@@ -454,6 +455,9 @@ nav ul li span{
   padding: 10px 25px;
   display: block;
   border-radius: 10px;
+}
+.mobile-header{
+  display: none;
 }
 @media all and (min-width: 300px) and (max-width: 767px){
     header ul li a:hover{
@@ -482,6 +486,7 @@ nav ul li span{
     header .header_container_logo .content_image{
         width: 100px;
         height: 35.616px;
+      margin-left: -10px;
     }
     header .header_container_logo .content_image img{
         width: 100%;
@@ -500,5 +505,11 @@ nav ul li span{
     .second-nav{
         padding-bottom: 25px;
     }
+    .web-header{
+      display: none;
+    }
+  .mobile-header{
+    display: block;
+  }
 }
 
