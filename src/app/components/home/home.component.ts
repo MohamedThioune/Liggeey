@@ -13,19 +13,19 @@ export class HomeComponent implements OnInit {
   candidatsTab:string[]=[]
   topics:any
   sub:any
-categories:any;
-candidates:any;
-article:any;
-jobs:any;
-descr:any;
-activeTab: string = 'all';
-currentCategories: any[] = [];
-date:any;
-userConnect:any;
-candidate=false;
-compagny=false;
-isLoading: boolean = true;
-
+  categories:any;
+  candidates:any;
+  article:any;
+  //jobs:any;
+  descr:any;
+  activeTab: string = 'all';
+  currentCategories: any[] = [];
+  date:any;
+  userConnect:any;
+  candidate=false;
+  compagny=false;
+  isLoading: boolean = true;
+  searchTitle:string="";
 
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
     ) { 
@@ -36,8 +36,12 @@ isLoading: boolean = true;
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
       this.candidates=data.candidates
+      console.log(this.candidates);
+      
       this.article=data.artikels
       this.currentCategories=data.jobs  
+      console.log(data.jobs);
+      
       this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)                      
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[0].short_description =   this.article[0].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -76,7 +80,7 @@ isLoading: boolean = true;
 
   }
 
- 
+
   
   
   changeTab(tab: string): void {
@@ -92,5 +96,6 @@ isLoading: boolean = true;
       this.currentCategories = this.sub;
     }
   }
+
 
 }

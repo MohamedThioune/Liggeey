@@ -41,6 +41,9 @@ export class CategorieComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data  
+      console.log(this.category);
+      
+
       this.category.jobs.forEach((element:any) => {
         const postedDate = new Date(element.posted_at);
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
@@ -94,6 +97,8 @@ export class CategorieComponent implements OnInit {
       return this.category.jobs;
     }
   }
+
+
 
 
 
