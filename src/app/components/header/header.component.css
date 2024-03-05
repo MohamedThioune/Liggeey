@@ -209,9 +209,9 @@ input[type="search"]:focus {
     margin-right: 10px;
 }
 .categories .dropdown-menu{
-    margin: 25px 0 ;
-    padding:  42.5px 0px  23.5px 0px;
-    background-color:#FFF;
+  margin: 30px -44px;
+  padding: 23px 0px 20px 0px;
+  background-color: #FFF;
 }
 .categories .dropdown-menu a{
     padding-bottom: 10px;
