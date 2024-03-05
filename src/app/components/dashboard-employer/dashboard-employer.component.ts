@@ -50,6 +50,8 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
    }
     this.homeService.homeCompagny(this.userConnect.id).subscribe((data:any)=>{
       this.homeCompagny=data
+      console.log(this.homeCompagny);
+      
       
       this.homeCompagny.application.forEach((element:any) => {
         this.applicant=element        
