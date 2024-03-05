@@ -27,23 +27,44 @@ export class DetailJobComponent implements OnInit {
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
-      // Récupération du token depuis le local storage
-      const storedToken = this.usagerService.getToken();
+    // Récupération du token depuis le local storage
+    const storedToken = this.usagerService.getToken();
 
-      if (storedToken) {
-                  // Décodage de la base64
+    if (storedToken) {
+        // Décodage de la base64
         const decodedToken = atob(storedToken);
 
         // Parse du JSON pour obtenir l'objet original
-        this. userConnect = JSON.parse(decodedToken);
-      }
+        this.userConnect = JSON.parse(decodedToken);
+    }
 
     this.identifiant = +this.route.snapshot.params['id'];
-    this.HomePageService.getDetailJob( this.identifiant).subscribe(data=>{
-      this.job = data
-      
-    })
-  }
+    this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
+        this.job = data;
+        this.calculateDuration();
+    });
+}
+
+calculateDuration() {
+    if (this.job) {
+        this.currentDate = new Date();
+        this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
+
+        const postedDate = new Date(this.job.posted_at);
+
+        if (!isNaN(postedDate.getTime())) { 
+            const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
+            const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+
+            if (differenceInDays > 30) {
+                const differenceInMonths = Math.floor(differenceInDays / 30);
+                this.job.duration = differenceInMonths + ' month(s)';
+            } else {
+                this.job.duration = differenceInDays + ' day(s)';
+            }
+        }
+    }
+}
   applyJob() {
     // Assurez-vous que this.userConnect et this.job sont définis
     if (this.userConnect && this.job && this.job.ID) {
