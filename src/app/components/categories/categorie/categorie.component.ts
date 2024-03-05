@@ -85,6 +85,20 @@ export class CategorieComponent implements OnInit {
       this. userConnect = JSON.parse(decodedToken);
     }
   }
+ 
+  get filteredJobs() {
+    if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
+      return this.category.jobs.filter((job:any) => {
+        const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
+        const placeMatch = this.searchLocation.trim() === '' || job.company.country.toLowerCase().includes(this.searchLocation.toLowerCase());
+        return titleMatch && placeMatch;
+      });
+    } else {
+      return this.category.jobs;
+    }
+  }
+
+
 
 
 
