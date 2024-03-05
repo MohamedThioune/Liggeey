@@ -525,7 +525,7 @@
     font-size: 30px;
 }
 .content_item .item_left svg{
-    color: #1AC4A2;
+    /*color: #1AC4A2;*/
     font-size: 30px;
 }
 .content_item:hover {
@@ -538,7 +538,7 @@
 
 }
 .content_item:hover .item_left img{
-    background-color: #1AC4A2 !important;
+   /* background-color: #1AC4A2 !important;*/
 }
 .content_item:hover .item_left i{
     color: #FFF;

@@ -105,7 +105,7 @@ export class HomePageService {
   }
 
   profilJob(id: number): Observable<any> { 
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/postJob?userApplyId=${id}`,{});
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/profil?userApplyId=${id}`,{});
   }
 
 }
