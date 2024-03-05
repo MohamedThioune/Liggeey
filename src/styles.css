@@ -21,10 +21,11 @@
 body {
     background-color: #FFFF !important;
     font-family: "Roboto-Regular";
-    padding-top: 160px;
+    padding-top: 140px;
 }
+
 .container-fluid{
-  max-width: 1380px !important;
+  max-width: 1290px !important;
 }
 .absolute-element{
   position: absolute;
@@ -89,6 +90,171 @@ form h2 {
   margin-left: 5px;
 }
 
+
+.css-selector {
+  background: linear-gradient(134deg, #eefaffd6, #ecfef642);
+  background-size: 600% 600%;
+  animation: AnimationName 1s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 91%}
+  50%{background-position:100% 10%}
+  100%{background-position:0% 91%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 91%}
+  50%{background-position:100% 10%}
+  100%{background-position:0% 91%}
+}
+@-o-keyframes AnimationName {
+  0%{background-position:0% 91%}
+  50%{background-position:100% 10%}
+  100%{background-position:0% 91%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 91%}
+  50%{background-position:100% 10%}
+  100%{background-position:0% 91%}
+}
+.header_container_logo .content_image{
+  height: 40px;
+  width: auto;
+  margin-left: -40px;
+}
+.header_container_logo .content_image a{
+  width: 100%;
+  height: 100%;
+}
+.header_container_logo .content_image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*new*/
+.card-emploie{
+  border: 1px solid #d5dbe4;
+  padding: 30px 20px;
+  margin-bottom: 30px;
+  text-align: left;
+  border-radius: 14px;
+}
+.card-emploie:hover {
+  box-shadow: 1px 1px #d7d7d7;
+}
+.card-emploie .content-img{
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+.card-emploie .content-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-emploie .name-company{
+  color: #6b6e6f;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.card-emploie .name-job{
+  color: #123455;
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-family: "Roboto-Medium";
+}
+.card-emploie .content-element{
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+.card-emploie .content-element p{
+  font-size: 14px;
+}
+.card-emploie .content-localisation{
+  background: #1ac4a226;
+  color: #1ac4a2;
+}
+.card-emploie .type-job{
+  background: #7862f324;
+  color: #7862f3;
+  margin: 0 10px;
+}
+.card-emploie .categorie-content{
+  background: #007bff26;
+  color: #007bff;
+}
+.card-emploie .description-job{
+  color: #6b6e6f !important;
+  font-size: 17px;
+  margin: 20px 0 25px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-align: left;
+  text-transform: capitalize;
+}
+.card-emploie .btn-apply-job{
+  background: #1ac4a2;
+  color: white;
+  padding: 8px 20px;
+  font-size: 17px;
+  margin-right: 30px;
+  font-family: "Roboto-Medium";
+}
+.card-emploie .btn-view-job{
+  color: #123455;
+  padding: 8px 20px;
+  font-size: 15px;
+  border: 1px solid #123455;
+}
+.new-absolute-element{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.row_job{
+  display: flex;
+  flex-wrap: wrap;
+  width: 67% !important;
+  margin-left: 5% !important;
+  margin-right: 0% !important;
+}
+.row_job[_ngcontent-wlf-c64] {
+
+}
+
+
+.modal-body form .form-group{
+  display: grid;
+}
+.modal-body form .form-group label {
+  color: #202124;
+}
+.modal-body form .form-group input {
+  padding: 10px;
+  border: 1px solid #043356;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+.modal-body form .remember {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.modal-body form .remember_me span{
+  color: #696969;
+  font-size: 15px;
+  margin-left: 6px;
+}
+.modal-body form .forget-passwoord a{
+  color: #202124;
+  font-size: 16px;
+}
 
 @media all and (min-width: 300px) and (max-width: 767px){
   .search_about .categorie {

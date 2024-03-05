@@ -13,7 +13,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   showButton = true;
   userConnect:any;
   applicant:any;
-
+  searchTitle:String="";
   constructor(private homeService:HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
@@ -29,6 +29,8 @@ export class AppicantsAllCompagnyComponent implements OnInit {
    }
     this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
       this.applicant=data
+      console.log(this.applicant);
+      
      })
   }
 
@@ -39,6 +41,17 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   fermerSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = true;
+  }
+
+  get filteredApplicant() {
+    if (this.searchTitle.trim() !== '' ) {
+      return this.applicant.filter((applicant:any) => {
+        const titleMatch = this.searchTitle.trim() === '' || applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
+        return titleMatch;
+      });
+    } else {
+      return this.applicant;
+    }
   }
 
 }
