@@ -249,6 +249,9 @@
     border: 1px solid red;
    padding: 8px 9px;
  } */
+ .description_job .all_info{
+    display: flex;
+ }
  .description_job .time .content_time{
     background-color: #F0F5F7;
     border-radius: 60px;

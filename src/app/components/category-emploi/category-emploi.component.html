@@ -6,7 +6,7 @@
             <div class="content-img">
               <img [src]="categorie.company.logo" alt="Job Image">
             </div>
-            <p class="name-company">Alakham</p>
+            <p class="name-company">{{categorie.company.title}}</p>
             <p class="name-job">{{categorie.title}}</p>
             <div class="d-flex align-items-center">
               <div class="content-element content-localisation d-flex align-items-center">
@@ -22,7 +22,7 @@
                 <p class="text-categori mb-0">Design</p>
               </div>
             </div>
-            <p class="description-job">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedLorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p class="description-job">{{categorie.description |slice:0:20}}</p>
             <div class="content-footer-card align-items-center">
               <button class="btn btn-apply-job" data-toggle="modal" data-target="#modal-apply">Apply Now</button>
               <a [routerLink]="['/detail-job',categorie.ID]" class="btn btn-view-job">View Details</a>

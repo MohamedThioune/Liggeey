@@ -39,10 +39,10 @@
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 ">
-                <label for="name"> Est. Since  <span class="important">*</span>
+                <label for="name"> Sector  <span class="important">*</span>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="name" value="5 Years" class="form-control" id="" placeholder="5-10 Years">
+                  <input type="text" name="name" value="{{profil.sector}}" class="form-control" id="" placeholder="Informatic">
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 ">
@@ -69,10 +69,11 @@
             </div>
 
           </div>
-
+          <!--
           <div class="card-footer">
             <button class="btn btn-outline-secondary create " type="submit"> Save </button>
           </div>
+          -->
         </form>
       </div>
       <div class="applicants">
@@ -80,7 +81,9 @@
           <h2 class="sub-title-page">About Company</h2>
           <p>{{profil.biography}}
           </p>
+          <!--
           <a class="btn" routerLink="" routerLinkActive="active_lien_navbar">Save</a>
+          -->
         </div>
       </div>
     </div>
@@ -115,18 +118,20 @@
               </div>
             </div>
             <div class="col-md-6 col-sm-6 ">
-              <label for="firstName">Google Plus
+              <label for="firstName">Instagram
                 <p>*</p>
               </label>
               <div class="input-group">
-                <input type="text" value="{{profil.linkedin}}" name="google" class="form-control" id="google" placeholder="">
+                <input type="text" value="{{profil.instagram}}" name="google" class="form-control" id="google" placeholder="">
               </div>
             </div>
           </div>
         </div>
+        <!--
         <div class="card-footer p-3  ">
           <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>
         </div>
+        -->
         <div class="clear"></div><br />
       </form>
     </div>
@@ -172,10 +177,11 @@
             </div>
           </div>
         </div>
-
+        <!--
         <div class="card-footer p-3  ">
           <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>
         </div>
+        -->
       </form>
     </div>
   </div>
