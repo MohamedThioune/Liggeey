@@ -58,7 +58,7 @@
         </div>
         <div class="items_job">
           <ul class="row">
-            <li class="col-md-6" id="jobTitle"  *ngFor="let item of filteredJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+            <li class="col-md-6" id="jobTitle"  *ngFor="let item of category | paginate: { itemsPerPage: 6, currentPage: p }">
               <div class="job_list_1" [routerLink]="['/detail-job',item.ID]">
                 <div class="content_job_list_1">
                   <div class="logo">
