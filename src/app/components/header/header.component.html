@@ -408,7 +408,7 @@
 <div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div *ngIf="showLoginBlock" class="block-login">
+      <div *ngIf="!userConnect" class="block-login">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Login to Liggeey</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -458,7 +458,7 @@
           </form>
         </div>
       </div>
-      <div *ngIf="!showLoginBlock" class="block-apply">
+      <div *ngIf="userConnect" class="block-apply">
         <div class="modal-header">
           <h5 class="modal-title" id="">Apply to this webdesigner Job</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
