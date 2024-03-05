@@ -40,7 +40,7 @@
                     </clipPath>
                   </defs>
                 </svg>
-                <p>{{job.posted_at}}</p>
+                <p>{{job.duration}}</p>
               </span>
             </div>
             <div class="all_info">
@@ -81,8 +81,8 @@
           <div class="job_description">
             <p>Job Description</p>
             <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedLorem Ipsum is simply dummy text of the printing and typesetting industry.
-              <!--  {{job.description}}-->
+            <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedLorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+               {{job.description}}
             </p>
           </div>
           <div class="key">
@@ -372,7 +372,7 @@
                 <div class="date">
                   <p>Date Posted:
                     </p>
-                    <span>{{job.posted_at}}</span>
+                    <span>{{job.duration}}</span>
                 </div>
               </div>
               <div class="calendrier">
@@ -475,6 +475,7 @@
                   <span>Company size:</span>
                   <p>{{job.company.size}}</p>
                 </div>
+                <!--
                 <div class="inner_1">
                   <span>Founded in:</span>
                   <p>2011</p>
@@ -483,13 +484,14 @@
                   <span>Phone:</span>
                   <p>123 456 7890</p>
                 </div>
+                -->
                 <div class="inner_1">
                   <span>Email:</span>
-                  <p>info@joio.com</p>
+                  <p>{{job.company.email}}</p>
                 </div>
                 <div class="inner_1">
                   <span> Location:</span>
-                  <p>London, UK</p>
+                  <p>{{job.company.place}}</p>
                 </div>
                 <div class="inner_1">
                   <span> Social media:</span>
@@ -500,8 +502,8 @@
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                   </p>
                 </div>
-                  <a [href]="job.website">
-                    www.invisionapp.com
+                  <a [href]="job.company.website">
+                    {{job.company.website}}
                   </a>
               </div>
             </div>

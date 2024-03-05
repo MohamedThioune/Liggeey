@@ -62,6 +62,9 @@ import { AppicantsAllCompagnyComponent } from './components/appicants-all-compag
 import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-candidat.component';
 import { SidebarCompanyComponent } from './components/sidebar-company/sidebar-company.component';
 import { CompagnyFavoriteCandidatComponent } from './components/compagny-favorite-candidat/compagny-favorite-candidat.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { FilterPipe } from './filter.pipe';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -121,6 +124,8 @@ import { CompagnyFavoriteCandidatComponent } from './components/compagny-favorit
     SidebarCandidatComponent,
     SidebarCompanyComponent,
     CompagnyFavoriteCandidatComponent,
+    LoaderComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -134,7 +139,9 @@ import { CompagnyFavoriteCandidatComponent } from './components/compagny-favorit
     NO_ERRORS_SCHEMA, // Ignorer les erreurs de schéma dans ce module
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

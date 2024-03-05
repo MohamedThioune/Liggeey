@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   candidate=false;
   compagny=false;
   identifiant:number | null = 0;
+  loading: boolean = true;
 
 
 
@@ -57,6 +58,8 @@ export class HeaderComponent implements OnInit {
     if (storedToken) {
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
+      this.loading=false
+console.log(this.loading);
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
@@ -73,6 +76,9 @@ export class HeaderComponent implements OnInit {
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
     })
+    // this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
+    //   this.category = data   
+    // })
 
   }
   @HostListener('window:resize', ['$event'])

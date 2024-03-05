@@ -265,5 +265,18 @@ ul li p{
     .jobs{
         display: none;
     }
+   .content-img-app-footer {
+     width: 100%;
+     margin: 0 auto;
+   }
+   .content-app-footer .description {
+     font-size: 15px;
+     width: 100%;
+     margin: 0 auto 35px;
+     color: #545454;
+     line-height: 27px;
+   }
+
+
 
  }
