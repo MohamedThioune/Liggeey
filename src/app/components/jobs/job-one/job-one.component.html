@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="color"></div>
     <h2>Find your dream job </h2>
-    
+
       <div class="search_about">
         <div class="keywords d-flex align-items-center ">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -311,7 +311,7 @@
                     <p class="text-categori mb-0">Design</p>
                   </div>
                 </div>
-                <p class="description-job">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedLorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p class="description-job">{{job.description}}</p>
                 <div class="content-footer-card align-items-center">
                   <button class="btn btn-apply-job" data-toggle="modal" data-target="#modal-apply">Apply Now</button>
                   <a [routerLink]="['/detail-job',item.ID]" class="btn btn-view-job">View Details</a>

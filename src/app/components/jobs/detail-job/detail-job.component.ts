@@ -52,7 +52,7 @@ calculateDuration() {
 
         const postedDate = new Date(this.job.posted_at);
 
-        if (!isNaN(postedDate.getTime())) { 
+        if (!isNaN(postedDate.getTime())) {
             const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
             const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
 
@@ -140,7 +140,7 @@ calculateDuration() {
       ToastNotification.open({
         type: 'error',
         message: "please log in first"
-      });        
+      });
       this.router.navigate(['/login']);
 
     }
@@ -149,17 +149,17 @@ calculateDuration() {
   ngOnChanges() {
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-  
+
       const postedDate = new Date(this.job.posted_at);
       console.log(postedDate);
-      
+
       if (!isNaN(postedDate.getTime())) { // Check if postedDate is a valid date
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
      //   element.posted_at = postedDateFormatted;
         const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
         const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-  
-     
+
+
         if (differenceInDays > 30) {
           const differenceInMonths = Math.floor(differenceInDays / 30);
           this.job.duration = differenceInMonths + ' month(s)';
@@ -167,8 +167,8 @@ calculateDuration() {
           this.job.duration = differenceInDays + ' day(s)';
         }
       }
-      
+
     }
-  
+
 
 }
