@@ -438,7 +438,8 @@ nav ul li span{
   position:absolute;
   top:30px;
   left:30px;
-  width:40px;height:40px;
+  width:40px;
+  height:40px;
 }
 .text-success-apply{
   font-size: 20px;
