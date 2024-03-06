@@ -51,7 +51,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 
-  
+
 
   { path: 'compagny-candidat/:id', component: CompagnyFavoriteCandidatComponent  ,canActivate: [AuthGuard]},
 
@@ -92,25 +92,25 @@ const routes: Routes = [
   { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'profil-candidat/:id', component: ProfilCandidatComponent,canActivate: [AuthGuard] },
-  
+
   { path: 'detail-job/:id', component: DetailJobComponent },
-  
+
   { path: 'detail-category/:id', component: CategorieComponent },
 
-  { path: 'list-candidat', component: ListCandidatesComponent ,canActivate: [AuthGuard]},
+  { path: 'list-candidat', component: ListCandidatesComponent },
 
   { path: 'applies-candidat/:id', component: AppliesJobsComponent },
 
   { path: 'sidebar', component: SidebarCandidatComponent },
-  
+
   { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
 
-  { path: 'detail-candidat/:id', component: DetailCandidatComponent,canActivate: [AuthGuard] },
-  
+  { path: 'detail-candidat/:id', component: DetailCandidatComponent },
+
   { path: 'detail-compagny', component: DetailCompagnyComponent },
 
   { path: 'detail-candidat/:id', component: DetailCandidatComponent },
-  
+
   { path: 'job', component: JobOneComponent },
 
   { path: 'dashboard-employer/:id', component: DashboardEmployerComponent,canActivate: [AuthGuard] },
@@ -124,7 +124,6 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
 
   { path: 'login', component: LoginComponent },
-
 
   { path: 'register', component: RegistrationComponent },
 

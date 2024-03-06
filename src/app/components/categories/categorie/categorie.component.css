@@ -329,6 +329,7 @@ input[type="text"]:focus {
    border-radius: 10px 10px 0px 0px;
    border: 1px solid rgba(0, 0, 0, 0.15);
    background: #FFF;
+  margin-bottom: 30px;
 }
 .card_article .content_image {
    text-align: center;

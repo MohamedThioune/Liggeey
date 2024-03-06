@@ -65,6 +65,8 @@ import { CompagnyFavoriteCandidatComponent } from './components/compagny-favorit
 import { LoaderComponent } from './components/loader/loader.component';
 import { FilterPipe } from './filter.pipe';
 import { DatePipe } from '@angular/common';
+import { AppMobileComponent } from './components/app-mobile/app-mobile.component';
+import { ScrollTopDirective } from './scroll-top.directive';
 
 @NgModule({
   declarations: [
@@ -126,6 +128,8 @@ import { DatePipe } from '@angular/common';
     CompagnyFavoriteCandidatComponent,
     LoaderComponent,
     FilterPipe,
+    AppMobileComponent,
+    ScrollTopDirective,
   ],
   imports: [
     BrowserModule,
