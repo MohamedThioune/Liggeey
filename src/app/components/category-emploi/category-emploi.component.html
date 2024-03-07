@@ -22,7 +22,7 @@
                 <p class="text-categori mb-0">Design</p>
               </div>
             </div>
-            <p class="description-job">{{categorie.description |slice:0:20}}</p>
+            <p class="description-job">{{categorie.description |slice:0:24}}</p>
             <div class="content-footer-card align-items-center">
               <button class="btn btn-apply-job" data-toggle="modal" data-target="#modal-apply">Apply Now</button>
               <a [routerLink]="['/detail-job',categorie.ID]" class="btn btn-view-job">View Details</a>

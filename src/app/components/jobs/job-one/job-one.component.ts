@@ -25,30 +25,18 @@ export class JobOneComponent implements OnInit {
   ngOnInit(): void {
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-    this.homeService.getInfoHomepage().subscribe((data:any)=>{
-      this.jobs=data.jobs
-      this.jobs.forEach((element:any) => {
-        const postedDate = new Date(element.posted_at);
-        const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
-        const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
-        const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+    this.homeService.getAllJob().subscribe((data:any)=>{
+      console.log(data);
+      
+      this.jobs=data
 
-
-        if (differenceInDays > 30) {
-          const differenceInMonths = Math.floor(differenceInDays / 30);
-          element.duration = differenceInMonths + ' month(s)';
-        } else {
-          element.duration = differenceInDays + ' day(s)';
-        }
-
-      });
     })
   }
   get filteredJobs() {
     if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
       return this.jobs.filter((job:any) => {
         const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
-        const placeMatch = this.searchLocation.trim() === '' || job.company.place.toLowerCase().includes(this.searchLocation.toLowerCase());
+        const placeMatch = this.searchLocation.trim() === '' || job.country.toLowerCase().includes(this.searchLocation.toLowerCase());
         return titleMatch && placeMatch;
       });
     } else {

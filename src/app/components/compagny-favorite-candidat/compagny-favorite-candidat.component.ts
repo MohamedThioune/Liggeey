@@ -13,6 +13,8 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   showButton = true;
   userConnect:any;
   applicants:any;
+  searchTitle:string="";
+  searchLocation:string="";
 
   constructor(private usagerService:UsagerService,private homeService:HomePageService) { }
 
@@ -39,5 +41,15 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   fermerSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = true;
+  }
+  get filteredJobs() {
+    if (this.searchTitle.trim() !== '' ) {
+      return this.applicants.filter((job:any) => {
+        const titleMatch = this.searchTitle.trim() === '' || job.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
+        return titleMatch;
+      });
+    } else {
+      return this.applicants;
+    }
   }
 }

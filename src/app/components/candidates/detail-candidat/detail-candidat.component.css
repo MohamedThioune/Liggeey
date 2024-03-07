@@ -53,6 +53,14 @@
     justify-content: space-between;
     align-items: flex-end;
  }
+ .content_job_list_1 .info_all .line{
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 20px;
+}
 .content_job_list_1  .info_all p{
     margin: 0;
  }
@@ -100,10 +108,14 @@
      padding: 5px 20px 5px 19px;
 
   }
-  .content_job_list_1 .all_info{
+  .content_job_list_1 .all_info {
      display: flex;
+     flex-wrap: wrap;
      justify-content: center;
   }
+  .content_job_list_1 .all_info .time{
+   margin: 5px;
+}
   .job_info{
     display: flex;
     align-items: center;
@@ -288,7 +300,7 @@ opacity: 0.15;
    padding: 30px 0 30px 41px;
 }
 
-.sidebar .center_sidebar .skills p:first-child{
+.sidebar .center_sidebar  p:first-child{
    color: #202124;
    font-size: 18px;
    font-weight: 600;
@@ -303,6 +315,20 @@ opacity: 0.15;
    font-size: 15px;
    font-weight: 500;
    margin-right: 15px;
+}
+.sidebar .center_sidebar .skill_first {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sidebar .center_sidebar .skills{
+   padding: 7px 15px 5px 15px;
+   align-items: flex-start;
+   border-radius: 4px;
+   background:  #FFF;
+   color: #696969;
+   font-size: 15px;
+   font-weight: 500;
+   margin: 10px !important;
 }
 .sidebar .bottom_sidebar{
    background-color: #F5F7FC;
@@ -349,8 +375,9 @@ opacity: 0.15;
       align-items: center;
    }
    .all_info {
+      border: 1px solid red;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       margin: 0;
