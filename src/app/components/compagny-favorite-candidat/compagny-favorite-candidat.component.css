@@ -117,7 +117,7 @@
     font-weight: 400;
     margin-right: 14px;
 }
-input[type="search"]:focus {
+input[type="text"]:focus {
     outline: none;
   }
 .input-group {
