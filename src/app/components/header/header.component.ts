@@ -1,6 +1,5 @@
 import { Component, OnInit,HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Usager } from 'src/app/interfaces/usager';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
@@ -18,8 +17,6 @@ export class HeaderComponent implements OnInit {
   candidate=false;
   compagny=false;
   identifiant:number | null = 0;
-  loading: boolean = true;
-
 
 
   showLoginBlock: boolean = true;
@@ -29,7 +26,7 @@ export class HeaderComponent implements OnInit {
   password: string = '';
 
   switchToApplyBlock() {
-   // this.showLoginBlock = false;
+    this.showLoginBlock = false;
     const user = {
       username: this.username,
       password: this.password
@@ -108,8 +105,6 @@ export class HeaderComponent implements OnInit {
     if (storedToken) {
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
-      this.loading=false
-console.log(this.loading);
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);

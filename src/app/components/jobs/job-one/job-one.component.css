@@ -265,6 +265,9 @@ input[type="text"]:focus {
    margin-left:5%;
    margin-right:5%
 }
+.row{
+   width: 100%;
+}
 .content_sidebar{
     border-radius: 8px;
     background-color: #F5F7FC;
