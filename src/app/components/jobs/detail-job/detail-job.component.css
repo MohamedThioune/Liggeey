@@ -352,12 +352,16 @@
    height: 100%;
    object-fit: contain;
 }
-.sidebar .top_sidebar .skills p:first-child{
+.sidebar .top_sidebar .skills_first {
+   display: flex;
+   flex-wrap: wrap;
+}
+.sidebar .top_sidebar .skill p:first-child{
    color: #202124;
    font-size: 18px;
    font-weight: 600;
 }
-.sidebar .top_sidebar .skills span{
+.sidebar .top_sidebar .skills{
    padding: 7px 20px 5px 20px;
    align-items: flex-start;
    border-radius: 4px;
@@ -365,7 +369,7 @@
    color: #696969;
    font-size: 15px;
    font-weight: 500;
-   margin-right: 15px;
+   margin: 5px !important;
 }
 .sidebar .center_sidebar{
    padding: 30px 30px;

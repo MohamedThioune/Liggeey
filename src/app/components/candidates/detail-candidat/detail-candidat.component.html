@@ -8,57 +8,51 @@
             </div>
           <div class="description_job">
             <h2>{{candidat.first_name}} {{candidat.last_name}}</h2>
-            <p class="profil">UI Designer</p>
+            <p class="profil">{{candidat.work_as}}</p>
           </div>
-          <div class="info_all">
-            <div class="all_info">
-                <div class="time">
-                    <div class="content_time">
-                    <p>App</p>
-                    </div>
+          <div class="info_all" >
+           <div class="line">
+              <div class="info">
+                <span class="info_item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
+                    <path d="M6.49973 0C2.91572 0 0 2.91611 0 6.50051C0 9.06172 1.07228 11.6525 3.10093 13.9927C4.61613 15.7407 6.11772 16.731 6.18096 16.7723C6.27777 16.8356 6.38879 16.8673 6.49981 16.8673C6.61075 16.8673 6.72177 16.8356 6.81865 16.7723C6.88181 16.731 8.38364 15.7407 9.89884 13.9928C11.9276 11.6525 13 9.06172 13 6.50051C12.9999 2.91611 10.0839 0 6.49973 0ZM6.49973 15.5691C5.30431 14.6783 1.16535 11.25 1.16535 6.50051C1.16535 3.55868 3.55829 1.16535 6.49973 1.16535C9.44139 1.16535 11.8346 3.55868 11.8346 6.50051C11.8346 11.25 7.69523 14.6783 6.49973 15.5691Z" fill="#696969"/>
+                    <path d="M6.50007 3.91943C5.07756 3.91943 3.92029 5.07679 3.92029 6.49945C3.92029 7.92173 5.07756 9.07885 6.50007 9.07885C7.92258 9.07885 9.07978 7.92173 9.07978 6.49945C9.07978 5.07686 7.92251 3.91943 6.50007 3.91943ZM6.50007 7.91349C5.72014 7.91349 5.08564 7.27915 5.08564 6.49945C5.08564 5.71936 5.72014 5.08479 6.50007 5.08479C7.27993 5.08479 7.91443 5.71936 7.91443 6.49945C7.91443 7.27915 7.27993 7.91349 6.50007 7.91349Z" fill="#696969"/>
+                    </svg>
+                    <p>{{candidat.country}}</p>
+                </span>
+                <span class="info_item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <g clip-path="url(#clip0_3074_584)">
+                        <path d="M12.8033 2.19668C11.3867 0.780147 9.50332 0 7.5 0C5.49668 0 3.61327 0.780147 2.19668 2.19668C0.780147 3.61327 0 5.49668 0 7.5C0 9.50332 0.780147 11.3867 2.19668 12.8033C3.61327 14.2199 5.49668 15 7.5 15C8.87147 15 10.2134 14.6263 11.3807 13.9192C11.6575 13.7515 11.746 13.3912 11.5783 13.1144C11.4107 12.8376 11.0503 12.7492 10.7736 12.9168C9.78935 13.513 8.65737 13.8281 7.5 13.8281C4.01065 13.8281 1.17188 10.9893 1.17188 7.5C1.17188 4.01065 4.01065 1.17188 7.5 1.17188C10.9893 1.17188 13.8281 4.01065 13.8281 7.5C13.8281 8.74772 13.4571 9.96223 12.7551 11.0123C12.5752 11.2813 12.6475 11.6452 12.9165 11.825C13.1856 12.0049 13.5494 11.9326 13.7293 11.6636C14.5606 10.4201 15 8.9804 15 7.5C15 5.49668 14.2199 3.61327 12.8033 2.19668Z" fill="#696969"/>
+                        <path d="M7.50001 2.22656C7.1764 2.22656 6.91407 2.48889 6.91407 2.8125V7.25731L4.7655 9.40588C4.53666 9.63469 4.53666 10.0057 4.7655 10.2345C4.8799 10.3489 5.02985 10.4061 5.17982 10.4061C5.32979 10.4061 5.47973 10.3489 5.59413 10.2345L7.91432 7.91432C8.02422 7.80445 8.08594 7.65539 8.08594 7.5V2.8125C8.08594 2.48889 7.82362 2.22656 7.50001 2.22656Z" fill="#696969"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_3074_584">
+                        <rect width="15" height="15" fill="white"/>
+                        </clipPath>
+                    </defs>
+                    </svg>
+                    <p>Member Since,{{candidat.member_since}}</p>
+                </span>
+              </div>
+              <div class="job_info">
+                <a class="btn" routerLink="" routerLinkActive="active_lien_navbar"> Download CV </a>
+                <div class="bookmark">
+                  <button>
+                    <i class="fa fa-bookmark"></i>
+                  </button>
                 </div>
-                <div class="time">
-                    <div class="content_time">
-                    <p>Design</p>
-                    </div>
-                </div>
-                <div class="time">
-                    <div class="content_time">
-                    <p>Digital</p>
-                    </div>
-                </div>
-            </div>
-            <div class="info">
-              <span class="info_item">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17" fill="none">
-                  <path d="M6.49973 0C2.91572 0 0 2.91611 0 6.50051C0 9.06172 1.07228 11.6525 3.10093 13.9927C4.61613 15.7407 6.11772 16.731 6.18096 16.7723C6.27777 16.8356 6.38879 16.8673 6.49981 16.8673C6.61075 16.8673 6.72177 16.8356 6.81865 16.7723C6.88181 16.731 8.38364 15.7407 9.89884 13.9928C11.9276 11.6525 13 9.06172 13 6.50051C12.9999 2.91611 10.0839 0 6.49973 0ZM6.49973 15.5691C5.30431 14.6783 1.16535 11.25 1.16535 6.50051C1.16535 3.55868 3.55829 1.16535 6.49973 1.16535C9.44139 1.16535 11.8346 3.55868 11.8346 6.50051C11.8346 11.25 7.69523 14.6783 6.49973 15.5691Z" fill="#696969"/>
-                  <path d="M6.50007 3.91943C5.07756 3.91943 3.92029 5.07679 3.92029 6.49945C3.92029 7.92173 5.07756 9.07885 6.50007 9.07885C7.92258 9.07885 9.07978 7.92173 9.07978 6.49945C9.07978 5.07686 7.92251 3.91943 6.50007 3.91943ZM6.50007 7.91349C5.72014 7.91349 5.08564 7.27915 5.08564 6.49945C5.08564 5.71936 5.72014 5.08479 6.50007 5.08479C7.27993 5.08479 7.91443 5.71936 7.91443 6.49945C7.91443 7.27915 7.27993 7.91349 6.50007 7.91349Z" fill="#696969"/>
-                  </svg>
-                  <p>{{candidat.country}}</p>
-              </span>
-              <span class="info_item">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                  <g clip-path="url(#clip0_3074_584)">
-                      <path d="M12.8033 2.19668C11.3867 0.780147 9.50332 0 7.5 0C5.49668 0 3.61327 0.780147 2.19668 2.19668C0.780147 3.61327 0 5.49668 0 7.5C0 9.50332 0.780147 11.3867 2.19668 12.8033C3.61327 14.2199 5.49668 15 7.5 15C8.87147 15 10.2134 14.6263 11.3807 13.9192C11.6575 13.7515 11.746 13.3912 11.5783 13.1144C11.4107 12.8376 11.0503 12.7492 10.7736 12.9168C9.78935 13.513 8.65737 13.8281 7.5 13.8281C4.01065 13.8281 1.17188 10.9893 1.17188 7.5C1.17188 4.01065 4.01065 1.17188 7.5 1.17188C10.9893 1.17188 13.8281 4.01065 13.8281 7.5C13.8281 8.74772 13.4571 9.96223 12.7551 11.0123C12.5752 11.2813 12.6475 11.6452 12.9165 11.825C13.1856 12.0049 13.5494 11.9326 13.7293 11.6636C14.5606 10.4201 15 8.9804 15 7.5C15 5.49668 14.2199 3.61327 12.8033 2.19668Z" fill="#696969"/>
-                      <path d="M7.50001 2.22656C7.1764 2.22656 6.91407 2.48889 6.91407 2.8125V7.25731L4.7655 9.40588C4.53666 9.63469 4.53666 10.0057 4.7655 10.2345C4.8799 10.3489 5.02985 10.4061 5.17982 10.4061C5.32979 10.4061 5.47973 10.3489 5.59413 10.2345L7.91432 7.91432C8.02422 7.80445 8.08594 7.65539 8.08594 7.5V2.8125C8.08594 2.48889 7.82362 2.22656 7.50001 2.22656Z" fill="#696969"/>
-                  </g>
-                  <defs>
-                      <clipPath id="clip0_3074_584">
-                      <rect width="15" height="15" fill="white"/>
-                      </clipPath>
-                  </defs>
-                  </svg>
-                  <p>{{candidat.member_since}}</p>
-              </span>
-            </div>
-            <div class="job_info">
-              <a class="btn" routerLink="" routerLinkActive="active_lien_navbar"> Download CV </a>
-              <div class="bookmark">
-                <button>
-                  <i class="fa fa-bookmark"></i>
-                </button>
+              </div>
+           </div>
+           
+            <div class="all_info" >
+              <div class="time" *ngFor="let skill of candidat.skills">
+                  <div class="content_time">
+                    <p>{{skill.name}}</p>
+                  </div>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
@@ -70,27 +64,6 @@
             <div class="sidebar">
               <div class="top_sidebar">
                 <div class="overview">
-                  <p>Job Overview</p>
-                  <div class="calendrier">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <g clip-path="url(#clip0_2622_12257)">
-                        <path d="M17.7083 20H2.29172C1.02753 20 0 18.9725 0 17.7083V3.95831C0 2.69412 1.02753 1.66675 2.29172 1.66675H17.7083C18.9725 1.66675 20 2.69412 20 3.95831V17.7083C20 18.9725 18.9725 20 17.7083 20ZM2.29172 2.91675C1.71753 2.91675 1.25 3.38412 1.25 3.95831V17.7083C1.25 18.2825 1.71753 18.75 2.29172 18.75H17.7083C18.2825 18.75 18.75 18.2825 18.75 17.7083V3.95831C18.75 3.38412 18.2825 2.91675 17.7083 2.91675H2.29172Z" fill="#043356"/>
-                        <path d="M19.375 7.91675H0.625C0.279999 7.91675 0 7.63675 0 7.29175C0 6.94675 0.279999 6.66675 0.625 6.66675H19.375C19.72 6.66675 20 6.94675 20 7.29175C20 7.63675 19.72 7.91675 19.375 7.91675Z" fill="#043356"/>
-                        <path d="M4.79199 5C4.44699 5 4.16699 4.72 4.16699 4.375V0.625C4.16699 0.279999 4.44699 0 4.79199 0C5.13699 0 5.41699 0.279999 5.41699 0.625V4.375C5.41699 4.72 5.13699 5 4.79199 5Z" fill="#043356"/>
-                        <path d="M15.208 5C14.863 5 14.583 4.72 14.583 4.375V0.625C14.583 0.279999 14.863 0 15.208 0C15.553 0 15.833 0.279999 15.833 0.625V4.375C15.833 4.72 15.553 5 15.208 5Z" fill="#043356"/>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_2622_12257">
-                          <rect width="20" height="20" fill="white"/>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                    <div class="date">
-                      <p>Date Posted:
-                        </p>
-                        <span>Posted 1 hours ago</span>
-                    </div>
-                  </div>
                   <div class="calendrier">
                     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                       <g clip-path="url(#clip0_2622_12252)">
@@ -147,10 +120,16 @@
                         </clipPath>
                       </defs>
                     </svg>
-                    <div class="date" *ngFor="let language of candidat.language">
+                    <div class="langage">
                       <p>Language</p>
-                      <span>{{language}}</span>
+                      <div class="d-flex">
+                        <div class="date" style="display: flex; margin-right:10px" *ngFor="let language of candidat.language">
+                          <span>{{language}}</span>
+                        </div>
+                      </div>
+                      
                     </div>
+                    
                   </div>
                   <div class="calendrier">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
@@ -176,16 +155,16 @@
                     <div class="inner_1">
                       <span> Social media</span>
                       <p class="social">
-                        <a style="text-decoration: none;color:#696969" href="https://www.linkedin.com/in/oumy-ndiaye-" target="_blank">
+                        <a style="text-decoration: none;color:#696969" [href]="candidat.social_network.facebook" target="_blank">
                           <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
-                        <a style="text-decoration: none;color:#696969" href="https://www.linkedin.com/in/oumy-ndiaye-" target="_blank">
+                        <a style="text-decoration: none;color:#696969" [href]="candidat.social_network.twitter" target="_blank">
                           <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
-                        <a style="text-decoration: none;color:#696969" href="https://www.linkedin.com/in/oumy-ndiaye-" target="_blank">
+                        <a style="text-decoration: none;color:#696969" [href]="candidat.social_network.instagram" target="_blank">
                           <i class="fa fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a style="text-decoration: none;color:#696969" href="https://www.linkedin.com/in/oumy-ndiaye-" target="_blank">
+                        <a style="text-decoration: none;color:#696969" [href]="candidat.social_network.linkedin" target="_blank">
                           <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                       </p>
@@ -195,17 +174,13 @@
               </div>
 
               <div class="center_sidebar">
-                <div class="skills">
-                  <p>Job Skills</p>
-                  <span>app</span>
-                  <span>administrative</span>
-                  <span>android</span>
-                  <br/>
-                  <br/>
-                  <span>wordpress</span>
-                  <span>design</span>
-                  <span>react</span>
+                <p>Job Skills</p>
+                <div class="skill_first">
+                  <div class="skills" *ngFor="let skill of candidat.skills">
+                    <span>{{skill.name}}</span>
+                  </div>
                 </div>
+               
               </div>
 
             </div>

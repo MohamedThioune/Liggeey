@@ -283,24 +283,23 @@
                       </div>
               </div>
           </div>
-          <ul class="row" [class.row]="isClass1Visible" [class.row_job]="!isClass1Visible">
-            <li class="col-md-4" [class.col-md-4]="isClass1Visible" [class.col-md-6]="!isClass1Visible" *ngFor="let item of filteredJobs | paginate: { itemsPerPage: 6, currentPage: p }">
-
+          <ul class="row">
+            <li class="col-md-4" *ngFor="let itemJob of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }">
               <div class="card-emploie position-relative">
                 <div class="content-img">
-                  <img [src]="item.company.logo" alt="Job Image">
+                  <img [src]=itemJob.image alt="Job Image">
                 </div>
                 <!--<div class="bookmark new-absolute-element" [class.bookmark]="isClass1Visible" [class.bookmark_hidden]="!isClass1Visible">
                   <button>
                     <i class="fa fa-bookmark"></i>
                   </button>
                 </div>-->
-                <p class="name-company">Alakham</p>
-                <p class="name-job">{{item.title}}</p>
+                <p class="name-company">{{itemJob.company}}</p>
+                <p class="name-job">{{itemJob.title}}</p>
                 <div class="d-flex align-items-center">
                   <div class="content-element content-localisation d-flex align-items-center">
                     <i class='fa fa-map-marker mr-1'></i>
-                    <p class="localisation-job mb-0">{{item.company.place}} </p>
+                    <p class="localisation-job mb-0">{{itemJob.country}} </p>
                   </div>
                   <div class="content-element type-job d-flex align-items-center">
                     <i class='fa fa-clock-o mr-1'></i>
@@ -311,16 +310,11 @@
                     <p class="text-categori mb-0">Design</p>
                   </div>
                 </div>
-                <p class="description-job">{{job.description}}</p>
                 <div class="content-footer-card align-items-center">
                   <button class="btn btn-apply-job" data-toggle="modal" data-target="#modal-apply">Apply Now</button>
-                  <a [routerLink]="['/detail-job',item.ID]" class="btn btn-view-job">View Details</a>
+                  <a [routerLink]="['/detail-job',itemJob.ID]" class="btn btn-view-job">View Details</a>
                 </div>
               </div>
-
-
-
-
             </li>
           </ul>
         </div>

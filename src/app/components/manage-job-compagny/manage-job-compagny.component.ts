@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageService } from 'src/app/services/home-page.service';
-import { UsagerService } from 'src/app/services/usager.service';
+import { UsagerService } from 'src/app//services/usager.service';
 
 @Component({
   selector: 'app-manage-job-compagny',

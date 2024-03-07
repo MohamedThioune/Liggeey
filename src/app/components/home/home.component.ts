@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
   userConnect:any;
   candidate=false;
   compagny=false;
-  isLoading: boolean = true;
   searchTitle:string="";
 
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
@@ -35,13 +34,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
-      this.candidates=data.candidates
-      console.log(this.candidates);
-      
+      this.candidates=data.candidates      
       this.article=data.artikels
-      this.currentCategories=data.jobs  
-      console.log(data.jobs);
-      
+      this.currentCategories=data.jobs        
       this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)                      
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[0].short_description =   this.article[0].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -49,9 +44,6 @@ export class HomeComponent implements OnInit {
       this.article[1].short_description =   this.article[1].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[2].short_description =   this.article[2].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[2].post_title =   this.article[2].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      setTimeout(() => {
-        this.isLoading = false; // Cela masquera le loader
-      },2000); // Délai de 2 secondes (ajustez selon vos besoins)
     })
     
     this.homeService.getCategories().subscribe((data:any)=>{
