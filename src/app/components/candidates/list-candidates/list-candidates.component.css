@@ -75,7 +75,6 @@ input[type="search"]:focus {
 }
 .featured{
     display: flex;
-    flex-direction: column;
 }
 
 .featured .browser{
@@ -180,6 +179,27 @@ input[type="search"]:focus {
     padding: 15px 56px 14px 56px;
     border-radius: 8px;
 }
+/* Style pour le conteneur du select */
+.input-group {
+    margin-bottom: 15px; /* Marge en bas pour l'espacement */
+  }
+  
+
+  
+  /* Style pour les options du select */
+  .fieldSelect option {
+    padding: 8px; /* Espacement intérieur */
+    color: #202124;
+    font-size: 30px;
+    font-weight: bold;
+    color: #043356;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 10px;
+    padding: 15px 56px 14px 56px;
+    border-radius: 8px;
+  }
+  
 .location_candidat p{
     color: #696969;
     font-size: 14px;

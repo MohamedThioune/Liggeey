@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +25,55 @@ export class HeaderComponent implements OnInit {
   showSecondStep: boolean = false;
   username: string = '';
   password: string = '';
+  job:any;
+  applyJobs=false;
+  message: any = {
+    type: '',
+    message: ''
+  };
+  selectedFileName: string | undefined;
+  isModalVisible: boolean = true; // Set to true initially to show the modal
 
+
+  constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router) {
+    this.isMobile = window.innerWidth < 768;
+
+  }
+
+  ngOnInit(): void {
+    // Récupération du token depuis le local storage
+    const storedToken = this.usagerService.getToken();
+    this.identifiant = +this.route.snapshot.params['id'];
+
+    if (storedToken) {
+                // Décodage de la base64
+      const decodedToken = atob(storedToken);
+
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+      if(this.userConnect.acf.is_liggeey == "candidate"){
+        this.candidate=true
+      } else if(this.userConnect.acf.is_liggeey == "chief"){
+        this.compagny=true
+        
+      }
+    }
+      this.homeService.getInfoHomepage().subscribe((data:any)=>{
+        this.categories=data.categories
+        console.log( this.categories);
+    })
+    this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
+      this.category = data
+    })
+    // this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
+    //   this.category = data   
+    // })
+
+  }
+  goBack(): void {
+    this.location.back();
+  }
+  
   switchToApplyBlock() {
     this.showLoginBlock = false;
     const user = {
@@ -49,14 +98,16 @@ export class HeaderComponent implements OnInit {
 
           // Parse du JSON pour obtenir l'objet original
           const userObject = JSON.parse(decodedToken);
-          if(userObject.acf.is_liggeey == "candidate"){          
-            this.router.navigate(['']);
+          if(userObject.acf.is_liggeey == "candidate"){      
+            this.userConnect=true     
+          } else if(userObject.acf.is_liggeey == "chief"){
+            this.userConnect=false;  
+            this.isModalVisible=false
+ 
             ToastNotification.open({
               type: 'success',
               message: "Thank you for logging in, your dashboard will be available soon"
             });
-          } else if(userObject.acf.is_liggeey == "chief"){          
-            this.router.navigate(['/dashboard-employer/',userObject.id]);
           }
         }else {
           console.log('noconnect');
@@ -75,6 +126,8 @@ export class HeaderComponent implements OnInit {
        
       });
   }
+
+
   goToSecondStep() {
     this.showFirstStep = false;
     this.showSecondStep = true;
@@ -83,49 +136,7 @@ export class HeaderComponent implements OnInit {
   goToFinalStep() {
     this.showSecondStep = false;
   }
-  job:any;
-  applyJobs=false;
-  message: any = {
-    type: '',
-    message: ''
-  };
-  selectedFileName: string | undefined;
-
-
-  constructor(private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router) {
-    this.isMobile = window.innerWidth < 768;
-
-  }
-
-  ngOnInit(): void {
-    // Récupération du token depuis le local storage
-    const storedToken = this.usagerService.getToken();
-    this.identifiant = +this.route.snapshot.params['id'];
-
-    if (storedToken) {
-                // Décodage de la base64
-      const decodedToken = atob(storedToken);
-
-      // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
-      if(this.userConnect.acf.is_liggeey == "candidate"){
-        this.candidate=true
-      } else if(this.userConnect.acf.is_liggeey == "chief"){
-        this.compagny=true
-      }
-    }
-      this.homeService.getInfoHomepage().subscribe((data:any)=>{
-        this.categories=data.categories
-        console.log( this.categories);
-    })
-    this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
-      this.category = data
-    })
-    // this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
-    //   this.category = data   
-    // })
-
-  }
+  
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {
     this.isMobile = window.innerWidth < 768;
