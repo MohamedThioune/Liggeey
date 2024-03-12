@@ -4,14 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { CoursesComponent } from './components/courses/courses.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FootersComponent } from './components/footers/footers.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AboutComponent } from './components/about/about.component';
 import { JobOneComponent } from './components/jobs/job-one/job-one.component';
 import { JobTwoComponent } from './components/job-two/job-two.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { CategoryEmploiComponent } from './components/category-emploi/category-emploi.component';
 import {SkillsFirstComponent} from "./components/skills-first/skills-first.component";
 import {OurAppsComponent} from "./components/our-apps/our-apps.component";
@@ -19,13 +16,12 @@ import { CategorieComponent } from './components/categories/categorie/categorie.
 import { DetailJobComponent } from './components/jobs/detail-job/detail-job.component';
 import { ListCandidatesComponent } from './components/candidates/list-candidates/list-candidates.component';
 import { DetailCandidatComponent } from './components/candidates/detail-candidat/detail-candidat.component';
-import { DashboardCandidatComponent } from './components/candidates/dashboard-candidat/dashboard-candidat.component';
-import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
-import { ProfilCandidatComponent } from './components/candidates/profil-candidat/profil-candidat.component';
-import { ResumeCandidatComponent } from './components/candidates/resume-candidat/resume-candidat.component';
+import { DashboardCandidatComponent } from './components/dashboard-candidat/dashboard-candidat.component';
+import { ProfilCandidatComponent } from './components/profil-candidat/profil-candidat.component';
+import { ResumeCandidatComponent } from './components/resume-candidat/resume-candidat.component';
 import { BlogComponent } from './components/blogs/blog/blog.component';
 import { DetailBlogComponent } from './components/blogs/detail-blog/detail-blog.component';
-import { AppliesJobsComponent } from './components/candidates/applies-jobs/applies-jobs.component';
+import { AppliesJobsComponent } from './components/applies-jobs/applies-jobs.component';
 import { SkillsCandidatComponent } from './components/skills-candidat/skills-candidat.component';
 import { CourseCandidatComponent } from './components/course-candidat/course-candidat.component';
 import { JobAlertCandidatComponent } from './components/job-alert-candidat/job-alert-candidat.component';
@@ -33,29 +29,33 @@ import { JobFavoriteCandidatComponent } from './components/job-favorite-candidat
 import { CvCandidatComponent } from './components/cv-candidat/cv-candidat.component';
 import { ChangePasswordCandidatComponent } from './components/change-password-candidat/change-password-candidat.component';
 import { DeleteProfilCandidatComponent } from './components/delete-profil-candidat/delete-profil-candidat.component';
-import { ListCompagnyComponent } from './components/compagnies/list-compagny/list-compagny.component';
-import { DetailCompagnyComponent } from './components/compagnies/detail-compagny/detail-compagny.component';
-import { ProfilCompagnyComponent } from './components/profil-compagny/profil-compagny.component';
-import { DeleteProfilCompagnyComponent } from './components/delete-profil-compagny/delete-profil-compagny.component';
-import { ChangePasswordCompagnyComponent } from './components/change-password-compagny/change-password-compagny.component';
-import { ResumeAlertCompagnyComponent } from './components/resume-alert-compagny/resume-alert-compagny.component';
-import { ManageJobCompagnyComponent } from './components/manage-job-compagny/manage-job-compagny.component';
-import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/post-new-job-compagny.component';
 import {ContactComponent} from "./components/contact/contact.component";
-import { PassportAllCandidatComponent } from './components/passport-all-candidat/passport-all-candidat.component';
-import { AppicantsAllCompagnyComponent } from './components/appicants-all-compagny/appicants-all-compagny.component';
 import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-candidat.component';
 import { SidebarCompanyComponent } from './components/sidebar-company/sidebar-company.component';
 import { CompagnyFavoriteCandidatComponent } from './components/compagny-favorite-candidat/compagny-favorite-candidat.component';
 import { AuthGuard } from './guards/auth.guard';
+import { HeaderComponent } from './components/header/header.component';
+import { FootersComponent } from './components/footers/footers.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AppicantsAllCompagnyComponent } from './components/appicants-all-compagny/appicants-all-compagny.component';
+import { PassportAllCandidatComponent } from './components/passport-all-candidat/passport-all-candidat.component';
+import { PostNewJobCompagnyComponent } from './components/post-new-job-compagny/post-new-job-compagny.component';
+import { ManageJobCompagnyComponent } from './components/manage-job-compagny/manage-job-compagny.component';
+import { ResumeAlertCompagnyComponent } from './components/resume-alert-compagny/resume-alert-compagny.component';
+import { ChangePasswordCompagnyComponent } from './components/change-password-compagny/change-password-compagny.component';
+import { DeleteProfilCompagnyComponent } from './components/delete-profil-compagny/delete-profil-compagny.component';
+import { ProfilCompagnyComponent } from './components/profil-compagny/profil-compagny.component';
+import { ListCompagnyComponent } from './components/compagnies/list-compagny/list-compagny.component';
+import { DetailCompagnyComponent } from './components/compagnies/detail-compagny/detail-compagny.component';
+import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
 
 const routes: Routes = [
 
+  { path: 'header', component: HeaderComponent },
 
+  { path: 'footers', component: FootersComponent },
 
-  { path: 'compagny-candidat/:id', component: CompagnyFavoriteCandidatComponent  ,canActivate: [AuthGuard]},
-
-  { path: 'side', component: SidebarCompanyComponent },
+  { path: 'footer', component: FooterComponent },
 
   { path: 'applicant-compagny/:id', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
 
@@ -74,6 +74,14 @@ const routes: Routes = [
   { path: 'profil-compagny/:id', component: ProfilCompagnyComponent ,canActivate: [AuthGuard]},
 
   { path: 'list-compagny', component: ListCompagnyComponent },
+
+  { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
+
+  { path: 'dashboard-employer/:id', component: DashboardEmployerComponent,canActivate: [AuthGuard] },
+
+  { path: 'compagny-candidat/:id', component: CompagnyFavoriteCandidatComponent  ,canActivate: [AuthGuard]},
+
+  { path: 'side', component: SidebarCompanyComponent },
 
   { path: 'delete-candidat/:id', component: DeleteProfilCandidatComponent ,canActivate: [AuthGuard]},
 
@@ -103,17 +111,9 @@ const routes: Routes = [
 
   { path: 'sidebar', component: SidebarCandidatComponent },
 
-  { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
-
-  { path: 'detail-candidat/:id', component: DetailCandidatComponent },
-
-  { path: 'detail-compagny', component: DetailCompagnyComponent },
-
   { path: 'detail-candidat/:id', component: DetailCandidatComponent },
 
   { path: 'job', component: JobOneComponent },
-
-  { path: 'dashboard-employer/:id', component: DashboardEmployerComponent,canActivate: [AuthGuard] },
 
  // { path: 'categorie', component: CategorieComponent },
 
@@ -129,13 +129,7 @@ const routes: Routes = [
 
   { path: 'courses', component: CoursesComponent },
 
-  { path: 'header', component: HeaderComponent },
-
-  { path: 'footers', component: FootersComponent },
-
   { path: 'emploi', component: CategoryEmploiComponent },
-
-  { path: 'footer', component: FooterComponent },
 
   { path: 'reset-password', component: ResetPasswordComponent },
 

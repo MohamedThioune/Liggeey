@@ -210,7 +210,7 @@ input[type="text"]:focus {
 }
 .categories .dropdown-menu{
   margin: 30px -44px;
-  padding: 23px 0px 20px 0px;
+  padding: 23px 0px 20px 50px;
   background-color: #FFF;
 }
 .categories .dropdown-menu a{
@@ -218,8 +218,16 @@ input[type="text"]:focus {
     font-size: 16px;
     font-weight: 600;
     color: #696969;
-
 }
+.categories .dropdown-menu a .content_image{
+ height: 24px;
+ width: 24px;
+}
+.categories .dropdown-menu a .content_image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+ }
 nav ul li span{
     font-size: 16px;
     font-weight: 400;
@@ -498,7 +506,7 @@ nav ul li span{
         margin: 0;
     }
     .dropdown-menu-right{
-        padding: 25px 0 25px 0;
+        padding: 25px 0 25px ;
       top: 29px !important;
       left: 13px !important;
     }

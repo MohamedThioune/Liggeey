@@ -85,24 +85,16 @@
                {{job.description}}
             </p>
           </div>
-         <!-- <div class="key">
+          <div class="key">
             <p>Key Responsibilities</p>
             <ul>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </li>
-              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </li>
+              <li>{{job.responsibilities}}</li>
             </ul>
-          </div>-->
-          <div class="skill" *ngFor="let skills of job.skills">
+          </div>
+          <div class="skill" *ngFor="let skill of job.skills_experiences">
             <p>Skill & Experience</p>
             <ul>
-              <li>You have at least 3 years’ experience working as a Product Designer.</li>
-              <li>You have at least 3 years’ experience working as a Product Designer.</li>
-              <li>You have at least 3 years’ experience working as a Product Designer.</li>
-              <li>You have at least 3 years’ experience working as a Product Designer.</li>
+              <li>{{skill.row}}.</li>
             </ul>
           </div>
           <div class="share">
@@ -205,18 +197,49 @@
                   <p>Hours: <span>Full Time </span></p>
                 </div>
               </div>
-
+              <!--
+              <div class="calendrier">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <g clip-path="url(#clip0_2622_12238)">
+                    <path d="M17.0711 2.92891C15.1823 1.0402 12.6711 0 10 0C7.32891 0 4.8177 1.0402 2.92891 2.92891C1.0402 4.8177 0 7.32891 0 10C0 12.6711 1.0402 15.1823 2.92891 17.0711C4.8177 18.9598 7.32891 20 10 20C11.8286 20 13.6179 19.5017 15.1743 18.5589C15.5433 18.3353 15.6613 17.8549 15.4377 17.4859C15.2142 17.1168 14.7338 16.9989 14.3648 17.2224C13.0525 18.0173 11.5432 18.4375 10 18.4375C5.34754 18.4375 1.5625 14.6525 1.5625 10C1.5625 5.34754 5.34754 1.5625 10 1.5625C14.6525 1.5625 18.4375 5.34754 18.4375 10C18.4375 11.6636 17.9428 13.283 17.0068 14.683C16.767 15.0417 16.8633 15.5269 17.222 15.7667C17.5807 16.0065 18.0659 15.9101 18.3057 15.5514C19.4141 13.8935 20 11.9739 20 10C20 7.32891 18.9598 4.8177 17.0711 2.92891Z" fill="#043356"/>
+                    <path d="M9.99985 2.96875C9.56836 2.96875 9.2186 3.31852 9.2186 3.75V9.67641L6.35384 12.5412C6.04872 12.8462 6.04872 13.3409 6.35384 13.646C6.50638 13.7986 6.7063 13.8748 6.90626 13.8748C7.10622 13.8748 7.30614 13.7986 7.45868 13.646L10.5523 10.5524C10.6988 10.4059 10.7811 10.2072 10.7811 10V3.75C10.7811 3.31852 10.4313 2.96875 9.99985 2.96875Z" fill="#043356"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2622_12238">
+                      <rect width="20" height="20" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="date">
+                  <p>Hours:</p>
+                  <span> 50h / week </span>
+                </div>
+              </div>
+            -->
             </div>
-            <div class="skills">
+            <!--
+            <div class="location">
+              <p>Job Location</p>
+              <div class="content_maps">
+                <img src="../../../assets/img/maps.png" alt="maps">
+                <svg style="position: absolute;top:40%;left:40%" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+                  <circle opacity="0.3" cx="25" cy="25" r="25" fill="#FF3365"/>
+                  <mask id="mask0_2622_12268" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="9" y="9" width="32" height="32">
+                    <circle cx="25" cy="25" r="16" fill="#043356"/>
+                  </mask>
+                  <g mask="url(#mask0_2622_12268)">
+                  </g>
+                </svg>
+              </div>
+            </div>
+            -->
+            <div class="skill">
               <p>Job Skills</p>
-              <span>app</span>
-              <span>administrative</span>
-              <span>android</span>
-              <br/>
-              <br/>
-              <span>wordpress</span>
-              <span>design</span>
-              <span>react</span>
+              <div class="skills_first" >
+                <div class="skills" *ngFor="let skil of job.skills">
+                  <span>{{skil.name}}</span>
+                </div>
+              </div>
             </div>
           </div>
           <div class="bottom_sidebar">
@@ -257,105 +280,47 @@
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                   </p>
                 </div>
-                  <a [href]="job.company.website">
-                    {{job.company.website}}
-                  </a>
+                <a [href]="job.company.website">
+                  {{job.company.website}}
+                </a>
               </div>
             </div>
           </div>
         </div>
-
       </div>
+
     </div>
     <div class="related_jobs">
       <div class="head">
         <span>Related Jobs</span>
-        <p>2024 jobs live - 293 added today.</p>
+        <p>2024 jobs live - 3 last job added .</p>
       </div>
-      <div class=" items_job">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card-emploie">
-              <div class="content-img">
-                <img src="../../../assets/img/person_3.png" alt="">
+      <div class="row">
+        <div *ngFor="let job of job.other_jobs" class="col-md-4">
+          <div class="card-emploie">
+            <div class="content-img">
+              <img src="../../../assets/img/person_3.png" alt="">
+            </div>
+            <p class="name-company">Alakham</p>
+            <p class="name-job">{{job.post_title}}</p>
+            <div class="d-flex align-items-center">
+              <div class="content-element content-localisation d-flex align-items-center">
+                <i class='fa fa-map-marker mr-1'></i>
+                <p class="localisation-job mb-0">Remote</p>
               </div>
-              <p class="name-company">Alakham</p>
-              <p class="name-job">Kelle Job</p>
-              <div class="d-flex align-items-center">
-                <div class="content-element content-localisation d-flex align-items-center">
-                  <i class='fa fa-map-marker mr-1'></i>
-                  <p class="localisation-job mb-0">Remote</p>
-                </div>
-                <div class="content-element type-job d-flex align-items-center">
-                  <i class='fa fa-clock-o mr-1'></i>
-                  <p class="job-type-text mb-0">Full Time</p>
-                </div>
-                <div class="content-element categorie-content d-flex align-items-center">
-                  <i class='fa fa-list-alt mr-1'></i>
-                  <p class="text-categori mb-0">Design</p>
-                </div>
+              <div class="content-element type-job d-flex align-items-center">
+                <i class='fa fa-clock-o mr-1'></i>
+                <p class="job-type-text mb-0">Full Time</p>
               </div>
-              <p class="description-job">Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform.</p>
-              <div class="content-footer-card align-items-center">
-                <button class="btn btn-apply-job">Apply Now</button>
-                <a href="" class="btn btn-view-job">View Details</a>
+              <div class="content-element categorie-content d-flex align-items-center">
+                <i class='fa fa-list-alt mr-1'></i>
+                <p class="text-categori mb-0">Design</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-emploie">
-              <div class="content-img">
-                <img src="../../../assets/img/person_3.png" alt="">
-              </div>
-              <p class="name-company">Alakham</p>
-              <p class="name-job">Kelle Job</p>
-              <div class="d-flex align-items-center">
-                <div class="content-element content-localisation d-flex align-items-center">
-                  <i class='fa fa-map-marker mr-1'></i>
-                  <p class="localisation-job mb-0">Remote</p>
-                </div>
-                <div class="content-element type-job d-flex align-items-center">
-                  <i class='fa fa-clock-o mr-1'></i>
-                  <p class="job-type-text mb-0">Full Time</p>
-                </div>
-                <div class="content-element categorie-content d-flex align-items-center">
-                  <i class='fa fa-list-alt mr-1'></i>
-                  <p class="text-categori mb-0">Design</p>
-                </div>
-              </div>
-              <p class="description-job">Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform.</p>
-              <div class="content-footer-card align-items-center">
-                <button class="btn btn-apply-job">Apply Now</button>
-                <a href="" class="btn btn-view-job">View Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-emploie">
-              <div class="content-img">
-                <img src="../../../assets/img/person_3.png" alt="">
-              </div>
-              <p class="name-company">Alakham</p>
-              <p class="name-job">Kelle Job</p>
-              <div class="d-flex align-items-center">
-                <div class="content-element content-localisation d-flex align-items-center">
-                  <i class='fa fa-map-marker mr-1'></i>
-                  <p class="localisation-job mb-0">Remote</p>
-                </div>
-                <div class="content-element type-job d-flex align-items-center">
-                  <i class='fa fa-clock-o mr-1'></i>
-                  <p class="job-type-text mb-0">Full Time</p>
-                </div>
-                <div class="content-element categorie-content d-flex align-items-center">
-                  <i class='fa fa-list-alt mr-1'></i>
-                  <p class="text-categori mb-0">Design</p>
-                </div>
-              </div>
-              <p class="description-job">Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform.</p>
-              <div class="content-footer-card align-items-center">
-                <button class="btn btn-apply-job">Apply Now</button>
-                <a href="" class="btn btn-view-job">View Details</a>
-              </div>
+            <p class="description-job">Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform.</p>
+            <div class="content-footer-card align-items-center">
+              <button class="btn btn-apply-job">Apply Now</button>
+              <a href="" class="btn btn-view-job">View Details</a>
             </div>
           </div>
         </div>
@@ -365,3 +330,4 @@
   </div>
 </section>
 <app-footers></app-footers>
+

@@ -333,9 +333,15 @@ input[type="text"]:focus {
 }
 .card_article .content_image {
    text-align: center;
+   width: 388px;
+   height: 250px;
+   border-radius: 8px
+
 }
 .card_article .content_image img{
-   padding: 10px 11px ;
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
 }
 
 .articles .header_articles {

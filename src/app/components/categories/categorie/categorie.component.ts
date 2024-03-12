@@ -30,7 +30,6 @@ export class CategorieComponent implements OnInit {
   job:any;
   searchTitle: string = ''; // Variable pour stocker la valeur de recherche
   searchLocation:string ='';
-  isLoading: boolean = true;
   currentDate!: Date;
   sentDate: any;
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
@@ -40,9 +39,7 @@ export class CategorieComponent implements OnInit {
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
-      this.category = data  
-      console.log(this.category);
-      
+      this.category = data              
 
       this.category.jobs.forEach((element:any) => {
         const postedDate = new Date(element.posted_at);
@@ -58,16 +55,12 @@ export class CategorieComponent implements OnInit {
           element.duration = differenceInDays + ' day(s)';
         }
       });    
-      setTimeout(() => {
-        this.isLoading = false; // Cela masquera le loader
-      },2000); // Délai de 2 secondes (ajustez selon vos besoins)
+ 
                            
     })
-    this.homeService.getInfoHomepage().subscribe((data:any)=>{
-      this.categories=data.categories
-      this.candidates=data.candidates
-      this.artikels=data.artikels      
-      this.artikels.forEach((element:any) => {
+    this.homeService.getDetailCategory(this.identifiant).subscribe((data:any)=>{
+      this.category = data  
+      this.category.articles.forEach((element:any) => {
         element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
         element.post_title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       });

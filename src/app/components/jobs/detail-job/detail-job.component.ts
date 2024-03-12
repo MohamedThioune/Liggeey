@@ -42,6 +42,7 @@ export class DetailJobComponent implements OnInit {
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
         this.calculateDuration();
+        this.calculateDurationLastJob();
     });
 }
 
@@ -64,6 +65,26 @@ calculateDuration() {
             }
         }
     }
+}
+calculateDurationLastJob(){
+  this.currentDate = new Date();
+    this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
+      //this.job=this.job.other_jobs
+      this.job.other_jobs.forEach((element:any) => {
+        const postedDate = new Date(element.post_date);
+        const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
+        const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
+        const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+
+
+        if (differenceInDays > 30) {
+          const differenceInMonths = Math.floor(differenceInDays / 30);
+          element.duration = differenceInMonths + ' month(s)';
+        } else {
+          element.duration = differenceInDays + ' day(s)';
+        }
+
+      });
 }
   applyJob() {
     // Assurez-vous que this.userConnect et this.job sont définis

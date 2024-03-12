@@ -48,6 +48,7 @@
 
     <div class="block-commentaire">
       <p class="comment-title">Comment</p>
+      <!--
       <div class="one-comment d-flex">
         <div class="block-img-comment">
           <img src="../../../assets/img/person_5.png" />
@@ -64,12 +65,13 @@
           <p class="comment">Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement tantaneously eel valiantly petted this along across highhandedly much.</p>
         </div>
       </div>
-      <div class="one-comment d-flex">
+      -->
+      <div class="one-comment d-flex" *ngFor="let comment of article.comments">
         <div class="block-img-comment">
-          <img src="../../../assets/img/person_5.png" />
+          <img [src]=comment.comment_author_image />
         </div>
         <div class="position-relative detail-comment d-grid">
-          <p class="name-comment">Oscar Cafeo</p>
+          <p class="name-comment">{{comment.comment_author_name}}</p>
           <div class="rating-block d-flex">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -77,7 +79,7 @@
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
           </div>
-          <p class="comment">Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement tantaneously eel valiantly petted this along across highhandedly much.</p>
+          <p class="comment">{{comment.Feedback}}</p>
         </div>
       </div>
     </div>

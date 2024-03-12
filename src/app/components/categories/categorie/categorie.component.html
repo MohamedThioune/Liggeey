@@ -2,7 +2,7 @@
 <section class="image_menu_about">
     <div class="container-fluid">
       <div class="color"></div>
-        <h2>Category {{category.name}} </h2>
+        <h2>{{category.name}} </h2>
 
           <div class="search_about">
             <div class="keywords d-flex align-items-center ">
@@ -54,16 +54,16 @@
     <div class="container-fluid">
       <div class="most_jobs">
         <div class="header_popular_job">
-          <span>All Job posted for category {{category.name}}</span>
+          <span>All Job posted for {{category.name}}</span>
         </div>
         <div class="items_job">
           <ul class="row">
-            <li class="col-md-6" id="jobTitle"  *ngFor="let item of category | paginate: { itemsPerPage: 6, currentPage: p }">
+            <li class="col-md-6" id="jobTitle"  *ngFor="let item of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }">
               <div class="job_list_1" [routerLink]="['/detail-job',item.ID]">
                 <div class="content_job_list_1">
                   <div class="logo">
                     <span class="content_logo">
-                      <img [src]="item.company.logo" alt="Logo">
+                      <img [src]=item.company.logo alt="Logo">
                     </span>
                   </div>
                   <div class="description_job">
@@ -161,7 +161,7 @@
               <div class="candidate"  [routerLink]="['/detail-compagny',item.ID]">
                 <div class="content_candidate">
                   <div class="content_image_candidate">
-                    <img [src]="item.image" alt="">
+                    <img [src]="item.logo" alt="">
                   </div>
                   <div class="info_candidat">
                     <span class="name_candidat">{{item.title}}</span>
@@ -211,19 +211,19 @@
                 <div class="card-body">
                   <div class="date_comment">
                     <p class="date">
-                      August 31, 2021
+                      {{item.post_date}}
                     </p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
                       <circle cx="2.5" cy="2.5" r="2.5" fill="#696969"/>
                     </svg>
                     <p class="comment">
-                      12 Comment
+                      {{item.number_comments}} Comment(s)
                     </p>
                   </div>
                   <div class="tops">
                     <p>{{item.post_title | slice:0:40 }}</p>
                   </div>
-                  <p class="card-text">{{item.short_description  | slice:0:100}}
+                  <p class="card-text">{{item.short_description  | slice:0:90}}
                   </p>
                     <span class="read_more">
                       <a [routerLink]="['/detail-article',item.ID]">Read More
