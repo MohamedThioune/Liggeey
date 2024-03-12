@@ -6,7 +6,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M19.7722 18.6726L14.8912 13.7917C16.1044 12.3328 16.8354 10.4593 16.8354 8.41797C16.8354 3.77628 13.0592 0 8.41774 0C3.77617 0 0 3.77628 0 8.41797C0 13.0593 3.77617 16.8353 8.41774 16.8353C10.459 16.8353 12.3325 16.1045 13.7915 14.8912L18.6725 19.7722C18.8243 19.9241 19.0234 20 19.2224 20C19.4213 20 19.6204 19.9241 19.7723 19.7722C20.0759 19.4685 20.0759 18.9763 19.7722 18.6726ZM1.55517 8.41797C1.55517 4.63381 4.63369 1.55518 8.41774 1.55518C12.2017 1.55518 15.2801 4.63381 15.2801 8.41797C15.2801 12.2018 12.2017 15.2801 8.41774 15.2801C4.63369 15.2801 1.55517 12.2018 1.55517 8.41797Z" fill="#696969"/>
               </svg>
-              <input placeholder="By Resumes" type="search" name="" id="">
+              <input placeholder="By Name" [(ngModel)]="searchName" type="search" name="" id="">
             </div>
             <div class="limit"></div>
             <div class="location d-flex align-items-center ">
@@ -29,27 +29,61 @@
                     </clipPath>
                   </defs>
                 </svg>
-                <input placeholder="All Categories" type="search" name="" id="">
+                <input placeholder="All Categories" [(ngModel)]="searchCategori" type="search" name="" id="">
             </div>
             </div>
+            <!--
             <button class="btn" routerLinkActive="active_lien_navbar">Find Resume</button>
+            -->
           </div>
   </div>
 </section>
 <section class="featured_candidates">
     <div class="container-fluid">
-      <div class="featured">
+      <div class="row header_featured">
+        <div class="col-md-4 col-sm-6 p-2">
+          <div class="input-group">
+            <select class="form-control fieldSelect" id="gender" (change)="filterCandidatesByGender($event)">
+              <option>Candidate Gender</option>
+              <option *ngFor="let gender of tabGender">
+                {{gender}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 p-2">
+          <div class="input-group">
+            <select class="form-control fieldSelect" id="nature">
+              <option value="">Experience</option>
+              <option *ngFor="let experience of tabExperience">
+                {{experience}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 p-2">
+          <div class="input-group">
+            <select class="form-control fieldSelect" id="nature">
+              <option value="">Education Level</option>
+              <option *ngFor="let level of tabLevel">
+                {{level}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <!--
         <div class="header_featured">
           <span>Candidate Gender  </span>
           <span>Experience</span>
           <span>Education Level</span>
         </div>
+        -->
       </div>
       <div class="candidat_featured">
         <div class="row" style="margin-bottom: 100px;">
           <div class="col-md-4 item" *ngFor="let candidate of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }"  >
-              <div class="content_candidate">
-                <div class="content_image_candidate" [routerLink]="['/detail-candidat',candidate.ID]">
+              <div class="content_candidate" [routerLink]="['/detail-candidat',candidate.ID]">
+                <div class="content_image_candidate">
                   <img [src]=candidate.image alt="Image Of Candidate">
                 </div>
                 <div class="info_candidat">
@@ -67,7 +101,7 @@
                     <p>Design</p>
                     <p>Digital</p>
                   </div>
-                  <a class="btn" [routerLink]="['/register']" routerLinkActive="active_lien_navbar">Register Account</a>
+                  <a class="btn" [routerLink]="['/detail-candidat',candidate.ID]" routerLinkActive="active_lien_navbar">See Candidate</a>
                 </div>
               </div>
           </div>

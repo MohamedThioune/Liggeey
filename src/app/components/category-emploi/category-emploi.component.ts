@@ -1,6 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit,Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
+import { UsagerService } from 'src/app/services/usager.service';
 
 @Component({
   selector: 'app-category-emploi',
@@ -13,10 +15,31 @@ export class CategoryEmploiComponent implements OnInit {
   sentDate: any;
   p: number = 1;
   @Input() category: any;
-  
-  constructor(private homeService:HomePageService,private datePipe: DatePipe) { }
+  userConnect:any;
+  candidate=false;
+  compagny=false;
+  identifiant:number | null = 0;
+
+  constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) { }
 
   ngOnInit(): void {
+    // Récupération du token depuis le local storage
+    const storedToken = this.usagerService.getToken();
+    this.identifiant = +this.route.snapshot.params['id'];
+
+    if (storedToken) {
+                // Décodage de la base64
+      const decodedToken = atob(storedToken);
+
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+      if(this.userConnect.acf.is_liggeey == "candidate"){
+        this.candidate=true
+      } else if(this.userConnect.acf.is_liggeey == "chief"){
+        this.compagny=true
+        
+      }
+    }
   
   }
 
