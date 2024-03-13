@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
- @import "~font-awesome/css/font-awesome.css"; 
+ @import "~font-awesome/css/font-awesome.css";
 @import "~bootstrap/dist/css/bootstrap.css" ;
 @font-face {
     font-family: "Roboto-Light";
@@ -261,7 +261,13 @@ form h2 {
   color: #202124;
   font-size: 16px;
 }
-
+app-footers{
+  z-index: 99;
+  position: relative;
+}
+.col-50{
+  width: 48% !important;
+}
 
 @media all and (min-width: 300px) and (max-width: 767px){
   .search_about .categorie {
