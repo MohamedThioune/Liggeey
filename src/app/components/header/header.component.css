@@ -467,6 +467,73 @@ nav ul li span{
 .mobile-header{
   display: none;
 }
+
+.dropdown-modife{
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+  min-width: 333px;
+}
+.dropdown-modife svg {
+  margin-right: 10px;
+}
+
+.dropdown-modife .dropdown-toggle {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-modife .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.dropdown-modife .dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-modife .dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-modife .dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+.dropdown-user .dropdown-toggle {
+  background: none;
+}
+.dropdown-toggle::after {
+  display: none !important;
+}
+.dropdown-user .dropdown-menu{
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  left: -128px;
+  top: 52px;
+}
+.dropdown-user .dropdown-menu a {
+  margin-bottom: 0px;
+  padding: 11px 19px;
+}
+.dropdown-user .dropdown-menu a:hover {
+  background-color: #f0f0f0;
+  color: #1AC4A2 !important;
+}
+
 @media all and (min-width: 300px) and (max-width: 767px){
     header ul li a:hover{
         color :#1AC4A2;

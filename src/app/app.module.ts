@@ -63,6 +63,7 @@ import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-
 import { ProfilCandidatComponent } from './components/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/resume-candidat/resume-candidat.component';
 import { RouterModule } from '@angular/router';
+import { EditJobCompanyComponent } from './components/edit-job-company/edit-job-company.component';
 
 @NgModule({
   declarations: [
@@ -122,6 +123,7 @@ import { RouterModule } from '@angular/router';
     PassportAllCandidatComponent,
     ProfilCandidatComponent,
     ResumeCandidatComponent,
+    EditJobCompanyComponent,
 
   ],
   imports: [

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { HomePageService } from 'src/app/services/home-page.service';
 
 @Component({
   selector: 'app-profil-candidat',
@@ -15,10 +17,17 @@ export class ProfilCandidatComponent implements OnInit {
   form_profil!:FormGroup;
   form_social!:FormGroup;
   form_contact!:FormGroup;
-
-  constructor(private fb: FormBuilder) { }
+  identifiant:number | null = 0;
+  candidat:any
+  constructor(private fb: FormBuilder,private route : ActivatedRoute ,private HomePageService: HomePageService) { }
 
   ngOnInit(): void {
+    this.identifiant = +this.route.snapshot.params['id'];    
+    this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
+      this.candidat=data      
+      console.log(this.candidat);
+      
+    })
     this.form_profil = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password:['',[]],

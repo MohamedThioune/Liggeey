@@ -1,4 +1,4 @@
-import { Component, OnInit,HostListener } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
@@ -18,8 +18,6 @@ export class HeaderComponent implements OnInit {
   candidate=false;
   compagny=false;
   identifiant:number | null = 0;
-
-
   showLoginBlock: boolean = true;
   showFirstStep: boolean = true;
   showSecondStep: boolean = false;
@@ -27,6 +25,13 @@ export class HeaderComponent implements OnInit {
   password: string = '';
   job:any;
   applyJobs=false;
+
+
+  dropdownOpen: boolean = false;
+  dropdownUser: boolean = false;
+  selectedOption: string = '';
+
+
   message: any = {
     type: '',
     message: ''
@@ -35,10 +40,26 @@ export class HeaderComponent implements OnInit {
   isModalVisible: boolean = true; // Set to true initially to show the modal
 
 
-  constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router) {
+  constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef) {
     this.isMobile = window.innerWidth < 768;
-
+    this.dropdownOpen = false;
+    this.dropdownUser = false;
   }
+
+  toggleDropdown(): void {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+  toggleDropdownUser(): void {
+    this.dropdownUser = !this.dropdownUser;
+  }
+
+  selectOption(option: string): void {
+    this.selectedOption = option;
+    this.dropdownOpen = false;
+    this.dropdownUser = false;
+  }
+
+  
 
   ngOnInit(): void {
     // Récupération du token depuis le local storage
@@ -51,6 +72,8 @@ export class HeaderComponent implements OnInit {
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
+      console.log(this.userConnect);
+      
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
       } else if(this.userConnect.acf.is_liggeey == "chief"){
@@ -73,8 +96,6 @@ export class HeaderComponent implements OnInit {
     this.location.back();
   }
 
-
-  
   switchToApplyBlock() {
     this.showLoginBlock = false;
     const user = {
@@ -145,6 +166,15 @@ export class HeaderComponent implements OnInit {
     const files: FileList = event.target.files;
     if (files.length > 0) {
       this.selectedFileName = files[0].name;
+    }
+  }
+  @HostListener('document:click', ['$event'])
+  closeDropdown(event: MouseEvent): void {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.dropdownOpen = false;
+    }
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.dropdownUser = false;
     }
   }
 

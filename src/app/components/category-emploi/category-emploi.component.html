@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-md-4" *ngFor="let categorie of category | paginate: { itemsPerPage: 6, currentPage: p }" >
           <div class="card-emploie">
-            <div class="content-img">
+            <div class="content-img a">
               <img [src]="categorie.company.logo" alt="Job Image">
             </div>
             <p class="name-company">{{categorie.company.title}}</p>

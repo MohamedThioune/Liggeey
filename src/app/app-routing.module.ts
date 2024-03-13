@@ -48,6 +48,7 @@ import { ProfilCompagnyComponent } from './components/profil-compagny/profil-com
 import { ListCompagnyComponent } from './components/compagnies/list-compagny/list-compagny.component';
 import { DetailCompagnyComponent } from './components/compagnies/detail-compagny/detail-compagny.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
+import {EditJobCompanyComponent} from "./components/edit-job-company/edit-job-company.component";
 
 const routes: Routes = [
 
@@ -145,7 +146,11 @@ const routes: Routes = [
 
   { path: 'contact', component: ContactComponent },
 
-  { path:'',redirectTo: '/login', pathMatch: 'full'}
+  { path:'',redirectTo: '/login', pathMatch: 'full'},
+
+  { path: 'edit-job', component: EditJobCompanyComponent },
+
+
 ];
 
 

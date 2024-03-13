@@ -25,6 +25,9 @@ export class HomePageService {
   getDetailCandidate(id:number | null):Observable<any>{
       return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/candidate/detail/?id=${id}`,{});
   }
+  getAlertCandidat(id:number | null):Observable<any>{
+    return this.http.post(`  https://wp12.influid.nl/wp-json/custom/v1/candidate/favorites/?userApplyId=${id}`,{});
+}
   getDetailArticle(id:number | null):Observable<any>{
     return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
   }
