@@ -55,7 +55,6 @@ export class HeaderComponent implements OnInit {
         this.candidate=true
       } else if(this.userConnect.acf.is_liggeey == "chief"){
         this.compagny=true
-        
       }
     }
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
@@ -66,13 +65,15 @@ export class HeaderComponent implements OnInit {
       this.category = data
     })
     // this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
-    //   this.category = data   
+    //   this.category = data
     // })
 
   }
   goBack(): void {
     this.location.back();
   }
+
+
   
   switchToApplyBlock() {
     this.showLoginBlock = false;
@@ -80,30 +81,30 @@ export class HeaderComponent implements OnInit {
       username: this.username,
       password: this.password
     }
-    
+
     this.usagerService.connection(user).subscribe(
       (data:any) => {
-        
+
         //const  token  = btoa(user.username + ':' + user.password);
         const token = btoa(JSON.stringify(data));
-      
+
         // Stockage dans le local storage
-        this.usagerService.storeToken(token); 
-        
+        this.usagerService.storeToken(token);
+
           // Récupération du token depuis le local storage
           const storedToken = this.usagerService.getToken();
-        if (storedToken ) {          
+        if (storedToken ) {
                     // Décodage de la base64
           const decodedToken = atob(storedToken);
 
           // Parse du JSON pour obtenir l'objet original
           const userObject = JSON.parse(decodedToken);
-          if(userObject.acf.is_liggeey == "candidate"){      
-            this.userConnect=true     
+          if(userObject.acf.is_liggeey == "candidate"){
+            this.userConnect=true
           } else if(userObject.acf.is_liggeey == "chief"){
-            this.userConnect=false;  
+            this.userConnect=false;
             this.isModalVisible=false
- 
+
             ToastNotification.open({
               type: 'success',
               message: "Thank you for logging in, your dashboard will be available soon"
@@ -123,7 +124,7 @@ export class HeaderComponent implements OnInit {
           type: 'error',
           message: "Identifiant ou mot de passe incorrects: assurez vous de les avoir bien saisis "
         });
-       
+
       });
   }
 
@@ -136,7 +137,6 @@ export class HeaderComponent implements OnInit {
   goToFinalStep() {
     this.showSecondStep = false;
   }
-  
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {
     this.isMobile = window.innerWidth < 768;

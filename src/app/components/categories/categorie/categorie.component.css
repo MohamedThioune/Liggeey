@@ -31,6 +31,9 @@
 /* Shadow / 1 */
 box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
  }
+ .search_about .keywords,.search_about .location{
+   width: 45%;
+  }
   .search_about p{
     color: #696969;
     font-size: 15px;
@@ -68,7 +71,7 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
    padding: 10px 19px 8px 24px;
 
 }
-input[type="text"]:focus {
+input[type="search"]:focus {
    outline: none;
  }
 
@@ -329,7 +332,7 @@ input[type="text"]:focus {
    border-radius: 10px 10px 0px 0px;
    border: 1px solid rgba(0, 0, 0, 0.15);
    background: #FFF;
-   margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 .card_article .content_image {
    text-align: center;

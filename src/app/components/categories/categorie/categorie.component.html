@@ -1,8 +1,9 @@
-<app-header></app-header><section class="image_menu_about">
+<app-header></app-header>
+<section class="image_menu_about">
     <div class="container-fluid">
       <div class="color"></div>
         <h2>{{category.name}} </h2>
-   
+
           <div class="search_about">
             <div class="keywords d-flex align-items-center ">
               <label for="jobTitle">
@@ -10,7 +11,7 @@
                   <path d="M19.7722 18.6726L14.8912 13.7917C16.1044 12.3328 16.8354 10.4593 16.8354 8.41797C16.8354 3.77628 13.0592 0 8.41774 0C3.77617 0 0 3.77628 0 8.41797C0 13.0593 3.77617 16.8353 8.41774 16.8353C10.459 16.8353 12.3325 16.1045 13.7915 14.8912L18.6725 19.7722C18.8243 19.9241 19.0234 20 19.2224 20C19.4213 20 19.6204 19.9241 19.7723 19.7722C20.0759 19.4685 20.0759 18.9763 19.7722 18.6726ZM1.55517 8.41797C1.55517 4.63381 4.63369 1.55518 8.41774 1.55518C12.2017 1.55518 15.2801 4.63381 15.2801 8.41797C15.2801 12.2018 12.2017 15.2801 8.41774 15.2801C4.63369 15.2801 1.55517 12.2018 1.55517 8.41797Z" fill="#696969"/>
                 </svg>
               </label>
-              <input [(ngModel)]="searchTitle" placeholder="Job title, keywords, of company" type="text">
+              <input [(ngModel)]="searchTitle" placeholder="Job title, keywords, of company" type="search">
             </div>
             <div class="limit"></div>
             <div class="location d-flex align-items-center ">
@@ -20,7 +21,7 @@
                   <path d="M9.89025 5.42676C7.92062 5.42676 6.31824 7.02925 6.31824 8.99909C6.31824 10.9684 7.92062 12.5706 9.89025 12.5706C11.8599 12.5706 13.4621 10.9684 13.4621 8.99909C13.4621 7.02935 11.8598 5.42676 9.89025 5.42676ZM9.89025 10.957C8.81034 10.957 7.93181 10.0787 7.93181 8.99909C7.93181 7.91897 8.81034 7.04033 9.89025 7.04033C10.97 7.04033 11.8486 7.91897 11.8486 8.99909C11.8486 10.0787 10.97 10.957 9.89025 10.957Z" fill="#696969"/>
                 </svg>
               </label>
-              <input [(ngModel)]="searchLocation"  placeholder="City or postcode" type="text">
+              <input [(ngModel)]="searchLocation"  placeholder="City or postcode" type="search">
             </div>
             <!--
             <div class="limit"></div>
@@ -46,7 +47,7 @@
             <button class="btn" type="submit" routerLinkActive="active_lien_navbar">Find Jobs</button>
             -->
           </div>
-       
+
       </div>
 </section>
 <section class="jobs">
@@ -72,10 +73,10 @@
                           <button (click)="favoritesJob()">
                             <i class="fa fa-bookmark"></i>
                           </button>
-                        
+
                       </div>
                     </div>
-                  
+
                     <div class="info">
                       <span class="info_item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -123,24 +124,24 @@
                         <div class="content_tags">
                           <p>Privé</p>
                         </div>
-    
+
                       </div>
                       <div class="tags">
                         <div class="content_tags">
                           <p>Urgent</p>
                         </div>
-    
+
                       </div>
                       -->
                     </div>
-                  
+
                   </div>
-                  
-  
+
+
                 </div>
               </div>
             </li>
-           
+
           </ul>
           <div class="pagination">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
@@ -184,7 +185,7 @@
                       </svg>
                       <p>{{item.sector}}</p>
                     </div>
-                  
+
                   </div>
                   <span class="open_job">Open Jobs – {{item.count_open_jobs}}</span>
                 </div>
@@ -224,7 +225,7 @@
                   </div>
                   <p class="card-text">{{item.short_description  | slice:0:90}}
                   </p>
-                    <span class="read_more"> 
+                    <span class="read_more">
                       <a [routerLink]="['/detail-article',item.ID]">Read More
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                           <path d="M9.33358 5.53176L3.99343 0.191706C3.86992 0.068097 3.70504 0 3.52924 0C3.35343 0 3.18856 0.068097 3.06504 0.191706L2.67178 0.584873C2.41588 0.841066 2.41588 1.25745 2.67178 1.51326L7.15604 5.99751L2.6668 10.4867C2.54329 10.6104 2.4751 10.7751 2.4751 10.9508C2.4751 11.1267 2.54329 11.2915 2.6668 11.4152L3.06007 11.8083C3.18368 11.9319 3.34846 12 3.52426 12C3.70006 12 3.86494 11.9319 3.98845 11.8083L9.33358 6.46336C9.45738 6.33936 9.52538 6.1738 9.52499 5.99781C9.52538 5.82112 9.45738 5.65566 9.33358 5.53176Z" fill="#043356"/>

@@ -55,7 +55,7 @@ const routes: Routes = [
 
   { path: 'footers', component: FootersComponent },
 
-  { path: 'footer', component: FooterComponent }, 
+  { path: 'footer', component: FooterComponent },
 
   { path: 'applicant-compagny/:id', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
 
@@ -100,9 +100,9 @@ const routes: Routes = [
   { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'profil-candidat/:id', component: ProfilCandidatComponent,canActivate: [AuthGuard] },
-  
+
   { path: 'detail-job/:id', component: DetailJobComponent },
-  
+
   { path: 'detail-category/:id', component: CategorieComponent },
 
   { path: 'list-candidat', component: ListCandidatesComponent },
@@ -110,9 +110,9 @@ const routes: Routes = [
   { path: 'applies-candidat/:id', component: AppliesJobsComponent },
 
   { path: 'sidebar', component: SidebarCandidatComponent },
-  
+
   { path: 'detail-candidat/:id', component: DetailCandidatComponent },
-  
+
   { path: 'job', component: JobOneComponent },
 
  // { path: 'categorie', component: CategorieComponent },
