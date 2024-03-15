@@ -60,9 +60,11 @@ export class CategorieComponent implements OnInit {
     })
     this.homeService.getDetailCategory(this.identifiant).subscribe((data:any)=>{
       this.category = data  
+      console.log(this.category);
+      
       this.category.articles.forEach((element:any) => {
         element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-        element.post_title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+        element.title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       });
       
     })

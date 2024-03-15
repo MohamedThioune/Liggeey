@@ -35,6 +35,7 @@
                     <p>Member Since,{{candidat.member_since}}</p>
                 </span>
               </div>
+              <!--
               <div class="job_info">
                 <a class="btn" routerLink="" routerLinkActive="active_lien_navbar"> Download CV </a>
                 <div class="bookmark">
@@ -43,14 +44,16 @@
                   </button>
                 </div>
               </div>
+              -->
            </div>
            
-            <div class="all_info" >
-              <div class="time" *ngFor="let skill of candidat.skills">
-                  <div class="content_time">
-                    <p>{{skill.name}}</p>
-                  </div>
+            <div class="all_info">
+              <div class="time" *ngFor="let skill of candidat.skills.slice(0, 5)">
+                <div class="content_time">
+                    <p>{{ skill.name }}</p>
+                </div>
               </div>
+            
             </div>
             
           </div>
@@ -155,16 +158,16 @@
                     <div class="inner_1">
                       <span> Social media</span>
                       <p class="social">
-                        <a style="text-decoration: none;color:#696969" [href]="candidat.social_network.facebook" target="_blank">
+                        <a *ngIf="candidat.social_network.facebook" style="text-decoration: none;color:#696969" [href]="candidat.social_network.facebook" target="_blank">
                           <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </a>
-                        <a style="text-decoration: none;color:#696969" [href]="candidat.social_network.twitter" target="_blank">
+                      </a>                      
+                        <a *ngIf="candidat.social_network.twitter" style="text-decoration: none;color:#696969" [href]="candidat.social_network.twitter" target="_blank">
                           <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
-                        <a style="text-decoration: none;color:#696969" [href]="candidat.social_network.instagram" target="_blank">
+                        <a *ngIf="candidat.social_network.instagram" style="text-decoration: none;color:#696969" [href]="candidat.social_network.instagram" target="_blank">
                           <i class="fa fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a style="text-decoration: none;color:#696969" [href]="candidat.social_network.linkedin" target="_blank">
+                        <a *ngIf="candidat.social_network.linkedin" style="text-decoration: none;color:#696969" [href]="candidat.social_network.linkedin" target="_blank">
                           <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                       </p>
@@ -176,7 +179,7 @@
               <div class="center_sidebar">
                 <p>Job Skills</p>
                 <div class="skill_first">
-                  <div class="skills" *ngFor="let skill of candidat.skills">
+                  <div class="skills" *ngFor="let skill of candidat.skills.slice(0,5)">
                     <span>{{skill.name}}</span>
                   </div>
                 </div>
@@ -197,19 +200,23 @@
               <p>Education</p>
               <div class="d-flex">
                 <div class="times" style="display: flex;flex-direction:column;align-items:center">
+                  <!--
                   <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                     <circle opacity="0.15" cx="15" cy="15" r="15" fill="#D93025"/>
                     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#FFFFFF" font-size="16" font-family="Arial, sans-serif">M</text>
                     </svg>
                   </span>
+                  -->
                   <hr>
+                  <!--
                   <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                     <circle opacity="0.15" cx="15" cy="15" r="15" fill="#D93025"/>
                     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#FFFFFF" font-size="16" font-family="Arial, sans-serif">H</text>
                     </svg>
                   </span>
+                  -->
                 </div>
                 <div class="">
                   <div class="education_1" *ngFor="let education of candidat.educations">
@@ -237,19 +244,23 @@
               <p>Work & Experience</p>
               <div class="d-flex">
                 <div class="times" style="display: flex;flex-direction:column;align-items:center">
+                  <!--
                   <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                     <circle opacity="0.15" cx="15" cy="15" r="15" fill="#043356"/>
                     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#FFFFFF" font-size="16" font-family="Arial, sans-serif">S</text>
                     </svg>
                   </span>
+                  -->
                   <hr>
+                  <!--
                   <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                     <circle opacity="0.15" cx="15" cy="15" r="15" fill="#043356"/>
                     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#FFFFFF" font-size="16" font-family="Arial, sans-serif">D</text>
                     </svg>
                   </span>
+                  -->
 
                 </div>
                 <div class="">

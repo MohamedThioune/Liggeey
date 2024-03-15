@@ -110,7 +110,7 @@
                             </clipPath>
                           </defs>
                         </svg>
-                        <p>{{item.duration}}</p>
+                        <p>{{item.duration}} ago</p>
                       </span>
                     </div>
                     <div class="all_info">
@@ -209,6 +209,7 @@
                   <img [src]="item.image" class="img-fluid"/>
                 </div>
                 <div class="card-body">
+                
                   <div class="date_comment">
                     <p class="date">
                       {{item.post_date}}
@@ -220,8 +221,9 @@
                       {{item.number_comments}} Comment(s)
                     </p>
                   </div>
+              
                   <div class="tops">
-                    <p>{{item.post_title | slice:0:40 }}</p>
+                    <p>{{item.title | slice:0:40 }}</p>
                   </div>
                   <p class="card-text">{{item.short_description  | slice:0:90}}
                   </p>

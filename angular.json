@@ -10,14 +10,6 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
-	//"server": {
-  	 // "builder": "@angular-devkit/build-angular:server",
-  	 // "options": {
-    	  //  "outputPath": "dist/server",
-    	   // "main": "src/main.server.ts",
-    	  //  "tsConfig": "src/tsconfig.server.json"
-  	 // }
-	//}
 
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

@@ -31,17 +31,18 @@ export class ListCandidatesComponent implements OnInit {
     })
   }
   get filteredJobs() {
-    if (this.searchCountry.trim() !== '' || this.searchName.trim() !== '' || this.searchCategori.trim() !== '' ) {
-      return this.candidates.filter((job:any) => {
+    if (this.searchCountry.trim() !== '' || this.searchName.trim() !== '' || this.searchCategori.trim() !== '') {
+      return this.candidates.filter((job: any) => {
         const locationMatch = this.searchCountry.trim() === '' || job.country.toLowerCase().includes(this.searchCountry.toLowerCase());
         const nameMatch = this.searchName.trim() === '' || job.first_name.toLowerCase().includes(this.searchName.toLowerCase());
-        const categoriMatch = this.searchCategori.trim() === '' || job.work_as.toLowerCase().includes(this.searchCategori.toLowerCase());
+        const categoriMatch = this.searchCategori.trim() === '' || job.skills.some((skill: any) => skill.name.toLowerCase().includes(this.searchCategori.toLowerCase()));
         return locationMatch && nameMatch && categoriMatch;
       });
     } else {
       return this.candidates;
     }
   }
+  
   filterCandidatesByGender(event: any): void {
     const selectedGender = event.target?.value; // Utilisation de l'opérateur de navigation sécurisée (?.) pour éviter l'erreur si event.target est null
     console.log(selectedGender);

@@ -17,149 +17,147 @@
               </div>
               </div>
           </div>-->
-          <form [formGroup]="form_profil">
-            <div class="card-body">
-              <h2 class="mt-0 ml-0">My Profile</h2>
+      <form [formGroup]="form_profil" (ngSubmit)="onSubmit()">
+        <div class="card-body">
+          <h2 class="mt-0 ml-0">My Profile</h2>
 
-              <div class="image-container">
-                <div class="default-image" [style.backgroundImage]="'url(' + (uploadedImage || '../../../assets/img/user-default.png') + ')'">
-                  <!-- Image par défaut ou image téléchargée -->
+          <div class="image-container">
+            <div class="default-image" [style.backgroundImage]="'url(' + (uploadedImage || '{{candidat.image}}') + ')'">
+              <!-- Image par défaut ou image téléchargée -->
+            </div>
+            <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+            <label for="fileInput" class="upload-button">
+              Télécharger une image
+            </label>
+            <!-- Bouton pour télécharger une nouvelle image -->
+          </div>
+
+
+          <div class="row">
+                <div class="col-md-6 col-sm-6 p-2">
+                    <label for="first_name">
+                      Full Name
+                        <p>*</p>
+                    </label>
+                    <div class="input-group">
+                        <input type="text" name="first_name" value="{{candidat.first_name}}" class="form-control" id="first_name" placeholder="Mohamed"
+                            formControlName="first_name">
+                    </div>
                 </div>
-                <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
-                <label for="fileInput" class="upload-button">
-                  Télécharger une image
+                <div class="col-md-6 col-sm-6   p-2">
+                    <label for="password">Job Title
+                        <p>*</p>
+                    </label>
+                    <div class="input-group">
+                        <input type="text" name="work_as" value="{{candidat.work_as}}" class="form-control" id="work_as" placeholder="UI Designer"
+                            formControlName="work_as">
+                    </div>
+                </div>
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="firstName">Phone
+                  <p>*</p>
                 </label>
-                <!-- Bouton pour télécharger une nouvelle image -->
+                <div class="input-group">
+                  <input type="text" name="mobile_phone" value="{{candidat.mobile_phone}}" class="form-control" id="mobile_phone" placeholder="0 123 456 7890"
+                          formControlName="mobile_phone">
+                </div>
               </div>
 
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="email">Email address
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="email" name="email" id="email" value="{{candidat.email}}" class="form-control" placeholder="mohamed@livelearn.nl"
+                      formControlName="email">
+              </div>
+              </div>
 
-              <div class="row">
-                    <div class="col-md-6 col-sm-6 p-2">
-                        <label for="email">
-                          Full Name
-                            <p>*</p>
-                        </label>
-                        <div class="input-group">
-                            <input type="email" name="email" value="{{candidat.email}}" class="form-control" id="email" placeholder="Amadou"
-                                formControlName="email">
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6   p-2">
-                        <label for="password">Job Title
-                            <p>*</p>
-                        </label>
-                        <div class="input-group">
-                            <input type="text" name="password" value="{{candidat.password}}" class="form-control" id="password" placeholder="UI Designer"
-                                formControlName="password">
-                        </div>
-                    </div>
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="firstName">Phone
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="firstName" value="{{candidat.firstName}}" class="form-control" id="firstName" placeholder="0 123 456 7890"
-                             formControlName="firstName">
-                    </div>
-                  </div>
-
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="firstName">Email address
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="lastName"  value="{{candidat.emailAdress}}" class="form-control" id="lastName" placeholder="creativelayers"
-                             formControlName="lastName">
-                    </div>
-                  </div>
-
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="name"> Experience
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="name"  value="{{candidat.experience}}" class="form-control" id="name" placeholder="5-10 Years"
-                             formControlName="name">
-                    </div>
-                  </div>
-
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="name"> Age
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="username"  value="{{candidat.age}}" class="form-control" id="username" placeholder="23 - 27 Years"
-                             formControlName="username">
-                    </div>
-                  </div>
-
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="name"> Education Levels
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="name"  value="{{candidat.level}}" class="form-control" id="name" placeholder="Certificate"
-                             formControlName="name">
-                    </div>
-                  </div>
-
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="name"> Languages
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="username"  value="{{candidat.language}}" class="form-control" id="username" placeholder="English, Turkish"
-                             formControlName="username">
-                    </div>
-                  </div>
-
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="name">Categories
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
-                             formControlName="name">
-                    </div>
-                  </div>
-
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="name"> Allow In Search & Listing
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="username"  value="{{candidat.username}}" class="form-control" id="username" placeholder="Yes"
-                             formControlName="username">
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label>Description</label>
-                      <textarea  value="{{candidat.description}}" name="" id="" rows="8"></textarea>
-                      <!--
-                      <button type="submit" class="btn btn-save">Save</button>
-                      -->
-                    </div>
-                  </div>
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="name"> Experience
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="experience"  value="{{candidat.experience}}" class="form-control" id="experience" placeholder="5-10 Years"
+                          formControlName="experience">
                 </div>
+              </div>
 
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="name"> Age
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="age"  value="{{candidat.age}}" class="form-control" id="age" placeholder="20 Years"
+                          formControlName="age">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="name"> Education Levels
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="education_level"  value="{{candidat.education_level}}" class="form-control" id="education_level" placeholder="Certificate"
+                          formControlName="education_level">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="name"> Languages
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="language"  value="{{candidat.language}}" class="form-control" id="language" placeholder="English, Turkish"
+                          formControlName="language">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="name">Categories
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
+                          formControlName="name">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="name"> Allow In Search & Listing
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="username"  value="{{candidat.username}}" class="form-control" id="username" placeholder="Yes"
+                          formControlName="username">
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea  value="{{candidat.biographical_info}}" name="biographical_info" id="biographical_info" rows="8"></textarea>
+                  <!--
+                  <button type="submit" class="btn btn-save">Save</button>
+                  -->
+                </div>
+              </div>
             </div>
-          </form>
-      </div>
+
+        </div>
+     
       <div class="card-modife social-block">
-        <form [formGroup]="form_social">
           <div class="card-body">
              <h2>Social Network</h2>
               <div class="row">
                   <div class="col-md-6 col-sm-6 p-2">
-                      <label for="email">
+                      <label for="facebook">
                         Facebook
                           <p>*</p>
                       </label>
                       <div class="input-group">
-                          <input type="email" name="email" class="form-control" id="email" placeholder="www.facebook.com/Invision"
-                              formControlName="email">
+                          <input type="text" value="{{candidat.social_network.facebook}}" name="facebook" class="form-control" id="facebook" placeholder="www.facebook.com/Invision"
+                              formControlName="facebook">
                       </div>
                   </div>
                   <div class="col-md-6 col-sm-6   p-2">
@@ -167,26 +165,26 @@
                           <p>*</p>
                       </label>
                       <div class="input-group">
-                          <input type="text" name="password" class="form-control" id="password" placeholder=""
-                              formControlName="password">
+                          <input type="text" name="twitter" value="{{candidat.social_network.twitter}}" class="form-control" id="twitter" placeholder="www.twitter.sn"
+                              formControlName="twitter">
                       </div>
                   </div>
                   <div class="col-md-6 col-sm-6   p-2">
-                    <label for="firstName">Linkedin
+                    <label for="linkedin">Linkedin
                       <p>*</p>
                     </label>
                     <div class="input-group">
-                      <input type="text" name="firstName" class="form-control" id="firstName" placeholder=""
-                             formControlName="firstName">
+                      <input type="text" name="linkedin" value="{{candidat.social_network.linkedin}}" class="form-control" id="linkedin" placeholder="www.linkdin.com"
+                             formControlName="linkedin">
                     </div>
                   </div>
                   <div class="col-md-6 col-sm-6   p-2">
-                    <label for="firstName">Google Plus
+                    <label for="firstName">Instagramm
                       <p>*</p>
                     </label>
                     <div class="input-group">
-                      <input type="text" name="lastName" class="form-control" id="lastName" placeholder=""
-                             formControlName="lastName">
+                      <input type="text" name="instagram" value="{{candidat.social_network.instagram}}" class="form-control" id="instagram" placeholder="www.instagramm.com"
+                             formControlName="instagram">
                     </div>
                   </div>
               </div>
@@ -194,39 +192,37 @@
               <button class="btn btn-save create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>
               -->
           </div>
-        </form>
       </div>
       <div class="card-modife contact-infos">
-        <form [formGroup]="form_contact">
           <div class="card-body">
                <h2>Contact Information</h2>
               <div class="row g-3">
                   <div class="col-md-6 col-sm-6 p-2">
-                      <label for="email">
+                      <label for="country">
                         Country
                           <p>*</p>
                       </label>
                       <div class="input-group">
-                          <input type="email" name="email" class="form-control" id="email" placeholder="Sénégal"
-                              formControlName="email">
+                          <input type="text" name="country" value="{{candidat.country}}" class="form-control" id="country" placeholder="Sénégal"
+                              formControlName="country">
                       </div>
                   </div>
                   <div class="col-md-6 col-sm-6   p-2">
-                      <label for="password">City
+                      <label for="city">City
                           <p>*</p>
                       </label>
                       <div class="input-group">
-                          <input type="text" name="password" class="form-control" id="password" placeholder="Dakar"
-                              formControlName="password">
+                          <input type="text" name="city" value="{{candidat.city}}" class="form-control" id="city" placeholder="Dakar"
+                              formControlName="city">
                       </div>
                   </div>
                   <div class="col-md-12 col-sm-12 p-2">
-                  <label for="firstName">Complete Address
+                  <label for="adress">Complete Address
                     <p>*</p>
                   </label>
                   <div class="input-group">
-                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Dakar ouakam"
-                           formControlName="firstName">
+                    <input type="text" name="adress" value="{{candidat.adress}}" class="form-control" id="adress" placeholder="Dakar ouakam"
+                           formControlName="adress">
                   </div>
                 </div>
               </div>
@@ -234,8 +230,11 @@
              <button class="btn btn-save create " type="submit"> Save </button>
              -->
           </div>
-        </form>
       </div>
+        <button type="submit" class="btn btn-save">Save</button>
+      </form>
+
+    </div>
   </div>
 </section>
 

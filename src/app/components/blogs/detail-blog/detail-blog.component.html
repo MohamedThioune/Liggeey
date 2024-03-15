@@ -17,13 +17,20 @@
   </div>
   <div class="inter-content-detail">
     <div class="content-text">
-        <p>{{article.short_description}}</p>
+        <p>{{article.content}}</p>
     </div>
     <div class="d-flex btn-sociaux align-items-center">
-      <p class="share-post-text">Share this post</p>
-      <button class="btn btn-facebook"><i class="fa fa-facebook"></i>Facebook</button>
-      <button class="btn btn-twitter"><i class="fa fa-twitter"></i>Twitter</button>
-      <button class="btn btn-google"><i class="fa fa-google"></i>Google+</button>
+      <p class="share-post-text">Share this post</p>     
+      <a class="btn btn-whatssap" href=" https://wa.me/?text= http://something.com/ " target="_blank">
+        <i class="fa fa-whatsapp"></i> Whatssap
+      </a>
+      <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?text=le+texte+ici&url=http://something.com" target="_blank">
+        <i class="fa fa-twitter"></i> Twitter
+      </a>
+      <a class="btn btn-linkedin" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=http://something.com&title=le+texte+ici" target="_blank">
+        <i class="fa fa-linkedin"></i> LinkedIn
+      </a>
+      
     </div>
 
     <div class="block-prev-next d-flex justify-content-between align-items-center">
@@ -84,34 +91,34 @@
       </div>
     </div>
 
-    <form action="" class="form-comment">
+    <form [formGroup]="form" (ngSubmit)="postArticleComment()" class="form-comment">
       <p class="title-comment">Leave your thought here</p>
       <div class="rating-block d-flex">
         <div class="rate">
-          <input type="radio" id="star5" name="rate" value="5" />
+          <input type="radio" id="star5" formControlName="rating" name="rating" value="5" />
           <label for="star5" title="text">5 stars</label>
-          <input type="radio" id="star4" name="rate" value="4" />
+          <input type="radio" id="star4" formControlName="rating" name="rating" value="4" />
           <label for="star4" title="text">4 stars</label>
-          <input type="radio" id="star3" name="rate" value="3" />
+          <input type="radio" id="star3" formControlName="rating" name="rating" value="3" />
           <label for="star3" title="text">3 stars</label>
-          <input type="radio" id="star2" name="rate" value="2" />
+          <input type="radio" id="star2" formControlName="rating" name="rating" value="2" />
           <label for="star2" title="text">2 stars</label>
-          <input type="radio" id="star1" name="rate" value="1" />
+          <input type="radio" id="star1" formControlName="rating" name="rating" value="1" />
           <label for="star1" title="text">1 star</label>
         </div>
       </div>
       <div class="d-flex flex-wrap justify-content-between">
         <div class="form-group w-50">
           <label>Your Name</label>
-          <input type="text" class="form-control" id="" aria-describedby="name" placeholder="Your Name">
+          <input type="text" class="form-control" formControlName="name" id="name" aria-describedby="name" placeholder="Your Name">
         </div>
         <div class="form-group w-50">
           <label>Your Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
         </div>
         <div class="form-group w-100 d-grid">
           <label>Your Comment</label>
-          <textarea name="" id="" rows="5"></textarea>
+          <textarea name="feedback" formControlName="feedback" id="feedback" rows="5"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Send Message</button>

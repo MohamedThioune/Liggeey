@@ -78,14 +78,14 @@ h1{
 .btn-sociaux .btn i{
   margin-right: 9px;
 }
-.btn-facebook {
-  background: #043356;
+.btn-whatssap{
+  background: #0fc244;
 }
 .btn-twitter{
   background: #BC91E8;
 }
-.btn-google {
-  background: #D93025;
+.btn-linkedin {
+  background: #0A66C2;
 }
 .btn-sociaux, .lock-prev-next {
   margin-bottom: 75px;

@@ -40,7 +40,7 @@
                     </clipPath>
                   </defs>
                 </svg>
-                <p>{{job.duration}}</p>
+                <p>{{job.duration}} ago</p>
               </span>
             </div>
             <div class="all_info">
@@ -100,17 +100,14 @@
           <div class="share">
             <p>Share this job</p>
             <div class="social">
-              <a class="btn facebook" routerLink="" routerLinkActive="active_lien_navbar">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-                Facebook
+              <a class="btn btn-whatssap" href=" https://wa.me/?text= http://something.com/ " target="_blank">
+                <i class="fa fa-whatsapp"></i> Whatssap
               </a>
-              <a class="btn twitter" routerLink="" routerLinkActive="active_lien_navbar">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-                Twitter
+              <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?text=le+texte+ici&url=http://something.com" target="_blank">
+                <i class="fa fa-twitter"></i> Twitter
               </a>
-              <a class="btn google" routerLink="" routerLinkActive="active_lien_navbar">
-                <i class="fa fa-google" aria-hidden="true"></i>
-                Google+
+              <a class="btn btn-linkedin" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=http://something.com&title=le+texte+ici" target="_blank">
+                <i class="fa fa-linkedin"></i> LinkedIn
               </a>
             </div>
           </div>
@@ -137,7 +134,7 @@
                   </defs>
                 </svg>
                 <div class="date">
-                  <p>Date Posted: <span>{{job.duration}}</span></p>
+                  <p>Date Posted: <span>{{job.duration}} ago</span></p>
                 </div>
               </div>
               <div class="calendrier">
@@ -163,7 +160,7 @@
                   <path d="M8.50052 5.12549C6.64031 5.12549 5.12695 6.63895 5.12695 8.49936C5.12695 10.3593 6.64031 11.8724 8.50052 11.8724C10.3607 11.8724 11.874 10.3593 11.874 8.49936C11.874 6.63905 10.3606 5.12549 8.50052 5.12549ZM8.50052 10.3485C7.48061 10.3485 6.65088 9.51897 6.65088 8.49936C6.65088 7.47924 7.48061 6.64941 8.50052 6.64941C9.52033 6.64941 10.3501 7.47924 10.3501 8.49936C10.3501 9.51897 9.52033 10.3485 8.50052 10.3485Z" fill="#043356"/>
                 </svg>
                 <div class="date">
-                  <p>Location: <span> {{job.company.place}} {{job.company.country}}</span></p>
+                  <p>Location: <span>Remote</span></p>
                 </div>
               </div>
               <div class="calendrier">
@@ -264,10 +261,6 @@
                 </div>
                 -->
                 <div class="inner_1">
-                  <span>Email:</span>
-                  <p>{{job.company.email}}</p>
-                </div>
-                <div class="inner_1">
                   <span> Location:</span>
                   <p>{{job.company.place}}</p>
                 </div>
@@ -280,9 +273,6 @@
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                   </p>
                 </div>
-                <a [href]="job.company.website">
-                  {{job.company.website}}
-                </a>
               </div>
             </div>
           </div>
@@ -319,7 +309,9 @@
             </div>
             <p class="description-job">Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform. Discover popular remote jobs across diverse industries on our platform.</p>
             <div class="content-footer-card align-items-center">
+              <!--
               <button class="btn btn-apply-job">Apply Now</button>
+              -->
               <a  [routerLink]="['/detail-job',job.ID]"  class="btn btn-view-job">View Details</a>
             </div>
           </div>

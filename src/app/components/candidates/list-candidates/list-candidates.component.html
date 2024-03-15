@@ -29,7 +29,7 @@
                     </clipPath>
                   </defs>
                 </svg>
-                <input placeholder="All Categories" [(ngModel)]="searchCategori" type="search" name="" id="">
+                <input placeholder="All Skills" [(ngModel)]="searchCategori" type="search" name="" id="">
             </div>
             </div>
             <!--
@@ -75,7 +75,7 @@
       </div>
     -->
       <div class="candidat_featured">
-        <div class="row" style="margin-bottom: 100px;">
+        <div class="row" style="margin-bottom: 100px;" >
           <div class="col-md-4 item" *ngFor="let candidate of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }"  >
               <div class="content_candidate" [routerLink]="['/detail-candidat',candidate.ID]">
                 <div class="content_image_candidate">
@@ -104,7 +104,7 @@
                 </div>
               </div>
           </div>
-      </div>
+        </div>
       <div class="pagination">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>

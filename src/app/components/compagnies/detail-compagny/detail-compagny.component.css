@@ -133,7 +133,10 @@
    font-weight: 400;
    margin-top: 15px;
   } 
-  
+  .items_job{
+   display: flex;
+   flex-wrap: wrap;
+  }
  .items_job .job_list_2{
     margin-bottom: 30px;
     border-radius: 8px;
