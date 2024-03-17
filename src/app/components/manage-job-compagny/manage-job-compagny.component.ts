@@ -31,6 +31,7 @@ export class ManageJobCompagnyComponent implements OnInit {
       
     this.homeService.manageJob(this.userConnect.id).subscribe((data:any)=>{
       this.openJobs=data;
+      console.log(this.openJobs);
       
       this.openJobs.forEach((element:any) => {
         this.appliedNumber=element.applied.length

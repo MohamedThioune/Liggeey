@@ -27,7 +27,7 @@
             <th scope="col">Applications</th>
             <th scope="col">Created & Expired</th>
             <th scope="col">Status</th>
-          <!--  <th scope="col">Action</th>-->
+            <th scope="col">Action</th>
           </tr>
           </thead>
           <tbody>
@@ -35,11 +35,11 @@
             <th scope="row">
               {{job.title}}
             </th>
-            <td>{{appliedNumber}}+ Applied</td>
+            <td [routerLink]="['/applicant-compagny',job.ID]">{{appliedNumber}}+ Applied</td>
             <td>{{job.posted_at}}
               {{job.expired_at}}</td>
             <td>Active</td>
-            <!--
+            
             <td>
               <button>
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -82,7 +82,7 @@
                 </svg>
               </button>
             </td>
-            -->
+            
           </tr>
           </tbody>
         </table>

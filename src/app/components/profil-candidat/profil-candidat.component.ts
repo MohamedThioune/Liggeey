@@ -17,7 +17,7 @@ export class ProfilCandidatComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = true;
   showButton = true;
-  form_profil!:FormGroup;
+  form!:FormGroup;
   form_social!:FormGroup;
   form_contact!:FormGroup;
   identifiant:number | null = 0;
@@ -35,7 +35,7 @@ export class ProfilCandidatComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];    
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
       this.candidat=data      
-      console.log(this.candidat);
+     // console.log(this.candidat);
     })
        // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
@@ -52,8 +52,13 @@ export class ProfilCandidatComponent implements OnInit {
   }
   onSubmit() {
     // Utilisez le service pour postuler à l'emploi
-    console.log(this.form_profil.value);
-    
+    if (this.form.valid) {
+
+    console.log(this.form.value);
+    }else{
+      console.log("no ok");
+      
+    }
   //   if (this.form_profil.value!="") {
 
   //   this.HomePageService.updateProfile(this.form_profil.value)
@@ -99,6 +104,7 @@ export class ProfilCandidatComponent implements OnInit {
       
   //   })
   // }
+ 
   
 
   onFileSelected(event: any) {
@@ -121,18 +127,29 @@ export class ProfilCandidatComponent implements OnInit {
     this.showButton = true;
   }
   initForm() {
-    this.form_profil = this.fb.group({
+    this.form = this.fb.group({
+      role: ["", Validators.required],
+      experience:["",Validators.required],
+      telnr:["",Validators.required],
+      date_born:["",Validators.required],
+      education_level:["",Validators.required],
+      biographical_info:["",Validators.required],
+      facebook:["",Validators.required],
+      twitter:["",Validators.required],
+      linkedin:["",Validators.required],
+      instagram:["",Validators.required],
+      country:["",Validators.required],
+      city:["",Validators.required],
+      first_name: ['', Validators.required],
+      work_as: ['', Validators.required],
+      mobile_phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password:['',[]],
-      first_name:['',[]],
-      work_as:['',[]],
-      mobile_phone:['',[]],
-      experience:['',[]],
-      telnr:['',[]],
-      age:['',[]],
-      language:['',[]],
-      biographical_info:['',[]],
-    
+      age: ['', Validators.required],
+      language: ['', Validators.required],
+      name: ['', Validators.required],
+      username: ['', Validators.required],
+      adress: ['', Validators.required]
+      
     });
   }
 
@@ -155,7 +172,7 @@ export class ProfilCandidatComponent implements OnInit {
       return false;
     }
 
-    if (this.form_profil.controls['email'].status == "INVALID") {
+    if (this.form.controls['email'].status == "INVALID") {
       this.message.message = 'Vérifier le format du mail';
       return false;
     }

@@ -17,10 +17,11 @@
                 <i class='fa fa-clock-o mr-1'></i>
                 <p class="job-type-text mb-0">Full Time</p>
               </div>
-              <div class="content-element categorie-content d-flex align-items-center">
+              <div class="content-element categorie-content d-flex align-items-center" *ngIf="categorie.skills.length > 0">
                 <i class='fa fa-list-alt mr-1'></i>
-                <p class="text-categori mb-0">Design</p>
+                <p class="text-categori mb-0">{{ categorie.skills[0].name |slice:0:15}}</p>
               </div>
+            
             </div>
             <p class="description-job">{{categorie.description |slice:0:24}}</p>
             <div class="content-footer-card align-items-center">

@@ -123,6 +123,7 @@ export class HomePageService {
       job_contract: job.job_contract,
       job_langues:job.job_langues,
       job_application_deadline:job. job_application_deadline,
+      skills:job.skills
    
     };    
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/postJob`,requestBody);
