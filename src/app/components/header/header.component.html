@@ -87,7 +87,7 @@
 
          <div class="account" *ngIf="userConnect">
            <div class="content_image">
-             <img [src]=userConnect.avatar_urls[96] alt="Image User Connect">
+             <img [src]="userConnect.avatar_urls && userConnect.avatar_urls[96]" alt="Image User Connect">
            </div>
            <p>{{userConnect.first_name}} {{userConnect.last_name}}</p>
 
@@ -372,7 +372,7 @@
         </div>
         <div class="modal-body">
           <form>
-            <div  *ngIf="showFirstStep" class="first-step">
+            <div  *ngIf="showFirstStep && userConnect" class="first-step">
               <div class="my_container_input_1 form-group">
                 <label for="username">Fisrt Name</label>
                 <input class = "input" name="username" id="Fisrt-Name" type="text" placeholder="" aria-label="default input example" value="{{userConnect.first_name}}" required>
@@ -381,11 +381,12 @@
                 <label>Last Name</label>
                 <input class = "input" name=""  type="text" placeholder="" aria-label="default input example" id="Last-Name" value="{{userConnect.last_name}}" required>
               </div>
+               <!--
               <div class="my_container_input_2 form-group">
                 <label>Role</label>
-                <input class = "input" name=""  type="role" placeholder="" aria-label="default input example" id="Email" value="{{userConnect.roles[0]}}" required>
+                <input class = "input" name=""  type="role" placeholder="" aria-label="default input example" id="Email" value="{{userConnect.work_as}}" required>
               </div>
-              <!--
+             
               <div class="my_container_input_2 form-group">
                 <label>Phone Number</label>
                 <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.email}}" required>
@@ -423,7 +424,7 @@
               </div>
               <p class="text-success-apply">Your application has been submitted successfully! <br>
                 You can now discover other opportunities.</p>
-              <a  class="btn btn-other-opportunuties">Others opportunities</a>
+              <a routerLink="/job" class="btn btn-other-opportunuties">Others opportunities</a>
             </div>
 
           </form>
