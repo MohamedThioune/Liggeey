@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 
@@ -14,9 +15,14 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   userConnect:any;
   applicant:any;
   searchTitle:String="";
-  constructor(private homeService:HomePageService,private usagerService: UsagerService) { }
+  identifiant:number | null = 0;
+
+  constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService,private router: Router) { }
 
   ngOnInit(): void {
+    
+    this.identifiant = +this.route.snapshot.params['id'];  
+
      // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
     
@@ -27,13 +33,19 @@ export class AppicantsAllCompagnyComponent implements OnInit {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
-    this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
+    this.homeService.getDetailJob(this.identifiant).subscribe((data:any)=>{
       this.applicant=data
-      console.log(this.applicant);
+      //console.log(this.applicant,this.applicant.ID);
       
      })
   }
 
+
+  
+  goToDetailCandidate( idCandidat: number) {
+    this.router.navigate(['/detail-candidate', idCandidat]);
+  }
+  
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = false;
@@ -43,9 +55,9 @@ export class AppicantsAllCompagnyComponent implements OnInit {
     this.showButton = true;
   }
 
-  get filteredApplicant() {
+  get filteredApplican() {
     if (this.searchTitle.trim() !== '' ) {
-      return this.applicant.filter((applicant:any) => {
+      return this.applicant.applied.filter((applicant:any) => {
         const titleMatch = this.searchTitle.trim() === '' || applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
         return titleMatch;
       });
@@ -53,5 +65,16 @@ export class AppicantsAllCompagnyComponent implements OnInit {
       return this.applicant;
     }
   }
+  get filteredApplicant() {
+    if (this.searchTitle.trim() !== '') {
+      return this.applicant.applied.filter((applicant: any) => {
+        const titleMatch = applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
+        return titleMatch;
+      });
+    } else {
+      return this.applicant.applied; // Retournez le tableau complet d'applicants
+    }
+  }
+  
 
 }

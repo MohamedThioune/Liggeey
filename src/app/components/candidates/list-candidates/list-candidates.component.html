@@ -29,7 +29,7 @@
                     </clipPath>
                   </defs>
                 </svg>
-                <input placeholder="All Categories" [(ngModel)]="searchCategori" type="search" name="" id="">
+                <input placeholder="All Skills" [(ngModel)]="searchCategori" type="search" name="" id="">
             </div>
             </div>
             <!--
@@ -40,17 +40,17 @@
 </section>
 <section class="featured_candidates">
     <div class="container-fluid">
+      <!--
       <div class="row header_featured">
         <div class="col-md-4 col-sm-6 p-2">
           <div class="input-group">
-            <select class="form-control fieldSelect" id="gender" (change)="filterCandidatesByGender($event)">
-              <option>Candidate Gender</option>
-              <option *ngFor="let gender of tabGender">
-                {{gender}}
-              </option>
+            <select class="form-control fieldSelect" id="selectedGender" [(ngModel)]="selectedGender" (change)="filterCandidatesByGender($event)">
+              <option value="">Candidate Gender</option>
+              <option *ngFor="let gender of tabGender" [value]="gender">{{ gender }}</option>
             </select>
           </div>
         </div>
+        
         <div class="col-md-4 col-sm-6 p-2">
           <div class="input-group">
             <select class="form-control fieldSelect" id="nature">
@@ -71,16 +71,11 @@
             </select>
           </div>
         </div>
-        <!--
-        <div class="header_featured">
-          <span>Candidate Gender  </span>
-          <span>Experience</span>
-          <span>Education Level</span>
-        </div>
-        -->
+  
       </div>
+    -->
       <div class="candidat_featured">
-        <div class="row" style="margin-bottom: 100px;">
+        <div class="row" style="margin-bottom: 100px;" >
           <div class="col-md-4 item" *ngFor="let candidate of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }"  >
               <div class="content_candidate" [routerLink]="['/detail-candidat',candidate.ID]">
                 <div class="content_image_candidate">
@@ -96,16 +91,20 @@
                     </svg>
                     <p>{{candidate.country}}</p>
                   </div>
-                  <div class="tab_candidate">
-                    <p>App</p>
-                    <p>Design</p>
-                    <p>Digital</p>
+                  <div class="d-flex">
+                    <div class="tab_candidate" *ngFor="let skil of candidate.skills; let i=index">
+                      <ng-container *ngIf="i < 3">
+                          <p>{{ skil.name }}</p>
+                      </ng-container>
                   </div>
+                  </div>
+                  
+                
                   <a class="btn" [routerLink]="['/detail-candidat',candidate.ID]" routerLinkActive="active_lien_navbar">See Candidate</a>
                 </div>
               </div>
           </div>
-      </div>
+        </div>
       <div class="pagination">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>

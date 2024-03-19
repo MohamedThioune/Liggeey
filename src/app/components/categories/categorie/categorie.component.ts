@@ -40,7 +40,8 @@ export class CategorieComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data              
-
+      console.log(this.category);
+      
       this.category.jobs.forEach((element:any) => {
         const postedDate = new Date(element.posted_at);
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
@@ -60,9 +61,11 @@ export class CategorieComponent implements OnInit {
     })
     this.homeService.getDetailCategory(this.identifiant).subscribe((data:any)=>{
       this.category = data  
+      console.log(this.category);
+      
       this.category.articles.forEach((element:any) => {
         element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-        element.post_title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+        element.title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       });
       
     })
@@ -90,10 +93,6 @@ export class CategorieComponent implements OnInit {
       return this.category.jobs;
     }
   }
-
-
-
-
 
   favoritesJob() {
     // Assurez-vous que this.userConnect et this.job sont définis
@@ -133,7 +132,17 @@ export class CategorieComponent implements OnInit {
     }
   }
 
-
+  openApplyModal(jobId: string) {
+    this.homeService.setSelectedJobId(jobId);
+    console.log(jobId);
+    
+    const modalElement = document.getElementById('modal-apply');
+    if (modalElement) {
+      modalElement.click();
+    } else {
+      console.error("Modal element not found");
+    }
+  }
 
 
 }

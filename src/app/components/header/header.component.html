@@ -49,26 +49,29 @@
                <img height="70" src="../../../assets/img/logo_liggey.png" alt="image pas encore insérer">
              </a>
            </li>
-             <li class="categories dropdown position-relative">
-               <span class="d-flex" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                   <path d="M17 10C18.6569 10 20 8.65685 20 7C20 5.34315 18.6569 4 17 4C15.3431 4 14 5.34315 14 7C14 8.65685 15.3431 10 17 10Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                   <path d="M7 20C8.65685 20 10 18.6569 10 17C10 15.3431 8.65685 14 7 14C5.34315 14 4 15.3431 4 17C4 18.6569 5.34315 20 7 20Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                   <path d="M14 14H20V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H15C14.7348 20 14.4804 19.8946 14.2929 19.7071C14.1054 19.5196 14 19.2652 14 19V14ZM4 4H10V9C10 9.26522 9.89464 9.51957 9.70711 9.70711C9.51957 9.89464 9.26522 10 9 10H5C4.73478 10 4.48043 9.89464 4.29289 9.70711C4.10536 9.51957 4 9.26522 4 9V4Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                   </svg>
-                   <p>Categories</p>
-               </span>
-               <div class="dropdown-menu dropdown-categories" aria-labelledby="dropdownMenuButton">
-
-                 <a class="dropdown-item" [routerLink]="['/detail-category',categori.cat_ID]" routerLinkActive="active_lien_navbar"  *ngFor="let categori of categories">
-                  <div class="content_image">
-                    <img [src]="categori.cat_image" alt="Image Of Categorie">
+           <li class="">
+            <div class="dropdown dropdown-modife">
+              <button class="dropdown-toggle" (click)="toggleDropdown()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17 10C18.6569 10 20 8.65685 20 7C20 5.34315 18.6569 4 17 4C15.3431 4 14 5.34315 14 7C14 8.65685 15.3431 10 17 10Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7 20C8.65685 20 10 18.6569 10 17C10 15.3431 8.65685 14 7 14C5.34315 14 4 15.3431 4 17C4 18.6569 5.34315 20 7 20Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14 14H20V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H15C14.7348 20 14.4804 19.8946 14.2929 19.7071C14.1054 19.5196 14 19.2652 14 19V14ZM4 4H10V9C10 9.26522 9.89464 9.51957 9.70711 9.70711C9.51957 9.89464 9.26522 10 9 10H5C4.73478 10 4.48043 9.89464 4.29289 9.70711C4.10536 9.51957 4 9.26522 4 9V4Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                  
+                Category
+              </button>
+              <div class="dropdown-menu custom-dropdown-menu" [class.show]="dropdownOpen">
+                <a *ngFor="let category of categories" class="dropdown-item custom-dropdown-item d-flex" [routerLink]="['/detail-category',category.cat_ID]" routerLinkActive="active_lien_navbar">
+                  <div class="content_image_categoy">
+                    <img [src]="category.cat_image" alt="">
                   </div>
+                  <p>{{category.cat_name}}</p>
+                </a>
+              </div>
+            </div>
+          </li>
+          
 
-                   <span style="margin-left: 10px;">{{categori.cat_name}}</span>
-                 </a>
-               </div>
-             </li>
              <ul class="cathegories">
                <li class="job"><a routerLink="/job" routerLinkActive="active_lien_navbar">Find Job</a> </li>
                <li class="about"><a routerLink="/about" routerLinkActive="active_lien_navbar">About</a></li>
@@ -87,11 +90,10 @@
              <img [src]=userConnect.avatar_urls[96] alt="Image User Connect">
            </div>
            <p>{{userConnect.first_name}} {{userConnect.last_name}}</p>
-           <div class="dropdown">
-             <button data-toggle="dropdown">
-               <i class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  aria-haspopup="true" aria-expanded="false" class="fa fa-bars"></i>
-             </button>
-             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+
+           <div class="dropdown dropdown-user">
+             <button class="dropdown-toggle" (click)="toggleDropdownUser()"><i class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  aria-haspopup="true" aria-expanded="false" class="fa fa-bars"></i></button>
+             <div class="dropdown-menu" [class.show]="dropdownUser">
                <a class="dropdown-item" [routerLink]="['/profil-candidat',userConnect.id]" *ngIf="candidate">
                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18" fill="none">
                    <g clip-path="url(#clip0_2843_10796)">
@@ -104,7 +106,7 @@
                      </clipPath>
                    </defs>
                  </svg>
-                 <p>Mon Profil</p>
+                 <p>My Profil</p>
                </a>
                <a class="dropdown-item" [routerLink]="['/profil-compagny',userConnect.id]" *ngIf="compagny">
                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18" fill="none">
@@ -118,7 +120,7 @@
                      </clipPath>
                    </defs>
                  </svg>
-                 <p>Mon Profil</p>
+                 <p>My Profil</p>
                </a>
                <a class="dropdown-item" [routerLink]="['/alert-candidat',userConnect.id]" *ngIf="candidate">
                  <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 27" fill="none">
@@ -161,8 +163,8 @@
                  <p>Logout</p>
                </a>
              </div>
-
            </div>
+
          </div>
        </nav>
     </div>
@@ -306,7 +308,7 @@
 </header>
 
 
-<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="isModalVisible">
+<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div *ngIf="!userConnect" class="block-login">
@@ -324,7 +326,7 @@
             </div>
             <div class="my_container_input_2 form-group">
               <label>Password</label>
-              <input class = "input" name="password" [(ngModel)]="password"  type="password" placeholder="********" aria-label="default input example" id="cnx_pass" required>
+              <input class = "input" name="password" [(ngModel)]="password" type="password" placeholder="********" aria-label="default input example" id="cnx_pass" required>
             </div>
             <div class="remember">
               <div class="remember_me">
@@ -337,8 +339,27 @@
             </div>
             <div class="d-grid">
               <button type="submit" id="login-btn" class="btn btn-forgeet-passwoord" (click)="switchToApplyBlock()">Log In</button>
+              <!--
+              <div class="d-flex justify-content-center">
+                <p class="account-texte mb-0">Don't have an account? <b><a routerLink="/register">Signup</a></b></p>
+              </div>
+              -->
             </div>
-          
+            <div class="d-flex hr-block align-items-center mt-2 mb-5">
+              <div class="hr-element"></div>
+              <p class="mb-0 or-text">Or</p>
+              <div class="hr-element"></div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center facebook-google-btn mb-4">
+              <button class="btn btn-facebook">
+                <img src="../../../../assets/img/facebook-icon.svg" alt="facebook">
+                Login via Facebook
+              </button>
+              <button class="btn btn-google">
+                <img src="../../../../assets/img/google-icon.svg" alt="more">
+                Login via Google+
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -351,28 +372,31 @@
         </div>
         <div class="modal-body">
           <form>
-            <div class="first-step">
+            <div  *ngIf="showFirstStep" class="first-step">
               <div class="my_container_input_1 form-group">
                 <label for="username">Fisrt Name</label>
                 <input class = "input" name="username" id="Fisrt-Name" type="text" placeholder="" aria-label="default input example" value="{{userConnect.first_name}}" required>
               </div>
               <div class="my_container_input_2 form-group">
                 <label>Last Name</label>
-                <input class = "input" name=""  type="text" placeholder="" aria-label="default input example" id="Last-Name" value="{{userConnect.name}}" required>
+                <input class = "input" name=""  type="text" placeholder="" aria-label="default input example" id="Last-Name" value="{{userConnect.last_name}}" required>
               </div>
               <div class="my_container_input_2 form-group">
-                <label>Email</label>
-                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{userConnect.email}}" required>
+                <label>Role</label>
+                <input class = "input" name=""  type="role" placeholder="" aria-label="default input example" id="Email" value="{{userConnect.roles[0]}}" required>
               </div>
+              <!--
               <div class="my_container_input_2 form-group">
                 <label>Phone Number</label>
-                <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.phone}}" required>
+                <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.email}}" required>
               </div>
+              -->
 
               <div class="d-grid">
-                <button (click)="goToSecondStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Continue</button>
+                <button (click)="goToFinalStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Continue</button>
               </div>
             </div>
+            <!--
             <div *ngIf="showSecondStep" class="second-step">
               <div class="second-block">
                 <label for="">Select your cv</label>
@@ -387,6 +411,7 @@
                 <button (click)="goToFinalStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Apply</button>
               </div>
             </div>
+            -->
             <div *ngIf="!showFirstStep && !showSecondStep" class="final-step">
               <div class="loader">
                 <svg class="circular">
@@ -398,7 +423,7 @@
               </div>
               <p class="text-success-apply">Your application has been submitted successfully! <br>
                 You can now discover other opportunities.</p>
-              <a href="" class="btn btn-other-opportunuties">Others opportunities</a>
+              <a  class="btn btn-other-opportunuties">Others opportunities</a>
             </div>
 
           </form>

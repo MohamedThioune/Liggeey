@@ -48,6 +48,8 @@ import { ProfilCompagnyComponent } from './components/profil-compagny/profil-com
 import { ListCompagnyComponent } from './components/compagnies/list-compagny/list-compagny.component';
 import { DetailCompagnyComponent } from './components/compagnies/detail-compagny/detail-compagny.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
+import {EditJobCompanyComponent} from "./components/edit-job-company/edit-job-company.component";
+import { CompagnyApplicantComponent } from './components/compagny-applicant/compagny-applicant.component';
 
 const routes: Routes = [
 
@@ -55,8 +57,11 @@ const routes: Routes = [
 
   { path: 'footers', component: FootersComponent },
 
-  { path: 'footer', component: FooterComponent }, 
+  { path: 'footer', component: FooterComponent },
+  
 
+  { path: 'all-applicant-compagny/:id', component: CompagnyApplicantComponent ,canActivate: [AuthGuard]},
+  
   { path: 'applicant-compagny/:id', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
 
   { path: 'passport-candidat/:id', component: PassportAllCandidatComponent ,canActivate: [AuthGuard]},
@@ -100,9 +105,9 @@ const routes: Routes = [
   { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'profil-candidat/:id', component: ProfilCandidatComponent,canActivate: [AuthGuard] },
-  
+
   { path: 'detail-job/:id', component: DetailJobComponent },
-  
+
   { path: 'detail-category/:id', component: CategorieComponent },
 
   { path: 'list-candidat', component: ListCandidatesComponent },
@@ -110,9 +115,9 @@ const routes: Routes = [
   { path: 'applies-candidat/:id', component: AppliesJobsComponent },
 
   { path: 'sidebar', component: SidebarCandidatComponent },
-  
+
   { path: 'detail-candidat/:id', component: DetailCandidatComponent },
-  
+
   { path: 'job', component: JobOneComponent },
 
  // { path: 'categorie', component: CategorieComponent },
@@ -145,7 +150,11 @@ const routes: Routes = [
 
   { path: 'contact', component: ContactComponent },
 
-  { path:'',redirectTo: '/login', pathMatch: 'full'}
+  { path:'',redirectTo: '/login', pathMatch: 'full'},
+
+  { path: 'edit-job', component: EditJobCompanyComponent },
+
+
 ];
 
 

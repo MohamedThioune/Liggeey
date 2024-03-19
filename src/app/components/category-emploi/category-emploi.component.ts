@@ -19,6 +19,7 @@ export class CategoryEmploiComponent implements OnInit {
   candidate=false;
   compagny=false;
   identifiant:number | null = 0;
+  appliedJob=false
 
   constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) { }
 
@@ -40,7 +41,31 @@ export class CategoryEmploiComponent implements OnInit {
         
       }
     }
+    this.category.jobs.forEach((job:any) => {
+      console.log(job);
+      job.applied.forEach((element:any)=>{
+        if (element=this.userConnect) {
+          this.appliedJob=true
+          
+        }
+      
+      })
+      
+      
+    });
   
+  }
+
+  openApplyModal(jobId: string) {
+    this.homeService.setSelectedJobId(jobId);
+    console.log(jobId);
+    
+    const modalElement = document.getElementById('modal-apply');
+    if (modalElement) {
+      modalElement.click();
+    } else {
+      console.error("Modal element not found");
+    }
   }
 
   ngOnChanges() {

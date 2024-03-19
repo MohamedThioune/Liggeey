@@ -6,4 +6,5 @@ export interface JobCompagny {
     job_contract: String;
     job_langues: String;
     job_application_deadline: String;
+    skills:string
 }

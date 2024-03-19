@@ -21,115 +21,57 @@
               </label>
               <textarea name="description" id="description" class="form-control" formControlName="description" cols="30" rows="10"></textarea>
             </div>
-            <div class="social">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6 p-2">
-                      <label for="email">
-                        Contract type  <span class="important">*</span>
-                      </label>
-                      <div class="input-group">
-                        <input type="text" name="job_contract" formControlName="job_contract" class="form-control" id="email" placeholder="Full Time">
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 p-2">
-                      <label for="password">Level of experience  <span class="important">*</span>
-                      </label>
-                      <div class="input-group">
-                        <input type="number" name="job_level_of_experience" formControlName="job_level_of_experience" class="form-control" id="job_level_of_experience" placeholder="Take a number value by 'years'">
-                      </div>
-                    </div>
-                    <!--
+            <div class="form-group col-50">
+              <label for="email">
+                Contract type  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="text" name="job_contract" formControlName="job_contract" class="form-control" id="email" placeholder="Full Time">
+              </div>
+            </div>
+            <div class="form-group col-50">
+              <label for="job_level_of_experience">Level of experience  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="number" name="job_level_of_experience" formControlName="job_level_of_experience" class="form-control" id="job_level_of_experience" placeholder="Take a number value by 'years'">
+              </div>
+            </div>
+            <div class="form-group col-50">
+              <label for="job_langues">Langues <span class="important">*</span></label>
+              <div class="input-group">
+                  <select name="job_langues" formControlName="job_langues" class="form-control" id="job_langues">
+                      <option *ngFor="let langue of langues" [value]="langue">{{ langue }}</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-group col-50">
+            <label for="job_langues">Skills</label>
+            <div class="input-group">
+                <select name="skills" formControlName="skills" class="form-control" id="skills" >
+                    <option *ngFor="let skill of tabSkills" [value]="skill">{{ skill.name }}</option>
+                </select>
+            </div>
+        </div>
+        
+        
+        
+          
+          
+          
+            <div class="form-group col-100">
+              <label for="job_application_deadline">Application deadline  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="date" name="job_application_deadline" formControlName="job_application_deadline" class="form-control" id="job_application_deadline" placeholder="26.10.2023">
+              </div>
+            </div>
 
-                    <div class="col-md-6 col-sm-6 p-2">
-                      <label for="firstName">Skills  <span class="important">*</span>
-                      </label>
-                      <div class="input-group">
-                        <input type="text" name="firstName" class="form-control" id="firstName" placeholder="">
-                      </div>
-                    </div>
-                    -->
-                    <div class="col-md-12 col-sm-12 p-2">
-                      <label for="firstName">Langues  <span class="important">*</span>
-                      </label>
-                      <div class="input-group">
-                        <input type="text" name="lastName" formControlName="job_langues" class="form-control" id="job_langues" placeholder="French,English,Dutch">
-                      </div>
-                      <!--
-                      <div class="input-group" *ngFor="let langue of langueTab; let i = index">
-                        <select class="form-control" [formControlName]="'job_langues_' + i" id="job_langues_{{ i }}">
-                            <option value="{{ langue }}">{{ langue }}</option>
-                        </select>
-                      </div>
-                      -->
-                    
-                    
-                    </div>
-                    <div class="col-md-12 col-sm-12 p-2">
-                      <label for="firstName">Application deadline  <span class="important">*</span>
-                      </label>
-                      <div class="input-group">
-                        <input type="date" name="firstName" formControlName="job_application_deadline" class="form-control" id="job_application_deadline" placeholder="26.10.2023">
-                      </div>
-                    </div>
-                    
-                  </div>
-                  <button class="btn btn-save create" type="submit"> Save </button>
-
-                </div>
-            </div>            
+            <button class="btn btn-save create" type="submit"> Save </button>
           </div>
 
         </form>
       </div>
     </div>
-    <!--
-    <div class="social">
-      <form>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6 col-sm-6 p-2">
-              <label for="email">
-                Contract type  <span class="important">*</span>
-              </label>
-              <div class="input-group">
-                <input type="email" name="email" class="form-control" id="email" placeholder="www.facebook.com/Invision">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 p-2">
-              <label for="password">Level of experience  <span class="important">*</span>
-              </label>
-              <div class="input-group">
-                <input type="text" name="password" class="form-control" id="password" placeholder="">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 p-2">
-              <label for="firstName">Skills  <span class="important">*</span>
-              </label>
-              <div class="input-group">
-                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6  p-2">
-              <label for="firstName">Langues  <span class="important">*</span>
-              </label>
-              <div class="input-group">
-                <input type="text" name="lastName" class="form-control" id="lastName" placeholder="">
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12 p-2">
-              <label for="firstName">Application deadline  <span class="important">*</span>
-              </label>
-              <div class="input-group">
-                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="26.10.2023">
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-save create " type="submit"> Save </button>
-        </div>
-      </form>
-    </div>
-    -->
   </div>
 </section>
 <app-footers></app-footers>
