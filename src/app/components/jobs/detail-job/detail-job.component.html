@@ -62,7 +62,7 @@
               </div>
             </div>
             <div class="job_info">
-              <button class="btn btn-apply" data-toggle="modal" data-target="#modal-apply">Apply</button>
+              <button class="btn btn-apply" [disabled]="company"  data-toggle="modal" (click)="openApplyModal(job.ID)" data-target="#modal-apply">Apply</button>
               <div class="bookmark">
                 <button (click)="favoritesJob()">
                   <i class="fa fa-bookmark"></i>
@@ -91,24 +91,24 @@
               <li>{{job.responsibilities}}</li>
             </ul>
           </div>
-          <div class="skill" *ngFor="let skill of job.skills_experiences">
+          <div class="skill" >
             <p>Skill & Experience</p>
-            <ul>
+            <ul *ngFor="let skill of job.skills_experiences">
               <li>{{skill.row}}.</li>
             </ul>
           </div>
           <div class="share">
             <p>Share this job</p>
             <div class="social">
-              <a class="btn btn-whatssap" href=" https://wa.me/?text= http://something.com/ " target="_blank">
+              <a class="btn btn-whatssap" href=" https://wa.me/?url= http:/{{href}}/ " target="_blank">
                 <i class="fa fa-whatsapp"></i> Whatssap
               </a>
-              <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?text=le+texte+ici&url=http://something.com" target="_blank">
+              <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?url=https:/{{href}}" target="_blank">
                 <i class="fa fa-twitter"></i> Twitter
               </a>
-              <a class="btn btn-linkedin" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=http://something.com&title=le+texte+ici" target="_blank">
+              <a class="btn btn-linkedin" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https:/{{href}}" target="_blank">
                 <i class="fa fa-linkedin"></i> LinkedIn
-              </a>
+            </a>
             </div>
           </div>
         </div>

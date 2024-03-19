@@ -71,8 +71,6 @@ export class HomeComponent implements OnInit {
         
 
   }
-
-
   
   
   changeTab(tab: string): void {

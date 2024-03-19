@@ -49,6 +49,7 @@ import { ListCompagnyComponent } from './components/compagnies/list-compagny/lis
 import { DetailCompagnyComponent } from './components/compagnies/detail-compagny/detail-compagny.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
 import {EditJobCompanyComponent} from "./components/edit-job-company/edit-job-company.component";
+import { CompagnyApplicantComponent } from './components/compagny-applicant/compagny-applicant.component';
 
 const routes: Routes = [
 
@@ -57,7 +58,10 @@ const routes: Routes = [
   { path: 'footers', component: FootersComponent },
 
   { path: 'footer', component: FooterComponent },
+  
 
+  { path: 'all-applicant-compagny/:id', component: CompagnyApplicantComponent ,canActivate: [AuthGuard]},
+  
   { path: 'applicant-compagny/:id', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
 
   { path: 'passport-candidat/:id', component: PassportAllCandidatComponent ,canActivate: [AuthGuard]},

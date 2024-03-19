@@ -23,10 +23,15 @@ export class DetailJobComponent implements OnInit {
     message: ''
   };
   selectedFileName: string | undefined;
+  public href: string = "";
+  company=false;
+  candidate=false;
 
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
+    this.href = this.router.url;
+
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
 
@@ -36,11 +41,19 @@ export class DetailJobComponent implements OnInit {
 
         // Parse du JSON pour obtenir l'objet original
         this.userConnect = JSON.parse(decodedToken);
+        if(this.userConnect.acf.is_liggeey == "candidate"){
+          this.candidate=true
+      
+        } else if(this.userConnect.acf.is_liggeey == "chief"){
+          this.company=true
+          }
     }
 
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
+        console.log(this.job);
+        
         this.calculateDuration();
         this.calculateDurationLastJob();
     });
@@ -191,5 +204,16 @@ calculateDurationLastJob(){
 
     }
 
+    openApplyModal(jobId: string) {
+      this.HomePageService.setSelectedJobId(jobId);
+      console.log(jobId);
+      
+      const modalElement = document.getElementById('modal-apply');
+      if (modalElement) {
+        modalElement.click();
+      } else {
+        console.error("Modal element not found");
+      }
+    }
 
 }

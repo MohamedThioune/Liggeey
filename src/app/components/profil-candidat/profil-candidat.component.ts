@@ -51,14 +51,9 @@ export class ProfilCandidatComponent implements OnInit {
   
   }
   onSubmit() {
-    // Utilisez le service pour postuler à l'emploi
-    if (this.form.valid) {
-
+    // Utilisez le service pour postuler à l'emploi    
     console.log(this.form.value);
-    }else{
-      console.log("no ok");
-      
-    }
+
   //   if (this.form_profil.value!="") {
 
   //   this.HomePageService.updateProfile(this.form_profil.value)

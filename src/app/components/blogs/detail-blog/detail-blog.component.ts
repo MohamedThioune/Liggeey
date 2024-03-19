@@ -20,11 +20,14 @@ export class DetailBlogComponent implements OnInit {
   };
   form!:FormGroup;
   userConnect:any;
+  public href: string = "";
+
   constructor(private router: Router , private homeService:HomePageService,private fb: FormBuilder,private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
 
     this.initForm()
+    this.href = this.router.url;
    // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
     
@@ -35,15 +38,15 @@ export class DetailBlogComponent implements OnInit {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
-   console.log(this.userConnect.id);
     this.initForm()
     this.identifiant = +this.route.snapshot.params['id'];  
       
     this.HomePageService.getDetailArticle( this.identifiant).subscribe(data=>{
-      this.article=data         
+      this.article=data  
+      console.log(this.article);
+       
       this.article.title =   this.article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article.content =   this.article.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      console.log(this.article);
          
     })
   }

@@ -35,13 +35,14 @@
             <th scope="row">
               {{job.title}}
             </th>
-            <td [routerLink]="['/applicant-compagny',job.ID]">{{appliedNumber}}+ Applied</td>
-            <td>{{job.posted_at}}
+            <td *ngIf="job.applied.length > 0" [routerLink]="['/applicant-compagny', job.ID]">{{ job.applied.length }}+ Applied</td>
+            <td style="text-decoration: none;" *ngIf="job.applied.length === 0">No applications</td>
+                        <td>{{job.posted_at}}
               {{job.expired_at}}</td>
             <td>Active</td>
             
             <td>
-              <button>
+              <button [routerLink]="['/detail-job',job.ID]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                   <g clip-path="url(#clip0_2859_8925)">
                     <path d="M12.2661 6.11685L10.1178 3.85485C7.978 1.60177 4.50908 1.60177 2.36929 3.85485L0.220984 6.11685C0.0200888 6.32838 0.0200888 6.67136 0.220984 6.88289L2.36927 9.14489C4.50908 11.398 7.978 11.398 10.1178 9.14489L12.2661 6.88289C12.467 6.67136 12.467 6.32838 12.2661 6.11685ZM9.39029 8.37885C7.65229 10.2089 4.83482 10.2089 3.09681 8.37885L1.31227 6.49987L3.09679 4.62089C4.83479 2.79089 7.65227 2.79089 9.39027 4.62089L11.1748 6.49987L9.39029 8.37885Z" fill="#043356"/>
@@ -54,6 +55,7 @@
                   </defs>
                 </svg>
               </button>
+              <!--
               <button>
                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
                   <g clip-path="url(#clip0_2818_10831)">
@@ -81,6 +83,7 @@
                   </defs>
                 </svg>
               </button>
+              -->
             </td>
             
           </tr>

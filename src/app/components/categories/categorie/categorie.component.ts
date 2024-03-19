@@ -40,7 +40,8 @@ export class CategorieComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data              
-
+      console.log(this.category);
+      
       this.category.jobs.forEach((element:any) => {
         const postedDate = new Date(element.posted_at);
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
@@ -93,10 +94,6 @@ export class CategorieComponent implements OnInit {
     }
   }
 
-
-
-
-
   favoritesJob() {
     // Assurez-vous que this.userConnect et this.job sont définis
     if (this.userConnect && this.job && this.job.ID) {
@@ -135,7 +132,17 @@ export class CategorieComponent implements OnInit {
     }
   }
 
-
+  openApplyModal(jobId: string) {
+    this.homeService.setSelectedJobId(jobId);
+    console.log(jobId);
+    
+    const modalElement = document.getElementById('modal-apply');
+    if (modalElement) {
+      modalElement.click();
+    } else {
+      console.error("Modal element not found");
+    }
+  }
 
 
 }

@@ -1,16 +1,17 @@
-import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener, ChangeDetectorRef,OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { Location } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit,OnDestroy {
   isMobile!: boolean;
   userConnect:any;
   categories:any
@@ -26,6 +27,8 @@ export class HeaderComponent implements OnInit {
   job:any;
   applyJobs=false;
 
+  selectedJobId!: string;
+   subscription!: Subscription;
 
   dropdownOpen: boolean = false;
   dropdownUser: boolean = false;
@@ -40,11 +43,12 @@ export class HeaderComponent implements OnInit {
   isModalVisible: boolean = true; // Set to true initially to show the modal
 
 
-  constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef) {
+  constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
     this.isMobile = window.innerWidth < 768;
     this.dropdownOpen = false;
     this.dropdownUser = false;
   }
+  
 
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
@@ -62,6 +66,10 @@ export class HeaderComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.subscription = this.homeService.selectedJobId$.subscribe(id => {
+      this.selectedJobId = id;      
+    });
+
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
     this.identifiant = +this.route.snapshot.params['id'];
@@ -82,15 +90,20 @@ export class HeaderComponent implements OnInit {
     }
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
-        console.log( this.categories);
+     //  console.log( this.categories);
     })
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
+     // console.log(this.category);
+      
     })
     // this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
     //   this.category = data
     // })
 
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
   goBack(): void {
     this.location.back();
@@ -120,15 +133,18 @@ export class HeaderComponent implements OnInit {
 
           // Parse du JSON pour obtenir l'objet original
           const userObject = JSON.parse(decodedToken);
+         // console.log(userObject);
+          
           if(userObject.acf.is_liggeey == "candidate"){
             this.userConnect=true
+            this.showFirstStep=true
           } else if(userObject.acf.is_liggeey == "chief"){
             this.userConnect=false;
             this.isModalVisible=false
 
             ToastNotification.open({
               type: 'success',
-              message: "Thank you for logging in, your dashboard will be available soon"
+              message: "This is apply job for Candidat"
             });
           }
         }else {
@@ -156,7 +172,52 @@ export class HeaderComponent implements OnInit {
   }
 
   goToFinalStep() {
-    this.showSecondStep = false;
+    
+    if (this.userConnect && this.selectedJobId) {
+      console.log(this.userConnect,this.selectedJobId)
+      // Utilisez le service pour postuler à l'emploi
+      this.homeService.applyJob(this.userConnect.id, this.selectedJobId)
+        .subscribe(
+          // Succès de la requête
+          (response) => {
+            this.applyJobs=true ;
+            console.log(this.applyJobs);
+            
+            this.cdr.detectChanges(); // Force la détection des changements
+
+            let typeR = "error"
+            if (<any>response ) {
+              typeR = "success";
+              this.message= "Your job application has been successfully submitted."
+            }
+            ToastNotification.open({
+              type: typeR,
+              message: this.message
+            });
+            if (typeR == "success") {
+              this.showFirstStep = false;
+              this.showSecondStep = false;
+              //this.router.navigate(['/applies-candidat',this.userConnect.id]);
+            }
+          },
+          // Gestion des erreurs
+          (error) => {
+            ToastNotification.open({
+              type: 'error',
+              message: error.error.message
+            });
+          }
+        );
+    } else {
+      alert('no ok')
+      ToastNotification.open({
+        type: 'error',
+        message: this.message
+        
+      });
+      console.log(this.message);
+     
+    }
   }
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {

@@ -64,6 +64,7 @@ import { ProfilCandidatComponent } from './components/profil-candidat/profil-can
 import { ResumeCandidatComponent } from './components/resume-candidat/resume-candidat.component';
 import { RouterModule } from '@angular/router';
 import { EditJobCompanyComponent } from './components/edit-job-company/edit-job-company.component';
+import { CompagnyApplicantComponent } from './components/compagny-applicant/compagny-applicant.component';
 
 @NgModule({
   declarations: [
@@ -124,6 +125,7 @@ import { EditJobCompanyComponent } from './components/edit-job-company/edit-job-
     ProfilCandidatComponent,
     ResumeCandidatComponent,
     EditJobCompanyComponent,
+    CompagnyApplicantComponent,
 
   ],
   imports: [
