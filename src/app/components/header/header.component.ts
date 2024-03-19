@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit,OnDestroy {
   isMobile!: boolean;
   userConnect:any;
+  userObject:any
   categories:any
   category:any
   candidate=false;
@@ -66,21 +67,20 @@ export class HeaderComponent implements OnInit,OnDestroy {
   
 
   ngOnInit(): void {
-    this.subscription = this.homeService.selectedJobId$.subscribe(id => {
-      this.selectedJobId = id;      
-    });
+  
 
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
     const storedToken = this.usagerService.getToken();
+    
 
     if (storedToken) {
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
+      
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
-      console.log(this.userConnect);
       
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
@@ -88,6 +88,9 @@ export class HeaderComponent implements OnInit,OnDestroy {
         this.compagny=true
       }
     }
+    this.subscription = this.homeService.selectedJobId$.subscribe(id => {
+      this.selectedJobId = id;      
+    });
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
      //  console.log( this.categories);
@@ -102,13 +105,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
     // })
 
   }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-  goBack(): void {
-    this.location.back();
-  }
 
+  
   switchToApplyBlock() {
     this.showLoginBlock = false;
     const user = {
@@ -132,10 +130,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
           const decodedToken = atob(storedToken);
 
           // Parse du JSON pour obtenir l'objet original
-          const userConnect = JSON.parse(decodedToken);
-          this.userConnect=userConnect
-          console.log(userConnect);
-          
+          const userConnect = JSON.parse(decodedToken);       
           if(userConnect.acf.is_liggeey == "candidate"){
             this.userConnect=true
             this.showFirstStep=true
@@ -167,6 +162,15 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
       });
   }
+
+  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+  goBack(): void {
+    this.location.back();
+  }
+
 
 
   goToSecondStep() {
