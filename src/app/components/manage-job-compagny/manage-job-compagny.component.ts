@@ -13,7 +13,8 @@ export class ManageJobCompagnyComponent implements OnInit {
   showButton = true;
   userConnect:any;
   openJobs:any;
-  appliedNumber!:number
+  appliedNumber!:number;
+  tabNumber:any[]=[];
 
   constructor(private homeService:HomePageService,private usagerService: UsagerService) { }
 
@@ -31,10 +32,14 @@ export class ManageJobCompagnyComponent implements OnInit {
       
     this.homeService.manageJob(this.userConnect.id).subscribe((data:any)=>{
       this.openJobs=data;
+     // console.log(this.openJobs);
       
       this.openJobs.forEach((element:any) => {
         this.appliedNumber=element.applied.length
-        console.log(this.appliedNumber);
+       // console.log(this.appliedNumber);
+        this.tabNumber.push(this.appliedNumber)
+        //console.log(this.tabNumber);
+        
 
       });
     })

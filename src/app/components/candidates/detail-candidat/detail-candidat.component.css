@@ -50,14 +50,14 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
  }
  .content_job_list_1 .info_all .line{
    width: 100%;
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content:center;
    align-items: center;
    margin-bottom: 20px;
 }
@@ -171,7 +171,7 @@
 }
 .education .education_1 .head_education_1 .time{
    font-weight: bold;
-   font-size: 18px;
+   font-size: 15px;
    color:#D93025;
    background-color: #FAE0DF;
    border-radius: 60px;
@@ -206,7 +206,7 @@
 }
 .work_experience .education_1 .head_education_1 .time{
    font-weight: bold;
-   font-size: 18px;
+   font-size: 15px;
    color:#043356;
    background-color: #DAE1E6;
    border-radius: 60px;
@@ -214,7 +214,7 @@
 }
 .work_experience hr{
    width: 2px;
-height: 140px;
+height: 300px;
 border: 2px dashed  #043356;
 opacity: 0.15;
 }
@@ -360,6 +360,24 @@ opacity: 0.15;
  .sidebar .bottom_sidebar .compagny .inner .inner_1 .social i:hover{
    color:#C39DEA ;
   }
+
+.work_experience {
+  margin: 45px 0 50px;
+}
+.btn-accpet{
+  font-size: 18px;
+  background: #1ac4a2;
+  color: white;
+  padding: 7px 25px;
+  margin-right: 15px;
+}
+.btn-reject{
+  font-size: 18px;
+  color: #dc3545;
+  padding: 7px 34px;
+  margin-left: 21px;
+  border: 1px solid red;
+}
    @media all and (min-width: 300px) and (max-width: 767px){
    .description_job{
       margin-bottom: 25px;
@@ -375,9 +393,7 @@ opacity: 0.15;
       align-items: center;
    }
    .all_info {
-      border: 1px solid red;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       margin: 0;
