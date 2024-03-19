@@ -71,8 +71,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
     });
 
     // Récupération du token depuis le local storage
-    const storedToken = this.usagerService.getToken();
     this.identifiant = +this.route.snapshot.params['id'];
+    const storedToken = this.usagerService.getToken();
 
     if (storedToken) {
                 // Décodage de la base64
@@ -132,13 +132,16 @@ export class HeaderComponent implements OnInit,OnDestroy {
           const decodedToken = atob(storedToken);
 
           // Parse du JSON pour obtenir l'objet original
-          const userObject = JSON.parse(decodedToken);
-         // console.log(userObject);
+          const userConnect = JSON.parse(decodedToken);
+          this.userConnect=userConnect
+          console.log(userConnect);
           
-          if(userObject.acf.is_liggeey == "candidate"){
+          if(userConnect.acf.is_liggeey == "candidate"){
             this.userConnect=true
             this.showFirstStep=true
-          } else if(userObject.acf.is_liggeey == "chief"){
+            console.log(this.showFirstStep);
+            
+          } else if(userConnect.acf.is_liggeey == "chief"){
             this.userConnect=false;
             this.isModalVisible=false
 
@@ -195,8 +198,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
               message: this.message
             });
             if (typeR == "success") {
-              this.showFirstStep = false;
-              this.showSecondStep = false;
+              this.showFirstStep =  !this.showFirstStep;
+              this.showSecondStep = !this.showSecondStep;
               //this.router.navigate(['/applies-candidat',this.userConnect.id]);
             }
           },
