@@ -373,14 +373,14 @@
         <div class="modal-body">
           <form>
             <div  *ngIf="showFirstStep && userConnect" class="first-step">
-              <div class="my_container_input_1 form-group">
-                <label for="username">Fisrt Name</label>
-                <input class = "input" name="username" id="Fisrt-Name" type="text" placeholder="" aria-label="default input example" value="{{userConnect.first_name}}" required>
-              </div>
-              <div class="my_container_input_2 form-group">
-                <label>Last Name</label>
-                <input class = "input" name=""  type="text" placeholder="" aria-label="default input example" id="Last-Name" value="{{userConnect.last_name}}" required>
-              </div>
+               <div class="my_container_input_1 form-group">
+          <label for="username">First Name</label>
+          <input class="input" name="username" id="First-Name" type="text" placeholder="" aria-label="default input example" [(ngModel)]="userConnect.first_name" required>
+        </div>
+        <div class="my_container_input_2 form-group">
+          <label>Last Name</label>
+          <input class="input" name="" type="text" placeholder="" aria-label="default input example" id="Last-Name" [(ngModel)]="userConnect.last_name" required>
+        </div>
                <!--
               <div class="my_container_input_2 form-group">
                 <label>Role</label>
