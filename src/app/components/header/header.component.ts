@@ -130,11 +130,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
           const decodedToken = atob(storedToken);
 
           // Parse du JSON pour obtenir l'objet original
-          const userConnect = JSON.parse(decodedToken);
-          this.userConnect=userConnect
-          this.cdr.detectChanges();
-          console.log(userConnect);
-          
+          const userConnect = JSON.parse(decodedToken);       
           if(userConnect.acf.is_liggeey == "candidate"){
             this.userConnect=true
             this.showFirstStep=true
