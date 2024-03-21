@@ -26,6 +26,7 @@ export class JobOneComponent implements OnInit {
   appliedJob=false
   candidate=false
   company=false
+  canApply=true
 
   constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) {}
   ngOnInit(): void {
@@ -50,14 +51,12 @@ export class JobOneComponent implements OnInit {
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.homeService.getAllJob().subscribe((data:any)=>{      
       this.jobs=data
-      this.jobs.forEach((job:any) => {        
-        job.applied.forEach((element:any) => {
-          if (element.ID==this.userConnect.ID) {
-            this.appliedJob=true
-          }
-          
-        });
-        
+      this.jobs.forEach((job:any) => { 
+        console.log(job);
+               
+          if (job.applied.includes(this.userConnect)) {
+            this.canApply=!this.canApply
+          }   
       });
     })
   }

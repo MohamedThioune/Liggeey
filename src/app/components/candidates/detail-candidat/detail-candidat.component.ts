@@ -20,16 +20,12 @@ export class DetailCandidatComponent implements OnInit {
     message: ''
   };
   applyJobs=false
-  jobId!: string ; // Initialisé à null
+  jobId!: number ; // Initialisé à null
+  canApprove=false
+
   constructor(private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService) { }
   
   ngOnInit(): void {
-
-    this.route.queryParams.subscribe(params => {
-      this.jobId = params['jobId'];
-      console.log(this.jobId); // Vérifiez la valeur de candidatId dans la console
-    });
-  
 
     const storedToken = this.usagerService.getToken();
     this.identifiant = +this.route.snapshot.params['id'];
@@ -48,10 +44,23 @@ export class DetailCandidatComponent implements OnInit {
         this.compagny=true
       }
     }
+
+    this.route.queryParams.subscribe(params => {
+      this.jobId = params['jobId'];
+        this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
+          if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
+            this.canApprove=!this.canApprove
+          }
+          console.log(this.jobId,job); 
+
+        });
+    });
+  
+
   
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
       this.candidat=data  
-          console.log(this.candidat);
+         // console.log(this.candidat);
           
     })
     
@@ -96,6 +105,8 @@ export class DetailCandidatComponent implements OnInit {
 
   approveCandidatByCompany(){
     if (this.userConnect && this.jobId ) {
+      console.log(this.userConnect,this.jobId);
+      
       // Utilisez le service pour ajouter l'emploi aux favoris
       this.HomePageService.approveCandidatByCompany(this.userConnect.id, this.jobId)
         .subscribe(
