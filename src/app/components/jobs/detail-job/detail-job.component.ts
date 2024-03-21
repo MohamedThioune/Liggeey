@@ -26,6 +26,7 @@ export class DetailJobComponent implements OnInit {
   public href: string = "";
   company=false;
   candidate=false;
+  canApply=false
 
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
@@ -52,6 +53,9 @@ export class DetailJobComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
+        if(this.job.applied.includes(this.userConnect)){
+          this.canApply != this.canApply
+        }
         console.log(this.job);
         
         this.calculateDuration();

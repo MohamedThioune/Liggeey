@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { Usager } from '../interfaces/usager';
 import { UserResetPassword } from '../interfaces/user-reset-password';
@@ -12,6 +12,14 @@ import { UsagerCompany } from '../interfaces/usager-company';
 })
 export class UsagerService {
 
+  private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  user$: Observable<any> = this.userSubject.asObservable();
+
+  setUser(user: any) {
+    this.userSubject.next(user);
+    console.log(user);
+    
+  }
   constructor(private http: HttpClient) { }
   connection(user:User): Observable<any> {
     const base64Credentials = btoa(user.username + ':' + user.password);

@@ -86,15 +86,15 @@
          </div>
 
          <div class="account" *ngIf="userConnect">
-           <div class="content_image">
-             <img [src]="userConnect.avatar_urls && userConnect.avatar_urls[96]" alt="Image User Connect">
-           </div>
-           <p>{{userConnect.first_name}} {{userConnect.last_name}}</p>
+          <div class="content_image">
+            <img *ngIf="avatar" [src]="avatar" alt="Image User Connect">         
+          </div>
+           <p>{{first_name}} {{last_name}}</p>
 
            <div class="dropdown dropdown-user">
              <button class="dropdown-toggle" (click)="toggleDropdownUser()"><i class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  aria-haspopup="true" aria-expanded="false" class="fa fa-bars"></i></button>
              <div class="dropdown-menu" [class.show]="dropdownUser">
-               <a class="dropdown-item" [routerLink]="['/profil-candidat',userConnect.id]" *ngIf="candidate">
+               <a class="dropdown-item"  [routerLink]="['/profil-candidat',id]" *ngIf="candidate && id">
                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18" fill="none">
                    <g clip-path="url(#clip0_2843_10796)">
                      <path d="M17.9544 15.4242C17.8752 15.044 17.5028 14.8 17.1227 14.8791C16.7425 14.9583 16.4985 15.3307 16.5776 15.7108C16.6232 15.9298 16.569 16.1543 16.4287 16.3267C16.3475 16.4265 16.1664 16.5941 15.8663 16.5941H12.6914C12.3031 16.5941 11.9883 16.9089 11.9883 17.2972C11.9883 17.6856 12.3031 18.0004 12.6914 18.0004H15.8663C16.5106 18.0004 17.1133 17.7137 17.5197 17.2139C17.9282 16.7117 18.0866 16.0593 17.9544 15.4242Z" fill="#696969"/>
@@ -108,7 +108,7 @@
                  </svg>
                  <p>My Profil</p>
                </a>
-               <a class="dropdown-item" [routerLink]="['/profil-compagny',userConnect.id]" *ngIf="compagny">
+               <a class="dropdown-item" [routerLink]="['/profil-compagny',id]" *ngIf="compagny">
                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18" fill="none">
                    <g clip-path="url(#clip0_2843_10796)">
                      <path d="M17.9544 15.4242C17.8752 15.044 17.5028 14.8 17.1227 14.8791C16.7425 14.9583 16.4985 15.3307 16.5776 15.7108C16.6232 15.9298 16.569 16.1543 16.4287 16.3267C16.3475 16.4265 16.1664 16.5941 15.8663 16.5941H12.6914C12.3031 16.5941 11.9883 16.9089 11.9883 17.2972C11.9883 17.6856 12.3031 18.0004 12.6914 18.0004H15.8663C16.5106 18.0004 17.1133 17.7137 17.5197 17.2139C17.9282 16.7117 18.0866 16.0593 17.9544 15.4242Z" fill="#696969"/>
@@ -122,7 +122,7 @@
                  </svg>
                  <p>My Profil</p>
                </a>
-               <a class="dropdown-item" [routerLink]="['/alert-candidat',userConnect.id]" *ngIf="candidate">
+               <a class="dropdown-item" [routerLink]="['/alert-candidat',id]" *ngIf="candidate">
                  <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 27" fill="none">
                    <g clip-path="url(#clip0_2923_7735)">
                      <path d="M24.619 19.6124H23.3917V9.80632C23.3917 4.3995 18.987 0.000244141 13.5735 0.000244141C8.16005 0.000244141 3.75536 4.3995 3.75536 9.80632V19.6124H2.52807C1.84938 19.6124 1.30078 20.1603 1.30078 20.8382C1.30078 21.516 1.84938 22.0639 2.52807 22.0639H3.75536H8.66445C8.66445 24.7679 10.8662 26.9669 13.5735 26.9669C16.2809 26.9669 18.4826 24.7679 18.4826 22.0639H23.3917H24.619C25.2977 22.0639 25.8463 21.516 25.8463 20.8381C25.8463 20.1603 25.2977 19.6124 24.619 19.6124ZM13.5735 24.5154C12.2199 24.5154 11.119 23.4159 11.119 22.0639H16.0281C16.0281 23.4159 14.9272 24.5154 13.5735 24.5154ZM20.9372 19.6124H18.4826H8.66445H6.20993V9.80632C6.20993 5.75031 9.51253 2.45179 13.5735 2.45179C17.6346 2.45179 20.9372 5.75031 20.9372 9.80632V19.6124Z" fill="#696969"/>
@@ -135,7 +135,7 @@
                  </svg>
                  <p>Notification</p>
                </a>
-               <a class="dropdown-item" [routerLink]="['/resume-compagny',userConnect.id]" *ngIf="compagny">
+               <a class="dropdown-item" [routerLink]="['/resume-compagny',id]" *ngIf="compagny">
                  <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 27" fill="none">
                    <g clip-path="url(#clip0_2923_7735)">
                      <path d="M24.619 19.6124H23.3917V9.80632C23.3917 4.3995 18.987 0.000244141 13.5735 0.000244141C8.16005 0.000244141 3.75536 4.3995 3.75536 9.80632V19.6124H2.52807C1.84938 19.6124 1.30078 20.1603 1.30078 20.8382C1.30078 21.516 1.84938 22.0639 2.52807 22.0639H3.75536H8.66445C8.66445 24.7679 10.8662 26.9669 13.5735 26.9669C16.2809 26.9669 18.4826 24.7679 18.4826 22.0639H23.3917H24.619C25.2977 22.0639 25.8463 21.516 25.8463 20.8381C25.8463 20.1603 25.2977 19.6124 24.619 19.6124ZM13.5735 24.5154C12.2199 24.5154 11.119 23.4159 11.119 22.0639H16.0281C16.0281 23.4159 14.9272 24.5154 13.5735 24.5154ZM20.9372 19.6124H18.4826H8.66445H6.20993V9.80632C6.20993 5.75031 9.51253 2.45179 13.5735 2.45179C17.6346 2.45179 20.9372 5.75031 20.9372 9.80632V19.6124Z" fill="#696969"/>
@@ -375,18 +375,18 @@
             <div  *ngIf="showFirstStep && userConnect" class="first-step">
                <div class="my_container_input_1 form-group">
           <label for="username">First Name</label>
-          <input class="input" name="username" id="First-Name" type="text" placeholder="" aria-label="default input example" [(ngModel)]="userConnect.first_name" required>
+          <input class="input" name="first_name" id="first_name" type="text" placeholder="" aria-label="default input example" [(ngModel)]="first_name" required>
         </div>
         <div class="my_container_input_2 form-group">
           <label>Last Name</label>
-          <input class="input" name="" type="text" placeholder="" aria-label="default input example" id="Last-Name" [(ngModel)]="userConnect.last_name" required>
+          <input class="input" name="last_name" type="text" placeholder="" aria-label="default input example" id="Last-Name" [(ngModel)]="last_name" required>
         </div>
-               <!--
+            <!--  
               <div class="my_container_input_2 form-group">
                 <label>Role</label>
-                <input class = "input" name=""  type="role" placeholder="" aria-label="default input example" id="Email" value="{{userConnect.work_as}}" required>
+                <input class = "input" name=""  type="role" placeholder="" aria-label="default input example" id="Email" value="{{work_as}}" required>
               </div>
-             
+              
               <div class="my_container_input_2 form-group">
                 <label>Phone Number</label>
                 <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.email}}" required>

@@ -161,7 +161,7 @@
                       <p class="social">
                         <a *ngIf="candidat.social_network.facebook" style="text-decoration: none;color:#696969" [href]="candidat.social_network.facebook" target="_blank">
                           <i class="fa fa-facebook" aria-hidden="true"></i>
-                      </a>                      
+                        </a>                      
                         <a *ngIf="candidat.social_network.twitter" style="text-decoration: none;color:#696969" [href]="candidat.social_network.twitter" target="_blank">
                           <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
@@ -282,7 +282,7 @@
                 </div>
               </div>
             </div>
-            <div *ngIf="compagny && jobId " class="content-btn mb-4 d-flex align-items-center justify-content-center">
+            <div *ngIf="compagny && jobId && canApprove " class="content-btn mb-4 d-flex align-items-center justify-content-center">
               <button (click)="approveCandidatByCompany()" class="btn btn-accpet">Approve</button>
               <button (click)="rejectCandidatByCompany()" class="btn btn-reject">Reject</button>
             </div>
