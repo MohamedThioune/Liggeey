@@ -32,6 +32,8 @@ export class CategorieComponent implements OnInit {
   searchLocation:string ='';
   currentDate!: Date;
   sentDate: any;
+  canApply=true;
+
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
@@ -40,9 +42,13 @@ export class CategorieComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data              
-      console.log(this.category);
       
-      this.category.jobs.forEach((element:any) => {
+      this.category.jobs.forEach((element:any) => {           
+          if (element.applied.includes(this.userConnect)) {
+            this.canApply=!this.canApply
+            console.log('ok');
+          }          
+
         const postedDate = new Date(element.posted_at);
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
         const differenceInMs = this.currentDate.getTime() - postedDate.getTime();

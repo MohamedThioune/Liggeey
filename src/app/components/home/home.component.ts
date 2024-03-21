@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
       this.candidates=data.candidates      
