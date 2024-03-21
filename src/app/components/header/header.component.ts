@@ -181,6 +181,7 @@ console.log(  this.href);
   //     });
   // }
 
+  
   switchToApplyBlock() {
     this.showLoginBlock = false;
     const user = {
