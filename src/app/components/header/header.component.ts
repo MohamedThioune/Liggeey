@@ -17,12 +17,13 @@ export class HeaderComponent implements OnInit,OnDestroy {
   userObject:any
   categories:any
   category:any
+  candidat:any
   candidate=false;
   compagny=false;
   identifiant:number | null = 0;
   showLoginBlock: boolean = true;
   showFirstStep: boolean = true;
-  showSecondStep: boolean = false;
+  showSecondStep: boolean = true;
   username: string = '';
   password: string = '';
   first_name:string='';
@@ -78,12 +79,12 @@ console.log(  this.href);
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
     const storedToken = this.usagerService.getToken();
-    
+
 
     if (storedToken) {
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
-      
+
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
@@ -100,7 +101,7 @@ console.log(  this.href);
     }
     
     this.subscription = this.homeService.selectedJobId$.subscribe(id => {
-      this.selectedJobId = id;      
+      this.selectedJobId = id;
     });
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
@@ -108,11 +109,14 @@ console.log(  this.href);
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
      // console.log(this.category);
-      
+
     })
     this.homeService.getDetailCandidate( this.id).subscribe(data=>{
-      this.category = data
+      this.candidat = data
+      console.log(this.category);
+      
     })
+
 
 
   }
@@ -238,7 +242,7 @@ console.log(  this.href);
       });
   }
 
-  
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
@@ -254,7 +258,8 @@ console.log(  this.href);
   }
 
   goToFinalStep() {
-    
+console.log(this.userConnect,this.selectedJobId,this.id);
+
     if (this.userConnect && this.selectedJobId) {
       console.log(this.userConnect,this.selectedJobId)
       // Utilisez le service pour postuler à l'emploi
@@ -264,21 +269,29 @@ console.log(  this.href);
           (response) => {
             this.applyJobs=true ;
             console.log(this.applyJobs);
-            
+
             this.cdr.detectChanges(); // Force la détection des changements
 
             let typeR = "error"
             if (<any>response ) {
               typeR = "success";
               this.message= "Your job application has been successfully submitted."
+              this.showFirstStep =  !this.showFirstStep;
+              this.showSecondStep = !this.showSecondStep;
             }
             ToastNotification.open({
               type: typeR,
               message: this.message
             });
+            this.showFirstStep =  !this.showFirstStep;
+            this.showSecondStep = !this.showSecondStep;
+            //this.userConnect=true
+            console.log(this.showFirstStep,this.showSecondStep);
+            
             if (typeR == "success") {
               this.showFirstStep =  !this.showFirstStep;
               this.showSecondStep = !this.showSecondStep;
+            //  this.userConnect=true
               //this.router.navigate(['/applies-candidat',this.userConnect.id]);
             }
           },
@@ -295,10 +308,10 @@ console.log(  this.href);
       ToastNotification.open({
         type: 'error',
         message: this.message
-        
+
       });
       console.log(this.message);
-     
+
     }
   }
   @HostListener('window:resize', ['$event'])

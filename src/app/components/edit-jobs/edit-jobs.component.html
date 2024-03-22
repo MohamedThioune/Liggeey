@@ -2,7 +2,7 @@
 <section class="content-page-dashboard">
   <app-sidebar-company></app-sidebar-company>
   <div class="right_menu">
-    <h2 class="title-page">Edit <span>UI Design</span> Job</h2>
+    <h2 class="title-page">Edit <span></span> Job</h2>
     <div class="content_right_menu">
       <div class="map_menu">
         <form>
@@ -12,42 +12,51 @@
                 Title <span class="important">*</span>
               </label>
               <div class="input-group">
-                <input type="text" name="title" id="title" formControlName="title" class="form-control" placeholder="Title" value="UI Design">
+                <input type="text" name="title" id="title" formControlName="title" class="form-control" placeholder="Title">
               </div>
             </div>
             <div class="form-group">
               <label>
                 Description
               </label>
-              <textarea name="description" id="description" class="form-control" formControlName="description" cols="30" rows="10" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries"></textarea>
+              <textarea name="description" id="description" class="form-control" formControlName="description" cols="30" rows="10"></textarea>
             </div>
             <div class="form-group col-50">
               <label for="email">
                 Contract type  <span class="important">*</span>
               </label>
               <div class="input-group">
-                <input type="text" name="job_contract" formControlName="job_contract" class="form-control" id="email" placeholder="Full Time" value="CDD">
+                <input type="text" name="job_contract" formControlName="job_contract" class="form-control" id="email" placeholder="Full Time">
               </div>
             </div>
             <div class="form-group col-50">
               <label for="job_level_of_experience">Level of experience  <span class="important">*</span>
               </label>
               <div class="input-group">
-                <input type="number" name="job_level_of_experience" formControlName="job_level_of_experience" class="form-control" id="job_level_of_experience" placeholder="Take a number value by 'years'" value="5">
+                <input type="number" name="job_level_of_experience" formControlName="job_level_of_experience" class="form-control" id="job_level_of_experience" placeholder="Take a number value by 'years'">
               </div>
             </div>
             <div class="form-group col-50">
-              <label for="job_langues">Langues  <span class="important">*</span>
-              </label>
+              <label for="job_langues">Langues <span class="important">*</span></label>
               <div class="input-group">
-                <input type="text" name="lastName" formControlName="job_langues" class="form-control" id="job_langues" placeholder="French,English,Dutch" value="French,English,Dutch">
+                <select name="job_langues" formControlName="job_langues" class="form-control" id="job_langues">
+                  <option>fr</option>
+                </select>
               </div>
             </div>
             <div class="form-group col-50">
+              <label for="job_langues">Skills</label>
+              <div class="input-group">
+                <select name="skills" formControlName="skills" class="form-control" id="skills" >
+                  <option ></option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group col-100">
               <label for="job_application_deadline">Application deadline  <span class="important">*</span>
               </label>
               <div class="input-group">
-                <input type="date" name="firstName" formControlName="job_application_deadline" class="form-control" id="job_application_deadline" placeholder="26.10.2023" value="26/10/2023">
+                <input type="date" name="job_application_deadline" formControlName="job_application_deadline" class="form-control" id="job_application_deadline" placeholder="26.10.2023">
               </div>
             </div>
 

@@ -74,9 +74,11 @@
             <li class="nav-item">
                 <a class="nav-link active" [class.active]="ongletSelectionne === 'All'" (click)="selectionnerOnglet('All')"  aria-current="page">All</a>
             </li>
+            <!--
             <li class="nav-item">
                 <a class="nav-link" [class.active]="ongletSelectionne === 'Topics'" (click)="selectionnerOnglet('Topics')" >Topics</a>
             </li>  
+            -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Badges / Certificates</a>
                 <div class="dropdown-menu">
@@ -87,9 +89,11 @@
             <li class="nav-item">
                 <a class="nav-link" [class.active]="ongletSelectionne === 'Skills'" (click)="selectionnerOnglet('Skills')" >Skills</a>
             </li>
+            <!--
             <li class="nav-item">
                 <a class="nav-link" [class.active]="ongletSelectionne === 'Assessments'" (click)="selectionnerOnglet('Assessments')" >Assessments</a>
             </li>
+            -->
             <li class="nav-item">
                 <a class="nav-link" [class.active]="ongletSelectionne === 'Course'" (click)="selectionnerOnglet('Course')">Preferred Course type</a>
             </li>
@@ -100,6 +104,7 @@
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
           </ul>
+          <!--
           <div class="map_menu" *ngIf="ongletSelectionne === 'Topics'|| ongletSelectionne === 'All'">
             <div class="livraison" id="livraison">
                 <div class="content_image_livraison_livraison">
@@ -180,6 +185,7 @@
                 </div>
             </div>
           </div>
+          -->
           <div class="map_menu" *ngIf="ongletSelectionne === 'Badges' || ongletSelectionne === 'All'" >
               <div class="badge_certificate">
                 <p>Badges/Certificat</p>
@@ -393,6 +399,7 @@
                         </div>
                 </div>                 
           </div>
+          <!--
           <div class="map_menu"  *ngIf="ongletSelectionne === 'Assessments' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Assessment</p>
@@ -563,13 +570,14 @@
                 </tbody>
               </table>          
           </div>
+          -->
           <div class="map_menu" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                   <p>Preferred Course type</p>
                   <a href="">See All</a>
               </div>
               <div class="row d-flex">
-                <div class="col-md-3 item_course" *ngFor="let course of courses | paginate: { itemsPerPage: 9, currentPage: p }">
+                <div class="col-md-3 item_course" *ngFor="let course of courses_info | paginate: { itemsPerPage: 9, currentPage: p }">
                     <div class="content_image_course">
                         <img src="../../../assets/img/course_image.png" alt="">
                     </div>
