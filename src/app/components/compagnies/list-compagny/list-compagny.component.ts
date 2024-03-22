@@ -14,7 +14,8 @@ export class ListCompagnyComponent implements OnInit {
   activeTab: string = 'all';
   currentCategories: any[] = [];
   p: number = 1;
-  searchCountry: string = ''; // Variable pour stocker la valeur de recherche
+  searchCountry: string = ''; 
+  searchTitle: string = ''; 
   searchLocation:string ='';
 
   constructor(private homeService:HomePageService) { }
@@ -22,14 +23,17 @@ export class ListCompagnyComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getAllCompagny().subscribe((data:any)=>{
       this.employers=data  
+      console.log(this.employers);
+      
     })
   }
 
   get filteredJobs() {
-    if (this.searchCountry.trim() !== '') {
+    if (this.searchCountry.trim() !== '' || this.searchTitle.trim() === '') {
       return this.employers.filter((job:any) => {
         const titleMatch = this.searchCountry.trim() === '' || job.address.toLowerCase().includes(this.searchCountry.toLowerCase());
-        return titleMatch ;
+        const nametitle = this.searchTitle.trim() === '' || job.post_title.toLowerCase().includes(this.searchTitle.toLowerCase());
+        return titleMatch && nametitle;
       });
     } else {
       return this.employers;

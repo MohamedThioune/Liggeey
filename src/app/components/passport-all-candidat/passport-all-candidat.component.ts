@@ -19,7 +19,7 @@ export class PassportAllCandidatComponent implements OnInit {
   ongletSelectionne: any ;
   userConnect:any;
   badges:any[]=[];
-  courses:any[]=[];
+  courses_info:any[]=[];
   topics:any[]=[];
   skillAll:any;
   constructor(private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
@@ -40,9 +40,9 @@ export class PassportAllCandidatComponent implements OnInit {
     this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
       this.skillAll=data
      this.badges= this.skillAll.badges;
-     this.courses=this.skillAll.courses;
+     this.courses_info=this.skillAll.courses;
      this.topics=this.skillAll.topics
-     console.log( this.topics);
+     console.log(this.skillAll,this.courses_info);
      
     }))
     
