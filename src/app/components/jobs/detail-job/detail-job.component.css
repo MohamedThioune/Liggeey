@@ -178,16 +178,16 @@
  .social i{
    margin-right: 5px;
  }
- .facebook{
+ .btn-whatssap{
    padding:13px 28px 11px 44px ;
-   background-color: #043356;
+   background: #0fc244;
    color: #FFF;
    font-size: 14px;
    font-weight: 700;
    margin-right: 10px;
    border-radius: 8px;
  }
- .twitter{
+ .btn-twitter{
    padding:13px 31px 11px 50px ;
    background-color: #BC91E8;
    color: #FFF;
@@ -197,9 +197,10 @@
    border-radius: 8px;
 
  }
- .google{
+ 
+ .btn-linkedin{
    padding:13px 53px 11px 53px ;
-   background-color: #D93025;
+   background: #0A66C2;
    color: #FFF;
    font-size: 14px;
    font-weight: 700;

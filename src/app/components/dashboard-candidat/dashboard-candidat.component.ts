@@ -1,5 +1,8 @@
+import { DatePipe } from '@angular/common';
 import {AfterViewInit, Component, OnInit,HostListener } from '@angular/core';
 import { Chart } from 'chart.js/auto';
+import { HomePageService } from 'src/app/services/home-page.service';
+import { UsagerService } from 'src/app/services/usager.service';
 
 @Component({
   selector: 'app-dashboard-candidat',
@@ -12,12 +15,56 @@ export class DashboardCandidatComponent implements OnInit {
   isMobile!: boolean;
   chart: any;
   showButton = true;
-
-  constructor() { 
+  userConnect:any;
+  homeCandidat:any;
+  applicant:any
+  currentDate!: Date;
+  sentDate: any;
+  constructor(private usagerService:UsagerService,private homeService:HomePageService,private datePipe: DatePipe) { 
     this.isMobile = window.innerWidth < 768; 
   }
  
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const storedToken = this.usagerService.getToken();
+    
+   if (storedToken) {   
+               // Décodage de la base64
+     const decodedToken = atob(storedToken);
+
+     // Parse du JSON pour obtenir l'objet original
+     this. userConnect = JSON.parse(decodedToken);
+   }
+    this.homeService.homeCandidat(this.userConnect.id).subscribe((data:any)=>{
+      this.homeCandidat=data
+      console.log(this.homeCandidat);
+     })
+     this.homeCandidat.application.forEach((element:any) => {
+      this.applicant=element        
+    });
+  }
+  ngOnChanges() {
+    this.currentDate = new Date();
+    this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
+    if (Array.isArray(this.applicant)) {
+      this.applicant.forEach((element: any) => {
+      const postedDate = new Date(element.posted_at);
+      if (!isNaN(postedDate.getTime())) { // Check if postedDate is a valid date
+        const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
+     //   element.posted_at = postedDateFormatted;
+        const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
+        const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+  
+     
+        if (differenceInDays > 30) {
+          const differenceInMonths = Math.floor(differenceInDays / 30);
+          element.duration = differenceInMonths + ' month(s)';
+        } else {
+          element.duration = differenceInDays + ' day(s)';
+        }
+      }
+      });
+    }
+  }
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;

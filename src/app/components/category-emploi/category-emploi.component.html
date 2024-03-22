@@ -17,14 +17,17 @@
                 <i class='fa fa-clock-o mr-1'></i>
                 <p class="job-type-text mb-0">Full Time</p>
               </div>
-              <div class="content-element categorie-content d-flex align-items-center">
+              <div class="content-element categorie-content d-flex align-items-center" *ngIf="categorie.skills.length > 0">
                 <i class='fa fa-list-alt mr-1'></i>
-                <p class="text-categori mb-0">Design</p>
+                <p class="text-categori mb-0">{{ categorie.skills[0].name |slice:0:15}}</p>
               </div>
+            
             </div>
-            <p class="description-job">{{categorie.description |slice:0:24}}</p>
+            <p class="description-job">{{categorie.description}}</p>
             <div class="content-footer-card align-items-center">
-              <button class="btn btn-apply-job" data-toggle="modal"  [disabled]="compagny" data-target="#modal-apply">Apply Now</button>
+              
+              <button  class="btn btn-apply-job" data-toggle="modal" [disabled]="compagny || canApply" (click)="openApplyModal(categorie.ID)"  data-target="#modal-apply">Apply Now</button>
+              
               <a [routerLink]="['/detail-job',categorie.ID]" class="btn btn-view-job">View Details</a>
             </div>
           </div>

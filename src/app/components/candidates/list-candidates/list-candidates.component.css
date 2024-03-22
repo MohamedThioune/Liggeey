@@ -108,7 +108,8 @@ input[type="search"]:focus {
     border-radius: 8px;
     border: 1px solid #ECEDF2;
     text-align: center;
-    padding: 31px  30px;
+    padding-top: 10px;
+    height: 350px;
     border-radius: 8px;
     background: #FFF;
     margin-bottom: 16px;

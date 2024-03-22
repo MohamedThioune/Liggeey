@@ -19,12 +19,14 @@ export class PostNewJobCompagnyComponent implements OnInit {
   form!:FormGroup;
   userConnect:any;
   posts:any;
-  job:any
+  job:any;
+  jobs:any
   message: any = {
     type: '',
     message: ''
   };
-  langueTab=['French','English','Dutch']
+  langues: string[] = ['French', 'English', 'Dutch'];
+  tabSkills:any[]=[]
 
   constructor(private fb: FormBuilder,private route: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
   
@@ -42,7 +44,16 @@ export class PostNewJobCompagnyComponent implements OnInit {
      this. userConnect = JSON.parse(decodedToken);
    }
    console.log(this.userConnect.id);
+   this.homeService.getInfoHomepage().subscribe((data:any)=>{
+    this.jobs=data.jobs
+    this.jobs.forEach((job:any) => {
+      job.skills.forEach((element:any) => {
+        this.tabSkills.push(element)        
+      });
+    });
+            
 
+  })
 }
 onSubmit() {
     // Utilisez le service pour postuler à l'emploi
@@ -81,7 +92,6 @@ onSubmit() {
       type: 'error',
       message: this.message.message
     });
-    this.route.navigate(['/login']);
   }
 }
 
@@ -96,11 +106,14 @@ onSubmit() {
   initForm() {
     this.form = this.fb.group({
       title: this.fb.control("", Validators.required),
-      description: this.fb.control("", []),
+      description: this.fb.control("", [Validators.required]),
       job_level_of_experience: this.fb.control("", Validators.required),
       job_contract: this.fb.control("", Validators.required),
       job_langues: this.fb.control("", Validators.required),
       job_application_deadline: this.fb.control("", [Validators.email, Validators.required]),
+      skills: this.fb.control("", []),
+
+      
     });
   }
   validateFormJob(job: JobCompagny): boolean {

@@ -50,14 +50,14 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
  }
  .content_job_list_1 .info_all .line{
    width: 100%;
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content:center;
    align-items: center;
    margin-bottom: 20px;
 }
@@ -214,7 +214,7 @@
 }
 .work_experience hr{
    width: 2px;
-height: 140px;
+height: 300px;
 border: 2px dashed  #043356;
 opacity: 0.15;
 }
@@ -393,9 +393,7 @@ opacity: 0.15;
       align-items: center;
    }
    .all_info {
-      border: 1px solid red;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       margin: 0;

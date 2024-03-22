@@ -1,6 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
+import { UsagerService } from 'src/app/services/usager.service';
 
 @Component({
   selector: 'app-job-one',
@@ -19,17 +21,43 @@ export class JobOneComponent implements OnInit {
   date:any;
   currentDate!: Date;
   sentDate: any;
+  identifiant:number | null = 0;
+  userConnect:any;
+  appliedJob=false
+  candidate=false
+  company=false
+  canApply=true
 
-
-  constructor(private homeService:HomePageService,private datePipe: DatePipe) {}
+  constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) {}
   ngOnInit(): void {
+        // Récupération du token depuis le local storage
+        const storedToken = this.usagerService.getToken();
+        this.identifiant = +this.route.snapshot.params['id'];
+    
+        if (storedToken) {
+                    // Décodage de la base64
+          const decodedToken = atob(storedToken);
+    
+          // Parse du JSON pour obtenir l'objet original
+          this. userConnect = JSON.parse(decodedToken);
+          if(this.userConnect.acf.is_liggeey == "candidate"){
+            this.candidate=true
+        
+          } else if(this.userConnect.acf.is_liggeey == "chief"){
+            this.company=true
+            }
+        }
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-    this.homeService.getAllJob().subscribe((data:any)=>{
-      console.log(data);
-      
+    this.homeService.getAllJob().subscribe((data:any)=>{      
       this.jobs=data
-
+      this.jobs.forEach((job:any) => { 
+        console.log(job);
+               
+          if (job.applied.includes(this.userConnect)) {
+            this.canApply=!this.canApply
+          }   
+      });
     })
   }
   get filteredJobs() {
@@ -43,7 +71,17 @@ export class JobOneComponent implements OnInit {
       return this.jobs;
     }
   }
-
+  openApplyModal(jobId: string) {
+    this.homeService.setSelectedJobId(jobId);    
+    const modalElement = document.getElementById('modal-apply');
+    if (modalElement) {
+      modalElement.click();
+    } else {
+      console.error("Modal element not found");
+    }
+  }
+  
+  
   changeColor() {
     this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
   }

@@ -76,15 +76,11 @@
           <li class="col-md-6" *ngFor="let item of  this.homeCompagny.application | paginate: { itemsPerPage: 6, currentPage: p }">
             <div class="job_list_1">
               <div class="content_job_list_1">
-                <div class="logo">
-                    <span class="content_logo">
-                      <img [src]="item.image" alt="Logo">
-                    </span>
+                <div class="content_logo">
+                  <img [src]="item.image" alt="Logo">
                 </div>
                 <div class="description_job">
-                  <div class="description_job_">
-                    <span>{{item.first_name}}</span>
-                  </div>
+                  <p class="name-candidat">{{item.first_name}}</p>
                   <div class="info align-items-center">
                       <div class="info_item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -120,6 +116,7 @@
                           </defs>
                         </svg>
                       </button>
+                      <!--
                       <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
                           <g clip-path="url(#clip0_2765_7335)">
@@ -135,6 +132,7 @@
                           </defs>
                         </svg>
                       </button>
+                      -->
                     </div>
                   </div>
                   <div class="all_info">

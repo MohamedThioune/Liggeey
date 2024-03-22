@@ -97,7 +97,7 @@
     background-color: #043356;
   }
   .job_description{
-      padding: 52px 0 50px 0;
+      padding: 52px 0 0px 0;
   }
   .job_description p:first-child{
     font-weight: bold;
@@ -133,7 +133,10 @@
    font-weight: 400;
    margin-top: 15px;
   } 
-  
+  .items_job{
+   display: flex;
+   flex-wrap: wrap;
+  }
  .items_job .job_list_2{
     margin-bottom: 30px;
     border-radius: 8px;
