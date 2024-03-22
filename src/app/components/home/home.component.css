@@ -343,6 +343,10 @@
     color: #000;
     font-size: 16px;
     font-weight: 400;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .description_article a{
     color: #5B5B6C;

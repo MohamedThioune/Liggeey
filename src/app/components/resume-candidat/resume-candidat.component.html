@@ -8,6 +8,7 @@
         <div class="applicants">
           <form [formGroup]="myForm">
             <div class="card-body">
+              <!--
               <div class="bottom-element form-group-cv">
                 <label class="your-cv">
                   Select Your CV
@@ -17,9 +18,10 @@
                          formControlName="file">
                 </div>
               </div>
+              -->
               <div class="bottom-element header_applicants">
                 <span>Description</span>
-                <p>Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present
+                <p>{{candidat.biographical_info}}
                 </p>
               </div>
               <div class="bottom-element education">
@@ -35,9 +37,9 @@
                     <p class="btn-add-element">Add Education</p>
                   </button>
                 </div>
-                <div class="content_education">
+                <div class="content_education" *ngFor="let education of candidat.educations ">
                   <div class="date_education">
-                    <p>Bachlors in Fine Arts</p>
+                    <p>{{education.diploma}}</p>
                     <div class="button">
                       <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
@@ -61,11 +63,12 @@
                       </button>
                     </div>
 
-                    <p style="margin: 0;">2012 - 2014</p>
+                    <p style="margin: 0;">{{education.year}}</p>
                   </div>
-                  <p style="color:#D93025;font-size:15px;font-weight:600">Modern College</p>
+                  <p style="color:#D93025;font-size:15px;font-weight:600">{{education.school}}</p>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                 </div>
+                <!--
                 <div class="content_education">
                   <div class="date_education">
                     <p>Computer Science </p>
@@ -97,6 +100,7 @@
                   <p style="color:#D93025;font-size:15px;font-weight:600">Harvard University</p>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                 </div>
+                -->
               </div>
               <div class="bottom-element work">
                 <div class="header_education justify-content-between align-items-center">
@@ -111,6 +115,38 @@
                     <p class="btn-add-element">Add Work</p>
                   </button>
                 </div>
+                <div class="content_work" *ngFor="let work of candidat.experiences">
+                  <div class="date_work">
+                    <p>{{work.company}}</p>
+                    <div class="button">
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
+                          <path d="M13.9868 1.02989C13.2168 0.275193 11.9698 0.275193 11.1998 1.02989L10.5021 1.71861L3.07577 9.00615L3.05998 9.02176C3.05616 9.02552 3.05616 9.02951 3.05209 9.02951C3.0442 9.04113 3.03237 9.05263 3.0246 9.06425C3.0246 9.06813 3.02053 9.06813 3.02053 9.072C3.01264 9.08362 3.00881 9.09137 3.0008 9.10299C2.99698 9.10687 2.99698 9.11062 2.99303 9.11462C2.98909 9.12624 2.98514 9.13399 2.98107 9.14561C2.98107 9.14936 2.97725 9.14936 2.97725 9.15336L1.32956 14.0181C1.28123 14.1566 1.31797 14.31 1.42413 14.4128C1.49873 14.485 1.59935 14.5255 1.70403 14.5251C1.74682 14.5244 1.78923 14.5178 1.83017 14.5057L6.78112 12.8841C6.78494 12.8841 6.78494 12.8841 6.78901 12.8804C6.80147 12.8767 6.81343 12.8715 6.8244 12.8647C6.82748 12.8644 6.8302 12.863 6.83242 12.861C6.84413 12.8532 6.85991 12.8454 6.87175 12.8376C6.88346 12.83 6.89542 12.8184 6.90726 12.8106C6.91121 12.8066 6.91503 12.8066 6.91503 12.8029C6.9191 12.799 6.92699 12.7952 6.93093 12.7874L15.0549 4.811C15.8236 4.05497 15.8236 2.83068 15.0549 2.07477L13.9868 1.02989ZM6.65498 11.9746L3.91151 9.28108L10.7781 2.53928L13.5216 5.23278L6.65498 11.9746ZM3.52508 9.99703L5.92183 12.3501L2.32288 13.5266L3.52508 9.99703ZM14.4992 4.26913L14.0813 4.68328L11.3378 1.98954L11.7597 1.57551C12.2212 1.12274 12.9693 1.12274 13.4309 1.57551L14.503 2.62814C14.9611 3.08333 14.9594 3.81612 14.4992 4.26913Z" fill="#043356"/>
+                        </svg>
+                      </button>
+                      <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+                          <g clip-path="url(#clip0_2858_9189)">
+                            <path d="M11.9673 1.71429H8.91177V1.28571C8.91177 0.575632 8.32549 0 7.60226 0H5.85624C5.13302 0 4.54673 0.575632 4.54673 1.28571V1.71429H1.4912C1.25012 1.71429 1.05469 1.90617 1.05469 2.14287C1.05469 2.37957 1.25014 2.57142 1.4912 2.57142H1.96567L2.80071 11.6104C2.8213 11.8317 3.01085 12.0009 3.23722 12H10.2213C10.4477 12.0009 10.6372 11.8318 10.6578 11.6104L11.4928 2.57142H11.9673C12.2084 2.57142 12.4038 2.37955 12.4038 2.14284C12.4038 1.90614 12.2084 1.71429 11.9673 1.71429ZM5.41973 1.28571C5.41973 1.04901 5.61516 0.857133 5.85624 0.857133H7.60226C7.84335 0.857133 8.03878 1.04901 8.03878 1.28571V1.71429H5.41976V1.28571H5.41973ZM9.82275 11.1428H3.63575L2.84437 2.57142H4.98324H10.6163L9.82275 11.1428Z" fill="#043356"/>
+                            <path d="M5.42013 9.82848C5.42008 9.8279 5.42006 9.8273 5.42001 9.82672L4.98349 3.82673C4.96638 3.59003 4.75706 3.41179 4.51601 3.42859C4.27492 3.44539 4.09338 3.6509 4.11049 3.88758L4.54701 9.88757C4.5633 10.1123 4.75405 10.2863 4.98352 10.2857H5.01495C5.25545 10.2693 5.43686 10.0646 5.42013 9.82848Z" fill="#043356"/>
+                            <path d="M6.72948 3.42847C6.4884 3.42847 6.29297 3.62034 6.29297 3.85705V9.85703C6.29297 10.0937 6.4884 10.2856 6.72948 10.2856C6.97056 10.2856 7.16599 10.0937 7.16599 9.85703V3.85705C7.16599 3.62034 6.97056 3.42847 6.72948 3.42847Z" fill="#043356"/>
+                            <path d="M8.94034 3.42859C8.69926 3.41179 8.48997 3.59003 8.47286 3.82673L8.03635 9.82672C8.01868 10.0628 8.19925 10.2682 8.43966 10.2856C8.4404 10.2856 8.44112 10.2857 8.44186 10.2857H8.47286C8.70233 10.2863 8.89308 10.1123 8.90937 9.88756L9.34588 3.88758C9.36299 3.6509 9.18142 3.44541 8.94034 3.42859Z" fill="#043356"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_2858_9189">
+                              <rect width="12.2221" height="12" fill="white" transform="translate(0.617188)"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </button>
+                    </div>
+
+                    <p style="margin: 0;">{{work.year}}</p>
+                  </div>
+                  <p style="color:#043356;font-size:15px;font-weight:600">{{work.job}}</p>
+                  <p>{{work.description}}.</p>
+                </div>
+                <!--
                 <div class="content_work">
                   <div class="date_work">
                     <p>Bachlors in Fine Arts</p>
@@ -142,38 +178,9 @@
                   <p style="color:#043356;font-size:15px;font-weight:600">Modern College</p>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                 </div>
-                <div class="content_work">
-                  <div class="date_work">
-                    <p>Bachlors in Fine Arts</p>
-                    <div class="button">
-                      <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
-                          <path d="M13.9868 1.02989C13.2168 0.275193 11.9698 0.275193 11.1998 1.02989L10.5021 1.71861L3.07577 9.00615L3.05998 9.02176C3.05616 9.02552 3.05616 9.02951 3.05209 9.02951C3.0442 9.04113 3.03237 9.05263 3.0246 9.06425C3.0246 9.06813 3.02053 9.06813 3.02053 9.072C3.01264 9.08362 3.00881 9.09137 3.0008 9.10299C2.99698 9.10687 2.99698 9.11062 2.99303 9.11462C2.98909 9.12624 2.98514 9.13399 2.98107 9.14561C2.98107 9.14936 2.97725 9.14936 2.97725 9.15336L1.32956 14.0181C1.28123 14.1566 1.31797 14.31 1.42413 14.4128C1.49873 14.485 1.59935 14.5255 1.70403 14.5251C1.74682 14.5244 1.78923 14.5178 1.83017 14.5057L6.78112 12.8841C6.78494 12.8841 6.78494 12.8841 6.78901 12.8804C6.80147 12.8767 6.81343 12.8715 6.8244 12.8647C6.82748 12.8644 6.8302 12.863 6.83242 12.861C6.84413 12.8532 6.85991 12.8454 6.87175 12.8376C6.88346 12.83 6.89542 12.8184 6.90726 12.8106C6.91121 12.8066 6.91503 12.8066 6.91503 12.8029C6.9191 12.799 6.92699 12.7952 6.93093 12.7874L15.0549 4.811C15.8236 4.05497 15.8236 2.83068 15.0549 2.07477L13.9868 1.02989ZM6.65498 11.9746L3.91151 9.28108L10.7781 2.53928L13.5216 5.23278L6.65498 11.9746ZM3.52508 9.99703L5.92183 12.3501L2.32288 13.5266L3.52508 9.99703ZM14.4992 4.26913L14.0813 4.68328L11.3378 1.98954L11.7597 1.57551C12.2212 1.12274 12.9693 1.12274 13.4309 1.57551L14.503 2.62814C14.9611 3.08333 14.9594 3.81612 14.4992 4.26913Z" fill="#043356"/>
-                        </svg>
-                      </button>
-                      <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-                          <g clip-path="url(#clip0_2858_9189)">
-                            <path d="M11.9673 1.71429H8.91177V1.28571C8.91177 0.575632 8.32549 0 7.60226 0H5.85624C5.13302 0 4.54673 0.575632 4.54673 1.28571V1.71429H1.4912C1.25012 1.71429 1.05469 1.90617 1.05469 2.14287C1.05469 2.37957 1.25014 2.57142 1.4912 2.57142H1.96567L2.80071 11.6104C2.8213 11.8317 3.01085 12.0009 3.23722 12H10.2213C10.4477 12.0009 10.6372 11.8318 10.6578 11.6104L11.4928 2.57142H11.9673C12.2084 2.57142 12.4038 2.37955 12.4038 2.14284C12.4038 1.90614 12.2084 1.71429 11.9673 1.71429ZM5.41973 1.28571C5.41973 1.04901 5.61516 0.857133 5.85624 0.857133H7.60226C7.84335 0.857133 8.03878 1.04901 8.03878 1.28571V1.71429H5.41976V1.28571H5.41973ZM9.82275 11.1428H3.63575L2.84437 2.57142H4.98324H10.6163L9.82275 11.1428Z" fill="#043356"/>
-                            <path d="M5.42013 9.82848C5.42008 9.8279 5.42006 9.8273 5.42001 9.82672L4.98349 3.82673C4.96638 3.59003 4.75706 3.41179 4.51601 3.42859C4.27492 3.44539 4.09338 3.6509 4.11049 3.88758L4.54701 9.88757C4.5633 10.1123 4.75405 10.2863 4.98352 10.2857H5.01495C5.25545 10.2693 5.43686 10.0646 5.42013 9.82848Z" fill="#043356"/>
-                            <path d="M6.72948 3.42847C6.4884 3.42847 6.29297 3.62034 6.29297 3.85705V9.85703C6.29297 10.0937 6.4884 10.2856 6.72948 10.2856C6.97056 10.2856 7.16599 10.0937 7.16599 9.85703V3.85705C7.16599 3.62034 6.97056 3.42847 6.72948 3.42847Z" fill="#043356"/>
-                            <path d="M8.94034 3.42859C8.69926 3.41179 8.48997 3.59003 8.47286 3.82673L8.03635 9.82672C8.01868 10.0628 8.19925 10.2682 8.43966 10.2856C8.4404 10.2856 8.44112 10.2857 8.44186 10.2857H8.47286C8.70233 10.2863 8.89308 10.1123 8.90937 9.88756L9.34588 3.88758C9.36299 3.6509 9.18142 3.44541 8.94034 3.42859Z" fill="#043356"/>
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_2858_9189">
-                              <rect width="12.2221" height="12" fill="white" transform="translate(0.617188)"/>
-                            </clipPath>
-                          </defs>
-                        </svg>
-                      </button>
-                    </div>
-
-                    <p style="margin: 0;">2012 - 2014</p>
-                  </div>
-                  <p style="color:#043356;font-size:15px;font-weight:600">Modern College</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                </div>
+                -->
               </div>
+              <!--
               <div class="bottom-element awards">
                 <div class="header_education justify-content-between align-items-center">
                   <h2 class="sub-title-page">Awards</h2>
@@ -248,6 +255,7 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
                 </div>
               </div>
+              -->
               <div class="bottom-element skills">
                 <div class="header_education justify-content-between align-items-center">
                   <h2 class="sub-title-page">Skills</h2>
@@ -261,22 +269,22 @@
                     <p class="btn-add-element">Add Skills</p>
                   </button>
                 </div>
-                <div class="content_skills">
-                  <p>Design
-                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
-                      <path d="M0.707155 0.531312L1.25111 0L6.69067 5.31312L6.14671 5.84443L0.707155 0.531312Z" fill="#043356"/>
-                      <path d="M6.0919 0.155566L6.63585 0.686878L1.1963 6L0.652344 5.46869L6.0919 0.155566Z" fill="#043356"/>
-                    </svg>
-                  </p>
-                  <p>PHP
-                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
-                      <path d="M0.707155 0.531312L1.25111 0L6.69067 5.31312L6.14671 5.84443L0.707155 0.531312Z" fill="#043356"/>
-                      <path d="M6.0919 0.155566L6.63585 0.686878L1.1963 6L0.652344 5.46869L6.0919 0.155566Z" fill="#043356"/>
-                    </svg>
-                  </p>
-                </div>
+                <div class="content_skills" style="display: flex;">
+                  <div *ngFor="let skill of candidat.skills" style="margin-right: 10px;">
+                      <p>{{skill.cat_name}}</p>
+                         <!--
+                      <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                        <path d="M0.707155 0.531312L1.25111 0L6.69067 5.31312L6.14671 5.84443L0.707155 0.531312Z" fill="#043356"/>
+                        <path d="M6.0919 0.155566L6.63585 0.686878L1.1963 6L0.652344 5.46869L6.0919 0.155566Z" fill="#043356"/>
+                      </svg>
+                      -->
+                  </div>
               </div>
+              
+              </div>
+              <!--
               <button class="btn btn-submit-resume">Update Resume</button>
+              -->
             </div>
           </form>
         </div>
