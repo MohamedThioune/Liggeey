@@ -62,7 +62,7 @@
               </div>
             </div>
             <div class="job_info">
-              <button class="btn btn-apply" [disabled]="company"  data-toggle="modal" (click)="openApplyModal(job.ID)" data-target="#modal-apply">Apply</button>
+              <button class="btn btn-apply" [disabled]="company || canApply "  data-toggle="modal" (click)="openApplyModal(job.ID)" data-target="#modal-apply">Apply</button>
               <div class="bookmark">
                 <button (click)="favoritesJob()">
                   <i class="fa fa-bookmark"></i>
@@ -267,6 +267,11 @@
                 <div class="inner_1">
                   <span> Social media:</span>
                   <p class="social">
+                    <!--
+                    <a *ngIf="job.social_network.facebook" style="text-decoration: none;color:#696969" [href]="job.social_network.facebook" target="_blank">
+                      <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    -->
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                     <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -283,7 +288,7 @@
     <div class="related_jobs">
       <div class="head">
         <span>Related Jobs</span>
-        <p>2024 jobs live - 3 last job added .</p>
+        <p>2024 jobs live - {{job.other_jobs.length}} last job added .</p>
       </div>
       <div class="row">
         <div *ngFor="let job of job.other_jobs" class="col-md-4">
@@ -291,8 +296,8 @@
             <div class="content-img">
               <img [src]="job.company.logo" alt="">
             </div>
-            <p class="name-company">{{job.title}}</p>
-            <p class="name-job">{{job.post_title}}</p>
+            <p class="name-company">{{job.company.title}}</p>
+            <p class="name-job">{{job.title}}</p>
             <div class="d-flex align-items-center">
               <div class="content-element content-localisation d-flex align-items-center">
                 <i class='fa fa-map-marker mr-1'></i>

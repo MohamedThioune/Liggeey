@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HomePageService } from 'src/app/services/home-page.service';
+import { UsagerService } from 'src/app/services/usager.service';
 
 @Component({
   selector: 'app-passport-all-candidat',
@@ -14,11 +17,35 @@ export class PassportAllCandidatComponent implements OnInit {
   isCollapsedAbout = false;
   isCollapsedMobile = false;
   ongletSelectionne: any ;
-
-  constructor() { }
+  userConnect:any;
+  badges:any[]=[];
+  courses_info:any[]=[];
+  topics:any[]=[];
+  skillAll:any;
+  constructor(private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
   ngOnInit(): void {
     this.ongletSelectionne = "All";
+    console.log('ok');
+    const storedToken = this.usagerService.getToken();
+    
+    if (storedToken) {   
+                // Décodage de la base64
+      const decodedToken = atob(storedToken);
+
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+    }
+    console.log(this.userConnect);
+    this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
+      this.skillAll=data
+     this.badges= this.skillAll.badges;
+     this.courses_info=this.skillAll.courses;
+     this.topics=this.skillAll.topics
+     console.log(this.skillAll,this.courses_info);
+     
+    }))
+    
   }
 
   toggleSidebar() {

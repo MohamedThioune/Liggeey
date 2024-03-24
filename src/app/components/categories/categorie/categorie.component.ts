@@ -32,6 +32,8 @@ export class CategorieComponent implements OnInit {
   searchLocation:string ='';
   currentDate!: Date;
   sentDate: any;
+  canApply=true;
+
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
@@ -40,40 +42,44 @@ export class CategorieComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data              
-      console.log(this.category);
       
-      this.category.jobs.forEach((element:any) => {
+      this.category.jobs.forEach((element:any) => {           
+          if (element.applied.includes(this.userConnect)) {
+            this.canApply=!this.canApply
+            console.log('ok');
+          }          
+
         const postedDate = new Date(element.posted_at);
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
         const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
         const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-    
-     
+
+
         if (differenceInDays > 30) {
           const differenceInMonths = Math.floor(differenceInDays / 30);
           element.duration = differenceInMonths + ' month(s)';
         } else {
           element.duration = differenceInDays + ' day(s)';
         }
-      });    
- 
-                           
+      });
+
+
     })
     this.homeService.getDetailCategory(this.identifiant).subscribe((data:any)=>{
-      this.category = data  
+      this.category = data
       console.log(this.category);
-      
+
       this.category.articles.forEach((element:any) => {
         element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
         element.title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       });
-      
+
     })
-    
+
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
-    
-    if (storedToken) {   
+
+    if (storedToken) {
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
 
@@ -81,7 +87,7 @@ export class CategorieComponent implements OnInit {
       this. userConnect = JSON.parse(decodedToken);
     }
   }
- 
+
   get filteredJobs() {
     if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
       return this.category.jobs.filter((job:any) => {
@@ -107,7 +113,7 @@ export class CategorieComponent implements OnInit {
               if (<any>response ) {
                 typeR = "success";
                 this.message= "Votre nouveau job favori a été ajouté."
-              }          
+              }
               ToastNotification.open({
                 type: typeR,
                 message: this.message
@@ -117,25 +123,25 @@ export class CategorieComponent implements OnInit {
               // }
             },
           // Gestion des erreurs
-          (error) => {            
+          (error) => {
             ToastNotification.open({
               type: 'error',
               message: error.error.message
-            }); 
+            });
           }
         );
-    } else {      
+    } else {
       ToastNotification.open({
         type: 'error',
         message: this.message.message
-      });  
+      });
     }
   }
 
   openApplyModal(jobId: string) {
     this.homeService.setSelectedJobId(jobId);
     console.log(jobId);
-    
+
     const modalElement = document.getElementById('modal-apply');
     if (modalElement) {
       modalElement.click();
