@@ -47,14 +47,14 @@
                <!-- <a class="btn" routerLink="" routerLinkActive="active_lien_navbar"> Download CV </a>-->
               </div>
            </div>
-           
+
             <div class="all_info">
               <div class="time" *ngFor="let skill of candidat.skills.slice(0, 5)">
                 <div class="content_time">
                     <p>{{ skill.name }}</p>
                 </div>
               </div>
-            
+
             </div>
 
           </div>
@@ -161,7 +161,7 @@
                       <p class="social">
                         <a *ngIf="candidat.social_network.facebook" style="text-decoration: none;color:#696969" [href]="candidat.social_network.facebook" target="_blank">
                           <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </a>                      
+                        </a>
                         <a *ngIf="candidat.social_network.twitter" style="text-decoration: none;color:#696969" [href]="candidat.social_network.twitter" target="_blank">
                           <i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>

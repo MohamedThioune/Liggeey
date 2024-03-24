@@ -103,7 +103,7 @@ const routes: Routes = [
   { path: 'course', component: CourseCandidatComponent },
 
   { path: 'skills', component: SkillsCandidatComponent },
-  
+
 
 
   { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},

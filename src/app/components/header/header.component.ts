@@ -54,7 +54,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.dropdownOpen = false;
     this.dropdownUser = false;
   }
-  
+
 
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
@@ -69,10 +69,10 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.dropdownUser = false;
   }
 
-  
+
 
   ngOnInit(): void {
-  
+
     this.href = this.router.url;
 console.log(  this.href);
 
@@ -99,7 +99,7 @@ console.log(  this.href);
         this.compagny=true
       }
     }
-    
+
     this.subscription = this.homeService.selectedJobId$.subscribe(id => {
       this.selectedJobId = id;
     });
@@ -121,7 +121,7 @@ console.log(  this.href);
 
   }
 
-  
+
   // switchToApplyBlock() {
   //   this.showLoginBlock = false;
   //   const user = {
@@ -148,16 +148,16 @@ console.log(  this.href);
   //         const decodedToken = atob(storedToken);
 
   //         // Parse du JSON pour obtenir l'objet original
-  //         const userConnect = JSON.parse(decodedToken); 
+  //         const userConnect = JSON.parse(decodedToken);
   //         userObject.first_name=userConnect.first_name;
   //         userObject.last_name=userConnect.last_name
   //         console.log(userObject.first_name, userObject.last_name);
-          
+
   //         if(userConnect.acf.is_liggeey == "candidate"){
   //           this.userConnect=true
   //           this.showFirstStep=true
   //           console.log(this.showFirstStep);
-            
+
   //         } else if(userConnect.acf.is_liggeey == "chief"){
   //           this.userConnect=false;
   //           this.isModalVisible=false
@@ -185,7 +185,7 @@ console.log(  this.href);
   //     });
   // }
 
-  
+
   switchToApplyBlock() {
     this.showLoginBlock = false;
     const user = {
@@ -201,13 +201,13 @@ console.log(  this.href);
         const storedToken = this.usagerService.getToken();
         if (storedToken ) {
           const decodedToken = atob(storedToken);
-          const userConnect = JSON.parse(decodedToken); 
+          const userConnect = JSON.parse(decodedToken);
           console.log(userConnect);
-          
-      
+
+
 
           console.log(this.first_name, this.last_name);
-          
+
           if(userConnect.acf.is_liggeey == "candidate"){
             this.userConnect=true
             this.showFirstStep=true

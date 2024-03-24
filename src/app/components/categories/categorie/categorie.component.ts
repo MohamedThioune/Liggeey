@@ -41,13 +41,13 @@ export class CategorieComponent implements OnInit {
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
-      this.category = data              
-      
-      this.category.jobs.forEach((element:any) => {           
+      this.category = data
+
+      this.category.jobs.forEach((element:any) => {
           if (element.applied.includes(this.userConnect)) {
             this.canApply=!this.canApply
             console.log('ok');
-          }          
+          }
 
         const postedDate = new Date(element.posted_at);
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
