@@ -62,7 +62,6 @@ const routes: Routes = [
 
   { path: 'footer', component: FooterComponent },
 
-
   { path: 'all-applicant-compagny/:id', component: CompagnyApplicantComponent ,canActivate: [AuthGuard]},
 
   { path: 'applicant-compagny/:id', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
@@ -104,6 +103,7 @@ const routes: Routes = [
   { path: 'course', component: CourseCandidatComponent },
 
   { path: 'skills', component: SkillsCandidatComponent },
+
 
 
   { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},

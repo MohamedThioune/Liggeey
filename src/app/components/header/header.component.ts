@@ -17,12 +17,13 @@ export class HeaderComponent implements OnInit,OnDestroy {
   userObject:any
   categories:any
   category:any
+  candidat:any
   candidate=false;
   compagny=false;
   identifiant:number | null = 0;
   showLoginBlock: boolean = true;
   showFirstStep: boolean = true;
-  showSecondStep: boolean = false;
+  showSecondStep: boolean = true;
   username: string = '';
   password: string = '';
   first_name:string='';
@@ -111,8 +112,11 @@ console.log(  this.href);
 
     })
     this.homeService.getDetailCandidate( this.id).subscribe(data=>{
-      this.category = data
+      this.candidat = data
+      console.log(this.category);
+      
     })
+
 
 
   }
@@ -254,6 +258,7 @@ console.log(  this.href);
   }
 
   goToFinalStep() {
+console.log(this.userConnect,this.selectedJobId,this.id);
 
     if (this.userConnect && this.selectedJobId) {
       console.log(this.userConnect,this.selectedJobId)
@@ -271,14 +276,22 @@ console.log(  this.href);
             if (<any>response ) {
               typeR = "success";
               this.message= "Your job application has been successfully submitted."
+              this.showFirstStep =  !this.showFirstStep;
+              this.showSecondStep = !this.showSecondStep;
             }
             ToastNotification.open({
               type: typeR,
               message: this.message
             });
+            this.showFirstStep =  !this.showFirstStep;
+            this.showSecondStep = !this.showSecondStep;
+            //this.userConnect=true
+            console.log(this.showFirstStep,this.showSecondStep);
+            
             if (typeR == "success") {
               this.showFirstStep =  !this.showFirstStep;
               this.showSecondStep = !this.showSecondStep;
+            //  this.userConnect=true
               //this.router.navigate(['/applies-candidat',this.userConnect.id]);
             }
           },
