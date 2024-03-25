@@ -20,8 +20,10 @@
 
 body {
     background-color: #FFFF !important;
-    font-family: "Roboto-Regular";
     padding-top: 140px;
+}
+body p{
+    font-family: "Roboto-Regular";
 }
 
 .container-fluid{
