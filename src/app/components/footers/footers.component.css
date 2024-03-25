@@ -175,6 +175,7 @@ ul li p{
   font-size: 25px;
 }
 
+
  @media screen and (max-width: 1079px) and (min-width: 768px){
     .my_container_form{
         padding: 28px 137px 24px 28px;
