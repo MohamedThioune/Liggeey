@@ -32,8 +32,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
   avatar:any;
   jobs:any;
   applyJobs=false;
-
-  selectedJobId!: string;
+  job:any
+  selectedJobId!: any;
    subscription!: Subscription;
 
   dropdownOpen: boolean = false;
@@ -74,8 +74,6 @@ export class HeaderComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
   
     this.href = this.router.url;
-console.log(  this.href);
-
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
     const storedToken = this.usagerService.getToken();
@@ -88,6 +86,7 @@ console.log(  this.href);
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
+      this.userObject=true
       this.first_name = this.userConnect.first_name;
       this.last_name = this.userConnect.last_name;
       this.avatar = this.userConnect.avatar_urls && this.userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
@@ -113,15 +112,209 @@ console.log(  this.href);
     })
     this.homeService.getDetailCandidate( this.id).subscribe(data=>{
       this.candidat = data
-      console.log(this.category);
+     // console.log(this.category);
       
     })
-
-
-
   }
 
+  switchToApplyBlock() {
+    this.showLoginBlock = false;
+    const user = {
+      username: this.username,
+      password: this.password
+    }
+    // Créez un objet userObject pour stocker le first_name et le last_name
+
+    this.usagerService.connection(user).subscribe(
+      (data:any) => {
+        const token = btoa(JSON.stringify(data));
+        this.usagerService.storeToken(token);
+        const storedToken = this.usagerService.getToken();
+        if (storedToken ) {
+          const decodedToken = atob(storedToken);
+          const userConnect = JSON.parse(decodedToken); 
+        //  console.log(userObject);
+          
+      
+
+         // console.log(this.first_name, this.last_name);
+          
+          if(userConnect.acf.is_liggeey == "candidate"){
+            this.candidate=true
+            this.userObject=true
+            this.showFirstStep=true
+            //console.log(this.showFirstStep);
+          } else if(userConnect.acf.is_liggeey == "chief"){
+            this.compagny=true
+            this.userObject=false;
+            this.isModalVisible=false
+            this.showFirstStep=false
+
+            ToastNotification.open({
+              type: 'success',
+              message: "This is apply job for Candidat"
+            });
+          }
+          console.log(userConnect);
+          
+          this.first_name = userConnect.first_name;
+          this.last_name = userConnect.last_name;
+          this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
+          this.id=userConnect.id
+          console.log(userConnect);
+
+        }else {
+          console.log('noconnect');
+          ToastNotification.open({
+            type: 'error',
+            message: `Les utilisateurs ne peuvent pas se connecter sur la plateforme`
+          });
+          return;
+        }
+      },
+      error =>{
+        ToastNotification.open({
+          type: 'error',
+          message: "Identifiant ou mot de passe incorrects: assurez vous de les avoir bien saisis "
+        });
+      });
+  }
+
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+  goBack(): void {
+    this.location.back();
+  }
+
+
+
+  goToSecondStep() {
+    this.showFirstStep = false;
+    this.showSecondStep = true;
+  }
+
+  goToFinalStep() {
+
+    if (this.id && this.selectedJobId) {
+      if(this.candidate == true){
+        this.homeService.getDetailJob(this.selectedJobId).subscribe((data:any) => {
+          this.job = data;
+         // return
+          if (this.canAppl(this.job)) {
+            this.userObject=true
+            this.showFirstStep=true
+                 // Utilisez le service pour postuler à l'emploi
+            this.homeService.applyJob(this.id, this.selectedJobId)
+            .subscribe(
+              // Succès de la requête
+              (response) => {
+            this.cdr.detectChanges(); // Force la détection des changements
+
+            let typeR = "error"
+            if (<any>response ) {
+              typeR = "success";
+              this.message= "Your job application has been successfully submitted."
+              // this.showFirstStep =  !this.showFirstStep;
+              // this.showSecondStep = !this.showSecondStep;
+            }
+            ToastNotification.open({
+              type: typeR,
+              message: this.message
+            });
+            this.showFirstStep =  !this.showFirstStep;
+            this.showSecondStep = !this.showSecondStep;              
+            // if (typeR == "success") {
+            //   this.showFirstStep =  !this.showFirstStep;
+            //   this.showSecondStep = !this.showSecondStep;
+            // //  this.userConnect=true
+            //   //this.router.navigate(['/applies-candidat',this.userConnect.id]);
+            // }
+          },
+          // Gestion des erreurs
+          (error) => {
+            ToastNotification.open({
+              type: 'error',
+              message: error.error.message
+            });
+          }
+        );
+          }else{
+            this.userObject=false
+            this.showFirstStep=false
+
+        ToastNotification.open({
+          type: 'success',
+          message: "Already Apply four this job"
+        });
+        return
+         // this.router.navigate(['']);
+          }
+        });
+        
+   
+      } else if(this.compagny == true){
+        this.userConnect=false;
+        this.isModalVisible=false
+        this.showFirstStep=false
+
+        ToastNotification.open({
+          type: 'success',
+          message: "This is apply job for Candidat"
+        });
+          this.router.navigate(['/dashbord-compagny',this.userConnect.id]);
+        }
+      
   
+    } else {
+      ToastNotification.open({
+        type: 'error',
+        message: this.message
+
+      });
+    }
+  }
+
+  canAppl(item: any): boolean {
+    if (!this.id || !this.id) {
+      return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
+  }
+
+    return !item.applied.some((appliedItem: any) => appliedItem.ID === this.id);
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event:Event) {
+    this.isMobile = window.innerWidth < 768;
+  }
+  onFileSelected(event: any): void {
+    const files: FileList = event.target.files;
+    if (files.length > 0) {
+      this.selectedFileName = files[0].name;
+    }
+  }
+  @HostListener('document:click', ['$event'])
+  closeDropdown(event: MouseEvent): void {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.dropdownOpen = false;
+    }
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.dropdownUser = false;
+    }
+  }
+
+  isWebScreen(): boolean {
+    return !this.isMobile;
+  }
+
+  isMobileScreen(): boolean {
+    return this.isMobile;
+  }
+
+  deconnexion(){
+    this.usagerService.deconnexion()
+  }
+    
   // switchToApplyBlock() {
   //   this.showLoginBlock = false;
   //   const user = {
@@ -185,164 +378,4 @@ console.log(  this.href);
   //     });
   // }
 
-  
-  switchToApplyBlock() {
-    this.showLoginBlock = false;
-    const user = {
-      username: this.username,
-      password: this.password
-    }
-    // Créez un objet userObject pour stocker le first_name et le last_name
-
-    this.usagerService.connection(user).subscribe(
-      (data:any) => {
-        const token = btoa(JSON.stringify(data));
-        this.usagerService.storeToken(token);
-        const storedToken = this.usagerService.getToken();
-        if (storedToken ) {
-          const decodedToken = atob(storedToken);
-          const userConnect = JSON.parse(decodedToken); 
-          console.log(userConnect);
-          
-      
-
-          console.log(this.first_name, this.last_name);
-          
-          if(userConnect.acf.is_liggeey == "candidate"){
-            this.userConnect=true
-            this.showFirstStep=true
-            console.log(this.showFirstStep);
-          } else if(userConnect.acf.is_liggeey == "chief"){
-            this.userConnect=false;
-            this.isModalVisible=false
-
-            ToastNotification.open({
-              type: 'success',
-              message: "This is apply job for Candidat"
-            });
-          }
-          this.first_name = userConnect.first_name;
-          this.last_name = userConnect.last_name;
-          this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
-          this.id=this.userConnect.id
-        }else {
-          console.log('noconnect');
-          ToastNotification.open({
-            type: 'error',
-            message: `Les utilisateurs ne peuvent pas se connecter sur la plateforme`
-          });
-          return;
-        }
-      },
-      error =>{
-        ToastNotification.open({
-          type: 'error',
-          message: "Identifiant ou mot de passe incorrects: assurez vous de les avoir bien saisis "
-        });
-      });
-  }
-
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-  goBack(): void {
-    this.location.back();
-  }
-
-
-
-  goToSecondStep() {
-    this.showFirstStep = false;
-    this.showSecondStep = true;
-  }
-
-  goToFinalStep() {
-console.log(this.userConnect,this.selectedJobId,this.id);
-
-    if (this.userConnect && this.selectedJobId) {
-      console.log(this.userConnect,this.selectedJobId)
-      // Utilisez le service pour postuler à l'emploi
-      this.homeService.applyJob(this.userConnect.id, this.selectedJobId)
-        .subscribe(
-          // Succès de la requête
-          (response) => {
-            this.applyJobs=true ;
-            console.log(this.applyJobs);
-
-            this.cdr.detectChanges(); // Force la détection des changements
-
-            let typeR = "error"
-            if (<any>response ) {
-              typeR = "success";
-              this.message= "Your job application has been successfully submitted."
-              this.showFirstStep =  !this.showFirstStep;
-              this.showSecondStep = !this.showSecondStep;
-            }
-            ToastNotification.open({
-              type: typeR,
-              message: this.message
-            });
-            this.showFirstStep =  !this.showFirstStep;
-            this.showSecondStep = !this.showSecondStep;
-            //this.userConnect=true
-            console.log(this.showFirstStep,this.showSecondStep);
-            
-            if (typeR == "success") {
-              this.showFirstStep =  !this.showFirstStep;
-              this.showSecondStep = !this.showSecondStep;
-            //  this.userConnect=true
-              //this.router.navigate(['/applies-candidat',this.userConnect.id]);
-            }
-          },
-          // Gestion des erreurs
-          (error) => {
-            ToastNotification.open({
-              type: 'error',
-              message: error.error.message
-            });
-          }
-        );
-    } else {
-      alert('no ok')
-      ToastNotification.open({
-        type: 'error',
-        message: this.message
-
-      });
-      console.log(this.message);
-
-    }
-  }
-  @HostListener('window:resize', ['$event'])
-  onResize(event:Event) {
-    this.isMobile = window.innerWidth < 768;
-  }
-  onFileSelected(event: any): void {
-    const files: FileList = event.target.files;
-    if (files.length > 0) {
-      this.selectedFileName = files[0].name;
-    }
-  }
-  @HostListener('document:click', ['$event'])
-  closeDropdown(event: MouseEvent): void {
-    if (!this.elementRef.nativeElement.contains(event.target)) {
-      this.dropdownOpen = false;
-    }
-    if (!this.elementRef.nativeElement.contains(event.target)) {
-      this.dropdownUser = false;
-    }
-  }
-
-  isWebScreen(): boolean {
-    return !this.isMobile;
-  }
-
-  isMobileScreen(): boolean {
-    return this.isMobile;
-  }
-
-  deconnexion(){
-    this.usagerService.deconnexion()
-  }
 }

@@ -96,7 +96,7 @@ const routes: Routes = [
 
   { path: 'cv-candidat/:id', component: CvCandidatComponent ,canActivate: [AuthGuard]},
 
-  { path: 'favorite', component: JobFavoriteCandidatComponent },
+  { path: 'favorite/:id', component: JobFavoriteCandidatComponent },
 
   { path: 'alert-candidat/:id', component: JobAlertCandidatComponent ,canActivate: [AuthGuard]},
 
@@ -104,6 +104,7 @@ const routes: Routes = [
 
   { path: 'skills', component: SkillsCandidatComponent },
   
+
 
 
   { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},

@@ -51,13 +51,6 @@ export class JobOneComponent implements OnInit {
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.homeService.getAllJob().subscribe((data:any)=>{      
       this.jobs=data
-      this.jobs.forEach((job:any) => { 
-        console.log(job);
-               
-          if (job.applied.includes(this.userConnect)) {
-            this.canApply=!this.canApply
-          }   
-      });
     })
   }
   get filteredJobs() {
@@ -80,8 +73,13 @@ export class JobOneComponent implements OnInit {
       console.error("Modal element not found");
     }
   }
-  
-  
+  canAppl(item: any): boolean {
+    if (!this.userConnect || !this.userConnect.id) {
+      return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
+  }
+
+    return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+  }
   changeColor() {
     this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
   }

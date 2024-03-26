@@ -42,12 +42,23 @@ export class CategorieComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data              
+      console.log(this.category.jobs);
+      console.log(this.userConnect);
       
-      this.category.jobs.forEach((element:any) => {           
-          if (element.applied.includes(this.userConnect)) {
-            this.canApply=!this.canApply
-            console.log('ok');
-          }          
+      this.category.jobs.forEach((element:any) => {  
+                 console.log(element.applied);
+                 
+         // Vérifier si l'utilisateur est contenu dans applied[] pour cet élément
+          if (element.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id)) {
+            // Si l'utilisateur est trouvé, canApply devient false
+            this.canApply = false;
+            console.log('L\'utilisateur est déjà postulé à ce job.');
+          } else {
+            this.canApply = true
+            // Sinon, canApply reste true
+            console.log('L\'utilisateur n\'a pas encore postulé à ce job.');
+          }
+
 
         const postedDate = new Date(element.posted_at);
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
@@ -67,7 +78,7 @@ export class CategorieComponent implements OnInit {
     })
     this.homeService.getDetailCategory(this.identifiant).subscribe((data:any)=>{
       this.category = data
-      console.log(this.category);
+    //  console.log(this.category);
 
       this.category.articles.forEach((element:any) => {
         element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -99,6 +110,15 @@ export class CategorieComponent implements OnInit {
       return this.category.jobs;
     }
   }
+
+  canAppl(item: any): boolean {
+    if (!this.userConnect || !this.userConnect.id) {
+      return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
+  }
+
+    return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+  }
+
 
   favoritesJob() {
     // Assurez-vous que this.userConnect et this.job sont définis
@@ -149,6 +169,9 @@ export class CategorieComponent implements OnInit {
       console.error("Modal element not found");
     }
   }
+  showAlreadyAppliedAlert() {
+    alert('Vous avez déjà postulé à ce job.');
+}
 
 
 }

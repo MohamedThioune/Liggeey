@@ -78,13 +78,13 @@
                <li class="skills"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills Fist</a></li>
              </ul>
          </ul>
-         <div class="join" *ngIf="!userConnect">
+         <div class="join" *ngIf="!userObject">
            <a class="btn" routerLink="/register" routerLinkActive="active_lien_navbar">Apply as an IT Specialist</a>
            <a class="btn hiring" routerLink="/register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
            <a routerLink="/login" class="login" routerLinkActive="active_lien_navbar">Login</a>
          </div>
 
-         <div class="account" *ngIf="userConnect">
+         <div class="account" *ngIf="userObject">
            <div class="content_image">
              <img [src]=avatar alt="Image User Connect">
            </div>
@@ -94,7 +94,7 @@
                <i class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  aria-haspopup="true" aria-expanded="false" class="fa fa-bars"></i>
              </button>
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item" [routerLink]="['/profil-candidat',userConnect.id]" *ngIf="candidate">
+               <a class="dropdown-item" [routerLink]="['/profil-candidat',id]" *ngIf="candidate">
                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18" fill="none">
                    <g clip-path="url(#clip0_2843_10796)">
                      <path d="M17.9544 15.4242C17.8752 15.044 17.5028 14.8 17.1227 14.8791C16.7425 14.9583 16.4985 15.3307 16.5776 15.7108C16.6232 15.9298 16.569 16.1543 16.4287 16.3267C16.3475 16.4265 16.1664 16.5941 15.8663 16.5941H12.6914C12.3031 16.5941 11.9883 16.9089 11.9883 17.2972C11.9883 17.6856 12.3031 18.0004 12.6914 18.0004H15.8663C16.5106 18.0004 17.1133 17.7137 17.5197 17.2139C17.9282 16.7117 18.0866 16.0593 17.9544 15.4242Z" fill="#696969"/>
@@ -279,19 +279,19 @@
            <li class="dropdown menuH">
              <i  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 16px;" class="fa fa-bars"></i>
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-               <a  class="dropdown-item" routerLink="/job" routerLinkActive="active_lien_navbar">
+               <a class="dropdown-item" routerLink="/job" routerLinkActive="active_lien_navbar">
                  Find Job
                </a>
-               <a  class="dropdown-item" routerLink="/about" routerLinkActive="active_lien_navbar">
+               <a class="dropdown-item" routerLink="/about" routerLinkActive="active_lien_navbar">
                  About
                </a>
                <a  class="dropdown-item" routerLink="/app" routerLinkActive="active_lien_navbar">
                  Our App
                </a>
-               <a  class="dropdown-item" routerLink="/skills-first" routerLinkActive="active_lien_navbar">
-                 Skills Fist
+               <a class="dropdown-item" routerLink="/skills-first" routerLinkActive="active_lien_navbar">
+                 Skills First
                </a>
-               <a  class="dropdown-item" routerLink="/register" routerLinkActive="active_lien_navbar">
+               <a class="dropdown-item" routerLink="/register" routerLinkActive="active_lien_navbar">
                  Apply as an  IT Specialist
                </a>
                <a style="color: #1AC4A2;" class="dropdown-item" routerLink="/register" routerLinkActive="active_lien_navbar">
@@ -308,10 +308,10 @@
 </header>
 
 
-<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="isModalVisible">
+<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div *ngIf="!userConnect" class="block-login">
+      <div *ngIf="!userObject" class="block-login">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Login to Liggeey</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -344,7 +344,7 @@
           </form>
         </div>
       </div>
-      <div *ngIf="userConnect" class="block-apply">
+      <div *ngIf="userObject" class="block-apply">
         <div class="modal-header">
           <h5 class="modal-title" id="">Apply to this webdesigner Job</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">

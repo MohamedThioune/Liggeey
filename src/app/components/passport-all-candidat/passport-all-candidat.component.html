@@ -97,9 +97,11 @@
             <li class="nav-item">
                 <a class="nav-link" [class.active]="ongletSelectionne === 'Course'" (click)="selectionnerOnglet('Course')">Preferred Course type</a>
             </li>
+            <!--
             <li class="nav-item">
                 <a class="nav-link" [class.active]="ongletSelectionne === 'Reviews'" (click)="selectionnerOnglet('Reviews')">Reviews</a>
             </li>
+            -->
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
@@ -191,6 +193,24 @@
                 <p>Badges/Certificat</p>
                 <a href="">See All</a>
               </div>
+              <div class="livraison" *ngFor="let badge of badges">
+                <div class="content_image_livraison-badge">
+                    <img [src]=badge.manager_image alt=" Image Of Manager">
+                </div>
+                <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
+                    <div class="profil">
+                        <p>Complete and verified profile </p>
+                        <p>Awarded for : <span>{{badge.post_title}} </span></p>
+                        <p>Date Awarded : <span>{{badge.date}}</span></p>
+                    </div>
+                    <div class="detail-badge">
+                        <p>Pdf :<span>Badge</span></p>
+                        <a>{{badge.post_status}}</a>
+                    </div>
+                  
+                </div>
+              </div>
+              <!--
               <div class="livraison">
                 <div class="content_image_livraison-badge">
                     <img src="../../../assets/img/radial.png" alt="">
@@ -225,23 +245,7 @@
                   
                 </div>
               </div>
-              <div class="livraison">
-                <div class="content_image_livraison-badge">
-                    <img src="../../../assets/img/radial.png" alt="">
-                </div>
-                <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
-                    <div class="profil">
-                        <p>Complete and verified profile </p>
-                        <p>Awarded for : <span>Profil Livelearn </span></p>
-                        <p>Date Awarded : <span>Jul 2022</span></p>
-                    </div>
-                    <div class="detail-badge">
-                        <p>Pdf :<span>Badge</span></p>
-                        <a href="">Achieved</a>
-                    </div>
-                  
-                </div>
-              </div>
+              -->
           </div>
           <div class="map_menu" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
@@ -605,6 +609,7 @@
               </div>
               
           </div>
+          <!--
           <div class="map_menu" *ngIf="ongletSelectionne === 'Reviews' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                   <p>Review</p>
@@ -669,6 +674,7 @@
                 </div>
               </div>
           </div>
+          -->
         </div>
     </div>
   </div>
