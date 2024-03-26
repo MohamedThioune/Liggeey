@@ -20,11 +20,11 @@ export class CategoryEmploiComponent implements OnInit {
   compagny=false;
   identifiant:number | null = 0;
   appliedJob=false
-  canApply=true;
 
   constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) { }
 
   ngOnInit(): void {
+    
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
     this.identifiant = +this.route.snapshot.params['id'];
@@ -35,6 +35,8 @@ export class CategoryEmploiComponent implements OnInit {
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
+    //  console.log(this.userConnect);
+      
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
       } else if(this.userConnect.acf.is_liggeey == "chief"){
@@ -42,14 +44,19 @@ export class CategoryEmploiComponent implements OnInit {
         
       }
     }
-    this.category.jobs.forEach((job:any) => {      
-      if (job.applied.includes(this.userConnect)) {
-        this.canApply=!this.canApply
-      }   
-    });
+    
+    console.log(this.category);
   
   }
 
+  canAppl(item: any): boolean {
+    if (!this.userConnect || !this.userConnect.id) {
+      return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
+  }
+
+    return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+  }
+  
   openApplyModal(jobId: string) {
     this.homeService.setSelectedJobId(jobId);    
     const modalElement = document.getElementById('modal-apply');

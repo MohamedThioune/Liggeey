@@ -209,6 +209,10 @@ input[type="text"]:focus {
     margin-right: 10px;
 }
 
+.dropdown-menu.dropdown-categories{
+  padding-left: 50px;
+}
+
 .dropdown.dropdown-modife .dropdown-menu{
   padding: 23px 20px 20px 5px;
   margin-top: 20px;
