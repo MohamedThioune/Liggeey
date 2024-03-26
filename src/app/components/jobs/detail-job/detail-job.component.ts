@@ -26,7 +26,7 @@ export class DetailJobComponent implements OnInit {
   public href: string = "";
   company=false;
   candidate=false;
-  canApply=false
+  canApply=true
 
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
@@ -49,20 +49,23 @@ export class DetailJobComponent implements OnInit {
           this.company=true
           }
     }
+    
 
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
-        if(this.job.applied.includes(this.userConnect)){
-          this.canApply != this.canApply
-        }
-        console.log(this.job);
         
         this.calculateDuration();
         this.calculateDurationLastJob();
     });
 }
+canAppl(item: any): boolean {
+  if (!this.userConnect || !this.userConnect.id) {
+    return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
+}
 
+  return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+}
 calculateDuration() {
     if (this.job) {
         this.currentDate = new Date();

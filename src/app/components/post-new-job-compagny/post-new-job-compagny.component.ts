@@ -26,7 +26,98 @@ export class PostNewJobCompagnyComponent implements OnInit {
     message: ''
   };
   langues: string[] = ['French', 'English', 'Dutch'];
-  tabSkills:any[]=[]
+  tabSkills:any[]=[];
+  skillsTab:any[]=[   {
+    "term_id": 285,
+    "name": "Google",
+    "slug": "google",
+    "term_group": 0,
+    "term_taxonomy_id": 285,
+    "taxonomy": "course_category",
+    "description": "google",
+    "parent": 283,
+    "count": 0,
+    "filter": "raw",
+    "cat_ID": 285,
+    "category_count": 0,
+    "category_description": "google",
+    "cat_name": "Google",
+    "category_nicename": "google",
+    "category_parent": 283
+},
+{
+  "term_id": 288,
+  "name": "Odoo",
+  "slug": "odoo",
+  "term_group": 0,
+  "term_taxonomy_id": 288,
+  "taxonomy": "course_category",
+  "description": "odoo",
+  "parent": 283,
+  "count": 4,
+  "filter": "raw",
+  "cat_ID": 288,
+  "category_count": 4,
+  "category_description": "odoo",
+  "cat_name": "Odoo",
+  "category_nicename": "odoo",
+  "category_parent": 283
+},
+{
+  "term_id": 284,
+  "name": "Salesforce",
+  "slug": "salesforce",
+  "term_group": 0,
+  "term_taxonomy_id": 284,
+  "taxonomy": "course_category",
+  "description": "salesforce",
+  "parent": 283,
+  "count": 4,
+  "filter": "raw",
+  "cat_ID": 284,
+  "category_count": 4,
+  "category_description": "salesforce",
+  "cat_name": "Salesforce",
+  "category_nicename": "salesforce",
+  "category_parent": 283
+},
+{
+  "term_id": 290,
+  "name": "UI-UX Designer",
+  "slug": "web-designer",
+  "term_group": 0,
+  "term_taxonomy_id": 290,
+  "taxonomy": "course_category",
+  "description": "ui-ux-designer",
+  "parent": 283,
+  "count": 1,
+  "filter": "raw",
+  "cat_ID": 290,
+  "category_count": 1,
+  "category_description": "ui-ux-designer",
+  "cat_name": "UI-UX Designer",
+  "category_nicename": "web-designer",
+  "category_parent": 283
+},
+{
+  "term_id": 286,
+  "name": "Wordpress",
+  "slug": "wordpress",
+  "term_group": 0,
+  "term_taxonomy_id": 286,
+  "taxonomy": "course_category",
+  "description": "wordpress",
+  "parent": 283,
+  "count": 6,
+  "filter": "raw",
+  "cat_ID": 286,
+  "category_count": 6,
+  "category_description": "wordpress",
+  "cat_name": "Wordpress",
+  "category_nicename": "wordpress",
+  "category_parent": 283
+}
+]
 
   constructor(private fb: FormBuilder,private route: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
   
