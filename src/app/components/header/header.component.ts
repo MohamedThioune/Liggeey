@@ -114,7 +114,7 @@ console.log(  this.href);
     this.homeService.getDetailCandidate( this.id).subscribe(data=>{
       this.candidat = data
       console.log(this.category);
-      
+
     })
 
 
@@ -287,7 +287,7 @@ console.log(this.userConnect,this.selectedJobId,this.id);
             this.showSecondStep = !this.showSecondStep;
             //this.userConnect=true
             console.log(this.showFirstStep,this.showSecondStep);
-            
+
             if (typeR == "success") {
               this.showFirstStep =  !this.showFirstStep;
               this.showSecondStep = !this.showSecondStep;
