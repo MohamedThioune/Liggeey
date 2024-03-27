@@ -9,10 +9,7 @@ import { UsagerService } from 'src/app/services/usager.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-<<<<<<< HEAD
-=======
   isLoading: boolean = false;
->>>>>>> 95d89ae6564159b95ba903cc027eac4557f456ff
 
   constructor(private usagerService: UsagerService, private route: Router) { }
   username: string = '';
@@ -22,11 +19,8 @@ export class LoginComponent implements OnInit {
     this.initForm();
   }
   onSubmit() {
-<<<<<<< HEAD
-=======
     this.isLoading = true;
 
->>>>>>> 95d89ae6564159b95ba903cc027eac4557f456ff
     const user = {
       username: this.username,
       password: this.password
@@ -58,11 +52,8 @@ export class LoginComponent implements OnInit {
           } else if(userObject.acf.is_liggeey == "chief"){          
             this.route.navigate(['/dashboard-employer/',userObject.id]);
           }
-<<<<<<< HEAD
-=======
           // Désactiver le loader
           this.isLoading = false;
->>>>>>> 95d89ae6564159b95ba903cc027eac4557f456ff
         }else {
           console.log('noconnect');
           ToastNotification.open({
@@ -77,11 +68,8 @@ export class LoginComponent implements OnInit {
           type: 'error',
           message: "Identifiant ou mot de passe incorrects: assurez vous de les avoir bien saisis "
         });
-<<<<<<< HEAD
-=======
         // Désactiver le loader
         this.isLoading = false;
->>>>>>> 95d89ae6564159b95ba903cc027eac4557f456ff
        
       });
   }
