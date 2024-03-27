@@ -50,6 +50,10 @@ import { DetailCompagnyComponent } from './components/compagnies/detail-compagny
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
 import {EditJobCompanyComponent} from "./components/edit-job-company/edit-job-company.component";
 import { CompagnyApplicantComponent } from './components/compagny-applicant/compagny-applicant.component';
+import {EditJobsComponent} from "./components/edit-jobs/edit-jobs.component";
+import {
+  CandidatProfilDashboardComponent
+} from "./components/candidat-profil-dashboard/candidat-profil-dashboard.component";
 
 const routes: Routes = [
 
@@ -58,10 +62,9 @@ const routes: Routes = [
   { path: 'footers', component: FootersComponent },
 
   { path: 'footer', component: FooterComponent },
-  
 
   { path: 'all-applicant-compagny/:id', component: CompagnyApplicantComponent ,canActivate: [AuthGuard]},
-  
+
   { path: 'applicant-compagny/:id', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
 
   { path: 'passport-candidat/:id', component: PassportAllCandidatComponent ,canActivate: [AuthGuard]},
@@ -94,13 +97,16 @@ const routes: Routes = [
 
   { path: 'cv-candidat/:id', component: CvCandidatComponent ,canActivate: [AuthGuard]},
 
-  { path: 'favorite', component: JobFavoriteCandidatComponent },
+  { path: 'favorite/:id', component: JobFavoriteCandidatComponent },
 
   { path: 'alert-candidat/:id', component: JobAlertCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'course', component: CourseCandidatComponent },
 
   { path: 'skills', component: SkillsCandidatComponent },
+  
+
+
 
   { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},
 
@@ -153,6 +159,9 @@ const routes: Routes = [
   { path:'',redirectTo: '/login', pathMatch: 'full'},
 
   { path: 'edit-job/:id', component: EditJobCompanyComponent },
+  { path: 'edit-job', component: EditJobsComponent },
+
+  { path: 'candidat-profil', component: CandidatProfilDashboardComponent},
 
 
 ];

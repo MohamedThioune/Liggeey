@@ -321,6 +321,8 @@ label p {
 }
 .skills .content_skills{
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   background-color: #F5F7FC;
   padding: 23px 0 69px 25px;
 }

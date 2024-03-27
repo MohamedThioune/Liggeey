@@ -58,7 +58,6 @@ export class DetailJobComponent implements OnInit {
         this.calculateDurationLastJob();
     });
 }
-
 calculateDuration() {
     if (this.job) {
         this.currentDate = new Date();

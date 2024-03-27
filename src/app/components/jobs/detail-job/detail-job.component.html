@@ -267,6 +267,14 @@
                 <div class="inner_1">
                   <span> Social media:</span>
                   <p class="social">
+<<<<<<< HEAD
+=======
+                    <!--
+                    <a *ngIf="job.social_network.facebook" style="text-decoration: none;color:#696969" [href]="job.social_network.facebook" target="_blank">
+                      <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    -->
+>>>>>>> 95d89ae6564159b95ba903cc027eac4557f456ff
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                     <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -283,7 +291,11 @@
     <div class="related_jobs">
       <div class="head">
         <span>Related Jobs</span>
+<<<<<<< HEAD
         <p>2024 jobs live - 3 last job added .</p>
+=======
+        <p>2024 jobs live - {{job.other_jobs.length}} last job added .</p>
+>>>>>>> 95d89ae6564159b95ba903cc027eac4557f456ff
       </div>
       <div class="row">
         <div *ngFor="let job of job.other_jobs" class="col-md-4">
@@ -291,8 +303,13 @@
             <div class="content-img">
               <img [src]="job.company.logo" alt="">
             </div>
+<<<<<<< HEAD
             <p class="name-company">{{job.title}}</p>
             <p class="name-job">{{job.post_title}}</p>
+=======
+            <p class="name-company">{{job.company.title}}</p>
+            <p class="name-job">{{job.title}}</p>
+>>>>>>> 95d89ae6564159b95ba903cc027eac4557f456ff
             <div class="d-flex align-items-center">
               <div class="content-element content-localisation d-flex align-items-center">
                 <i class='fa fa-map-marker mr-1'></i>

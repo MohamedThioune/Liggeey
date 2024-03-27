@@ -343,6 +343,10 @@
     color: #000;
     font-size: 16px;
     font-weight: 400;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .description_article a{
     color: #5B5B6C;
@@ -538,9 +542,7 @@
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 
 }
-.content_item:hover .item_left img{
-   /* background-color: #1AC4A2 !important;*/
-}
+
 .content_item:hover .item_left i{
     color: #FFF;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsagerService } from 'src/app/services/usager.service';
 import { Router } from '@angular/router';
+import { HomePageService } from 'src/app/services/home-page.service';
 
 @Component({
   selector: 'app-sidebar-candidat',
@@ -12,6 +13,11 @@ export class SidebarCandidatComponent implements OnInit {
   isSidebarVisible = false;
   userConnect:any;
   showButton = true;
+  badges:any[]=[];
+  courses:any[]=[];
+  topics:any[]=[];
+  
+  
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = false;
@@ -23,9 +29,10 @@ export class SidebarCandidatComponent implements OnInit {
   deconnexion(){
     this.usagerService.deconnexion()
   }
-  constructor( private usagerService:UsagerService,private router: Router) { }
+  constructor( private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
   ngOnInit(): void {
+    
        // Récupération du token depuis le local storage
        const storedToken = this.usagerService.getToken();
     
@@ -36,6 +43,16 @@ export class SidebarCandidatComponent implements OnInit {
          // Parse du JSON pour obtenir l'objet original
          this. userConnect = JSON.parse(decodedToken);
        }
+       //console.log(this.userConnect);
+       this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
+        this.badges=data.badges;
+        this.courses=data.courses;
+        this.topics=data.topics
+      //  console.log(this.badges,this.courses,this.topics);
+        
+       }))
+       
+ 
   }
 
 }

@@ -65,6 +65,8 @@ import { ResumeCandidatComponent } from './components/resume-candidat/resume-can
 import { RouterModule } from '@angular/router';
 import { EditJobCompanyComponent } from './components/edit-job-company/edit-job-company.component';
 import { CompagnyApplicantComponent } from './components/compagny-applicant/compagny-applicant.component';
+import { EditJobsComponent } from './components/edit-jobs/edit-jobs.component';
+import { CandidatProfilDashboardComponent } from './components/candidat-profil-dashboard/candidat-profil-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -126,6 +128,9 @@ import { CompagnyApplicantComponent } from './components/compagny-applicant/comp
     ResumeCandidatComponent,
     EditJobCompanyComponent,
     CompagnyApplicantComponent,
+    CompagnyApplicantComponent,
+    EditJobsComponent,
+    CandidatProfilDashboardComponent,
 
   ],
   imports: [

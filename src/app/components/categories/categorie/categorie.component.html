@@ -83,7 +83,9 @@
                 <p class="description-job">{{item.description |slice:0:24}}</p>
                 <p class="description-job"></p>
                 <div class="content-footer-card align-items-center">
-                  <button class="btn btn-apply-job" data-toggle="modal"  (click)="openApplyModal(item.ID)"  data-target="#modal-apply">Apply Now</button>
+                  <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(item)" (click)="openApplyModal(item.ID)" data-target="#modal-apply">
+                    {{ canAppl(item) ? 'Apply Now' : 'Already Applied' }}
+                  </button>
                   <a [routerLink]="['/detail-job',item.ID]" class="btn btn-view-job">View Details</a>
                 </div>
               </div>
@@ -155,7 +157,6 @@
                   <img [src]="item.image" class="img-fluid"/>
                 </div>
                 <div class="card-body">
-                
                   <div class="date_comment">
                     <p class="date">
                       {{item.post_date}}
@@ -167,7 +168,6 @@
                       {{item.number_comments}} Comment(s)
                     </p>
                   </div>
-              
                   <div class="tops">
                     <p>{{item.title | slice:0:40 }}</p>
                   </div>

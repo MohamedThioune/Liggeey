@@ -52,7 +52,7 @@ export class DetailBlogComponent implements OnInit {
   }
   postArticleComment(){
       // Utilisez le service pour postuler à l'emploi
-      console.log(this.form.value,this.article.ID);
+      console.log(this.form.value,this.article.ID,this.userConnect.id);
     
       if (this.validateFormJob(this.form.value)) {
   
