@@ -159,7 +159,7 @@ const routes: Routes = [
 
   { path: 'edit-job', component: EditJobsComponent },
 
-  { path: 'candidat-profil', component: CandidatProfilDashboardComponent},
+  { path: 'candidat-profil/:id', component: CandidatProfilDashboardComponent},
 
 
 ];

@@ -24,7 +24,6 @@ header ul {
     margin : 0px;
     display : flex;
     list-style: none;
-    flex-wrap: wrap;
     align-items: center;
 
 }
@@ -43,8 +42,8 @@ header ul li a {
     color : gray;
     width : 100%;
     height : 100%;
-    padding: 8px 14px;
-    font-weight: bold;
+    padding: 8px 12px;
+  font-family: "Roboto-Medium";
 }
 
 /*header ul li a:nth-child(3){
@@ -62,7 +61,8 @@ header .header_container_logo{
     display : flex;
     font-size :16px;
     font-weight : 400;
-
+    width: 67%;
+  justify-content: space-between;
 }
 header .header_container_logo .content_image img{
     width: 100%;
@@ -71,13 +71,12 @@ header .header_container_logo .content_image img{
     margin: auto;
 }
 
-header .header_container_logo p
-{
-    font-size:15px;
-    width:18px;
-    font-weight:bold;
-    color: #64748B;
-    margin : 0px;
+header .header_container_logo p {
+  font-size: 15px;
+  font-weight: bold;
+  color: #64748B;
+  margin: 0px;
+  width: auto;
 }
 
 /*header .header_container_logo img {
@@ -101,13 +100,13 @@ header .header_container_logo p
 }
 .second-nav li span{
     font-size: 16px;
-    font-weight: bold;
+    font-family: "Roboto-Bold";
     /*color: #1967D2;*/
 
 }
 .second-nav li p{
     font-size: 13px;
-    font-weight: bold;
+    font-family: "Roboto-Bold";
 }
 .Language{
     display: flex;
@@ -198,8 +197,6 @@ input[type="text"]:focus {
     color: #696969;
 }
 .header_container_logo .categories{
-    padding-left: 53px;
-    padding-right: 48px;
     display:flex;
     align-items:center;
     cursor: pointer;
@@ -214,19 +211,13 @@ input[type="text"]:focus {
 }
 
 .dropdown.dropdown-modife .dropdown-menu{
-  padding: 23px 20px 20px 5px;
+  padding: 13px 20px 20px 5px;
   margin-top: 20px;
   margin-right: 50px;
 
   background-color: #FFF;
 }
-.dropdown.dropdown-modife .dropdown-menu a{
-  padding-right: 150px;
-    padding-bottom: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #696969;
-}
+
 .categories .dropdown-menu a .content_image{
  height: 24px;
  width: 24px;
@@ -236,13 +227,19 @@ input[type="text"]:focus {
   width: 100%;
   object-fit: cover;
  }
- 
+
 nav ul li span{
     font-size: 16px;
     font-weight: 400;
    /* color: #64748B;*/
-    font-weight: bold;
+    font-family: "Roboto-Bold";
 
+}
+.dropdown.dropdown-modife .dropdown-menu a{
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-family: "Roboto-Regular";
+  color: #696969;
 }
 .join{
     display: flex;
@@ -252,7 +249,7 @@ nav ul li span{
     font-size: 16px;
     font-weight: 400;
     color: #64748B;
-    font-weight: bold;
+    font-family: "Roboto-Bold";
 
 }
 .join .hiring{
@@ -272,7 +269,7 @@ nav ul li span{
   .join .login{
     color: #696969;
     font-size: 15px;
-    font-weight: bold;
+    font-family: "Roboto-Bold";
   }
   .account{
     display: flex;
@@ -382,7 +379,7 @@ nav ul li span{
   display: inline-block;
   padding: 8px 12px;
   font-size: 16px;
-  font-weight: bold;
+  font-family: "Roboto-Bold";
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -489,7 +486,6 @@ nav ul li span{
   position: relative;
   display: inline-block;
   margin-left: 20px;
-  min-width: 333px;
 }
 .dropdown-modife svg {
   margin-right: 10px;
@@ -549,6 +545,10 @@ nav ul li span{
 .dropdown-user .dropdown-menu a:hover {
   background-color: #f0f0f0;
   color: #1AC4A2 !important;
+}
+.cathegories {
+  width: fit-content;
+  min-width: 66%;
 }
 
 @media all and (min-width: 300px) and (max-width: 767px){

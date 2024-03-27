@@ -137,7 +137,8 @@ import { CandidatProfilDashboardComponent } from './components/candidat-profil-d
     ReactiveFormsModule,
     FormsModule,
     NgxPaginationModule,
-    RouterModule
+    RouterModule,
+
   ],
   schemas: [
     NO_ERRORS_SCHEMA, // Ignorer les erreurs de schéma dans ce module
