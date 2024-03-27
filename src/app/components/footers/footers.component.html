@@ -1,0 +1,167 @@
+<section class="new-letter">
+  <div class="container-fluid">
+    <div class="row subscriber_form">
+      <div class=" col-md-6">
+        <div class="inner">
+          <p>Subscriber Our New Letter</p>
+          <p>Advertise your jobs to millions of monthly users and search 15.8 million CVs in our database.</p>
+        </div>
+      </div>
+      <!--
+      <div class="col-md-6 d-flex align-items-center">
+        <div class="my_container_form">
+          <form>
+            <input type="email" class="email" name="email" placeholder="Your e-mail"/>
+            <a class="btn hiring" type="submit" routerLink="register" routerLinkActive="active_lien_navbar">Subscriber</a>
+          </form>
+        </div>
+      </div>
+      -->
+    </div>
+  </div>
+</section>
+<div class="content-footer css-selector">
+  <section  *ngIf="isWebScreen()">
+    <div class="container-fluid">
+      <ul>
+        <li class="item_1">
+          <div class="logo">
+            <div class="content_logo">
+              <img src="../../../assets/img/logo_liggey.png" alt="image pas encore insérer">
+            </div>
+          </div>
+          <div class="call">
+            <p class="call_1">Call Us</p>
+            <p class="call_2 mb-2">000 46 08 90</p>
+            <p>329 Queensberry Street, North Melbourne VIC 3051,<br> Australia.</p>
+          </div>
+        </li>
+        <li class="jobs">
+          <p class="title-footer">Company</p>
+          <div class="content-link-footer">
+            <a href="/about" class="link-footer">About us</a>
+            <a href="/contact" class="link-footer">Contact us</a>
+            <a href="/app" class="link-footer">Our App</a>
+            <a href="/skills-first" class="link-footer">Skill First</a>
+          </div>
+        </li>
+        <li class="employers">
+          <p class="title-footer">Categories</p>
+          <div class="content-link-footer">
+            <a href="/detail-category/289" class="link-footer">Digital Marketing</a>
+            <a href="/detail-category/291" class="link-footer">Drupal</a>
+            <a href="/detail-category/284" class="link-footer">SalesForce</a>
+            <a href="/detail-category/290" class="link-footer">UX / UI Design</a>
+            <a href="/detail-category/287" class="link-footer">Wordpress</a>
+          </div>
+        </li>
+        <li class="about">
+          <p class="title-footer">Support</p>
+          <div class="content-link-footer">
+            <a href="/contact" class="link-footer">Help & Support</a>
+            <a href="#" class="link-footer">FAQ</a>
+            <a href="/contact" class="link-footer">Contact</a>
+            <a href="#" class="link-footer">Features</a>
+          </div>
+        </li>
+        <li class="mobile">
+          <p class="title-footer">Legal</p>
+          <div class="content-link-footer">
+            <a href="#" class="link-footer">Terms of Service</a>
+            <a href="#" class="link-footer">Privacy Policy</a>
+            <a href="#" class="link-footer">Features</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="resaux-sociaux">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between">
+          <p>© 2024 Livelearn. All Right Reserved.</p>
+          <div class="social">
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section *ngIf="isMobileScreen()">
+    <div class="container-fluid">
+      <ul>
+        <li class="item_1">
+          <div class="logo">
+            <div class="content_logo">
+              <img src="../../../assets/img/logo_liggey.png" alt="image pas encore insérer">
+            </div>
+
+          </div>
+          <div class="call">
+            <p class="call_1">Call Us</p>
+            <p class="call_2">000 46 08 90</p>
+            <p>329 Queensberry Street, North Melbourne VIC 3051,<br> Australia.</p>
+          </div>
+        </li>
+        <li class="jobs" [ngClass]="{'collapsed': isCollapsedJobs, 'expanded': !isCollapsedJobs}">
+          <p (click)="toggleCollapseJobs()">For Candidates</p>
+          <div class="browse-jobs">
+            <p>Browse Jobs</p>
+            <p class="tiret"></p>
+            <p class="browse_categorie">Browse Categories</p>
+            <p>Candidate Dashboard</p>
+            <p>Job Alerts</p>
+          </div>
+        </li>
+        <li class="employers">
+          <p (click)="toggleCollapseEmployers()">For Employers</p>
+          <div *ngIf="isCollapsedEmployers" class="browse-employers">
+            <p>Browse Candidate</p>
+            <p class="employer_dashboard">Employer Dashboard</p>
+            <p>Add Job</p>
+          </div>
+        </li>
+        <li class="about">
+          <p (click)="toggleCollapseAbout()">About Us</p>
+          <div  *ngIf="isCollapsedAbout" class="about-us">
+            <p>About</p>
+            <p>Resume Page</p>
+            <p>Blog</p>
+            <p>Contact</p>
+          </div>
+        </li>
+        <li class="mobile">
+          <p (click)="toggleCollapseMobile()">Mobile Apps</p>
+          <div  *ngIf="isCollapsedMobile" class="mobile-app">
+            <p>Click and Get started in seconds</p>
+            <button class="app">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M25.575 30.4198C24.105 31.8448 22.5 31.6198 20.955 30.9448C19.32 30.2548 17.82 30.2248 16.095 30.9448C13.935 31.8748 12.795 31.6048 11.505 30.4198C4.185 22.8748 5.265 11.3848 13.575 10.9648C15.6 11.0698 17.01 12.0748 18.195 12.1648C19.965 11.8048 21.66 10.7698 23.55 10.9048C25.815 11.0848 27.525 11.9848 28.65 13.6048C23.97 16.4098 25.08 22.5748 29.37 24.2998C28.515 26.5498 27.405 28.7848 25.56 30.4348L25.575 30.4198ZM18.045 10.8748C17.82 7.52976 20.535 4.76976 23.655 4.49976C24.09 8.36976 20.145 11.2498 18.045 10.8748Z" fill="#1AC4A2"/>
+              </svg>
+              Dowload on the <br>Apple Store
+            </button>
+            <button class="play">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.431 17.424L23.8665 12.9885L9.54 4.93649C8.5905 4.42349 7.701 4.35149 6.921 4.91249L19.431 17.424ZM24.6225 22.617L29.2335 20.0235C30.1335 19.5195 30.627 18.8055 30.627 18.0135C30.627 17.223 30.1335 16.5075 29.235 16.0035L25.0605 13.659L20.361 18.357L24.6225 22.617ZM6.15 6.00299C6.054 6.29849 6 6.62849 6 6.98999V29.0475C6 29.619 6.126 30.111 6.354 30.5025L18.4995 18.3555L6.15 6.00299ZM19.431 19.2855L7.353 31.365C7.584 31.4535 7.833 31.5 8.0955 31.5C8.5635 31.5 9.051 31.362 9.5475 31.086L23.43 23.2905L19.431 19.2855Z" fill="#1AC4A2"/>
+              </svg>
+              Get it On <br>Google Play
+            </button>
+          </div>
+        </li>
+      </ul>
+      <div class="resaux-sociaux d-flex justify-content-between align-items-center">
+        <p>© 2023 Seydou-Kellel-design. All Right Reserved.</p>
+        <div class="social">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+</div>
+

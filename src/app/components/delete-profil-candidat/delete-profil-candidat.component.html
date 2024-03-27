@@ -1,0 +1,36 @@
+<app-header></app-header>
+<section class="content-page-dashboard">
+  <app-sidebar-candidat></app-sidebar-candidat>
+  <div class="right_menu">
+    <div class="content_right_menu">
+      <span>Delete Profile</span>
+      <div class="map_menu">
+        <div class="head_map_menu">
+          <p class="title-page">Are you sure! You want to delete your profile.</p>
+        </div>
+        <form [formGroup]="myForm">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 p-2">
+                <label for="email">
+                  Please enter your login Password to confirm:
+                </label>
+               
+                <div class="input-group">
+                   <input type="email" name="email" class="form-control" id="email" placeholder="*******"
+                         formControlName="email">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer p-3  ">
+            <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Update </button>
+          </div>
+          <div class="clear"></div><br />
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+<app-footers></app-footers>

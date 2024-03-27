@@ -1,0 +1,133 @@
+<app-header></app-header>
+<div class="content-detail-article">
+  <div class="inter-content-detail">
+    <h1>{{article.title}}</h1>
+    <div class="block-detail-article d-flex align-items-center">
+      <div class="img-block">
+       <!-- <img src="../../../assets/img/person_5.png" />-->
+       <img [src]="article.author_image" alt="">
+      </div>
+      <p>{{article.author_name}}</p>
+      <p>{{article.post_date}}</p>
+      <p>{{article.number_comments}} Comment</p>
+    </div>
+  </div>
+  <div class="content-img-detail-article">
+    <img [src]="article.image" alt="Image Of Article">
+  </div>
+  <div class="inter-content-detail">
+    <div class="content-text">
+        <p>{{article.content}}</p>
+    </div>
+    <div class="d-flex btn-sociaux align-items-center">
+      <p class="share-post-text">Share this post</p>     
+      <a class="btn btn-whatssap" href=" https://wa.me/?url= http:/{{href}}/ " target="_blank">
+        <i class="fa fa-whatsapp"></i> Whatssap
+      </a>
+      <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?url=https:/{{href}}" target="_blank">
+        <i class="fa fa-twitter"></i> Twitter
+      </a>
+      <a class="btn btn-linkedin" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https:/{{href}}" target="_blank">
+        <i class="fa fa-linkedin"></i> LinkedIn
+    </a>
+    
+    </div>
+
+    <div class="block-prev-next d-flex justify-content-between align-items-center">
+
+      <div class="block-prev-article">
+        <div class="d-flex">
+          <i class="fa fa-angle-left"></i>
+          <p class="preview-text">Previous Post</p>
+        </div>
+        <p class="title-other-article">Given Set was without from god divide rule Hath</p>
+      </div>
+
+      <div class="block-prev-article">
+        <div class="d-flex right-block">
+          <p class="preview-text">Next Post</p>
+          <i class="fa fa-angle-right"></i>
+        </div>
+        <p class="title-other-article">Tree earth fowl given moveth deep lesser After</p>
+      </div>
+
+    </div>
+
+    <div class="block-commentaire">
+      <p class="comment-title">Comment</p>
+      <!--
+      <div class="one-comment d-flex">
+        <div class="block-img-comment">
+          <img src="../../../assets/img/person_5.png" />
+        </div>
+        <div class="position-relative detail-comment d-grid">
+          <p class="name-comment">Oscar Cafeo</p>
+          <div class="rating-block d-flex">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <p class="comment">Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement tantaneously eel valiantly petted this along across highhandedly much.</p>
+        </div>
+      </div>
+      -->
+      <div class="one-comment d-flex" *ngFor="let comment of article.comments">
+        <div class="block-img-comment">
+          <img [src]=comment.comment_author_image />
+        </div>
+        <div class="position-relative detail-comment d-grid">
+          <p class="name-comment">{{comment.comment_author_name}}</p>
+          <div class="rating-block d-flex">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <p class="comment">{{comment.Feedback}}</p>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="postArticleComment()" class="form-comment">
+      <p class="title-comment">Leave your thought here</p>
+      <div class="rating-block d-flex">
+        <div class="rate">
+          <input type="radio" id="star5" formControlName="rating" name="rating" value="5" />
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" formControlName="rating" name="rating" value="4" />
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" formControlName="rating" name="rating" value="3" />
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" formControlName="rating" name="rating" value="2" />
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" formControlName="rating" name="rating" value="1" />
+          <label for="star1" title="text">1 star</label>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap justify-content-between">
+        <div class="form-group w-50">
+          <label>Your Name</label>
+          <input type="text" class="form-control" formControlName="name" id="name" aria-describedby="name" placeholder="Your Name">
+        </div>
+        <div class="form-group w-50">
+          <label>Your Email</label>
+          <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group w-100 d-grid">
+          <label>Your Comment</label>
+          <textarea name="feedback" formControlName="feedback" id="feedback" rows="5"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </div>
+    </form>
+
+  </div>
+
+</div>
+
+
+<app-footers></app-footers>

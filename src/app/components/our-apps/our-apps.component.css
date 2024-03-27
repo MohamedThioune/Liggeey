@@ -1,0 +1,136 @@
+body {
+  padding-top: 110px !important;
+}
+.text1{
+  color: #2D2D2E;
+  font-size: 25px;
+  font-weight: 500;
+}
+.card-title{
+  font-size: 24px;
+}
+
+.card1 p{
+  font-size: 17px;
+
+}
+.im{
+  width: 40%;
+}
+
+.img{
+  width: 95%;
+}
+
+
+.second-content {
+  background: #1AC4A2;
+}
+
+.second-content h2 {
+  font-size: 17px;
+  font-weight: bolder;
+
+}
+
+.txt{
+  font-size:14px ;
+}
+
+
+.img {
+  display: flex;
+  justify-content: end;
+}
+
+.title {
+  display: flex;
+  justify-content: end;
+}
+subs {
+  text-align: end;
+  width: 10%;
+}
+.subs p {
+  width: 100%;
+  text-align: end;
+}
+.subss p {
+  width: 90%;
+}
+
+.fourth h2{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.third h4 label {
+  color: #1AC4A2;
+}
+
+.third h4 small {
+  color: #1AC4A2;
+}
+.sub-title {
+  color: #033357;
+  font-size: 28px;
+  line-height: 38px;
+  margin-bottom: 31px;
+}
+.sub-title span{
+  color: #1ac4a2;
+  font-weight: 700;
+}
+.description-text{
+  font-size: 19px;
+  line-height: 37px;
+}
+@media all and (min-width: 300px) and (max-width: 767px){
+  .online-course {
+    width: 50%;
+  }
+
+
+  .item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .head {
+    width: 60%;
+  }
+
+  .img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+
+  .subs p {
+    text-align: center;
+  }
+
+  .img-right {
+    display: flex;
+    justify-content: center;
+  }
+
+  .title-right h2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .subs-right p {
+    text-align: center;
+
+  }
+
+}
+
+
