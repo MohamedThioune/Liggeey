@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
->>>>>>> 95d89ae6564159b95ba903cc027eac4557f456ff
 
 @Component({
   selector: 'app-passport-all-candidat',
@@ -20,14 +17,6 @@ export class PassportAllCandidatComponent implements OnInit {
   isCollapsedAbout = false;
   isCollapsedMobile = false;
   ongletSelectionne: any ;
-<<<<<<< HEAD
-
-  constructor() { }
-
-  ngOnInit(): void {
-    this.ongletSelectionne = "All";
-  }
-=======
   userConnect:any;
   badges:any[]=[];
   courses_info:any[]=[];
@@ -98,7 +87,6 @@ export class PassportAllCandidatComponent implements OnInit {
     // Formater la date dans le format souhaité
     return `${month} ${day} ${string} ${year}`;
   } 
->>>>>>> 95d89ae6564159b95ba903cc027eac4557f456ff
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
