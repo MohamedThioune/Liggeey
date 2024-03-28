@@ -166,6 +166,15 @@ ul li p{
   font-size: 17px;
   margin-bottom: 15px;
 }
+.content-footer{
+  background: #F5F7FC !important;
+}
+.title-newlestter{
+  color: #202124;
+  font-family: "Roboto-Medium";
+  font-size: 25px;
+}
+
 
  @media screen and (max-width: 1079px) and (min-width: 768px){
     .my_container_form{

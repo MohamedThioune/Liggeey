@@ -43,32 +43,50 @@
                       <option *ngFor="let langue of langues" [value]="langue">{{ langue }}</option>
                   </select>
               </div>
-          </div>
+            </div>
           <div class="form-group col-50">
-            <label for="job_langues">Skills</label>
+            <label for="job_application_deadline">Application deadline  <span class="important">*</span>
+            </label>
             <div class="input-group">
+              <input type="date" name="job_application_deadline" value="job_application_deadline" formControlName="job_application_deadline" class="form-control" id="job_application_deadline" placeholder="26.10.2023">
+            </div>
+          </div>
+          <div class="form-group col-100">
+            <label for="job_langues">Skills</label>
+            <div class="input-group " >
+              <!--
                 <select name="skills" formControlName="skills" class="form-control" id="skills" >
                     <option *ngFor="let skill of skillsTab" [value]="skill">{{ skill.name }}</option>
                 </select>
-            </div>
-        </div>
-
-
-
-
-
-
-            <div class="form-group col-100">
-              <label for="job_application_deadline">Application deadline  <span class="important">*</span>
-              </label>
-              <div class="input-group">
-                <input type="date" name="job_application_deadline" formControlName="job_application_deadline" class="form-control" id="job_application_deadline" placeholder="26.10.2023">
+                -->
+                <button type="button" class="btn btn-light dropdown-toggle col-12" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+  
+              </button>
+                            <!-- Affichage des cases à cocher -->
+              <div class="dropdown-menu col-md-6" aria-labelledby="dropdownMenuButton">
+                <div class="form-check" *ngFor="let skill of skillsTabs">
+                  <input class="form-check-input checkbox" formArrayName="skills" type="checkbox" [value]="skill.term_id" (change)="toggleSkill(skill.term_id)" [checked]="selectedSkills.includes(skill.term_id)">
+                  <label class="form-check-label">
+                    {{skill.cat_name}}
+                  </label>
+                </div>
               </div>
+
+              <!-- Affichage des compétences sélectionnées -->
+              <div *ngIf="selectedSkills.length > 0" class="selected-skills">
+                <ul>
+                  <li *ngFor="let skillId of selectedSkills">
+                    {{ getSkillName(skillId) }}
+                    <span class="remove-icon" (click)="removeSkill(skillId)">×</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
-
-            <button class="btn btn-save create" type="submit"> Save </button>
           </div>
-
+          <button class="btn btn-save create" type="submit"> Save </button>
+          </div>
         </form>
       </div>
     </div>
