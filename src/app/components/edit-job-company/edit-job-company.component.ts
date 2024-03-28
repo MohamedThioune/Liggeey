@@ -91,7 +91,7 @@ export class EditJobCompanyComponent implements OnInit {
   
   
   onSubmit(){
-    console.log(this.form.value);
+   // console.log(this.form.value);
     if (this.validateFormJob(this.form.value)) {
 
     this.homeService.editJob(this.form.value,this.userConnect.id)
@@ -109,7 +109,7 @@ export class EditJobCompanyComponent implements OnInit {
             message: this.message
           });
           if (typeR == "success") {
-            alert("Job edited successfully.")
+        //    alert("Job edited successfully.")
             this.router.navigate(['/manage-compagny/'+this.userConnect.id]);
           }
         },

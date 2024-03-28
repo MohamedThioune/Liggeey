@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app//services/usager.service';
+import { Router } from '@angular/router';
+import { ToastNotification } from 'src/app/notification/ToastNotification';
 
 @Component({
   selector: 'app-manage-job-compagny',
@@ -16,7 +18,12 @@ export class ManageJobCompagnyComponent implements OnInit {
   appliedNumber!:number;
   tabNumber:any[]=[];
 
-  constructor(private homeService:HomePageService,private usagerService: UsagerService) { }
+  message: any = {
+    type: '',
+    message: ''
+  };
+
+  constructor(private homeService:HomePageService,private usagerService: UsagerService,private router:Router) { }
 
   ngOnInit(): void {
       // Récupération du token depuis le local storage
@@ -52,6 +59,41 @@ export class ManageJobCompagnyComponent implements OnInit {
   fermerSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = true;
+  }
+  delete(jobID:number) {
+    if (confirm('Voulez vous supprimer ce job')) {
+   this.homeService.deleteJob(jobID,this.userConnect.id).subscribe(
+  // Succès de la requête
+  (response) => {
+
+    let typeR = "error"
+    if (<any>response ) {
+      typeR = "success";
+      this.message= "Job deleted successfully."
+    }
+    ToastNotification.open({
+      type: typeR,
+      message: this.message
+    });
+    if (typeR == "success") {
+      alert("Job deleted successfully.")
+      this.router.navigate(['/manage-compagny/'+this.userConnect.id]);
+    }
+  },
+  // Gestion des erreurs
+  (error) => {
+    ToastNotification.open({
+      type: 'delete failed',
+      message: error.error.message
+    });
+  }
+);
+} else {
+ToastNotification.open({
+type: 'delete failed',
+message: this.message.message
+});
+    }
   }
 
 }
