@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit {
   searchTitle:string="";
 
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
-    ) {
-
+    ) { 
+    
   }
 
   ngOnInit(): void {
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
      }
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
-      this.candidates=data.candidates
+      this.candidates=data.candidates      
       this.article=data.artikels
       this.currentCategories=data.jobs
       this.currentCategories.forEach((job:any) => {   
@@ -68,7 +68,6 @@ export class HomeComponent implements OnInit {
       this.article[2].short_description =   this.article[2].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[2].post_title =   this.article[2].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
     })
-
     this.homeService.getCategories().subscribe((data:any)=>{
       this.categoriesTab=data.categories;
       this.topics=data.topics;

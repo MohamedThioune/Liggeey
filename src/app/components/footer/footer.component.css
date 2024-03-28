@@ -42,13 +42,13 @@
     font-size: 14px;
   }
 
-  @media screen and (min-width: 300px) and (max-width: 767px){  
+  @media screen and (min-width: 300px) and (max-width: 767px){
     .button_connexion{
       padding-bottom: 70px;
     }
        .left{
           margin-bottom: 16px;
-        } 
+        }
         .right,.left{
           padding:10px 21px 15px 21px ;
         }

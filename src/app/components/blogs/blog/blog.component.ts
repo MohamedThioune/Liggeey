@@ -15,9 +15,7 @@ export class BlogComponent implements OnInit {
       this.artikels=data.artikels
       this.artikels.forEach((article:any) => {
         article.title =   article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-        article.short_description = article.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-        console.log(article.title,article.short_description);
-          
+        article.short_description = article.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');  
       });
           
     })

@@ -1,0 +1,58 @@
+<app-header></app-header>
+<section class="content-page-dashboard">
+  <app-sidebar-company></app-sidebar-company>
+  <div class="right_menu">
+    <h2 class="title-page">Edit <span> {{job.title}}  </span> Job</h2>
+    <div class="content_right_menu">
+      <div class="map_menu">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="card-body">
+            <input type="number" name="ID" formControlName="ID" hidden  class="form-control">
+            <div class="form-group">
+              <label>
+                Description
+              </label>
+              <textarea name="description" id="description" class="form-control" formControlName="description" cols="30" ></textarea>
+            </div>
+            <div class="form-group col-50">
+              <label for="job_level_of_experience">Level of experience  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="number" name="job_level_of_experience" formControlName="job_level_of_experience" class="form-control" id="job_level_of_experience" placeholder="Take a number value by 'years'">
+              </div>
+            </div>
+            <div class="form-group col-50">
+              <label for="email">
+                Skills  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="text" name="skills" formControlName="skills" class="form-control" id="email"  >
+              </div>
+            </div>
+            <div class="form-group col-50">
+              <label for="job_langues">Langues  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <input type="text" name="job_langues" formControlName="job_langues" class="form-control" id="job_langues" placeholder="French,English,Dutch">
+              </div>
+            </div>
+            <div class="form-group col-50">
+              <label for="job_application_deadline">Application deadline  <span class="important">*</span>
+              </label>
+              <div class="input-group">
+                <!--<input type="date" name="firstName" formControlName="expired_at" class="form-control" id="expired_at" placeholder="26/10/2023"> !-->
+                <input type="text" name="expired_at"  formControlName="expired_at" class="form-control" (input)="validateDate($event)">
+              </div>
+              <div *ngIf="dateError" class="error-message">Invalid date format (dd/mm/yyyy) or Incorrect Date</div>
+
+            </div>
+
+            <button class="btn btn-save create" type="submit"> Save </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footers></app-footers>

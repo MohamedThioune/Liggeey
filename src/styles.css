@@ -20,8 +20,10 @@
 
 body {
     background-color: #FFFF !important;
-    font-family: "Roboto-Regular";
     padding-top: 140px;
+}
+body p{
+    font-family: "Roboto-Regular";
 }
 
 .container-fluid{
@@ -119,7 +121,7 @@ form h2 {
 }
 .header_container_logo .content_image{
   height: 40px;
-  width: auto;
+  width: 15%;
   margin-left: -40px;
 }
 .header_container_logo .content_image a{

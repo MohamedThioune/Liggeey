@@ -26,7 +26,6 @@ export class JobOneComponent implements OnInit {
   appliedJob=false
   candidate=false
   company=false
-  canApply=true
 
   constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) {}
   ngOnInit(): void {
@@ -78,7 +77,11 @@ export class JobOneComponent implements OnInit {
       return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
   }
 
+  if (item && item.applied) {
     return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+  }
+
+  return true;
   }
   changeColor() {
     this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
