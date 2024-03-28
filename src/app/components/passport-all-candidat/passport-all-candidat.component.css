@@ -510,8 +510,3 @@ table tbody tr th {
     font-size: 17px;
     width: 8%;
 }
-.pagination{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

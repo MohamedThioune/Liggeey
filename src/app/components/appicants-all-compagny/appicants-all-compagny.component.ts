@@ -35,7 +35,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
    }
     this.homeService.getDetailJob(this.identifiant).subscribe((data:any)=>{
       this.applicant=data
-      //console.log(this.applicant,this.applicant.ID);
+      console.log(this.applicant);
       
      })
   }

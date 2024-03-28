@@ -265,7 +265,7 @@ input[type="checkbox"]{
 .checkbox{
   width: 1ch !important;
   cursor: pointer;
-  transform: scale(1.5); /* Augmente la taille de la case à cocher */
+  transform: scale(1.5) !important; /* Augmente la taille de la case à cocher */
 
 }
 .dropdown-menu{
@@ -274,9 +274,10 @@ input[type="checkbox"]{
 .form-check{
   padding-bottom: 1ch;
 }
+/*
 .form-check:hover{
   background-color: rgb(180, 223, 180);
-}
+}*/
 .dropdown-toggle{
   background-color: white;
   border: 2px solid #d3d8de;

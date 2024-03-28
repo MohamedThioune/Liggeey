@@ -63,6 +63,7 @@ import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-
 import { ProfilCandidatComponent } from './components/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/resume-candidat/resume-candidat.component';
 import { RouterModule } from '@angular/router';
+import { EditJobCompanyComponent } from './components/edit-job-company/edit-job-company.component';
 import { CompagnyApplicantComponent } from './components/compagny-applicant/compagny-applicant.component';
 import { EditJobsComponent } from './components/edit-jobs/edit-jobs.component';
 import { CandidatProfilDashboardComponent } from './components/candidat-profil-dashboard/candidat-profil-dashboard.component';
@@ -125,6 +126,8 @@ import { CandidatProfilDashboardComponent } from './components/candidat-profil-d
     PassportAllCandidatComponent,
     ProfilCandidatComponent,
     ResumeCandidatComponent,
+    EditJobCompanyComponent,
+    CompagnyApplicantComponent,
     CompagnyApplicantComponent,
     EditJobsComponent,
     CandidatProfilDashboardComponent,

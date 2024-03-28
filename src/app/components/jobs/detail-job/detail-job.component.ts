@@ -54,6 +54,7 @@ export class DetailJobComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
+        console.log(this.job);
         
         this.calculateDuration();
         this.calculateDurationLastJob();
@@ -61,8 +62,12 @@ export class DetailJobComponent implements OnInit {
 }
 canAppl(item: any): boolean {
   if (!this.userConnect || !this.userConnect.id) {
-    return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
-}
+
+    if (item && item.applied) {
+      return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+    }
+  
+    return true;}
 
   return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
 }
