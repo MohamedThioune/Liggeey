@@ -68,7 +68,6 @@ export class HomeComponent implements OnInit {
       this.article[2].short_description =   this.article[2].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[2].post_title =   this.article[2].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
     })
-
     this.homeService.getCategories().subscribe((data:any)=>{
       this.categoriesTab=data.categories;
       this.topics=data.topics;
@@ -76,7 +75,6 @@ export class HomeComponent implements OnInit {
 
       //this.currentCategories=this.categories
     })
-
 
 
   }

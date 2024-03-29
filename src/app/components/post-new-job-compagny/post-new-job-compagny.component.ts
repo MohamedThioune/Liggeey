@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder ,FormGroup,Validators} from '@angular/forms';
+import { FormBuilder ,FormGroup,Validators,FormArray} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
@@ -26,9 +26,9 @@ export class PostNewJobCompagnyComponent implements OnInit {
     message: ''
   };
   langues: string[] = ['French', 'English', 'Dutch'];
-  tabSkills:any[]=[];
-  skillsTab:any[]=[   {
-    "term_id": 285,
+
+  skillsTabs:any=[   {
+  "term_id": 285,
     "name": "Google",
     "slug": "google",
     "term_group": 0,
@@ -119,37 +119,55 @@ export class PostNewJobCompagnyComponent implements OnInit {
 }
 ]
 
+
+selectedSkills: any[] = [];
+
+toggleSkill(term_id: any) {
+  const skillsArray = this.form.get('skills') as FormArray;
+
+  if (this.selectedSkills.includes(term_id)) {
+    this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
+    const index = skillsArray.value.indexOf(term_id);
+    skillsArray.removeAt(index);
+  } else {
+    this.selectedSkills.push(term_id);
+    skillsArray.push(this.fb.control(term_id));
+
+  }
+}
+
+removeSkill(term_id: any) {
+  this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
+}
+getSkillName(skillId: any): string {
+  const skill = this.skillsTabs.find((skill:any) => skill.term_id === skillId);
+  return skill ? skill.cat_name : '';
+}
+get skillsFormArray() {
+  return this.form.get('skills') as FormArray;
+}
+
+
   constructor(private fb: FormBuilder,private route: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
-  
+
   ngOnInit(): void {
 
     this.initForm()
    // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
-    
-   if (storedToken) {   
+
+   if (storedToken) {
                // Décodage de la base64
      const decodedToken = atob(storedToken);
 
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
-   console.log(this.userConnect.id);
-   this.homeService.getInfoHomepage().subscribe((data:any)=>{
-    this.jobs=data.jobs
-    this.jobs.forEach((job:any) => {
-      job.skills.forEach((element:any) => {
-        this.tabSkills.push(element)        
-      });
-    });
-            
-
-  })
 }
+
 onSubmit() {
     // Utilisez le service pour postuler à l'emploi
-    console.log(this.form.value);
-    
+    console.log(this.form.value,this.form.value.skills);
     if (this.validateFormJob(this.form.value)) {
 
     this.homeService.postJob(this.form.value,this.userConnect.id)
@@ -202,9 +220,8 @@ onSubmit() {
       job_contract: this.fb.control("", Validators.required),
       job_langues: this.fb.control("", Validators.required),
       job_application_deadline: this.fb.control("", [Validators.email, Validators.required]),
-      skills: this.fb.control("", []),
+      skills: this.fb.array([]),
 
-      
     });
   }
   validateFormJob(job: JobCompagny): boolean {
@@ -229,7 +246,7 @@ onSubmit() {
       this.message.message = 'The deadline is mandatory';
       return false;
     }
-   
+
 
     return true;
   }

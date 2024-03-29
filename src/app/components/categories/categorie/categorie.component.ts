@@ -98,7 +98,6 @@ export class CategorieComponent implements OnInit {
       this. userConnect = JSON.parse(decodedToken);
     }
   }
-
   get filteredJobs() {
     if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
       return this.category.jobs.filter((job:any) => {
@@ -161,7 +160,6 @@ export class CategorieComponent implements OnInit {
   openApplyModal(jobId: string) {
     this.homeService.setSelectedJobId(jobId);
     console.log(jobId);
-
     const modalElement = document.getElementById('modal-apply');
     if (modalElement) {
       modalElement.click();

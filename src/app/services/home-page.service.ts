@@ -227,5 +227,19 @@ export class HomePageService {
   appliesJob(id: number): Observable<any> {
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/applieds?userApplyId=${id}`,{});
   }
+
+  editJob(job:any,userApplyId: number): Observable<any> {
+    const requestBody = {
+      userApplyId:userApplyId,
+      ID:job.ID,
+      description: job.description,
+      job_level_of_experience: job.job_level_of_experience,
+      job_langues:job.job_langues,
+      expired_at:job.expired_at,
+      skills:job.skills
+
+    };
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/editJob?userApplyId=${userApplyId}&jobID=${requestBody.ID}&description=${requestBody.description}&job_level_of_experience=${requestBody.job_level_of_experience}&skills=${requestBody.skills}&job_langues=${requestBody.job_langues}&job_expiration_date=${requestBody.expired_at}`,requestBody);
+  }
 }
 

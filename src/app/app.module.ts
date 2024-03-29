@@ -63,6 +63,7 @@ import { SidebarCandidatComponent } from './components/sidebar-candidat/sidebar-
 import { ProfilCandidatComponent } from './components/profil-candidat/profil-candidat.component';
 import { ResumeCandidatComponent } from './components/resume-candidat/resume-candidat.component';
 import { RouterModule } from '@angular/router';
+import { EditJobCompanyComponent } from './components/edit-job-company/edit-job-company.component';
 import { CompagnyApplicantComponent } from './components/compagny-applicant/compagny-applicant.component';
 import { EditJobsComponent } from './components/edit-jobs/edit-jobs.component';
 import { CandidatProfilDashboardComponent } from './components/candidat-profil-dashboard/candidat-profil-dashboard.component';
@@ -127,6 +128,8 @@ import {AppMobileComponent} from "./components/app-mobile/app-mobile.component";
     PassportAllCandidatComponent,
     ProfilCandidatComponent,
     ResumeCandidatComponent,
+    EditJobCompanyComponent,
+    CompagnyApplicantComponent,
     CompagnyApplicantComponent,
     EditJobsComponent,
     CandidatProfilDashboardComponent,
@@ -143,6 +146,7 @@ import {AppMobileComponent} from "./components/app-mobile/app-mobile.component";
     FormsModule,
     NgxPaginationModule,
     RouterModule,
+
   ],
   schemas: [
     NO_ERRORS_SCHEMA, // Ignorer les erreurs de schéma dans ce module

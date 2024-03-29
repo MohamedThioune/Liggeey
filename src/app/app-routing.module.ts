@@ -48,6 +48,7 @@ import { ProfilCompagnyComponent } from './components/profil-compagny/profil-com
 import { ListCompagnyComponent } from './components/compagnies/list-compagny/list-compagny.component';
 import { DetailCompagnyComponent } from './components/compagnies/detail-compagny/detail-compagny.component';
 import { DashboardEmployerComponent } from './components/dashboard-employer/dashboard-employer.component';
+import {EditJobCompanyComponent} from "./components/edit-job-company/edit-job-company.component";
 import { CompagnyApplicantComponent } from './components/compagny-applicant/compagny-applicant.component';
 import {EditJobsComponent} from "./components/edit-jobs/edit-jobs.component";
 import {
@@ -103,6 +104,7 @@ const routes: Routes = [
   { path: 'course', component: CourseCandidatComponent },
 
   { path: 'skills', component: SkillsCandidatComponent },
+  
 
 
 
@@ -157,9 +159,10 @@ const routes: Routes = [
 
   { path:'',redirectTo: '/login', pathMatch: 'full'},
 
+  { path: 'edit-job/:id', component: EditJobCompanyComponent },
   { path: 'edit-job', component: EditJobsComponent },
 
-  { path: 'candidat-profil', component: CandidatProfilDashboardComponent},
+  { path: 'candidat-profil/:id', component: CandidatProfilDashboardComponent},
 
 
 ];
