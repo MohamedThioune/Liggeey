@@ -58,6 +58,17 @@ export class DetailJobComponent implements OnInit {
         this.calculateDurationLastJob();
     });
 }
+canAppl(item: any): boolean {
+  if (!this.userConnect || !this.userConnect.id) {
+
+    if (item && item.applied) {
+      return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+    }
+  
+    return true;}
+
+  return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+}
 calculateDuration() {
     if (this.job) {
         this.currentDate = new Date();

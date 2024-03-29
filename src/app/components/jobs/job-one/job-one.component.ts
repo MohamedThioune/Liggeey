@@ -81,8 +81,17 @@ export class JobOneComponent implements OnInit {
       console.error("Modal element not found");
     }
   }
-  
-  
+  canAppl(item: any): boolean {
+    if (!this.userConnect || !this.userConnect.id) {
+      return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
+  }
+
+  if (item && item.applied) {
+    return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+  }
+
+  return true;
+  }
   changeColor() {
     this.currentColor = '#1AC4A2'; // Changez la couleur selon vos besoins
   }

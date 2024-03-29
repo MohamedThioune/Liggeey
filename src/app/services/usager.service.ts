@@ -18,7 +18,7 @@ export class UsagerService {
   setUser(user: any) {
     this.userSubject.next(user);
     console.log(user);
-    
+
   }
   constructor(private http: HttpClient) { }
   connection(user:User): Observable<any> {
@@ -26,7 +26,7 @@ export class UsagerService {
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + base64Credentials,
       'Content-Type': 'application/json;charset=UTF-8',
-     
+
     });
     return this.http.post('https://wp12.influid.nl/wp-json/wp/v2/users/me',{}, { headers });
   }
@@ -35,7 +35,7 @@ export class UsagerService {
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + base64Credentials,
       'Content-Type': 'application/json;charset=UTF-8',
-     
+
     });
     const requestBody = {
       email:usager.email,
@@ -48,7 +48,7 @@ export class UsagerService {
       acf:{
         "is_liggeey":"candidate"
       },
-    };    
+    };
     return this.http.post<Usager>(" https://wp12.influid.nl/wp-json/wp/v2/users", requestBody, { headers });
   }
   inscriptionCompagny(usager: UsagerCompany): Observable<any> {
@@ -56,7 +56,7 @@ export class UsagerService {
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + base64Credentials,
       'Content-Type': 'application/json;charset=UTF-8',
-     
+
     });
     const requestBody = {
       email:usager.emailCompagny,
@@ -68,8 +68,8 @@ export class UsagerService {
       bedrijf:usager.bedrijf,
       acf:{
         "is_liggeey":"chief"
-      },   
-    };    
+      },
+    };
     return this.http.post<any>(" https://wp12.influid.nl/wp-json/custom/v1/register/company", requestBody, { headers });
   }
   storeToken(token: string): void {
@@ -82,7 +82,7 @@ export class UsagerService {
   generateCode(email:String): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json;charset=UTF-8',
-     
+
     });
     return this.http.post('https://livelearn.nl/wp-json/bdpwr/v1/reset-password',{email}, { headers });
   }
@@ -94,7 +94,7 @@ export class UsagerService {
       email : userResetPassword.email,
       password : userResetPassword.password,
       code : userResetPassword.code,
-     
+
     }
     return this.http.post<UserResetPassword>('https://livelearn.nl/wp-json/bdpwr/v1/set-password',bodyRequestPassword, { headers });
   }
@@ -102,5 +102,5 @@ export class UsagerService {
   deconnexion() {
     localStorage.removeItem('access_token');
     window.location.href = "login";
-  } 
+  }
 }

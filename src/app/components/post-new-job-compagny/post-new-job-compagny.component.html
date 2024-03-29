@@ -48,16 +48,10 @@
             <label for="job_langues">Skills</label>
             <div class="input-group">
                 <select name="skills" formControlName="skills" class="form-control" id="skills" >
-                    <option *ngFor="let skill of skillsTab" [value]="skill">{{ skill.name }}</option>
+                    <option *ngFor="let skill of job.skills" [value]="skill">{{ skill.name }}</option>
                 </select>
             </div>
         </div>
-
-
-
-
-
-
             <div class="form-group col-100">
               <label for="job_application_deadline">Application deadline  <span class="important">*</span>
               </label>

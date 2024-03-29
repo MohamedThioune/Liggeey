@@ -246,6 +246,80 @@ label p {
   margin-left: 11px !important;
 
 }
+input[type="checkbox"]{
+  color: red;
+}
+
+.drop-container{
+  margin: 100px;
+}
+
+.action{
+  margin-top: 10px;
+}
+
+
+.fieldSelect{
+  height: 47px;
+}
+.checkbox{
+  width: 1ch !important;
+  cursor: pointer;
+  transform: scale(1.5) !important; /* Augmente la taille de la case à cocher */
+
+}
+.dropdown-menu{
+  padding-left: 3ch;
+}
+.form-check{
+  padding-bottom: 1ch;
+}
+/*
+.form-check:hover{
+  background-color: rgb(180, 223, 180);
+}*/
+.dropdown-toggle{
+  background-color: white;
+  border: 2px solid #d3d8de;
+  color: #000;
+  text-align: right;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-checkfiliere{
+  margin-left: 1ch;
+  margin-top: 1ch;
+}
+
+.selected-skills {
+  margin-top: 20px;
+  margin-left: auto; /* Place le bloc à droite */
+  width: 50%; /* Ajustez la largeur selon vos besoins */
+}
+
+.selected-skills ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.selected-skills li {
+  margin-bottom: 5px;
+}
+
+.remove-icon {
+  cursor: pointer;
+  margin-left: 5px;
+  color: red !important;
+}
+
+
+
+
 
  @media all and (min-width: 300px) and (max-width: 767px){
     .logo{

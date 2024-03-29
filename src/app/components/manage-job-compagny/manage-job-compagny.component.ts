@@ -39,17 +39,35 @@ export class ManageJobCompagnyComponent implements OnInit {
       
     this.homeService.manageJob(this.userConnect.id).subscribe((data:any)=>{
       this.openJobs=data;
-     // console.log(this.openJobs);
+      console.log(this.openJobs);
       
       this.openJobs.forEach((element:any) => {
         this.appliedNumber=element.applied.length
        // console.log(this.appliedNumber);
         this.tabNumber.push(this.appliedNumber)
         //console.log(this.tabNumber);
-        
+        const date = new Date(element.posted_at);
+        element.date = this.formatDate(date);
+        const espiration =new Date(element.expired_at)
+        element.espiration = this.formatDate(espiration);
+
+        console.log(element.date);
 
       });
     })
+  }
+  formatDate(date: Date): string {
+    // Tableau des noms de mois
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    // Récupérer le mois, le jour et l'année de la date
+    const month = months[date.getMonth()];
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const string =","
+
+    // Formater la date dans le format souhaité
+    return `${month} ${day}${string}${year}`;
   }
 
   toggleSidebar() {
