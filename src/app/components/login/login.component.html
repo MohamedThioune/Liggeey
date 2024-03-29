@@ -32,7 +32,10 @@
                     </div>
                 
                     <div class = "my_container_input_3">
-                        <button type="submit" class="btn btn-success">Log In</button>
+                       <!-- <button type="submit" class="btn btn-success">Log In</button>-->
+                        <button type="submit" class="btn btn-success" [disabled]="isLoading">Log In</button>
+                        <div *ngIf="isLoading" class="loader">Loading...</div>
+
                         <span>Don't Have an account?<p><a routerLink="/register">Signup</a></p></span>
                     </div>
                 </form>

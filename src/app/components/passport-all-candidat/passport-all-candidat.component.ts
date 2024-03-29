@@ -26,7 +26,6 @@ export class PassportAllCandidatComponent implements OnInit {
 
   ngOnInit(): void {
     this.ongletSelectionne = "All";
-    console.log('ok');
     const storedToken = this.usagerService.getToken();
     
     if (storedToken) {   
@@ -36,17 +35,58 @@ export class PassportAllCandidatComponent implements OnInit {
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
     }
-    console.log(this.userConnect);
     this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
       this.skillAll=data
      this.badges= this.skillAll.badges;
-     this.courses_info=this.skillAll.courses;
+          console.log(this.badges);
+          
+          this.badges.forEach(element => {      
+            // Diviser la chaîne de date en parties : date et heure
+            const parts = element.post_date.split(" ");
+            const datePart = parts[0];
+            const timePart = parts[1];
+        
+            // Diviser la partie de date en année, mois et jour
+            const dateParts = datePart.split("-");
+            const year = parseInt(dateParts[0]);
+            const month = parseInt(dateParts[1]) - 1; // Les mois dans JavaScript sont indexés à partir de 0
+            const day = parseInt(dateParts[2]);
+        
+            // Diviser la partie de temps en heure, minute et seconde
+            const timeParts = timePart.split(":");
+            const hour = parseInt(timeParts[0]);
+            const minute = parseInt(timeParts[1]);
+            const second = parseInt(timeParts[2]);
+        
+            // Créer un objet Date avec les parties analysées
+            const date = new Date(year, month, day, hour, minute, second);
+        
+            // Formatter la date
+            element.date = this.formatDate(date);
+        });
+        
+     this.courses_info=this.skillAll.courses_info;
      this.topics=this.skillAll.topics
-     console.log(this.skillAll,this.courses_info);
+    // console.log(this.skillAll,this.courses_info,this.badges);
      
     }))
+ 
     
   }
+  
+  formatDate(date: Date): string {
+    // Tableau des noms de mois
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    // Récupérer le mois, le jour et l'année de la date
+    const month = months[date.getMonth()];
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const string =","
+
+    // Formater la date dans le format souhaité
+    return `${month} ${day} ${string} ${year}`;
+  } 
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;

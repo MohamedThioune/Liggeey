@@ -174,7 +174,9 @@ ul li p{
   font-family: "Roboto-Medium";
   font-size: 25px;
 }
-
+.footer-mobile{
+  display: none;
+}
 
  @media screen and (max-width: 1079px) and (min-width: 768px){
     .my_container_form{
@@ -192,6 +194,12 @@ ul li p{
         padding: 28px 10px 24px 0px;
 
     }
+   .footer-web{
+     display: none;
+   }
+   .footer-mobile{
+     display: block;
+   }
     ul{
         display: block;
     }
