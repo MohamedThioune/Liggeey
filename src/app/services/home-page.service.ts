@@ -241,5 +241,8 @@ export class HomePageService {
     };
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/editJob?userApplyId=${userApplyId}&jobID=${requestBody.ID}&description=${requestBody.description}&job_level_of_experience=${requestBody.job_level_of_experience}&skills=${requestBody.skills}&job_langues=${requestBody.job_langues}&job_expiration_date=${requestBody.expired_at}`,requestBody);
   }
+  deleteJob(jobID:number,userApplyId:number){ 
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/deleteJob?userApplyId=${userApplyId}&jobID=${jobID}`,{})
+  }
 }
 
