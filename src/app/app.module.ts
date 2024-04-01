@@ -67,6 +67,8 @@ import { EditJobCompanyComponent } from './components/edit-job-company/edit-job-
 import { CompagnyApplicantComponent } from './components/compagny-applicant/compagny-applicant.component';
 import { EditJobsComponent } from './components/edit-jobs/edit-jobs.component';
 import { CandidatProfilDashboardComponent } from './components/candidat-profil-dashboard/candidat-profil-dashboard.component';
+import {AppMobileComponent} from "./components/app-mobile/app-mobile.component";
+
 
 @NgModule({
   declarations: [
@@ -131,8 +133,11 @@ import { CandidatProfilDashboardComponent } from './components/candidat-profil-d
     CompagnyApplicantComponent,
     EditJobsComponent,
     CandidatProfilDashboardComponent,
+    AppMobileComponent,
+
 
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

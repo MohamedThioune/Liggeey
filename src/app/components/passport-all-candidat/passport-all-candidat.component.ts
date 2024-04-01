@@ -21,6 +21,7 @@ export class PassportAllCandidatComponent implements OnInit {
   badges:any[]=[];
   courses_info:any[]=[];
   topics:any[]=[];
+  certificats:any[]=[];
   skillAll:any;
   constructor(private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
@@ -66,7 +67,10 @@ export class PassportAllCandidatComponent implements OnInit {
         });
         
      this.courses_info=this.skillAll.courses_info;
-     this.topics=this.skillAll.topics
+     this.topics=this.skillAll.topics;
+     this.certificats=this.skillAll.certificats
+     console.log(this.skillAll);
+     
     // console.log(this.skillAll,this.courses_info,this.badges);
      
     }))

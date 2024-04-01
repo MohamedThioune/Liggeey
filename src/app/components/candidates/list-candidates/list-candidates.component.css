@@ -51,7 +51,6 @@ a{
    border-radius: 4px;
    border: 1px solid #D0D5DD;
    font-size:16px;
-   font-weight:bold;
    width:100%;
    border:none;
    background-color: transparent;
@@ -72,6 +71,7 @@ input[type="search"]:focus {
   /*section candidate*/
 .featured_candidates{
     padding-bottom: 140px;
+    padding-top: 100px;
 }
 .featured{
     display: flex;
@@ -105,16 +105,14 @@ input[type="search"]:focus {
     text-decoration: underline;
 }
 .content_candidate{
-    border-radius: 8px;
-    border: 1px solid #ECEDF2;
-    text-align: center;
-    padding-top: 10px;
-    height: 350px;
-    border-radius: 8px;
-    background: #FFF;
-    margin-bottom: 16px;
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+  border: 1px solid #ECEDF2;
+  text-align: center;
+  padding-top: 10px;
+  height: 364px;
+  border-radius: 8px;
+  background: #FFF;
+  margin-bottom: 40px;
+  box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
 .content_image_candidate{
   width: 90px;
@@ -134,7 +132,7 @@ input[type="search"]:focus {
     background-color: #EDF1F3;
     color: #043356;
     font-size: 15px;
-    font-weight: bold;
+  font-family: "Roboto-Medium";
     padding: 15px 61px 13px 70px;
     margin-top: 15px;
 }
@@ -154,7 +152,7 @@ input[type="search"]:focus {
     color: #202124;
     text-align: center;
     font-size: 18px;
-    font-weight: bold;
+  font-family: "Roboto-Medium";
 }
 .info_candidat .profil_candidat{
     color: #202124;
@@ -171,7 +169,6 @@ input[type="search"]:focus {
     text-align: center;
     color: #202124;
     font-size: 30px;
-    font-weight: bold;
     background-color: #EDF1F3;
     color: #043356;
     font-size: 14px;
@@ -184,9 +181,9 @@ input[type="search"]:focus {
 .input-group {
     margin-bottom: 15px; /* Marge en bas pour l'espacement */
   }
-  
 
-  
+
+
   /* Style pour les options du select */
   .fieldSelect option {
     padding: 8px; /* Espacement intérieur */
@@ -200,7 +197,7 @@ input[type="search"]:focus {
     padding: 15px 56px 14px 56px;
     border-radius: 8px;
   }
-  
+
 .location_candidat p{
     color: #696969;
     font-size: 14px;

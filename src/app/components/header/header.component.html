@@ -45,7 +45,7 @@
       <ul class="header_container_logo">
         <li class="content_image">
           <a routerLink="/" >
-            <img height="70" src="../../../assets/img/logo_liggey.png" alt="image pas encore insérer">
+            <img height="70" src="../../../assets/img/logo-footer-white.png" alt="image pas encore insérer">
           </a>
         </li>
         <li class="">
@@ -370,10 +370,10 @@
 </header>
 
 
-<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="isModalVisible">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div *ngIf="!userObject" class="block-login">
+      <div *ngIf="!userConnect" class="block-login">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Login to Liggeey</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -406,7 +406,7 @@
           </form>
         </div>
       </div>
-      <div *ngIf="userObject" class="block-apply">
+      <div *ngIf="userConnect" class="block-apply">
         <div class="modal-header">
           <h5 class="modal-title" id="">Apply to this webdesigner Job</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -433,13 +433,11 @@
                 <label>Phone Number</label>
                 <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.phone}}" required>
               </div>
-              -->
 
               <div class="d-grid">
-                <button (click)="goToFinalStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Continue</button>
+                <button (click)="goToSecondStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Continue</button>
               </div>
             </div>
-            <!--
             <div *ngIf="showSecondStep" class="second-step">
               <div class="second-block">
                 <label for="">Select your cv</label>
@@ -454,7 +452,6 @@
                 <button (click)="goToFinalStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Apply</button>
               </div>
             </div>
-            -->
             <div *ngIf="!showFirstStep && !showSecondStep" class="final-step">
               <div class="loader">
                 <svg class="circular">
