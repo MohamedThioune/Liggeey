@@ -44,18 +44,18 @@ export class DetailJobComponent implements OnInit {
         this.userConnect = JSON.parse(decodedToken);
         if(this.userConnect.acf.is_liggeey == "candidate"){
           this.candidate=true
-      
+
         } else if(this.userConnect.acf.is_liggeey == "chief"){
           this.company=true
           }
     }
-    
+
 
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
         console.log(this.job);
-        
+
         this.calculateDuration();
         this.calculateDurationLastJob();
     });
@@ -66,7 +66,6 @@ canAppl(item: any): boolean {
     if (item && item.applied) {
       return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
     }
-  
     return true;}
 
   return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
@@ -219,7 +218,7 @@ calculateDurationLastJob(){
     openApplyModal(jobId: string) {
       this.HomePageService.setSelectedJobId(jobId);
       console.log(jobId);
-      
+
       const modalElement = document.getElementById('modal-apply');
       if (modalElement) {
         modalElement.click();

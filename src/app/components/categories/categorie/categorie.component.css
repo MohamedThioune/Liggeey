@@ -62,9 +62,7 @@ box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
  }
  .search_about input{
    border-radius: 4px;
-   border: 1px solid #D0D5DD;
    font-size:16px;
-   font-weight:bold;
    width:100%;
    border:none;
    background-color: transparent;
@@ -86,17 +84,18 @@ input[type="search"]:focus {
 
 /* section jobs*/
 .jobs{
-   margin-top: 150px;
-   margin-bottom: 130px;
+  margin-top: 75px;
+  margin-bottom: 130px;
 }
 .header_popular_job{
    text-align: center;
+  margin-bottom: 45px;
 }
 .header_popular_job span{
-   color: #1AC4A2;
-   font-size: 32px;
-   font-weight: bold;
-   /*font-weight: 600;*/
+  color: #1AC4A2;
+  font-family: "Roboto-Medium";
+  font-size: 28px;
+  text-align: center;
 }
 .items_job{
    margin-top: 33px;
@@ -222,8 +221,8 @@ input[type="search"]:focus {
 }
 .header_featured span{
    color: #1AC4A2;
-   font-weight: bold;
-   font-size: 32px;
+  font-family: "Roboto-Medium";
+   font-size: 28px;
    text-align: center;
 }
 .company{
@@ -352,9 +351,10 @@ input[type="search"]:focus {
    margin-bottom: 50px;
 }
 .articles .header_articles span{
-   color: #1AC4A2;
-   font-size: 30px;
-   font-weight: bold;
+  color: #1AC4A2;
+  font-family: "Roboto-Medium";
+  font-size: 28px;
+  text-align: center;
 }
 .card-body .tops p{
    color: #202124;

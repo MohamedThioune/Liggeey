@@ -7,9 +7,19 @@ body {
   font-weight: 500;
 }
 .card-title{
-  font-size: 24px;
+  font-size: 19px !important;
+  font-family: "Roboto-Medium";
 }
-
+.box-our-app{
+  display: flex;
+  padding: 20px 20px;
+  border: 1.5px solid #c8c8c8;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.for-icon {
+  margin-right: 16px;
+}
 .card1 p{
   font-size: 17px;
 

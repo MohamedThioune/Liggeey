@@ -27,12 +27,12 @@ export class HomeComponent implements OnInit {
   searchTitle:string="";
 
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
-    ) { 
-    
+    ) {
+
   }
 
   ngOnInit(): void {
-    
+
      // Récupération du token depuis le local storage
      const storedToken = this.usagerService.getToken();
 
@@ -50,15 +50,15 @@ export class HomeComponent implements OnInit {
      }
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
-      this.candidates=data.candidates      
+      this.candidates=data.candidates
       this.article=data.artikels
       this.currentCategories=data.jobs
-      this.currentCategories.forEach((job:any) => {   
+      this.currentCategories.forEach((job:any) => {
        // console.log(job.applied);
-           
+
         // if (job.applied.includes(this.userConnect)) {
         //   this.canApply != this.canApply
-        // }   
+        // }
       });
       this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -75,7 +75,6 @@ export class HomeComponent implements OnInit {
 
       //this.currentCategories=this.categories
     })
-       
 
 
   }

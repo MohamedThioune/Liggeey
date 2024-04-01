@@ -108,6 +108,7 @@ const routes: Routes = [
 
 
 
+
   { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'profil-candidat/:id', component: ProfilCandidatComponent,canActivate: [AuthGuard] },

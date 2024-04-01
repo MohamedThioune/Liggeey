@@ -32,23 +32,23 @@ export class JobOneComponent implements OnInit {
         // Récupération du token depuis le local storage
         const storedToken = this.usagerService.getToken();
         this.identifiant = +this.route.snapshot.params['id'];
-    
+
         if (storedToken) {
                     // Décodage de la base64
           const decodedToken = atob(storedToken);
-    
+
           // Parse du JSON pour obtenir l'objet original
           this. userConnect = JSON.parse(decodedToken);
           if(this.userConnect.acf.is_liggeey == "candidate"){
             this.candidate=true
-        
+
           } else if(this.userConnect.acf.is_liggeey == "chief"){
             this.company=true
             }
         }
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-    this.homeService.getAllJob().subscribe((data:any)=>{      
+    this.homeService.getAllJob().subscribe((data:any)=>{
       this.jobs=data
     })
   }
@@ -64,7 +64,7 @@ export class JobOneComponent implements OnInit {
     }
   }
   openApplyModal(jobId: string) {
-    this.homeService.setSelectedJobId(jobId);    
+    this.homeService.setSelectedJobId(jobId);
     const modalElement = document.getElementById('modal-apply');
     if (modalElement) {
       modalElement.click();
