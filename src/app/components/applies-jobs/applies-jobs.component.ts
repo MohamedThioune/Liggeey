@@ -51,6 +51,20 @@ export class AppliesJobsComponent implements OnInit {
     // Formater la date dans le format souhaité
     return `${month} ${day}${string}${year}`;
   }
+  
+  getStatusStyle(status: string): any {
+    switch (status) {
+      case 'Processing':
+        return { color: '#696969' };
+      case 'Approved':
+        return { color: '#1AC4A2' };
+      case 'Rejected':
+        return { color: 'red' };
+      default:
+        return {}; // Default style
+    }
+  }
+  
 
    @HostListener('window:resize', ['$event'])
    onResize(event:Event) {

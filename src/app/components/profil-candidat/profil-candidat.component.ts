@@ -47,6 +47,7 @@ export class ProfilCandidatComponent implements OnInit {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
+   
 
   
   }

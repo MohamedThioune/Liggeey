@@ -31,7 +31,7 @@ export class DetailJobComponent implements OnInit {
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.href = this.router.url;
+    this.href = window.location.href;
 
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
