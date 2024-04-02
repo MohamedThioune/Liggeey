@@ -45,7 +45,7 @@
       <ul class="header_container_logo">
         <li class="content_image">
           <a routerLink="/" >
-            <img height="70" src="../../../assets/img/logo-footer-white.png" alt="image pas encore insérer">
+            <img height="70" src="../../../assets/img/logo_liggey.png" alt="image pas encore insérer">
           </a>
         </li>
         <li class="">
@@ -73,7 +73,7 @@
                <li class="job"><a routerLink="/list-compagny" routerLinkActive="active_lien_navbar">All Companies</a> </li>
                <li class="about"><a routerLink="/about" routerLinkActive="active_lien_navbar">About</a></li>
                <li class="app"><a routerLink="/app" routerLinkActive="active_lien_navbar">Our App</a></li>
-               <li class="skills"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills Fist</a></li>
+               <li class="skills"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills First</a></li>
              </ul>
          </ul>
          <div class="join" *ngIf="!userObject">
@@ -370,10 +370,10 @@
 </header>
 
 
-<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="isModalVisible">
+<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div *ngIf="!userConnect" class="block-login">
+      <div *ngIf="!userObject" class="block-login">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Login to Liggeey</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -406,7 +406,7 @@
           </form>
         </div>
       </div>
-      <div *ngIf="userConnect" class="block-apply">
+      <div *ngIf="userObject" class="block-apply">
         <div class="modal-header">
           <h5 class="modal-title" id="">Apply to this webdesigner Job</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -418,26 +418,29 @@
             <div class="first-step">
               <div class="my_container_input_1 form-group">
                 <label for="username">Fisrt Name</label>
-                <input class = "input" name="username" id="Fisrt-Name" type="text" placeholder="" aria-label="default input example" value="{{userConnect.first_name}}" required>
+                <input class = "input" name="first_name" id="first_name" type="text" placeholder="" aria-label="default input example" value="{{first_name}}" required>
               </div>
               <div class="my_container_input_2 form-group">
                 <label>Last Name</label>
-                <input class = "input" name=""  type="text" placeholder="" aria-label="default input example" id="Last-Name" value="{{userConnect.name}}" required>
+                <input class = "input" name="last_name"  type="text" placeholder="" aria-label="default input example" id="last_name" value="{{last_name}}" required>
               </div>
+              
               <div class="my_container_input_2 form-group">
-                <label>Email</label>
-                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{userConnect.email}}" required>
+                <label>Role</label>
+                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{this.candidat.work_as}}" required>
               </div>
-
+              <!--
               <div class="my_container_input_2 form-group">
                 <label>Phone Number</label>
                 <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.phone}}" required>
               </div>
+              -->
 
               <div class="d-grid">
-                <button (click)="goToSecondStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Continue</button>
+                <button (click)="goToFinalStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Continue</button>
               </div>
             </div>
+            <!--
             <div *ngIf="showSecondStep" class="second-step">
               <div class="second-block">
                 <label for="">Select your cv</label>
@@ -452,6 +455,7 @@
                 <button (click)="goToFinalStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Apply</button>
               </div>
             </div>
+            -->
             <div *ngIf="!showFirstStep && !showSecondStep" class="final-step">
               <div class="loader">
                 <svg class="circular">
@@ -472,5 +476,4 @@
     </div>
   </div>
 </div>
-
 

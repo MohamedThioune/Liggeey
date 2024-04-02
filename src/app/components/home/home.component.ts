@@ -53,13 +53,8 @@ export class HomeComponent implements OnInit {
       this.candidates=data.candidates
       this.article=data.artikels
       this.currentCategories=data.jobs
-      this.currentCategories.forEach((job:any) => {
-       // console.log(job.applied);
+console.log(this.currentCategories);
 
-        // if (job.applied.includes(this.userConnect)) {
-        //   this.canApply != this.canApply
-        // }
-      });
       this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[0].short_description =   this.article[0].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
