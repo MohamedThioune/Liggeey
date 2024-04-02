@@ -73,7 +73,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
   
-    this.href = this.router.url;
+    this.href = window.location.href;      
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
     const storedToken = this.usagerService.getToken();
@@ -113,8 +113,45 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.homeService.getDetailCandidate( this.id).subscribe(data=>{
       this.candidat = data
      // console.log(this.category);
+     
       
     })
+    const cachedCandidat = localStorage.getItem('cachedCandidat');
+    if (cachedCandidat) {
+        let cachedData;
+        try {
+            cachedData = JSON.parse(cachedCandidat);
+        } catch (error) {
+            console.error('Error parsing cached data:', error);
+        }
+
+        
+        
+
+     
+if (cachedData && typeof cachedData === 'object' && 'work_as' in cachedData) {
+            this.candidat = { work_as: cachedData.work_as };
+        } else {
+            console.error('Cached data does not contain work_as property or is not in the expected format.');
+        }
+    } else {
+        // Récupérer les données depuis le service si elles ne sont pas en cache
+        
+  
+        this.homeService.getDetailCandidate(this.id).subscribe(data => {
+                    if (data && 'work_as' in data) {
+                        
+          
+        this.candidat = { work_as: data.work_as };
+                        localStorage.setItem('cachedCandidat', JSON.stringify(data));
+                    } else {
+                        console.error('Received data does not contain work_as property or is not in the expected format.');
+                    }
+                });
+    }
+    
+    
+    
   }
 
   switchToApplyBlock() {
@@ -248,8 +285,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
           type: 'success',
           message: "Already Apply four this job"
         });
-        return
-         // this.router.navigate(['']);
+        //return
+         this.router.navigate(['']);
           }
         });
         
@@ -261,7 +298,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
         ToastNotification.open({
           type: 'success',
-          message: "This is apply job for Candidat"
+          message: "You must be a candidate to Apply"
         });
           this.router.navigate(['/dashbord-compagny',this.userConnect.id]);
         }
@@ -283,6 +320,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
     return !item.applied.some((appliedItem: any) => appliedItem.ID === this.id);
   }
+  
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {
     this.isMobile = window.innerWidth < 768;
