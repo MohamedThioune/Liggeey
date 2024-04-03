@@ -17,20 +17,28 @@ export class DashboardCandidatComponent implements OnInit {
   chart: any;
   showButton = true;
   userConnect:any;
-  homeCandidate:any;
+  homeCandidat:any;
   applicant:any
   currentDate!: Date;
   sentDate: any;
-  identifiant:number | null = 0;
-  candidat:any
-  constructor(private route : ActivatedRoute,private usagerService:UsagerService,private homeService:HomePageService,private datePipe: DatePipe) { 
+  suggestions:any;
+  constructor(private usagerService:UsagerService,private homeService:HomePageService,private datePipe: DatePipe) { 
     this.isMobile = window.innerWidth < 768; 
   }
  
   ngOnInit(): void {
-    this.identifiant = +this.route.snapshot.params['id'];  
-    this.homeService.homeCandidat(this.identifiant).subscribe((data:any)=>{
-      this.homeCandidate=data
+    const storedToken = this.usagerService.getToken();
+    
+   if (storedToken) {   
+               // Décodage de la base64
+     const decodedToken = atob(storedToken);
+
+     // Parse du JSON pour obtenir l'objet original
+     this. userConnect = JSON.parse(decodedToken);
+   }
+    this.homeService.homeCandidat(this.userConnect.id).subscribe((data:any)=>{
+      this.homeCandidat=data
+      this.suggestions=this.homeCandidat.suggestions
      })
  
   }
@@ -38,8 +46,9 @@ export class DashboardCandidatComponent implements OnInit {
   ngOnChanges() {
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-    if (Array.isArray(this.homeCandidate.suggestions)) {
-      this.homeCandidate.suggestions.forEach((element: any) => {
+    if (Array.isArray(this.suggestions)) {
+      this.suggestions.forEach((element: any) => {
+        console.log(element.posted_at);
         
       const postedDate = new Date(element.posted_at);
       if (!isNaN(postedDate.getTime())) { // Check if postedDate is a valid date

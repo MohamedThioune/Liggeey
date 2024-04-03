@@ -402,6 +402,9 @@
             <div class="d-grid">
               <button type="submit" id="login-btn" class="btn btn-forgeet-passwoord" (click)="switchToApplyBlock()">Log In</button>
             </div>
+            <div class="d-flex justify-content-center">
+              <p class="account-texte mb-0">Don't have an account? <b><a routerLink="/register">Signup</a></b></p>
+            </div>
 
           </form>
         </div>
@@ -427,7 +430,7 @@
               
               <div class="my_container_input_2 form-group">
                 <label>Role</label>
-                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{work_as}}" required>
+                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{this.candidat.work_as}}" required>
               </div>
               <!--
               <div class="my_container_input_2 form-group">
