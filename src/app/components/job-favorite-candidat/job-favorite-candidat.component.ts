@@ -34,15 +34,6 @@ export class JobFavoriteCandidatComponent implements OnInit {
   constructor(private route : ActivatedRoute ,private cdr: ChangeDetectorRef,private HomePageService: HomePageService,private fb: FormBuilder,private router: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
-    const storedToken = this.usagerService.getToken();
-    
-    if (storedToken) {   
-                // Décodage de la base64
-      const decodedToken = atob(storedToken);
-
-      // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
-    }
     this.identifiant = +this.route.snapshot.params['id'];    
     console.log(this.identifiant);
     

@@ -8,7 +8,7 @@
           <div class="applies_job">
             <div class="image_job_applies"></div>
             <div class="description_job_applies ">
-              <span>{{homeCandidat.count_applieds}}</span>
+              <span>{{homeCandidate.count_applieds}}</span>
               <p>Applied Jobs</p>
             </div>
           </div>
@@ -37,7 +37,7 @@
               </svg>
             </div>
             <div class="description_job_alert ">
-              <span>{{homeCandidat.count_jobs}}</span>
+              <span>{{homeCandidate.count_jobs}}</span>
               <p>Job Alerts</p>
             </div>
           </div>
@@ -46,7 +46,7 @@
           <div class="favorites_job">
             <div class="image_job_favorites"></div>
             <div class="description_job_favorites ">
-              <span>{{homeCandidat.count_favorites}}</span>
+              <span>{{homeCandidate.count_favorites}}</span>
               <p>Favorite </p>
             </div>
           </div>
@@ -72,7 +72,7 @@
           <span>Suggestion</span>
         </div>
         <ul class="row">
-          <li class="col-md-6" *ngFor="let item of suggestions | paginate: { itemsPerPage: 6, currentPage: p }">
+          <li class="col-md-6" *ngFor="let item of homeCandidate.suggestions | paginate: { itemsPerPage: 6, currentPage: p }">
             <div class="job_list_1">
               <div class="content_job_list_1">
                 <div class="logo">
@@ -155,7 +155,7 @@
           <div class="applies_job">
             <div class="image_job_applies"></div>
             <div class="description_job_applies ">
-              <span>{{homeCandidat.count_applieds}}</span>
+              <span>{{homeCandidate.count_applieds}}</span>
               <p>Applied Jobs</p>
             </div>
           </div>
@@ -184,7 +184,7 @@
               </svg>
             </div>
             <div class="description_job_alert ">
-              <span>{{homeCandidat.count_jobs}}</span>
+              <span>{{homeCandidate.count_jobs}}</span>
               <p>Job Alerts</p>
             </div>
           </div>
@@ -193,7 +193,7 @@
           <div class="favorites_job">
             <div class="image_job_favorites"></div>
             <div class="description_job_favorites ">
-              <span>{{homeCandidat.count_favorites}}</span>
+              <span>{{homeCandidate.count_favorites}}</span>
               <p>Favorite</p>
             </div>
           </div>
@@ -213,7 +213,7 @@
           <span>Suggestion</span>
         </div>
         <ul class="row">
-          <li class="col-md-6" *ngFor="let item of  homeCandidat.suggestions | paginate: { itemsPerPage: 6, currentPage: p }">
+          <li class="col-md-6" *ngFor="let item of  homeCandidate.suggestions | paginate: { itemsPerPage: 6, currentPage: p }">
             <div class="job_list_1">
               <div class="content_job_list_1">
                 <div class="logo">

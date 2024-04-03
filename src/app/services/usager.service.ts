@@ -74,6 +74,7 @@ export class UsagerService {
   }
   storeToken(token: string): void {
     localStorage.setItem('access_token', token);
+    
   }
 
   getToken(): string | null {

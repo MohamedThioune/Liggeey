@@ -28,6 +28,8 @@ export class SidebarCandidatComponent implements OnInit {
   }
   deconnexion(){
     this.usagerService.deconnexion()
+    localStorage.removeItem('cachedCandidat');
+
   }
   constructor( private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
@@ -43,14 +45,7 @@ export class SidebarCandidatComponent implements OnInit {
          // Parse du JSON pour obtenir l'objet original
          this. userConnect = JSON.parse(decodedToken);
        }
-       //console.log(this.userConnect);
-       this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
-        this.badges=data.badges;
-        this.courses=data.courses;
-        this.topics=data.topics
-      //  console.log(this.badges,this.courses,this.topics);
-        
-       }))
+
        
  
   }

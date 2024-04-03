@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import {AfterViewInit, Component, OnInit,HostListener } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Chart } from 'chart.js/auto';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
@@ -16,28 +17,20 @@ export class DashboardCandidatComponent implements OnInit {
   chart: any;
   showButton = true;
   userConnect:any;
-  homeCandidat:any;
+  homeCandidate:any;
   applicant:any
   currentDate!: Date;
   sentDate: any;
-  suggestions:any;
-  constructor(private usagerService:UsagerService,private homeService:HomePageService,private datePipe: DatePipe) { 
+  identifiant:number | null = 0;
+  candidat:any
+  constructor(private route : ActivatedRoute,private usagerService:UsagerService,private homeService:HomePageService,private datePipe: DatePipe) { 
     this.isMobile = window.innerWidth < 768; 
   }
  
   ngOnInit(): void {
-    const storedToken = this.usagerService.getToken();
-    
-   if (storedToken) {   
-               // Décodage de la base64
-     const decodedToken = atob(storedToken);
-
-     // Parse du JSON pour obtenir l'objet original
-     this. userConnect = JSON.parse(decodedToken);
-   }
-    this.homeService.homeCandidat(this.userConnect.id).subscribe((data:any)=>{
-      this.homeCandidat=data
-      this.suggestions=this.homeCandidat.suggestions
+    this.identifiant = +this.route.snapshot.params['id'];  
+    this.homeService.homeCandidat(this.identifiant).subscribe((data:any)=>{
+      this.homeCandidate=data
      })
  
   }
@@ -45,9 +38,8 @@ export class DashboardCandidatComponent implements OnInit {
   ngOnChanges() {
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-    if (Array.isArray(this.suggestions)) {
-      this.suggestions.forEach((element: any) => {
-        console.log(element.posted_at);
+    if (Array.isArray(this.homeCandidate.suggestions)) {
+      this.homeCandidate.suggestions.forEach((element: any) => {
         
       const postedDate = new Date(element.posted_at);
       if (!isNaN(postedDate.getTime())) { // Check if postedDate is a valid date
@@ -88,94 +80,7 @@ export class DashboardCandidatComponent implements OnInit {
   ngAfterViewInit(): void {
     this.createChart();
   }
-  collection: any[] = this.someArrayOfThings=[
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"php"
-    },
-    {
-      "color":"#4947D0",
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-    ,{
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    },
-    {
-      "profil":"Catalyst",
-      "location":"Dakar",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 111.png",
-      "domaine":"Figma"
-    },
-    {
-      "profil":"Figma",
-      "location":"Nederland, NL",
-      "timezone":"11",
-      "logo": "../../../assets/img/Rectangle 112.png",
-      "domaine":"Php"
-    }
-  ];
+  
   createChart() {
     this.chart = new Chart('MyChart', {
       type: 'line',

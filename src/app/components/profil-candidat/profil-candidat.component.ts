@@ -32,22 +32,47 @@ export class ProfilCandidatComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm() ;
-    this.identifiant = +this.route.snapshot.params['id'];    
-    this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
-      this.candidat=data      
-     // console.log(this.candidat);
-    })
-       // Récupération du token depuis le local storage
-   const storedToken = this.usagerService.getToken();
-    
-   if (storedToken) {   
-               // Décodage de la base64
-     const decodedToken = atob(storedToken);
+    const storedToken = this.usagerService.getToken();
+    this.identifiant = +this.route.snapshot.params['id'];
 
-     // Parse du JSON pour obtenir l'objet original
-     this. userConnect = JSON.parse(decodedToken);
-   }
-   
+    if (storedToken) {
+                // Décodage de la base64
+      const decodedToken = atob(storedToken);
+
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+      const cachedCandidat = localStorage.getItem('cachedCandidat');
+if (cachedCandidat) {
+    let cachedData;
+    try {
+        cachedData = JSON.parse(cachedCandidat);
+      } catch (error) {
+          console.error('Error parsing cached data:', error);
+      }
+
+      if (cachedData) {
+          this.candidat = cachedData;
+      } else {
+          console.error('Cached data is not in the expected format.');
+      }
+      console.log(cachedData);
+      
+      } else {
+          // Récupérer les données depuis le service si elles ne sont pas en cache
+          this.HomePageService.getDetailCandidate(this.identifiant).subscribe(data => {
+              if (data) {
+                  this.candidat = data;
+                  localStorage.setItem('cachedCandidat', JSON.stringify(data));
+              } else {
+                  console.error('Received data is not in the expected format.');
+              }
+          });
+          console.log('no ok');
+          
+      }      
+     
+    }
+
 
   
   }
