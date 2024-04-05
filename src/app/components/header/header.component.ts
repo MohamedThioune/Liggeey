@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   last_name:string='';
   id!:number;
   avatar:any;
+  work_as:any
   jobs:any;
   applyJobs=false;
   job:any
@@ -124,8 +125,12 @@ export class HeaderComponent implements OnInit,OnDestroy {
         
 
      
-if (cachedData && typeof cachedData === 'object' && 'work_as' in cachedData) {
-            this.candidat = { work_as: cachedData.work_as };
+if (cachedData && typeof cachedData === 'object' ) {
+            this.candidat = { work_as: cachedData.work_as,first_name: cachedData.first_name,last_name:cachedData.last_name,avatar:cachedData.image};
+            this.first_name=this.candidat.first_name,
+            this.last_name=this.candidat.last_name,
+            this.avatar=this.candidat.avatar,
+            this.work_as=this.candidat.work_as
         } else {
             console.error('Cached data does not contain work_as property or is not in the expected format.');
         }
@@ -134,7 +139,7 @@ if (cachedData && typeof cachedData === 'object' && 'work_as' in cachedData) {
         
   
         this.homeService.getDetailCandidate(this.identifiant).subscribe(data => {
-                    if (data && 'work_as' in data) {
+                    if (data ) {
                         
           
         this.candidat = { work_as: data.work_as };
@@ -192,7 +197,6 @@ if (cachedData && typeof cachedData === 'object' && 'work_as' in cachedData) {
           this.first_name = userConnect.first_name;
           this.last_name = userConnect.last_name;
           this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
-        this.candidat.work_as;
           this.id=userConnect.id
           console.log(userConnect);
 
@@ -281,8 +285,10 @@ if (cachedData && typeof cachedData === 'object' && 'work_as' in cachedData) {
           type: 'success',
           message: "Already Apply four this job"
         });
+        this.userObject=true
+
         //return
-         this.router.navigate(['']);
+         //this.router.navigate(['']);
           }
         });
         

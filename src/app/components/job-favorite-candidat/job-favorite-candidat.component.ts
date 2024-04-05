@@ -48,13 +48,13 @@ export class JobFavoriteCandidatComponent implements OnInit {
   }
 
   trashFavoritesJob(idJob:string) {
-   // console.log(this.userConnect,idJob);
-   // return
+    console.log(this.identifiant,idJob);
+    //return
     
     // Assurez-vous que this.userConnect et this.job sont définis
-    if (this.userConnect && idJob) {
+    if (this.identifiant && idJob) {
       // Utilisez le service pour postuler à l'emploi
-      this.HomePageService.trashFavoritesJob(this.userConnect.id, idJob)
+      this.HomePageService.trashFavoritesJob(this.identifiant, idJob)
         .subscribe(
           // Succès de la requête
           (response) => {
