@@ -48,19 +48,36 @@ export class ResumeCandidatComponent implements OnInit {
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
-      console.log(this.userConnect);
-      
-      if(this.userConnect.acf.is_liggeey == "candidate"){
-        this.candidate=true
-      } else if(this.userConnect.acf.is_liggeey == "chief"){
-        this.compagny=true
-      }
+      const cachedCandidat = localStorage.getItem('cachedCandidat');
+    if (cachedCandidat) {
+        let cachedData;
+        try {
+            cachedData = JSON.parse(cachedCandidat);
+        } catch (error) {
+            console.error('Error parsing cached data:', error);
+        }
+
+        if (cachedData) {
+            this.candidat = cachedData;
+        } else {
+            console.error('Cached data is not in the expected format.');
+        }
+        
+    } else {
+    this.HomePageService.getDetailCandidate(this.userConnect.id).subscribe(data => {
+        if (data) {
+            this.candidat = data;
+            localStorage.setItem('cachedCandidat', JSON.stringify(data));
+        } else {
+            console.error('Received data is not in the expected format.');
+        }
+    });
+    
     }
-    this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
-      this.candidat=data  
-      console.log( this.candidat);
-                
-    })
+      
+     
+    }
+
     this.myForm = this.fb.group({
       file: ['', [Validators.required, Validators.email]],
     });

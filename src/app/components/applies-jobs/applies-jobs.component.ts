@@ -23,7 +23,6 @@ export class AppliesJobsComponent implements OnInit {
    
    ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];    
-
     this.HomePageService.appliesJob( this.identifiant).subscribe(data=>{
       this.applies=data  
       console.log(this.applies);
@@ -31,7 +30,6 @@ export class AppliesJobsComponent implements OnInit {
       this.applies.forEach((element:any) => {
         const date = new Date(element.posted_at);
         element.date = this.formatDate(date);
-        console.log(element.date);
 
       });    
     })

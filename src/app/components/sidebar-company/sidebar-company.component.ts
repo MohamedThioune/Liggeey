@@ -21,6 +21,8 @@ export class SidebarCompanyComponent implements OnInit {
   }
   deconnexion(){
     this.usagerService.deconnexion()
+    localStorage.removeItem('cachedCandidat');
+
   }
   constructor(private usagerService:UsagerService) { }
 

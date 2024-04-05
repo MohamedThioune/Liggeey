@@ -34,15 +34,6 @@ export class JobFavoriteCandidatComponent implements OnInit {
   constructor(private route : ActivatedRoute ,private cdr: ChangeDetectorRef,private HomePageService: HomePageService,private fb: FormBuilder,private router: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
-    const storedToken = this.usagerService.getToken();
-    
-    if (storedToken) {   
-                // Décodage de la base64
-      const decodedToken = atob(storedToken);
-
-      // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
-    }
     this.identifiant = +this.route.snapshot.params['id'];    
     console.log(this.identifiant);
     
@@ -57,13 +48,13 @@ export class JobFavoriteCandidatComponent implements OnInit {
   }
 
   trashFavoritesJob(idJob:string) {
-   // console.log(this.userConnect,idJob);
-   // return
+    console.log(this.identifiant,idJob);
+    //return
     
     // Assurez-vous que this.userConnect et this.job sont définis
-    if (this.userConnect && idJob) {
+    if (this.identifiant && idJob) {
       // Utilisez le service pour postuler à l'emploi
-      this.HomePageService.trashFavoritesJob(this.userConnect.id, idJob)
+      this.HomePageService.trashFavoritesJob(this.identifiant, idJob)
         .subscribe(
           // Succès de la requête
           (response) => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 
@@ -23,20 +23,17 @@ export class PassportAllCandidatComponent implements OnInit {
   topics:any[]=[];
   certificats:any[]=[];
   skillAll:any;
-  constructor(private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
+  candidat:any;
+  identifiant:number | null = 0;
+
+  constructor(private route : ActivatedRoute,private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
   ngOnInit(): void {
     this.ongletSelectionne = "All";
-    const storedToken = this.usagerService.getToken();
-    
-    if (storedToken) {   
-                // Décodage de la base64
-      const decodedToken = atob(storedToken);
+    this.identifiant = +this.route.snapshot.params['id'];  
 
-      // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
-    }
-    this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
+ 
+    this.homeService.getSkillsCandidate(this.identifiant).subscribe((data=>{
       this.skillAll=data
      this.badges= this.skillAll.badges;
           console.log(this.badges);
