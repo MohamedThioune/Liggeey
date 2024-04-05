@@ -60,15 +60,17 @@ export class DetailJobComponent implements OnInit {
         this.calculateDurationLastJob();
     });
 }
+
 canAppl(item: any): boolean {
   if (!this.userConnect || !this.userConnect.id) {
+    return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
+}
 
-    if (item && item.applied) {
-      return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
-    }
-    return true;}
-
+if (item && item.applied) {
   return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+}
+
+return true;
 }
 calculateDuration() {
     if (this.job) {

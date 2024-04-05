@@ -72,6 +72,7 @@
           <span>Suggestion</span>
         </div>
         <ul class="row">
+          <!--
           <li class="col-md-6" *ngFor="let item of suggestions | paginate: { itemsPerPage: 6, currentPage: p }">
             <div class="job_list_1">
               <div class="content_job_list_1">
@@ -89,7 +90,7 @@
                         <i class="fa fa-bookmark"></i>
                       </button>
                     </div>
-                    -->
+                    
                   </div>
                   <div class="info">
                                       <span class="info_item">
@@ -127,7 +128,7 @@
                                         </svg>
                                         <p> {{item.duration}} ago </p>
                                       </span>
-                                      -->
+                                      
                   </div>
                   <div class="all_info">
                     <div class="time" *ngFor="let skill of item.skills ; let i=index">
@@ -140,7 +141,41 @@
               </div>
             </div>
           </li>
+          -->
+          <li class="col-md-4" *ngFor="let itemJob of suggestions | paginate: { itemsPerPage: 9, currentPage: p }">
+            <div class="card-emploie position-relative">
+              <div class="content-img">
+                <img [src]=itemJob.company.logo alt="Job Image">
+              </div>
+              <!--<div class="bookmark new-absolute-element" [class.bookmark]="isClass1Visible" [class.bookmark_hidden]="!isClass1Visible">
+                <button>
+                  <i class="fa fa-bookmark"></i>
+                </button>
+              </div>-->
+              <p class="name-company">{{itemJob.company.title}}</p>
+              <p class="name-job">{{itemJob.title}}</p>
+              <div class="d-flex align-items-center">
+                <div class="content-element content-localisation d-flex align-items-center">
+                  <i class='fa fa-map-marker mr-1'></i>
+                  <p class="localisation-job mb-0">{{itemJob.company.country}} </p>
+                </div>
+                <div class="content-element type-job d-flex align-items-center">
+                  <i class='fa fa-clock-o mr-1'></i>
+                  <p class="job-type-text mb-0">Full Time</p>
+                </div>
+                <div class="content-element categorie-content d-flex align-items-center" *ngIf="itemJob.skills.length > 0">
+                  <i class='fa fa-list-alt mr-1'></i>
+                  <p class="text-categori mb-0">{{ itemJob.skills[0].name |slice:0:15}}</p>
+                </div>
 
+              </div>
+              <p class="description-job">{{itemJob.description}}</p>
+              <div class="content-footer-card align-items-center">
+           
+                <a [routerLink]="['/detail-job',itemJob.ID]" class="btn btn-view-job">View Details</a>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
