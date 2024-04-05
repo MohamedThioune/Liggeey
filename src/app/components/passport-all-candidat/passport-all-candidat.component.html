@@ -98,7 +98,7 @@
             </li>
             -->
             <li class="nav-item">
-                <a class="nav-link" [class.active]="ongletSelectionne === 'Course'" (click)="selectionnerOnglet('Course')">Preferred Course type</a>
+                <a class="nav-link" [class.active]="ongletSelectionne === 'Course'" (click)="selectionnerOnglet('Course')">Preferred Course</a>
             </li>
             <!--
             <li class="nav-item">
@@ -193,8 +193,8 @@
           -->
           <div class="content-detail" *ngIf="ongletSelectionne === 'Badges' || ongletSelectionne === 'All'" >
               <div class="badge_certificate">
-                <p>Badges/Certificat</p>
-                <a href="">See All</a>
+                <p>Badges</p>
+                <!--<a href="">See All</a>-->
               </div>
               <div class="livraison" *ngFor="let badge of badges">
                 <div class="content_image_livraison-badge">
@@ -202,58 +202,23 @@
                 </div>
                 <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
                     <div class="profil">
-                        <p>Complete and verified profile </p>
-                        <p>Awarded for : <span>{{badge.post_title}} </span></p>
+                        <p>{{badge.post_title}} </p>
+                        <p>Awarded for : <span>{{badge.beschrijving_feedback}} </span></p>
                         <p>Date Awarded : <span>{{badge.date}}</span></p>
                     </div>
                     <div class="detail-badge">
-                        <a>{{badge.post_status}}</a>
+                      <!--  <p>Pdf :<span>Badge</span></p> -->
+                        <a>Achieved</a>
                     </div>
 
                 </div>
               </div>
-              <!--
-              <div class="livraison">
-                <div class="content_image_livraison-badge">
-                    <img src="../../../assets/img/radial.png" alt="">
-                </div>
-                <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
-                    <div class="profil">
-                        <p>Complete and verified profile </p>
-                        <p>Awarded for : <span>Profil Livelearn </span></p>
-                        <p>Date Awarded : <span>Jul 2022</span></p>
-                    </div>
-                    <div class="detail-badge">
-                        <p>Pdf :<span>Badge</span></p>
-                        <a href="">Achieved</a>
-                    </div>
-
-                </div>
-              </div>
-              <div class="livraison">
-                <div class="content_image_livraison-badge">
-                    <img src="../../../assets/img/radial.png" alt="">
-                </div>
-                <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
-                    <div class="profil">
-                        <p>Complete and verified profile </p>
-                        <p>Awarded for : <span>Profil Livelearn </span></p>
-                        <p>Date Awarded : <span>Jul 2022</span></p>
-                    </div>
-                    <div class="detail-badge">
-                        <p>Pdf :<span>Badge</span></p>
-                        <a href="">Achieved</a>
-                    </div>
-
-                </div>
-              </div>
-              -->
           </div>
 
-          <div class="content-detail" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
+          <div class="map_menu" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
-                <p>Badges/Certificat</p>
-                <a href="">See All</a>
+                <p>Certificat</p>
+                <!--<a href="">See All</a>-->
               </div>
                 <div class="row" *ngFor="let certificat of skillAll.certificats">
                   <div class="col-md-2 document" >
@@ -268,10 +233,10 @@
 
                 </div>
           </div>
-          <div class="content-detail" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
+          <div class="map_menu" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Skills</p>
-                <a href="">See All</a>
+                <!--<a href="">See All</a>-->
               </div>
                 <div class="row">
                     <div class="col-md-2 document" style="position: relative;" *ngFor="let skill of skillAll.topics">
@@ -457,20 +422,22 @@
           -->
           <div class="content-detail" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
-                  <p>Preferred Course type</p>
-                  <a href="">See All</a>
+                  <p>Preferred Course</p>
+                <!--<a href="">See All</a>-->
               </div>
-              <div class="row d-flex">
+              <div class="row ">
                 <div class="col-md-3 item_course" *ngFor="let course of courses_info | paginate: { itemsPerPage: 9, currentPage: p }">
                     <div class="content_image_course">
-                        <img src="../../../assets/img/course_image.png" alt="">
+                        <img [src]="course.thumbnail_url" alt="Course Image">
                     </div>
                     <p>{{course.post_title | slice:0:30}}</p>
                     <div class="author">
-                        <span>By:<p>{{course.author_name }}</p></span>
+                        <span>By : <p> {{course.author_name }}</p></span>
+                        <!--
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M12.1 18.5502L12 18.6502L11.89 18.5502C7.14 14.2402 4 11.3902 4 8.50024C4 6.50024 5.5 5.00024 7.5 5.00024C9.04 5.00024 10.54 6.00024 11.07 7.36024H12.93C13.46 6.00024 14.96 5.00024 16.5 5.00024C18.5 5.00024 20 6.50024 20 8.50024C20 11.3902 16.86 14.2402 12.1 18.5502ZM16.5 3.00024C14.76 3.00024 13.09 3.81024 12 5.08024C10.91 3.81024 9.24 3.00024 7.5 3.00024C4.42 3.00024 2 5.41024 2 8.50024C2 12.2702 5.4 15.3602 10.55 20.0302L12 21.3502L13.45 20.0302C18.6 15.3602 22 12.2702 22 8.50024C22 5.41024 19.58 3.00024 16.5 3.00024Z" fill="black"/>
                         </svg>
+                        -->
                     </div>
                     <div class="time">
                         <p>
@@ -479,7 +446,7 @@
                             </svg>
                             4h
                         </p>
-                        <p>$ 400</p>
+                        <p>{{course.price}}</p>
                     </div>
                 </div>
               </div>

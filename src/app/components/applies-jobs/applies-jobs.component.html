@@ -62,7 +62,7 @@
               </div>
             </th>
             <td>{{applie.date}}</td>
-            <td>Active</td>
+            <td [ngStyle]="getStatusStyle(applie.status)">{{ applie.status }}</td>
             <!--
             <td>
               <button>

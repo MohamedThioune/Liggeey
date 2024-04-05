@@ -23,7 +23,6 @@ export class AppliesJobsComponent implements OnInit {
    
    ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];    
-
     this.HomePageService.appliesJob( this.identifiant).subscribe(data=>{
       this.applies=data  
       console.log(this.applies);
@@ -31,7 +30,6 @@ export class AppliesJobsComponent implements OnInit {
       this.applies.forEach((element:any) => {
         const date = new Date(element.posted_at);
         element.date = this.formatDate(date);
-        console.log(element.date);
 
       });    
     })
@@ -51,6 +49,20 @@ export class AppliesJobsComponent implements OnInit {
     // Formater la date dans le format souhaité
     return `${month} ${day}${string}${year}`;
   }
+  
+  getStatusStyle(status: string): any {
+    switch (status) {
+      case 'Processing':
+        return { color: '#696969' };
+      case 'Approved':
+        return { color: '#1AC4A2' };
+      case 'Rejected':
+        return { color: 'red' };
+      default:
+        return {}; // Default style
+    }
+  }
+  
 
    @HostListener('window:resize', ['$event'])
    onResize(event:Event) {

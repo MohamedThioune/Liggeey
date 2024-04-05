@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   last_name:string='';
   id!:number;
   avatar:any;
+  work_as:any
   jobs:any;
   applyJobs=false;
   job:any
@@ -73,7 +74,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
   
-    this.href = this.router.url;
+    this.href = window.location.href;      
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
     const storedToken = this.usagerService.getToken();
@@ -110,11 +111,47 @@ export class HeaderComponent implements OnInit,OnDestroy {
      // console.log(this.category);
 
     })
-    this.homeService.getDetailCandidate( this.id).subscribe(data=>{
-      this.candidat = data
-     // console.log(this.category);
-      
-    })
+
+    const cachedCandidat = localStorage.getItem('cachedCandidat');
+    if (cachedCandidat) {
+        let cachedData;
+        try {
+            cachedData = JSON.parse(cachedCandidat);
+        } catch (error) {
+            console.error('Error parsing cached data:', error);
+        }
+
+        
+        
+
+     
+if (cachedData && typeof cachedData === 'object' ) {
+            this.candidat = { work_as: cachedData.work_as,first_name: cachedData.first_name,last_name:cachedData.last_name,avatar:cachedData.image};
+            this.first_name=this.candidat.first_name,
+            this.last_name=this.candidat.last_name,
+            this.avatar=this.candidat.avatar,
+            this.work_as=this.candidat.work_as
+        } else {
+            console.error('Cached data does not contain work_as property or is not in the expected format.');
+        }
+    } else {
+        // Récupérer les données depuis le service si elles ne sont pas en cache
+        
+  
+        this.homeService.getDetailCandidate(this.identifiant).subscribe(data => {
+                    if (data ) {
+                        
+          
+        this.candidat = { work_as: data.work_as };
+                        localStorage.setItem('cachedCandidat', JSON.stringify(data));
+                    } else {
+                        console.error('Received data does not contain work_as property or is not in the expected format.');
+                    }
+                });
+    }
+    
+    
+    
   }
 
   switchToApplyBlock() {
@@ -152,7 +189,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
             ToastNotification.open({
               type: 'success',
-              message: "This is apply job for Candidat"
+              message: "You must be a candidate to Apply"
             });
           }
           console.log(userConnect);
@@ -167,7 +204,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
           console.log('noconnect');
           ToastNotification.open({
             type: 'error',
-            message: `Les utilisateurs ne peuvent pas se connecter sur la plateforme`
+            message: `Users cannot log in to the platform`
           });
           return;
         }
@@ -175,7 +212,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
       error =>{
         ToastNotification.open({
           type: 'error',
-          message: "Identifiant ou mot de passe incorrects: assurez vous de les avoir bien saisis "
+          message: "Incorrect username or password: make sure you have entered them correctly"
         });
       });
   }
@@ -248,8 +285,10 @@ export class HeaderComponent implements OnInit,OnDestroy {
           type: 'success',
           message: "Already Apply four this job"
         });
-        return
-         // this.router.navigate(['']);
+        this.userObject=true
+
+        //return
+         //this.router.navigate(['']);
           }
         });
         
@@ -261,7 +300,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
         ToastNotification.open({
           type: 'success',
-          message: "This is apply job for Candidat"
+          message: "You must be a candidate to Apply"
         });
           this.router.navigate(['/dashbord-compagny',this.userConnect.id]);
         }
@@ -283,6 +322,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
     return !item.applied.some((appliedItem: any) => appliedItem.ID === this.id);
   }
+  
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {
     this.isMobile = window.innerWidth < 768;
@@ -313,69 +353,10 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
   deconnexion(){
     this.usagerService.deconnexion()
+    localStorage.removeItem('cachedCandidat');
+
   }
     
-  // switchToApplyBlock() {
-  //   this.showLoginBlock = false;
-  //   const user = {
-  //     username: this.username,
-  //     password: this.password
-  //   }
-  //   const userObject={
-  //     last_name:this.last_name,
-  //     first_name:this.first_name
-  //   }
-  //   this.usagerService.connection(user).subscribe(
-  //     (data:any) => {
 
-  //       //const  token  = btoa(user.username + ':' + user.password);
-  //       const token = btoa(JSON.stringify(data));
-
-  //       // Stockage dans le local storage
-  //       this.usagerService.storeToken(token);
-
-  //         // Récupération du token depuis le local storage
-  //         const storedToken = this.usagerService.getToken();
-  //       if (storedToken ) {
-  //                   // Décodage de la base64
-  //         const decodedToken = atob(storedToken);
-
-  //         // Parse du JSON pour obtenir l'objet original
-  //         const userConnect = JSON.parse(decodedToken); 
-  //         userObject.first_name=userConnect.first_name;
-  //         userObject.last_name=userConnect.last_name
-  //         console.log(userObject.first_name, userObject.last_name);
-          
-  //         if(userConnect.acf.is_liggeey == "candidate"){
-  //           this.userConnect=true
-  //           this.showFirstStep=true
-  //           console.log(this.showFirstStep);
-            
-  //         } else if(userConnect.acf.is_liggeey == "chief"){
-  //           this.userConnect=false;
-  //           this.isModalVisible=false
-
-  //           ToastNotification.open({
-  //             type: 'success',
-  //             message: "This is apply job for Candidat"
-  //           });
-  //         }
-  //       }else {
-  //         console.log('noconnect');
-  //         ToastNotification.open({
-  //           type: 'error',
-  //           message: `Les utilisateurs ne peuvent pas se connecter sur la plateforme`
-  //         });
-  //         return;
-  //       }
-  //     },
-  //     error =>{
-  //       ToastNotification.open({
-  //         type: 'error',
-  //         message: "Identifiant ou mot de passe incorrects: assurez vous de les avoir bien saisis "
-  //       });
-
-  //     });
-  // }
 
 }

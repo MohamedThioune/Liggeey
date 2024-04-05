@@ -32,75 +32,75 @@ export class ProfilCandidatComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm() ;
-    this.identifiant = +this.route.snapshot.params['id'];    
+    this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
-      this.candidat=data      
-     // console.log(this.candidat);
+      this.candidat=data
+      // console.log(this.candidat);
     })
-       // Récupération du token depuis le local storage
-   const storedToken = this.usagerService.getToken();
-    
-   if (storedToken) {   
-               // Décodage de la base64
-     const decodedToken = atob(storedToken);
+    // Récupération du token depuis le local storage
+    const storedToken = this.usagerService.getToken();
 
-     // Parse du JSON pour obtenir l'objet original
-     this. userConnect = JSON.parse(decodedToken);
-   }
+    if (storedToken) {
+      // Décodage de la base64
+      const decodedToken = atob(storedToken);
 
-  
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+    }
+
+
   }
   onSubmit() {
-    // Utilisez le service pour postuler à l'emploi    
+    // Utilisez le service pour postuler à l'emploi
     console.log(this.form.value);
 
-  //   if (this.form_profil.value!="") {
+    //   if (this.form_profil.value!="") {
 
-  //   this.HomePageService.updateProfile(this.form_profil.value)
-  //     .subscribe(
-  //       // Succès de la requête
-  //       (response) => {
+    //   this.HomePageService.updateProfile(this.form_profil.value)
+    //     .subscribe(
+    //       // Succès de la requête
+    //       (response) => {
 
-  //         let typeR = "error"
-  //         if (<any>response ) {
-  //           typeR = "success";
-  //           this.message= "Profile updated successfully."
-  //         }
-  //         ToastNotification.open({
-  //           type: typeR,
-  //           message: this.message
-  //         });
-  //         if (typeR == "success") {
-  //           this.router.navigate(['/job']);
-  //         }
-  //       },
-  //       // Gestion des erreurs
-  //       (error) => {
-  //         ToastNotification.open({
-  //           type: 'error',
-  //           message: error.error.message
-  //         });
-  //       }
-  //     );
-  // } else {
-  //   ToastNotification.open({
-  //     type: 'error',
-  //     message: this.message.message
-  //   });
-  //   //this.router.navigate(['/login']);
-  // }
-}
+    //         let typeR = "error"
+    //         if (<any>response ) {
+    //           typeR = "success";
+    //           this.message= "Profile updated successfully."
+    //         }
+    //         ToastNotification.open({
+    //           type: typeR,
+    //           message: this.message
+    //         });
+    //         if (typeR == "success") {
+    //           this.router.navigate(['/job']);
+    //         }
+    //       },
+    //       // Gestion des erreurs
+    //       (error) => {
+    //         ToastNotification.open({
+    //           type: 'error',
+    //           message: error.error.message
+    //         });
+    //       }
+    //     );
+    // } else {
+    //   ToastNotification.open({
+    //     type: 'error',
+    //     message: this.message.message
+    //   });
+    //   //this.router.navigate(['/login']);
+    // }
+  }
 
 
 
   // updateProfile(){
   //     this.form_profil.value=
   //   this.HomePageService.updateProfile().subscribe(data=>{
-      
+
   //   })
   // }
- 
-  
+
+
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -144,7 +144,7 @@ export class ProfilCandidatComponent implements OnInit {
       name: ['', Validators.required],
       username: ['', Validators.required],
       adress: ['', Validators.required]
-      
+
     });
   }
 
@@ -175,7 +175,7 @@ export class ProfilCandidatComponent implements OnInit {
       this.message.message = 'Your experience is mandatory';
       return false;
     }
-   
+
 
     return true;
   }

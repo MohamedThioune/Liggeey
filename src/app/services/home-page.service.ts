@@ -106,9 +106,9 @@ export class HomePageService {
     };
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/apply/`,requestBody);
   }
-  updateProfile(candidat:Candidat): Observable<any> {
+  updateProfile(idUser:string,candidat:Candidat): Observable<any> {
     const requestBody = {
-      userApplyId:candidat.id,
+      userApplyId:idUser,
       role:candidat.role,
       telnr:candidat.telnr,
       experience:candidat.experience,
@@ -133,7 +133,7 @@ export class HomePageService {
     };
     return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
   }
-  trashFavoritesJob(idUser: string,idJob:string): Observable<any> {
+  trashFavoritesJob(idUser: number,idJob:string): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
       userDeleteId: idJob,
@@ -185,7 +185,7 @@ export class HomePageService {
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/home/?userApplyId=${id}`,{});
   }
   homeCandidat(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/home/?userApplyId=${id}`,{});
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/home/?userApplyId=${id}`,{});
   }
   getOffsetFromNow(date: Date): number {
     const currentDate = new Date();

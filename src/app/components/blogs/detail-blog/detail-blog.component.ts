@@ -27,7 +27,7 @@ export class DetailBlogComponent implements OnInit {
   ngOnInit(): void {
 
     this.initForm()
-    this.href = this.router.url;
+    this.href = window.location.href;
    // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
     

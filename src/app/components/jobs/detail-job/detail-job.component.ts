@@ -31,7 +31,7 @@ export class DetailJobComponent implements OnInit {
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.href = this.router.url;
+    this.href = window.location.href;
 
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
@@ -60,15 +60,17 @@ export class DetailJobComponent implements OnInit {
         this.calculateDurationLastJob();
     });
 }
+
 canAppl(item: any): boolean {
   if (!this.userConnect || !this.userConnect.id) {
+    return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
+}
 
-    if (item && item.applied) {
-      return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
-    }
-    return true;}
-
+if (item && item.applied) {
   return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+}
+
+return true;
 }
 calculateDuration() {
     if (this.job) {
