@@ -114,7 +114,6 @@ table tbody tr th svg{
   padding-left:20px;
   color: #202124;
   font-size: 18px;
-  font-weight: 700
 }
 table tbody tr td button{
   border: none;
@@ -163,6 +162,12 @@ thead th {
  .show_sidebar{
     visibility:hidden;
 }
+ .title-job{
+   color: #0f0f0f !important;
+   font-size: 17px !important;
+   font-weight: 600;
+   margin-bottom: 8px;
+ }
  @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     margin: 32px 11px 74px 12px;

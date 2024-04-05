@@ -4,7 +4,6 @@
   <div class="right_menu">
     <div class="content_right_menu">
       <h1 class="title-page">Company Profile</h1>
-      <p>Ready to jump back in?</p>
       <div class="map_menu">
         <form  [formGroup]="this.form">
           <div class="card-body">
@@ -77,70 +76,65 @@
         </form>
       </div>
       <div class="applicants">
-        <div class="header_applicants">
-          <h2 class="sub-title-page">About Company</h2>
-          <p>{{profil.biography}}
-          </p>
-          <!--
-          <a class="btn" routerLink="" routerLinkActive="active_lien_navbar">Save</a>
-          -->
-        </div>
-      </div>
-    </div>
-    <div class="social">
-      <h2 class="sub-title-page">Social Network</h2>
-      <form>
         <div class="card-body">
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <label for="email">
-                Facebook
-                <p>*</p>
-              </label>
-              <div class="input-group mb-4">
-                <input type="text" value="{{profil.facebook}}" name="facebook" class="form-control" id="facebook" placeholder="www.facebook.com/Invision">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 ">
-              <label for="password">Twitter
-                <p>*</p>
-              </label>
-              <div class="input-group mb-4">
-                <input type="text" value="{{profil.twitter}}" name="twitter" class="form-control" id="twitter" placeholder="">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 ">
-              <label for="firstName">Linkedin
-                <p>*</p>
-              </label>
-              <div class="input-group mb-4">
-                <input type="text" value="{{profil.linkedin}}" name="linkdin" class="form-control" id="linkdin" placeholder="">
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 ">
-              <label for="firstName">Instagram
-                <p>*</p>
-              </label>
-              <div class="input-group">
-                <input type="text" value="{{profil.instagram}}" name="google" class="form-control" id="google" placeholder="">
-              </div>
-            </div>
+          <div class="header_applicants">
+            <h2 class="sub-title-page">About Company</h2>
+            <p>{{profil.biography}}
+            </p>
           </div>
         </div>
-        <!--
-        <div class="card-footer p-3  ">
-          <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>
-        </div>
-        -->
-        <div class="clear"></div><br />
-      </form>
+      </div>
+
+    </div>
+    <div class="social">
+     <div class="card-body">
+       <h2 class="sub-title-page">Social Network</h2>
+       <form>
+         <div class="row">
+           <div class="col-md-6 col-sm-6">
+             <label for="email">
+               Facebook
+               <p>*</p>
+             </label>
+             <div class="input-group ">
+               <input type="text" value="{{profil.facebook}}" name="facebook" class="form-control" id="facebook" placeholder="www.facebook.com/Invision">
+             </div>
+           </div>
+           <div class="col-md-6 col-sm-6 ">
+             <label for="password">Twitter
+               <p>*</p>
+             </label>
+             <div class="input-group ">
+               <input type="text" value="{{profil.twitter}}" name="twitter" class="form-control" id="twitter" placeholder="">
+             </div>
+           </div>
+           <div class="col-md-6 col-sm-6 ">
+             <label for="firstName">Linkedin
+               <p>*</p>
+             </label>
+             <div class="input-group ">
+               <input type="text" value="{{profil.linkedin}}" name="linkdin" class="form-control" id="linkdin" placeholder="">
+             </div>
+           </div>
+           <div class="col-md-6 col-sm-6 ">
+             <label for="firstName">Instagram
+               <p>*</p>
+             </label>
+             <div class="input-group">
+               <input type="text" value="{{profil.instagram}}" name="google" class="form-control" id="google" placeholder="">
+             </div>
+           </div>
+         </div>
+         <div class="clear"></div><br />
+       </form>
+     </div>
     </div>
     <div class="contact">
-      <h2 class="sub-title-page">Contact Information</h2>
-      <form>
-        <div class="card-body">
+      <div class="card-body">
+        <h2 class="sub-title-page w-100">Contact Information</h2>
+        <form class="w-100">
           <div class="row w-100">
-            <div class="col-md-6 col-sm-6 p-2">
+            <div class="col-md-6 col-sm-6 ">
               <label for="email">
                 Country
                 <p>*</p>
@@ -167,7 +161,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-12 col-sm-12 p-2">
+            <div class="col-md-12 col-sm-12 ">
               <label for="firstName">Complete Address
                 <p>*</p>
               </label>
@@ -176,13 +170,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <!--
-        <div class="card-footer p-3  ">
-          <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>
-        </div>
-        -->
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </section>

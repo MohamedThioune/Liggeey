@@ -57,7 +57,7 @@
 .content_left_menu ul li p{
     margin: 0;
     font-size: 15px;
-    font-weight: 600;
+ font-family: "Roboto-Medium";
     line-height: 50px;
 }
 .right_menu{
@@ -96,7 +96,7 @@
 .head_map_menu span{
     color: #202124;
     font-size: 18px;
-    font-weight: 600;
+ font-family: "Roboto-Medium";
 }
 .head_map_menu p{
   border-radius: 8px;
@@ -114,7 +114,7 @@ table tbody tr th {
 table tbody tr th p{
   color: #696969;
   font-size:14px;
-  font-weight:600
+  font-family: "Roboto-Medium";
 }
 table tbody tr th p:last-child{
   margin-left:22px;
@@ -126,7 +126,7 @@ table tbody tr th svg{
   padding-left:20px;
   color: #202124;
   font-size: 18px;
-  font-weight: 700
+  font-family: "Roboto-Bold";
 }
 table tbody tr td button{
   border: none;
@@ -134,9 +134,13 @@ table tbody tr td button{
   border-radius: 8px;
 }
 tr th{
-    color:  #202124;
-    font-size: 18px;
-    font-weight: 600;
+  color: #202124;
+  font-size: 18px;
+  font-family: "Roboto-Medium";
+  font-weight: unset !important;
+}
+tr, th, td{
+  padding: 23px 10px !important;
 }
 tr td:nth-child(1) {
     color: #696969;
