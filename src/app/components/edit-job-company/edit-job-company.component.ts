@@ -17,7 +17,7 @@ export class EditJobCompanyComponent implements OnInit {
   form!: FormGroup;
   dateError = false;
   id:number | null = 0;
-
+  tabsKills:any;
   message: any = {
     type: '',
     message: ''
@@ -34,18 +34,17 @@ export class EditJobCompanyComponent implements OnInit {
     this.homeService.getDetailJob(this.id).subscribe(data => {
         this.job = data;
         this.form.patchValue(this.job);
-        console.log(this.job);     
     });
      // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
-    
-   if (storedToken) {   
+
+   if (storedToken) {
                // Décodage de la base64
      const decodedToken = atob(storedToken);
 
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
-   }  
+   }
 
   }
 
@@ -62,16 +61,29 @@ export class EditJobCompanyComponent implements OnInit {
       ID: this.fb.control("", []),
       description: this.fb.control("", [Validators.required]),
       job_level_of_experience: this.fb.control("", Validators.required),
-      skills: this.fb.control("", []),
+      skills: this.fb.control(null),
       job_langues: this.fb.control("", Validators.required),
-      expired_at: this.fb.control("", [Validators.email, Validators.required]),      
+      expired_at: this.fb.control("", [Validators.email, Validators.required]),
     });
   }
 
 
+  onSkillChange(event:any) {
+    const value = event?.target?.value;
+    if (value) {
+      this.job.skills.forEach((skill:any) => {
+        if (skill.term_id==value) {
+          this.tabsKills= [];
+          this.tabsKills.push(skill)
+        }
+      });
+    }
+    console.log(this.tabsKills);
+  }
+
   validateFormJob(job: any):boolean{
     const { job_level_of_experience, job_langues, expired_at } = job;
-    
+
     if (job_level_of_experience == 0) {
       this.message.message = 'Experience level is mandatory';
       return false;
@@ -88,12 +100,12 @@ export class EditJobCompanyComponent implements OnInit {
   }
 
 
-  
-  
-  onSubmit(){
-    console.log(this.form.value);
-    if (this.validateFormJob(this.form.value)) {
 
+  onSubmit(){
+    if (this.validateFormJob(this.form.value)) {
+    this.form.value.skills = this.tabsKills;
+    console.log(this.form.value);
+    //console.log(jobData);
     this.homeService.editJob(this.form.value,this.userConnect.id)
       .subscribe(
         // Succès de la requête
@@ -109,7 +121,7 @@ export class EditJobCompanyComponent implements OnInit {
             message: this.message
           });
           if (typeR == "success") {
-            alert("Job edited successfully.")
+        //    alert("Job edited successfully.")
             this.router.navigate(['/manage-compagny/'+this.userConnect.id]);
           }
         },

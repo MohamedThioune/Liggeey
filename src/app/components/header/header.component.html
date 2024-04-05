@@ -158,9 +158,9 @@
         </ul>
       </ul>
       <div class="join" *ngIf="!userConnect">
-        <a class="btn" routerLink="/register" routerLinkActive="active_lien_navbar">Apply as an IT Specialist</a>
+        <a class="btn nav-connecte" routerLink="/register" routerLinkActive="active_lien_navbar">Apply as an IT Specialist</a>
         <a class="btn hiring" routerLink="/register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
-        <a routerLink="/login" class="login" routerLinkActive="active_lien_navbar">Login</a>
+        <a routerLink="/login" class="login nav-connecte" routerLinkActive="active_lien_navbar">Login</a>
       </div>
 
       <div class="account" *ngIf="userConnect">
@@ -183,7 +183,7 @@
                   </clipPath>
                 </defs>
               </svg>
-              <p>Mon Profil</p>
+              <p>My profil</p>
             </a>
             <a class="dropdown-item" [routerLink]="['/profil-compagny',userConnect.id]" *ngIf="compagny">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18" fill="none">
@@ -197,7 +197,7 @@
                   </clipPath>
                 </defs>
               </svg>
-              <p>Mon Profil</p>
+              <p>My profil</p>
             </a>
             <a class="dropdown-item" [routerLink]="['/alert-candidat',userConnect.id]" *ngIf="candidate">
               <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 27" fill="none">
@@ -480,6 +480,7 @@
             </div>
             <div class="d-grid">
               <button type="submit" id="login-btn" class="btn btn-forgeet-passwoord" (click)="switchToApplyBlock()">Log In</button>
+              <a class="btn-register-modal" routerLink="/register">You don't have account ? Signup</a>
             </div>
 
           </form>

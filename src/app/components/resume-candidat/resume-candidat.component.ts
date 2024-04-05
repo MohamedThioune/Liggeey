@@ -22,18 +22,18 @@ export class ResumeCandidatComponent implements OnInit {
   userConnect:any;
 
   constructor(private fb: FormBuilder,private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService) {
-    this.isMobile = window.innerWidth < 768; 
+    this.isMobile = window.innerWidth < 768;
 
    }
    @HostListener('window:resize', ['$event'])
    onResize(event:Event) {
-     this.isMobile = window.innerWidth < 768; 
+     this.isMobile = window.innerWidth < 768;
    }
- 
+
    isWebScreen(): boolean {
      return !this.isMobile;
    }
- 
+
    isMobileScreen(): boolean {
      return this.isMobile;
    }
@@ -49,7 +49,7 @@ export class ResumeCandidatComponent implements OnInit {
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
       console.log(this.userConnect);
-      
+
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
       } else if(this.userConnect.acf.is_liggeey == "chief"){
@@ -57,15 +57,15 @@ export class ResumeCandidatComponent implements OnInit {
       }
     }
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
-      this.candidat=data  
+      this.candidat=data
       console.log( this.candidat);
-                
+
     })
     this.myForm = this.fb.group({
       file: ['', [Validators.required, Validators.email]],
     });
   }
-  
+
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
   }

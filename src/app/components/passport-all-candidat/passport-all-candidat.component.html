@@ -4,12 +4,9 @@
   <div class="right_menu">
     <div class="content_right_menu">
         <div class="map_menu">
-          <div class="head_map_menu">
-              <span>Skills Passport</span>
-              <a href="">Download the mobile app</a>
-          </div>
-          <div class="row" style="margin-top:74px">
-            <div class="col-md-4" style="margin-bottom: 16px;">
+          <h1>Skills Passport</h1>
+          <div class="row">
+            <div class="col-md-4">
                 <div class="applies_job">
                     <div class="image_job_applies">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
@@ -79,7 +76,7 @@
                 <a class="nav-link" [class.active]="ongletSelectionne === 'Topics'" (click)="selectionnerOnglet('Topics')" >Topics</a>
             </li>
             -->
-            <!--
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Badges / Certificates</a>
                 <div class="dropdown-menu">
@@ -87,10 +84,11 @@
                     <a class="nav-link" [class.active]="ongletSelectionne === 'Certificates'" (click)="selectionnerOnglet('Certificates')">Certificates</a>
                 </div>
             </li>
-            -->
+            <!--
             <li class="nav-item">
               <a class="nav-link" [class.active]="ongletSelectionne === 'Badges'" (click)="selectionnerOnglet('Badges')">Badges</a>
             </li>
+            -->
             <li class="nav-item">
               <a class="nav-link" [class.active]="ongletSelectionne === 'Skills'" (click)="selectionnerOnglet('Skills')" >Skills</a>
           </li>
@@ -193,7 +191,7 @@
             </div>
           </div>
           -->
-          <div class="map_menu" *ngIf="ongletSelectionne === 'Badges' || ongletSelectionne === 'All'" >
+          <div class="content-detail" *ngIf="ongletSelectionne === 'Badges' || ongletSelectionne === 'All'" >
               <div class="badge_certificate">
                 <p>Badges/Certificat</p>
                 <a href="">See All</a>
@@ -209,7 +207,6 @@
                         <p>Date Awarded : <span>{{badge.date}}</span></p>
                     </div>
                     <div class="detail-badge">
-                        <p>Pdf :<span>Badge</span></p>
                         <a>{{badge.post_status}}</a>
                     </div>
 
@@ -252,87 +249,26 @@
               </div>
               -->
           </div>
-          <!--
-          <div class="map_menu" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
+
+          <div class="content-detail" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Badges/Certificat</p>
                 <a href="">See All</a>
               </div>
-                <div class="row">
-                  <div class="col-md-2 document">
+                <div class="row" *ngFor="let certificat of skillAll.certificats">
+                  <div class="col-md-2 document" >
+                    <!--
                       <div class="content_image_document">
                           <img src="../../../assets/img/pdf.png" alt="">
                       </div>
-                      <p>document 1. pdf</p>
-                      <p>230.mb</p>
+                      -->
+                      <p>{{certificat.title}}</p>
+                      <p>{{certificat.description}}</p>
                   </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/document.png" alt="">
-                    </div>
-                    <p>document 1. png</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/word.png" alt="">
-                    </div>
-                    <p>document 1. word</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/pdf.png" alt="">
-                    </div>
-                    <p>document 1. pdf</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/document.png" alt="">
-                    </div>
-                    <p>document 1. png</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/word.png" alt="">
-                    </div>
-                    <p>document 1. word</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/pdf.png" alt="">
-                    </div>
-                    <p>document 1. pdf</p>
-                    <p>230.mb</p>
-                </div>
-                <div class="col-md-2 document">
-                  <div class="content_image_document">
-                      <img src="../../../assets/img/document.png" alt="">
-                  </div>
-                  <p>document 1. png</p>
-                  <p>230.mb</p>
-                </div>
-                <div class="col-md-2 document">
-                  <div class="content_image_document">
-                      <img src="../../../assets/img/word.png" alt="">
-                  </div>
-                  <p>document 1. word</p>
-                  <p>230.mb</p>
-                </div>
-                <div class="col-md-2 document">
-                  <div class="content_image_document">
-                      <img src="../../../assets/img/pdf.png" alt="">
-                  </div>
-                  <p>document 1. pdf</p>
-                  <p>230.mb</p>
-                </div>
+
                 </div>
           </div>
-          -->
-          <div class="map_menu" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
+          <div class="content-detail" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Skills</p>
                 <a href="">See All</a>
@@ -519,7 +455,7 @@
               </table>
           </div>
           -->
-          <div class="map_menu" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
+          <div class="content-detail" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                   <p>Preferred Course type</p>
                   <a href="">See All</a>
@@ -546,12 +482,10 @@
                         <p>$ 400</p>
                     </div>
                 </div>
-
               </div>
               <div class="pagination">
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
               </div>
-
           </div>
           <!--
           <div class="map_menu" *ngIf="ongletSelectionne === 'Reviews' || ongletSelectionne === 'All'">

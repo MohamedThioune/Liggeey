@@ -18,48 +18,50 @@
               </div>
           </div>-->
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="card-body">
-          <h2 class="mt-0 ml-0">My Profile</h2>
 
-          <div class="image-container">
-            <div class="default-image" [style.backgroundImage]="'url(' + (uploadedImage || '{{candidat.image}}') + ')'">
-              <!-- Image par défaut ou image téléchargée -->
+        <div class="card-modife">
+          <div class="card-body">
+            <h2 class="mt-0 ml-0">My Profile</h2>
+
+            <div class="image-container">
+              <div class="default-image" [style.backgroundImage]="'url(' + (uploadedImage || '{{candidat.image}}') + ')'">
+                <!-- Image par défaut ou image téléchargée -->
+              </div>
+              <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+              <label for="fileInput" class="upload-button">
+                Télécharger une image
+              </label>
+              <!-- Bouton pour télécharger une nouvelle image -->
             </div>
-            <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
-            <label for="fileInput" class="upload-button">
-              Télécharger une image
-            </label>
-            <!-- Bouton pour télécharger une nouvelle image -->
-          </div>
 
 
-          <div class="row">
-                <div class="col-md-6 col-sm-6 p-2">
-                    <label for="first_name">
-                      Full Name
-                        <p>*</p>
-                    </label>
-                    <div class="input-group">
-                        <input type="text" name="first_name" value="{{candidat.first_name}}" class="form-control" id="first_name" placeholder="Mohamed"
-                            formControlName="first_name">
-                    </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-6 p-2">
+                <label for="first_name">
+                  Full Name
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="first_name" value="{{candidat.first_name}}" class="form-control" id="first_name" placeholder="Mohamed"
+                         formControlName="first_name">
                 </div>
-                <div class="col-md-6 col-sm-6   p-2">
-                    <label for="password">Job Title
-                        <p>*</p>
-                    </label>
-                    <div class="input-group">
-                        <input type="text" name="work_as" value="{{candidat.work_as}}" class="form-control" id="work_as" placeholder="UI Designer"
-                            formControlName="work_as">
-                    </div>
+              </div>
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="password">Job Title
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="work_as" value="{{candidat.work_as}}" class="form-control" id="work_as" placeholder="UI Designer"
+                         formControlName="work_as">
                 </div>
+              </div>
               <div class="col-md-6 col-sm-6   p-2">
                 <label for="firstName">Phone
                   <p>*</p>
                 </label>
                 <div class="input-group">
                   <input type="text" name="mobile_phone" value="{{candidat.mobile_phone}}" class="form-control" id="mobile_phone" placeholder="0 123 456 7890"
-                          formControlName="mobile_phone">
+                         formControlName="mobile_phone">
                 </div>
               </div>
 
@@ -69,8 +71,8 @@
                 </label>
                 <div class="input-group">
                   <input type="email" name="email" id="email" value="{{candidat.email}}" class="form-control" placeholder="mohamed@livelearn.nl"
-                      formControlName="email">
-              </div>
+                         formControlName="email">
+                </div>
               </div>
 
               <div class="col-md-6 col-sm-6   p-2">
@@ -79,7 +81,7 @@
                 </label>
                 <div class="input-group">
                   <input type="text" name="experience"  value="{{candidat.experience}}" class="form-control" id="experience" placeholder="5-10 Years"
-                          formControlName="experience">
+                         formControlName="experience">
                 </div>
               </div>
 
@@ -89,7 +91,7 @@
                 </label>
                 <div class="input-group">
                   <input type="text" name="age"  value="{{candidat.age}}" class="form-control" id="age" placeholder="20 Years"
-                          formControlName="age">
+                         formControlName="age">
                 </div>
               </div>
 
@@ -99,7 +101,7 @@
                 </label>
                 <div class="input-group">
                   <input type="text" name="education_level"  value="{{candidat.education_level}}" class="form-control" id="education_level" placeholder="Certificate"
-                          formControlName="education_level">
+                         formControlName="education_level">
                 </div>
               </div>
 
@@ -109,7 +111,7 @@
                 </label>
                 <div class="input-group">
                   <input type="text" name="language"  value="{{candidat.language}}" class="form-control" id="language" placeholder="English, Turkish"
-                          formControlName="language">
+                         formControlName="language">
                 </div>
               </div>
 
@@ -119,7 +121,7 @@
                 </label>
                 <div class="input-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
-                          formControlName="name">
+                         formControlName="name">
                 </div>
               </div>
 
@@ -129,7 +131,7 @@
                 </label>
                 <div class="input-group">
                   <input type="text" name="username"  value="{{candidat.username}}" class="form-control" id="username" placeholder="Yes"
-                          formControlName="username">
+                         formControlName="username">
                 </div>
               </div>
 
@@ -144,8 +146,9 @@
               </div>
             </div>
 
+          </div>
         </div>
-     
+
       <div class="card-modife social-block">
           <div class="card-body">
              <h2>Social Network</h2>

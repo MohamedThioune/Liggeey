@@ -34,7 +34,7 @@
                         <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
                       </svg>
                     </div>
-                    <p class="btn-add-element">Add Education</p>
+                    <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalEdu">Add Education</button>
                   </button>
                 </div>
                 <div class="content_education" *ngFor="let education of candidat.educations ">
@@ -112,7 +112,7 @@
                         <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
                       </svg>
                     </div>
-                    <p class="btn-add-element">Add Work</p>
+                    <button class="btn-add-element" data-toggle="modal" data-target="#ModalWork">Add Work</button>
                   </button>
                 </div>
                 <div class="content_work" *ngFor="let work of candidat.experiences">
@@ -266,7 +266,7 @@
                         <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
                       </svg>
                     </div>
-                    <p class="btn-add-element">Add Skills</p>
+                    <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalSkill">Add Skills</button>
                   </button>
                 </div>
                 <div class="content_skills" style="display: flex;">
@@ -280,7 +280,7 @@
                       -->
                   </div>
               </div>
-              
+
               </div>
               <!--
               <button class="btn btn-submit-resume">Update Resume</button>
@@ -292,4 +292,145 @@
     </div>
   </div>
 </section>
+
+<div class="modal modalEdu fade" id="exampleModalEdu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Education</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">School</label>
+                <input name="school" type="text" placeholder="Sonatel Academy" required>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Degree</label>
+                <input name="degree" type="text" placeholder="Master">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Start Date</label>
+                <input name="start_date" type="date" placeholder="" required>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">End Date</label>
+                <input name="end_date" type="date" placeholder="">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Comment</label>
+                <textarea name="commentary" id="" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btnSaveSetting" type="submit" name="add_education" >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal modalEdu fade" id="ModalWork" tabindex="-1" role="dialog" aria-labelledby="ModalWorkLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Work & Experience</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Job</label>
+                <input name="job" type="text" placeholder="Engineer">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Company</label>
+                <input name="companie" type="text" placeholder="LiveLearn">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Start Date</label>
+                <input name="start_date" type="date" placeholder="">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">End Date</label>
+                <input name="end_date" type="date" placeholder="">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Comment</label>
+                <textarea name="commentary" id="" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btnSaveSetting" name="add_work" >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal modalEdu fade" id="exampleModalSkill" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Project</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Skill</label>
+                <select id="multiple-checkboxes" multiple="multiple">
+                  <option value="php">PHP</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="java">Java</option>
+                  <option value="sql">SQL</option>
+                  <option value="jquery">Jquery</option>
+                  <option value=".net">.Net</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btnSaveSetting" type="submit" name="add_project" >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <app-footers></app-footers>
