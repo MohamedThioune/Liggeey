@@ -65,11 +65,12 @@
               <button class="btn btn-apply" data-toggle="modal" [disabled]="!canAppl(job) || company" (click)="openApplyModal(job.ID)" data-target="#modal-apply">
                 {{ canAppl(job) ? 'Apply Now' : 'Already Applied' }}
               </button>
-              <div class="bookmark">
-                <button (click)="favoritesJob()">
-                  <i class="fa fa-bookmark"></i>
+              <div class="bookmark" *ngIf="candidate">
+                <button [disabled]="isBookmarked" (click)="favoritesJob()">
+                    <i class="fa fa-bookmark"></i>
                 </button>
             </div>
+            
             </div>
           </div>
         </div>

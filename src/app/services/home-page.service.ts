@@ -128,7 +128,7 @@ export class HomePageService {
   favoritesJob(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
-      jobAppliedId: "job",
+      typeApplyId: "job",
       ID:idJob
     };
     return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
@@ -161,7 +161,7 @@ export class HomePageService {
   favoritesCandidate(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
-      jobAppliedId: "candidate",
+      typeApplyId: "candidate",
       ID:idJob
     };
     return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);

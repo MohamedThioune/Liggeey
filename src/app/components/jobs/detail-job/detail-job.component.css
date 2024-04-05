@@ -45,7 +45,10 @@
   border: none;
   background-color: transparent;
  }
-
+button[disabled]:hover {
+  background-color: #f2f2f2; /* Couleur de fond grise */
+  cursor: not-allowed; /* Curseur indiquant que le champ n'est pas modifiable */
+}
  .description_job .info{
     display: flex;
     flex-wrap: wrap;

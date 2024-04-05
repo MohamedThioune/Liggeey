@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   id!:number;
   avatar:any;
   work_as:any
+  work:any
   jobs:any;
   applyJobs=false;
   job:any
@@ -131,6 +132,8 @@ if (cachedData && typeof cachedData === 'object' ) {
             this.last_name=this.candidat.last_name,
             this.avatar=this.candidat.avatar,
             this.work_as=this.candidat.work_as
+            console.log(this.first_name,this.last_name);
+
         } else {
             console.error('Cached data does not contain work_as property or is not in the expected format.');
         }
@@ -142,13 +145,18 @@ if (cachedData && typeof cachedData === 'object' ) {
                     if (data ) {
                         
           
-        this.candidat = { work_as: data.work_as };
+        this.candidat = { work_as: data.work_as,first_name:data.first_name };
                         localStorage.setItem('cachedCandidat', JSON.stringify(data));
+                        this.first_name=this.candidat.first_name;
+                        console.log(this.first_name,this.last_name);
+
                     } else {
                         console.error('Received data does not contain work_as property or is not in the expected format.');
                     }
                 });
     }
+    console.log(this.first_name,this.last_name,this.avatar);
+    
     
     
     
@@ -198,7 +206,26 @@ if (cachedData && typeof cachedData === 'object' ) {
           this.last_name = userConnect.last_name;
           this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
           this.id=userConnect.id
-          console.log(userConnect);
+          console.log(userConnect,this.id);
+                  // Récupérer les détails du candidat et stocker les informations nécessaires dans le cache
+        this.homeService.getDetailCandidate(this.id).subscribe(data => {
+          if (data && 'work_as' in data) {
+            const cachedData = {
+              work_as: data.work_as,
+              first_name:data.first_name,
+              last_name:data.last_name,
+              avatar:data.image
+              // Vous pouvez ajouter d'autres informations nécessaires ici
+            };
+            localStorage.setItem('cachedCandidat', JSON.stringify(data));
+           
+            this.work= localStorage.getItem('cachedCandidat');
+            const parsedData = JSON.parse(this.work);
+            this.work_as = parsedData.work_as;            
+            
+          } 
+        });
+        console.log(this.work_as);
 
         }else {
           console.log('noconnect');
@@ -233,6 +260,7 @@ if (cachedData && typeof cachedData === 'object' ) {
   }
 
   goToFinalStep() {
+console.log(this.work_as);;
 
     if (this.id && this.selectedJobId) {
       if(this.candidate == true){

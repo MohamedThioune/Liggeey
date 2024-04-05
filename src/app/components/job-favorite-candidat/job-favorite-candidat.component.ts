@@ -39,6 +39,8 @@ export class JobFavoriteCandidatComponent implements OnInit {
     
     this.HomePageService.getAlertCandidat( this.identifiant).subscribe(data=>{
       this.favorites=data  
+      console.log(this.favorites);
+      
       this.favorites.forEach((element:any) => {
         this.jobId = element.id 
         const date = new Date(element.posted_at);
