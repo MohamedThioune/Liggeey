@@ -2,54 +2,66 @@
 <section class="content-page-dashboard">
   <app-sidebar-candidat></app-sidebar-candidat>
   <div class="right_menu" [class.right_menu_show]="!isSidebarVisible" [class.right_menu]="isSidebarVisible">
-      <div class="content_right_menu">
-         <!-- <div class="map_menu">
+    <div class="content_right_menu">
+      <!-- <div class="map_menu">
 
-              <div class="d-flex">
-                <div class="content_map_menu">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="136" height="135" viewBox="0 0 136 135" fill="none">
-                      <rect x="0.710938" width="135" height="135" rx="8" fill="#FF3365"/>
-                  </svg>
-                </div>
-              <div class="description_map">
-                <p>Browse</p>
-                <p>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</p>
+           <div class="d-flex">
+             <div class="content_map_menu">
+               <svg xmlns="http://www.w3.org/2000/svg" width="136" height="135" viewBox="0 0 136 135" fill="none">
+                   <rect x="0.710938" width="135" height="135" rx="8" fill="#FF3365"/>
+               </svg>
+             </div>
+           <div class="description_map">
+             <p>Browse</p>
+             <p>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</p>
+           </div>
+           </div>
+       </div>-->
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="card-modife">
+          <div class="card-body">
+            <h2 class="mt-0 ml-0">My Profile</h2>
+
+            <div class="image-container">
+              <div class="default-image" [style.backgroundImage]="'url(' + (uploadedImage || '{{candidat.image}}') + ')'">
+                <!-- Image par défaut ou image téléchargée -->
               </div>
+              <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+              <label for="fileInput" class="upload-button">
+                Télécharger une image
+              </label>
+              <!-- Bouton pour télécharger une nouvelle image -->
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 p-2">
+                <label for="first_name">
+                  Full Name
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="first_name" value="{{candidat.first_name}}" class="form-control" id="first_name" placeholder="Mohamed"
+                         formControlName="first_name">
+                </div>
               </div>
-          </div>-->
-      <form [formGroup]="form" (ngSubmit)="onSubmit(candidat.ID)">
-        <div class="card-body">
-          <h2 class="mt-0 ml-0">My Profile</h2>
-
-     
-
-
-          <div class="row">
-                <div class="col-md-6 col-sm-6 p-2">
-                    <label for="first_name">
-                      Full Name
-                        <p>*</p>
-                    </label>
-                    <div class="input-group">
-                        <input type="text" name="first_name" formControlName="first_name" class="form-control" id="first_name" placeholder="Mohamed"   
-                        [attr.disabled]="form.value.first_name ">
-                    </div>
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="password">Job Title
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="work_as" value="{{candidat.work_as}}" class="form-control" id="work_as" placeholder="UI Designer"
+                         formControlName="work_as">
                 </div>
-                <div class="col-md-6 col-sm-6   p-2">
-                    <label for="password">Job Title
-                        <p>*</p>
-                    </label>
-                    <div class="input-group">
-                        <input type="text" name="work_as" formControlName="work_as" class="form-control" id="work_as" placeholder="UI Designer" [attr.disabled]="form.value.work_as ">
-                    </div>
-                </div>
+              </div>
               <div class="col-md-6 col-sm-6   p-2">
                 <label for="firstName">Phone
                   <p>*</p>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="telnr" class="form-control" formControlName="telnr" id="telnr" placeholder="0 123 456 7890"
-                          >
+                  <input type="text" name="mobile_phone" value="{{candidat.mobile_phone}}" class="form-control" id="mobile_phone" placeholder="0 123 456 7890"
+                         formControlName="mobile_phone">
                 </div>
               </div>
 
@@ -58,8 +70,9 @@
                   <p>*</p>
                 </label>
                 <div class="input-group">
-                  <input type="email" name="email" id="email" formControlName="email" class="form-control" placeholder="mohamed@livelearn.nl" [attr.disabled]="form.value.email ">
-              </div>
+                  <input type="email" name="email" id="email" value="{{candidat.email}}" class="form-control" placeholder="mohamed@livelearn.nl"
+                         formControlName="email">
+                </div>
               </div>
 
               <div class="col-md-6 col-sm-6   p-2">
@@ -67,8 +80,8 @@
                   <p>*</p>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="experience" formControlName="experience" class="form-control" id="experience" placeholder="5-10 Years"
-                          >
+                  <input type="text" name="experience"  value="{{candidat.experience}}" class="form-control" id="experience" placeholder="5-10 Years"
+                         formControlName="experience">
                 </div>
               </div>
 
@@ -77,8 +90,8 @@
                   <p>*</p>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="age"  formControlName="age" class="form-control" id="age" placeholder="20 Years"
-                        >
+                  <input type="text" name="age"  value="{{candidat.age}}" class="form-control" id="age" placeholder="20 Years"
+                         formControlName="age">
                 </div>
               </div>
 
@@ -87,8 +100,8 @@
                   <p>*</p>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="education_level" formControlName="education_level" class="form-control" id="education_level" placeholder="Certificate"
-                          >
+                  <input type="text" name="education_level"  value="{{candidat.education_level}}" class="form-control" id="education_level" placeholder="Certificate"
+                         formControlName="education_level">
                 </div>
               </div>
 
@@ -97,8 +110,8 @@
                   <p>*</p>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="language" formControlName="language" class="form-control" id="language" placeholder="English, Turkish"
-                  [attr.disabled]="form.value.language">
+                  <input type="text" name="language"  value="{{candidat.language}}" class="form-control" id="language" placeholder="English, Turkish"
+                         formControlName="language">
                 </div>
               </div>
               <!--
@@ -108,7 +121,7 @@
                 </label>
                 <div class="input-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
-                          >
+                         formControlName="name">
                 </div>
               </div>
 
@@ -117,15 +130,15 @@
                   <p>*</p>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="username"   class="form-control" id="username" placeholder="Yes"
-                          >
+                  <input type="text" name="username"  value="{{candidat.username}}" class="form-control" id="username" placeholder="Yes"
+                         formControlName="username">
                 </div>
               </div>
 -->
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Description</label>
-                  <textarea  formControlName="biographical_info" name="biographical_info" id="biographical_info" rows="8" [attr.disabled]="form.value.biographical_info "></textarea>
+                  <textarea  value="{{candidat.biographical_info}}" name="biographical_info" id="biographical_info" rows="8"></textarea>
                   <!--
                   <button type="submit" class="btn btn-save">Save</button>
                   -->
@@ -133,93 +146,94 @@
               </div>
             </div>
 
-        </div>
-     
-      <div class="card-modife social-block">
-          <div class="card-body">
-             <h2>Social Network</h2>
-              <div class="row">
-                  <div class="col-md-6 col-sm-6 p-2">
-                      <label for="facebook">
-                        Facebook
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" formControlName="facebook" name="facebook" class="form-control" id="facebook" placeholder="www.facebook.com/Invision"
-                              >
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-sm-6   p-2">
-                      <label for="password">Twitter
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="twitter" formControlName="twitter" class="form-control" id="twitter" placeholder="www.twitter.sn"
-                            >
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="linkedin">Linkedin
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="linkedin" formControlName="linkedin" class="form-control" id="linkedin" placeholder="www.linkdin.com"
-                             >
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-sm-6   p-2">
-                    <label for="firstName">Instagramm
-                      <p>*</p>
-                    </label>
-                    <div class="input-group">
-                      <input type="text" name="instagram" formControlName="instagram" class="form-control" id="instagram" placeholder="www.instagramm.com"
-                            >
-                    </div>
-                  </div>
-              </div>
-              <!--
-              <button class="btn btn-save create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>
-              -->
           </div>
-      </div>
-      <div class="card-modife contact-infos">
+        </div>
+
+        <div class="card-modife social-block">
           <div class="card-body">
-               <h2>Contact Information</h2>
-              <div class="row g-3">
-                  <div class="col-md-6 col-sm-6 p-2">
-                      <label for="country">
-                        Country
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="country" formControlName="country" class="form-control" id="country" placeholder="Sénégal"
-                              >
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-sm-6   p-2">
-                      <label for="city">City
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="city" formControlName="city" class="form-control" id="city" placeholder="Dakar"
-                              >
-                      </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12 p-2">
-                  <label for="adress">Complete Address
-                    <p>*</p>
-                  </label>
-                  <div class="input-group">
-                    <input type="text" name="adress" formControlName="adress" class="form-control" id="adress" placeholder="Dakar ouakam"
-                    [attr.disabled]="form.value.adress" >
-                  </div>
+            <h2>Social Network</h2>
+            <div class="row">
+              <div class="col-md-6 col-sm-6 p-2">
+                <label for="facebook">
+                  Facebook
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" value="{{candidat.social_network.facebook}}" name="facebook" class="form-control" id="facebook" placeholder="www.facebook.com/Invision"
+                         formControlName="facebook">
                 </div>
               </div>
-              <!--
-             <button class="btn btn-save create " type="submit"> Save </button>
-             -->
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="password">Twitter
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="twitter" value="{{candidat.social_network.twitter}}" class="form-control" id="twitter" placeholder="www.twitter.sn"
+                         formControlName="twitter">
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="linkedin">Linkedin
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="linkedin" value="{{candidat.social_network.linkedin}}" class="form-control" id="linkedin" placeholder="www.linkdin.com"
+                         formControlName="linkedin">
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="firstName">Instagramm
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="instagram" value="{{candidat.social_network.instagram}}" class="form-control" id="instagram" placeholder="www.instagramm.com"
+                         formControlName="instagram">
+                </div>
+              </div>
+            </div>
+            <!--
+            <button class="btn btn-save create " type="submit" routerLinkActive="active_lien_navbar"> Save </button>
+            -->
           </div>
-      </div>
+        </div>
+        <div class="card-modife contact-infos">
+          <div class="card-body">
+            <h2>Contact Information</h2>
+            <div class="row g-3">
+              <div class="col-md-6 col-sm-6 p-2">
+                <label for="country">
+                  Country
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="country" value="{{candidat.country}}" class="form-control" id="country" placeholder="Sénégal"
+                         formControlName="country">
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="city">City
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="city" value="{{candidat.city}}" class="form-control" id="city" placeholder="Dakar"
+                         formControlName="city">
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12 p-2">
+                <label for="adress">Complete Address
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="adress" value="{{candidat.adress}}" class="form-control" id="adress" placeholder="Dakar ouakam"
+                         formControlName="adress">
+                </div>
+              </div>
+            </div>
+            <!--
+           <button class="btn btn-save create " type="submit"> Save </button>
+           -->
+          </div>
+        </div>
         <button type="submit" class="btn btn-save">Save</button>
       </form>
 
