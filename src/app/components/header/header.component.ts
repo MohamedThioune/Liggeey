@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   selectedFileName: string | undefined;
   isModalVisible: boolean = true; // Set to true initially to show the modal
   public href: string = "";
-
+  notification:any;
 
   constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
     this.isMobile = window.innerWidth < 768;
@@ -132,7 +132,6 @@ if (cachedData && typeof cachedData === 'object' ) {
             this.last_name=this.candidat.last_name,
             this.avatar=this.candidat.avatar,
             this.work_as=this.candidat.work_as
-            console.log(this.first_name,this.last_name);
 
         } else {
             console.error('Cached data does not contain work_as property or is not in the expected format.');
@@ -155,7 +154,6 @@ if (cachedData && typeof cachedData === 'object' ) {
                     }
                 });
     }
-    console.log(this.first_name,this.last_name,this.avatar);
     
     
     
@@ -200,7 +198,6 @@ if (cachedData && typeof cachedData === 'object' ) {
               message: "You must be a candidate to Apply"
             });
           }
-          console.log(userConnect);
           
           this.first_name = userConnect.first_name;
           this.last_name = userConnect.last_name;
@@ -225,7 +222,6 @@ if (cachedData && typeof cachedData === 'object' ) {
             
           } 
         });
-        console.log(this.work_as);
 
         }else {
           console.log('noconnect');
@@ -260,8 +256,12 @@ if (cachedData && typeof cachedData === 'object' ) {
   }
 
   goToFinalStep() {
-console.log(this.work_as);;
-
+    this.notification ={
+      userApplyId:3,
+      title:"Apply Job Successfully",
+      content:"Apply Job Successfully",
+      receiver_id:this.id
+    }
     if (this.id && this.selectedJobId) {
       if(this.candidate == true){
         this.homeService.getDetailJob(this.selectedJobId).subscribe((data:any) => {
@@ -281,6 +281,7 @@ console.log(this.work_as);;
             if (<any>response ) {
               typeR = "success";
               this.message= "Your job application has been successfully submitted."
+              this.homeService.sendNotification(this.id,this.notification)
               // this.showFirstStep =  !this.showFirstStep;
               // this.showSecondStep = !this.showSecondStep;
             }

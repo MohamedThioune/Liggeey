@@ -6,6 +6,8 @@ import { Candidat } from '../interfaces/candidate';
 import { CommentArticle } from '../interfaces/comment-article';
 import { Subject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { ProfilCompagny } from '../interfaces/profil-compagny';
+import { Notification } from '../interfaces/notification';
 
 
 @Injectable({
@@ -123,6 +125,30 @@ export class HomePageService {
       city:candidat.city
     };
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/profil/update`,requestBody);
+  }
+
+  updateProfileCompany(idUser:string,profil:ProfilCompagny): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      company_bio:profil.biography,
+      company_address:profil.address,
+      company_place:profil.place,
+      company_country:profil.country,
+      company_website:profil.website,
+      company_size:profil.size,
+      company_sector:profil.sector,
+    };
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/profil`,requestBody);
+  }
+  sendNotification(idUser:number,notification:Notification): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      title:notification.title,
+      content:notification.content,
+      trigger:notification.trigger,
+      receiver_id:notification.receiver_id,
+    };
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/notification/create`,requestBody);
   }
 
   favoritesJob(idUser: number,idJob:number): Observable<any> {

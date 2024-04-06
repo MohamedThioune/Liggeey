@@ -31,7 +31,7 @@ export class JobFavoriteCandidatComponent implements OnInit {
     this.showButton = true;
   }
 
-  constructor(private route : ActivatedRoute ,private cdr: ChangeDetectorRef,private HomePageService: HomePageService,private fb: FormBuilder,private router: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
+  constructor(private route : ActivatedRoute ,private cdr: ChangeDetectorRef,private HomePageService: HomePageService,private fb: FormBuilder,private router: Router ,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];    
@@ -50,10 +50,8 @@ export class JobFavoriteCandidatComponent implements OnInit {
   }
 
   trashFavoritesJob(idJob:string) {
-    console.log(this.identifiant,idJob);
-    //return
-    
-    // Assurez-vous que this.userConnect et this.job sont définis
+    if (confirm('Do you want to remove this job from your favorites?')) {
+
     if (this.identifiant && idJob) {
       // Utilisez le service pour postuler à l'emploi
       this.HomePageService.trashFavoritesJob(this.identifiant, idJob)
@@ -79,20 +77,17 @@ export class JobFavoriteCandidatComponent implements OnInit {
               type: 'error',
               message: error.error.message
             });
-            console.log(error.error.message);
             
           }
         );
-    } else {
+    }} else {
       ToastNotification.open({
         type: 'error',
-        message: this.message.message
-      });
-      console.log(this.message);
-      
-      //this.router.navigate(['/login']);
+        message: "delete cancelled"
+      });      
     }
   }
+ 
   formatDate(date: Date): string {
     // Tableau des noms de mois
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
