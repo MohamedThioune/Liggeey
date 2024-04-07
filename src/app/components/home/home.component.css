@@ -6,8 +6,7 @@
 .definition_home {
     color: #202124;
     font-size: 20px;
-    font-weight: 700;
-    padding-bottom: 50px;
+    font-weight: 500;
 }
 .hiring_work {
     display: flex;
@@ -96,7 +95,7 @@
 .text_home h2{
     color: #202124;
     font-size: 47px;
-    font-weight: 700;
+  font-family: "Roboto-Bold";
     padding: 40px 0 36px 0;
 }
 

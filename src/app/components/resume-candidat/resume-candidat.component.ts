@@ -22,18 +22,18 @@ export class ResumeCandidatComponent implements OnInit {
   userConnect:any;
 
   constructor(private fb: FormBuilder,private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService) {
-    this.isMobile = window.innerWidth < 768; 
+    this.isMobile = window.innerWidth < 768;
 
    }
    @HostListener('window:resize', ['$event'])
    onResize(event:Event) {
-     this.isMobile = window.innerWidth < 768; 
+     this.isMobile = window.innerWidth < 768;
    }
- 
+
    isWebScreen(): boolean {
      return !this.isMobile;
    }
- 
+
    isMobileScreen(): boolean {
      return this.isMobile;
    }
@@ -82,7 +82,7 @@ export class ResumeCandidatComponent implements OnInit {
       file: ['', [Validators.required, Validators.email]],
     });
   }
-  
+
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
   }

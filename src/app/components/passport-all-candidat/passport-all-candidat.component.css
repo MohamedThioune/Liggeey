@@ -1,4 +1,7 @@
-
+h1 {
+  font-size: 25px;
+  margin-bottom: 40px;
+}
 .right_menu{
     width: 100%;
     margin-bottom: 121px;
@@ -18,13 +21,10 @@
 }
 .map_menu{
     border-radius: 8px;
-    margin-top: 56px;
-    border: 1px solid  #ECEDF2; 
+    border: 1px solid  #ECEDF2;
     background: #FFF;
     padding: 30px;
     width: 100%;
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
   }
 .head_map_menu{
     display: flex;
@@ -61,9 +61,6 @@
     padding: 30px;
     border: 1px solid #ECEDF2;
     background: #FFF;
-
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
 
 .image_job_alert{
@@ -74,7 +71,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 40px 0px rgba(14, 16, 48, 0.07);
+
 }
 .description_job_alert{
     padding-left: 24px;
@@ -97,16 +94,12 @@
     padding: 30px;
     border: 1px solid #ECEDF2;
     background: #FFF;
-
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
 .image_job_favorites{
     width: 80px;
     height: 80px;
     border-radius: 80px;
     background: #47A99E;
-    box-shadow: 0px 0px 40px 0px rgba(14, 16, 48, 0.07);
     display: flex;
     padding: 24.41px 24.59px 24.59px 24.41px;
     justify-content: center;
@@ -133,15 +126,12 @@
     padding: 30px;
     border: 1px solid #ECEDF2;
     background: #FFF;
-
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 }
 .map_menu .all{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 65px;
     border: none;
 }
 .map_menu .all li .active{
@@ -155,15 +145,9 @@
 .map_menu .all li a{
     color: #3D4D59;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
-}
-.livraison{
-    border-radius: 4px;
-    border: 1px solid rgba(33, 36, 44, 0.16);
-    background: #FFF;
-    display: flex;
-    margin-top: 68px;
+    cursor: pointer;
 }
 .content_image_livraison_livraison{
     width: 48px;
@@ -198,7 +182,7 @@
     font-size: 15px;
     font-weight: 500;
 }
- @media all and (min-width: 300px) and (max-width: 767px){ 
+ @media all and (min-width: 300px) and (max-width: 767px){
 .right_menu{
     width: fit-content;
     visibility: visible;
@@ -231,41 +215,37 @@
 .badge_certificate{
     display: flex;
     justify-content: space-between;
-    margin: 76px 0 13px;
+    margin: 50px 0 13px;
 }
 .badge_certificate p:first-child{
     color: #202124;
     font-size: 19px;
-    font-weight: 600;
-    font-size: 23px;
-    font-weight: 600;
+  font-family: "Roboto-Medium";
 }
 .badge_certificate a{
     color:  #1AC4A2;
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 400;
-    font-size: 20px;
-    font-weight: 600;
     text-decoration: none;
 }
 .livraison{
-    border: 1px solid red;
     border-radius: 4px;
-    border: 1px solid rgba(33, 36, 44, 0.16);
     background: #FFF;
     display: flex;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
+    border: 1px solid #ECEDF2;
+    padding: 25px 15px;
 }
 .content_image_livraison-badge{
-    width: 148px;
-    height: 148px;
-    margin: 42px 31px 41px 42px;
+  width: 120px;
+  height: 120px;
+  margin-right: 25px;
 }
 .content_image_livraison-badge img{
     width: 100%;
     height: 100%;
-    margin: 0;
+    object-fit: cover;
 }
 .livraison .profil{
     font-size: 18px;
@@ -273,17 +253,19 @@
 }
 .livraison .profil p:first-child{
     color: #000;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 600;
+    margin-bottom: 7px;
 }
 .livraison .profil p{
     color: #868686;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
+    margin-bottom: 8px;
 }
 .livraison .profil span{
     color: #043356;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 }
 .livraison .detail-badge{
@@ -295,16 +277,16 @@
 }
 .livraison .detail-badge p:first-child{
     color: #868686;
-    font-size: 20px;
-    font-weight: 500;    
+  font-size: 16px;
+    font-weight: 500;
 }
 .livraison .detail-badge p:first-child span{
     color: #043356;
-    font-size: 20px;
+  font-size: 16px;
 }
 .livraison .detail-badge a{
     color: #47A99E;
-    font-size: 20px;
+  font-size: 16px;
     font-weight: 600;
     text-decoration: none;
 }
@@ -318,21 +300,15 @@
 }
 
  /**********************skills*************************************************/
-.livraison{
-    border-radius: 4px;
-    border: 1px solid rgba(33, 36, 44, 0.16);
-    background: #FFF;
-    display: flex;
-    align-items: center;
-    margin-bottom: 32px;
-}
 .document{
-    border-radius: 5px;
-    border: 1px solid  #ECEDF2;
-    background: #FFF;
-    text-align: center;
-    padding: 32px 12px;
-    margin: 26px;
+  border-radius: 5px;
+  border: 1px solid #ECEDF2;
+  background: #FFF;
+  text-align: center;
+  padding: 32px 12px 13px;
+  margin-right: 20px;
+  max-width: 18%;
+  flex: 18%;
 }
 .document .content_image_document{
     width: 95px;
@@ -388,7 +364,7 @@ table tbody tr th {
   }
   tr td:nth-child(2) {
     font-size: 16px;
-    font-weight: 600; 
+    font-weight: 600;
     color: #212121;
   }
   tr td:nth-child(3) {
@@ -410,13 +386,18 @@ table tbody tr th {
   }
 
  /************************prefered course ***********************************/
+ /*
 .item_course{
-    margin: 43px;
+   border: 1px solid #ECEDF2;
+  margin-bottom: 35px;
+  max-width: 30%;
+  flex: 30%;
+  margin-right: 20px;
 }
 .item_course p:nth-child(2){
-    color: #043356;
-    font-size: 23px;
-    font-weight: 700;
+  color: #043356;
+  font-size: 17px;
+  font-family: "Roboto-Medium";
 }
 .item_course:nth-child(1){
  margin-left: 0;
@@ -452,61 +433,19 @@ table tbody tr th {
     font-weight: 500;
 }
 .content_image_course{
-    width: 363.613px;
-    height: 165.725px;
+    height: 165px;
+    width: 100%;
     border-radius: 8px;
-    margin: 14px 2px 26px 0px;
+    margin: 0px 0px 10px 0px;
 }
 .content_image_course img{
     width: 100%;
     height: 100%;
-    margin: 0;
+    object-fit: cover;
 }
-
- /********************review***************************/
-
-.livraison{
-    border-radius: 4px;
-    border: 1px solid rgba(33, 36, 44, 0.16);
-    background: #FFF;
+.pagination{
     display: flex;
     align-items: center;
-    margin-bottom: 55px;
-}
-.content_image_livraison{
-    width: 148px;
-    height: 148px;
-    margin: 42px 31px 41px 42px;
-    border-radius: 100%;
-    overflow: hidden;
-}
-.content_image_livraison img{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-.livraison .profil{
-    font-size: 18px;
-    font-weight: 500;
-}
-.livraison .profil p:first-child{
-    color: #000;
-    font-size: 20px;
-    font-weight: 600;
-}
-.livraison .profil p{
-    color: #868686;
-    font-size: 18px;
-    font-weight: 500;
-}
-.livraison .profil span{
-    color: #043356;
-    font-size: 18px;
-    font-weight: 600;
-}
-.livraison .detail-badge {
-    display: flex;
-    justify-content: space-between;
-    font-size: 17px;
-    width: 8%;
+    justify-content: center;
+    margin-top: 40px;
 }

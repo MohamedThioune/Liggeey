@@ -168,7 +168,7 @@ export class ProfilCandidatComponent implements OnInit {
       name: ['', Validators.required],
       username: ['', Validators.required],
       adress: ['', Validators.required]
-      
+
     });
   }
 
@@ -199,7 +199,7 @@ export class ProfilCandidatComponent implements OnInit {
       this.message.message = 'Your experience is mandatory';
       return false;
     }
-   
+
 
     return true;
   }

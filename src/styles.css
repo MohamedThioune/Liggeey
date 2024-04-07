@@ -17,6 +17,10 @@
     font-family: "Roboto-Bold";
     src: url("assets/font/Roboto-Bold.woff2") format("woff2"), url("assets/font/Roboto-Bold.woff") format("woff");
 }
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/saga-blue/theme.css";
+@import "~primeng/resources/primeng.min.css";
+
 
 body {
     background-color: #FFFF !important;
@@ -53,7 +57,8 @@ body p{
   color: #202124;
   font-size: 23px;
   font-family: "Roboto-Bold";
-  margin-top: 20px;
+  margin-top: 50px;
+  margin-bottom: 35px;
 }
 .sub-title-page{
   color: #202124;
@@ -78,8 +83,11 @@ body p{
   background: #1ac4a2;
   color: white;
   padding: 9px 30px !important;
-  margin-top: 45px !important;
+  margin-top: 30px !important;
   margin-left: 0 !important;
+}
+.btn-save:hover {
+  color: white !important;
 }
 form h2 {
   font-size: 25px;
