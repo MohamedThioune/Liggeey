@@ -52,8 +52,10 @@ export class HomeComponent implements OnInit {
       this.categories=data.categories
       this.candidates=data.candidates
       this.article=data.artikels
-      this.currentCategories=data.jobs        
-      this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)                      
+      this.currentCategories=data.jobs
+console.log(this.currentCategories);
+
+      this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[0].short_description =   this.article[0].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[1].post_title =   this.article[1].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');

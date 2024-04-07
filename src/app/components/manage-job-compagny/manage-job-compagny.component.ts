@@ -48,10 +48,16 @@ export class ManageJobCompagnyComponent implements OnInit {
         //console.log(this.tabNumber);
         const date = new Date(element.posted_at);
         element.date = this.formatDate(date);
-        const espiration =new Date(element.expired_at)
-        element.espiration = this.formatDate(espiration);
-
-        console.log(element.date);
+        if (element.expired_at) {
+          const expirationDate = new Date(element.expired_at);
+          if (!isNaN(expirationDate.getTime())) {
+            element.expiration = this.formatDate(expirationDate);
+          } else {
+            element.expiration = ''; 
+          }
+        } else {
+          element.expiration = ''; 
+      }
 
       });
     })

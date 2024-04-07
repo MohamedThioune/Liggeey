@@ -31,23 +31,16 @@ export class JobFavoriteCandidatComponent implements OnInit {
     this.showButton = true;
   }
 
-  constructor(private route : ActivatedRoute ,private cdr: ChangeDetectorRef,private HomePageService: HomePageService,private fb: FormBuilder,private router: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
+  constructor(private route : ActivatedRoute ,private cdr: ChangeDetectorRef,private HomePageService: HomePageService,private fb: FormBuilder,private router: Router ,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
-    const storedToken = this.usagerService.getToken();
-    
-    if (storedToken) {   
-                // Décodage de la base64
-      const decodedToken = atob(storedToken);
-
-      // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
-    }
     this.identifiant = +this.route.snapshot.params['id'];    
     console.log(this.identifiant);
     
     this.HomePageService.getAlertCandidat( this.identifiant).subscribe(data=>{
       this.favorites=data  
+      console.log(this.favorites);
+      
       this.favorites.forEach((element:any) => {
         this.jobId = element.id 
         const date = new Date(element.posted_at);
@@ -57,13 +50,11 @@ export class JobFavoriteCandidatComponent implements OnInit {
   }
 
   trashFavoritesJob(idJob:string) {
-   // console.log(this.userConnect,idJob);
-   // return
-    
-    // Assurez-vous que this.userConnect et this.job sont définis
-    if (this.userConnect && idJob) {
+    if (confirm('Do you want to remove this job from your favorites?')) {
+
+    if (this.identifiant && idJob) {
       // Utilisez le service pour postuler à l'emploi
-      this.HomePageService.trashFavoritesJob(this.userConnect.id, idJob)
+      this.HomePageService.trashFavoritesJob(this.identifiant, idJob)
         .subscribe(
           // Succès de la requête
           (response) => {
@@ -86,20 +77,17 @@ export class JobFavoriteCandidatComponent implements OnInit {
               type: 'error',
               message: error.error.message
             });
-            console.log(error.error.message);
             
           }
         );
-    } else {
+    }} else {
       ToastNotification.open({
         type: 'error',
-        message: this.message.message
-      });
-      console.log(this.message);
-      
-      //this.router.navigate(['/login']);
+        message: "delete cancelled"
+      });      
     }
   }
+ 
   formatDate(date: Date): string {
     // Tableau des noms de mois
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

@@ -42,11 +42,12 @@ export class DetailBlogComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];  
       
     this.HomePageService.getDetailArticle( this.identifiant).subscribe(data=>{
-      this.article=data  
-      console.log(this.article);
-       
+      this.article=data         
       this.article.title =   this.article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      this.article.content =   this.article.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      //this.article.content =   this.article.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      //this.article.content = this.article.content.replace(/<(?!\/?a(?=>|\s.*>))\/?.*?>/g, '').replace(/[^\w\s.]/gi, '');
+      this.article.content = this.article.content.replace(/<(?!\/?a(?=>|\s.*>))\/?.*?>/g, '').replace(/[^\w\s\n.]/gi, '');
+
          
     })
   }

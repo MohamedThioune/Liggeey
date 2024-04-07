@@ -22,6 +22,10 @@ export class EditJobCompanyComponent implements OnInit {
     type: '',
     message: ''
   };
+  errorMessage: any = {
+    type: '',
+    message: ''
+  };
 
 
   constructor(private route : ActivatedRoute,private router:Router,private fb : FormBuilder , private homeService : HomePageService,private usagerService:UsagerService) {
@@ -128,14 +132,14 @@ export class EditJobCompanyComponent implements OnInit {
         // Gestion des erreurs
         (error) => {
           ToastNotification.open({
-            type: 'Edit failed',
+            type: 'error',
             message: error.error.message
           });
         }
       );
   } else {
     ToastNotification.open({
-      type: 'Edit failed',
+      type: 'error',
       message: this.message.message
     });
   }

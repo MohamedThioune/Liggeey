@@ -50,15 +50,6 @@ export class JobOneComponent implements OnInit {
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.homeService.getAllJob().subscribe((data:any)=>{
       this.jobs=data
-      this.jobs.forEach((job:any) => {        
-        job.applied.forEach((element:any) => {
-          if (element.ID==this.userConnect.ID) {
-            this.appliedJob=true
-          }
-          
-        });
-        
-      });
     })
   }
   get filteredJobs() {

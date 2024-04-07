@@ -26,6 +26,8 @@ export class DetailJobComponent implements OnInit {
   public href: string = "";
   company=false;
   candidate=false;
+  canApply=true
+  isBookmarked: boolean = false;
 
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
@@ -58,15 +60,17 @@ export class DetailJobComponent implements OnInit {
         this.calculateDurationLastJob();
     });
 }
+
 canAppl(item: any): boolean {
   if (!this.userConnect || !this.userConnect.id) {
+    return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
+}
 
-    if (item && item.applied) {
-      return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
-    }
-    return true;}
-
+if (item && item.applied) {
   return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
+}
+
+return true;
 }
 calculateDuration() {
     if (this.job) {
@@ -161,12 +165,14 @@ calculateDurationLastJob(){
               let typeR = "error"
               if (<any>response ) {
                 typeR = "success";
-                this.message= "Votre nouveau job favori a été ajouté."
+                this.message= "Your new favorite job has been added."
+                this.isBookmarked = true;
               }
               ToastNotification.open({
                 type: typeR,
                 message: this.message
               });
+              this.router.navigate(['/favorite',this.userConnect.id])
               // if (typeR == "success") {
               //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
               // }
