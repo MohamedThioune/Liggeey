@@ -64,7 +64,7 @@
             <div class="job_info">
               <button class="btn btn-apply" data-toggle="modal" [disabled]="!canAppl(job) || company" (click)="openApplyModal(job.ID)" data-target="#modal-apply">
                 {{ canAppl(job) ? 'Apply Now' : 'Already Applied' }}
-              </button>    
+              </button>
               <div class="bookmark">
                 <button (click)="favoritesJob()">
                   <i class="fa fa-bookmark"></i>
@@ -102,13 +102,13 @@
           <div class="share">
             <p>Share this job</p>
             <div class="social">
-              <a class="btn btn-whatssap" href=" https://wa.me/?url= http:/{{href}}/ " target="_blank">
+              <a class="btn btn-whatssap" href=" https://wa.me/?url= {{href}}/ " target="_blank">
                 <i class="fa fa-whatsapp"></i> Whatssap
               </a>
-              <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?url=https:/{{href}}" target="_blank">
+              <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?url={{href}}" target="_blank">
                 <i class="fa fa-twitter"></i> Twitter
               </a>
-              <a class="btn btn-linkedin" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https:/{{href}}" target="_blank">
+              <a class="btn btn-linkedin" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url={{href}}" target="_blank">
                 <i class="fa fa-linkedin"></i> LinkedIn
             </a>
             </div>

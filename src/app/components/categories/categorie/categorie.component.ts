@@ -41,13 +41,13 @@ export class CategorieComponent implements OnInit {
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
-      this.category = data              
+      this.category = data
       console.log(this.category.jobs);
       console.log(this.userConnect);
-      
-      this.category.jobs.forEach((element:any) => {  
+
+      this.category.jobs.forEach((element:any) => {
                  console.log(element.applied);
-                 
+
          // Vérifier si l'utilisateur est contenu dans applied[] pour cet élément
           if (element.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id)) {
             // Si l'utilisateur est trouvé, canApply devient false

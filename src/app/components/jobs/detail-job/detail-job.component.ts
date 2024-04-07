@@ -30,7 +30,7 @@ export class DetailJobComponent implements OnInit {
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
-    this.href = this.router.url;
+    this.href = window.location.href;
 
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
@@ -43,7 +43,7 @@ export class DetailJobComponent implements OnInit {
         this.userConnect = JSON.parse(decodedToken);
         if(this.userConnect.acf.is_liggeey == "candidate"){
           this.candidate=true
-      
+
         } else if(this.userConnect.acf.is_liggeey == "chief"){
           this.company=true
           }
@@ -53,7 +53,7 @@ export class DetailJobComponent implements OnInit {
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
         console.log(this.job);
-        
+
         this.calculateDuration();
         this.calculateDurationLastJob();
     });
@@ -64,7 +64,6 @@ canAppl(item: any): boolean {
     if (item && item.applied) {
       return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
     }
-  
     return true;}
 
   return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
@@ -217,7 +216,7 @@ calculateDurationLastJob(){
     openApplyModal(jobId: string) {
       this.HomePageService.setSelectedJobId(jobId);
       console.log(jobId);
-      
+
       const modalElement = document.getElementById('modal-apply');
       if (modalElement) {
         modalElement.click();

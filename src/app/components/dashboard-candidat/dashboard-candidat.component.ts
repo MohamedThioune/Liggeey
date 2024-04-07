@@ -20,6 +20,7 @@ export class DashboardCandidatComponent implements OnInit {
   applicant:any
   currentDate!: Date;
   sentDate: any;
+  suggestions:any;
   constructor(private usagerService:UsagerService,private homeService:HomePageService,private datePipe: DatePipe) { 
     this.isMobile = window.innerWidth < 768; 
   }
@@ -36,21 +37,22 @@ export class DashboardCandidatComponent implements OnInit {
    }
     this.homeService.homeCandidat(this.userConnect.id).subscribe((data:any)=>{
       this.homeCandidat=data
-      console.log(this.homeCandidat);
+      this.suggestions=this.homeCandidat.suggestions
      })
-     this.homeCandidat.application.forEach((element:any) => {
-      this.applicant=element        
-    });
+ 
   }
+
   ngOnChanges() {
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-    if (Array.isArray(this.applicant)) {
-      this.applicant.forEach((element: any) => {
+    if (Array.isArray(this.suggestions)) {
+      this.suggestions.forEach((element: any) => {
+        console.log(element.posted_at);
+        
       const postedDate = new Date(element.posted_at);
       if (!isNaN(postedDate.getTime())) { // Check if postedDate is a valid date
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
-     //   element.posted_at = postedDateFormatted;
+        //element.posted_at = postedDateFormatted;
         const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
         const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
   

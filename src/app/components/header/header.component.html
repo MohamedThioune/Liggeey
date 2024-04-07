@@ -73,7 +73,7 @@
                <li class="job"><a routerLink="/list-compagny" routerLinkActive="active_lien_navbar">All Companies</a> </li>
                <li class="about"><a routerLink="/about" routerLinkActive="active_lien_navbar">About</a></li>
                <li class="app"><a routerLink="/app" routerLinkActive="active_lien_navbar">Our App</a></li>
-               <li class="skills"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills Fist</a></li>
+               <li class="skills"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills First</a></li>
              </ul>
          </ul>
          <div class="join" *ngIf="!userObject">
@@ -418,17 +418,18 @@
             <div class="first-step">
               <div class="my_container_input_1 form-group">
                 <label for="username">Fisrt Name</label>
-                <input class = "input" name="username" id="Fisrt-Name" type="text" placeholder="" aria-label="default input example" value="{{userConnect.first_name}}" required>
+                <input class = "input" name="first_name" id="first_name" type="text" placeholder="" aria-label="default input example" value="{{first_name}}" required>
               </div>
               <div class="my_container_input_2 form-group">
                 <label>Last Name</label>
-                <input class = "input" name=""  type="text" placeholder="" aria-label="default input example" id="Last-Name" value="{{userConnect.name}}" required>
+                <input class = "input" name="last_name"  type="text" placeholder="" aria-label="default input example" id="last_name" value="{{last_name}}" required>
               </div>
+              
               <div class="my_container_input_2 form-group">
-                <label>Email</label>
-                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{userConnect.email}}" required>
+                <label>Role</label>
+                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{this.candidat.work_as}}" required>
               </div>
-
+              <!--
               <div class="my_container_input_2 form-group">
                 <label>Phone Number</label>
                 <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.phone}}" required>
@@ -475,5 +476,4 @@
     </div>
   </div>
 </div>
-
 

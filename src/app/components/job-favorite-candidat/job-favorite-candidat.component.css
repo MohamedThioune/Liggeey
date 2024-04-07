@@ -160,6 +160,16 @@ thead th {
   margin-top:87px;
   margin-right:23px;
 }
+.content_logo{
+  height:50px ;
+  width: 50px;
+  border-radius: 10px;
+}
+.content_logo img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
 
  .show_sidebar{
     visibility:hidden;

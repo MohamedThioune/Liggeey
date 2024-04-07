@@ -27,14 +27,30 @@ export class HomeComponent implements OnInit {
   searchTitle:string="";
 
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
-    ) { 
-    
+    ) {
+
   }
 
   ngOnInit(): void {
+
+     // Récupération du token depuis le local storage
+     const storedToken = this.usagerService.getToken();
+
+     if (storedToken) {
+                 // Décodage de la base64
+       const decodedToken = atob(storedToken);
+
+       // Parse du JSON pour obtenir l'objet original
+       this. userConnect = JSON.parse(decodedToken);
+       if(this.userConnect.acf.is_liggeey == "candidate"){
+         this.candidate=true
+       } else if(this.userConnect.acf.is_liggeey == "chief"){
+         this.compagny=true
+       }
+     }
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
-      this.candidates=data.candidates      
+      this.candidates=data.candidates
       this.article=data.artikels
       this.currentCategories=data.jobs        
       this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)                      
@@ -52,7 +68,6 @@ export class HomeComponent implements OnInit {
 
       //this.currentCategories=this.categories
     })
-       
 
 
   }

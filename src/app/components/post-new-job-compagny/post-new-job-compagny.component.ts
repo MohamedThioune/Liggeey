@@ -149,14 +149,14 @@ get skillsFormArray() {
 
 
   constructor(private fb: FormBuilder,private route: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
-  
+
   ngOnInit(): void {
 
     this.initForm()
    // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
-    
-   if (storedToken) {   
+
+   if (storedToken) {
                // Décodage de la base64
      const decodedToken = atob(storedToken);
 
@@ -246,7 +246,7 @@ onSubmit() {
       this.message.message = 'The deadline is mandatory';
       return false;
     }
-   
+
 
     return true;
   }

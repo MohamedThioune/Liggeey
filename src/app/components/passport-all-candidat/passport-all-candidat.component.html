@@ -77,9 +77,9 @@
             <!--
             <li class="nav-item">
                 <a class="nav-link" [class.active]="ongletSelectionne === 'Topics'" (click)="selectionnerOnglet('Topics')" >Topics</a>
-            </li>  
+            </li>
             -->
-            <!--
+            
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Badges / Certificates</a>
                 <div class="dropdown-menu">
@@ -87,10 +87,11 @@
                     <a class="nav-link" [class.active]="ongletSelectionne === 'Certificates'" (click)="selectionnerOnglet('Certificates')">Certificates</a>
                 </div>
             </li>
-            -->
+            <!--
             <li class="nav-item">
               <a class="nav-link" [class.active]="ongletSelectionne === 'Badges'" (click)="selectionnerOnglet('Badges')">Badges</a>
             </li>
+            -->
             <li class="nav-item">
               <a class="nav-link" [class.active]="ongletSelectionne === 'Skills'" (click)="selectionnerOnglet('Skills')" >Skills</a>
           </li>
@@ -149,8 +150,8 @@
                             <p>Kleermaker</p>
                         </div>
                     </div>
-                
-                    
+
+
                 </div>
             </div>
             <div class="livraison">
@@ -204,15 +205,15 @@
                 </div>
                 <div class="d-flex" style="justify-content:space-between;width: 85%;height:100%;">
                     <div class="profil">
-                        <p>Complete and verified profile </p>
-                        <p>Awarded for : <span>{{badge.post_title}} </span></p>
+                        <p>{{badge.post_title}} </p>
+                        <p>Awarded for : <span>{{badge.beschrijving_feedback}} </span></p>
                         <p>Date Awarded : <span>{{badge.date}}</span></p>
                     </div>
                     <div class="detail-badge">
-                        <p>Pdf :<span>Badge</span></p>
-                        <a>{{badge.post_status}}</a>
+                      <!--  <p>Pdf :<span>Badge</span></p> -->
+                        <a>Achieved</a>
                     </div>
-                  
+
                 </div>
               </div>
               <!--
@@ -230,7 +231,7 @@
                         <p>Pdf :<span>Badge</span></p>
                         <a href="">Achieved</a>
                     </div>
-                  
+
                 </div>
               </div>
               <div class="livraison">
@@ -247,91 +248,30 @@
                         <p>Pdf :<span>Badge</span></p>
                         <a href="">Achieved</a>
                     </div>
-                  
+
                 </div>
               </div>
               -->
           </div>
-          <!--
+          
           <div class="map_menu" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Badges/Certificat</p>
                 <a href="">See All</a>
               </div>
-                <div class="row">
-                  <div class="col-md-2 document">
+                <div class="row" *ngFor="let certificat of skillAll.certificats">
+                  <div class="col-md-2 document" >
+                    <!--
                       <div class="content_image_document">
                           <img src="../../../assets/img/pdf.png" alt="">
                       </div>
-                      <p>document 1. pdf</p>
-                      <p>230.mb</p>
+                      -->
+                      <p>{{certificat.title}}</p>
+                      <p>{{certificat.description}}</p>
                   </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/document.png" alt="">
-                    </div>
-                    <p>document 1. png</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/word.png" alt="">
-                    </div>
-                    <p>document 1. word</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/pdf.png" alt="">
-                    </div>
-                    <p>document 1. pdf</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/document.png" alt="">
-                    </div>
-                    <p>document 1. png</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/word.png" alt="">
-                    </div>
-                    <p>document 1. word</p>
-                    <p>230.mb</p>
-                  </div>
-                  <div class="col-md-2 document">
-                    <div class="content_image_document">
-                        <img src="../../../assets/img/pdf.png" alt="">
-                    </div>
-                    <p>document 1. pdf</p>
-                    <p>230.mb</p>
+               
                 </div>
-                <div class="col-md-2 document">
-                  <div class="content_image_document">
-                      <img src="../../../assets/img/document.png" alt="">
-                  </div>
-                  <p>document 1. png</p>
-                  <p>230.mb</p>
-                </div>
-                <div class="col-md-2 document">
-                  <div class="content_image_document">
-                      <img src="../../../assets/img/word.png" alt="">
-                  </div>
-                  <p>document 1. word</p>
-                  <p>230.mb</p>
-                </div>
-                <div class="col-md-2 document">
-                  <div class="content_image_document">
-                      <img src="../../../assets/img/pdf.png" alt="">
-                  </div>
-                  <p>document 1. pdf</p>
-                  <p>230.mb</p>
-                </div>
-                </div>                 
           </div>
-          -->
           <div class="map_menu" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Skills</p>
@@ -344,8 +284,8 @@
                           <p  style="position:absolute;top:30%;right:40%">{{skill.note}} %</p>
                       </div>
                       <p>{{skill.topic_name}}</p>
-                    </div>       
-                </div>                 
+                    </div>
+                </div>
           </div>
           <!--
           <div class="map_menu"  *ngIf="ongletSelectionne === 'Assessments' || ongletSelectionne === 'All'">
@@ -516,7 +456,7 @@
                     </td>
                   </tr>
                 </tbody>
-              </table>          
+              </table>
           </div>
           -->
           <div class="map_menu" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
@@ -546,12 +486,10 @@
                         <p>$ 400</p>
                     </div>
                 </div>
-              
               </div>
               <div class="pagination">
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
               </div>
-              
           </div>
           <!--
           <div class="map_menu" *ngIf="ongletSelectionne === 'Reviews' || ongletSelectionne === 'All'">

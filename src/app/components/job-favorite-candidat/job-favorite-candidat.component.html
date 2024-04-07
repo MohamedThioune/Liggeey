@@ -17,21 +17,21 @@
               </div>
             </div>
             -->
-            <table class="table">
+            <table class="table" *ngFor="let favorite of favorites">
               <thead class="thead table_head">
                 <tr>
                   <th scope="col">Job Title  </th>
                   <th scope="col">Date Applied</th>
-                  <th scope="col">Status</th>
+                <!-- <th scope="col">Status</th> --> 
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th class="frist-th" scope="row">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="50" viewBox="0 0 51 50" fill="none">
-                      <rect x="0.304688" width="49.9993" height="50" rx="8" fill="#4947D0"/>
-                    </svg>
+                    <div class="content_logo">
+                      <img [src]="favorite.company.logo" alt="">
+                    </div>
                     <div class="right_content_row">
                       Senior Full Stack Engineer, Creator Success
                       <div class="d-flex">
@@ -46,7 +46,7 @@
                               </clipPath>
                             </defs>
                           </svg>
-                          Catalyst
+                          {{favorite.company.sector}}
                         </p>
                         <p>
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="17" viewBox="0 0 14 17" fill="none">
@@ -58,10 +58,10 @@
                       </div>
                     </div>
                   </th>
-                  <td>Dec 5, 2023</td>
-                  <td>Active</td>
+                  <td>{{favorite.date}}</td>
+                <!-- <td>Active</td>--> 
                   <td>
-                    <button>
+                    <button [routerLink]="['/detail-job',favorite.ID]">
                       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                         <g clip-path="url(#clip0_2859_8925)">
                           <path d="M12.2661 6.11685L10.1178 3.85485C7.978 1.60177 4.50908 1.60177 2.36929 3.85485L0.220984 6.11685C0.0200888 6.32838 0.0200888 6.67136 0.220984 6.88289L2.36927 9.14489C4.50908 11.398 7.978 11.398 10.1178 9.14489L12.2661 6.88289C12.467 6.67136 12.467 6.32838 12.2661 6.11685ZM9.39029 8.37885C7.65229 10.2089 4.83482 10.2089 3.09681 8.37885L1.31227 6.49987L3.09679 4.62089C4.83479 2.79089 7.65227 2.79089 9.39027 4.62089L11.1748 6.49987L9.39029 8.37885Z" fill="#043356"/>
