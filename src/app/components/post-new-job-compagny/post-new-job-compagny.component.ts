@@ -132,7 +132,6 @@ toggleSkill(term_id: any) {
   } else {
     this.selectedSkills.push(term_id);
     skillsArray.push(this.fb.control(term_id));
-
   }
 }
 

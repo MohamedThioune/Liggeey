@@ -31,8 +31,8 @@
                         <p>*</p>
                     </label>
                     <div class="input-group">
-                        <input type="text" name="first_name" formControlName="first_name" class="form-control" id="first_name" placeholder="Mohamed"   
-                        [attr.disabled]="form.value.first_name ">
+                        <input type="text" name="first_name" formControlName="first_name" class="form-control" id="first_name" placeholder="Mohamed"
+                            >
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6   p-2">
@@ -40,7 +40,8 @@
                         <p>*</p>
                     </label>
                     <div class="input-group">
-                        <input type="text" name="work_as" formControlName="work_as" class="form-control" id="work_as" placeholder="UI Designer" [attr.disabled]="form.value.work_as ">
+                        <input type="text" name="work_as" formControlName="work_as" class="form-control" id="work_as" placeholder="UI Designer"
+                          >
                     </div>
                 </div>
               <div class="col-md-6 col-sm-6   p-2">
@@ -58,7 +59,8 @@
                   <p>*</p>
                 </label>
                 <div class="input-group">
-                  <input type="email" name="email" id="email" formControlName="email" class="form-control" placeholder="mohamed@livelearn.nl" [attr.disabled]="form.value.email ">
+                  <input type="email" name="email" id="email" formControlName="email" class="form-control" placeholder="mohamed@livelearn.nl"
+                      >
               </div>
               </div>
 
@@ -98,15 +100,37 @@
                 </label>
                 <div class="input-group">
                   <input type="text" name="language" formControlName="language" class="form-control" id="language" placeholder="English, Turkish"
-                  [attr.disabled]="form.value.language">
+                          >
                 </div>
               </div>
-              
+
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="name">Categories
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
+                          >
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6   p-2">
+                <label for="name"> Allow In Search & Listing
+                  <p>*</p>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="username"   class="form-control" id="username" placeholder="Yes"
+                          >
+                </div>
+              </div>
+
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Description</label>
-                  <textarea  formControlName="biographical_info" name="biographical_info" id="biographical_info" rows="8" [attr.disabled]="form.value.biographical_info "></textarea>
-
+                  <textarea  formControlName="biographical_info" name="biographical_info" id="biographical_info" rows="8"></textarea>
+                  <!--
+                  <button type="submit" class="btn btn-save">Save</button>
+                  -->
                 </div>
               </div>
             </div>
@@ -187,7 +211,7 @@
                   </label>
                   <div class="input-group">
                     <input type="text" name="adress" formControlName="adress" class="form-control" id="adress" placeholder="Dakar ouakam"
-                    [attr.disabled]="form.value.adress" >
+                           >
                   </div>
                 </div>
               </div>

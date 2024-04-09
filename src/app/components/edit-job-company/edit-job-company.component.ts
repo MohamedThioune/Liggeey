@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JobCompagny } from 'src/app/interfaces/job-compagny';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
@@ -22,7 +22,98 @@ export class EditJobCompanyComponent implements OnInit {
     type: '',
     message: ''
   };
-
+  langues: string[] = ['French', 'English', 'Dutch'];
+  skillsTabs:any=[   {
+    "term_id": 285,
+      "name": "Google",
+      "slug": "google",
+      "term_group": 0,
+      "term_taxonomy_id": 285,
+      "taxonomy": "course_category",
+      "description": "google",
+      "parent": 283,
+      "count": 0,
+      "filter": "raw",
+      "cat_ID": 285,
+      "category_count": 0,
+      "category_description": "google",
+      "cat_name": "Google",
+      "category_nicename": "google",
+      "category_parent": 283
+  },
+  {
+    "term_id": 288,
+    "name": "Odoo",
+    "slug": "odoo",
+    "term_group": 0,
+    "term_taxonomy_id": 288,
+    "taxonomy": "course_category",
+    "description": "odoo",
+    "parent": 283,
+    "count": 4,
+    "filter": "raw",
+    "cat_ID": 288,
+    "category_count": 4,
+    "category_description": "odoo",
+    "cat_name": "Odoo",
+    "category_nicename": "odoo",
+    "category_parent": 283
+  },
+  {
+    "term_id": 284,
+    "name": "Salesforce",
+    "slug": "salesforce",
+    "term_group": 0,
+    "term_taxonomy_id": 284,
+    "taxonomy": "course_category",
+    "description": "salesforce",
+    "parent": 283,
+    "count": 4,
+    "filter": "raw",
+    "cat_ID": 284,
+    "category_count": 4,
+    "category_description": "salesforce",
+    "cat_name": "Salesforce",
+    "category_nicename": "salesforce",
+    "category_parent": 283
+  },
+  {
+    "term_id": 290,
+    "name": "UI-UX Designer",
+    "slug": "web-designer",
+    "term_group": 0,
+    "term_taxonomy_id": 290,
+    "taxonomy": "course_category",
+    "description": "ui-ux-designer",
+    "parent": 283,
+    "count": 1,
+    "filter": "raw",
+    "cat_ID": 290,
+    "category_count": 1,
+    "category_description": "ui-ux-designer",
+    "cat_name": "UI-UX Designer",
+    "category_nicename": "web-designer",
+    "category_parent": 283
+  },
+  {
+    "term_id": 286,
+    "name": "Wordpress",
+    "slug": "wordpress",
+    "term_group": 0,
+    "term_taxonomy_id": 286,
+    "taxonomy": "course_category",
+    "description": "wordpress",
+    "parent": 283,
+    "count": 6,
+    "filter": "raw",
+    "cat_ID": 286,
+    "category_count": 6,
+    "category_description": "wordpress",
+    "cat_name": "Wordpress",
+    "category_nicename": "wordpress",
+    "category_parent": 283
+  }
+  ]
 
   constructor(private route : ActivatedRoute,private router:Router,private fb : FormBuilder , private homeService : HomePageService,private usagerService:UsagerService) {
 
@@ -33,7 +124,9 @@ export class EditJobCompanyComponent implements OnInit {
     this.id = +this.route.snapshot.params['id'];
     this.homeService.getDetailJob(this.id).subscribe(data => {
         this.job = data;
+        console.log(this.job);
         this.form.patchValue(this.job);
+        
     });
      // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
@@ -60,31 +153,62 @@ export class EditJobCompanyComponent implements OnInit {
     this.form = this.fb.group({
       ID: this.fb.control("", []),
       description: this.fb.control("", [Validators.required]),
-      job_level_of_experience: this.fb.control("", Validators.required),
-      skills: this.fb.control(null),
+      level_of_experience: this.fb.control("", Validators.required),
       job_langues: this.fb.control("", Validators.required),
       expired_at: this.fb.control("", [Validators.email, Validators.required]),      
+      skills: this.fb.array([]),
     });
   }
 
-  
-  onSkillChange(event:any) {
-    const value = event?.target?.value;
-    if (value) {
-      this.job.skills.forEach((skill:any) => {
-        if (skill.term_id==value) {
-          this.tabsKills= [];
-          this.tabsKills.push(skill)
-        }
-      });
-    }
-    console.log(this.tabsKills);
+
+
+  selectedSkills: any[] = [];
+
+toggleSkill(term_id: any) {
+  const skillsArray = this.form.get('skills') as FormArray;
+
+  if (this.selectedSkills.includes(term_id)) {
+    this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
+    const index = skillsArray.value.indexOf(term_id);
+    skillsArray.removeAt(index);
+  } else {
+    this.selectedSkills.push(term_id);
+    skillsArray.push(this.fb.control(term_id));
   }
+  
+}
+
+removeSkill(term_id: any) {
+  this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
+}
+getSkillName(skillId: any): string {
+  const skill = this.skillsTabs.find((skill:any) => skill.term_id === skillId);
+  return skill ? skill.cat_name : '';
+}
+getskillsFormArray() {
+  return this.form.get('skills') as FormArray;
+}
+getSkills(tabSkillsId:any) {
+  const allSkills:any = [];
+  if (Array.isArray(tabSkillsId)) {
+    tabSkillsId.forEach(skillID => {
+      if (Array.isArray(this.skillsTabs)) {
+        this.skillsTabs.forEach(skill => {
+          if (skillID==skill.term_id) {
+            allSkills.push(skill);
+          } 
+        });
+    }
+    });
+}
+return allSkills;
+
+}
 
   validateFormJob(job: any):boolean{
-    const { job_level_of_experience, job_langues, expired_at } = job;
+    const { level_of_experience, job_langues, expired_at } = job;
     
-    if (job_level_of_experience == 0) {
+    if (level_of_experience == 0) {
       this.message.message = 'Experience level is mandatory';
       return false;
     }
@@ -103,7 +227,7 @@ export class EditJobCompanyComponent implements OnInit {
   
   onSubmit(){
     if (this.validateFormJob(this.form.value)) {
-    this.form.value.skills = this.tabsKills;
+   this.form.value.skills = this.getSkills(this.selectedSkills);
     console.log(this.form.value);
     //console.log(jobData);
     this.homeService.editJob(this.form.value,this.userConnect.id)
@@ -128,14 +252,14 @@ export class EditJobCompanyComponent implements OnInit {
         // Gestion des erreurs
         (error) => {
           ToastNotification.open({
-            type: 'Edit failed',
+            type: 'error',
             message: error.error.message
           });
         }
       );
   } else {
     ToastNotification.open({
-      type: 'Edit failed',
+      type: 'error',
       message: this.message.message
     });
   }
