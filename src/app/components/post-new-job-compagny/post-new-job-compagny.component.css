@@ -384,4 +384,7 @@ input[type="checkbox"]{
     .form-control {
       width: 100%;
     }
+   .card-body{
+     padding: 25px 15px !important;
+   }
  }

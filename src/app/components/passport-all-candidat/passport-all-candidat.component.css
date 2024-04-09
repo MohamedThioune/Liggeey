@@ -188,7 +188,33 @@ h1 {
     visibility: visible;
     margin-bottom: 30px;
     margin-left: 0;
+    margin-top: 60px;
 }
+   h1 {
+     font-size: 20px;
+     margin-bottom: 25px;
+   }
+   .map_menu {
+     padding: 0px;
+     width: 100%;
+     border: none;
+   }
+   .applies_job{
+     margin-bottom: 35px;
+   }
+   .content_image_livraison-badge{
+     height: 91px !important;
+   }
+   .document {
+     margin: 0 10px 20px !important;
+     max-width: 45% !important;
+     flex: 44% !important;
+   }
+   .item_course{
+     max-width: 100% !important;
+     flex: 100% !important;
+     margin: 0 15px 30px !important;
+   }
 .map_menu .all{
     display: block;
 }

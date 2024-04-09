@@ -57,7 +57,6 @@
 .content_left_menu ul li p{
     margin: 0;
     font-size: 15px;
-    font-weight: 600;
     line-height: 50px;
 }
 .right_menu{
@@ -94,7 +93,6 @@
 .head_map_menu span{
     color: #202124;
     font-size: 18px;
-    font-weight: 600;
 }
 .head_map_menu p{
   border-radius: 8px;
@@ -113,12 +111,6 @@ table tbody tr th p{
   color: #696969;
   font-size:14px;
   font-weight:600
-}
-table tbody tr th p:last-child{
-  margin-left:22px;
-}
-table tbody tr th svg{
-  margin-right: 5px;
 }
 .right_content_row{
   padding-left:20px;
@@ -187,6 +179,21 @@ thead th {
   box-shadow: none !important;
 }
 
+.title-card {
+  color: #111111 !important;
+  font-size: 16px !important;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+table tbody .sub-detail-title{
+  color: #696969;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 25px;
+}
+
  @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     margin: 32px 11px 74px 12px;
@@ -206,7 +213,6 @@ thead th {
     border-radius: 8px;
     padding: 10px 13px 8px 13px;
     font-size: 16px;
-    font-weight: 600;
     visibility:visible;
     background-color: #DDF6F1;
     margin-top: 30px;

@@ -37,8 +37,8 @@
             </th>
             <td *ngIf="job.applied.length > 0" [routerLink]="['/applicant-compagny', job.ID]">{{ job.applied.length }}+ Applied</td>
             <td style="text-decoration: none;" *ngIf="job.applied.length === 0">No applications</td>
-                        <td>{{job.date}}
-              {{job.expired_at}}</td>
+                        <td>{{job.date}} 
+              {{job.expiration}}</td>
             <td>Active</td>
             <td>
               <button [routerLink]="['/detail-job',job.ID]">

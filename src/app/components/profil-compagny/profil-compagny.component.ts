@@ -5,6 +5,7 @@ import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { Router } from '@angular/router';
 import { JobCompagny } from 'src/app/interfaces/job-compagny';
+import { ProfilCompagny } from 'src/app/interfaces/profil-compagny';
 
 @Component({
   selector: 'app-profil-compagny',
@@ -22,6 +23,9 @@ export class ProfilCompagnyComponent implements OnInit {
     type: '',
     message: ''
   };
+   countries = ['Senegal', 'France', 'United States', 'Canada', 'Germany', 'China']; // Ajoutez d'autres pays au besoin
+   cities = ['Dakar', 'France', 'United States', 'Canada', 'Amsterdame', 'China']; // Ajoutez d'autres pays au besoin
+
   constructor(private fb: FormBuilder,private route: Router,private homeService:HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
@@ -35,8 +39,10 @@ export class ProfilCompagnyComponent implements OnInit {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
+   
    this.homeService.profilJob(this.userConnect.id).subscribe((data:any)=>{
     this.profil=data;
+    this.form.patchValue(this.profil);    
     console.log(this.profil);
     
   })
@@ -44,11 +50,14 @@ export class ProfilCompagnyComponent implements OnInit {
    //console.log(this.userConnect.id);
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password:['',[]],
-      firstName:['',[]],
-      lastName:['',[]],
-      name:['',[]],
-      username:['',[]]
+      title:['',[]],
+      website:['',[]],
+      sector:['',[Validators.required]],
+      size:['',[Validators.required]],
+      biography:['',[]],
+      country:['',[]],
+      place:['',[Validators.required]],
+      address:['',[]],
     });
 
  
@@ -56,11 +65,10 @@ export class ProfilCompagnyComponent implements OnInit {
 
   onSubmit() {
     // Utilisez le service pour postuler à l'emploi
-    console.log(this.form.value);
+    console.log(this.profil);
     
     if (this.validateFormJob(this.form.value)) {
-
-    this.homeService.postJob(this.form.value,this.userConnect.id)
+    this.homeService.updateProfileCompany(this.userConnect.id,this.form.value)
       .subscribe(
         // Succès de la requête
         (response) => {
@@ -68,14 +76,14 @@ export class ProfilCompagnyComponent implements OnInit {
           let typeR = "error"
           if (<any>response ) {
             typeR = "success";
-            this.message= "Job created successfully."
+            this.message= "Job Updated successfully."
           }
           ToastNotification.open({
             type: typeR,
             message: this.message
           });
           if (typeR == "success") {
-            this.route.navigate(['/job']);
+            this.route.navigate(['/dashboard-employer',this.userConnect.id]);
           }
         },
         // Gestion des erreurs
@@ -93,29 +101,33 @@ export class ProfilCompagnyComponent implements OnInit {
     });
   }
 }
-validateFormJob(job: JobCompagny): boolean {
-  const { title, job_level_of_experience, job_langues, job_contract, job_application_deadline } = job;
-  if (title == "") {
-    this.message.message = 'Title is mandatory';
+validateFormJob(profile: ProfilCompagny): boolean {
+  const {website, sector,size, biography, country, place } = profile;
+  if (biography == "") {
+    this.message.message = 'Biography of your company is mandatory';
     return false;
   }
-  if (job_level_of_experience == 0) {
-    this.message.message = 'Experience level is mandatory';
+
+  if (place == "") {
+    this.message.message = 'City of your Company is mandatory';
     return false;
   }
-  if (job_langues == "") {
-    this.message.message = 'Language is mandatory';
+  if (country == "") {
+    this.message.message = 'Country of your Company is mandatory';
     return false;
   }
-  if (job_contract == "") {
-    this.message.message = 'The type of contract is mandatory';
+  if (website == "") {
+    this.message.message = 'Your Website is mandatory';
     return false;
   }
-  if (job_application_deadline == "") {
-    this.message.message = 'The deadline is mandatory';
+  if (size == "") {
+    this.message.message = 'Size of your Company is mandatory';
     return false;
   }
- 
+  if (sector == "") {
+    this.message.message = 'Your sector is mandatory';
+    return false;
+  }
 
   return true;
 }

@@ -404,6 +404,10 @@ ul li{
    .card_article{
       margin-bottom: 16px;
    }
+  .image_menu_about h2{
+    font-size: 35px;
+    margin-bottom: 50px;
+  }
    .jobs{
       margin-top: 80px;
       margin-bottom: 60px;
@@ -433,8 +437,19 @@ ul li{
    }
    .search_about {
       padding:10px 27px;
+     flex-wrap: wrap;
    }
    .search_about button{
       padding: 17px 22px 15px 20px;
     }
+  .search_about .keywords, .search_about .location {
+    width: 100%;
+  }
+  .search_about .limit {
+    display: none;
+  }
+  .header_popular_job span {
+    font-size: 20px;
+    text-align: center;
+  }
  }

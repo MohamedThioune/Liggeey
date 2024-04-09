@@ -280,6 +280,9 @@
   }
 
  @media all and (min-width: 300px) and (max-width: 767px){
+   .content_right_menu{
+     margin-top: 75px;
+   }
     .logo{
         margin: 32px 11px 74px 12px;
         border-radius: 8px;

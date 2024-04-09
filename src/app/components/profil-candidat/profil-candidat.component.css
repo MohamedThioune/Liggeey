@@ -271,6 +271,13 @@ h2 {
   width: 77%;
 }
 
+/* Champ de saisie désactivé */
+input[disabled]:hover {
+  background-color: #f2f2f2; /* Couleur de fond grise */
+  cursor: not-allowed; /* Curseur indiquant que le champ n'est pas modifiable */
+}
+
+
  @media all and (min-width: 300px) and (max-width: 767px){
    .card-body{
      padding: 35px 25px !important;

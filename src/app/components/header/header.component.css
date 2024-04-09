@@ -203,20 +203,9 @@ input[type="text"]:focus {
     cursor: pointer;
 }
 
-.categories svg{
-    margin-right: 10px;
-}
-
-.dropdown-menu.dropdown-categories{
-  padding-left: 50px;
-  padding-right: 150px;
-}
 
 .dropdown.dropdown-modife .dropdown-menu{
-  padding: 13px 20px 20px 5px;
-  margin-top: 20px;
-  margin-right: 50px;
-
+margin-top: 25px;
   background-color: #FFF;
 }
 
@@ -238,6 +227,9 @@ nav ul li span{
 
 }
 .dropdown.dropdown-modife .dropdown-menu a{
+  display: flex;
+  align-items: center;
+  justify-content: left;
   padding-bottom: 10px;
   font-size: 16px;
   font-family: "Roboto-Regular";
@@ -559,10 +551,19 @@ nav ul li span{
   min-width: 66%;
 }
 
+
 @media all and (min-width: 300px) and (max-width: 767px){
     header ul li a:hover{
         color :#1AC4A2;
     }
+  header ul li a {
+    padding: 8px 23px;
+    text-align: left;
+  }
+  .join  .hiring  {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
     .header_container_logo{
         justify-content: space-between;
         width: 100%;
@@ -572,20 +573,19 @@ nav ul li span{
        margin-right: 5px;
     }
     .header_container_logo .categories{
-        align-items:center;
-       padding: 19px 16px;
+      align-items: center;
+      padding: 13px 16px 15px;
       width: 51%;
     }
+  #dropdownMenuBurger {
+    font-size: 22px;
+  }
     .menuH #dropdownMenuButton{
       font-size: 26px !important;
     }
     header .header_container_logo .content_image{
-      width: 171px;
-      height: fit-content;
-    }
-    header .header_container_logo .content_image{
-        width: 100px;
-        height: 35.616px;
+      width: 130px;
+      height: auto;
       margin-left: -10px;
     }
     header .header_container_logo .content_image img{
@@ -598,9 +598,11 @@ nav ul li span{
         margin: 0;
     }
     .dropdown-menu-right{
-        padding: 25px 0 25px ;
-      top: 29px !important;
-      left: 13px !important;
+      padding: 25px 0 25px;
+      top: 51px !important;
+      left: -100px !important;
+      right: 0px !important;
+      float: right;
     }
     .second-nav{
         padding-bottom: 25px;
@@ -610,6 +612,21 @@ nav ul li span{
     }
   .mobile-header{
     display: block;
+    height: 76px;
+  }
+  .mobile-header .header_container_logo {
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    width: 100% !important;
+    justify-content: space-between;
+  }
+  .cathegories {
+    flex-wrap: wrap;
+  }
+  .dropdown-menu-right li {
+    width: 100%;
+    text-align: left;
   }
 }
 
