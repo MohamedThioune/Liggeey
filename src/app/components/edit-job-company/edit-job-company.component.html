@@ -21,7 +21,7 @@
                 <input type="number" min="1" name="job_level_of_experience" formControlName="job_level_of_experience" class="form-control" id="job_level_of_experience" placeholder="Take a number value by 'years'">
               </div>
             </div>
-            <div class="form-group col-50">
+          <!--  <div class="form-group col-50">
               <label for="email">
                 Skills  <span class="important">*</span>
               </label>
@@ -30,16 +30,18 @@
                     <option *ngFor="let skill of job.skills" [value]="skill.term_id">{{skill.name}}</option>
                 </select>
               </div>
-             <!--  <div class="input-group">
+               <div class="input-group">
                 <input type="text" name="skills" *ngFor="let skill of job.skills"  formControlName="skills" class="form-control" id="email" >
-              </div>  -->
-            </div>
+              </div> 
+            </div>   -->
             <div class="form-group col-50">
               <label for="job_langues">Langues  <span class="important">*</span>
               </label>
               <div class="input-group">
-                <input type="text" name="job_langues" formControlName="job_langues" class="form-control" id="job_langues" placeholder="French,English,Dutch">
-              </div>
+                <select name="job_langues" formControlName="job_langues" class="form-control" id="job_langues">
+                    <option *ngFor="let langue of langues" [value]="langue">{{ langue }}</option>
+                </select>
+            </div>
             </div>
             <div class="form-group col-50">
               <label for="job_application_deadline">Application deadline  <span class="important">*</span>
@@ -50,6 +52,40 @@
               </div>
               <div *ngIf="dateError" class="error-message">Invalid date format (dd/mm/yyyy) or Incorrect Date</div>
 
+            </div>
+            <div class="form-group col-100">
+              <label for="skills">Skills</label>
+              <div class="input-group " >
+                <!--
+                  <select name="skills" formControlName="skills" class="form-control" id="skills" >
+                      <option *ngFor="let skill of job.skills" [value]="skill">{{ skill.name }}</option>
+                  </select>
+                  -->
+                  <button type="button" class="btn btn-light dropdown-toggle col-12" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+    
+                </button>
+                              <!-- Affichage des cases à cocher -->
+                <div class="dropdown-menu col-md-6" aria-labelledby="dropdownMenuButton">
+                  <div class="form-check" *ngFor="let skill of skillsTabs">
+                    <input class="form-check-input checkbox" formArrayName="skills" type="checkbox" [value]="skill.term_id" (change)="toggleSkill(skill.term_id)" [checked]="selectedSkills.includes(skill.term_id)">
+                    <label class="form-check-label">
+                      {{skill.cat_name}}
+                    </label>
+                  </div>
+                </div>
+  
+                <!-- Affichage des compétences sélectionnées -->
+                <div *ngIf="selectedSkills.length > 0" class="selected-skills">
+                  <ul>
+                    <li *ngFor="let skillId of selectedSkills">
+                      {{ getSkillName(skillId) }}
+                      <span class="remove-icon" (click)="removeSkill(skillId)">×</span>
+                    </li>
+                  </ul>
+                </div>
+  
+              </div>
             </div>
 
             <button class="btn btn-save create" type="submit"> Save </button>

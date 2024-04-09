@@ -132,7 +132,6 @@ if (cachedData && typeof cachedData === 'object' ) {
             this.last_name=this.candidat.last_name,
             this.avatar=this.candidat.avatar,
             this.work_as=this.candidat.work_as
-
         } else {
             console.error('Cached data does not contain work_as property or is not in the expected format.');
         }
