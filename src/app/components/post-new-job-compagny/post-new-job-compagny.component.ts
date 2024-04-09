@@ -185,7 +185,7 @@ onSubmit() {
             message: this.message
           });
           if (typeR == "success") {
-            this.route.navigate(['/job']);
+            this.route.navigate(['/manage-compagny',this.userConnect.id]);
           }
         },
         // Gestion des erreurs

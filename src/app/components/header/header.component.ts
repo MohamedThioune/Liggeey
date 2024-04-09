@@ -312,7 +312,7 @@ if (cachedData && typeof cachedData === 'object' ) {
 
         ToastNotification.open({
           type: 'success',
-          message: "Already Apply four this job"
+          message: "Already Applied for this job"
         });
         this.userObject=true
 
