@@ -124,7 +124,9 @@ export class EditJobCompanyComponent implements OnInit {
     this.id = +this.route.snapshot.params['id'];
     this.homeService.getDetailJob(this.id).subscribe(data => {
         this.job = data;
+        console.log(this.job);
         this.form.patchValue(this.job);
+        
     });
      // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
@@ -151,7 +153,7 @@ export class EditJobCompanyComponent implements OnInit {
     this.form = this.fb.group({
       ID: this.fb.control("", []),
       description: this.fb.control("", [Validators.required]),
-      job_level_of_experience: this.fb.control("", Validators.required),
+      level_of_experience: this.fb.control("", Validators.required),
       job_langues: this.fb.control("", Validators.required),
       expired_at: this.fb.control("", [Validators.email, Validators.required]),      
       skills: this.fb.array([]),
@@ -204,9 +206,9 @@ return allSkills;
 }
 
   validateFormJob(job: any):boolean{
-    const { job_level_of_experience, job_langues, expired_at } = job;
+    const { level_of_experience, job_langues, expired_at } = job;
     
-    if (job_level_of_experience == 0) {
+    if (level_of_experience == 0) {
       this.message.message = 'Experience level is mandatory';
       return false;
     }
