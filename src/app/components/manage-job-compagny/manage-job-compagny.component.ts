@@ -39,7 +39,7 @@ export class ManageJobCompagnyComponent implements OnInit {
       
     this.homeService.manageJob(this.userConnect.id).subscribe((data:any)=>{
       this.openJobs=data;
-      console.log(this.openJobs);
+      //console.log(this.openJobs);
       
       this.openJobs.forEach((element:any) => {
         this.appliedNumber=element.applied.length
@@ -48,10 +48,16 @@ export class ManageJobCompagnyComponent implements OnInit {
         //console.log(this.tabNumber);
         const date = new Date(element.posted_at);
         element.date = this.formatDate(date);
-        const espiration =new Date(element.expired_at)
-        element.espiration = this.formatDate(espiration);
-
-        console.log(element.date);
+        if (element.expired_at) {
+          const expirationDate = new Date(element.expired_at);
+          if (!isNaN(expirationDate.getTime())) {
+            element.expiration = this.formatDate(expirationDate);
+          } else {
+            element.expiration = ''; 
+          }
+        } else {
+          element.expiration = ''; 
+      }
 
       });
     })
@@ -94,7 +100,6 @@ export class ManageJobCompagnyComponent implements OnInit {
       message: this.message
     });
     if (typeR == "success") {
-      alert("Job deleted successfully.")
       this.router.navigate(['/manage-compagny/'+this.userConnect.id]);
     }
   },

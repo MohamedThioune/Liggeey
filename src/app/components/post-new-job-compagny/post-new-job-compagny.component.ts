@@ -132,7 +132,6 @@ toggleSkill(term_id: any) {
   } else {
     this.selectedSkills.push(term_id);
     skillsArray.push(this.fb.control(term_id));
-
   }
 }
 
@@ -185,7 +184,7 @@ onSubmit() {
             message: this.message
           });
           if (typeR == "success") {
-            this.route.navigate(['/job']);
+            this.route.navigate(['/manage-compagny',this.userConnect.id]);
           }
         },
         // Gestion des erreurs

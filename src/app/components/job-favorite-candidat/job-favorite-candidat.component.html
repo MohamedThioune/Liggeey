@@ -17,7 +17,7 @@
               </div>
             </div>
             -->
-            <table class="table">
+            <table class="table" *ngFor="let favorite of favorites">
               <thead class="thead table_head">
                 <tr>
                   <th scope="col">Job Title  </th>
@@ -46,7 +46,7 @@
                               </clipPath>
                             </defs>
                           </svg>
-                          {{favorite.company.sector}}
+                          {{favorite.company.title}}
                         </p>
                         <p>
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="17" viewBox="0 0 14 17" fill="none">

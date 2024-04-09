@@ -102,7 +102,7 @@ export class CategorieComponent implements OnInit {
     if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
       return this.category.jobs.filter((job:any) => {
         const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
-        const placeMatch = this.searchLocation.trim() === '' || job.company.country.toLowerCase().includes(this.searchLocation.toLowerCase());
+        const placeMatch = this.searchLocation.trim() === '' || job.company.place.toLowerCase().includes(this.searchLocation.toLowerCase());
         return titleMatch && placeMatch;
       });
     } else {

@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   id!:number;
   avatar:any;
   work_as:any
+  work:any
   jobs:any;
   applyJobs=false;
   job:any
@@ -48,7 +49,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   selectedFileName: string | undefined;
   isModalVisible: boolean = true; // Set to true initially to show the modal
   public href: string = "";
-
+  notification:any;
 
   constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
     this.isMobile = window.innerWidth < 768;
@@ -142,13 +143,17 @@ if (cachedData && typeof cachedData === 'object' ) {
                     if (data ) {
                         
           
-        this.candidat = { work_as: data.work_as };
+        this.candidat = { work_as: data.work_as,first_name:data.first_name };
                         localStorage.setItem('cachedCandidat', JSON.stringify(data));
+                        this.first_name=this.candidat.first_name;
+                        console.log(this.first_name,this.last_name);
+
                     } else {
                         console.error('Received data does not contain work_as property or is not in the expected format.');
                     }
                 });
     }
+    
     
     
     
@@ -192,13 +197,30 @@ if (cachedData && typeof cachedData === 'object' ) {
               message: "You must be a candidate to Apply"
             });
           }
-          console.log(userConnect);
           
           this.first_name = userConnect.first_name;
           this.last_name = userConnect.last_name;
           this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
           this.id=userConnect.id
-          console.log(userConnect);
+          console.log(userConnect,this.id);
+                  // Récupérer les détails du candidat et stocker les informations nécessaires dans le cache
+        this.homeService.getDetailCandidate(this.id).subscribe(data => {
+          if (data && 'work_as' in data) {
+            const cachedData = {
+              work_as: data.work_as,
+              first_name:data.first_name,
+              last_name:data.last_name,
+              avatar:data.image
+              // Vous pouvez ajouter d'autres informations nécessaires ici
+            };
+            localStorage.setItem('cachedCandidat', JSON.stringify(data));
+           
+            this.work= localStorage.getItem('cachedCandidat');
+            const parsedData = JSON.parse(this.work);
+            this.work_as = parsedData.work_as;            
+            
+          } 
+        });
 
         }else {
           console.log('noconnect');
@@ -233,7 +255,12 @@ if (cachedData && typeof cachedData === 'object' ) {
   }
 
   goToFinalStep() {
-
+    this.notification ={
+      userApplyId:3,
+      title:"Apply Job Successfully",
+      content:"Apply Job Successfully",
+      receiver_id:this.id
+    }
     if (this.id && this.selectedJobId) {
       if(this.candidate == true){
         this.homeService.getDetailJob(this.selectedJobId).subscribe((data:any) => {
@@ -253,6 +280,7 @@ if (cachedData && typeof cachedData === 'object' ) {
             if (<any>response ) {
               typeR = "success";
               this.message= "Your job application has been successfully submitted."
+              this.homeService.sendNotification(this.id,this.notification)
               // this.showFirstStep =  !this.showFirstStep;
               // this.showSecondStep = !this.showSecondStep;
             }
@@ -283,7 +311,7 @@ if (cachedData && typeof cachedData === 'object' ) {
 
         ToastNotification.open({
           type: 'success',
-          message: "Already Apply four this job"
+          message: "Already Applied for this job"
         });
         this.userObject=true
 

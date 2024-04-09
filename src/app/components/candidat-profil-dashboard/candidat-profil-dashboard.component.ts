@@ -64,9 +64,9 @@ export class CandidatProfilDashboardComponent implements OnInit {
   }
   rejectCandidatByCompany(){
 
-    if (this.userConnect && this.jobId ) {
+    if (this.candidat && this.jobId ) {
       // Utilisez le service pour ajouter l'emploi aux favoris
-      this.HomePageService.rejectCandidatByCompany(this.userConnect.id, this.jobId)
+      this.HomePageService.rejectCandidatByCompany(this.candidat.ID, this.jobId)
         .subscribe(
           // Succès de la requête
              (response) => {
@@ -74,7 +74,7 @@ export class CandidatProfilDashboardComponent implements OnInit {
               let typeR = "error"
               if (<any>response ) {
                 typeR = "success";
-                this.message= "Candidate successfully rejected."
+                this.message= "User application rejected with success !."
               }          
               ToastNotification.open({
                 type: typeR,
@@ -88,8 +88,10 @@ export class CandidatProfilDashboardComponent implements OnInit {
           (error) => {            
             ToastNotification.open({
               type: 'error',
-              message: error.error.message
+              message: error.error
             }); 
+         //   console.log(error.error);
+
           }
         );
     } else {      
@@ -97,22 +99,24 @@ export class CandidatProfilDashboardComponent implements OnInit {
         type: 'error',
         message: this.message.message
       });  
+    //  console.log( this.message.message);
+      
     }
   }
 
   approveCandidatByCompany(){
-    if (this.userConnect && this.jobId ) {
+    if (this.candidat && this.jobId ) {
       console.log(this.userConnect,this.jobId);
       
       // Utilisez le service pour ajouter l'emploi aux favoris
-      this.HomePageService.approveCandidatByCompany(this.userConnect.id, this.jobId)
+      this.HomePageService.approveCandidatByCompany(this.candidat.id, this.jobId)
         .subscribe(
           // Succès de la requête
              (response) => {
               let typeR = "error"
               if (<any>response ) {
                 typeR = "success";
-                this.message= "Candidate accepted successfully."
+                this.message= "User application approved with success !."
               }          
               ToastNotification.open({
                 type: typeR,
@@ -126,7 +130,7 @@ export class CandidatProfilDashboardComponent implements OnInit {
           (error) => {            
             ToastNotification.open({
               type: 'error',
-              message: error.error.message
+              message: error.error
             }); 
           }
         );

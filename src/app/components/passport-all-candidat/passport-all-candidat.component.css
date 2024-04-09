@@ -410,9 +410,10 @@ table tbody tr th {
   }
 
  /************************prefered course ***********************************/
+ /*
 .item_course{
-    margin: 43px;
-}
+    margin: 23px;
+}*/
 .item_course p:nth-child(2){
     color: #043356;
     font-size: 23px;
@@ -509,4 +510,10 @@ table tbody tr th {
     justify-content: space-between;
     font-size: 17px;
     width: 8%;
+}
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
 }
