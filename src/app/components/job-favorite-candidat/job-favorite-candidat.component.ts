@@ -52,6 +52,10 @@ export class JobFavoriteCandidatComponent implements OnInit {
   trashFavoritesJob(idJob:string) {
     if (confirm('Do you want to remove this job from your favorites?')) {
 
+    console.log(this.identifiant,idJob);
+    //return
+    
+    // Assurez-vous que this.userConnect et this.job sont définis
     if (this.identifiant && idJob) {
       // Utilisez le service pour postuler à l'emploi
       this.HomePageService.trashFavoritesJob(this.identifiant, idJob)

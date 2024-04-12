@@ -114,9 +114,7 @@
   border-radius: 8px;
   background: rgba(224, 224, 224, 0.22);
 }
-form{
-/* border: 1px solid green; */
-}
+
 .footer {
  display: flex;
  justify-content: center;

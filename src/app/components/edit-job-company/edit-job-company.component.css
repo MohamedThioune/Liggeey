@@ -107,3 +107,10 @@ label p {
   font-size: 12px; /* Taille de la police du message d'erreur */
   margin-top: 5px; /* Marge supérieure du message d'erreur */
 }
+
+.dropdown-toggle{
+  background-color: white;
+  border: 2px solid #d3d8de;
+  color: #000;
+  text-align: right;
+}
