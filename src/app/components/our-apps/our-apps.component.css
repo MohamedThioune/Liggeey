@@ -97,10 +97,21 @@ subs {
 }
 @media all and (min-width: 300px) and (max-width: 767px){
   .online-course {
-    width: 50%;
+    margin-bottom: 25px !important;
+    margin-top: 0 !important;
   }
-
-
+  .content-others-block{
+    margin-top: 0 !important;
+  }
+  body{
+    padding-top: 50px !important;
+    overflow-x: hidden;
+  }
+  .text1{
+    color: #2D2D2E;
+    font-size: 20px;
+    font-weight: 500;
+  }
   .item {
     width: 100%;
     display: flex;
@@ -108,7 +119,7 @@ subs {
   }
 
   .head {
-    width: 60%;
+    width: 100%;
   }
 
   .img {
@@ -139,6 +150,26 @@ subs {
   .subs-right p {
     text-align: center;
 
+  }
+  .mockup-app {
+    height: 375px;
+    margin: -35px 0;
+  }
+  .row {
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+  }
+
+  .app-img {
+    margin-top: 24px;
+  }
+  .content-description{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .img-slide-mockup {
+    width: 90% !important;
+    margin: 0 auto;
   }
 
 }

@@ -7,10 +7,22 @@
     height: fit-content;
 }
 .image_job_applies{
-    width: 70px;
-    height: 70px;
-    background-color: #E6EBEF;
-    border-radius: 8px;
+  width: 70px;
+  height: 70px;
+  background-color: #E6EBEF;
+  border-radius: 8px;
+}
+.image_job_applies, .image_job_favorites{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image_job_applies .fa{
+  font-size: 25px;
+}
+.image_job_favorites .fa{
+  font-size: 25px;
+  color: #1AC4A2;
 }
 .applies_job{
     display: flex;
@@ -268,6 +280,9 @@
   }
 
  @media all and (min-width: 300px) and (max-width: 767px){
+   .content_right_menu{
+     margin-top: 75px;
+   }
     .logo{
         margin: 32px 11px 74px 12px;
         border-radius: 8px;

@@ -149,6 +149,10 @@ section{
   width: 45%;
   margin-bottom: 25px;
 }
+.content-top-skill .container-fluid {
+  z-index: 99 !important;
+  position: relative !important;
+}
 @media (min-width: 300px) and (max-width: 767px){
   .content-top-skill h1{
     font-size: 40px;
@@ -172,8 +176,11 @@ section{
     width: 100%;
   }
   .btn-store {
-    width: 50%;
-    margin-bottom: 58px;
+    width: 60%;
+    margin: 0 auto 30px;
+  }
+  .btn-store {
+    margin-bottom: 50px;
   }
   .content-img-mockup {
     width: 100%;
@@ -190,5 +197,9 @@ section{
   .content-img-more-skills{
     width: 100%;
     margin: 36px auto 0;
+  }
+  .group-btn-download {
+    display: flex !important;
+    flex-wrap: wrap;
   }
 }

@@ -120,8 +120,9 @@ label p {
   color: #D93025;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 0;
   width: fit-content;
+  border: none;
+  background: none;
 }
 .education .content_education {
   margin-bottom: 38px;
@@ -141,6 +142,7 @@ label p {
   font-weight: 600;
   color: #202124;
   margin-bottom: 4px;
+  min-width: 27%;
 }
 .education .content_education .date_education p:last-child{
     color: #D93025;
@@ -150,9 +152,11 @@ label p {
     padding: 5px  20px 5px 20px;
 }
 .education .content_education .date_education .button{
-  margin: 0 10% 0 15%;
   display: flex;
   border: none;
+  width: fit-content;
+  margin-right: 65px;
+  padding-right: 90px;
 }
 .education .content_education .date_education button{
   background-color: #F0F5F7;
@@ -212,6 +216,7 @@ label p {
     font-size: 18px;
     font-weight: 600;
     color: #202124;
+  min-width: 13%;
 }
 .work .content_work .date_work p:last-child{
     color: #043356;
@@ -321,10 +326,9 @@ label p {
 }
 .skills .content_skills{
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   background-color: #F5F7FC;
-  padding: 23px 0 69px 25px;
+  padding: 23px 0 30px 25px;
 }
 .skills .content_skills p{
   color: #043356;
@@ -335,7 +339,9 @@ label p {
   margin: 5px;
   border-radius: 60px;
 }
-
+.card-body {
+  padding: 35px;
+}
 .btn-submit-resume{
   color: #FFF !important;
   font-size: 15px;
@@ -355,6 +361,88 @@ label p {
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
 }
+.modalEdu .modal-dialog {
+  position: relative;
+  max-width: 700px;
+}
+.modalEdu .modal-dialog>* {
+  padding: 1rem;
+}
+.modalEdu .modal-header {
+  border-bottom-color: #EEEEEE;
+  background-color: #FAFAFA;
+  padding: 10px 0;
+}
+.group-input-settings {
+  display: grid;
+  margin-bottom: 20px;
+}
+.group-input-settings label {
+  font-size: 15px;
+  color: #202124;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+.group-input-settings input {
+  box-sizing: border-box;
+  border-radius: 11px;
+  padding: 15px 20px !important;
+  font-size: 15px !important;
+  color: #3c3c3c !important;
+  background: #F0F5F7 !important;
+  border: none;
+  margin-bottom: 0;
+}
+.btnSaveSetting {
+  background: #043356;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 5px;
+  float: right;
+  width: fit-content;
+}
+
+.custom-multi-select {
+  display: inline-block;
+  position: relative;
+}
+
+.selected-options,
+.select-options {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px; /* Réglez la hauteur maximale si vous voulez une boîte de sélection déroulante */
+  overflow-y: auto;
+}
+
+.selected-options ul,
+.select-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selected-options li,
+.select-options li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.select-options li:hover {
+  background-color: #f0f0f0;
+}
+
+.selected-options li {
+  background-color: #f0f0f0;
+}
+
+.selected-options li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Ajoutez d'autres styles selon vos besoins */
 
  @media all and (min-width: 300px) and (max-width: 767px){
     .right_menu{

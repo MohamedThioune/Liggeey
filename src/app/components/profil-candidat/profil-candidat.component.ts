@@ -27,104 +27,80 @@ export class ProfilCandidatComponent implements OnInit {
     message: ''
   };
   userConnect:any;
-  tabLanguage=[""]
 
   constructor(private fb: FormBuilder,private route : ActivatedRoute ,private router: Router,private HomePageService: HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
     this.initForm() ;
-    this.identifiant = +this.route.snapshot.params['id'];    
+    this.identifiant = +this.route.snapshot.params['id'];
+    this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
+      this.candidat=data
+      // console.log(this.candidat);
+    })
+    // Récupération du token depuis le local storage
+    const storedToken = this.usagerService.getToken();
 
-   this.HomePageService.getDetailCandidate(this.identifiant).subscribe(data => {
-    this.candidat = data;
-    this.form.patchValue(this.candidat);
+    if (storedToken) {
+      // Décodage de la base64
+      const decodedToken = atob(storedToken);
 
-   }) 
-  
-//    if (storedToken) {
-//     // Décodage de la base64
-// const decodedToken = atob(storedToken);
-
-// // Parse du JSON pour obtenir l'objet original
-// this. userConnect = JSON.parse(decodedToken);
-// const cachedCandidat = localStorage.getItem('cachedCandidat');
-// if (cachedCandidat) {
-// let cachedData;
-// try {
-// cachedData = JSON.parse(cachedCandidat);
-// } catch (error) {
-// console.error('Error parsing cached data:', error);
-// }
-
-// if (cachedData) {
-// this.candidat = cachedData;
-// } else {
-// console.error('Cached data is not in the expected format.');
-// }
-
-// } else {
-// this.HomePageService.getDetailCandidate(this.userConnect.id).subscribe(data => {
-// if (data) {
-// this.candidat = data;
-// localStorage.setItem('cachedCandidat', JSON.stringify(data));
-// } else {
-// console.error('Received data is not in the expected format.');
-// }
-// });
-
-// }
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+    }
 
 
-//     }
-
-  
   }
-  onSubmit(idUser:string) {
-    // Utilisez le service pour postuler à l'emploi    
-    console.log(idUser,this.form.value);
-    
-    if (this.form.value!="") {
-      console.log(this.form.value);
+  onSubmit() {
+    // Utilisez le service pour postuler à l'emploi
+    console.log(this.form.value);
 
-    this.HomePageService.updateProfile(idUser,this.form.value)
-      .subscribe(
-        // Succès de la requête
-        (response) => {
+    //   if (this.form_profil.value!="") {
 
-          let typeR = "error"
-          if (<any>response ) {
-            typeR = "success";
-            this.message= "Profile updated successfully."
-          }
-          ToastNotification.open({
-            type: typeR,
-            message: this.message
-          });
-          if (typeR == "success") {
-            this.router.navigate(['/dashboard-candidat',this.identifiant]);
-          }
-        },
-        // Gestion des erreurs
-        (error) => {
-          ToastNotification.open({
-            type: 'error',
-            message: error.error.message
-          });
-        }
-      );
-  } else {
-    ToastNotification.open({
-      type: 'error',
-      message: this.message.message
-    });
-    //this.router.navigate(['/login']);
+    //   this.HomePageService.updateProfile(this.form_profil.value)
+    //     .subscribe(
+    //       // Succès de la requête
+    //       (response) => {
+
+    //         let typeR = "error"
+    //         if (<any>response ) {
+    //           typeR = "success";
+    //           this.message= "Profile updated successfully."
+    //         }
+    //         ToastNotification.open({
+    //           type: typeR,
+    //           message: this.message
+    //         });
+    //         if (typeR == "success") {
+    //           this.router.navigate(['/job']);
+    //         }
+    //       },
+    //       // Gestion des erreurs
+    //       (error) => {
+    //         ToastNotification.open({
+    //           type: 'error',
+    //           message: error.error.message
+    //         });
+    //       }
+    //     );
+    // } else {
+    //   ToastNotification.open({
+    //     type: 'error',
+    //     message: this.message.message
+    //   });
+    //   //this.router.navigate(['/login']);
+    // }
   }
-}
 
 
 
- 
-  
+  // updateProfile(){
+  //     this.form_profil.value=
+  //   this.HomePageService.updateProfile().subscribe(data=>{
+
+  //   })
+  // }
+
+
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -168,7 +144,7 @@ export class ProfilCandidatComponent implements OnInit {
       name: ['', Validators.required],
       username: ['', Validators.required],
       adress: ['', Validators.required]
-      
+
     });
   }
 
@@ -199,7 +175,7 @@ export class ProfilCandidatComponent implements OnInit {
       this.message.message = 'Your experience is mandatory';
       return false;
     }
-   
+
 
     return true;
   }

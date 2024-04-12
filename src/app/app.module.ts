@@ -69,7 +69,6 @@ import { EditJobsComponent } from './components/edit-jobs/edit-jobs.component';
 import { CandidatProfilDashboardComponent } from './components/candidat-profil-dashboard/candidat-profil-dashboard.component';
 import {AppMobileComponent} from "./components/app-mobile/app-mobile.component";
 
-
 @NgModule({
   declarations: [
     AppComponent,

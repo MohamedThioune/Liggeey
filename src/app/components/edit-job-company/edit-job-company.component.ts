@@ -130,14 +130,14 @@ export class EditJobCompanyComponent implements OnInit {
     });
      // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
-    
-   if (storedToken) {   
+
+   if (storedToken) {
                // Décodage de la base64
      const decodedToken = atob(storedToken);
 
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
-   }  
+   }
 
   }
 
@@ -223,8 +223,8 @@ return allSkills;
     return true;
   }
 
-  
-  
+
+
   onSubmit(){
     if (this.validateFormJob(this.form.value)) {
    this.form.value.skills = this.getSkills(this.selectedSkills);
