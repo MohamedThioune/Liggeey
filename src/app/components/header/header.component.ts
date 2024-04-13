@@ -128,10 +128,10 @@ export class HeaderComponent implements OnInit,OnDestroy {
             console.error('Error parsing cached data:', error);
         }
 
+        
+        
 
-
-
-
+     
 if (cachedData && typeof cachedData === 'object' ) {
             this.candidat = { work_as: cachedData.work_as,first_name: cachedData.first_name,last_name:cachedData.last_name,avatar:cachedData.image};
             this.first_name=this.candidat.first_name,
@@ -143,12 +143,12 @@ if (cachedData && typeof cachedData === 'object' ) {
         }
     } else {
         // Récupérer les données depuis le service si elles ne sont pas en cache
-
-
-        this.homeService.getDetailCandidate(this.userConnect.id).subscribe(data => {
+        
+  
+        this.homeService.getDetailCandidate(this.identifiant).subscribe(data => {
                     if (data ) {
-
-
+                        
+          
         this.candidat = { work_as: data.work_as,first_name:data.first_name };
                         localStorage.setItem('cachedCandidat', JSON.stringify(data));
                         this.first_name=this.candidat.first_name;

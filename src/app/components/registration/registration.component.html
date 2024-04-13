@@ -18,16 +18,43 @@
                 <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="canditate">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6 col-sm-6  ">
-                                <label for="email">
-                                    Email
-                                    <p>*</p>
-                                </label>
-                                <div class="input-group">
-                                    <input type="email" name="email" class="form-control" id="email" placeholder="aaondiaye@gmail.com"
-                                        formControlName="email">
-                                </div>
+                            <div class="col-md-6 col-sm-6   ">
+                              <label for="firstName">Fist Name
+                                <p>*</p>
+                              </label>
+                              <div class="input-group">
+                                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Mohamed "
+                                       formControlName="firstName">
+                              </div>
                             </div>
+                            <div class="col-md-6 col-sm-6">
+                              <label for="firstName">Last Name
+                                <p>*</p>
+                              </label>
+                              <div class="input-group">
+                                <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Thioune"
+                                       formControlName="lastName">
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6   ">
+                              <label for="name"> Name
+                                <p>*</p>
+                              </label>
+                              <div class="input-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Thioune"
+                                       formControlName="name">
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6  ">
+                              <label for="name"> UserName
+                                <p>*</p>
+                              </label>
+                              <div class="input-group">
+                                <input type="text" name="username" class="form-control" id="username" placeholder="Mohamed"
+                                       formControlName="username">
+                              </div>
+                            </div>
+                        
                             <div class="col-md-6 col-sm-6   ">
                                 <label for="password">Password
                                     <p>*</p>
@@ -38,41 +65,34 @@
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6   ">
-                              <label for="firstName">Fist Name
-                                <p>*</p>
-                              </label>
-                              <div class="input-group">
-                                <input type="text" name="firstName" class="form-control" id="firstName" placeholder=""
-                                       formControlName="firstName">
-                              </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6   ">
-                              <label for="firstName">Last Name
-                                <p>*</p>
-                              </label>
-                              <div class="input-group">
-                                <input type="text" name="lastName" class="form-control" id="lastName" placeholder=""
-                                       formControlName="lastName">
-                              </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6   ">
-                              <label for="name"> Name
-                                <p>*</p>
-                              </label>
-                              <div class="input-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Ndiaye"
-                                       formControlName="name">
-                              </div>
+                                <label for="password">Confirm Password
+                                    <p>*</p>
+                                </label>
+                                <div class="input-group">
+                                    <input type="password" name="password_confirmation" class="form-control" id="password" placeholder="********"
+                                        formControlName="password_confirmation">
+                                </div>
                             </div>
                             <div class="col-md-6 col-sm-6  ">
-                              <label for="name"> UserName
-                                <p>*</p>
+                              <label for="email">
+                                  Email
+                                  <p>*</p>
                               </label>
                               <div class="input-group">
-                                <input type="text" name="username" class="form-control" id="username" placeholder="Mbayame"
-                                       formControlName="username">
+                                  <input type="email" name="email" class="form-control" id="email" placeholder="aaondiaye@gmail.com"
+                                      formControlName="email">
                               </div>
-                            </div>
+                          </div>
+                            <div class="col-md-6 col-sm-6  ">
+                              <label for="email">
+                                  Phone
+                                  <p>*</p>
+                              </label>
+                              <div class="input-group">
+                                  <input type="text" name="phone" class="form-control" id="phone" placeholder="+221773977487"
+                                      formControlName="phone">
+                              </div>
+                          </div>
                         </div>
                     </div>
                     <div class="card-footer p-3  ">

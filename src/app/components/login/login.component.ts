@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       (data:any) => {
         
         //const  token  = btoa(user.username + ':' + user.password);
-        const token = btoa(JSON.stringify(data));
+        const token = btoa(unescape(encodeURIComponent((JSON.stringify(data)))));
       
         // Stockage dans le local storage
         this.usagerService.storeToken(token); 

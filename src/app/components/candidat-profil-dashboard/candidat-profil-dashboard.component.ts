@@ -22,6 +22,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
   applyJobs=false
   jobId!: number ; // Initialisé à null
   canApprove=false
+  notification:any;
+
   constructor(private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService) { }
 
   ngOnInit(): void {
@@ -50,20 +52,24 @@ export class CandidatProfilDashboardComponent implements OnInit {
           if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
             this.canApprove=!this.canApprove
           }
-          console.log(this.jobId,job, job.company,this.userConnect); 
+         // console.log(this.jobId,job, job.company,this.userConnect); 
 
         });
     });
   
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
       this.candidat=data      
-      console.log(this.candidat);
             
     })
     
   }
   rejectCandidatByCompany(){
-
+    this.notification ={
+      userApplyId:this.userConnect.id,
+      title:"Response to your job application",
+      content:"Your job application has been rejected",
+      receiver_id:this.candidat.ID
+    }
     if (this.candidat && this.jobId ) {
       // Utilisez le service pour ajouter l'emploi aux favoris
       this.HomePageService.rejectCandidatByCompany(this.candidat.ID, this.jobId)
@@ -75,10 +81,16 @@ export class CandidatProfilDashboardComponent implements OnInit {
               if (<any>response ) {
                 typeR = "success";
                 this.message= "User application rejected with success !."
+                console.log(this.notification);
+              //  return
+                
+                this.HomePageService.sendNotification(this.candidat.ID,this.notification)
+
               }          
               ToastNotification.open({
                 type: typeR,
                 message: this.message
+
               });
               // if (typeR == "success") {
               //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
@@ -105,11 +117,17 @@ export class CandidatProfilDashboardComponent implements OnInit {
   }
 
   approveCandidatByCompany(){
+    this.notification ={
+      userApplyId:this.userConnect.id,
+      title:"Response to your job application",
+      content:"Your job application has been approved",
+      receiver_id:this.candidat.ID
+    }
     if (this.candidat && this.jobId ) {
-      console.log(this.userConnect,this.jobId);
+     // console.log(this.userConnect,this.jobId);
       
       // Utilisez le service pour ajouter l'emploi aux favoris
-      this.HomePageService.approveCandidatByCompany(this.candidat.id, this.jobId)
+      this.HomePageService.approveCandidatByCompany(this.candidat.ID, this.jobId)
         .subscribe(
           // Succès de la requête
              (response) => {
@@ -117,6 +135,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
               if (<any>response ) {
                 typeR = "success";
                 this.message= "User application approved with success !."
+                this.HomePageService.sendNotification(this.candidat.ID,this.notification)
+
               }          
               ToastNotification.open({
                 type: typeR,

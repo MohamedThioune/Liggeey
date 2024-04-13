@@ -62,7 +62,7 @@
               </div>
             </div>
             <div class="job_info">
-              <button class="btn btn-apply" data-toggle="modal" [disabled]="!canAppl(job) || company" (click)="openApplyModal(job.ID)" data-target="#modal-apply">
+              <button class="btn btn-apply" data-toggle="modal" [disabled]="!canAppl(job)" (click)="openApplyModal(job.ID)" data-target="#modal-apply">
                 {{ canAppl(job) ? 'Apply Now' : 'Already Applied' }}
               </button>
               <div class="bookmark" *ngIf="candidate">
@@ -103,7 +103,7 @@
           <div class="share">
             <p>Share this job</p>
             <div class="social">
-              <a class="btn btn-whatssap" href=" https://wa.me/?url= {{href}}/ " target="_blank">
+              <a class="btn btn-whatssap" href="https://wa.me/?url= {{href}}/ " target="_blank">
                 <i class="fa fa-whatsapp"></i> Whatssap
               </a>
               <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?url={{href}}" target="_blank">

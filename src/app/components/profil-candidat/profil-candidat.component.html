@@ -17,7 +17,7 @@
               </div>
               </div>
           </div>-->
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(candidat.ID)">
         <div class="card-modife">
           <div class="card-body">
             <h2 class="">My Profile</h2>
@@ -30,7 +30,7 @@
                     </label>
                     <div class="input-group">
                         <input type="text" name="first_name" formControlName="first_name" class="form-control" id="first_name" placeholder="Mohamed"
-                            >
+                        [attr.disabled]="form.value.first_name" >
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6   p-2">
@@ -39,7 +39,7 @@
                     </label>
                     <div class="input-group">
                         <input type="text" name="work_as" formControlName="work_as" class="form-control" id="work_as" placeholder="UI Designer"
-                          >
+                        [attr.disabled]="form.value.work_as">
                     </div>
                 </div>
               
@@ -59,7 +59,7 @@
                 </label>
                 <div class="input-group">
                   <input type="email" name="email" id="email" formControlName="email" class="form-control" placeholder="mohamed@livelearn.nl"
-                      >
+                  [attr.disabled]="form.value.email">
               </div>
               </div>
 
@@ -102,7 +102,7 @@
                           >
                 </div>
               </div>
-
+              <!--
               <div class="col-md-6 col-sm-6   p-2">
                 <label for="name">Categories
                   <p>*</p>
@@ -122,11 +122,12 @@
                           >
                 </div>
               </div>
+              -->
 
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Description</label>
-                  <textarea  formControlName="biographical_info" name="biographical_info" id="biographical_info" rows="8"></textarea>
+                  <textarea  formControlName="biographical_info" name="biographical_info" id="biographical_info" rows="8" [attr.disabled]="form.value.biographical_info"></textarea>
                   <!--
                   <button type="submit" class="btn btn-save">Save</button>
                   -->
@@ -216,44 +217,9 @@
               </div>
 
           </div>
-      </div>
-      <div class="card-modife contact-infos">
-          <div class="card-body">
-               <h2>Contact Information</h2>
-              <div class="row g-3">
-                  <div class="col-md-6 col-sm-6 p-2">
-                      <label for="country">
-                        Country
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="country" formControlName="country" class="form-control" id="country" placeholder="Sénégal"
-                              >
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-sm-6   p-2">
-                      <label for="city">City
-                          <p>*</p>
-                      </label>
-                      <div class="input-group">
-                          <input type="text" name="city" formControlName="city" class="form-control" id="city" placeholder="Dakar"
-                              >
-                      </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12 p-2">
-                  <label for="adress">Complete Address
-                    <p>*</p>
-                  </label>
-                  <div class="input-group">
-                    <input type="text" name="adress" formControlName="adress" class="form-control" id="adress" placeholder="Dakar ouakam"
-                           >
-                  </div>
-                </div>
+        </div>
+        <button type="submit" class="btn btn-save">Save</button>
 
-            </div>
-        </div>
-          <button type="submit" class="btn btn-save">Save</button>
-        </div>
       </form>
 
     </div>

@@ -165,9 +165,9 @@
 
       <div class="account" *ngIf="userConnect">
         <div class="content_image">
-          <img [src]=userConnect.avatar_urls[96] alt="Image User Connect">
+          <img [src]=avatar alt="Image User Connect">
         </div>
-        <p>{{userConnect.first_name}} {{userConnect.last_name}}</p>
+        <p>{{first_name}} {{last_name}}</p>
         <div class="dropdown dropdown-user">
           <button class="dropdown-toggle" (click)="toggleDropdownUser()"><i class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  aria-haspopup="true" aria-expanded="false" class="fa fa-bars"></i></button>
           <div class="dropdown-menu" [class.show]="dropdownUser">
@@ -465,10 +465,10 @@
 </header>
 
 
-<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="isModalVisible">
+<div class="modal fade" id="modal-apply" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div *ngIf="!userConnect" class="block-login">
+      <div *ngIf="!userObject" class="block-login">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Login to Liggeey</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -485,6 +485,7 @@
               <label>Password</label>
               <input class = "input" name="password" [(ngModel)]="password"  type="password" placeholder="********" aria-label="default input example" id="cnx_pass" required>
             </div>
+            <!--
             <div class="remember">
               <div class="remember_me">
                 <input class="checkbox" type="checkbox">
@@ -494,15 +495,18 @@
                 <a class="btn" routerLink="/reset-password">Forget Password?</a>
               </div>
             </div>
+            -->
             <div class="d-grid">
               <button type="submit" id="login-btn" class="btn btn-forgeet-passwoord" (click)="switchToApplyBlock()">Log In</button>
-              <a class="btn-register-modal" routerLink="/register">You don't have account ? Signup</a>
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="account-texte mb-0">Don't have an account? <b><a href="/register">Signup</a></b></p>
             </div>
 
           </form>
         </div>
       </div>
-      <div *ngIf="userConnect" class="block-apply">
+      <div *ngIf="userObject" class="block-apply">
         <div class="modal-header">
           <h5 class="modal-title" id="">Apply to this webdesigner Job</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -514,26 +518,29 @@
             <div class="first-step">
               <div class="my_container_input_1 form-group">
                 <label for="username">Fisrt Name</label>
-                <input class = "input" name="username" id="Fisrt-Name" type="text" placeholder="" aria-label="default input example" value="{{userConnect.first_name}}" required>
+                <input class = "input" name="first_name" id="first_name" type="text" placeholder="" aria-label="default input example" value="{{first_name}}" required>
               </div>
               <div class="my_container_input_2 form-group">
                 <label>Last Name</label>
-                <input class = "input" name=""  type="text" placeholder="" aria-label="default input example" id="Last-Name" value="{{userConnect.name}}" required>
+                <input class = "input" name="last_name"  type="text" placeholder="" aria-label="default input example" id="last_name" value="{{last_name}}" required>
               </div>
+              
               <div class="my_container_input_2 form-group">
-                <label>Email</label>
-                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{userConnect.email}}" required>
+                <label>Role</label>
+                <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{work_as}}" required>
               </div>
-
+              <!--
               <div class="my_container_input_2 form-group">
                 <label>Phone Number</label>
                 <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.phone}}" required>
               </div>
+              -->
 
               <div class="d-grid">
-                <button (click)="goToSecondStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Continue</button>
+                <button (click)="goToFinalStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Continue</button>
               </div>
             </div>
+            <!--
             <div *ngIf="showSecondStep" class="second-step">
               <div class="second-block">
                 <label for="">Select your cv</label>
@@ -548,6 +555,7 @@
                 <button (click)="goToFinalStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Apply</button>
               </div>
             </div>
+            -->
             <div *ngIf="!showFirstStep && !showSecondStep" class="final-step">
               <div class="loader">
                 <svg class="circular">
