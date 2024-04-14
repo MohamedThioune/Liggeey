@@ -151,11 +151,11 @@ export class RegistrationComponent implements OnInit {
           }
         },
         error => { 
-          console.log(error.error);
+          console.log(error.error.errors.errors.existing_user_email);
                    
           ToastNotification.open({
             type: 'error',
-            message: error.error.message
+            message: error.error.errors.errors.existing_user_email
           });
         });
     } else {
@@ -181,10 +181,13 @@ export class RegistrationComponent implements OnInit {
       this.message.message = 'Email of Company is required';
       return false;
     }
-    if (this.form.controls['email'].status == "INVALID") {
-      this.message.message = 'Check the email format of Company';
-      return false;
-    }
+   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailPattern.test(emailCompagny)) {
+    console.log(emailCompagny);
+    
+    this.message.message = 'Check the email format of Company';
+    return false;
+  }
     if (passwordCompagny == "") {
       this.message.message = 'Password of Company';
       return false;

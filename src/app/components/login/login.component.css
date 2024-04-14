@@ -36,6 +36,17 @@
 .input:valid{
     background-color:#F0F5F7
 }
+label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: flex;
+
+  }
+label  p {
+    font-weight: bold;
+    color: red;
+    margin: 1px 2px 0px 10px;
+  }
 
 .my_container_input_1, .my_container_input_2, .my_container_input_3, .forget_password{
     display: flex;
