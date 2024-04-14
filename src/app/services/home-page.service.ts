@@ -164,7 +164,7 @@ export class HomePageService {
       userApplyId:idUser,
       userJobId: idJob,
     };
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/user/trash/favourite", requestBody);
+    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/user/trash/job", requestBody);
   }
 
   rejectCandidatByCompany(idUser: number,idJob:number): Observable<any> {

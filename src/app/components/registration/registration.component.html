@@ -5,15 +5,16 @@
             <div class=" card-header">
                 <span class="create_account">Create Your Account</span>
                 <div class="candidate-employe">
-                    <button (click)="showCandidate()" class="btn btn-outline-secondary">
-                        <i class="fa fa-user"></i>
-                        <span>Candidate</span>
-                    </button>
-                    <button (click)="showEmployer()" class="btn btn-outline-secondary">
-                        <i class="fa fa-shopping-bag"></i>
-                        <span>Employer</span>
-                    </button>
-                </div>
+                  <button (click)="showCandidate()" [class.active]="isCandidateActive" class="btn btn-outline-secondary">
+                      <i class="fa fa-user"></i>
+                      <span>Candidate</span>
+                  </button>
+                  <button (click)="showEmployer()" [class.active]="isEmployerActive" class="btn btn-outline-secondary">
+                      <i class="fa fa-shopping-bag"></i>
+                      <span>Employer</span>
+                  </button>
+              </div>
+              
             </div>
                 <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="canditate">
                     <div class="card-body">

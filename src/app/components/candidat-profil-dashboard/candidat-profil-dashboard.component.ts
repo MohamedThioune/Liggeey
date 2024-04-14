@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
@@ -23,8 +23,9 @@ export class CandidatProfilDashboardComponent implements OnInit {
   jobId!: number ; // Initialisé à null
   canApprove=false
   notification:any;
+  isLoading=false;
 
-  constructor(private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService) { }
+  constructor(private usagerService: UsagerService,private route : ActivatedRoute,private router :Router ,private HomePageService: HomePageService) { }
 
   ngOnInit(): void {
 
@@ -64,6 +65,7 @@ export class CandidatProfilDashboardComponent implements OnInit {
     
   }
   rejectCandidatByCompany(){
+    this.isLoading=true
     this.notification ={
       userApplyId:this.userConnect.id,
       title:"Response to your job application",
@@ -92,9 +94,11 @@ export class CandidatProfilDashboardComponent implements OnInit {
                 message: this.message
 
               });
-              // if (typeR == "success") {
-              //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
-              // }
+              this.isLoading=false
+
+              if (typeR == "success") {
+                this.router.navigate(['/applicant-compagny',this.jobId]);
+              }
             },
           // Gestion des erreurs
           (error) => {            
@@ -102,6 +106,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
               type: 'error',
               message: error.error
             }); 
+            this.isLoading=false
+
          //   console.log(error.error);
 
           }
@@ -111,12 +117,16 @@ export class CandidatProfilDashboardComponent implements OnInit {
         type: 'error',
         message: this.message.message
       });  
+      this.isLoading=false
+
     //  console.log( this.message.message);
       
     }
   }
 
   approveCandidatByCompany(){
+    this.isLoading=true
+
     this.notification ={
       userApplyId:this.userConnect.id,
       title:"Response to your job application",
@@ -142,9 +152,11 @@ export class CandidatProfilDashboardComponent implements OnInit {
                 type: typeR,
                 message: this.message
               });
-              // if (typeR == "success") {
-              //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
-              // }
+              this.isLoading=false
+
+              if (typeR == "success") {
+                this.router.navigate(['/applicant-compagny',this.jobId]);
+              }
             },
           // Gestion des erreurs
           (error) => {            
@@ -152,13 +164,17 @@ export class CandidatProfilDashboardComponent implements OnInit {
               type: 'error',
               message: error.error
             }); 
+            this.isLoading=false
+
           }
         );
     } else {      
       ToastNotification.open({
         type: 'error',
         message: this.message.message
-      });  
+      }); 
+      this.isLoading=false
+ 
     }
   }
 

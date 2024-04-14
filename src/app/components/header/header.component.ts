@@ -51,6 +51,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
   isModalVisible: boolean = true; // Set to true initially to show the modal
   public href: string = "";
   notification:any;
+  isLoading = false;
+
 
   constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
     this.isMobile = window.innerWidth < 768;
@@ -166,6 +168,8 @@ if (cachedData && typeof cachedData === 'object' ) {
   }
 
   switchToApplyBlock() {
+    this.isLoading = true;
+
     this.showLoginBlock = false;
     const user = {
       username: this.username,
@@ -175,7 +179,7 @@ if (cachedData && typeof cachedData === 'object' ) {
 
     this.usagerService.connection(user).subscribe(
       (data:any) => {
-        const token = btoa(JSON.stringify(data));
+        const token = btoa(unescape(encodeURIComponent((JSON.stringify(data)))));
         this.usagerService.storeToken(token);
         const storedToken = this.usagerService.getToken();
         if (storedToken ) {
@@ -203,7 +207,7 @@ if (cachedData && typeof cachedData === 'object' ) {
               message: "You must be a candidate to Apply"
             });
           }
-
+          this.isLoading=false
           this.first_name = userConnect.first_name;
           this.last_name = userConnect.last_name;
           this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
@@ -242,7 +246,10 @@ if (cachedData && typeof cachedData === 'object' ) {
           type: 'error',
           message: "Incorrect username or password: make sure you have entered them correctly"
         });
+        this.isLoading=false
+
       });
+
   }
 
 

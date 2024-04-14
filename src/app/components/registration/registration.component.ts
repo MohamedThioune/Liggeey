@@ -23,20 +23,28 @@ export class RegistrationComponent implements OnInit {
   };
   canditate = true;
   employer = false;
+  isCandidateActive: boolean = true;
+  isEmployerActive: boolean = false;
+
   constructor(private usagerService: UsagerService, private formBuilder: FormBuilder, private route: Router) { }
   ngOnInit(): void {
     this.initForm();
     this.initFormCompagny();
 
   }
-  showCandidate(){
+  showCandidate() {
+    this.isCandidateActive = true;
+    this.isEmployerActive = false;
     this.canditate = true;
     this.employer = false;
-  }
-  showEmployer(){
+}
+
+showEmployer() {
+    this.isCandidateActive = false;
+    this.isEmployerActive = true;
     this.canditate = false;
     this.employer = true;
-  }
+}
   onSubmit(): void {
     if (this.validateForm(this.form.value)) {
       this.usagerService.inscription(this.form.value).subscribe(

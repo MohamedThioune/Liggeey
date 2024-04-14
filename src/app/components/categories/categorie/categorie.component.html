@@ -80,7 +80,7 @@
                     <p class="text-categori mb-0">{{ item.skills[0].name |slice:0:15}}</p>
                   </div>
                 </div>
-                <p class="description-job">{{item.description |slice:0:24}}</p>
+                <p class="description-job">{{item.description}}</p>
                 <p class="description-job"></p>
                 <div class="content-footer-card align-items-center">
                   <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(item)" (click)="openApplyModal(item.ID)" data-target="#modal-apply">
