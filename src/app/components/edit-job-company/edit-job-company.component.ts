@@ -273,7 +273,7 @@ return allSkills;
 
     // Vérifier si la date saisie est valide (non vide et au bon format)
     const regex = /^\d{1,2}\/\d{1,2}\/\d{4}$/; // Format de date "dd/mm/yyyy"
-    if (!regex.test(inputValue) || day < 1 || day > 31 || month < 0 || month > 11 || year < 1000 || year > 9999 || inputDate.getTime() !== inputDate.getTime()) {
+    if (!regex.test(inputValue) || day < 1 || day > 31 || month < 0 || month > 12 || year < 1000 || year > 9999 || inputDate.getTime() !== inputDate.getTime()) {
       this.dateError = true;
       return;
     }
