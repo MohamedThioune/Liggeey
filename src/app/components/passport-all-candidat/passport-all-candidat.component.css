@@ -468,3 +468,9 @@ table tbody tr th {
     height: 100%;
     object-fit: cover;
 }
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}

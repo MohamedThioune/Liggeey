@@ -154,7 +154,7 @@ export class EditJobCompanyComponent implements OnInit {
       ID: this.fb.control("", []),
       description: this.fb.control("", [Validators.required]),
       level_of_experience: this.fb.control("", Validators.required),
-      langues: this.fb.control("", Validators.required),
+      job_langues: this.fb.control("", Validators.required),
       expired_at: this.fb.control("", [Validators.email, Validators.required]),
       skills: this.fb.array([]),
     });
@@ -202,16 +202,17 @@ getSkills(tabSkillsId:any) {
     });
 }
 return allSkills;
+
 }
 
   validateFormJob(job: any):boolean{
-    const { level_of_experience, langues, expired_at } = job;
+    const { level_of_experience, job_langues, expired_at } = job;
 
     if (level_of_experience == 0) {
       this.message.message = 'Experience level is mandatory';
       return false;
     }
-    if (langues == "") {
+    if (job_langues == "") {
       this.message.message = 'Language is mandatory';
       return false;
     }
@@ -226,6 +227,7 @@ return allSkills;
 
   onSubmit(){
     if (this.validateFormJob(this.form.value)) {
+   this.form.value.skills = this.getSkills(this.selectedSkills);
     console.log(this.form.value);
     //console.log(jobData);
     this.homeService.editJob(this.form.value,this.userConnect.id)

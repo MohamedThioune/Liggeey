@@ -92,8 +92,10 @@
     </div>
 
     <div *ngIf="compagny && jobId  " class="content-btn d-flex align-items-center justify-content-center">
-      <button (click)="approveCandidatByCompany()" class="btn btn-accpet">Approve</button>
-      <button (click)="rejectCandidatByCompany()" class="btn btn-reject">Reject</button>
+      <button (click)="approveCandidatByCompany()" class="btn btn-accpet" [disabled]="isLoading">Approve</button>
+      <button (click)="rejectCandidatByCompany()" class="btn btn-reject" [disabled]="isLoading">Reject</button>
+      <div *ngIf="isLoading" class="loader">Loading...</div>
+
     </div>
   </div>
 </section>

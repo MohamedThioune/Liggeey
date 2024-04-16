@@ -20,6 +20,7 @@ export class CategoryEmploiComponent implements OnInit {
   compagny=false;
   identifiant:number | null = 0;
   appliedJob=false
+  isLoading: boolean = false;
 
   constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) { }
 
