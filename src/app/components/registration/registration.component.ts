@@ -23,20 +23,28 @@ export class RegistrationComponent implements OnInit {
   };
   canditate = true;
   employer = false;
+  isCandidateActive: boolean = true;
+  isEmployerActive: boolean = false;
+
   constructor(private usagerService: UsagerService, private formBuilder: FormBuilder, private route: Router) { }
   ngOnInit(): void {
     this.initForm();
     this.initFormCompagny();
 
   }
-  showCandidate(){
+  showCandidate() {
+    this.isCandidateActive = true;
+    this.isEmployerActive = false;
     this.canditate = true;
     this.employer = false;
-  }
-  showEmployer(){
+}
+
+showEmployer() {
+    this.isCandidateActive = false;
+    this.isEmployerActive = true;
     this.canditate = false;
     this.employer = true;
-  }
+}
   onSubmit(): void {
     if (this.validateForm(this.form.value)) {
       this.usagerService.inscription(this.form.value).subscribe(
@@ -44,14 +52,14 @@ export class RegistrationComponent implements OnInit {
           let typeR = "error"
           if (<any>usager ) {
             typeR = "success";
-            this.message= "Votre compte utilisateur a été créé."
+            this.message= "Your user account has been created."
           }          
           ToastNotification.open({
             type: typeR,
             message: this.message
           });
           if (typeR == "success") {
-            this.route.navigate(['/courses']);
+            this.route.navigate(['/login']);
           }
         },
         error => {          
@@ -68,33 +76,41 @@ export class RegistrationComponent implements OnInit {
     }
   }
   validateForm(usager: Usager): boolean {
-    const { password, name, username, email, firstName,lastName } = usager;
+    const { password,password_confirmation ,name, username, email, firstName,lastName } = usager;
     if (firstName == "") {
-      this.message.message = 'Le firstName est obligatoire';
+      this.message.message = 'FirstName is required';
       return false;
     }
     if (lastName == "") {
-      this.message.message = 'Le lastName est obligatoire';
+      this.message.message = 'LastName is required';
       return false;
     }
     if (name == "") {
-      this.message.message = 'Le nom  est obligatoire';
+      this.message.message = 'Name is required';
       return false;
     }
     if (username == "") {
-      this.message.message = 'Le prénom est obligatoire';
+      this.message.message = 'First name is required';
       return false;
     }
     if (email == "") {
-      this.message.message = 'L\'email est obligatoire';
+      this.message.message = 'Email is required';
       return false;
     }
     if (this.form.controls['email'].status == "INVALID") {
-      this.message.message = 'Vérifier le format du mail';
+      this.message.message = 'Check the email format';
       return false;
     }
     if (password == "") {
-      this.message.message = 'Le mot de passe est obligatoire';
+      this.message.message = 'Password is required';
+      return false;
+    }
+    if (password_confirmation == "") {
+      this.message.message = 'password Confirmation is required';
+      return false;
+    }
+    if (password_confirmation !== password) {
+      this.message.message = 'The password_confirmation must be the same as the password';
       return false;
     }
     return true;
@@ -103,7 +119,9 @@ export class RegistrationComponent implements OnInit {
   initForm() {
     this.form = this.formBuilder.group({
       password: this.formBuilder.control("", Validators.required),
+      password_confirmation: this.formBuilder.control("", Validators.required),
       firstName: this.formBuilder.control("", Validators.required),
+      phone: this.formBuilder.control("", []),
       lastName: this.formBuilder.control("", Validators.required),
       name: this.formBuilder.control("", Validators.required),
       username: this.formBuilder.control("", Validators.required),
@@ -130,7 +148,7 @@ export class RegistrationComponent implements OnInit {
           let typeR = "error"
           if (<any>usager ) {
             typeR = "success";
-            this.message= "Votre compte utilisateur a été créé."
+            this.message= "Your user account has been created."
           }          
           ToastNotification.open({
             type: typeR,
@@ -141,11 +159,11 @@ export class RegistrationComponent implements OnInit {
           }
         },
         error => { 
-          console.log(error.error);
+          console.log(error.error.errors.errors.existing_user_email);
                    
           ToastNotification.open({
             type: 'error',
-            message: error.error.message
+            message: error.error.errors.errors.existing_user_email
           });
         });
     } else {
@@ -160,35 +178,38 @@ export class RegistrationComponent implements OnInit {
   validateFormCompagny(usager: UsagerCompany): boolean {
     const { firstNameCompagny,lastNameCompagny, passwordCompagny, confirmPasswordCompagny, emailCompagny, phoneCompagny,bedrijf } = usager;
     if (firstNameCompagny == "") {
-      this.message.message = 'Le firstName de la compagny est obligatoire';
+      this.message.message = 'FirstName of Company is required';
       return false;
     }
     if (lastNameCompagny == "") {
-      this.message.message = 'Le lastName de la compagny est obligatoire';
+      this.message.message = 'LastName of Company is required';
       return false;
     }
     if (emailCompagny == "") {
-      this.message.message = 'L\'email de la compagny est obligatoire';
+      this.message.message = 'Email of Company is required';
       return false;
     }
-    if (this.form.controls['email'].status == "INVALID") {
-      this.message.message = 'Vérifier le format du mail de votre compagny';
-      return false;
-    }
+   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailPattern.test(emailCompagny)) {
+    console.log(emailCompagny);
+    
+    this.message.message = 'Check the email format of Company';
+    return false;
+  }
     if (passwordCompagny == "") {
-      this.message.message = 'Le mot de passe est obligatoire';
+      this.message.message = 'Password of Company';
       return false;
     }
     if (confirmPasswordCompagny == "") {
-      this.message.message = 'La confirmation du password  est obligatoire';
+      this.message.message = 'Password confirmation is required';
       return false;
     }
     if (phoneCompagny == "") {
-      this.message.message = 'Le numéro de tel est obligatoire';
+      this.message.message = 'Phone of company is required';
       return false;
     }
     if (bedrijf == "") {
-      this.message.message = 'Le num est obligatoire';
+      this.message.message = 'bedrijf is required';
       return false;
     }
 

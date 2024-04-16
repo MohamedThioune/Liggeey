@@ -26,6 +26,7 @@ export class PostNewJobCompagnyComponent implements OnInit {
     message: ''
   };
   langues: string[] = ['French', 'English', 'Dutch'];
+  isLoading: boolean = false;
 
   skillsTabs:any=[   {
   "term_id": 285,
@@ -132,7 +133,6 @@ toggleSkill(term_id: any) {
   } else {
     this.selectedSkills.push(term_id);
     skillsArray.push(this.fb.control(term_id));
-
   }
 }
 
@@ -166,6 +166,8 @@ get skillsFormArray() {
 }
 
 onSubmit() {
+  this.isLoading = true;
+
     // Utilisez le service pour postuler à l'emploi
     console.log(this.form.value,this.form.value.skills);
     if (this.validateFormJob(this.form.value)) {
@@ -184,9 +186,11 @@ onSubmit() {
             type: typeR,
             message: this.message
           });
+          this.isLoading = false;
           if (typeR == "success") {
-            this.route.navigate(['/job']);
+            this.route.navigate(['/manage-compagny',this.userConnect.id]);
           }
+
         },
         // Gestion des erreurs
         (error) => {
@@ -194,6 +198,8 @@ onSubmit() {
             type: 'error',
             message: error.error.message
           });
+          this.isLoading = false;
+
         }
       );
   } else {

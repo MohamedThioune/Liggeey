@@ -207,17 +207,12 @@ input[type="text"]:focus {
 .dropdown.dropdown-modife .dropdown-menu{
 margin-top: 25px;
   background-color: #FFF;
- /* padding-left: 50px;*/
 }
 
 .categories .dropdown-menu a .content_image{
  height: 24px;
  width: 24px;
- border-radius: 100%;
- padding-right: 20px !important;
-
 }
-
 .categories .dropdown-menu a .content_image img{
   height: 100%;
   width: 100%;
@@ -239,11 +234,6 @@ nav ul li span{
   font-size: 16px;
   font-family: "Roboto-Regular";
   color: #696969;
-}
-.dropdown.dropdown-modife .dropdown-menu a .content_image{
-  height: 24px;
-  width: 24px;
- 
 }
 .join{
     display: flex;
@@ -321,8 +311,7 @@ nav ul li span{
     border: none;
     background-color:transparent;
     text-decoration:none;
-    align-items:center;
-    width: 100%;
+    align-items:center
 }
 .dropdown .dropdown-menu a p{
     padding-left: 15px;

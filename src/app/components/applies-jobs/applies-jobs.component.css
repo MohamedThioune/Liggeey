@@ -178,6 +178,9 @@ thead th {
     border-radius: 8px;
     overflow: hidden;
   }
+   table tbody tr th {
+     min-width: 500px !important;
+   }
 .left_menu{
     width: 100%;
     display: none;

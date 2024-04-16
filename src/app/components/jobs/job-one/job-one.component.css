@@ -456,4 +456,14 @@ font-weight: 400;
    .image_menu_about h2{
       font-size: 27px;
    }
+   .search_about .keywords, .search_about .location{
+     width: 100%;
+   }
+   .search_about .limit{
+     display: none;
+   }
+   .most_jobs .row {
+     margin-right: 0px !important;
+     margin-left: 0px !important;
+   }
 }

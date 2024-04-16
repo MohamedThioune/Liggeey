@@ -62,7 +62,6 @@ export class ResumeCandidatComponent implements OnInit {
         } else {
             console.error('Cached data is not in the expected format.');
         }
-        
     } else {
     this.HomePageService.getDetailCandidate(this.userConnect.id).subscribe(data => {
         if (data) {
@@ -72,10 +71,10 @@ export class ResumeCandidatComponent implements OnInit {
             console.error('Received data is not in the expected format.');
         }
     });
-    
+
     }
-      
-     
+
+
     }
 
     this.myForm = this.fb.group({

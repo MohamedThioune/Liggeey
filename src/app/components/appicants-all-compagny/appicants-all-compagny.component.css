@@ -339,6 +339,11 @@ input:focus-visible {
    }
    .element-search-filter {
      flex-wrap: wrap;
+     margin-left: 20px;
+     width: 88%;
+   }
+   .map_menu{
+     margin-top: -18px;
    }
    .Search-applicant{
      width: 100%;

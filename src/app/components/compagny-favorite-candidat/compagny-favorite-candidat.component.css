@@ -70,21 +70,22 @@
     /*border: 1px solid #ECEDF2;*/
     /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+  margin-top: 50px;
 }
+
 .content_right_menu span:first-child{
   color:  #202124;
   font-size: 30px;
   font-weight: 600;
 }
 .map_menu{
-    border-radius: 8px;
-    margin-top: 56px;
-    border: 1px solid  #ECEDF2; 
-    background: #FFF;
-    padding: 30px;
-    width: 100%;
-    /* Shadow / 1 */
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+  border-radius: 8px;
+  margin-top: 30px;
+  border: 1px solid #ECEDF2;
+  background: #FFF;
+  padding: 30px;
+  width: 98%;
+  box-shadow: unset;
   }
 .head_map_menu{
     display: flex;
@@ -190,7 +191,7 @@ input[type="text"]:focus {
  .description_job_ span:first-child{
     color:  #202124;
     font-size: 18px;
- } 
+ }
  .description_job .bookmark{
     position: absolute;
     bottom: 100px;
@@ -220,7 +221,7 @@ input[type="text"]:focus {
  .description_job .info .info_item svg{
     margin-right: 11px;
  }
- 
+
  .description_job .info .info_item p{
     color: #696969;
     font-size: 14px;
@@ -267,7 +268,7 @@ input[type="text"]:focus {
  .show_sidebar{
     visibility:hidden;
 }
- @media all and (min-width: 300px) and (max-width: 767px){ 
+ @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     margin: 32px 11px 74px 12px;
     border-radius: 8px;
