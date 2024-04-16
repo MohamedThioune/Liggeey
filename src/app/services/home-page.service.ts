@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { ProfilCompagny } from '../interfaces/profil-compagny';
 import { Notification } from '../interfaces/notification';
+import { Education } from '../interfaces/education';
 
 
 @Injectable({
@@ -245,7 +246,33 @@ export class HomePageService {
     };
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/artikel/comment`,requestBody,{});
   }
+  addSkill(idUser: number,idTopic:string): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      topic_id:idTopic,
 
+    };
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/skill`,requestBody,{});
+  }
+  myResumeAdd(idUser: number,education:Education): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      school:education.school,
+      degree:education.degree,
+      start_date:education.start_date,
+      end_date:education.end_date,
+      commentary:education.commentary,
+      job_title:education.job_title,
+      company:education.company,
+      work_start_date:education.work_start_date,
+      work_end_date:education.work_end_date,
+      work_description:education.work_description,
+      title:education.title,
+      description:education.description,
+      date:education.date
+    };
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/myResume/add`,requestBody,{});
+  }
 
   profilJob(id: number): Observable<any> {
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/profil?userApplyId=${id}`,{});

@@ -391,7 +391,7 @@ label p {
   color: #3c3c3c !important;
   background: #F0F5F7 !important;
   border: none;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 .btnSaveSetting {
   background: #043356;
