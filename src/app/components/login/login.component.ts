@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       (data:any) => {
         
         //const  token  = btoa(user.username + ':' + user.password);
-        const token = btoa(JSON.stringify(data));
+        const token = btoa(unescape(encodeURIComponent((JSON.stringify(data)))));
       
         // Stockage dans le local storage
         this.usagerService.storeToken(token); 
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           console.log('noconnect');
           ToastNotification.open({
             type: 'error',
-            message: `Les utilisateurs ne peuvent pas se connecter sur la plateforme`
+            message: `Users cannot log in to the platform`
           });
           return;
         }
@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
       error =>{
         ToastNotification.open({
           type: 'error',
-          message: "Identifiant ou mot de passe incorrects: assurez vous de les avoir bien saisis "
+          message: "Incorrect username or password: make sure you have entered them correctly"
         });
         // Désactiver le loader
         this.isLoading = false;

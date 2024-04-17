@@ -85,7 +85,8 @@
 
             </div>
           </div>
-          <button class="btn btn-save create" type="submit"> Save </button>
+          <button class="btn btn-save create" type="submit" [disabled]="isLoading"> Save </button>
+          <div *ngIf="isLoading" class="loader">Loading...</div>
           </div>
         </form>
       </div>

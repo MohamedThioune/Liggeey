@@ -40,6 +40,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
   dropdownOpen: boolean = false;
   dropdownUser: boolean = false;
+  dropdownMobile: boolean = false;
   selectedOption: string = '';
 
   message: any = {
@@ -50,13 +51,16 @@ export class HeaderComponent implements OnInit,OnDestroy {
   isModalVisible: boolean = true; // Set to true initially to show the modal
   public href: string = "";
   notification:any;
+  isLoading = false;
+
 
   constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
     this.isMobile = window.innerWidth < 768;
     this.dropdownOpen = false;
     this.dropdownUser = false;
+    this.dropdownMobile = false;
   }
-  
+
 
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
@@ -64,18 +68,22 @@ export class HeaderComponent implements OnInit,OnDestroy {
   toggleDropdownUser(): void {
     this.dropdownUser = !this.dropdownUser;
   }
+  toggleDropdownMobile(): void {
+    this.dropdownMobile = !this.dropdownMobile;
+  }
 
   selectOption(option: string): void {
     this.selectedOption = option;
     this.dropdownOpen = false;
     this.dropdownUser = false;
+    this.dropdownMobile = false;
   }
 
-  
+
 
   ngOnInit(): void {
-  
-    this.href = window.location.href;      
+
+    this.href = window.location.href;
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
     const storedToken = this.usagerService.getToken();
@@ -100,7 +108,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
         this.compagny=true
       }
     }
-    
+
     this.subscription = this.homeService.selectedJobId$.subscribe(id => {
       this.selectedJobId = id;
     });
@@ -153,13 +161,15 @@ if (cachedData && typeof cachedData === 'object' ) {
                     }
                 });
     }
-    
-    
-    
-    
+
+
+
+
   }
 
   switchToApplyBlock() {
+    this.isLoading = true;
+
     this.showLoginBlock = false;
     const user = {
       username: this.username,
@@ -169,18 +179,18 @@ if (cachedData && typeof cachedData === 'object' ) {
 
     this.usagerService.connection(user).subscribe(
       (data:any) => {
-        const token = btoa(JSON.stringify(data));
+        const token = btoa(unescape(encodeURIComponent((JSON.stringify(data)))));
         this.usagerService.storeToken(token);
         const storedToken = this.usagerService.getToken();
         if (storedToken ) {
           const decodedToken = atob(storedToken);
-          const userConnect = JSON.parse(decodedToken); 
+          const userConnect = JSON.parse(decodedToken);
         //  console.log(userObject);
-          
-      
+
+
 
          // console.log(this.first_name, this.last_name);
-          
+
           if(userConnect.acf.is_liggeey == "candidate"){
             this.candidate=true
             this.userObject=true
@@ -197,7 +207,7 @@ if (cachedData && typeof cachedData === 'object' ) {
               message: "You must be a candidate to Apply"
             });
           }
-          
+          this.isLoading=false
           this.first_name = userConnect.first_name;
           this.last_name = userConnect.last_name;
           this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
@@ -214,12 +224,12 @@ if (cachedData && typeof cachedData === 'object' ) {
               // Vous pouvez ajouter d'autres informations nécessaires ici
             };
             localStorage.setItem('cachedCandidat', JSON.stringify(data));
-           
+
             this.work= localStorage.getItem('cachedCandidat');
             const parsedData = JSON.parse(this.work);
-            this.work_as = parsedData.work_as;            
-            
-          } 
+            this.work_as = parsedData.work_as;
+
+          }
         });
 
         }else {
@@ -236,7 +246,10 @@ if (cachedData && typeof cachedData === 'object' ) {
           type: 'error',
           message: "Incorrect username or password: make sure you have entered them correctly"
         });
+        this.isLoading=false
+
       });
+
   }
 
 
@@ -289,7 +302,7 @@ if (cachedData && typeof cachedData === 'object' ) {
               message: this.message
             });
             this.showFirstStep =  !this.showFirstStep;
-            this.showSecondStep = !this.showSecondStep;              
+            this.showSecondStep = !this.showSecondStep;
             // if (typeR == "success") {
             //   this.showFirstStep =  !this.showFirstStep;
             //   this.showSecondStep = !this.showSecondStep;
@@ -311,7 +324,7 @@ if (cachedData && typeof cachedData === 'object' ) {
 
         ToastNotification.open({
           type: 'success',
-          message: "Already Apply four this job"
+          message: "Already Applied for this job"
         });
         this.userObject=true
 
@@ -319,8 +332,8 @@ if (cachedData && typeof cachedData === 'object' ) {
          //this.router.navigate(['']);
           }
         });
-        
-   
+
+
       } else if(this.compagny == true){
         this.userConnect=false;
         this.isModalVisible=false
@@ -332,8 +345,8 @@ if (cachedData && typeof cachedData === 'object' ) {
         });
           this.router.navigate(['/dashbord-compagny',this.userConnect.id]);
         }
-      
-  
+
+
     } else {
       ToastNotification.open({
         type: 'error',
@@ -350,7 +363,7 @@ if (cachedData && typeof cachedData === 'object' ) {
 
     return !item.applied.some((appliedItem: any) => appliedItem.ID === this.id);
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {
     this.isMobile = window.innerWidth < 768;
@@ -369,6 +382,9 @@ if (cachedData && typeof cachedData === 'object' ) {
     if (!this.elementRef.nativeElement.contains(event.target)) {
       this.dropdownUser = false;
     }
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.dropdownMobile = false;
+    }
   }
 
   isWebScreen(): boolean {
@@ -384,7 +400,7 @@ if (cachedData && typeof cachedData === 'object' ) {
     localStorage.removeItem('cachedCandidat');
 
   }
-    
+
 
 
 }

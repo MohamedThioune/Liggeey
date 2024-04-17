@@ -40,6 +40,8 @@ export class UsagerService {
     const requestBody = {
       email:usager.email,
       password: usager.password,
+      password_confirmation:usager.password_confirmation,
+      phone:usager.phone,
       first_name: usager.firstName,
       last_name: usager.lastName,
       name:usager.name,

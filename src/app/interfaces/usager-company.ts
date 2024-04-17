@@ -6,6 +6,6 @@ export interface UsagerCompany {
     bedrijf:string;
     passwordCompagny:string;
     confirmPasswordCompagny:string;
-    emailCompagny: String;
+    emailCompagny: string;
    
 }

@@ -162,14 +162,14 @@ export class HomePageService {
   trashFavoritesJob(idUser: number,idJob:string): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
-      userDeleteId: idJob,
+      userJobId: idJob,
     };
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/user/trash/favourite", requestBody);
+    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/user/trash/job", requestBody);
   }
 
   rejectCandidatByCompany(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
-      userApplyId:idUser,
+      userApproveId:idUser,
       jobAppliedId: idJob,
       status:"reject"
     };
@@ -177,7 +177,7 @@ export class HomePageService {
   }
   approveCandidatByCompany(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
-      userApplyId:idUser,
+      userApproveId:idUser,
       jobAppliedId: idJob,
       status:"approve"
     };
@@ -267,7 +267,7 @@ export class HomePageService {
     };
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/editJob?userApplyId=${userApplyId}&jobID=${requestBody.ID}&job_description=${requestBody.description}&job_level_of_experience=${requestBody.level_of_experience}&skills=${requestBody.skills}&job_langues=${requestBody.langues}&job_expiration_date=${requestBody.expired_at}`,requestBody);
   }
-  deleteJob(jobID:number,userApplyId:number){ 
+  deleteJob(jobID:number,userApplyId:number){
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/deleteJob?userApplyId=${userApplyId}&jobID=${jobID}`,{})
   }
 }

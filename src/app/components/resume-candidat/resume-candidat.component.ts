@@ -22,18 +22,18 @@ export class ResumeCandidatComponent implements OnInit {
   userConnect:any;
 
   constructor(private fb: FormBuilder,private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService) {
-    this.isMobile = window.innerWidth < 768; 
+    this.isMobile = window.innerWidth < 768;
 
    }
    @HostListener('window:resize', ['$event'])
    onResize(event:Event) {
-     this.isMobile = window.innerWidth < 768; 
+     this.isMobile = window.innerWidth < 768;
    }
- 
+
    isWebScreen(): boolean {
      return !this.isMobile;
    }
- 
+
    isMobileScreen(): boolean {
      return this.isMobile;
    }
@@ -62,7 +62,7 @@ export class ResumeCandidatComponent implements OnInit {
         } else {
             console.error('Cached data is not in the expected format.');
         }
-        
+
     } else {
     this.HomePageService.getDetailCandidate(this.userConnect.id).subscribe(data => {
         if (data) {
@@ -72,17 +72,17 @@ export class ResumeCandidatComponent implements OnInit {
             console.error('Received data is not in the expected format.');
         }
     });
-    
+
     }
-      
-     
+
+
     }
 
     this.myForm = this.fb.group({
       file: ['', [Validators.required, Validators.email]],
     });
   }
-  
+
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
   }

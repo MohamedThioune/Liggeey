@@ -43,24 +43,28 @@ main {
     border: none;
     cursor: pointer;
   }
-  .candidate-employe button:first-child{
+  .candidate-employe button.active {
     width: 260px;
     color: #FFF;
-    background:  #1AC4A2;
+    background: #1AC4A2;
     border: none;
     cursor: pointer;
-  }
-  .candidate-employe i{
+}
+
+.candidate-employe i {
     margin-right: 5px;
-  }
-  .candidate{
+}
+
+.candidate {
     border: 1px solid red;
     margin-right: 30px;
-  }
-  .candidate-employe button:hover{
+}
+
+.candidate-employe button:active {
     color: #FFF;
     background-color: #1AC4A2;
-  }
+}
+
 
   .card-body {
     display: flex;

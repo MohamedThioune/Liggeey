@@ -6,8 +6,7 @@
 .definition_home {
     color: #202124;
     font-size: 20px;
-    font-weight: 700;
-    padding-bottom: 50px;
+    font-weight: 500;
 }
 .hiring_work {
     display: flex;
@@ -96,7 +95,7 @@
 .text_home h2{
     color: #202124;
     font-size: 47px;
-    font-weight: 700;
+  font-family: "Roboto-Bold";
     padding: 40px 0 36px 0;
 }
 
@@ -365,13 +364,14 @@
 .row .item:nth-child(n+5) {
     display: none;
   }
-.header_featured span{
+.header_featured a{
     color: #202124;
     font-size: 30px;
-    font-weight: bold;
 }
-
-.featured{
+.featured {
+  margin-bottom: 52px;
+}
+.featured .header_featured{
     display: flex;
     justify-content: space-between;
 }
@@ -479,7 +479,7 @@
     font-weight: 400;
 }
 .header_featured{
-    margin-bottom: 38px;
+    margin-bottom: 13px;
 }
 .location_candidat p{
     color: #696969;
@@ -600,7 +600,10 @@
   height: 100%;
   object-fit: cover;
 }
-
+.featured h2 {
+  margin-bottom: 0;
+  font-weight: 500;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
     .new_remote{
         display: flex;
@@ -642,10 +645,10 @@
         padding-left: 15px;
     }
     .image_home{
-        width: 285px;
-        height:269.967px;
-        border-radius: 100%;
-        margin: 0 auto;
+      width: 100%;
+      height: 315.967px;
+      border-radius: 100%;
+      margin: 0 auto;
     }
     .content_home{
         padding-top:46px ;
@@ -658,27 +661,25 @@
         font-weight: 600;
         padding-right: 20px;
         margin: 0;
-        line-height: -1.5;
     }
     .title_description{
         color: #FFF;
-        font-size: 16px;
+        font-size: 21px;
         font-weight: bold;
     }
     .banner{
         margin-top: 60px;
     }
     .description_banner.left  a{
-        font-size: 10px;
-        padding: 7px 10px 5px 10px;
+      padding: 9px 15px 10px 15px;
+      font-size: 13px;
      }
     .description_banner.right  a{
-        padding: 7px 10px 5px 10px;
-        font-size: 10px;
+      padding: 9px 15px 10px 15px;
+      font-size: 13px;
     }
     .content_description{
       color: #FFF;
-      font-size: 10px;
       font-weight: bold;
       padding-bottom: 0;
       padding-top: 13px;
@@ -692,6 +693,7 @@
     }
   .description_banner {
     padding: 20px 21px 20px;
+    width: 100%;
     }
   .tabs ul li{
     padding: 3px 10px 0px 10px;
@@ -707,8 +709,8 @@
     margin-top: 27px;
   }
   .description_skills{
-      padding-top:88px ;
-      padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
   }
   .description_skills .slills_title{
       color: #202124;
@@ -721,9 +723,6 @@
       font-weight: 400;
       margin-top: 29px;
       margin-bottom: 20px;
-  }
-  .info_candidat a{
-      padding: 5px 80px 3px 70px;
   }
   .jobs{
       margin-top: 80px;
@@ -745,7 +744,6 @@
   }
   .featured{
       display: flex;
-      flex-wrap: wrap;
   }
   .card_article{
       margin-bottom: 16px;
@@ -769,6 +767,9 @@
   }
   .article_1{
     padding: 10px 0px;
+  }
+  .image_banner{
+    display: none;
   }
 
 

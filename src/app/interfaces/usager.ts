@@ -3,6 +3,8 @@ export interface Usager {
     name: String;
     username: String;
     password:string;
+    password_confirmation:string;
+    phone:string;
     email: String;
     firstName: String;
     lastName: String;

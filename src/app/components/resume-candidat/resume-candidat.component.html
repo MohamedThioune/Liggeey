@@ -27,6 +27,7 @@
               <div class="bottom-element education">
                 <div class="header_education justify-content-between align-items-center">
                   <h2 class="sub-title-page">Education</h2>
+                  <!--
                   <button class="btn add">
                     <div class="element-svg">
                       <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
@@ -34,13 +35,16 @@
                         <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
                       </svg>
                     </div>
-                    <p class="btn-add-element">Add Education</p>
+                    <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalEdu">Add Education</button>
                   </button>
+                  -->
                 </div>
                 <div class="content_education" *ngFor="let education of candidat.educations ">
                   <div class="date_education">
                     <p>{{education.diploma}}</p>
+                    <!---->
                     <div class="button">
+                      <!--
                       <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
                           <path d="M13.9868 1.02989C13.2168 0.275193 11.9698 0.275193 11.1998 1.02989L10.5021 1.71861L3.07577 9.00615L3.05998 9.02176C3.05616 9.02552 3.05616 9.02951 3.05209 9.02951C3.0442 9.04113 3.03237 9.05263 3.0246 9.06425C3.0246 9.06813 3.02053 9.06813 3.02053 9.072C3.01264 9.08362 3.00881 9.09137 3.0008 9.10299C2.99698 9.10687 2.99698 9.11062 2.99303 9.11462C2.98909 9.12624 2.98514 9.13399 2.98107 9.14561C2.98107 9.14936 2.97725 9.14936 2.97725 9.15336L1.32956 14.0181C1.28123 14.1566 1.31797 14.31 1.42413 14.4128C1.49873 14.485 1.59935 14.5255 1.70403 14.5251C1.74682 14.5244 1.78923 14.5178 1.83017 14.5057L6.78112 12.8841C6.78494 12.8841 6.78494 12.8841 6.78901 12.8804C6.80147 12.8767 6.81343 12.8715 6.8244 12.8647C6.82748 12.8644 6.8302 12.863 6.83242 12.861C6.84413 12.8532 6.85991 12.8454 6.87175 12.8376C6.88346 12.83 6.89542 12.8184 6.90726 12.8106C6.91121 12.8066 6.91503 12.8066 6.91503 12.8029C6.9191 12.799 6.92699 12.7952 6.93093 12.7874L15.0549 4.811C15.8236 4.05497 15.8236 2.83068 15.0549 2.07477L13.9868 1.02989ZM6.65498 11.9746L3.91151 9.28108L10.7781 2.53928L13.5216 5.23278L6.65498 11.9746ZM3.52508 9.99703L5.92183 12.3501L2.32288 13.5266L3.52508 9.99703ZM14.4992 4.26913L14.0813 4.68328L11.3378 1.98954L11.7597 1.57551C12.2212 1.12274 12.9693 1.12274 13.4309 1.57551L14.503 2.62814C14.9611 3.08333 14.9594 3.81612 14.4992 4.26913Z" fill="#043356"/>
@@ -61,6 +65,7 @@
                           </defs>
                         </svg>
                       </button>
+                      -->
                     </div>
 
                     <p style="margin: 0;">{{education.year}}</p>
@@ -105,6 +110,7 @@
               <div class="bottom-element work">
                 <div class="header_education justify-content-between align-items-center">
                   <h2 class="sub-title-page">Work & Experience</h2>
+                  <!--
                   <button class="btn add">
                     <div class="element-svg">
                       <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
@@ -112,13 +118,15 @@
                         <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
                       </svg>
                     </div>
-                    <p class="btn-add-element">Add Work</p>
+                    <button class="btn-add-element" data-toggle="modal" data-target="#ModalWork">Add Work</button>
                   </button>
+                  -->
                 </div>
                 <div class="content_work" *ngFor="let work of candidat.experiences">
                   <div class="date_work">
                     <p>{{work.company}}</p>
                     <div class="button">
+                      <!--
                       <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
                           <path d="M13.9868 1.02989C13.2168 0.275193 11.9698 0.275193 11.1998 1.02989L10.5021 1.71861L3.07577 9.00615L3.05998 9.02176C3.05616 9.02552 3.05616 9.02951 3.05209 9.02951C3.0442 9.04113 3.03237 9.05263 3.0246 9.06425C3.0246 9.06813 3.02053 9.06813 3.02053 9.072C3.01264 9.08362 3.00881 9.09137 3.0008 9.10299C2.99698 9.10687 2.99698 9.11062 2.99303 9.11462C2.98909 9.12624 2.98514 9.13399 2.98107 9.14561C2.98107 9.14936 2.97725 9.14936 2.97725 9.15336L1.32956 14.0181C1.28123 14.1566 1.31797 14.31 1.42413 14.4128C1.49873 14.485 1.59935 14.5255 1.70403 14.5251C1.74682 14.5244 1.78923 14.5178 1.83017 14.5057L6.78112 12.8841C6.78494 12.8841 6.78494 12.8841 6.78901 12.8804C6.80147 12.8767 6.81343 12.8715 6.8244 12.8647C6.82748 12.8644 6.8302 12.863 6.83242 12.861C6.84413 12.8532 6.85991 12.8454 6.87175 12.8376C6.88346 12.83 6.89542 12.8184 6.90726 12.8106C6.91121 12.8066 6.91503 12.8066 6.91503 12.8029C6.9191 12.799 6.92699 12.7952 6.93093 12.7874L15.0549 4.811C15.8236 4.05497 15.8236 2.83068 15.0549 2.07477L13.9868 1.02989ZM6.65498 11.9746L3.91151 9.28108L10.7781 2.53928L13.5216 5.23278L6.65498 11.9746ZM3.52508 9.99703L5.92183 12.3501L2.32288 13.5266L3.52508 9.99703ZM14.4992 4.26913L14.0813 4.68328L11.3378 1.98954L11.7597 1.57551C12.2212 1.12274 12.9693 1.12274 13.4309 1.57551L14.503 2.62814C14.9611 3.08333 14.9594 3.81612 14.4992 4.26913Z" fill="#043356"/>
@@ -139,6 +147,7 @@
                           </defs>
                         </svg>
                       </button>
+                      -->
                     </div>
 
                     <p style="margin: 0;">{{work.year}}</p>
@@ -257,6 +266,7 @@
               </div>
               -->
               <div class="bottom-element skills">
+                <!--
                 <div class="header_education justify-content-between align-items-center">
                   <h2 class="sub-title-page">Skills</h2>
                   <button class="btn add">
@@ -266,9 +276,10 @@
                         <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
                       </svg>
                     </div>
-                    <p class="btn-add-element">Add Skills</p>
+                    <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalSkill">Add Skills</button>
                   </button>
                 </div>
+                -->
                 <div class="content_skills" style="display: flex;">
                   <div *ngFor="let skill of candidat.skills" style="margin-right: 10px;">
                       <p>{{skill.cat_name}}</p>
@@ -280,7 +291,7 @@
                       -->
                   </div>
               </div>
-              
+
               </div>
               <!--
               <button class="btn btn-submit-resume">Update Resume</button>
@@ -292,4 +303,145 @@
     </div>
   </div>
 </section>
+
+<div class="modal modalEdu fade" id="exampleModalEdu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Education</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">School</label>
+                <input name="school" type="text" placeholder="Sonatel Academy" required>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Degree</label>
+                <input name="degree" type="text" placeholder="Master">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Start Date</label>
+                <input name="start_date" type="date" placeholder="" required>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">End Date</label>
+                <input name="end_date" type="date" placeholder="">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Comment</label>
+                <textarea name="commentary" id="" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btnSaveSetting" type="submit" name="add_education" >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal modalEdu fade" id="ModalWork" tabindex="-1" role="dialog" aria-labelledby="ModalWorkLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Work & Experience</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Job</label>
+                <input name="job" type="text" placeholder="Engineer">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Company</label>
+                <input name="companie" type="text" placeholder="LiveLearn">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Start Date</label>
+                <input name="start_date" type="date" placeholder="">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">End Date</label>
+                <input name="end_date" type="date" placeholder="">
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Comment</label>
+                <textarea name="commentary" id="" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btnSaveSetting" name="add_work" >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal modalEdu fade" id="exampleModalSkill" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Project</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="group-input-settings">
+                <label for="">Skill</label>
+                <select id="multiple-checkboxes" multiple="multiple">
+                  <option value="php">PHP</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="java">Java</option>
+                  <option value="sql">SQL</option>
+                  <option value="jquery">Jquery</option>
+                  <option value=".net">.Net</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btnSaveSetting" type="submit" name="add_project" >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <app-footers></app-footers>
