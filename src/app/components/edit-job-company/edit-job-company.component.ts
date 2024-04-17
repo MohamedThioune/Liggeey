@@ -14,6 +14,8 @@ import { UsagerService } from 'src/app/services/usager.service';
 export class EditJobCompanyComponent implements OnInit {
   job:any;
   userConnect:any;
+  selectedSkills:any[]= [];
+  skillsID:any
   form!: FormGroup;
   dateError = false;
   id:number | null = 0;
@@ -124,6 +126,7 @@ export class EditJobCompanyComponent implements OnInit {
     this.id = +this.route.snapshot.params['id'];
     this.homeService.getDetailJob(this.id).subscribe(data => {
         this.job = data;
+        this.selectedSkills = this.job.skills.map((skill:any) => skill.term_id);
         console.log(this.job);
         this.form.patchValue(this.job);
         
@@ -138,6 +141,7 @@ export class EditJobCompanyComponent implements OnInit {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
+   
 
   }
 
@@ -159,14 +163,21 @@ export class EditJobCompanyComponent implements OnInit {
       skills: this.fb.array([]),
     });
   }
+  getSkillsId (skills:any):any{
+    const allSkillsId:any[]= [];
+    if (Array.isArray(skills)) {
+      skills.forEach(skill => {
+        allSkillsId.push(skill.term_id)
+      });
+  }
+  return allSkillsId
+  }
 
 
-
-  selectedSkills: any[] = [];
 
 toggleSkill(term_id: any) {
   const skillsArray = this.form.get('skills') as FormArray;
-
+  const index = this.selectedSkills.indexOf(term_id);
   if (this.selectedSkills.includes(term_id)) {
     this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
     const index = skillsArray.value.indexOf(term_id);
@@ -175,7 +186,7 @@ toggleSkill(term_id: any) {
     this.selectedSkills.push(term_id);
     skillsArray.push(this.fb.control(term_id));
   }
-  
+  console.log(this.selectedSkills);
 }
 
 removeSkill(term_id: any) {
@@ -226,6 +237,7 @@ return allSkills;
 
   onSubmit(){
     if (this.validateFormJob(this.form.value)) {
+    this.form.value.skills=this.selectedSkills;
     console.log(this.form.value);
     //console.log(jobData);
     this.homeService.editJob(this.form.value,this.userConnect.id)
