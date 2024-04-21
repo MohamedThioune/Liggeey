@@ -1,4 +1,4 @@
-import { HttpClient,HttpHeaders,HttpResponse } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpResponse,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { JobCompagny } from '../interfaces/job-compagny';
@@ -273,6 +273,22 @@ export class HomePageService {
     };
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/myResume/add`,requestBody,{});
   }
+  deleteResume(userApplyId: number, index: number): Observable<any> {
+    // Check if userApplyId is defined before converting to string
+    const userApplyIdString = userApplyId ? userApplyId.toString() : '';
+  
+    let params = new HttpParams()
+      .set('userApplyId', userApplyIdString) // Use the converted string or an empty string
+      .set('field_type', "education")
+      .set('index', index.toString()); // Convert index to string
+  
+    const formData = new FormData();
+    formData.append('userApplyId', userApplyIdString); // Use the converted string or an empty string
+    formData.append('delete_education', '2'); 
+  
+    return this.http.post<any>('https://wp12.influid.nl/wp-json/custom/v1/candidate/myResume/delete', formData, { params });
+  }
+  
 
   profilJob(id: number): Observable<any> {
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/profil?userApplyId=${id}`,{});

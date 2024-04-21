@@ -44,6 +44,7 @@
   font-size: 16px; /* Ajustez la taille de la police au besoin */
   border: none;
   background-color: transparent;
+  color: #FFF;
  }
 button[disabled]:hover {
   background-color: #f2f2f2; /* Couleur de fond grise */

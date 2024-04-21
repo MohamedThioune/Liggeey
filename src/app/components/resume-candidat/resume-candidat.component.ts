@@ -214,35 +214,8 @@ export class ResumeCandidatComponent implements OnInit {
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
-      const cachedCandidat = localStorage.getItem('cachedCandidat');
-    if (cachedCandidat) {
-        let cachedData;
-        try {
-            cachedData = JSON.parse(cachedCandidat);
-        } catch (error) {
-            console.error('Error parsing cached data:', error);
-        }
-
-        if (cachedData) {
-            this.candidat = cachedData;
-        } else {
-            console.error('Cached data is not in the expected format.');
-        }
-
-    } else {
-    this.HomePageService.getDetailCandidate(this.userConnect.id).subscribe(data => {
-        if (data) {
-            this.candidat = data;
-            localStorage.setItem('cachedCandidat', JSON.stringify(data));
-        } else {
-            console.error('Received data is not in the expected format.');
-        }
-    });
-
-    }
-console.log(this.candidat);
-
-
+ 
+    this.updateCachedData();
     }
 
     this.myForm = this.fb.group({
@@ -390,6 +363,8 @@ console.log(this.candidat);
               if (<any>response) {
                 typeR = "success";
                 this.message = "Skills added successfully.";
+                this.updateCachedData();
+
               }
               ToastNotification.open({
                 type: typeR,
@@ -446,7 +421,10 @@ console.log(this.candidat);
             if (<any>response ) {
               typeR = "success";
               this.message= "Education created successfully."
+              this.updateCachedData();
+
             }
+            
             ToastNotification.open({
               type: typeR,
               message: this.message
@@ -491,6 +469,7 @@ console.log(this.candidat);
             if (<any>response ) {
               typeR = "success";
               this.message= "Work created successfully."
+              this.updateCachedData()
             }
             ToastNotification.open({
               type: typeR,
@@ -518,6 +497,76 @@ console.log(this.candidat);
         message: this.message.message
       });
       this.isLoading = false;
+    }
+  }
+  updateCachedData(){
+    const cachedCandidat = localStorage.getItem('cachedCandidat');
+    if (cachedCandidat) {
+        let cachedData;
+        try {
+            cachedData = JSON.parse(cachedCandidat);
+        } catch (error) {
+            console.error('Error parsing cached data:', error);
+        }
+
+        if (cachedData) {
+            this.candidat = cachedData;
+        } else {
+            console.error('Cached data is not in the expected format.');
+        }
+
+    }
+    this.HomePageService.getDetailCandidate(this.userConnect.id).subscribe(data => {
+      if (data) {
+          this.candidat = data;
+          localStorage.setItem('cachedCandidat', JSON.stringify(data));
+      } 
+      else {  
+            console.error('Received data is not in the expected format.');
+      }
+    });
+      console.log(this.candidat);
+        
+  }
+  trashFavoritesJob(index:number) {
+    if (confirm('Do you want to remove this job from your favorites?')) {
+
+    console.log(this.userConnect,index);
+    //return
+    
+    // Assurez-vous que this.userConnect et this.job sont définis
+    if (this. userConnect) {
+      // Utilisez le service pour postuler à l'emploi
+      this.HomePageService.deleteResume(this.userConnect.id, index)
+        .subscribe(
+          // Succès de la requête
+          (response) => {
+            let typeR = "error"
+            if (<any>response ) {
+              console.log(response);
+              
+              typeR = "success";
+              this.message= response.message
+              this.updateCachedData();
+            }
+            ToastNotification.open({
+              type: typeR,
+              message:response.error
+            });     
+          },
+          // Gestion des erreurs
+          (error) => {
+            ToastNotification.open({
+              type: 'error',
+              message: error.error
+            });            
+          }
+        );
+    }} else {
+      ToastNotification.open({
+        type: 'error',
+        message: "delete cancelled"
+      });      
     }
   }
   openModalForAdd(): void {
