@@ -64,14 +64,14 @@ export class HeaderComponent implements OnInit,OnDestroy {
   notificationApplyJobs(idUser:number,job:any):any{
     const notif={
       userApplyId:idUser,
-      title:"Application to a job in Liggey for candidate",
+      title:"Application for "+job.title,
       content: `
       Thank you for applying for the position of ${job.title} at ${job.company.title}.We have received your application, and we appreciate your interest.<br>
       If your application matches our needs, we will contact you to arrange an interview or a phone conversation to discuss your qualifications and career aspirations in more detail.<br>
       In the meantime, feel free to visit our website to learn more about our company and career opportunities.<br>
       Once again, thank you for your interest in ${job.company.title}.<br>
       `,
-      trigger:"Application to job",
+      trigger:"Confirmation of job application",
       receiver_id:null,
     }
     return notif;  
@@ -79,14 +79,14 @@ export class HeaderComponent implements OnInit,OnDestroy {
   notificationChiefApplyJobs(idUser:number,idUser2:number,job:any,user:any):any{
     const notif={
       userApplyId:idUser,
-      title:"New Job Application Received",
+      title:"Application for "+job.title,
       content: `
       This is to inform you that a new job application has been received for the position of ${job.title}. The applicant, ${user.display_name}, has expressed interest in joining our team and has submitted their application through our online portal.<br>
       Our team will be reviewing ${user.display_name}'s application thoroughly to assess their qualifications and suitability for the role. If their profile aligns with our requirements, further evaluation and consideration will be conducted.<br>
       Updates regarding this application will be provided as necessary.<br>
       Thank you for your attention to this matter.<br>
       `,
-      trigger:"Application to job",
+      trigger:"New Job Application Received",
       receiver_id:idUser2,
     }
     return notif;  
