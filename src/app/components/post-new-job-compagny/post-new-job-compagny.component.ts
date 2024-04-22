@@ -207,6 +207,7 @@ onSubmit() {
       type: 'error',
       message: this.message.message
     });
+    this.isLoading = false;
   }
 }
 

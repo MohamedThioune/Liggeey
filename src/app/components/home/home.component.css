@@ -486,11 +486,14 @@
     font-size: 14px;
     font-weight: 400;
 }
-.bullet{
+.arrow {
     display: flex;
+    align-items: center;
     justify-content: center;
     cursor: pointer;
-}
+    flex: 1;
+  }
+  
 
  /* section categories */
  .categories{

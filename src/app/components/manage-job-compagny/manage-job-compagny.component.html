@@ -35,8 +35,26 @@
             <th scope="row">
               {{job.title}}
             </th>
-            <td *ngIf="job.applied.length > 0" [routerLink]="['/applicant-compagny', job.ID]">{{ job.applied.length }}+ Applied</td>
-            <td style="text-decoration: none;" *ngIf="job.applied.length === 0">No applications</td>
+            <td>
+              <a *ngIf="job.applied.length > 0 || job.approved.length > 0 || job.rejected.length > 0" [routerLink]="['/applicant-compagny', job.ID]">
+                <div *ngIf="job.applied.length > 0"> {{ job.applied.length }}+ Applied </div>
+                <div *ngIf="job.approved.length > 0" [ngStyle]="{ color: '#1ac4a2' }"> {{ job.approved.length }}+ Accepted </div>
+                <div *ngIf="job.rejected.length > 0" [ngStyle]="{ color: '#dc3545' }"> {{ job.rejected.length }}+ Rejected </div>
+              </a>
+              <div *ngIf="job.applied.length === 0 && job.approved.length === 0 && job.rejected.length === 0"> No applications </div>
+            </td>
+            
+            
+                    <!--
+                          <td>
+                  {{ job.applied.length > 0 && job.rejected.length > 0 && job.approved.length > 0 ? job.approved.length + '+ Approved' : (job.rejected.length > 0 ? job.rejected.length + '+ Rejected' : job.applied.length + '+ Applied') }}
+                </td>
+              <td *ngIf="job.approved.length > 0" [routerLink]="['/applicant-compagny', job.ID]">{{ job.approved.length }}+ approved</td>
+            <td *ngIf="job.rejected.length > 0" [routerLink]="['/applicant-compagny', job.ID]">{{ job.rejected.length }}+ Rejected</td>
+            <td *ngIf="job.applied.length > 0 && job.approved.length === 0 && job.rejected.length === 0" [routerLink]="['/applicant-compagny', job.ID]">{{ job.applied.length }}+ Applied</td>
+            <td *ngIf="job.applied.length === 0 && job.approved.length === 0 && job.rejected.length === 0">No applications</td>
+          -->
+
                         <td>{{job.date}} 
               {{job.expiration}}</td>
             <td>Active</td>
