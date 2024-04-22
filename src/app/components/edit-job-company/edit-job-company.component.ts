@@ -263,14 +263,14 @@ return allSkills;
         (error) => {
           ToastNotification.open({
             type: 'error',
-            message: error.error.message
+            message: "edit failed"
           });
         }
       );
   } else {
     ToastNotification.open({
       type: 'error',
-      message: this.message.message
+      message: "edit failed"
     });
   }
   }
