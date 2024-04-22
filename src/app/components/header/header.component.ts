@@ -61,6 +61,36 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.dropdownMobile = false;
   }
 
+  notificationApplyJobs(idUser:number,job:any):any{
+    const notif={
+      userApplyId:idUser,
+      title:"Application for "+job.title,
+      content: `
+      Thank you for applying for the position of ${job.title} at ${job.company.title}.We have received your application, and we appreciate your interest.<br>
+      If your application matches our needs, we will contact you to arrange an interview or a phone conversation to discuss your qualifications and career aspirations in more detail.<br>
+      In the meantime, feel free to visit our website to learn more about our company and career opportunities.<br>
+      Once again, thank you for your interest in ${job.company.title}.<br>
+      `,
+      trigger:"Confirmation of job application",
+      receiver_id:null,
+    }
+    return notif;  
+  }
+  notificationChiefApplyJobs(idUser:number,idUser2:number,job:any,user:any):any{
+    const notif={
+      userApplyId:idUser,
+      title:"Application for "+job.title,
+      content: `
+      This is to inform you that a new job application has been received for the position of ${job.title}. The applicant, ${user.display_name}, has expressed interest in joining our team and has submitted their application through our online portal.<br>
+      Our team will be reviewing ${user.display_name}'s application thoroughly to assess their qualifications and suitability for the role. If their profile aligns with our requirements, further evaluation and consideration will be conducted.<br>
+      Updates regarding this application will be provided as necessary.<br>
+      Thank you for your attention to this matter.<br>
+      `,
+      trigger:"New Job Application Received",
+      receiver_id:idUser2,
+    }
+    return notif;  
+  }
 
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
@@ -287,13 +317,17 @@ if (cachedData && typeof cachedData === 'object' ) {
             .subscribe(
               // Succès de la requête
               (response) => {
+                console.log(response);
+                
             this.cdr.detectChanges(); // Force la détection des changements
 
             let typeR = "error"
             if (<any>response ) {
               typeR = "success";
+              console.log(this.job);
               this.message= "Your job application has been successfully submitted."
-              this.homeService.sendNotification(this.id,this.notification)
+              this.homeService.sendNotification(this.id,this.notificationApplyJobs(this.id,this.job)).subscribe();
+              this.homeService.sendNotification(response.chief.ID,this.notificationChiefApplyJobs(response.chief.ID,this.id,this.job,response.candidate.data)).subscribe();
               // this.showFirstStep =  !this.showFirstStep;
               // this.showSecondStep = !this.showSecondStep;
             }

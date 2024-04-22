@@ -16,6 +16,7 @@ export class CompagnyApplicantComponent implements OnInit {
   applicant:any;
   searchTitle:String="";
   identifiant:number | null = 0;
+  jobLoaded: boolean = false;
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
@@ -32,7 +33,8 @@ export class CompagnyApplicantComponent implements OnInit {
     this. userConnect = JSON.parse(decodedToken);
   }
    this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
-     this.applicant=data
+     this.applicant = data
+     this.jobLoaded = true
      console.log(this.applicant);
      
     })

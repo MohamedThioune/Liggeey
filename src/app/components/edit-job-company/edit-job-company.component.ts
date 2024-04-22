@@ -14,6 +14,8 @@ import { UsagerService } from 'src/app/services/usager.service';
 export class EditJobCompanyComponent implements OnInit {
   job:any;
   userConnect:any;
+  selectedSkills:any[]= [];
+  skillsID:any
   form!: FormGroup;
   dateError = false;
   id:number | null = 0;
@@ -124,6 +126,7 @@ export class EditJobCompanyComponent implements OnInit {
     this.id = +this.route.snapshot.params['id'];
     this.homeService.getDetailJob(this.id).subscribe(data => {
         this.job = data;
+        this.selectedSkills = this.job.skills.map((skill:any) => skill.term_id);
         console.log(this.job);
         this.form.patchValue(this.job);
         
@@ -138,6 +141,7 @@ export class EditJobCompanyComponent implements OnInit {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
+   
 
   }
 
@@ -154,19 +158,26 @@ export class EditJobCompanyComponent implements OnInit {
       ID: this.fb.control("", []),
       description: this.fb.control("", [Validators.required]),
       level_of_experience: this.fb.control("", Validators.required),
-      job_langues: this.fb.control("", Validators.required),
+      langues: this.fb.control("", Validators.required),
       expired_at: this.fb.control("", [Validators.email, Validators.required]),      
       skills: this.fb.array([]),
     });
   }
+  getSkillsId (skills:any):any{
+    const allSkillsId:any[]= [];
+    if (Array.isArray(skills)) {
+      skills.forEach(skill => {
+        allSkillsId.push(skill.term_id)
+      });
+  }
+  return allSkillsId
+  }
 
 
-
-  selectedSkills: any[] = [];
 
 toggleSkill(term_id: any) {
   const skillsArray = this.form.get('skills') as FormArray;
-
+  const index = this.selectedSkills.indexOf(term_id);
   if (this.selectedSkills.includes(term_id)) {
     this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
     const index = skillsArray.value.indexOf(term_id);
@@ -175,7 +186,7 @@ toggleSkill(term_id: any) {
     this.selectedSkills.push(term_id);
     skillsArray.push(this.fb.control(term_id));
   }
-  
+  console.log(this.selectedSkills);
 }
 
 removeSkill(term_id: any) {
@@ -202,17 +213,16 @@ getSkills(tabSkillsId:any) {
     });
 }
 return allSkills;
-
 }
 
   validateFormJob(job: any):boolean{
-    const { level_of_experience, job_langues, expired_at } = job;
+    const { level_of_experience, langues, expired_at } = job;
     
     if (level_of_experience == 0) {
       this.message.message = 'Experience level is mandatory';
       return false;
     }
-    if (job_langues == "") {
+    if (langues == "") {
       this.message.message = 'Language is mandatory';
       return false;
     }
@@ -227,7 +237,7 @@ return allSkills;
 
   onSubmit(){
     if (this.validateFormJob(this.form.value)) {
-   this.form.value.skills = this.getSkills(this.selectedSkills);
+    this.form.value.skills=this.selectedSkills;
     console.log(this.form.value);
     //console.log(jobData);
     this.homeService.editJob(this.form.value,this.userConnect.id)
@@ -253,14 +263,14 @@ return allSkills;
         (error) => {
           ToastNotification.open({
             type: 'error',
-            message: error.error.message
+            message: "edit failed"
           });
         }
       );
   } else {
     ToastNotification.open({
       type: 'error',
-      message: this.message.message
+      message: "edit failed"
     });
   }
   }
@@ -275,7 +285,7 @@ return allSkills;
 
     // Vérifier si la date saisie est valide (non vide et au bon format)
     const regex = /^\d{1,2}\/\d{1,2}\/\d{4}$/; // Format de date "dd/mm/yyyy"
-    if (!regex.test(inputValue) || day < 1 || day > 31 || month < 0 || month > 11 || year < 1000 || year > 9999 || inputDate.getTime() !== inputDate.getTime()) {
+    if (!regex.test(inputValue) || day < 1 || day > 31 || month < 0 || month > 12 || year < 1000 || year > 9999 || inputDate.getTime() !== inputDate.getTime()) {
       this.dateError = true;
       return;
     }

@@ -35,7 +35,7 @@
             <th scope="row">
               {{job.title}}
             </th>
-            <td>
+            <td *ngIf="jobLoaded ">
               <a *ngIf="job.applied.length > 0 || job.approved.length > 0 || job.rejected.length > 0" [routerLink]="['/applicant-compagny', job.ID]">
                 <div *ngIf="job.applied.length > 0"> {{ job.applied.length }}+ Applied </div>
                 <div *ngIf="job.approved.length > 0" [ngStyle]="{ color: '#1ac4a2' }"> {{ job.approved.length }}+ Accepted </div>
@@ -104,6 +104,8 @@
             </td>
 
           </tr>
+          <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" *ngIf="!jobLoaded ">
+
           </tbody>
         </table>
       </div>
