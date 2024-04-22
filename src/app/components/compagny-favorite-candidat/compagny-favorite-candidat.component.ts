@@ -15,6 +15,7 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   applicants:any;
   searchTitle:string="";
   searchLocation:string="";
+  jobLoaded:boolean =false;
 
   constructor(private usagerService:UsagerService,private homeService:HomePageService) { }
 
@@ -30,7 +31,8 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
      this. userConnect = JSON.parse(decodedToken);
    }
     this.homeService.getCandidatCompagny(this.userConnect.id).subscribe((data:any)=>{
-      this.applicants=data      
+      this.applicants=data 
+      this.jobLoaded=true     
      })
   }
   

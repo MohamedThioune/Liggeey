@@ -214,6 +214,8 @@
 
                 </div>
               </div>
+              <img src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="badges.length === 0">
+
           </div>
 
           <div class="map_menu mb-4" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
@@ -232,7 +234,10 @@
                       <p>{{certificat.description}}</p>
                   </div>
 
-                </div>
+                </div>                                   
+                 <img src="../../../assets/img/empty-certifican.png" alt="image team"  *ngIf="skillAll.certificats.length === 0">
+
+
           </div>
           <div class="map_menu" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
@@ -248,6 +253,8 @@
                       <p>{{skill.topic_name}}</p>
                     </div>
                 </div>
+                <img src="../../../assets/img/empty-topic.png" alt="image team" *ngIf="skillAll.topics.length === 0">
+
           </div>
           <!--
           <div class="map_menu"  *ngIf="ongletSelectionne === 'Assessments' || ongletSelectionne === 'All'">

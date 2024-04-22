@@ -56,9 +56,11 @@ export class HomePageService {
       return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/candidate/detail/?id=${id}`,{});
   }
 
-
+  getNotificationCandidat(id:number | null):Observable<any>{
+    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/notification/list/?userApplyId=${id}`,{});
+}
   getAlertCandidat(id:number | null):Observable<any>{
-    return this.http.post(`  https://wp12.influid.nl/wp-json/custom/v1/candidate/favorites/?userApplyId=${id}`,{});
+    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/candidate/favorites/?userApplyId=${id}`,{});
 }
   getDetailArticle(id:number | null):Observable<any>{
     return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
@@ -302,13 +304,13 @@ export class HomePageService {
       userApplyId:userApplyId,
       ID:job.ID,
       description: job.description,
-      job_level_of_experience: job.job_level_of_experience,
-      job_langues:job.job_langues,
+      level_of_experience: job.level_of_experience,
+      langues:job.langues,
       expired_at:job.expired_at,
       skills:job.skills
 
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/editJob?userApplyId=${userApplyId}&jobID=${requestBody.ID}&description=${requestBody.description}&job_level_of_experience=${requestBody.job_level_of_experience}&skills=${requestBody.skills}&job_langues=${requestBody.job_langues}&job_expiration_date=${requestBody.expired_at}`,requestBody);
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/editJob?userApplyId=${userApplyId}&jobID=${requestBody.ID}&job_description=${requestBody.description}&job_level_of_experience=${requestBody.level_of_experience}&skills=${requestBody.skills}&job_langues=${requestBody.langues}&job_expiration_date=${requestBody.expired_at}`,requestBody);
   }
   deleteJob(jobID:number,userApplyId:number){
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/deleteJob?userApplyId=${userApplyId}&jobID=${jobID}`,{})

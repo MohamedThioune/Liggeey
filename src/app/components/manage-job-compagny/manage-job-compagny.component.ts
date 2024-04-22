@@ -22,7 +22,7 @@ export class ManageJobCompagnyComponent implements OnInit {
     type: '',
     message: ''
   };
-
+  jobLoaded:boolean=false
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private router:Router) { }
 
   ngOnInit(): void {
@@ -39,6 +39,7 @@ export class ManageJobCompagnyComponent implements OnInit {
       
     this.homeService.manageJob(this.userConnect.id).subscribe((data:any)=>{
       this.openJobs=data;
+      this.jobLoaded=true
       console.log(this.openJobs);
       
       this.openJobs.forEach((element:any) => {

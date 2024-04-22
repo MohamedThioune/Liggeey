@@ -22,6 +22,8 @@ export class DashboardCandidatComponent implements OnInit {
   currentDate!: Date;
   sentDate: any;
   suggestions:any;
+  jobLoaded:boolean = false
+
   constructor(private usagerService:UsagerService,private homeService:HomePageService,private datePipe: DatePipe) { 
     this.isMobile = window.innerWidth < 768; 
   }
@@ -39,6 +41,8 @@ export class DashboardCandidatComponent implements OnInit {
     this.homeService.homeCandidat(this.userConnect.id).subscribe((data:any)=>{
       this.homeCandidat=data
       this.suggestions=this.homeCandidat.suggestions
+      this.jobLoaded = true
+
      })
  
   }
@@ -86,31 +90,31 @@ export class DashboardCandidatComponent implements OnInit {
   isMobileScreen(): boolean {
     return this.isMobile;
   }
-  ngAfterViewInit(): void {
-    this.createChart();
-  }
+  // ngAfterViewInit(): void {
+  //   this.createChart();
+  // }
   
-  createChart() {
-    this.chart = new Chart('MyChart', {
-      type: 'line',
-      data: {
-        labels: ['2022-05-10', '2022-05-11', '2022-05-12', '2022-05-13', '2022-05-14', '2022-05-15', '2022-05-16', '2022-05-17'],
-        datasets: [
-          {
-            label: 'Sales',
-            data: [467, 576, 572, 79, 92, 574, 573, 576],
-            backgroundColor: 'blue'
-          },
-          {
-            label: 'Profit',
-            data: [542, 542, 536, 327, 17, 0.00, 538, 541],
-            backgroundColor: 'limegreen'
-          }
-        ]
-      },
-      options: {
-        aspectRatio: 2.5
-      }
-    });
-  }
+  // createChart() {
+  //   this.chart = new Chart('MyChart', {
+  //     type: 'line',
+  //     data: {
+  //       labels: ['2022-05-10', '2022-05-11', '2022-05-12', '2022-05-13', '2022-05-14', '2022-05-15', '2022-05-16', '2022-05-17'],
+  //       datasets: [
+  //         {
+  //           label: 'Sales',
+  //           data: [467, 576, 572, 79, 92, 574, 573, 576],
+  //           backgroundColor: 'blue'
+  //         },
+  //         {
+  //           label: 'Profit',
+  //           data: [542, 542, 536, 327, 17, 0.00, 538, 541],
+  //           backgroundColor: 'limegreen'
+  //         }
+  //       ]
+  //     },
+  //     options: {
+  //       aspectRatio: 2.5
+  //     }
+  //   });
+  // }
 }
