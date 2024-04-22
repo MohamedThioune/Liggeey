@@ -25,6 +25,10 @@ export class PassportAllCandidatComponent implements OnInit {
   skillAll:any;
   candidat:any;
   identifiant:number | null = 0;
+  showAllCourses: boolean = false;
+  showAllSkills: boolean = false;
+  showAllBadges: boolean = false;
+  showAllCertificates: boolean = false;
 
   constructor(private route : ActivatedRoute,private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
@@ -68,7 +72,7 @@ export class PassportAllCandidatComponent implements OnInit {
      this.certificats=this.skillAll.certificats
      console.log(this.skillAll);
      
-    // console.log(this.skillAll,this.courses_info,this.badges);
+     console.log(this.skillAll,this.courses_info,this.badges);
      
     }))
  

@@ -12,7 +12,7 @@
             </div>
             <div class="text_home">
               <h2>Build your remote digital workforce based on skills</h2>
-              <p class="definition_home">Embrace the future of work with our top digital Talent. Not just remote, but fully supported by the LIGGÉEY team.</p>
+              <p class="definition_home">"Embrace the future of work with our best digital talent,not just remotely but with the full support of the LIGGEEY team."</p>
             </div>
             <div class="hiring_work" *ngIf="!userConnect">
               <a class="btn hiring" routerLink="register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
@@ -262,7 +262,13 @@
       <p>Meet our standout candidates – to ensure you have access to a pool of ready-to-work talent matching your requirements.</p>
     </div>
     <div class="candidat_featured">
+  
       <div class="row candidat_featured_">
+        <div class="arrow arrow-left" appPrev>
+          <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24" fill="none">
+              <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="#1AC4A2"/>
+          </svg>
+        </div>
         <div class="col-md-3 item" *ngFor="let candidate of candidates" style="cursor: pointer;">
             <div class="content_candidate"  [routerLink]="['/detail-candidat',candidate.ID]">
               <div class="content_image_candidate">
@@ -282,16 +288,13 @@
               </div>
             </div>
         </div>
+        <div class="arrow arrow-right" appNext>
+          <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24" fill="none">
+              <path d="M8.59 16.59L10 18L16 12L10 6L8.59 7.41L13.17 12L8.59 16.59Z" fill="#1AC4A2"/>
+          </svg>
+        </div>
       </div>
-      <span class="bullet" appPrev>
-        <svg xmlns="http://www.w3.org/2000/svg" width="92" height="9" viewBox="0 0 92 9" fill="none">
-          <circle cx="52" cy="4.15625" r="4" fill="#BFC8CB"/>
-          <circle cx="4" cy="4.15625" r="4" fill="#BFC8CB"/>
-          <circle cx="70" cy="4.15625" r="4" fill="#BFC8CB"/>
-          <circle cx="88" cy="4.15625" r="4" fill="#BFC8CB"/>
-          <rect x="18" y="0.15625" width="20" height="8" rx="4" fill="#202124"/>
-        </svg>
-      </span>
+    
     </div>
   </div>
 </section>

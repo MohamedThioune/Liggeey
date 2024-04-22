@@ -54,6 +54,8 @@ export class DetailJobComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
+       // this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
+
         console.log(this.job);
 
         this.calculateDuration();

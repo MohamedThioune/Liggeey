@@ -326,6 +326,7 @@ label p {
 }
 .skills .content_skills{
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   background-color: #F5F7FC;
   padding: 23px 0 30px 25px;
@@ -391,7 +392,7 @@ label p {
   color: #3c3c3c !important;
   background: #F0F5F7 !important;
   border: none;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 .btnSaveSetting {
   background: #043356;

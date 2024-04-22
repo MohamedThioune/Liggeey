@@ -44,10 +44,7 @@ export class DetailBlogComponent implements OnInit {
     this.HomePageService.getDetailArticle( this.identifiant).subscribe(data=>{
       this.article=data         
       this.article.title =   this.article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      //this.article.content =   this.article.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      //this.article.content = this.article.content.replace(/<(?!\/?a(?=>|\s.*>))\/?.*?>/g, '').replace(/[^\w\s.]/gi, '');
-      this.article.content = this.article.content.replace(/<(?!\/?a(?=>|\s.*>))\/?.*?>/g, '').replace(/[^\w\s\n.]/gi, '');
-
+      this.article.content = this.article.content.replace(/<[^>]*>|[#&]/g, '');
          
     })
   }
