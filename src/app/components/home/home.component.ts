@@ -67,7 +67,8 @@ console.log(this.currentCategories);
       this.categoriesTab=data.categories;
       this.topics=data.topics;
       this.sub=data.sub
-
+      console.log(this.candidatsTab);
+      
       //this.currentCategories=this.categories
     })
 

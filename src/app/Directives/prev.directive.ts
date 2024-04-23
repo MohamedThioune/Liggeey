@@ -5,14 +5,13 @@ import { Directive ,ElementRef,HostListener,Renderer2} from '@angular/core';
 })
 export class PrevDirective {
 
-  constructor(private el:ElementRef,private renderer: Renderer2) { }
+  constructor(private el: ElementRef) { }
+
   @HostListener("click")
-  prevFunction(){
-    var elm = this.el.nativeElement.parentElement.children[0];
-    var item = elm.getElementsByClassName("item");
-    elm.prepend(item[item.length - 1]);  
-   
-    
+  prevFunction() {
+    const elm = this.el.nativeElement.parentElement.parentElement.querySelector('.candidat_featured_');
+    const items = Array.from(elm.querySelectorAll('.item'));
+    elm.insertBefore(items[items.length - 1], items[0]);
   }
 
 }

@@ -195,9 +195,9 @@
           <div class="content-detail" *ngIf="ongletSelectionne === 'Badges' || ongletSelectionne === 'All'" >
               <div class="badge_certificate">
                 <p>Badges</p>
-                <!--<a href="">See All</a>-->
+                <a *ngIf="badges.length > 6"  (click)="showAllBadges = !showAllBadges">{{ showAllBadges ? 'Show Less' : 'See All' }}</a>
               </div>
-              <div class="livraison" *ngFor="let badge of badges">
+              <div class="livraison" *ngFor="let badge of (showAllBadges ? badges :  badges.slice(0,5))">
                 <div class="content_image_livraison-badge">
                   <img src="../../../assets/img/radial.png" alt="">
                 </div>
@@ -216,12 +216,12 @@
               </div>
           </div>
 
-          <div class="map_menu" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
+          <div class="map_menu mb-4" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Certificat</p>
-                <!--<a href="">See All</a>-->
+                <a *ngIf="skillAll.certificats.length > 6"  (click)="showAllCertificates = !showAllCertificates">{{ showAllCertificates ? 'Show Less' : 'See All' }}</a>
               </div>
-                <div class="row" *ngFor="let certificat of skillAll.certificats">
+                <div class="row" *ngFor="let certificat of (showAllCertificates ? skillAll.certificates :  skillAll.certificats.slice(0,5))">
                   <div class="col-md-2 document" >
                     <!--
                       <div class="content_image_document">
@@ -237,10 +237,10 @@
           <div class="map_menu" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Skills</p>
-                <!--<a href="">See All</a>-->
+                <a *ngIf="skillAll.topics.length > 6"  (click)="showAllSkills = !showAllSkills">{{ showAllSkills ? 'Show Less' : 'See All' }}</a>
               </div>
                 <div class="row">
-                    <div class="col-md-2 document" style="position: relative;" *ngFor="let skill of skillAll.topics">
+                    <div class="col-md-2 document" style="position: relative;" *ngFor="let skill of (showAllSkills ? skillAll.topics :  skillAll.topics.slice(0,5))">
                       <div class="content_image_document">
                           <img src="../../../assets/img/pourcent.png" alt="">
                           <p  style="position:absolute;top:30%;right:40%">{{skill.note}} %</p>
@@ -424,10 +424,10 @@
           <div class="content-detail" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                   <p>Preferred Course</p>
-                <!--<a href="">See All</a>-->
-              </div>
+                  <a  *ngIf="skillAll.courses_info.length > 8" (click)="showAllCourses = !showAllCourses">{{ showAllCourses ? 'Show Less' : 'See All' }}</a>
+                </div>
               <div class="row ">
-                <div class="col-md-3 item_course" *ngFor="let course of courses_info | paginate: { itemsPerPage: 9, currentPage: p }">
+                <div class="col-md-3 item_course" *ngFor="let course of (showAllCourses ? courses_info : skillAll.courses_info.slice(0, 6))">
                     <div class="content_image_course">
                         <img [src]="course.thumbnail_url" alt="Course Image">
                     </div>
@@ -455,9 +455,7 @@
                     </div>
                 </div>
               </div>
-              <div class="pagination">
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
-              </div>
+         
           </div>
           <!--
           <div class="map_menu" *ngIf="ongletSelectionne === 'Reviews' || ongletSelectionne === 'All'">
