@@ -3,7 +3,7 @@
   <app-sidebar-company></app-sidebar-company>
   <div class="right_menu">
     <div class="content_right_menu">
-      <h1 class="py-4">All Aplicants {{applicant.title}} </h1>
+      <h1 class="py-4">All Aplicants</h1>
       <div class="map_menu">
         <div class="applicants">
           <div class="header_applicants d-flex justify-content-between align-items-center">
@@ -48,8 +48,9 @@
           </div>
           -->
           <ul class="row">
-            <li class="col-md-6" *ngFor="let item of filteredApplicant | paginate: { itemsPerPage: 6, currentPage: p }">
-              <div class="job_list_1">
+            <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" *ngIf="!jobLoaded">
+            <li class="col-md-6"  *ngFor="let item of filteredApplicant | paginate: { itemsPerPage: 6, currentPage: p }">
+              <div class="job_list_1" *ngIf="jobLoaded">
                 <div class="content_job_list_1">
                   <div class="logo">
                     <img [src]="item.image" alt="Logo">
@@ -127,7 +128,9 @@
                 </div>
               </div>
             </li>
+            
           </ul>
+
         </div>
       </div>
     </div>

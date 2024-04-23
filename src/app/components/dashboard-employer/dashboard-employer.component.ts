@@ -17,6 +17,7 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
   userConnect:any;
   homeCompagny:any;
   applicant:any
+  jobLoaded:boolean=false
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
@@ -50,11 +51,11 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
    }
     this.homeService.homeCompagny(this.userConnect.id).subscribe((data:any)=>{
       this.homeCompagny=data
-      console.log(this.homeCompagny);
-      
-      
+      //console.log(this.homeCompagny);
       this.homeCompagny.application.forEach((element:any) => {
-        this.applicant=element        
+        this.applicant=element 
+        this.jobLoaded = true
+       
       });
      })
   }
