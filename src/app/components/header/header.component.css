@@ -207,7 +207,6 @@ input[type="text"]:focus {
 .dropdown.dropdown-modife .dropdown-menu{
 margin-top: 25px;
   background-color: #FFF;
-  padding-left: 50px;
 }
 
 .categories .dropdown-menu a .content_image{

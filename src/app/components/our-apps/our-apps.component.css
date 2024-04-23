@@ -94,6 +94,19 @@ subs {
 .description-text{
   font-size: 19px;
   line-height: 37px;
+  margin-bottom: 48px;
+}
+.btn-store{
+  border-radius: 8px;
+  background: #202124;
+  align-items: center;
+  width: 44%;
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 9px 15px !important;
+  margin-right: 25px;
 }
 @media all and (min-width: 300px) and (max-width: 767px){
   .online-course {
@@ -170,6 +183,14 @@ subs {
   .img-slide-mockup {
     width: 90% !important;
     margin: 0 auto;
+  }
+  .group-btn-download {
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+  .btn-store{
+    width: fit-content;
+    margin: 0 auto 23px;
   }
 
 }

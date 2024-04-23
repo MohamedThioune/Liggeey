@@ -322,4 +322,7 @@
         margin-top: 30px;
         color: #1AC4A2;
       }
+    .profil-view{
+      display: none;
+    }
  }
