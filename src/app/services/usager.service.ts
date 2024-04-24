@@ -12,6 +12,7 @@ import { UsagerCompany } from '../interfaces/usager-company';
 })
 export class UsagerService {
 
+  private baseUrl = 'https://Livelearn.nl';
   private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   user$: Observable<any> = this.userSubject.asObservable();
 
@@ -28,7 +29,7 @@ export class UsagerService {
       'Content-Type': 'application/json;charset=UTF-8',
 
     });
-    return this.http.post('https://wp12.influid.nl/wp-json/wp/v2/users/me',{}, { headers });
+    return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/me`,{}, { headers });
   }
   inscription(usager: Usager): Observable<any> {
     const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
@@ -51,7 +52,7 @@ export class UsagerService {
         "is_liggeey":"candidate"
       },
     };
-    return this.http.post<Usager>(" https://wp12.influid.nl/wp-json/wp/v2/users", requestBody, { headers });
+    return this.http.post<Usager>(`${this.baseUrl}/wp-json/wp/v2/users`, requestBody, { headers });
   }
   inscriptionCompagny(usager: UsagerCompany): Observable<any> {
     const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
@@ -72,7 +73,7 @@ export class UsagerService {
         "is_liggeey":"chief"
       },
     };
-    return this.http.post<any>(" https://wp12.influid.nl/wp-json/custom/v1/register/company", requestBody, { headers });
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/register/company`, requestBody, { headers });
   }
   storeToken(token: string): void {
     localStorage.setItem('access_token', token);
@@ -87,7 +88,7 @@ export class UsagerService {
       'Content-Type': 'application/json;charset=UTF-8',
 
     });
-    return this.http.post('https://livelearn.nl/wp-json/bdpwr/v1/reset-password',{email}, { headers });
+    return this.http.post(`${this.baseUrl}/wp-json/bdpwr/v1/reset-password`,{email}, { headers });
   }
   resetPassword(userResetPassword:UserResetPassword): Observable<any> {
     const headers = new HttpHeaders({
@@ -99,7 +100,7 @@ export class UsagerService {
       code : userResetPassword.code,
 
     }
-    return this.http.post<UserResetPassword>('https://livelearn.nl/wp-json/bdpwr/v1/set-password',bodyRequestPassword, { headers });
+    return this.http.post<UserResetPassword>(`${this.baseUrl}/bdpwr/v1/set-password`,bodyRequestPassword, { headers });
   }
 
   deconnexion() {
