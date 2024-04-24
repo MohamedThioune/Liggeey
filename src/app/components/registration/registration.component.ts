@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Usager } from 'src/app/interfaces/usager';
 import { UsagerCompany } from 'src/app/interfaces/usager-company';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
+import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class RegistrationComponent implements OnInit {
   isCandidateActive: boolean = true;
   isEmployerActive: boolean = false;
 
-  constructor(private usagerService: UsagerService, private formBuilder: FormBuilder, private route: Router) { }
+  constructor(private usagerService: UsagerService, private formBuilder: FormBuilder, private route: Router,private homeService:HomePageService) { }
   ngOnInit(): void {
     this.initForm();
     this.initFormCompagny();
@@ -60,6 +61,7 @@ showEmployer() {
           });
           if (typeR == "success") {
             this.route.navigate(['/login']);
+            this.homeService.sendNotification(usager.id,this.notificationTalent(usager.id,this.form.value)).subscribe();
           }
         },
         error => {          
@@ -115,6 +117,37 @@ showEmployer() {
     }
     return true;
   }
+  notificationTalent(idUser:number,user:any):any{
+    const notif={
+      userApplyId:idUser,
+      title:"Inscription as candidate to Liggey",
+      content: `
+      Welcome to Liggey, your account has been successfully created.<br>
+      Here is your account information:<br>
+      Username: ${user.username}<br>
+      Password: what you already filled up<br>
+      `,
+      trigger:"Registration",
+      receiver_id:null,
+    }
+    return notif;
+}
+notificationChief(idUser:number,user:any):any{
+  const notif={
+    userApplyId:idUser,
+    title:"Inscription as employer to Liggey",
+    content: `
+    Welcome to Liggey, your account has been successfully created.<br>
+    Here is your account information:<br>
+    Username: ${user.emailCompagny}<br>
+    Password: what you already filled up<br>
+    Company: ${user.bedrijf}<br>
+    `,
+    trigger:"Registration",
+    receiver_id:null,
+  }
+  return notif;
+}
 
   initForm() {
     this.form = this.formBuilder.group({
@@ -156,6 +189,7 @@ showEmployer() {
           });
           if (typeR == "success") {
             this.route.navigate(['/login']);
+            this.homeService.sendNotification(usager.ID,this.notificationChief(usager.ID,this.formCompagny.value)).subscribe();
           }
         },
         error => { 

@@ -27,9 +27,9 @@
               <div class="bottom-element education">
                 <div class="header_education justify-content-between align-items-center">
                   <h2 class="sub-title-page">Education</h2>
-                  
+
                   <button class="btn add">
-                    <div class="element-svg">
+                    <div class="element-svg"  data-toggle="modal" data-target="#exampleModalEdu">
                       <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
                         <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
                         <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
@@ -37,14 +37,14 @@
                     </div>
                     <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalEdu">Add Education</button>
                   </button>
-                  
+
                 </div>
                 <div class="content_education" *ngFor="let education of candidat.educations let i = index">
                   <div class="date_education">
                     <p>{{education.diploma}}</p>
-                    <!---->
                     <div class="button">
-                      
+                                          <!--
+
                       <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
                           <path d="M13.9868 1.02989C13.2168 0.275193 11.9698 0.275193 11.1998 1.02989L10.5021 1.71861L3.07577 9.00615L3.05998 9.02176C3.05616 9.02552 3.05616 9.02951 3.05209 9.02951C3.0442 9.04113 3.03237 9.05263 3.0246 9.06425C3.0246 9.06813 3.02053 9.06813 3.02053 9.072C3.01264 9.08362 3.00881 9.09137 3.0008 9.10299C2.99698 9.10687 2.99698 9.11062 2.99303 9.11462C2.98909 9.12624 2.98514 9.13399 2.98107 9.14561C2.98107 9.14936 2.97725 9.14936 2.97725 9.15336L1.32956 14.0181C1.28123 14.1566 1.31797 14.31 1.42413 14.4128C1.49873 14.485 1.59935 14.5255 1.70403 14.5251C1.74682 14.5244 1.78923 14.5178 1.83017 14.5057L6.78112 12.8841C6.78494 12.8841 6.78494 12.8841 6.78901 12.8804C6.80147 12.8767 6.81343 12.8715 6.8244 12.8647C6.82748 12.8644 6.8302 12.863 6.83242 12.861C6.84413 12.8532 6.85991 12.8454 6.87175 12.8376C6.88346 12.83 6.89542 12.8184 6.90726 12.8106C6.91121 12.8066 6.91503 12.8066 6.91503 12.8029C6.9191 12.799 6.92699 12.7952 6.93093 12.7874L15.0549 4.811C15.8236 4.05497 15.8236 2.83068 15.0549 2.07477L13.9868 1.02989ZM6.65498 11.9746L3.91151 9.28108L10.7781 2.53928L13.5216 5.23278L6.65498 11.9746ZM3.52508 9.99703L5.92183 12.3501L2.32288 13.5266L3.52508 9.99703ZM14.4992 4.26913L14.0813 4.68328L11.3378 1.98954L11.7597 1.57551C12.2212 1.12274 12.9693 1.12274 13.4309 1.57551L14.503 2.62814C14.9611 3.08333 14.9594 3.81612 14.4992 4.26913Z" fill="#043356"/>
@@ -65,7 +65,8 @@
                           </defs>
                         </svg>
                       </button>
-                      
+                      -->
+
                     </div>
 
                     <p style="margin: 0;">{{education.year}}</p>
@@ -110,9 +111,9 @@
               <div class="bottom-element work">
                 <div class="header_education justify-content-between align-items-center">
                   <h2 class="sub-title-page">Work & Experience</h2>
-                  
+
                   <button class="btn add">
-                    <div class="element-svg">
+                    <div class="element-svg" data-toggle="modal" data-target="#ModalWork">
                       <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
                         <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
                         <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
@@ -120,13 +121,13 @@
                     </div>
                     <button class="btn-add-element" data-toggle="modal" data-target="#ModalWork">Add Work</button>
                   </button>
-                  
+
                 </div>
                 <div class="content_work" *ngFor="let work of candidat.experiences">
                   <div class="date_work">
                     <p>{{work.company}}</p>
                     <div class="button">
-                      
+                      <!--
                       <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15" fill="none">
                           <path d="M13.9868 1.02989C13.2168 0.275193 11.9698 0.275193 11.1998 1.02989L10.5021 1.71861L3.07577 9.00615L3.05998 9.02176C3.05616 9.02552 3.05616 9.02951 3.05209 9.02951C3.0442 9.04113 3.03237 9.05263 3.0246 9.06425C3.0246 9.06813 3.02053 9.06813 3.02053 9.072C3.01264 9.08362 3.00881 9.09137 3.0008 9.10299C2.99698 9.10687 2.99698 9.11062 2.99303 9.11462C2.98909 9.12624 2.98514 9.13399 2.98107 9.14561C2.98107 9.14936 2.97725 9.14936 2.97725 9.15336L1.32956 14.0181C1.28123 14.1566 1.31797 14.31 1.42413 14.4128C1.49873 14.485 1.59935 14.5255 1.70403 14.5251C1.74682 14.5244 1.78923 14.5178 1.83017 14.5057L6.78112 12.8841C6.78494 12.8841 6.78494 12.8841 6.78901 12.8804C6.80147 12.8767 6.81343 12.8715 6.8244 12.8647C6.82748 12.8644 6.8302 12.863 6.83242 12.861C6.84413 12.8532 6.85991 12.8454 6.87175 12.8376C6.88346 12.83 6.89542 12.8184 6.90726 12.8106C6.91121 12.8066 6.91503 12.8066 6.91503 12.8029C6.9191 12.799 6.92699 12.7952 6.93093 12.7874L15.0549 4.811C15.8236 4.05497 15.8236 2.83068 15.0549 2.07477L13.9868 1.02989ZM6.65498 11.9746L3.91151 9.28108L10.7781 2.53928L13.5216 5.23278L6.65498 11.9746ZM3.52508 9.99703L5.92183 12.3501L2.32288 13.5266L3.52508 9.99703ZM14.4992 4.26913L14.0813 4.68328L11.3378 1.98954L11.7597 1.57551C12.2212 1.12274 12.9693 1.12274 13.4309 1.57551L14.503 2.62814C14.9611 3.08333 14.9594 3.81612 14.4992 4.26913Z" fill="#043356"/>
@@ -147,7 +148,8 @@
                           </defs>
                         </svg>
                       </button>
-                      
+                      -->
+
                     </div>
 
                     <p style="margin: 0;">{{work.year}}</p>
@@ -266,11 +268,11 @@
               </div>
               -->
               <div class="bottom-element skills">
-                
+
                 <div class="header_education justify-content-between align-items-center">
                   <h2 class="sub-title-page">Skills</h2>
                   <button class="btn add">
-                    <div class="element-svg">
+                    <div class="element-svg" data-toggle="modal" data-target="#exampleModalSkill">
                       <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
                         <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
                         <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
@@ -279,7 +281,7 @@
                     <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalSkill">Add Skills</button>
                   </button>
                 </div>
-                
+
                 <div class="content_skills">
                   <div *ngFor="let skill of candidat.skills">
                       <p>{{skill.cat_name}}</p>
@@ -443,7 +445,7 @@
                   </label>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -457,4 +459,4 @@
 </div>
 
 
-<app-footers></app-footers>
+

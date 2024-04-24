@@ -18,7 +18,7 @@
                 </defs>
               </svg>
             </div>
-            <div class="description_job_applies ">
+            <div class="description_job_applies "  *ngIf="homeCompagny">
               <span>{{homeCompagny.count_open_jobs}}</span>
               <p>Posted Jobs</p>
             </div>
@@ -47,7 +47,7 @@
                 </defs>
               </svg>
             </div>
-            <div class="description_job_alert ">
+            <div class="description_job_alert "  *ngIf="homeCompagny">
               <span>{{homeCompagny.count_application}}</span>
               <p>Application</p>
             </div>
@@ -60,7 +60,7 @@
                 <i class="fa fa-bookmark"></i>
               </button>
             </div>
-            <div class="description_job_favorites ">
+            <div class="description_job_favorites "  *ngIf="homeCompagny">
               <span>{{homeCompagny.count_favorite}}</span>
               <p>Favorite</p>
             </div>
@@ -73,8 +73,9 @@
           <span>Recent Applicants</span>
         </div>
         <ul class="row">
+          <img class="mb-4" src="../../../assets/img/empty-certifican.png" alt="image team" *ngIf="!jobLoaded">
           <li class="col-md-6" *ngFor="let item of  this.homeCompagny.application | paginate: { itemsPerPage: 6, currentPage: p }">
-            <div class="job_list_1">
+            <div class="job_list_1" *ngIf="jobLoaded ">
               <div class="content_job_list_1">
                 <div class="content_logo">
                   <img [src]="item.image" alt="Logo">
@@ -164,4 +165,3 @@
     </div>
   </div>
 </section>
-<app-footers></app-footers>

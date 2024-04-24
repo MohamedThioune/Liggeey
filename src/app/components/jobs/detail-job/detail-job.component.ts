@@ -28,6 +28,7 @@ export class DetailJobComponent implements OnInit {
   candidate=false;
   canApply=true
   isBookmarked: boolean = false;
+  jobLoaded: boolean = false;
 
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
@@ -54,6 +55,9 @@ export class DetailJobComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
+        this.jobLoaded = true;
+      //  console.log(this.job);
+        
        // this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
 
         console.log(this.job);
@@ -100,7 +104,7 @@ calculateDurationLastJob(){
       //this.job=this.job.other_jobs
       this.job.other_jobs.forEach((element:any) => {
         const postedDate = new Date(element.post_date);
-        const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
+       // const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
         const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
         const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
 

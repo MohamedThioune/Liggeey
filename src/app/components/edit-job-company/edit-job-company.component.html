@@ -32,7 +32,7 @@
               </div>
                <div class="input-group">
                 <input type="text" name="skills" *ngFor="let skill of job.skills"  formControlName="skills" class="form-control" id="email" >
-              </div> 
+              </div>
             </div>   -->
             <div class="form-group col-50">
               <label for="job_langues">Langues  <span class="important">*</span>
@@ -63,7 +63,7 @@
                   -->
                   <button type="button" class="btn btn-light dropdown-toggle col-12" data-bs-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-    
+
                 </button>
                               <!-- Affichage des cases à cocher -->
                 <div class="dropdown-menu col-md-6" aria-labelledby="dropdownMenuButton">
@@ -74,7 +74,7 @@
                     </label>
                   </div>
                 </div>
-  
+
                 <!-- Affichage des compétences sélectionnées -->
                 <div *ngIf="selectedSkills.length > 0" class="selected-skills">
                   <ul>
@@ -84,7 +84,7 @@
                     </li>
                   </ul>
                 </div>
-  
+
               </div>
             </div>
 
@@ -96,4 +96,3 @@
     </div>
   </div>
 </section>
-<app-footers></app-footers>
