@@ -162,6 +162,14 @@ export class HomePageService {
     };
     return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
   }
+  favoritesCandidat(idUser: number,idCandidat:number): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      typeApplyId: "candidate",
+      ID:idCandidat
+    };
+    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
+  }
   trashFavoritesJob(idUser: number,idJob:string): Observable<any> {
     const requestBody = {
       userApplyId:idUser,

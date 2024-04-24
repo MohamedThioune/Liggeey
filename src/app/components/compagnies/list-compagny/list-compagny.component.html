@@ -49,8 +49,8 @@
       </div>  -->
       <div class="candidat_featured">
         <div class="row" style="margin-bottom: 100px;">
-          <div class="col-md-3 item" *ngFor="let employer of filteredJobs | paginate: { itemsPerPage: 12, currentPage: p }"  >
-              <div class="content_candidate">
+          <div class="col-md-3 item" style="cursor: pointer;" *ngFor="let employer of filteredJobs | paginate: { itemsPerPage: 12, currentPage: p }"  >
+              <div class="content_candidate" [routerLink]="['/detail-compagny',employer.ID]">
                 <!--
                 <button>
                     <i class="fa fa-bookmark"></i>

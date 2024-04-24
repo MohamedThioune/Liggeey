@@ -22,6 +22,8 @@ export class JobFavoriteCandidatComponent implements OnInit {
     type: '',
     message: ''
   };
+  jobLoaded:boolean=false
+
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = false;
@@ -39,6 +41,7 @@ export class JobFavoriteCandidatComponent implements OnInit {
     
     this.HomePageService.getAlertCandidat( this.identifiant).subscribe(data=>{
       this.favorites=data  
+      this.jobLoaded=true
       console.log(this.favorites);
       
       this.favorites.forEach((element:any) => {

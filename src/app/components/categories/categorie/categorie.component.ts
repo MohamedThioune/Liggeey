@@ -42,7 +42,7 @@ export class CategorieComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
-      console.log(this.category.jobs);
+      console.log(this.category);
       console.log(this.userConnect);
 
       this.category.jobs.forEach((element:any) => {
@@ -98,17 +98,52 @@ export class CategorieComponent implements OnInit {
       this. userConnect = JSON.parse(decodedToken);
     }
   }
-  get filteredJobs() {
+  // get filteredJobs() {
+  //   if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
+  //     return this.category.jobs.filter((job:any) => {
+  //       const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
+  //       const placeMatch = this.searchLocation.trim() === '' || job.company.place.toLowerCase().includes(this.searchLocation.toLowerCase());
+  //       return titleMatch && placeMatch;
+  //     });
+  //   } else {
+  //     return this.category.jobs;
+  //   }
+  // }
+  get filteredItems() {
     if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
-      return this.category.jobs.filter((job:any) => {
+      const filteredJobs = this.category.jobs.filter((job: any) => {
         const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
         const placeMatch = this.searchLocation.trim() === '' || job.company.place.toLowerCase().includes(this.searchLocation.toLowerCase());
         return titleMatch && placeMatch;
       });
+  
+      const filteredArticles = this.category.articles.filter((article: any) => {
+        const titleMatch = this.searchTitle.trim() === '' || article.title.toLowerCase().includes(this.searchTitle.toLowerCase());
+        return titleMatch;
+      });
+  
+      const filteredCompanies = this.category.companies.filter((company: any) => {
+        const titleMatch = this.searchTitle.trim() === '' || company.title.toLowerCase().includes(this.searchTitle.toLowerCase());
+        const placeMatch = this.searchLocation.trim() === '' || company.place.toLowerCase().includes(this.searchLocation.toLowerCase());
+
+        return titleMatch && placeMatch;
+      });
+  
+      return {
+        jobs: filteredJobs,
+        articles: filteredArticles,
+        companies: filteredCompanies
+      };
     } else {
-      return this.category.jobs;
+      return {
+        jobs: this.category.jobs,
+        articles: this.category.articles,
+        companies: this.category.companies
+      };
     }
   }
+  
+  
 
   canAppl(item: any): boolean {
     if (!this.userConnect || !this.userConnect.id) {
