@@ -336,4 +336,8 @@ margin-bottom: 130px;
    .subtitle{
      font-size: 28px;
    }
+   .content_image_team{
+     height: 292px;
+     width: 94%;
+   }
 }
