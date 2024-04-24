@@ -174,16 +174,7 @@ export class HomePageService {
   getCountries() {
    return this.http.get<any>("https://restcountries.com/v3.1/all");
   }
-  favoritesCandidat(idUser: number,idCandidat:number): Observable<any> {
-    const requestBody = {
-      userApplyId:idUser,
-      typeApplyId: "candidate",
-      ID:idCandidat
-    };
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);}
-  getCountries() {
-   return this.http.get<any>("https://restcountries.com/v3.1/all");
-  }
+
   trashFavoritesJob(idUser: number,idJob:string): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
@@ -268,11 +259,7 @@ export class HomePageService {
       stars: commment.rating,
       feedback_content: commment.feedback,
     };
-<<<<<<< HEAD
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/artikel/comment`,requestBody);
-=======
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/artikel/comment`,requestBody);
->>>>>>> main
   }
   addSkill(idUser: number,idTopic:string): Observable<any> {
     const requestBody = {
