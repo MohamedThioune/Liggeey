@@ -1,8 +1,8 @@
 <app-header></app-header>
 
 <section class="image_menu_about">
-  <div class="container-fluid">
-        <div class="content_job_list_1">
+      <div class="container-fluid">
+        <div class="content_job_list_1" *ngIf="jobLoaded">
             <div class="content_logo">
                <img [src]=candidat.image alt="">
             </div>
@@ -39,11 +39,14 @@
                   <button>
                     <i class="fa fa-bookmark"></i>
                   </button>
-                </div>-->
+                </div>
+              </div>
+              -->
           </div>
           <div class="info_all" >
            <div class="line">
               <div class="job_info">
+                
                <!-- <a class="btn" routerLink="" routerLinkActive="active_lien_navbar"> Download CV </a>-->
               </div>
            </div>
@@ -54,11 +57,16 @@
                     <p>{{ skill.name }}</p>
                 </div>
               </div>
-            
+              <div class="bookmark" *ngIf="compagny">
+                <button  (click)="favoritesCandidat()">
+                    <i class="fa fa-bookmark"></i>
+                </button>
+              </div>
             </div>
 
           </div>
         </div>
+        <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="!jobLoaded ">
       </div>
 </section>
 <section >
@@ -218,7 +226,7 @@
                   -->
                 </div>
                 <div class="">
-                  <div class="education_1" *ngFor="let education of candidat.educations">
+                  <div class="education_1" *ngFor="let education of candidat.educations" >
                     <div class="head_education_1">
                       <span>{{education.diploma}}</span>
                       <span class="time">{{education.year}}</span>

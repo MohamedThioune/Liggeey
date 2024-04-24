@@ -129,7 +129,7 @@ export class EditJobCompanyComponent implements OnInit {
         this.selectedSkills = this.job.skills.map((skill:any) => skill.term_id);
         console.log(this.job);
         this.form.patchValue(this.job);
-        
+
     });
      // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
@@ -141,7 +141,7 @@ export class EditJobCompanyComponent implements OnInit {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
-   
+
 
   }
 
@@ -159,7 +159,7 @@ export class EditJobCompanyComponent implements OnInit {
       description: this.fb.control("", [Validators.required]),
       level_of_experience: this.fb.control("", Validators.required),
       langues: this.fb.control("", Validators.required),
-      expired_at: this.fb.control("", [Validators.email, Validators.required]),      
+      expired_at: this.fb.control("", [Validators.email, Validators.required]),
       skills: this.fb.array([]),
     });
   }
@@ -207,7 +207,7 @@ getSkills(tabSkillsId:any) {
         this.skillsTabs.forEach(skill => {
           if (skillID==skill.term_id) {
             allSkills.push(skill);
-          } 
+          }
         });
     }
     });
@@ -217,7 +217,7 @@ return allSkills;
 
   validateFormJob(job: any):boolean{
     const { level_of_experience, langues, expired_at } = job;
-    
+
     if (level_of_experience == 0) {
       this.message.message = 'Experience level is mandatory';
       return false;

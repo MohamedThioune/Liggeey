@@ -182,6 +182,7 @@ export class ResumeCandidatComponent implements OnInit {
   };
   modalTitle: string = 'Add New Education';
   isAddEducation!: boolean;
+  modalVisible = true;
 
 
   constructor(private fb: FormBuilder,private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService,private router: Router) {
@@ -422,7 +423,6 @@ export class ResumeCandidatComponent implements OnInit {
               typeR = "success";
               this.message= "Education created successfully."
               this.updateCachedData();
-
             }
             
             ToastNotification.open({
@@ -432,6 +432,7 @@ export class ResumeCandidatComponent implements OnInit {
             this.isLoading = false;
             if (typeR == "success") {
               this.router.navigate(['/resume-candidat',this.userConnect.id]);
+              
             }
   
           },
@@ -453,6 +454,11 @@ export class ResumeCandidatComponent implements OnInit {
       this.isLoading = false;
     }
   }
+  closeModal(){
+    this.router.navigate(['/resume-candidat',this.userConnect.id]);
+
+   this.modalVisible=false
+  };
 
   onsubmitExperience() {
     this.isLoading = true;

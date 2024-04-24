@@ -45,6 +45,7 @@
    font-size: 16px; /* Ajustez la taille de la police au besoin */
    border: none;
    background-color: transparent;
+   color: #FFF;
   }
  .content_job_list_1 .info_all{
     width: 100%;
