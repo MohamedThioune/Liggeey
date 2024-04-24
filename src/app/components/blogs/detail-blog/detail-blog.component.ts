@@ -5,6 +5,7 @@ import { CommentArticle } from 'src/app/interfaces/comment-article';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { UsagerService } from 'src/app/services/usager.service';
+import { error } from 'jquery';
 
 @Component({
   selector: 'app-detail-blog',
@@ -13,7 +14,8 @@ import { UsagerService } from 'src/app/services/usager.service';
 })
 export class DetailBlogComponent implements OnInit {
   identifiant:number | null = 0;
-  article:any
+  article:any;
+  comments:any;
   message: any = {
     type: '',
     message: ''
@@ -42,9 +44,12 @@ export class DetailBlogComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];  
       
     this.HomePageService.getDetailArticle( this.identifiant).subscribe(data=>{
-      this.article=data         
+      this.article=data;
+      this.comments=this.article.comments;         
       this.article.title =   this.article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article.content = this.article.content.replace(/<[^>]*>|[#&]/g, '');
+      console.log(this.comments);
+      
          
     })
   }
@@ -63,6 +68,7 @@ export class DetailBlogComponent implements OnInit {
             if (<any>response ) {
               typeR = "success";
               this.message= "Comment created successfully."
+              console.log(response);
             }
             ToastNotification.open({
               type: typeR,
@@ -76,14 +82,14 @@ export class DetailBlogComponent implements OnInit {
           (error) => {
             ToastNotification.open({
               type: 'error',
-              message: error.error.message
+              message: 'Creation of comment failed'
             });
           }
         );
     } else {
       ToastNotification.open({
         type: 'error',
-        message: this.message.message
+        message: this.message.message      
       });
     }
  
@@ -99,6 +105,10 @@ export class DetailBlogComponent implements OnInit {
  
     if (feedback == "") {
       this.message.message = 'Feedback  is mandatory';
+      return false;
+    }
+    if (rating == "") {
+      this.message.message = 'Rating  is mandatory';
       return false;
     }
     return true;

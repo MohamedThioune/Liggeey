@@ -12,6 +12,12 @@
       <p>{{article.number_comments}} Comment (s)</p>
     </div>
   </div>
+  <div class="comments align-items-center">
+    <h3 *ngIf="comments!==[]">Comments</h3>
+    <tr *ngFor="let comment of comments">
+      <td>"{{comment.feedback}}" by {{comment.comment_author_name}}</td>
+    </tr>
+  </div>
   <div class="content-img-detail-article">
     <img [src]="article.image" alt="Image Of Article">
   </div>

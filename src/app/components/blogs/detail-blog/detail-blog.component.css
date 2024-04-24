@@ -13,6 +13,10 @@
   height: 100%;
   object-fit: cover;
 }
+.comments
+{
+  margin: 50px ;
+}
 h1{
   color: #202124;
   text-align: center;
