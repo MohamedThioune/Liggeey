@@ -39,16 +39,16 @@
                     </label>
                     <div class="input-group">
                         <input type="text" name="work_as" formControlName="work_as" class="form-control" id="work_as" placeholder="UI Designer"
-                        [attr.disabled]="form.value.work_as">
+                      >
                     </div>
                 </div>
-              
+
               <div class="col-md-6 col-sm-6   p-2">
                 <label for="firstName">Phone
                   <p>*</p>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="telnr" class="form-control" formControlName="telnr" id="telnr" placeholder="0 123 456 7890"
+                  <input type="text" name="mobile_phone" class="form-control" formControlName="mobile_phone" id="mobile_phone" placeholder="0 123 456 7890"
                   >
                 </div>
               </div>
@@ -148,7 +148,7 @@
                         </label>
                         <div class="input-group">
                             <input type="text" formControlName="facebook" name="facebook" class="form-control" id="facebook" placeholder="www.facebook.com/Invision"
-                                >
+                             [value]="facebook" >
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6   p-2">
@@ -157,7 +157,7 @@
                         </label>
                         <div class="input-group">
                             <input type="text" name="twitter" formControlName="twitter" class="form-control" id="twitter" placeholder="www.twitter.sn"
-                              >
+                            [value]="twitter"  >
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6   p-2">
@@ -165,17 +165,17 @@
                         <p>*</p>
                       </label>
                       <div class="input-group">
-                        <input type="text" name="linkedin" formControlName="linkedin" class="form-control" id="linkedin" placeholder="www.linkdin.com"
-                               >
+                        <input type="text" name="linkedin" formControlName="linkedin" class="form-control" id="linkedin" placeholder="www.linkedin.com"
+                        [value]="linkedin"   >
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-6   p-2">
-                      <label for="firstName">Instagramm
+                      <label for="firstName">Instagram
                         <p>*</p>
                       </label>
                       <div class="input-group">
-                        <input type="text" name="instagram" formControlName="instagram" class="form-control" id="instagram" placeholder="www.instagramm.com"
-                              >
+                        <input type="text" name="instagram" formControlName="instagram" class="form-control" id="instagram" placeholder="www.instagram.com"
+                        [value]="instagram"   >
                       </div>
                     </div>
                 </div>
@@ -192,8 +192,11 @@
                             <p>*</p>
                         </label>
                         <div class="input-group">
-                            <input type="text" name="country" formControlName="country" class="form-control" id="country" placeholder="Sénégal"
-                                >
+                          <select class="form-control fieldSelect" id="country" formControlName="country" name="country">
+                            <option *ngFor="let country of countries">
+                              {{country}}
+                            </option>
+                          </select>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6   p-2">
@@ -211,7 +214,7 @@
                     </label>
                     <div class="input-group">
                       <input type="text" name="adress" formControlName="adress" class="form-control" id="adress" placeholder="Dakar ouakam"
-                      [attr.disabled]="form.value.adress" >
+                      >
                     </div>
                   </div>
               </div>
@@ -225,4 +228,4 @@
   </div>
 </section>
 
-<app-footers></app-footers>
+

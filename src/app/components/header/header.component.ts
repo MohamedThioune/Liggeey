@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   public href: string = "";
   notification:any;
   isLoading = false;
-
+  title:any;
 
   constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
     this.isMobile = window.innerWidth < 768;
@@ -191,9 +191,9 @@ if (cachedData && typeof cachedData === 'object' ) {
                     }
                 });
     }
-
-
-
+ 
+     console.log(this.selectedJobId,this.job);
+   
 
   }
 
@@ -237,12 +237,19 @@ if (cachedData && typeof cachedData === 'object' ) {
               message: "You must be a candidate to Apply"
             });
           }
+          console.log(this.selectedJobId);
+          
           this.isLoading=false
           this.first_name = userConnect.first_name;
           this.last_name = userConnect.last_name;
           this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
           this.id=userConnect.id
-          console.log(userConnect,this.id);
+          console.log(userConnect,this.id,this.selectedJobId);
+          this.homeService.getDetailJob(this.selectedJobId).subscribe((data:any) => {
+            this.job = data;
+            this.title=this.job.title
+  
+          })
                   // Récupérer les détails du candidat et stocker les informations nécessaires dans le cache
         this.homeService.getDetailCandidate(this.id).subscribe(data => {
           if (data && 'work_as' in data) {
@@ -261,6 +268,9 @@ if (cachedData && typeof cachedData === 'object' ) {
 
           }
         });
+        console.log(this.selectedJobId);
+        
+   
 
         }else {
           console.log('noconnect');
@@ -308,10 +318,12 @@ if (cachedData && typeof cachedData === 'object' ) {
       if(this.candidate == true){
         this.homeService.getDetailJob(this.selectedJobId).subscribe((data:any) => {
           this.job = data;
+          this.title=this.job.title
+          console.log(this.job);
+          
          // return
           if (this.canAppl(this.job)) {
-            this.userObject=true
-            this.showFirstStep=true
+            // this.userObject=true
                  // Utilisez le service pour postuler à l'emploi
             this.homeService.applyJob(this.id, this.selectedJobId)
             .subscribe(
@@ -337,6 +349,8 @@ if (cachedData && typeof cachedData === 'object' ) {
             });
             this.showFirstStep =  !this.showFirstStep;
             this.showSecondStep = !this.showSecondStep;
+            //this.showFirstStep=true
+
             // if (typeR == "success") {
             //   this.showFirstStep =  !this.showFirstStep;
             //   this.showSecondStep = !this.showSecondStep;
@@ -360,8 +374,8 @@ if (cachedData && typeof cachedData === 'object' ) {
           type: 'success',
           message: "Already Applied for this job"
         });
-        this.userObject=true
-
+        this.userObject=false
+        
         //return
          //this.router.navigate(['']);
           }

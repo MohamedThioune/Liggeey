@@ -111,12 +111,13 @@ export class HomePageService {
     };
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/apply/`,requestBody);
   }
-  updateProfile(idUser:string,candidat:Candidat): Observable<any> {
+  updateProfile(idUser:string,candidat:any): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
-      role:candidat.role,
-      telnr:candidat.telnr,
+      work_as:candidat.work_as,
+      mobile_phone:candidat.mobile_phone,
       experience:candidat.experience,
+      age:candidat.age,
       date_born:candidat.date_born,
       education_level:candidat.education_level,
       biographical_info:candidat.biographical_info,
@@ -125,7 +126,8 @@ export class HomePageService {
       linkedin:candidat.linkedin,
       instagram:candidat.instagram,
       country:candidat.country,
-      city:candidat.city
+      city:candidat.city,
+      adress:candidat.adress
     };
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/profil/update`,requestBody);
   }
@@ -141,7 +143,7 @@ export class HomePageService {
       company_size:profil.size,
       company_sector:profil.sector,
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/profil`,requestBody);
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/profil/update`,requestBody);
   }
   sendNotification(idUser:number,notification:Notification): Observable<any> {
     const requestBody = {
@@ -161,6 +163,16 @@ export class HomePageService {
       ID:idJob
     };
     return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
+  }
+  favoritesCandidat(idUser: number,idCandidat:number): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      typeApplyId: "candidate",
+      ID:idCandidat
+    };
+    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);}
+  getCountries() {
+   return this.http.get<any>("https://restcountries.com/v3.1/all");
   }
   trashFavoritesJob(idUser: number,idJob:string): Observable<any> {
     const requestBody = {
@@ -246,7 +258,7 @@ export class HomePageService {
       stars: commment.rating,
       feedback_content: commment.feedback,
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/artikel/comment`,requestBody,{});
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/artikel/comment`,requestBody);
   }
   addSkill(idUser: number,idTopic:string): Observable<any> {
     const requestBody = {

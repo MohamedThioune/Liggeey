@@ -12,6 +12,14 @@
       <p>{{article.number_comments}} Comment (s)</p>
     </div>
   </div>
+  <!--
+  <div class="comments align-items-center">
+    <h3 *ngIf="comments!==[]">Comments</h3>
+    <tr *ngFor="let comment of comments">
+      <td>"{{comment.feedback}}" by {{comment.comment_author_name}}</td>
+    </tr>
+  </div>
+  -->
   <div class="content-img-detail-article">
     <img [src]="article.image" alt="Image Of Article">
   </div>
@@ -20,9 +28,9 @@
         <p>{{article.content}}</p>
     </div>
     <div class="d-flex btn-sociaux align-items-center">
-      <p class="share-post-text">Share this post</p>     
+      <p class="share-post-text">Share this post</p>
       <a class="btn btn-whatssap" href="https://wa.me/?text={{href}}/" target="_blank">
-        <i class="fa fa-whatsapp"></i> Whatssap
+        <i class="fa fa-whatsapp"></i> WhatsApp
       </a>
       <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?url={{href}}" target="_blank">
         <i class="fa fa-twitter"></i> Twitter
@@ -30,7 +38,7 @@
       <a class="btn btn-linkedin" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url={{href}}" target="_blank">
         <i class="fa fa-linkedin"></i> LinkedIn
     </a>
-    
+
     </div>
 
     <div class="block-prev-next d-flex justify-content-between align-items-center">
@@ -108,6 +116,7 @@
         </div>
       </div>
       <div class="d-flex flex-wrap justify-content-between">
+         <!--
         <div class="form-group w-50">
           <label>Your Name</label>
           <input type="text" class="form-control" formControlName="name" id="name" aria-describedby="name" placeholder="Your Name">
@@ -116,6 +125,7 @@
           <label>Your Email</label>
           <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
         </div>
+        -->
         <div class="form-group w-100 d-grid">
           <label>Your Comment</label>
           <textarea name="feedback" formControlName="feedback" id="feedback" rows="5"></textarea>

@@ -26,6 +26,7 @@ export class RegistrationComponent implements OnInit {
   employer = false;
   isCandidateActive: boolean = true;
   isEmployerActive: boolean = false;
+  isLoading: boolean = false;
 
   constructor(private usagerService: UsagerService, private formBuilder: FormBuilder, private route: Router,private homeService:HomePageService) { }
   ngOnInit(): void {
@@ -47,6 +48,7 @@ showEmployer() {
     this.employer = true;
 }
   onSubmit(): void {
+    this.isLoading = true;
     if (this.validateForm(this.form.value)) {
       this.usagerService.inscription(this.form.value).subscribe(
         usager => {
@@ -59,6 +61,7 @@ showEmployer() {
             type: typeR,
             message: this.message
           });
+          this.isLoading = false;
           if (typeR == "success") {
             this.route.navigate(['/login']);
             this.homeService.sendNotification(usager.id,this.notificationTalent(usager.id,this.form.value)).subscribe();
@@ -69,26 +72,24 @@ showEmployer() {
             type: 'error',
             message: error.error.message
           });
+          this.isLoading = false;
         });
     } else {
       ToastNotification.open({
         type: 'error',
         message: this.message.message
       });
+      this.isLoading = false;
     }
   }
   validateForm(usager: Usager): boolean {
-    const { password,password_confirmation ,name, username, email, firstName,lastName } = usager;
+    const { password,password_confirmation , username, email, firstName,lastName } = usager;
     if (firstName == "") {
       this.message.message = 'FirstName is required';
       return false;
     }
     if (lastName == "") {
       this.message.message = 'LastName is required';
-      return false;
-    }
-    if (name == "") {
-      this.message.message = 'Name is required';
       return false;
     }
     if (username == "") {
@@ -166,7 +167,7 @@ notificationChief(idUser:number,user:any):any{
       firstNameCompagny: this.formBuilder.control("", Validators.required),
       lastNameCompagny: this.formBuilder.control("", Validators.required),
       emailCompagny: this.formBuilder.control("", [Validators.email, Validators.required]),
-      phoneCompagny: this.formBuilder.control("", Validators.required),
+      phoneCompagny: this.formBuilder.control("", []),
       passwordCompagny: this.formBuilder.control("", Validators.required),
       confirmPasswordCompagny: this.formBuilder.control("", Validators.required),
       bedrijf: this.formBuilder.control("", Validators.required),
@@ -210,7 +211,7 @@ notificationChief(idUser:number,user:any):any{
 
   }
   validateFormCompagny(usager: UsagerCompany): boolean {
-    const { firstNameCompagny,lastNameCompagny, passwordCompagny, confirmPasswordCompagny, emailCompagny, phoneCompagny,bedrijf } = usager;
+    const { firstNameCompagny,lastNameCompagny, passwordCompagny, confirmPasswordCompagny, emailCompagny,bedrijf } = usager;
     if (firstNameCompagny == "") {
       this.message.message = 'FirstName of Company is required';
       return false;
@@ -238,12 +239,8 @@ notificationChief(idUser:number,user:any):any{
       this.message.message = 'Password confirmation is required';
       return false;
     }
-    if (phoneCompagny == "") {
-      this.message.message = 'Phone of company is required';
-      return false;
-    }
     if (bedrijf == "") {
-      this.message.message = 'bedrijf is required';
+      this.message.message = 'Username of  company is required';
       return false;
     }
 

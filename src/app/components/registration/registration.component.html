@@ -24,7 +24,7 @@
                                 <p>*</p>
                               </label>
                               <div class="input-group">
-                                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Mohamed "
+                                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Fill up your first name "
                                        formControlName="firstName">
                               </div>
                             </div>
@@ -33,71 +33,65 @@
                                 <p>*</p>
                               </label>
                               <div class="input-group">
-                                <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Thioune"
+                                <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Fill up your last name"
                                        formControlName="lastName">
                               </div>
                             </div>
-                            <div class="col-md-6 col-sm-6   ">
-                              <label for="name"> Name
-                                <p>*</p>
-                              </label>
-                              <div class="input-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Thioune"
-                                       formControlName="name">
-                              </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6  ">
-                              <label for="name"> UserName
-                                <p>*</p>
-                              </label>
-                              <div class="input-group">
-                                <input type="text" name="username" class="form-control" id="username" placeholder="Mohamed"
-                                       formControlName="username">
-                              </div>
-                            </div>
                         
-                            <div class="col-md-6 col-sm-6   ">
-                                <label for="password">Password
-                                    <p>*</p>
-                                </label>
-                                <div class="input-group">
-                                    <input type="password" name="password" class="form-control" id="password" placeholder="********"
-                                        formControlName="password">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6   ">
-                                <label for="password">Confirm Password
-                                    <p>*</p>
-                                </label>
-                                <div class="input-group">
-                                    <input type="password" name="password_confirmation" class="form-control" id="password" placeholder="********"
-                                        formControlName="password_confirmation">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6  ">
-                              <label for="email">
-                                  Email
-                                  <p>*</p>
-                              </label>
-                              <div class="input-group">
-                                  <input type="email" name="email" class="form-control" id="email" placeholder="aaondiaye@gmail.com"
-                                      formControlName="email">
-                              </div>
+                        <div class="col-md-6 col-sm-6  ">
+                          <label for="email">
+                              Email
+                              <p>*</p>
+                          </label>
+                          <div class="input-group">
+                              <input type="email" name="email" class="form-control" id="email" placeholder="aaondiaye@gmail.com"
+                                  formControlName="email">
                           </div>
-                            <div class="col-md-6 col-sm-6  ">
-                              <label for="email">
-                                  Phone
-                                  <p>*</p>
-                              </label>
-                              <div class="input-group">
-                                  <input type="text" name="phone" class="form-control" id="phone" placeholder="+221773977487"
-                                      formControlName="phone">
-                              </div>
+                      </div>
+                        <div class="col-md-6 col-sm-6  ">
+                          <label for="email">
+                              Phone
+                          </label>
+                          <div class="input-group">
+                              <input type="text" name="phone" class="form-control" id="phone" placeholder="+221773977487"
+                                  formControlName="phone">
                           </div>
+                      </div>
+                      <div class="col-md-6 col-sm-6   ">
+                        <label for="password">Password
+                            <p>*</p>
+                        </label>
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="********"
+                                formControlName="password">
                         </div>
                     </div>
+                    <div class="col-md-6 col-sm-6   ">
+                        <label for="password">Confirm Password
+                            <p>*</p>
+                        </label>
+                        <div class="input-group">
+                            <input type="password" name="password_confirmation" class="form-control" id="password" placeholder="********"
+                                formControlName="password_confirmation">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12  ">
+                      <label for="name"> UserName
+                        <p>*</p>
+                      </label>
+                      <div class="input-group">
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Fill up your username"
+                               formControlName="username">
+                      </div>
+                    </div>
+                    </div>
+                          
+                          
+                    </div>
                     <div class="card-footer p-3  ">
-                        <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </button>
+                        <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar" [disabled]="isLoading"> Register </button>
+                        <div *ngIf="isLoading" class="loader">Loading...</div>
+
                     </div>
                             <div class="clear"></div><br />
                 </form>
@@ -134,7 +128,6 @@
                         </div>
                         <div class="col-md-6 ">
                           <label for="phoneCompagny"> Phone
-                            <p>*</p>
                           </label>
                           <div class="input-group">
                             <input type="text" name="phoneCompagny" class="form-control" id="phoneCompagny" placeholder="+221773977487"
@@ -161,7 +154,7 @@
                         </div>
                         <div class="col-md-12 ">
                           <label for="bedrijf">
-                            Bedrijf
+                            UserName
                             <p>*</p>
                           </label>
                           <div class="input-group">

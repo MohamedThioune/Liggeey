@@ -44,7 +44,7 @@ export class UsagerService {
       phone:usager.phone,
       first_name: usager.firstName,
       last_name: usager.lastName,
-      name:usager.name,
+     // name:usager.name,
       username:usager. username,
       roles: ["subscriber"],
       acf:{
