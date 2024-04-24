@@ -23,12 +23,12 @@ export class ProfilCompagnyComponent implements OnInit {
     type: '',
     message: ''
   };
-   countries = ['Senegal', 'France', 'United States', 'Canada', 'Germany', 'China']; // Ajoutez d'autres pays au besoin
-   cities = ['Dakar', 'France', 'United States', 'Canada', 'Amsterdame', 'China']; // Ajoutez d'autres pays au besoin
+   countries:any;
 
   constructor(private fb: FormBuilder,private route: Router,private homeService:HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
+    this.initForm();
    // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
     
@@ -47,25 +47,36 @@ export class ProfilCompagnyComponent implements OnInit {
     
   })
 
+
+  this.homeService.getCountries().subscribe(
+    (data: any[]) => {
+      this.countries = data.map(country => country.name.common);
+    },
+    error => {
+      console.log('Erreur lors de la récupération des pays:', error);
+    });
+
    //console.log(this.userConnect.id);
+   
+  }
+
+  initForm() {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       title:['',[]],
       website:['',[]],
       sector:['',[Validators.required]],
       size:['',[Validators.required]],
-      //biography:['',[]],
+      biography:['',[]],
       country:['',[]],
       place:['',[Validators.required]],
       address:['',[]],
     });
-
- 
   }
 
   onSubmit() {
     // Utilisez le service pour postuler à l'emploi
-    console.log(this.profil);
+    //console.log(this.profil);
     
     if (this.validateFormJob(this.form.value)) {
     this.homeService.updateProfileCompany(this.userConnect.id,this.form.value)
@@ -75,8 +86,9 @@ export class ProfilCompagnyComponent implements OnInit {
 
           let typeR = "error"
           if (<any>response ) {
+            console.log(response);
             typeR = "success";
-            this.message= "Job Updated successfully."
+            this.message= "Company Updated successfully."
           }
           ToastNotification.open({
             type: typeR,
@@ -100,6 +112,8 @@ export class ProfilCompagnyComponent implements OnInit {
       message: this.message.message
     });
   }
+
+
 }
 validateFormJob(profile: ProfilCompagny): boolean {
   const {website, sector,size, biography, country, place } = profile;

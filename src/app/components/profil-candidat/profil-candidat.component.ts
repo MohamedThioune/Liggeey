@@ -16,8 +16,13 @@ export class ProfilCandidatComponent implements OnInit {
   uploadedImage: any; // Pour stocker l'image téléchargée
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = true;
+  countries:any;
   showButton = true;
   form!:FormGroup;
+  facebook:any;
+  twitter:any;
+  linkedin:any;
+  instagram:any;
   form_social!:FormGroup;
   form_contact!:FormGroup;
   identifiant:number | null = 0;
@@ -35,8 +40,12 @@ export class ProfilCandidatComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
       this.candidat=data
+      this.facebook=this.candidat.social_network.facebook;
+      this.twitter=this.candidat.social_network.twitter;
+      this.linkedin=this.candidat.social_network.linkedin;
+      this.instagram=this.candidat.social_network.instagram;
       this.form.patchValue(this.candidat);
-      // console.log(this.candidat);
+      console.log(this.candidat);
     })
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
@@ -48,7 +57,14 @@ export class ProfilCandidatComponent implements OnInit {
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
     }
-
+    this.HomePageService.getCountries().subscribe(
+      (data: any[]) => {
+        this.countries = data.map(country => country.name.common);
+      },
+      error => {
+        console.log('Erreur lors de la récupération des pays:', error);
+      });
+  
 
   }
   onSubmit(idUser:string) {
@@ -125,10 +141,10 @@ export class ProfilCandidatComponent implements OnInit {
   }
   initForm() {
     this.form = this.fb.group({
-      role: ["", Validators.required],
+      //role: ["", Validators.required],
       experience:["",Validators.required],
-      telnr:["",Validators.required],
-      date_born:["",Validators.required],
+      //telnr:["",Validators.required],
+      //date_born:["",Validators.required],
       education_level:["",Validators.required],
       biographical_info:["",Validators.required],
       facebook:["",Validators.required],

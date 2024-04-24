@@ -151,8 +151,7 @@
                 <p>*</p>
               </label>
               <div class="input-group">
-                <select class="form-control fieldSelect" id="country" formControlName="country">
-                  <option value="">{{profil.country}}</option>
+                <select class="form-control fieldSelect" id="country" formControlName="country" name="country">
                   <option *ngFor="let country of countries">
                     {{country}}
                   </option>
@@ -164,12 +163,10 @@
                 <p>*</p>
               </label>
               <div class="input-group">
-                <select class="form-control fieldSelect" id="place" formControlName="place">
-                  <option value="">{{profil.place}}</option>
-                  <option *ngFor="let city of cities">
-                    {{city}}
-                  </option>
-                </select>
+                <div class="input-group">
+                  <input type="text" name="place" formControlName="place" class="form-control" id="place" placeholder="Dakar"
+                    >
+              </div>
               </div>
             </div>
             <div class="col-md-12 col-sm-12 p-2">
