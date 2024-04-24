@@ -5,6 +5,7 @@ import { CommentArticle } from 'src/app/interfaces/comment-article';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { UsagerService } from 'src/app/services/usager.service';
+import { error } from 'jquery';
 
 @Component({
   selector: 'app-detail-blog',
@@ -68,7 +69,6 @@ export class DetailBlogComponent implements OnInit {
               typeR = "success";
               this.message= "Comment created successfully."
               console.log(response);
-              
             }
             ToastNotification.open({
               type: typeR,
@@ -82,14 +82,14 @@ export class DetailBlogComponent implements OnInit {
           (error) => {
             ToastNotification.open({
               type: 'error',
-              message: error.error.message
+              message: 'Creation of comment failed'
             });
           }
         );
     } else {
       ToastNotification.open({
         type: 'error',
-        message: this.message.message
+        message: this.message.message      
       });
     }
  
@@ -105,6 +105,10 @@ export class DetailBlogComponent implements OnInit {
  
     if (feedback == "") {
       this.message.message = 'Feedback  is mandatory';
+      return false;
+    }
+    if (rating == "") {
+      this.message.message = 'Rating  is mandatory';
       return false;
     }
     return true;

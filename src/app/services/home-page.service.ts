@@ -246,7 +246,7 @@ export class HomePageService {
       stars: commment.rating,
       feedback_content: commment.feedback,
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/artikel/comment`,requestBody,{});
+    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/artikel/comment`,requestBody);
   }
   addSkill(idUser: number,idTopic:string): Observable<any> {
     const requestBody = {

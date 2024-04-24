@@ -13,9 +13,9 @@
     </div>
   </div>
   <div class="comments align-items-center">
-    Comments
+    <h3 *ngIf="comments!==[]">Comments</h3>
     <tr *ngFor="let comment of comments">
-      <td>{{comment.feedback}} by {{comment.comment_author_name}}</td>
+      <td>"{{comment.feedback}}" by {{comment.comment_author_name}}</td>
     </tr>
   </div>
   <div class="content-img-detail-article">

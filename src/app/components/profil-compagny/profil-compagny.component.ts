@@ -54,7 +54,7 @@ export class ProfilCompagnyComponent implements OnInit {
       website:['',[]],
       sector:['',[Validators.required]],
       size:['',[Validators.required]],
-      biography:['',[]],
+      //biography:['',[]],
       country:['',[]],
       place:['',[Validators.required]],
       address:['',[]],
