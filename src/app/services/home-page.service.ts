@@ -17,7 +17,7 @@ import { Education } from '../interfaces/education';
 export class HomePageService {
 
   private cachedJobs: any[] = [];
-  private baseUrl = 'https://wp12.influid.nl/wp-json/custom/v1/';
+  private baseUrl = 'https://Livelearn.nl';
   constructor(private http: HttpClient) { }
   private selectedJobIdSource = new Subject<string>();
   selectedJobId$ = this.selectedJobIdSource.asObservable();
@@ -34,7 +34,7 @@ export class HomePageService {
         observer.complete();
       });
     } else {
-      return this.http.get('https://wp12.influid.nl/wp-json/custom/v1/homepage').pipe(
+      return this.http.get(`${this.baseUrl}/wp-json/custom/v1/homepage`).pipe(
         map((data: any) => {
           localStorage.setItem('homepageData', JSON.stringify(data));
           return data;
@@ -49,27 +49,27 @@ export class HomePageService {
       'Content-Type': 'application/json;charset=UTF-8',
 
     });
-    return this.http.get('https://wp12.influid.nl/wp-json/custom/v1/tags', { headers });
+    return this.http.get(`${this.baseUrl}/wp-json/custom/v1/tags`, { headers });
 
   }
   getDetailCandidate(id:number | null):Observable<any>{
-      return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/candidate/detail/?id=${id}`,{});
+      return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/detail/?id=${id}`,{});
   }
 
   getNotificationCandidat(id:number | null):Observable<any>{
-    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/notification/list/?userApplyId=${id}`,{});
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/notification/list/?userApplyId=${id}`,{});
 }
   getAlertCandidat(id:number | null):Observable<any>{
-    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/candidate/favorites/?userApplyId=${id}`,{});
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/favorites/?userApplyId=${id}`,{});
 }
   getDetailArticle(id:number | null):Observable<any>{
-    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
   }
   getAllCompagny():Observable<any>{
-    return this.http.get('https://wp12.influid.nl/wp-json/custom/v1/companies',{  });
+    return this.http.get(`${this.baseUrl}/wp-json/custom/v1/companies`,{  });
   }
   getDetailCompagny(id:number | null):Observable<any>{
-    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/company/detail/?id=${id}`,{});
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/company/detail/?id=${id}`,{});
   }
 
 
@@ -78,7 +78,7 @@ export class HomePageService {
     if (this.cachedJobs.length > 0) {
       return of(this.cachedJobs);
     } else {
-      const url = 'https://wp12.influid.nl/wp-json/custom/v1/jobs';
+      const url = `${this.baseUrl}/wp-json/custom/v1/jobs`;
       const options = {
         observe: 'response' as const,
         cache: true,
@@ -99,17 +99,17 @@ export class HomePageService {
 
 
   getDetailJob(id:number | null):Observable<any>{
-    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/job/?id=${id}`,{});
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/?id=${id}`,{});
   }
   getDetailCategory(id:number | null):Observable<any>{
-    return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/category/detail/?id=${id}`,{});
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/category/detail/?id=${id}`,{});
   }
   applyJob(idUser: number,idJob:string): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
       jobAppliedId: idJob,
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/apply/`,requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/apply/`,requestBody);
   }
   updateProfile(idUser:string,candidat:any): Observable<any> {
     const requestBody = {
@@ -129,7 +129,7 @@ export class HomePageService {
       city:candidat.city,
       adress:candidat.adress
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/profil/update`,requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/profil/update`,requestBody);
   }
 
   updateProfileCompany(idUser:string,profil:ProfilCompagny): Observable<any> {
@@ -143,7 +143,7 @@ export class HomePageService {
       company_size:profil.size,
       company_sector:profil.sector,
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/profil/update`,requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/profil/update`,requestBody);
   }
   sendNotification(idUser:number,notification:Notification): Observable<any> {
     const requestBody = {
@@ -153,7 +153,7 @@ export class HomePageService {
       trigger:notification.trigger,
       receiver_id:notification.receiver_id,
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/notification/create`,requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/notification/create`,requestBody);
   }
 
   favoritesJob(idUser: number,idJob:number): Observable<any> {
@@ -162,7 +162,17 @@ export class HomePageService {
       typeApplyId: "job",
       ID:idJob
     };
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/favorites`, requestBody);
+  }
+  favoritesCandidat(idUser: number,idCandidat:number): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      typeApplyId: "candidate",
+      ID:idCandidat
+    };
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/favorites`, requestBody);}
+  getCountries() {
+   return this.http.get<any>("https://restcountries.com/v3.1/all");
   }
   favoritesCandidat(idUser: number,idCandidat:number): Observable<any> {
     const requestBody = {
@@ -179,7 +189,7 @@ export class HomePageService {
       userApplyId:idUser,
       userJobId: idJob,
     };
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/user/trash/job", requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/trash/job`, requestBody);
   }
 
   rejectCandidatByCompany(idUser: number,idJob:number): Observable<any> {
@@ -188,7 +198,7 @@ export class HomePageService {
       jobAppliedId: idJob,
       status:"reject"
     };
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/user/application", requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/application`, requestBody);
   }
   approveCandidatByCompany(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
@@ -196,7 +206,7 @@ export class HomePageService {
       jobAppliedId: idJob,
       status:"approve"
     };
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/user/application", requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/application`, requestBody);
   }
 
   favoritesCandidate(idUser: number,idJob:number): Observable<any> {
@@ -205,28 +215,28 @@ export class HomePageService {
       typeApplyId: "candidate",
       ID:idJob
     };
-    return this.http.post<any>("https://wp12.influid.nl/wp-json/custom/v1/favorites", requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/favorites`, requestBody);
   }
   manageJob(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/jobs/?userApplyId=${id}`,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/jobs/?userApplyId=${id}`,{});
   }
   postNewJob(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/jobs/?userApplyId=${id}`,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/jobs/?userApplyId=${id}`,{});
   }
   getApplicantUser(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/applicants/?userApplyId=${id}`,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/applicants/?userApplyId=${id}`,{});
   }
   getSkillsCandidate(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/skillsPassport/?userApplyId=${id}`,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/skillsPassport/?userApplyId=${id}`,{});
   }
   getCandidatCompagny(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/favorites/?userApplyId=${id}`,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/favorites/?userApplyId=${id}`,{});
   }
   homeCompagny(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/home/?userApplyId=${id}`,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/home/?userApplyId=${id}`,{});
   }
   homeCandidat(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/home/?userApplyId=${id}`,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/home/?userApplyId=${id}`,{});
   }
   getOffsetFromNow(date: Date): number {
     const currentDate = new Date();
@@ -249,7 +259,7 @@ export class HomePageService {
       skills:job.skills
 
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/postJob`,requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/postJob`,requestBody);
   }
   postArticleComment(commment:CommentArticle,idUser: number,idPost:number): Observable<any> {
     const requestBody = {
@@ -258,7 +268,11 @@ export class HomePageService {
       stars: commment.rating,
       feedback_content: commment.feedback,
     };
+<<<<<<< HEAD
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/artikel/comment`,requestBody);
+=======
     return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/artikel/comment`,requestBody);
+>>>>>>> main
   }
   addSkill(idUser: number,idTopic:string): Observable<any> {
     const requestBody = {
@@ -266,7 +280,7 @@ export class HomePageService {
       topic_id:idTopic,
 
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/skill`,requestBody,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/skill`,requestBody,{});
   }
   myResumeAdd(idUser: number,education:Education): Observable<any> {
     const requestBody = {
@@ -285,7 +299,7 @@ export class HomePageService {
       description:education.description,
       date:education.date
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/myResume/add`,requestBody,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/add`,requestBody,{});
   }
   deleteResume(userApplyId: number, index: number): Observable<any> {
     // Check if userApplyId is defined before converting to string
@@ -300,15 +314,15 @@ export class HomePageService {
     formData.append('userApplyId', userApplyIdString); // Use the converted string or an empty string
     formData.append('delete_education', '2'); 
   
-    return this.http.post<any>('https://wp12.influid.nl/wp-json/custom/v1/candidate/myResume/delete', formData, { params });
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`, formData, { params });
   }
   
 
   profilJob(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/profil?userApplyId=${id}`,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/profil?userApplyId=${id}`,{});
   }
   appliesJob(id: number): Observable<any> {
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/candidate/applieds?userApplyId=${id}`,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/applieds?userApplyId=${id}`,{});
   }
 
   editJob(job:any,userApplyId: number): Observable<any> {
@@ -322,10 +336,10 @@ export class HomePageService {
       skills:job.skills
 
     };
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/editJob?userApplyId=${userApplyId}&jobID=${requestBody.ID}&job_description=${requestBody.description}&job_level_of_experience=${requestBody.level_of_experience}&skills=${requestBody.skills}&job_langues=${requestBody.langues}&job_expiration_date=${requestBody.expired_at}`,requestBody);
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/editJob?userApplyId=${userApplyId}&jobID=${requestBody.ID}&job_description=${requestBody.description}&job_level_of_experience=${requestBody.level_of_experience}&skills=${requestBody.skills}&job_langues=${requestBody.langues}&job_expiration_date=${requestBody.expired_at}`,requestBody);
   }
   deleteJob(jobID:number,userApplyId:number){
-    return this.http.post<any>(`https://wp12.influid.nl/wp-json/custom/v1/user/deleteJob?userApplyId=${userApplyId}&jobID=${jobID}`,{})
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/deleteJob?userApplyId=${userApplyId}&jobID=${jobID}`,{})
   }
 }
 
