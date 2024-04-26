@@ -33,6 +33,7 @@ export class CategorieComponent implements OnInit {
   currentDate!: Date;
   sentDate: any;
   canApply=true;
+  jobLoaded: boolean = false;
 
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
@@ -42,6 +43,7 @@ export class CategorieComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
+      this.jobLoaded=true
       console.log(this.category);
       console.log(this.userConnect);
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 
@@ -16,10 +18,17 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   searchTitle:string="";
   searchLocation:string="";
   jobLoaded:boolean =false;
+  message: any = {
+    type: '',
+    message: ''
+  };
+  identifiant:number | null = 0;
 
-  constructor(private usagerService:UsagerService,private homeService:HomePageService) { }
+  constructor(private route : ActivatedRoute,private usagerService:UsagerService,private homeService:HomePageService) { }
 
   ngOnInit(): void {
+    this.identifiant = +this.route.snapshot.params['id'];    
+
          // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
     
@@ -43,6 +52,48 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   fermerSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = true;
+  }
+  trashFavoritesCandidat(idCandidate:string) {
+    if (confirm('Do you want to remove this candidate from your favorites?')) {
+
+    console.log(this.identifiant,idCandidate);
+    //return
+    
+    // Assurez-vous que this.userConnect et this.job sont définis
+    if (this.identifiant && idCandidate) {
+      // Utilisez le service pour postuler à l'emploi
+      this.homeService.trashFavoritesCandidat(this.identifiant, idCandidate)
+        .subscribe(
+          // Succès de la requête
+          (response) => {
+            let typeR = "error"
+            if (<any>response ) {
+              console.log(response);
+              
+              typeR = "success";
+              this.message= "This Candidate is deleted to favorites."
+            }
+            ToastNotification.open({
+              type: typeR,
+              message: this.message
+            });
+     
+          },
+          // Gestion des erreurs
+          (error) => {
+            ToastNotification.open({
+              type: 'error',
+              message: error.error.message
+            });
+            
+          }
+        );
+    }} else {
+      ToastNotification.open({
+        type: 'error',
+        message: "delete cancelled"
+      });      
+    }
   }
   get filteredJobs() {
     if (this.searchTitle.trim() !== '' ) {

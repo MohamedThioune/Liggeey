@@ -174,7 +174,8 @@
                 </div>
 
               </div>
-              <p class="description-job">{{itemJob.description}}</p>
+              <p class="description-job" [innerHTML]="itemJob.description"></p>   
+
               <div class="content-footer-card align-items-center">
 
                 <a [routerLink]="['/detail-job',itemJob.ID]" class="btn btn-view-job">View Details</a>

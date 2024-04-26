@@ -207,6 +207,7 @@ input[type="text"]:focus {
 .dropdown.dropdown-modife .dropdown-menu{
 margin-top: 25px;
   background-color: #FFF;
+  padding-left: 50px;
 }
 
 .categories .dropdown-menu a .content_image{
@@ -242,7 +243,7 @@ nav ul li span{
 .dropdown.dropdown-modife .dropdown-menu a .content_image{
   height: 24px;
   width: 24px;
-
+ 
 }
 .join{
     display: flex;
@@ -266,6 +267,7 @@ nav ul li span{
   margin-left: 13px;
   margin-right: 25px;
   padding: 10px 16px 10px 15px;
+
 }
 .btn-register-modal{
   color: black !important;
@@ -529,10 +531,10 @@ nav ul li span{
   color: #333;
   text-decoration: none;
 }
-
+/*
 .dropdown-modife .dropdown-menu a:hover {
   background-color: #f0f0f0;
-}
+}*/
 .dropdown-user .dropdown-toggle {
   background: none;
 }

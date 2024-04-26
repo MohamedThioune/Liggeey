@@ -68,6 +68,7 @@ import { CompagnyApplicantComponent } from './components/compagny-applicant/comp
 import { EditJobsComponent } from './components/edit-jobs/edit-jobs.component';
 import { CandidatProfilDashboardComponent } from './components/candidat-profil-dashboard/candidat-profil-dashboard.component';
 import {AppMobileComponent} from "./components/app-mobile/app-mobile.component";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -145,6 +146,7 @@ import {AppMobileComponent} from "./components/app-mobile/app-mobile.component";
     FormsModule,
     NgxPaginationModule,
     RouterModule,
+    CKEditorModule
 
   ],
   schemas: [

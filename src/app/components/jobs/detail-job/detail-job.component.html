@@ -85,10 +85,8 @@
         <div class="inner">
           <div class="job_description">
             <p>Job Description</p>
-            <p>
-            <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchangedLorem Ipsum is simply dummy text of the printing and typesetting industry.-->
-               {{job.description}}
-            </p>
+            <div [innerHTML]="job.description"></div>   
+
           </div>
           <div class="key">
             <p>Key Responsibilities</p>
@@ -101,6 +99,7 @@
             <ul *ngFor="let skill of job.skills_experiences">
               <li>{{skill.row}}.</li>
             </ul>
+            <li>{{job.skills_experiences}}</li>
           </div>
           <div class="share">
             <p>Share this job</p>
@@ -317,7 +316,8 @@
                 <p class="text-categori mb-0">{{ job.skills[0].name |slice:0:15}}</p>
               </div>
             </div>
-            <p class="description-job">{{job.description}}.</p>
+            <p class="description-job" [innerHTML]="job.description"></p>   
+
             <div class="content-footer-card align-items-center">
               <!--
               <button class="btn btn-apply-job">Apply Now</button>

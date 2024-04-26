@@ -182,7 +182,13 @@ export class HomePageService {
     };
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/trash/job`, requestBody);
   }
-
+  trashFavoritesCandidat(idUser: number,idCandidat:string): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      userDeleteId: idCandidat,
+    };
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/trash/favourite`, requestBody);
+  }
   rejectCandidatByCompany(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
       userApproveId:idUser,
@@ -242,7 +248,7 @@ export class HomePageService {
     const requestBody = {
       userApplyId:userApplyId,
       title:job.title,
-      description: job.description,
+      job_description: job.description,
       job_level_of_experience: job.job_level_of_experience,
       job_contract: job.job_contract,
       job_langues:job.job_langues,
