@@ -22,6 +22,7 @@ export class ProfilCandidatComponent implements OnInit {
   facebook:any;
   twitter:any;
   linkedin:any;
+  loading: boolean = true; 
   role:any;
   instagram:any;
   form_social!:FormGroup;
@@ -50,6 +51,7 @@ export class ProfilCandidatComponent implements OnInit {
       this.instagram=this.candidat.social_network.instagram;
       this.form.patchValue(this.candidat);
       console.log(this.candidat);
+      this.loading = false;
     })
     // Récupération du token depuis le local storage
     const storedToken = this.usagerService.getToken();
@@ -63,9 +65,7 @@ export class ProfilCandidatComponent implements OnInit {
     }
     this.HomePageService.getCountries().subscribe(
       (data: any[]) => {
-        console.log(data);
         this.countries = data.map(country => country.name.common);
-        console.log(this.countries);
       },
       error => {
         console.log('Erreur lors de la récupération des pays:', error);

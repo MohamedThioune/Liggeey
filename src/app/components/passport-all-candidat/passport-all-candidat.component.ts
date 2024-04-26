@@ -18,6 +18,7 @@ export class PassportAllCandidatComponent implements OnInit {
   isCollapsedMobile = false;
   ongletSelectionne: any ;
   userConnect:any;
+  loading:boolean=true;
   badges:any[]=[];
   courses_info:any[]=[];
   topics:any[]=[];
@@ -78,7 +79,7 @@ export class PassportAllCandidatComponent implements OnInit {
      console.log(this.skillAll);
      
      console.log(this.skillAll,this.courses_info,this.badges);
-     
+     this.loading=false;
     }))
  
     
