@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoursesComponent } from './components/courses/courses.component';
 import { HomeComponent } from './components/home/home.component';
@@ -68,6 +68,8 @@ import { CompagnyApplicantComponent } from './components/compagny-applicant/comp
 import { EditJobsComponent } from './components/edit-jobs/edit-jobs.component';
 import { CandidatProfilDashboardComponent } from './components/candidat-profil-dashboard/candidat-profil-dashboard.component';
 import {AppMobileComponent} from "./components/app-mobile/app-mobile.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
@@ -134,6 +136,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     EditJobsComponent,
     CandidatProfilDashboardComponent,
     AppMobileComponent,
+    SkeletonLoaderComponent,
 
 
   ],
@@ -146,7 +149,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     FormsModule,
     NgxPaginationModule,
     RouterModule,
-    CKEditorModule
+    CKEditorModule,
+    BrowserAnimationsModule,
 
   ],
   schemas: [
@@ -154,7 +158,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
-    DatePipe
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })

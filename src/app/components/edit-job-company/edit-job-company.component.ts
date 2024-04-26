@@ -28,6 +28,7 @@ export class EditJobCompanyComponent implements OnInit {
   langues: string[] = ['French', 'English', 'Dutch'];
   public Editor = ClassicEditor;
   public editorConfig = {
+    toolbar: ['bold', 'italic', 'bulletedList', 'numberedList', 'link'], // Ajoutez 'insertImage' à la barre d'outils
     ckfinder: {
       //uploadUrl: 'https://example.com/upload', // 
       options: {

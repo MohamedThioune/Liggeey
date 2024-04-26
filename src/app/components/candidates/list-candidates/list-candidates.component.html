@@ -96,7 +96,7 @@
                     <div class="tab_candidate w-100">
                       <div *ngFor="let skil of candidate.skills; let i=index">
                         <div *ngIf="i < 3">
-                          <p>{{ skil.name }}</p>
+                          <p>{{ skil.name.slice(0, 12) }}</p>
                         </div>
                       </div>
                   </div>

@@ -127,7 +127,6 @@ const routes: Routes = [
 
   { path: 'job', component: JobOneComponent },
 
- // { path: 'categorie', component: CategorieComponent },
 
   { path: 'joba', component: JobTwoComponent },
 

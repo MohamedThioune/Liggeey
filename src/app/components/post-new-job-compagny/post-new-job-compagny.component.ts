@@ -124,14 +124,15 @@ export class PostNewJobCompagnyComponent implements OnInit {
 
 editorData = '<p>Hello, world!</p>';
 public editorConfig = {
-  toolbar: ['bold', 'italic', 'bulletedList', 'numberedList', 'link', 'insertImage'], // Ajoutez 'insertImage' à la barre d'outils
+  toolbar: ['bold', 'italic', 'bulletedList', 'numberedList', 'link'], // Ajoutez 'insertImage' à la barre d'outils
   // Autres configurations...
   ckfinder: {
     uploadUrl: 'https://example.com/upload', // URL pour le téléchargement d'images
     
     options: {
       resourceType: 'Images' // Type de ressource pour le gestionnaire de fichiers (Images, Files, etc.)
-    }
+    },
+    minHeight: '200px' // ou la hauteur souhaitée
   },
   config : {
     uiColor: '#F0F3F4',

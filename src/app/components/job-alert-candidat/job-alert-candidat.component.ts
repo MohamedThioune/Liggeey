@@ -15,6 +15,7 @@ export class JobAlertCandidatComponent implements OnInit {
   isSidebarVisible = false;
   showButton = true;
   identifiant:number | null = 0;
+  loading:boolean=true;
   notifications:any;
 
 
@@ -25,6 +26,7 @@ export class JobAlertCandidatComponent implements OnInit {
     this.HomePageService.getNotificationCandidat( this.identifiant).subscribe(data=>{
       //this.notifications = data.filter((notification:any) => notification.userApplyId === this.identifiant);
       this.notifications=data;
+      this.loading=false;
       console.log(this.notifications);
       
     })

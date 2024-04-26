@@ -145,9 +145,10 @@
    border: none;
   min-height: 55px;
 }
-.form-group ckeditor-container {
-  height: 1000px !important; /* ou la hauteur souhaitée */
+.ck-editor__editable {
+  min-height: 200px; /* ou la hauteur souhaitée */
 }
+
 
 .form-control:focus {
   border: 1px solid #1AC4A2;

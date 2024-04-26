@@ -196,6 +196,17 @@ if (cachedData && typeof cachedData === 'object' ) {
    
 
   }
+  navigateWithoutReload(event: Event) {
+    event.preventDefault(); // Empêche le comportement par défaut du navigateur
+    const href = (event.target as HTMLAnchorElement).getAttribute('href');
+    if (href) {
+        this.router.navigateByUrl(href); // Utilisez le routeur Angular pour naviguer sans rechargement de page
+    }
+}
+  navigateToDetailCategory(catId: number) {
+  //  this.router.navigateByUrl(`/detail-category/${catId}`);
+  alert('ok');
+  }
 
   switchToApplyBlock() {
     this.isLoading = true;

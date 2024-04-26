@@ -12,6 +12,7 @@ export class AppliesJobsComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
+  loading:boolean=true;
   isMobile!: boolean;
   identifiant:number | null = 0;
   applies:any;
@@ -26,6 +27,7 @@ export class AppliesJobsComponent implements OnInit {
     this.HomePageService.appliesJob( this.identifiant).subscribe(data=>{
       this.applies=data  
       console.log(this.applies);
+      this.loading=false
       
       this.applies.forEach((element:any) => {
         const date = new Date(element.posted_at);

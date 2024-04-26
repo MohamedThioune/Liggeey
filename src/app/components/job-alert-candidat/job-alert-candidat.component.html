@@ -1,4 +1,8 @@
 <app-header></app-header>
+<ng-template #skeleton>
+  <app-skeleton-loader></app-skeleton-loader>
+</ng-template>
+<div *ngIf="!loading; else skeleton">
 <section class="content-page-dashboard">
   <app-sidebar-candidat></app-sidebar-candidat>
   <div class="right_menu">
@@ -40,3 +44,4 @@
       </div>
   </div>
 </section>
+</div>

@@ -18,6 +18,7 @@ export class DashboardCandidatComponent implements OnInit {
   showButton = true;
   userConnect:any;
   homeCandidat:any;
+  loading: boolean = true; 
   applicant:any
   currentDate!: Date;
   sentDate: any;
@@ -42,6 +43,7 @@ export class DashboardCandidatComponent implements OnInit {
       this.homeCandidat=data
       this.suggestions=this.homeCandidat.suggestions
       this.jobLoaded = true
+      this.loading = false;
 
      })
  
