@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 col-sm-6   ">
-                              <label for="firstName">Fist Name
+                              <label for="firstName">First Name
                                 <p>*</p>
                               </label>
                               <div class="input-group">
@@ -75,6 +75,7 @@
                                 formControlName="password_confirmation">
                         </div>
                     </div>
+                    <!--
                     <div class="col-md-12 col-sm-12  ">
                       <label for="name"> UserName
                         <p>*</p>
@@ -84,6 +85,7 @@
                                formControlName="username">
                       </div>
                     </div>
+                    -->
                     </div>
                           
                           
@@ -100,7 +102,7 @@
                 <div class="card-body" >
                     <div class="row">
                         <div class="col-md-6 ">
-                            <label for="firstNameCompagny">Fist Name
+                            <label for="firstNameCompagny">First Name
                                 <p>*</p>
                             </label>
                             <div class="input-group">
@@ -152,6 +154,7 @@
                                    formControlName="confirmPasswordCompagny">
                           </div>
                         </div>
+                        <!--
                         <div class="col-md-12 ">
                           <label for="bedrijf">
                             UserName
@@ -162,11 +165,14 @@
                                    formControlName="bedrijf">
                           </div>
                         </div>
+                        -->
                     </div>
                 </div>
 
                 <div class="card-footer p-3  ">
-                    <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"> Register </button>
+                    <button class="btn btn-outline-secondary create " type="submit" routerLinkActive="active_lien_navbar"  [disabled]="isLoading"> Register </button>
+                    <div *ngIf="isLoading" class="loader">Loading...</div>
+
                 </div>
                 <div class="clear"></div><br />
             </form>

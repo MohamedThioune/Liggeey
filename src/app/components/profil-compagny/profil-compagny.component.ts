@@ -17,6 +17,7 @@ export class ProfilCompagnyComponent implements OnInit {
   isSidebarVisible = false;
   showButton = true;
   form!:FormGroup;
+  loading:boolean=true;
   userConnect:any;
   profil:any;
   message: any = {
@@ -42,7 +43,8 @@ export class ProfilCompagnyComponent implements OnInit {
    
    this.homeService.profilJob(this.userConnect.id).subscribe((data:any)=>{
     this.profil=data;
-    this.form.patchValue(this.profil);    
+    this.form.patchValue(this.profil);
+    this.loading=false;    
     console.log(this.profil);
     
   })

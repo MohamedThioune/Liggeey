@@ -361,6 +361,10 @@
     margin-bottom:51px;
     border:1px solid transparent
 }
+.bullet{
+    display: flex;
+    justify-content: center;
+}
 .row .item:nth-child(n+5) {
     display: none;
   }

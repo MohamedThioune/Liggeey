@@ -28,6 +28,13 @@ label {
   color: #202124;
 
 }
+/* styles.css */
+
+/* Style pour ajuster la hauteur de l'éditeur CKEditor avec la classe custom-ckeditor */
+.custom-ckeditor .ck.ck-editor__editable {
+  height: 300px; /* Ajustez la hauteur selon vos besoins */
+}
+
 /* Add margin and spacing */
 .m-4 {
   margin: 1.5rem;
