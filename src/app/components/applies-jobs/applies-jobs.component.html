@@ -1,4 +1,8 @@
 <app-header></app-header>
+<ng-template #skeleton>
+  <app-skeleton-loader></app-skeleton-loader>
+</ng-template>
+<div *ngIf="!loading; else skeleton">
 <section class="content-page-dashboard" *ngIf="isWebScreen()">
   <app-sidebar-candidat></app-sidebar-candidat>
   <div class="right_menu">
@@ -107,6 +111,7 @@
     -->
   </div>
 </section>
+</div>
 <section class="content-page-dashboard" *ngIf="isMobileScreen()">
   <app-sidebar-candidat *ngIf="!isSidebarVisible"></app-sidebar-candidat>
   <div class="right_menu"  [class.right_menu_show]="!isSidebarVisible" [class.right_menu]="isSidebarVisible">

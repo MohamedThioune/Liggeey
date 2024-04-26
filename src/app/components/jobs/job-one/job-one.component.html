@@ -287,7 +287,8 @@
           </div>
           <ul class="row">
             <li class="col-md-4" *ngFor="let itemJob of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }">
-              <div class="card-emploie position-relative">
+              <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="!jobLoaded || filteredJobs.length==0">
+              <div class="card-emploie position-relative" *ngIf="jobLoaded">
                 <div class="content-img">
                   <img [src]=itemJob.image alt="Job Image">
                 </div>
@@ -313,7 +314,8 @@
                   </div>
 
                 </div>
-                <p class="description-job">{{itemJob.description}}</p>
+                <p class="description-job" [innerHTML]="itemJob.description"></p>   
+
                 <div class="content-footer-card align-items-center">
                   <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(itemJob) || company" (click)="openApplyModal(itemJob.ID)" data-target="#modal-apply">
                     {{ canAppl(itemJob) ? 'Apply Now' : 'Already Applied' }}
@@ -324,7 +326,7 @@
             </li>
           </ul>
         </div>
-        <div class="pagination">
+        <div class="pagination" *ngIf="filteredJobs.length>9">
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
       </div>

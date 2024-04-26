@@ -32,7 +32,7 @@ export class UsagerService {
     return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/me`,{}, { headers });
   }
   inscription(usager: Usager): Observable<any> {
-    const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
+    const base64Credentials = btoa("aaondiaye@gmail.com" + ':' + "Livelearn@2023");
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + base64Credentials,
       'Content-Type': 'application/json;charset=UTF-8',
@@ -46,7 +46,7 @@ export class UsagerService {
       first_name: usager.firstName,
       last_name: usager.lastName,
      // name:usager.name,
-      username:usager. username,
+      username:usager. email,
       roles: ["subscriber"],
       acf:{
         "is_liggeey":"candidate"
@@ -55,7 +55,7 @@ export class UsagerService {
     return this.http.post<Usager>(`${this.baseUrl}/wp-json/wp/v2/users`, requestBody, { headers });
   }
   inscriptionCompagny(usager: UsagerCompany): Observable<any> {
-    const base64Credentials = btoa(" aaondiaye@gmail.com " + ':' + "L0vele@rn2023");
+    const base64Credentials = btoa("biramemoussadiouf@gmail.com" + ':' + "Dioufy1998");
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + base64Credentials,
       'Content-Type': 'application/json;charset=UTF-8',
@@ -68,7 +68,7 @@ export class UsagerService {
       password_confirmation:usager.confirmPasswordCompagny,
       first_name: usager.firstNameCompagny,
       last_name: usager.lastNameCompagny,
-      bedrijf:usager.bedrijf,
+      bedrijf:usager.firstNameCompagny,
       acf:{
         "is_liggeey":"chief"
       },

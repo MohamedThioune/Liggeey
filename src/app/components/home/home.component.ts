@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   candidate=false;
   compagny=false;
   searchTitle:string="";
-
+  jobLoaded=false
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
     ) {
 
@@ -53,6 +53,7 @@ export class HomeComponent implements OnInit {
       this.candidates=data.candidates
       this.article=data.artikels
       this.currentCategories=data.jobs
+      this.jobLoaded=true
 console.log(this.currentCategories);
 
       this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)

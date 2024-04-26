@@ -5,6 +5,7 @@ import { JobCompagny } from 'src/app/interfaces/job-compagny';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-edit-job-company',
@@ -25,7 +26,17 @@ export class EditJobCompanyComponent implements OnInit {
     message: ''
   };
   langues: string[] = ['French', 'English', 'Dutch'];
-  skillsTabs:any=[   {
+  public Editor = ClassicEditor;
+  public editorConfig = {
+    toolbar: ['bold', 'italic', 'bulletedList', 'numberedList', 'link'], // Ajoutez 'insertImage' à la barre d'outils
+    ckfinder: {
+      //uploadUrl: 'https://example.com/upload', // 
+      options: {
+        resourceType: 'Images' // Type de ressource pour le gestionnaire de fichiers (Images, Files, etc.)
+      }
+    }
+  };
+    skillsTabs:any=[   {
     "term_id": 285,
       "name": "Google",
       "slug": "google",

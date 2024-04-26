@@ -33,21 +33,21 @@ export class CategorieComponent implements OnInit {
   currentDate!: Date;
   sentDate: any;
   canApply=true;
+  jobLoaded: boolean = false;
 
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
+    this.identifiant = +this.route.snapshot.params['id'];
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-    this.identifiant = +this.route.snapshot.params['id'];
+    console.log(this.identifiant);
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
-      console.log(this.category);
+      console.log(this.category.name);
       console.log(this.userConnect);
 
       this.category.jobs.forEach((element:any) => {
-                 console.log(element.applied);
-
          // Vérifier si l'utilisateur est contenu dans applied[] pour cet élément
           if (element.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id)) {
             // Si l'utilisateur est trouvé, canApply devient false

@@ -15,6 +15,7 @@ export class ManageJobCompagnyComponent implements OnInit {
   showButton = true;
   userConnect:any;
   openJobs:any;
+  loading:boolean=true;
   appliedNumber!:number;
   tabNumber:any[]=[];
 
@@ -39,7 +40,8 @@ export class ManageJobCompagnyComponent implements OnInit {
       
     this.homeService.manageJob(this.userConnect.id).subscribe((data:any)=>{
       this.openJobs=data;
-      this.jobLoaded=true
+      this.jobLoaded=true;
+      this.loading=false
       console.log(this.openJobs);
       
       this.openJobs.forEach((element:any) => {
