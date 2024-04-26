@@ -22,6 +22,7 @@ export class ProfilCandidatComponent implements OnInit {
   facebook:any;
   twitter:any;
   linkedin:any;
+  role:any;
   instagram:any;
   form_social!:FormGroup;
   form_contact!:FormGroup;
@@ -40,6 +41,9 @@ export class ProfilCandidatComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
       this.candidat=data
+      console.log(this.candidat.date_born);
+      
+      //this.candidat.date_born=this.convertDate(this.candidat.date_born);
       this.facebook=this.candidat.social_network.facebook;
       this.twitter=this.candidat.social_network.twitter;
       this.linkedin=this.candidat.social_network.linkedin;
@@ -59,7 +63,9 @@ export class ProfilCandidatComponent implements OnInit {
     }
     this.HomePageService.getCountries().subscribe(
       (data: any[]) => {
+        console.log(data);
         this.countries = data.map(country => country.name.common);
+        console.log(this.countries);
       },
       error => {
         console.log('Erreur lors de la récupération des pays:', error);
@@ -69,12 +75,13 @@ export class ProfilCandidatComponent implements OnInit {
   }
   onSubmit(idUser:string) {
     // Utilisez le service pour postuler à l'emploi    
-    console.log(idUser,this.form.value);
+    //console.log(idUser,this.form.value);
     
     if (this.form.value!="") {
+      const newDate= this.swapDayAndMonth(this.form.value.date_born);
+      this.form.value.date_born = newDate;
       console.log(this.form.value);
-
-    this.HomePageService.updateProfile(idUser,this.form.value)
+      this.HomePageService.updateProfile(idUser,this.form.value)
       .subscribe(
         // Succès de la requête
         (response) => {
@@ -144,7 +151,7 @@ export class ProfilCandidatComponent implements OnInit {
       //role: ["", Validators.required],
       experience:["",Validators.required],
       //telnr:["",Validators.required],
-      //date_born:["",Validators.required],
+      date_born:["",Validators.required],
       education_level:["",Validators.required],
       biographical_info:["",Validators.required],
       facebook:["",Validators.required],
@@ -157,7 +164,7 @@ export class ProfilCandidatComponent implements OnInit {
       work_as: ['', Validators.required],
       mobile_phone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      age: ['', Validators.required],
+      //age: ['', Validators.required],
       language: ['', Validators.required],
       name: ['', Validators.required],
       username: ['', Validators.required],
@@ -198,4 +205,18 @@ export class ProfilCandidatComponent implements OnInit {
     return true;
   }
 
+  swapDayAndMonth(dateString: string): string {
+    // Diviser la chaîne de date en parties : jour, mois, année
+    const dateParts = dateString.split('/');
+    
+    // Échanger le jour et le mois
+    const temp = dateParts[0];
+    dateParts[0] = dateParts[1];
+    dateParts[1] = temp;
+    
+    // Reconstruire la chaîne de date dans le nouveau format
+    const swappedDate = dateParts.join('/');
+    
+    return swappedDate;
+}
 }

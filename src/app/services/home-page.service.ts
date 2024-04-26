@@ -114,7 +114,7 @@ export class HomePageService {
   updateProfile(idUser:string,candidat:any): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
-      work_as:candidat.work_as,
+      role:candidat.work_as,
       mobile_phone:candidat.mobile_phone,
       experience:candidat.experience,
       age:candidat.age,
