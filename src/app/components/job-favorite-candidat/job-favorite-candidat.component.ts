@@ -16,6 +16,7 @@ export class JobFavoriteCandidatComponent implements OnInit {
   showButton = true;
   identifiant:number | null = 0;
   favorites:any;
+  loading:boolean=true;
   userConnect:any;
   jobId:any;
   message: any = {
@@ -41,6 +42,7 @@ export class JobFavoriteCandidatComponent implements OnInit {
     
     this.HomePageService.getAlertCandidat( this.identifiant).subscribe(data=>{
       this.favorites=data  
+      this.loading=false;
       this.jobLoaded=true
       console.log(this.favorites);
       

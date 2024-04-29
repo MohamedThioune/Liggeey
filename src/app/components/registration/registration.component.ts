@@ -67,10 +67,12 @@ showEmployer() {
             this.homeService.sendNotification(usager.id,this.notificationTalent(usager.id,this.form.value)).subscribe();
           }
         },
-        error => {          
+        error => {        
+          console.log(error.error.code);
+            
           ToastNotification.open({
             type: 'error',
-            message: error.error.message
+            message: error.error.code
           });
           this.isLoading = false;
         });
@@ -79,11 +81,13 @@ showEmployer() {
         type: 'error',
         message: this.message.message
       });
+      console.log(this.message.message);
+      
       this.isLoading = false;
     }
   }
   validateForm(usager: Usager): boolean {
-    const { password,password_confirmation , username, email, firstName,lastName } = usager;
+    const { password,password_confirmation , email, firstName,lastName } = usager;
     if (firstName == "") {
       this.message.message = 'FirstName is required';
       return false;
@@ -92,10 +96,7 @@ showEmployer() {
       this.message.message = 'LastName is required';
       return false;
     }
-    if (username == "") {
-      this.message.message = 'First name is required';
-      return false;
-    }
+
     if (email == "") {
       this.message.message = 'Email is required';
       return false;
@@ -125,7 +126,7 @@ showEmployer() {
       content: `
       Welcome to Liggey, your account has been successfully created.<br>
       Here is your account information:<br>
-      Username: ${user.username}<br>
+      Username: ${user.email}<br>
       Password: what you already filled up<br>
       `,
       trigger:"Registration",
@@ -158,7 +159,7 @@ notificationChief(idUser:number,user:any):any{
       phone: this.formBuilder.control("", []),
       lastName: this.formBuilder.control("", Validators.required),
       name: this.formBuilder.control("", Validators.required),
-      username: this.formBuilder.control("", Validators.required),
+    //  username: this.formBuilder.control("", Validators.required),
       email: this.formBuilder.control("", [Validators.email, Validators.required]),
     });
   }
@@ -170,11 +171,12 @@ notificationChief(idUser:number,user:any):any{
       phoneCompagny: this.formBuilder.control("", []),
       passwordCompagny: this.formBuilder.control("", Validators.required),
       confirmPasswordCompagny: this.formBuilder.control("", Validators.required),
-      bedrijf: this.formBuilder.control("", Validators.required),
+     // bedrijf: this.formBuilder.control("", Validators.required),
     });
   }
 
   inscriptionCompagny():void{
+    this.isLoading=true
     console.log(this.formCompagny.value);
     if (this.validateFormCompagny(this.formCompagny.value)) {
       this.usagerService.inscriptionCompagny(this.formCompagny.value).subscribe(
@@ -188,6 +190,8 @@ notificationChief(idUser:number,user:any):any{
             type: typeR,
             message: this.message
           });
+          this.isLoading=false
+
           if (typeR == "success") {
             this.route.navigate(['/login']);
             this.homeService.sendNotification(usager.ID,this.notificationChief(usager.ID,this.formCompagny.value)).subscribe();
@@ -200,6 +204,7 @@ notificationChief(idUser:number,user:any):any{
             type: 'error',
             message: error.error.errors.errors.existing_user_email
           });
+          this.isLoading=false
         });
     } else {
       console.log(this.message);
@@ -237,10 +242,6 @@ notificationChief(idUser:number,user:any):any{
     }
     if (confirmPasswordCompagny == "") {
       this.message.message = 'Password confirmation is required';
-      return false;
-    }
-    if (bedrijf == "") {
-      this.message.message = 'Username of  company is required';
       return false;
     }
 

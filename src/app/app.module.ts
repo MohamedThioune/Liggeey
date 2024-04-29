@@ -70,6 +70,7 @@ import { CandidatProfilDashboardComponent } from './components/candidat-profil-d
 import {AppMobileComponent} from "./components/app-mobile/app-mobile.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -148,6 +149,7 @@ import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.compo
     FormsModule,
     NgxPaginationModule,
     RouterModule,
+    CKEditorModule,
     BrowserAnimationsModule,
 
   ],

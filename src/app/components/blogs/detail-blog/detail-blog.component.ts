@@ -47,7 +47,7 @@ export class DetailBlogComponent implements OnInit {
       this.article=data;
       this.comments=this.article.comments;         
       this.article.title =   this.article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      this.article.content = this.article.content.replace(/<[^>]*>|[#&]/g, '');
+    //  this.article.content = this.article.content.replace(/<[^>]*>|[#&]/g, '');
       console.log(this.comments);
       
          

@@ -5,6 +5,8 @@ import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { JobCompagny } from 'src/app/interfaces/job-compagny';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKFinder } from '@ckeditor/ckeditor5-ckfinder';
 
 @Component({
   selector: 'app-post-new-job-compagny',
@@ -120,7 +122,29 @@ export class PostNewJobCompagnyComponent implements OnInit {
 }
 ]
 
+editorData = '<p>Hello, world!</p>';
+public editorConfig = {
+  toolbar: ['bold', 'italic', 'bulletedList', 'numberedList', 'link'], // Ajoutez 'insertImage' à la barre d'outils
+  // Autres configurations...
+  ckfinder: {
+    uploadUrl: 'https://example.com/upload', // URL pour le téléchargement d'images
+    
+    options: {
+      resourceType: 'Images' // Type de ressource pour le gestionnaire de fichiers (Images, Files, etc.)
+    },
+    minHeight: '200px' // ou la hauteur souhaitée
+  },
+  config : {
+    uiColor: '#F0F3F4',
+    height: '100%'
+  }
+};
 
+
+
+
+
+public Editor = ClassicEditor;
 selectedSkills: any[] = [];
 
 toggleSkill(term_id: any) {
@@ -194,9 +218,11 @@ onSubmit() {
         },
         // Gestion des erreurs
         (error) => {
+          console.log(error);
+          
           ToastNotification.open({
             type: 'error',
-            message: error.error.message
+            message: error.error.errors
           });
           this.isLoading = false;
 

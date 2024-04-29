@@ -247,6 +247,7 @@ if (cachedData && typeof cachedData === 'object' ) {
               type: 'success',
               message: "You must be a candidate to Apply"
             });
+            localStorage.removeItem('access_token');
           }
           console.log(this.selectedJobId);
           
@@ -319,6 +320,7 @@ if (cachedData && typeof cachedData === 'object' ) {
   }
 
   goToFinalStep() {
+    this.isLoading=true
     this.notification ={
       userApplyId:3,
       title:"Apply Job Successfully",
@@ -358,6 +360,7 @@ if (cachedData && typeof cachedData === 'object' ) {
               type: typeR,
               message: this.message
             });
+            this.isLoading=false
             this.showFirstStep =  !this.showFirstStep;
             this.showSecondStep = !this.showSecondStep;
             //this.showFirstStep=true
@@ -385,7 +388,8 @@ if (cachedData && typeof cachedData === 'object' ) {
           type: 'success',
           message: "Already Applied for this job"
         });
-        this.userObject=false
+        this.isLoading=false
+        this.userObject=true
         
         //return
          //this.router.navigate(['']);
@@ -394,14 +398,15 @@ if (cachedData && typeof cachedData === 'object' ) {
 
 
       } else if(this.compagny == true){
-        this.userConnect=false;
+        this.userConnect=true;
         this.isModalVisible=false
-        this.showFirstStep=false
+        this.showFirstStep=true
 
         ToastNotification.open({
           type: 'success',
           message: "You must be a candidate to Apply"
         });
+        this.isLoading=false
           this.router.navigate(['/dashbord-compagny',this.userConnect.id]);
         }
 

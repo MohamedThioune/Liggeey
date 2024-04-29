@@ -56,8 +56,13 @@
         <div class="header_popular_job">
           <span>All Job posted for {{category.name}}</span>
         </div>
+        
         <div class="items_job">
-          <ul class="row">
+          <div class="header_popular_job">
+            <img class="mb-4" src="../../../assets/img/empty-topic.png" alt="image team" *ngIf="!jobLoaded || filteredItems.jobs.length ==0">
+          </div>
+
+          <ul class="row" *ngIf="jobLoaded">
             <div class="col-md-4" id="jobTitle"  *ngFor="let item of filteredItems.jobs | paginate: { itemsPerPage: 9, currentPage: p }">
               <div class="card-emploie position-relative">
                 <div class="content-img" >
@@ -80,7 +85,8 @@
                     <p class="text-categori mb-0">{{ item.skills[0].name |slice:0:15}}</p>
                   </div>
                 </div>
-                <p class="description-job">{{item.description}}</p>
+                <p class="description-job" [innerHTML]="item.description"></p>   
+
                 <p class="description-job"></p>
                 <div class="content-footer-card align-items-center">
                   <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(item)" (click)="openApplyModal(item.ID)" data-target="#modal-apply">
@@ -91,9 +97,11 @@
               </div>
             </div>
           </ul>
-          <div class="pagination">
+
+          <div class="pagination" *ngIf="filteredItems.jobs.length > 6">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
+
         </div>
       </div>
     </div>
@@ -104,9 +112,13 @@
           <div class="header_featured">
             <span>Specialist company in this category</span>
           </div>
+          <div class="header_featured">
+            <img class="mb-4" src="../../../assets/img/empty-topic.png" alt="image team" *ngIf="!jobLoaded || filteredItems.jobs.length ==0">
+          </div>
           <div class="row">
+       
             <div class="col-md-3 company" *ngFor="let item of filteredItems.companies | paginate: { itemsPerPage: 6, currentPage: p }">
-              <div class="candidate"  [routerLink]="['/detail-compagny',item.ID]">
+              <div class="candidate" *ngIf="jobLoaded"  [routerLink]="['/detail-compagny',item.ID]">
                 <div class="content_candidate">
                   <div class="content_image_candidate">
                     <img [src]="item.logo" alt="">
@@ -149,9 +161,14 @@
         <div class="header_articles">
           <span>Recent News Articles</span>
         </div>
+        <div class="header_articles">
+          <img class="mb-4" src="../../../assets/img/empty-topic.png" alt="image team" *ngIf="!jobLoaded || filteredItems.articles.length ==0">
+        </div>
         <div class="row">
+        
+
           <div class="col-md-4 col-sm-4" *ngFor="let item of filteredItems.articles | paginate: { itemsPerPage: 6, currentPage: p }">
-            <div class="card_article">
+            <div class="card_article" ngIf="jobLoaded">
               <div class="rectangle_article">
                 <div class="content_image" mdbRipple rippleColor="light">
                   <img [src]="item.image" class="img-fluid"/>

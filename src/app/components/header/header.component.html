@@ -56,16 +56,16 @@
               <path d="M14 14H20V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H15C14.7348 20 14.4804 19.8946 14.2929 19.7071C14.1054 19.5196 14 19.2652 14 19V14ZM4 4H10V9C10 9.26522 9.89464 9.51957 9.70711 9.70711C9.51957 9.89464 9.26522 10 9 10H5C4.73478 10 4.48043 9.89464 4.29289 9.70711C4.10536 9.51957 4 9.26522 4 9V4Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>Categories</button>
             <div class="dropdown-menu" [class.show]="dropdownOpen">
-               <!--
-              <a class="dropdown-item" [routerLink]="['/detail-category',categori.cat_ID]" routerLinkActive="active_lien_navbar"  *ngFor="let categori of categories">
+               
+              <a class="dropdown-item" [routerLink]="['/detail-category',categori.cat_ID]"   *ngFor="let categori of categories">
                 <div class="content_image">
                   <img [src]="categori.cat_image" alt="Image Of Categorie">
                 </div>
-
-               <p> {{categori.cat_name}} </p>
+              
+                <p> {{categori.cat_name}} </p>
               </a>
-               -->
-
+               
+             <!--
               <a class="dropdown-item" [routerLink]="['/detail-category',this.categories[0].cat_ID]" routerLinkActive="active_lien_navbar">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <g clip-path="url(#clip0_2910_3473)">
@@ -162,7 +162,7 @@
                 </svg>
                 {{this.categories[7].cat_name}}
               </a>
-
+             -->
             </div>
           </div>
         </li>
@@ -268,9 +268,9 @@
     <div class="separateur"></div>
     <nav class="first-nav">
       <ul class="header_container_logo header_container_mobile">
-        <a routerLink="/" class="content_image">
-          <img height="70" src="../../../assets/img/logo-footer-white.png" alt="image pas encore insérer">
-        </a>
+        <li class="content_image">
+          <img height="70" src="../../../assets/img/logo_liggey.png" alt="image pas encore insérer">
+        </li>
         <li class="categories dropdown">
           <button class="btn dropdown-toggle" (click)="toggleDropdown()"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M17 10C18.6569 10 20 8.65685 20 7C20 5.34315 18.6569 4 17 4C15.3431 4 14 5.34315 14 7C14 8.65685 15.3431 10 17 10Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -442,7 +442,7 @@
             <div class="remember">
               <div class="remember_me">
                 <input class="checkbox" type="checkbox">
-                <span>Remember me</span>
+                <span>Remember me</span>in
               </div>
               <div class="forget-passwoord">
                 <a class="btn" routerLink="/reset-password">Forget Password?</a>
@@ -450,7 +450,7 @@
             </div>
             -->
             <div class="d-grid">
-              <button type="submit" id="login-btn" class="btn btn-forgeet-passwoord" (click)="switchToApplyBlock()"  [disabled]="isLoading">Log In</button>
+              <button type="submit" id="login-btn" class="btn btn-forgeet-passwoord" (click)="switchToApplyBlock()"   [disabled]="isLoading">Log In</button>
               <div *ngIf="isLoading" class="loader">Loading...</div>
             </div>
             <div class="d-flex justify-content-center">
@@ -462,7 +462,7 @@
       </div>
       <div *ngIf="userObject" class="block-apply">
         <div class="modal-header" *ngIf="showFirstStep">
-          <h5 class="modal-title" [id]="title ? '' : 'choiceJob'">Apply to {{title || 'Choice Job'}}</h5>
+          <h5 class="modal-title" [id]="title ? '' : 'choiceJob'">Apply to <strong>{{title || 'Choice Job'}}</strong></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -478,7 +478,7 @@
                 <label>Last Name</label>
                 <input class = "input" name="last_name"  type="text" placeholder="" aria-label="default input example" id="last_name" value="{{last_name}}" required>
               </div>
-
+              
               <div class="my_container_input_2 form-group">
                 <label>Role</label>
                 <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{work_as}}" required>
@@ -491,7 +491,9 @@
               -->
 
               <div class="d-grid">
-                <button (click)="goToFinalStep()" type="submit" id="go-to-cv" class="btn btn-forgeet-passwoord">Apply</button>
+                <button (click)="goToFinalStep()" type="submit"  [disabled]="isLoading" data-toggle="modal"  data-target="modal-apply" class="btn btn-forgeet-passwoord">Apply</button>
+                <div *ngIf="isLoading" class="loader">Loading...</div>
+
               </div>
             </div>
             <!--

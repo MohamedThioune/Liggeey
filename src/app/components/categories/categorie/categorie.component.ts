@@ -33,6 +33,7 @@ export class CategorieComponent implements OnInit {
   currentDate!: Date;
   sentDate: any;
   canApply=true;
+  jobLoaded: boolean = false;
 
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 

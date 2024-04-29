@@ -12,7 +12,7 @@
               <label>
                 Description
               </label>
-              <textarea name="description" id="description" class="form-control" formControlName="description" cols="30" ></textarea>
+              <ckeditor  name="description"  formControlName="description" [editor]="Editor" [config]="editorConfig" ></ckeditor>
             </div>
             <div class="form-group col-50">
               <label for="level_of_experience">Level of experience  <span class="important">*</span>
