@@ -74,7 +74,7 @@
                             <!-- Affichage des cases à cocher -->
               <div class="dropdown-menu col-md-6" aria-labelledby="dropdownMenuButton">
                 <div class="form-check" *ngFor="let skill of skillsTabs">
-                  <input class="form-check-input checkbox" formArrayName="skills" type="checkbox" [value]="skill.term_id" (change)="toggleSkill(skill.term_id)" [checked]="selectedSkills.includes(skill.term_id)">
+                  <input class="form-check-input checkbox" formArrayName="skills" type="checkbox" [value]="skill.cat_ID" (change)="toggleSkill(skill.cat_ID)" [checked]="selectedSkills.includes(skill.cat_ID)">
                   <label class="form-check-label">
                     {{skill.cat_name}}
                   </label>

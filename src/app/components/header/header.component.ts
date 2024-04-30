@@ -146,6 +146,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
     });
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
+        console.log(this.categories)
     })
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
