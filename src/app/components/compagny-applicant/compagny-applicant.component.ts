@@ -14,6 +14,7 @@ export class CompagnyApplicantComponent implements OnInit {
   showButton = true;
   userConnect:any;
   applicant:any;
+  loading:boolean=true;
   searchTitle:String="";
   identifiant:number | null = 0;
   jobLoaded: boolean = false;
@@ -34,7 +35,8 @@ export class CompagnyApplicantComponent implements OnInit {
   }
    this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
      this.applicant = data
-     this.jobLoaded = true
+     this.loading=false;
+    // this.jobLoaded = true
      console.log(this.applicant);
      
     })

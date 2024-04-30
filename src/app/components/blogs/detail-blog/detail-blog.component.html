@@ -62,7 +62,7 @@
     </div>
 
     <div class="block-commentaire">
-      <p class="comment-title">Comment</p>
+      <p class="comment-title">Comments</p>
       <!--
       <div class="one-comment d-flex">
         <div class="block-img-comment">
@@ -94,7 +94,7 @@
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
           </div>
-          <p class="comment">{{comment.Feedback}}</p>
+          <p class="comment">{{comment.feedback}}</p>
         </div>
       </div>
     </div>
@@ -131,7 +131,9 @@
           <textarea name="feedback" formControlName="feedback" id="feedback" rows="5"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-primary" [disabled]="isLoading">Send Message</button>
+        <div *ngIf="isLoading" class="loader">Loading...</div>
+
       </div>
     </form>
 

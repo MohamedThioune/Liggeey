@@ -77,9 +77,12 @@
           <span>Recent Applicants</span>
         </div>
         <ul class="row">
-          <img class="mb-4" src="../../../assets/img/empty-certifican.png" alt="image team" *ngIf="!jobLoaded">
+          <div class="text-center" *ngIf="this.homeCompagny.application.length == 0">
+            <img class="mb-4" src="../../../assets/img/empty-certifican.png" alt="image team">
+            <p>No Applicant Now</p>
+          </div>
           <li class="col-md-6" *ngFor="let item of  this.homeCompagny.application | paginate: { itemsPerPage: 6, currentPage: p }">
-            <div class="job_list_1" *ngIf="jobLoaded ">
+            <div class="job_list_1">
               <div class="content_job_list_1">
                 <div class="content_logo">
                   <img [src]="item.image" alt="Logo">

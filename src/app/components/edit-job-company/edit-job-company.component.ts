@@ -18,6 +18,7 @@ export class EditJobCompanyComponent implements OnInit {
   selectedSkills:any[]= [];
   skillsID:any
   form!: FormGroup;
+  loading:boolean=true;
   dateError = false;
   id:number | null = 0;
   tabsKills:any;
@@ -36,97 +37,113 @@ export class EditJobCompanyComponent implements OnInit {
       }
     }
   };
-    skillsTabs:any=[   {
-    "term_id": 285,
-      "name": "Google",
-      "slug": "google",
+  skillsTabs:any=[   
+
+    {
+      "term_id": 288,
+      "name": "Chocolatier",
+      "slug": "chocolatier",
+      "term_group": 0,
+      "term_taxonomy_id": 288,
+      "taxonomy": "course_category",
+      "description": "",
+      "parent": 119,
+      "count": 2,
+      "filter": "raw",
+      "cat_ID": 288,
+      "category_count": 0,
+      "category_description": "chocolatier",
+      "cat_name": "Chocolatier",
+      "category_nicename": "chocolatier"
+    },
+    {
+      "term_id": 285,
+      "name": "Ober",
+      "slug": "ober",
       "term_group": 0,
       "term_taxonomy_id": 285,
       "taxonomy": "course_category",
-      "description": "google",
-      "parent": 283,
-      "count": 0,
+      "description": "",
+      "parent": 119,
+      "count": 2,
       "filter": "raw",
       "cat_ID": 285,
       "category_count": 0,
-      "category_description": "google",
-      "cat_name": "Google",
-      "category_nicename": "google",
-      "category_parent": 283
-  },
-  {
-    "term_id": 288,
-    "name": "Odoo",
-    "slug": "odoo",
-    "term_group": 0,
-    "term_taxonomy_id": 288,
-    "taxonomy": "course_category",
-    "description": "odoo",
-    "parent": 283,
-    "count": 4,
-    "filter": "raw",
-    "cat_ID": 288,
-    "category_count": 4,
-    "category_description": "odoo",
-    "cat_name": "Odoo",
-    "category_nicename": "odoo",
-    "category_parent": 283
-  },
-  {
-    "term_id": 284,
-    "name": "Salesforce",
-    "slug": "salesforce",
-    "term_group": 0,
-    "term_taxonomy_id": 284,
-    "taxonomy": "course_category",
-    "description": "salesforce",
-    "parent": 283,
-    "count": 4,
-    "filter": "raw",
-    "cat_ID": 284,
-    "category_count": 4,
-    "category_description": "salesforce",
-    "cat_name": "Salesforce",
-    "category_nicename": "salesforce",
-    "category_parent": 283
-  },
-  {
-    "term_id": 290,
-    "name": "UI-UX Designer",
-    "slug": "web-designer",
-    "term_group": 0,
-    "term_taxonomy_id": 290,
-    "taxonomy": "course_category",
-    "description": "ui-ux-designer",
-    "parent": 283,
-    "count": 1,
-    "filter": "raw",
-    "cat_ID": 290,
-    "category_count": 1,
-    "category_description": "ui-ux-designer",
-    "cat_name": "UI-UX Designer",
-    "category_nicename": "web-designer",
-    "category_parent": 283
-  },
-  {
-    "term_id": 286,
-    "name": "Wordpress",
-    "slug": "wordpress",
-    "term_group": 0,
-    "term_taxonomy_id": 286,
-    "taxonomy": "course_category",
-    "description": "wordpress",
-    "parent": 283,
-    "count": 6,
-    "filter": "raw",
-    "cat_ID": 286,
-    "category_count": 6,
-    "category_description": "wordpress",
-    "cat_name": "Wordpress",
-    "category_nicename": "wordpress",
-    "category_parent": 283
-  }
-  ]
+      "category_description": "ober",
+      "cat_name": "Ober",
+      "category_nicename": "ober"
+      
+    },
+    {
+      "term_id": 290,
+      "name": "Bartender",
+      "slug": "bartender",
+      "term_group": 0,
+      "term_taxonomy_id": 290,
+      "taxonomy": "course_category",
+      "description": "",
+      "parent": 119,
+      "count": 3,
+      "filter": "raw",
+      "cat_ID": 290,
+      "category_count": 0,
+      "category_description": "bartender",
+      "cat_name": "Bartender",
+      "category_nicename": "bartender"
+    },
+    {
+      "term_id": 269,
+      "name": "Vuilnisman",
+      "slug": "vuilnisman",
+      "term_group": 0,
+      "term_taxonomy_id": 269,
+      "taxonomy": "course_category",
+      "description": "",
+      "parent": 113,
+      "count": 1,
+      "filter": "raw",
+      "cat_ID": 269,
+      "category_count": 0,
+      "category_description": "vuilnisman",
+      "cat_name": "Vuilnisman",
+      "category_nicename": "vuilnisman"
+    },
+    {
+      "term_id": 290,
+      "name": "Bartender",
+      "slug": "bartender",
+      "term_group": 0,
+      "term_taxonomy_id": 290,
+      "taxonomy": "course_category",
+      "description": "",
+      "parent": 119,
+      "count": 3,
+      "filter": "raw",
+      "cat_ID": 290,
+      "category_count": 0,
+      "category_description": "bartender",
+      "cat_name": "Bartender",
+      "category_nicename": "bartender"
+    },
+    {
+      "term_id": 286,
+      "name": "Traiteur",
+      "slug": "traiteur",
+      "term_group": 0,
+      "term_taxonomy_id": 286,
+      "taxonomy": "course_category",
+      "description": "",
+      "parent": 119,
+      "count": 1,
+      "filter": "raw",
+      "cat_ID": 286,
+      "category_count": 0,
+      "category_description": "traiteur",
+      "cat_name": "Traiteur",
+      "category_nicename": "traiteur"
+    }
+    ]
+    
 
   constructor(private route : ActivatedRoute,private router:Router,private fb : FormBuilder , private homeService : HomePageService,private usagerService:UsagerService) {
 
@@ -137,6 +154,7 @@ export class EditJobCompanyComponent implements OnInit {
     this.id = +this.route.snapshot.params['id'];
     this.homeService.getDetailJob(this.id).subscribe(data => {
         this.job = data;
+        this.loading=false;
         this.selectedSkills = this.job.skills.map((skill:any) => skill.term_id);
         console.log(this.job);
         this.form.patchValue(this.job);
@@ -188,7 +206,6 @@ export class EditJobCompanyComponent implements OnInit {
 
 toggleSkill(term_id: any) {
   const skillsArray = this.form.get('skills') as FormArray;
-  const index = this.selectedSkills.indexOf(term_id);
   if (this.selectedSkills.includes(term_id)) {
     this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
     const index = skillsArray.value.indexOf(term_id);
