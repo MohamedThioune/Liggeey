@@ -71,6 +71,7 @@ import {AppMobileComponent} from "./components/app-mobile/app-mobile.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SkeletonHeaderLoaderComponent } from './skeleton-header-loader/skeleton-header-loader.component';
 
 @NgModule({
   declarations: [
@@ -137,6 +138,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     CandidatProfilDashboardComponent,
     AppMobileComponent,
     SkeletonLoaderComponent,
+    SkeletonHeaderLoaderComponent,
 
 
   ],

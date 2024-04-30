@@ -36,7 +36,7 @@ export class CompagnyApplicantComponent implements OnInit {
    this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
      this.applicant = data
      this.loading=false;
-     this.jobLoaded = true
+    // this.jobLoaded = true
      console.log(this.applicant);
      
     })
