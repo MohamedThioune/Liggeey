@@ -23,6 +23,7 @@ export class DetailBlogComponent implements OnInit {
   form!:FormGroup;
   userConnect:any;
   public href: string = "";
+  isLoading: boolean = false;
 
   constructor(private router: Router , private homeService:HomePageService,private fb: FormBuilder,private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService) { }
 
@@ -54,11 +55,15 @@ export class DetailBlogComponent implements OnInit {
     })
   }
   postArticleComment(){
+    this.isLoading = true;
+
     if (!this.userConnect) {
       ToastNotification.open({
         type: 'error',
         message: 'Please log in first before posting a comment.'
       });
+      this.isLoading = false;
+
       return; 
     }
       console.log(this.form.value,this.article.ID,this.userConnect.id);
@@ -80,6 +85,8 @@ export class DetailBlogComponent implements OnInit {
               type: typeR,
               message: this.message
             });
+            this.isLoading = false;
+
             if (typeR == "success") {
               this.router.navigate(['/blog']);
             }
@@ -90,6 +97,7 @@ export class DetailBlogComponent implements OnInit {
               type: 'error',
               message: 'Creation of comment failed'
             });
+            this.isLoading = false;
           }
         );
     } else {
@@ -97,6 +105,7 @@ export class DetailBlogComponent implements OnInit {
         type: 'error',
         message: this.message.message      
       });
+      this.isLoading = false;
     }
  
    }

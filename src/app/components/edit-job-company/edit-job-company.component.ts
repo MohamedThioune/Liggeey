@@ -18,6 +18,7 @@ export class EditJobCompanyComponent implements OnInit {
   selectedSkills:any[]= [];
   skillsID:any
   form!: FormGroup;
+  loading:boolean=true;
   dateError = false;
   id:number | null = 0;
   tabsKills:any;
@@ -153,6 +154,7 @@ export class EditJobCompanyComponent implements OnInit {
     this.id = +this.route.snapshot.params['id'];
     this.homeService.getDetailJob(this.id).subscribe(data => {
         this.job = data;
+        this.loading=false;
         this.selectedSkills = this.job.skills.map((skill:any) => skill.term_id);
         console.log(this.job);
         this.form.patchValue(this.job);
@@ -204,7 +206,6 @@ export class EditJobCompanyComponent implements OnInit {
 
 toggleSkill(term_id: any) {
   const skillsArray = this.form.get('skills') as FormArray;
-  const index = this.selectedSkills.indexOf(term_id);
   if (this.selectedSkills.includes(term_id)) {
     this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
     const index = skillsArray.value.indexOf(term_id);

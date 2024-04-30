@@ -68,7 +68,7 @@ export class UsagerService {
       password_confirmation:usager.confirmPasswordCompagny,
       first_name: usager.firstNameCompagny,
       last_name: usager.lastNameCompagny,
-      bedrijf:usager.bedrijf,
+      bedrijf:usager.firstNameCompagny,
       acf:{
         "is_liggeey":"chief"
       },

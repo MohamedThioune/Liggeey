@@ -13,6 +13,7 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
+  loading:boolean=true;
   userConnect:any;
   applicants:any;
   searchTitle:string="";
@@ -40,6 +41,7 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
      this. userConnect = JSON.parse(decodedToken);
    }
     this.homeService.getCandidatCompagny(this.userConnect.id).subscribe((data:any)=>{
+      this.loading=false;
       this.applicants=data 
       this.jobLoaded=true     
      })

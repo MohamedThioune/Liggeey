@@ -54,6 +54,9 @@ export class HomeComponent implements OnInit {
       this.article=data.artikels
       this.currentCategories=data.jobs
       this.jobLoaded=true
+      this.currentCategories.forEach(element => {
+        element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
+      });
 console.log(this.currentCategories);
 
       this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)

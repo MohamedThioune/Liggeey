@@ -18,6 +18,7 @@ export class DetailJobComponent implements OnInit {
   job:any;
   userConnect:any;
   applyJobs=false;
+  loading:boolean=true
   message: any = {
     type: '',
     message: ''
@@ -55,12 +56,16 @@ export class DetailJobComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
+        this.loading=false
         this.jobLoaded = true;
        console.log(this.job);
         
        //this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
        //this.job.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
+      this.job.other_jobs.forEach((element:any) => {
+          element.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
 
+      });
 
 
         this.calculateDuration();

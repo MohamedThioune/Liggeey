@@ -11,6 +11,7 @@ export class ResumeAlertCompagnyComponent implements OnInit {
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = false;
   showButton = true;
+  loading:boolean=true;
   identifiant:any;
   notifications:any;
   
@@ -21,6 +22,7 @@ export class ResumeAlertCompagnyComponent implements OnInit {
     this.homePageService.getNotificationCandidat( this.identifiant).subscribe(data=>{
       //this.notifications = data.filter((notification:any) => notification.userApplyId === this.identifiant);
       this.notifications=data;
+      this.loading=false;
       console.log(this.notifications);
       
     })
