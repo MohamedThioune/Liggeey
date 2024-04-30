@@ -244,6 +244,10 @@ notificationChief(idUser:number,user:any):any{
       this.message.message = 'Password confirmation is required';
       return false;
     }
+    if (bedrijf=="") {
+      this.message.message = 'Name of Company is mandatory';
+      return false;
+    }
 
     return true;
   }

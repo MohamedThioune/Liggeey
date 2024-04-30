@@ -27,20 +27,21 @@ export class HomePageService {
   }
   // on va mettre les données en cache
   getInfoHomepage(): Observable<any> {
-    const cachedData = localStorage.getItem('homepageData');
-    if (cachedData) {
-      return new Observable(observer => {
-        observer.next(JSON.parse(cachedData));
-        observer.complete();
-      });
-    } else {
-      return this.http.get(`${this.baseUrl}/wp-json/custom/v1/homepage`).pipe(
-        map((data: any) => {
-          localStorage.setItem('homepageData', JSON.stringify(data));
-          return data;
-        })
-      );
-    }
+    return this.http.get(`${this.baseUrl}/wp-json/custom/v1/homepage`)
+    // const cachedData = localStorage.getItem('homepageData');
+    // if (cachedData) {
+    //   return new Observable(observer => {
+    //     observer.next(JSON.parse(cachedData));
+    //     observer.complete();
+    //   });
+    // } else {
+    //   return this.http.get(`${this.baseUrl}/wp-json/custom/v1/homepage`).pipe(
+    //     map((data: any) => {
+    //       localStorage.setItem('homepageData', JSON.stringify(data));
+    //       return data;
+    //     })
+    //   );
+    // }
   }
   getCategories(): Observable<any>{
     const base64Credentials = btoa("peinda" + ':' + "1234ok");
@@ -73,7 +74,9 @@ export class HomePageService {
   }
 
 
-  getAllJob(): Observable<any[]> {
+  getAllJob(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/wp-json/custom/v1/jobs`,{});
+
     // Vérifier si les données sont en cache
     if (this.cachedJobs.length > 0) {
       return of(this.cachedJobs);
@@ -306,6 +309,8 @@ export class HomePageService {
     const formData = new FormData();
     formData.append('userApplyId', userApplyIdString); // Use the converted string or an empty string
     formData.append('delete_education', '2'); 
+    formData.append('delete_award', '3'); 
+    formData.append('delete_work', '1'); 
   
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`, formData, { params });
   }

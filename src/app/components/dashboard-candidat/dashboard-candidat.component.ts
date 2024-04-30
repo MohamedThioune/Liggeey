@@ -44,6 +44,9 @@ export class DashboardCandidatComponent implements OnInit {
       this.suggestions=this.homeCandidat.suggestions
       this.jobLoaded = true
       this.loading = false;
+      this.suggestions.forEach((element:any) => {
+        element.description =   element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      });
 
      })
  

@@ -13,6 +13,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   isSidebarVisible = false;
   showButton = true;
   userConnect:any;
+  loading:boolean=true;
   applicant:any;
   searchTitle:String="";
   identifiant:number | null = 0;
@@ -35,6 +36,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
    }
     this.homeService.getDetailJob(this.identifiant).subscribe((data:any)=>{
       this.applicant=data
+      this.loading=false;
       console.log(this.applicant);
       
      })

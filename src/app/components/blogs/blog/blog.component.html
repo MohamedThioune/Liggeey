@@ -19,7 +19,9 @@
                 <img [src]="article.image" class="img-fluid"/>
               </div>
               <div class="card-body">
+                <!--
                 <div class="date_comment">
+                  
                   <p class="date">
                     August 31, 2021
                   </p>
@@ -30,6 +32,7 @@
                     12 Comment
                   </p>
                 </div>
+                -->
                 <div class="tops">
                   <p>{{article.post_title}}</p>
                 </div>
@@ -214,88 +217,31 @@
             </div>
             <div class="search-by-categories">
               <h3>Categories</h3>
-              <ul>
+              <ul *ngFor="let category of categories">
                 <li>
                   <button class="btn btn-filter-categorie">
-                    Education
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-filter-categorie">
-                    Information
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-filter-categorie">
-                    Interview
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-filter-categorie">
-                    Job Seeking
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-filter-categorie">
-                    Jobs
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-filter-categorie">
-                    Learn
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-filter-categorie">
-                    Skill
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-filter-categorie">
-                    Travel
+                    {{category.cat_name}}
                   </button>
                 </li>
               </ul>
             </div>
             <div class="recent-post-blog">
               <h3>Recent Posts</h3>
-              <div class="d-flex recent-post align-items-center">
+              <div class="d-flex recent-post align-items-center" *ngFor="let article of artikels">
                 <div class="centent-img">
-                  <img src="../../../assets/img/article1.png"/>
+                  <img [src]=article.image class="img-fluid" />
                 </div>
                 <div>
-                  <p class="title-recent-post">Attract Sales And Profits</p>
-                  <p class="date-recent-post">August 9, 2023</p>
-                </div>
-              </div>
-              <div class="d-flex recent-post align-items-center">
-                <div class="centent-img">
-                  <img src="../../../assets/img/article1.png"/>
-                </div>
-                <div>
-                  <p class="title-recent-post">Attract Sales And Profits</p>
-                  <p class="date-recent-post">August 9, 2023</p>
-                </div>
-              </div>
-              <div class="d-flex recent-post align-items-center">
-                <div class="centent-img">
-                  <img src="../../../assets/img/article1.png"/>
-                </div>
-                <div>
-                  <p class="title-recent-post">Attract Sales And Profits</p>
-                  <p class="date-recent-post">August 9, 2023</p>
+                  <p class="title-recent-post">{{article.post_title}}</p>
+                  <p class="date-recent-post">March 5, 2023</p>
                 </div>
               </div>
             </div>
             <div class="tags-block">
               <h3>Tags</h3>
-              <div class="d-flex flex-wrap tags-block">
-                <p>app</p>
-                <p>administrative</p>
-                <p>android</p>
-                <p>wordpress</p>
-                <p>design</p>
-                <p>react</p>
+              <div class="d-flex flex-wrap tags-block" *ngFor="let tag of skillsTabs">
+                <p>{{tag.name}}</p>
+                <br/>
               </div>
             </div>
           </form>

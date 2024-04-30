@@ -80,7 +80,10 @@
       <div class="header_popular_job">
         <span>Most Popular Jobs</span>
         <p>Discover popular remote jobs across diverse industries on our platform.</p>
-        <img class="mb-4 mt-4" src="../../../assets/img/empty-topic.png" alt="image team" *ngIf="!jobLoaded || currentCategories.length==0">
+        <div class="" *ngIf="!jobLoaded || currentCategories.length==0">
+          <img class="mb-4 mt-4" src="../../../assets/img/empty-topic.png" alt="image team">
+          <p>No Content is Overlaible Now</p>
+        </div>
 
         <div class="tabs">
           <!--

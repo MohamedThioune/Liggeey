@@ -58,8 +58,9 @@
         </div>
         
         <div class="items_job">
-          <div class="header_popular_job">
-            <img class="mb-4" src="../../../assets/img/empty-topic.png" alt="image team" *ngIf="!jobLoaded || filteredItems.jobs.length ==0">
+          <div class="header_popular_job" *ngIf="filteredItems.jobs.length ==0">
+            <img class="mb-4" src="../../../assets/img/empty-topic.png" alt="image team">
+            <p>No Content is Overlaible Now</p>
           </div>
 
           <ul class="row" *ngIf="jobLoaded">
@@ -85,7 +86,7 @@
                     <p class="text-categori mb-0">{{ item.skills[0].name |slice:0:15}}</p>
                   </div>
                 </div>
-                <p class="description-job" [innerHTML]="item.description"></p>   
+                <p class="description-job">{{item.description}}</p>   
 
                 <p class="description-job"></p>
                 <div class="content-footer-card align-items-center">
@@ -112,8 +113,9 @@
           <div class="header_featured">
             <span>Specialist company in this category</span>
           </div>
-          <div class="header_featured">
-            <img class="mb-4" src="../../../assets/img/empty-topic.png" alt="image team" *ngIf="!jobLoaded || filteredItems.jobs.length ==0">
+          <div class="header_featured" *ngIf="filteredItems.companies.length ==0">
+            <img class="mb-4" src="../../../assets/img/empty-topic.png" alt="image team">
+            <p>No Content is Overlaible Now</p>
           </div>
           <div class="row">
        
@@ -161,8 +163,9 @@
         <div class="header_articles">
           <span>Recent News Articles</span>
         </div>
-        <div class="header_articles">
-          <img class="mb-4" src="../../../assets/img/empty-topic.png" alt="image team" *ngIf="!jobLoaded || filteredItems.articles.length ==0">
+        <div class="header_articles" *ngIf=" filteredItems.articles.length ==0">
+          <img class="mb-4" src="../../../assets/img/empty-topic.png" alt="image team">
+          <p>No Content is Overlaible Now</p>
         </div>
         <div class="row">
         

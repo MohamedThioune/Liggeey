@@ -114,6 +114,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
 
     this.href = window.location.href;
+    console.log(this.href);
+    
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
     const storedToken = this.usagerService.getToken();
@@ -203,10 +205,10 @@ if (cachedData && typeof cachedData === 'object' ) {
         this.router.navigateByUrl(href); // Utilisez le routeur Angular pour naviguer sans rechargement de page
     }
 }
-  navigateToDetailCategory(catId: number) {
-  //  this.router.navigateByUrl(`/detail-category/${catId}`);
-  alert('ok');
-  }
+navigateToDetailCategory() {
+  this.href = window.location.href;
+  this.router.navigateByUrl(this.href);
+}
 
   switchToApplyBlock() {
     this.isLoading = true;

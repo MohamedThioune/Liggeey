@@ -217,7 +217,10 @@
 
                 </div>
               </div>
-              <img src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="badges.length === 0">
+              <div class="text-center" *ngIf="badges.length === 0">
+                <img src="../../../assets/img/empty-badge.png" alt="image team" >
+                <p>No Content Is Overlaible Now</p>
+              </div>
 
           </div>
 
@@ -238,8 +241,10 @@
                   </div>
 
                 </div>
-                 <img src="../../../assets/img/empty-certifican.png" alt="image team"  *ngIf="skillAll.certificats.length === 0">
-
+                <div class="text-center"  *ngIf="skillAll.certificats.length === 0">
+                  <img src="../../../assets/img/empty-certifican.png" alt="image team" >
+                  <p>No Content Is Overlaible Now</p>
+                </div>
 
           </div>
           <div class="map_menu" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
@@ -256,7 +261,10 @@
                       <p>{{skill.topic_name}}</p>
                     </div>
                 </div>
-                <img src="../../../assets/img/empty-topic.png" alt="image team" *ngIf="skillAll.topics.length === 0">
+                <div class="text-center" *ngIf="skillAll.topics.length === 0">
+                  <img src="../../../assets/img/empty-topic.png" alt="image team">
+                  <p>No Content Is Overlaible Now </p>
+                </div>
 
           </div>
           <!--
