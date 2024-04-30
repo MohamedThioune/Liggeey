@@ -30,95 +30,110 @@ export class PostNewJobCompagnyComponent implements OnInit {
   langues: string[] = ['French', 'English', 'Dutch'];
   isLoading: boolean = false;
 
-  skillsTabs:any=[   {
-  "term_id": 285,
-    "name": "Google",
-    "slug": "google",
-    "term_group": 0,
-    "term_taxonomy_id": 285,
-    "taxonomy": "course_category",
-    "description": "google",
-    "parent": 283,
-    "count": 0,
-    "filter": "raw",
-    "cat_ID": 285,
-    "category_count": 0,
-    "category_description": "google",
-    "cat_name": "Google",
-    "category_nicename": "google",
-    "category_parent": 283
-},
+  skillsTabs:any=[   
+
 {
   "term_id": 288,
-  "name": "Odoo",
-  "slug": "odoo",
+  "name": "Chocolatier",
+  "slug": "chocolatier",
   "term_group": 0,
   "term_taxonomy_id": 288,
   "taxonomy": "course_category",
-  "description": "odoo",
-  "parent": 283,
-  "count": 4,
+  "description": "",
+  "parent": 119,
+  "count": 2,
   "filter": "raw",
   "cat_ID": 288,
-  "category_count": 4,
-  "category_description": "odoo",
-  "cat_name": "Odoo",
-  "category_nicename": "odoo",
-  "category_parent": 283
+  "category_count": 0,
+  "category_description": "chocolatier",
+  "cat_name": "Chocolatier",
+  "category_nicename": "chocolatier"
 },
 {
-  "term_id": 284,
-  "name": "Salesforce",
-  "slug": "salesforce",
+  "term_id": 285,
+  "name": "Ober",
+  "slug": "ober",
   "term_group": 0,
-  "term_taxonomy_id": 284,
+  "term_taxonomy_id": 285,
   "taxonomy": "course_category",
-  "description": "salesforce",
-  "parent": 283,
-  "count": 4,
+  "description": "",
+  "parent": 119,
+  "count": 2,
   "filter": "raw",
-  "cat_ID": 284,
-  "category_count": 4,
-  "category_description": "salesforce",
-  "cat_name": "Salesforce",
-  "category_nicename": "salesforce",
-  "category_parent": 283
+  "cat_ID": 285,
+  "category_count": 0,
+  "category_description": "ober",
+  "cat_name": "Ober",
+  "category_nicename": "ober"
+  
 },
 {
   "term_id": 290,
-  "name": "UI-UX Designer",
-  "slug": "web-designer",
+  "name": "Bartender",
+  "slug": "bartender",
   "term_group": 0,
   "term_taxonomy_id": 290,
   "taxonomy": "course_category",
-  "description": "ui-ux-designer",
-  "parent": 283,
-  "count": 1,
+  "description": "",
+  "parent": 119,
+  "count": 3,
   "filter": "raw",
   "cat_ID": 290,
-  "category_count": 1,
-  "category_description": "ui-ux-designer",
-  "cat_name": "UI-UX Designer",
-  "category_nicename": "web-designer",
-  "category_parent": 283
+  "category_count": 0,
+  "category_description": "bartender",
+  "cat_name": "Bartender",
+  "category_nicename": "bartender"
+},
+{
+  "term_id": 269,
+  "name": "Vuilnisman",
+  "slug": "vuilnisman",
+  "term_group": 0,
+  "term_taxonomy_id": 269,
+  "taxonomy": "course_category",
+  "description": "",
+  "parent": 113,
+  "count": 1,
+  "filter": "raw",
+  "cat_ID": 269,
+  "category_count": 0,
+  "category_description": "vuilnisman",
+  "cat_name": "Vuilnisman",
+  "category_nicename": "vuilnisman"
+},
+{
+  "term_id": 290,
+  "name": "Bartender",
+  "slug": "bartender",
+  "term_group": 0,
+  "term_taxonomy_id": 290,
+  "taxonomy": "course_category",
+  "description": "",
+  "parent": 119,
+  "count": 3,
+  "filter": "raw",
+  "cat_ID": 290,
+  "category_count": 0,
+  "category_description": "bartender",
+  "cat_name": "Bartender",
+  "category_nicename": "bartender"
 },
 {
   "term_id": 286,
-  "name": "Wordpress",
-  "slug": "wordpress",
+  "name": "Traiteur",
+  "slug": "traiteur",
   "term_group": 0,
   "term_taxonomy_id": 286,
   "taxonomy": "course_category",
-  "description": "wordpress",
-  "parent": 283,
-  "count": 6,
+  "description": "",
+  "parent": 119,
+  "count": 1,
   "filter": "raw",
   "cat_ID": 286,
-  "category_count": 6,
-  "category_description": "wordpress",
-  "cat_name": "Wordpress",
-  "category_nicename": "wordpress",
-  "category_parent": 283
+  "category_count": 0,
+  "category_description": "traiteur",
+  "cat_name": "Traiteur",
+  "category_nicename": "traiteur"
 }
 ]
 
@@ -132,7 +147,7 @@ public editorConfig = {
     options: {
       resourceType: 'Images' // Type de ressource pour le gestionnaire de fichiers (Images, Files, etc.)
     },
-    minHeight: '200px' // ou la hauteur souhaitée
+    minHeight: '1000px' // ou la hauteur souhaitée
   },
   config : {
     uiColor: '#F0F3F4',
@@ -250,7 +265,7 @@ onSubmit() {
       title: this.fb.control("", Validators.required),
       description: this.fb.control("", [Validators.required]),
       job_level_of_experience: this.fb.control("", Validators.required),
-      job_contract: this.fb.control("", Validators.required),
+      job_contract: this.fb.control("", []),
       job_langues: this.fb.control("", Validators.required),
       job_application_deadline: this.fb.control("", [Validators.email, Validators.required]),
       skills: this.fb.array([]),
@@ -271,10 +286,10 @@ onSubmit() {
       this.message.message = 'Language is mandatory';
       return false;
     }
-    if (job_contract == "") {
-      this.message.message = 'The type of contract is mandatory';
-      return false;
-    }
+    // if (job_contract == "") {
+    //   this.message.message = 'The type of contract is mandatory';
+    //   return false;
+    // }
     if (job_application_deadline == "") {
       this.message.message = 'The deadline is mandatory';
       return false;

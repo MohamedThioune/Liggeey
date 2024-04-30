@@ -56,11 +56,12 @@ export class DetailJobComponent implements OnInit {
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
         this.jobLoaded = true;
-      //  console.log(this.job);
+       console.log(this.job);
         
-       // this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
+       //this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
+       //this.job.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
 
-        console.log(this.job);
+
 
         this.calculateDuration();
         this.calculateDurationLastJob();
@@ -201,6 +202,9 @@ calculateDurationLastJob(){
     }
   }
 
+  isArray(value: any): boolean {
+    return Array.isArray(value);
+  }
   ngOnChanges() {
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');

@@ -48,9 +48,13 @@
           </div>
           -->
           <ul class="row">
-            <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" *ngIf="!jobLoaded">
+            <div class="text-center" *ngIf="filteredApplicant.length ==0">
+              <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" >
+              <p>No Content is Overlaible Now</p>
+            </div>
+          
             <li class="col-md-6"  *ngFor="let item of filteredApplicant | paginate: { itemsPerPage: 6, currentPage: p }">
-              <div class="job_list_1" *ngIf="jobLoaded">
+              <div class="job_list_1">
                 <div class="content_job_list_1">
                   <div class="logo">
                     <img [src]="item.image" alt="Logo">

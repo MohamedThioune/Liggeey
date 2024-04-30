@@ -51,6 +51,9 @@ export class JobOneComponent implements OnInit {
     this.homeService.getAllJob().subscribe((data:any)=>{
       this.jobs=data
       this.jobLoaded=true
+      this.jobs.forEach((element:any) => {
+        element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
+      });
     })
   }
   get filteredJobs() {

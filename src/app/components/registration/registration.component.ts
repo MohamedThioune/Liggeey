@@ -171,7 +171,7 @@ notificationChief(idUser:number,user:any):any{
       phoneCompagny: this.formBuilder.control("", []),
       passwordCompagny: this.formBuilder.control("", Validators.required),
       confirmPasswordCompagny: this.formBuilder.control("", Validators.required),
-     // bedrijf: this.formBuilder.control("", Validators.required),
+      bedrijf: this.formBuilder.control("", Validators.required),
     });
   }
 
@@ -242,6 +242,10 @@ notificationChief(idUser:number,user:any):any{
     }
     if (confirmPasswordCompagny == "") {
       this.message.message = 'Password confirmation is required';
+      return false;
+    }
+    if (bedrijf=="") {
+      this.message.message = 'Name of Company is mandatory';
       return false;
     }
 

@@ -83,6 +83,7 @@ export class CategorieComponent implements OnInit {
       this.category.articles.forEach((element:any) => {
         element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
         element.title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+        element.description =   element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       });
 
     })

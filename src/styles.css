@@ -243,7 +243,9 @@ form h2 {
 
 }
 
-
+.ck-editor__editable_inline {
+  min-height: 500px !important;
+}
 .modal-body form .form-group{
   display: grid;
 }

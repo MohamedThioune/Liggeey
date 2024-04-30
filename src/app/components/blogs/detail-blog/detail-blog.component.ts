@@ -54,7 +54,13 @@ export class DetailBlogComponent implements OnInit {
     })
   }
   postArticleComment(){
-      // Utilisez le service pour postuler à l'emploi
+    if (!this.userConnect) {
+      ToastNotification.open({
+        type: 'error',
+        message: 'Please log in first before posting a comment.'
+      });
+      return; 
+    }
       console.log(this.form.value,this.article.ID,this.userConnect.id);
     
       if (this.validateFormJob(this.form.value)) {

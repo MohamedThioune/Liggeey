@@ -99,7 +99,7 @@
             <ul *ngFor="let skill of job.skills_experiences">
               <li>{{skill.row}}.</li>
             </ul>
-            <li>{{job.skills_experiences}}</li>
+            <li *ngIf="!isArray(job.skills_experiences)">{{job.skills_experiences}}</li>
           </div>
           <div class="share">
             <p>Share this job</p>
@@ -316,7 +316,7 @@
                 <p class="text-categori mb-0">{{ job.skills[0].name |slice:0:15}}</p>
               </div>
             </div>
-            <p class="description-job" [innerHTML]="job.description"></p>   
+            <p class="description-job">{{job.description}}</p>   
 
             <div class="content-footer-card align-items-center">
               <!--
