@@ -219,7 +219,7 @@
               </div>
               <div class="text-center" *ngIf="badges.length === 0">
                 <img src="../../../assets/img/empty-badge.png" alt="image team" >
-                <p>No Content Is Overlaible Now</p>
+                <p>No Content Overlaible at the moment</p>
               </div>
 
           </div>
@@ -243,7 +243,7 @@
                 </div>
                 <div class="text-center"  *ngIf="skillAll.certificats.length === 0">
                   <img src="../../../assets/img/empty-certifican.png" alt="image team" >
-                  <p>No Content Is Overlaible Now</p>
+                  <p>No Content Overlaible at the moment</p>
                 </div>
 
           </div>
@@ -253,17 +253,24 @@
                 <a *ngIf="skillAll.topics.length > 6"  (click)="showAllSkills = !showAllSkills">{{ showAllSkills ? 'Show Less' : 'See All' }}</a>
               </div>
                 <div class="row">
-                    <div class="col-md-2 document" style="position: relative;" *ngFor="let skill of (showAllSkills ? skillAll.topics :  skillAll.topics.slice(0,5))">
+                    <div class="col-md-2 document mt-4" style="position: relative;" *ngFor="let skill of (showAllSkills ? skillAll.topics :  skillAll.topics.slice(0,5))">
+                      <!--
                       <div class="content_image_document">
                           <img src="../../../assets/img/pourcent.png" alt="">
                           <p  style="position:absolute;top:30%;right:40%">{{skill.note}} %</p>
                       </div>
+                      -->
+                      <div class="content_image_document">
+                        <img [src]="getImageUrl(skill.note)" alt="" [style.width.%]="getImageWidth(skill.note)">
+                        <p style="position:absolute;top:30%;right:40%">{{skill.note}} %</p>
+                    </div>
+                    
                       <p>{{skill.topic_name}}</p>
                     </div>
                 </div>
                 <div class="text-center" *ngIf="skillAll.topics.length === 0">
                   <img src="../../../assets/img/empty-topic.png" alt="image team">
-                  <p>No Content Is Overlaible Now </p>
+                  <p>No Content Overlaible at the moment </p>
                 </div>
 
           </div>

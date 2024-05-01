@@ -420,7 +420,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Project</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add new skills</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -443,7 +443,7 @@
                 </select>
                 -->
                 <div class="form-check" *ngFor="let skill of skillsTabs">
-                  <input class="form-check-input checkbox" formArrayName="skills" type="checkbox" [value]="skill.term_id" (change)="toggleSkill(skill.term_id)" [checked]="selectedSkills.includes(skill.term_id)">
+                  <input class="form-check-input checkbox"  formArrayName="skills" type="checkbox" [value]="skill.cat_ID" (change)="toggleSkill(skill.cat_ID)" [checked]="selectedSkills.includes(skill.cat_ID)">
                   <label class="form-check-label">
                     {{skill.cat_name}}
                   </label>

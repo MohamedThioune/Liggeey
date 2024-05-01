@@ -79,6 +79,7 @@ export class DetailBlogComponent implements OnInit {
             if (<any>response ) {
               typeR = "success";
               this.message= "Comment created successfully."
+              this.form.reset()
               console.log(response);
             }
             ToastNotification.open({
@@ -88,7 +89,7 @@ export class DetailBlogComponent implements OnInit {
             this.isLoading = false;
 
             if (typeR == "success") {
-              this.router.navigate(['/blog']);
+              //this.router.navigate(['/blog']);
             }
           },
           // Gestion des erreurs

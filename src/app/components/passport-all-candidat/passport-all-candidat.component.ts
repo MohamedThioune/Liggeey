@@ -98,6 +98,24 @@ export class PassportAllCandidatComponent implements OnInit {
     // Formater la date dans le format souhaité
     return `${month} ${day} ${string} ${year}`;
   } 
+  // Dans votre composant Angular
+getImageUrl(note: number): string {
+  // Logique pour retourner l'URL de l'image en fonction du pourcentage
+  // Par exemple :
+  if (note >= 80) {
+      return "../../../assets/img/pourcent_80.png";
+  } else if (note >= 60) {
+      return "../../../assets/img/pourcent_60.png";
+  } else {
+      return "../../../assets/img/pourcent.png";
+  }
+}
+
+getImageWidth(note: number): number {
+  // Logique pour retourner la largeur de l'image en pourcentage de la largeur parente
+  // Par exemple, vous pouvez faire en sorte que 100% soit la largeur maximale et que 0% soit la largeur minimale
+  return note;
+}
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;

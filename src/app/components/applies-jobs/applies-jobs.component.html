@@ -24,7 +24,7 @@
           </div>
           -->
         </div>
-        <table class="table">
+        <table class="table" *ngIf=" applies.length > 0">
           <thead class="thead table_head">
           <tr>
             <th scope="col">Job Title</th>
@@ -102,6 +102,10 @@
           </tr>
           </tbody>
         </table>
+        <div class="text-center" *ngIf=" applies.length == 0">
+          <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" >
+          <p>No Content Overlaible at the moment</p>
+        </div>
       </div>
     </div>
     <!--

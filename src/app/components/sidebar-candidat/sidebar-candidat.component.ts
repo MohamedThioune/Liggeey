@@ -16,6 +16,10 @@ export class SidebarCandidatComponent implements OnInit {
   badges:any[]=[];
   courses:any[]=[];
   topics:any[]=[];
+  selectedItemIndex: number = -1;
+  selectItem(index: number) {
+    this.selectedItemIndex = index;
+  }
   
   
   toggleSidebar() {
