@@ -246,6 +246,10 @@
                   -->
                 </div>
               </div>
+              <div class="text-center" *ngIf="candidat.educations.length === 0">
+                <img src="../../../assets/img/empty-badge.png" alt="image team" >
+                <p>No Content Overlaible at the moment</p>
+              </div>
             </div>
             <div class="work_experience">
               <p>Work & Experience</p>
@@ -288,6 +292,10 @@
                   </div>
                   -->
                 </div>
+              </div>
+              <div class="text-center" *ngIf="candidat.experiences.length === 0">
+                <img src="../../../assets/img/empty-topic.png" alt="image team" >
+                <p>No Content Overlaible at the moment</p>
               </div>
             </div>
             <!--

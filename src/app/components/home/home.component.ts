@@ -25,7 +25,8 @@ export class HomeComponent implements OnInit {
   candidate=false;
   compagny=false;
   searchTitle:string="";
-  jobLoaded=false
+  jobLoaded=false;
+  selectedCandidateIndex = 0;
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
     ) {
 
@@ -78,7 +79,9 @@ console.log(this.currentCategories);
 
 
   }
-
+  selectCandidate(index: number) {
+    this.selectedCandidateIndex = index;
+  }
 
   changeTab(tab: string): void {
     this.activeTab = tab;

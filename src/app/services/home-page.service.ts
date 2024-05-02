@@ -304,15 +304,16 @@ export class HomePageService {
     let params = new HttpParams()
       .set('userApplyId', userApplyIdString) // Use the converted string or an empty string
       .set('field_type', "education")
-      .set('index', index.toString()); // Convert index to string
+      .set('index', index) // Convert index to string
+      .set('delete_education','2');
   
-    const formData = new FormData();
-    formData.append('userApplyId', userApplyIdString); // Use the converted string or an empty string
-    formData.append('delete_education', '2'); 
-    formData.append('delete_award', '3'); 
-    formData.append('delete_work', '1'); 
+    // const formData = new FormData();
+    // formData.append('userApplyId', userApplyIdString); // Use the converted string or an empty string
+    // formData.append('delete_education', '2'); 
+    // formData.append('delete_award', '3'); 
+    // formData.append('delete_work', '1'); 
   
-    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`, formData, { params });
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`,  { params });
   }
   
 
