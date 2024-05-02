@@ -61,6 +61,7 @@ export class DetailCandidatComponent implements OnInit {
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
       this.candidat=data;
       this.loading=false;
+          
     })
     
   }

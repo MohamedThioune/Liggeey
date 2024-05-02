@@ -8,7 +8,6 @@ body {
     height: 100vh; /* Hauteur de la barre latérale */
     position: fixed;
     left: 0;
-    right: 0 !important;
     background-color: #f0f0f0; /* Couleur de fond de la barre latérale */
     animation: slideIn 0.5s ease-in-out; 
 
@@ -18,6 +17,7 @@ body {
   }
   .skeleton-sidebar {
     width: 90%;
+    margin-left: 5%;
     height: 50px; /* Hauteur de chaque élément du skeleton loader */
     margin-bottom: 15px; /* Marge entre chaque élément */
     background-color: #ddd; /* Couleur de fond du skeleton loader */
@@ -25,11 +25,11 @@ body {
     animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
 }
 .main-content {
-  margin-left: 0 !important;
+     /* margin-left: 220px;Assure que le contenu principal ne se superpose pas avec la barre latérale */
     margin-top: 25px;
     border-radius: 5px;
     height: 100vh; /* Hauteur maximale */
-    width: 80vw;
+    width: 73vw;
     background-color: #e0dddd; /* Couleur de fond */
     animation: fadeIn 1s ease-in-out infinite; /* Animation d'apparition */
 }

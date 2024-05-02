@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   candidate=false;
   compagny=false;
   searchTitle:string="";
+  jobLoaded=false;
   selectedCandidateIndex = 0;
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
     ) {

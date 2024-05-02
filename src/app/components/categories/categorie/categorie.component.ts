@@ -45,8 +45,8 @@ export class CategorieComponent implements OnInit {
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
       this.loading=false;
-       console.log(this.category);
-      // console.log(this.userConnect);
+      console.log(this.category.name);
+      console.log(this.userConnect);
 
       this.category.jobs.forEach((element:any) => {
          // Vérifier si l'utilisateur est contenu dans applied[] pour cet élément
