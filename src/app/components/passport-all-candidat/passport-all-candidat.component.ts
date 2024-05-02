@@ -30,7 +30,6 @@ export class PassportAllCandidatComponent implements OnInit {
   showAllSkills: boolean = false;
   showAllBadges: boolean = false;
   showAllCertificates: boolean = false;
-  jobLoaded:boolean = false
 
   constructor(private route : ActivatedRoute,private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
@@ -43,7 +42,6 @@ export class PassportAllCandidatComponent implements OnInit {
       this.skillAll=data
 
      this.badges= this.skillAll.badges;
-     this.jobLoaded = true
 
           console.log(this.badges);
           

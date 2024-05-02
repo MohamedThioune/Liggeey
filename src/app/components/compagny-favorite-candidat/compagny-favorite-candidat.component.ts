@@ -18,7 +18,6 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   applicants:any;
   searchTitle:string="";
   searchLocation:string="";
-  jobLoaded:boolean =false;
   message: any = {
     type: '',
     message: ''
@@ -43,7 +42,6 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
     this.homeService.getCandidatCompagny(this.userConnect.id).subscribe((data:any)=>{
       this.loading=false;
       this.applicants=data 
-      this.jobLoaded=true     
      })
   }
   

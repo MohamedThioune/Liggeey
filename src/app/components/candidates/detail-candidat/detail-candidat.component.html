@@ -1,8 +1,11 @@
 <app-header></app-header>
-
+<ng-template #skeleton>
+  <app-skeleton-detail-candidate></app-skeleton-detail-candidate>
+</ng-template>
+<div *ngIf="!loading; else skeleton">
 <section class="image_menu_about">
       <div class="container-fluid">
-        <div class="content_job_list_1" *ngIf="jobLoaded">
+        <div class="content_job_list_1">
             <div class="content_logo">
                <img [src]=candidat.image alt="">
             </div>
@@ -66,9 +69,8 @@
 
           </div>
         </div>
-        <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="!jobLoaded ">
       </div>
-</section>
+</section>  
 <section >
     <div class="container-fluid">
       <div class="row">
@@ -246,6 +248,10 @@
                   -->
                 </div>
               </div>
+              <div class="text-center" *ngIf="candidat.educations.length === 0">
+                <img src="../../../assets/img/empty-badge.png" alt="image team" >
+                <p>No Content Overlaible at the moment</p>
+              </div>
             </div>
             <div class="work_experience">
               <p>Work & Experience</p>
@@ -289,6 +295,10 @@
                   -->
                 </div>
               </div>
+              <div class="text-center" *ngIf="candidat.experiences.length === 0">
+                <img src="../../../assets/img/empty-topic.png" alt="image team" >
+                <p>No Content Overlaible at the moment</p>
+              </div>
             </div>
             <!--
 
@@ -304,3 +314,4 @@
     </div>
 </section>
 <app-footers></app-footers>
+</div>

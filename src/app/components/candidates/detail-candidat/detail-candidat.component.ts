@@ -14,6 +14,7 @@ export class DetailCandidatComponent implements OnInit {
   candidat:any
   candidate=false;
   compagny=false;
+  loading:boolean=true;
   userConnect:any;
   message: any = {
     type: '',
@@ -22,7 +23,6 @@ export class DetailCandidatComponent implements OnInit {
   applyJobs=false
   jobId!: number ; // Initialisé à null
   canApprove=false
-  jobLoaded: boolean = false;
   isBookmarked: boolean = false;
 
   constructor(private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService, private router: Router) { }
@@ -59,8 +59,8 @@ export class DetailCandidatComponent implements OnInit {
     });
   
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
-      this.candidat=data  
-      this.jobLoaded = true          
+      this.candidat=data;
+      this.loading=false;
     })
     
   }

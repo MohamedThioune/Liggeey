@@ -80,7 +80,7 @@
       <div class="header_popular_job">
         <span>Most Popular Jobs</span>
         <p>Discover popular remote jobs across diverse industries on our platform.</p>
-        <div class="" *ngIf="!jobLoaded || currentCategories.length==0">
+        <div class="" *ngIf="currentCategories.length==0">
           <img class="mb-4 mt-4" src="../../../assets/img/empty-topic.png" alt="image team">
           <p>No Content Overlaible at the moment</p>
         </div>
@@ -116,7 +116,7 @@
   <div class="container-fluid">
         <div class="content_categories">
           <div class="header_categories">
-            <span>Category</span>
+            <h2>Category</h2>
             <p>Explore diverse job categories on our platform for a tailored remote career experience.</p>
           </div>
           <div class="row">
@@ -289,6 +289,7 @@
         </div>
       
       </div>
+      <!--
       <span class="bullet" appPrev>
         <svg xmlns="http://www.w3.org/2000/svg" width="92" height="9" viewBox="0 0 92 9" fill="none">
           <circle cx="52" cy="4.15625" r="4" fill="#BFC8CB"/>
@@ -298,6 +299,13 @@
           <rect x="18" y="0.15625" width="20" height="8" rx="4" fill="#202124"/>
         </svg>
       </span>
+      -->
+      <span class="bullet" appPrev>
+        <svg xmlns="http://www.w3.org/2000/svg" width="110" height="9" viewBox="0 0 92 9" fill="none">
+          <circle *ngFor="let candidate of candidates; let i = index" [attr.cx]="4 + i * 18" cy="4.15625" r="4" [attr.fill]="i === selectedCandidateIndex ? '#202124' : '#BFC8CB'" (click)="selectCandidate(i)"/>
+        </svg>
+      </span>
+  
     </div>
   </div>
 </section>

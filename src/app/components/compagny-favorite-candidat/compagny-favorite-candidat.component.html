@@ -25,7 +25,7 @@
           <div class="applicants">
             <ul class="row">
               <li class="col-md-6" *ngFor="let item of filteredJobs | paginate: { itemsPerPage: 6, currentPage: p }">
-                <div class="job_list_1" *ngIf="jobLoaded">
+                <div class="job_list_1" >
                   <div class="content_job_list_1">
                     <div class="logo">
                       <span class="content_logo">
@@ -140,7 +140,7 @@
                 </div>
               </li>
             </ul>
-            <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="!jobLoaded || applicants.length== 0 ">
+            <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf=" applicants.length== 0 ">
 
             <div class="pagination" *ngIf="filteredJobs.length > 6">
                 <pagination-controls (pageChange)="p = $event"

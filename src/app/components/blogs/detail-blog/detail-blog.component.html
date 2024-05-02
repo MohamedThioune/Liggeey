@@ -1,4 +1,8 @@
 <app-header></app-header>
+<ng-template #skeleton>
+  <app-skeleton-detail-blog></app-skeleton-detail-blog>
+</ng-template>
+<div *ngIf="!loading; else skeleton">
 <div class="content-detail-article">
   <div class="inter-content-detail">
     <h1>{{article.title}}</h1>
@@ -143,3 +147,4 @@
 
 
 <app-footers></app-footers>
+</div>

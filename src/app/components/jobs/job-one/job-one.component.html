@@ -287,8 +287,8 @@
           </div>
           <ul class="row">
             <li class="col-md-4" *ngFor="let itemJob of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }">
-              <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="!jobLoaded || filteredJobs.length==0">
-              <div class="card-emploie position-relative" *ngIf="jobLoaded">
+              <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf=" filteredJobs.length==0">
+              <div class="card-emploie position-relative" >
                 <div class="content-img">
                   <img [src]=itemJob.image alt="Job Image">
                 </div>
