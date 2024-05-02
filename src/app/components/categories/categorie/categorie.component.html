@@ -1,4 +1,8 @@
 <app-header></app-header>
+<ng-template #skeleton>
+  <app-skeleton-detail-category></app-skeleton-detail-category>
+</ng-template>
+<div *ngIf="!loading; else skeleton">
 <section class="image_menu_about">
     <div class="container-fluid">
       <div class="color"></div>
@@ -63,7 +67,7 @@
             <p>No Content Overlaible at the moment</p>
           </div>
 
-          <ul class="row" *ngIf="jobLoaded">
+          <ul class="row">
             <div class="col-md-4" id="jobTitle"  *ngFor="let item of filteredItems.jobs | paginate: { itemsPerPage: 9, currentPage: p }">
               <div class="card-emploie position-relative">
                 <div class="content-img" >
@@ -120,7 +124,7 @@
           <div class="row">
        
             <div class="col-md-3 company" *ngFor="let item of filteredItems.companies | paginate: { itemsPerPage: 6, currentPage: p }">
-              <div class="candidate" *ngIf="jobLoaded"  [routerLink]="['/detail-compagny',item.ID]">
+              <div class="candidate"  [routerLink]="['/detail-compagny',item.ID]">
                 <div class="content_candidate">
                   <div class="content_image_candidate">
                     <img [src]="item.logo" alt="">
@@ -171,7 +175,7 @@
         
 
           <div class="col-md-4 col-sm-4" *ngFor="let item of filteredItems.articles | paginate: { itemsPerPage: 6, currentPage: p }">
-            <div class="card_article" ngIf="jobLoaded">
+            <div class="card_article" >
               <div class="rectangle_article">
                 <div class="content_image" mdbRipple rippleColor="light">
                   <img [src]="item.image" class="img-fluid"/>
@@ -210,3 +214,4 @@
   </section>
 
   <app-footers></app-footers>
+</div>

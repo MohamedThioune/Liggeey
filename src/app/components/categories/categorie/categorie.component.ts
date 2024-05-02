@@ -18,6 +18,7 @@ export class CategorieComponent implements OnInit {
   p: number = 1;
   identifiant:number | null = 0;
   category:any;
+  loading:boolean=true;
   title!: string;
   location!: string;
   categori!:string;
@@ -33,7 +34,6 @@ export class CategorieComponent implements OnInit {
   currentDate!: Date;
   sentDate: any;
   canApply=true;
-  jobLoaded: boolean = false;
 
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
@@ -41,22 +41,23 @@ export class CategorieComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-    console.log(this.identifiant);
+   // console.log(this.identifiant);
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
-      console.log(this.category.name);
-      console.log(this.userConnect);
+      this.loading=false;
+       console.log(this.category);
+      // console.log(this.userConnect);
 
       this.category.jobs.forEach((element:any) => {
          // Vérifier si l'utilisateur est contenu dans applied[] pour cet élément
           if (element.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id)) {
             // Si l'utilisateur est trouvé, canApply devient false
             this.canApply = false;
-            console.log('L\'utilisateur est déjà postulé à ce job.');
+           // console.log('L\'utilisateur est déjà postulé à ce job.');
           } else {
             this.canApply = true
             // Sinon, canApply reste true
-            console.log('L\'utilisateur n\'a pas encore postulé à ce job.');
+           // console.log('L\'utilisateur n\'a pas encore postulé à ce job.');
           }
 
 
@@ -195,12 +196,12 @@ export class CategorieComponent implements OnInit {
 
   openApplyModal(jobId: string) {
     this.homeService.setSelectedJobId(jobId);
-    console.log(jobId);
+    //console.log(jobId);
     const modalElement = document.getElementById('modal-apply');
     if (modalElement) {
       modalElement.click();
     } else {
-      console.error("Modal element not found");
+      //console.error("Modal element not found");
     }
   }
   showAlreadyAppliedAlert() {

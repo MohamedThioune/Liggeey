@@ -464,7 +464,7 @@ export class ResumeCandidatComponent implements OnInit {
         
   }
   trashFavoritesJob(index:number) {
-    if (confirm('Do you want to remove this job from your favorites?')) {
+    if (confirm('Do you want to remove this education?')) {
 
     console.log(this.userConnect,index);
     //return

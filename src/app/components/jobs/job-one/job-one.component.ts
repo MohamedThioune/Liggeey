@@ -26,7 +26,6 @@ export class JobOneComponent implements OnInit {
   appliedJob=false
   candidate=false
   company=false
-  jobLoaded: boolean = false;
   constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) {}
   ngOnInit(): void {
         // Récupération du token depuis le local storage
@@ -50,7 +49,6 @@ export class JobOneComponent implements OnInit {
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.homeService.getAllJob().subscribe((data:any)=>{
       this.jobs=data
-      this.jobLoaded=true
       this.jobs.forEach((element:any) => {
         element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       });

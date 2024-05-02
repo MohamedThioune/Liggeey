@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   candidate=false;
   compagny=false;
   searchTitle:string="";
-  jobLoaded=false
+  selectedCandidateIndex = 0;
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
     ) {
 
@@ -53,11 +53,10 @@ export class HomeComponent implements OnInit {
       this.candidates=data.candidates
       this.article=data.artikels
       this.currentCategories=data.jobs
-      this.jobLoaded=true
       this.currentCategories.forEach(element => {
         element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       });
-console.log(this.currentCategories);
+      //console.log(this.currentCategories);
 
       this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -71,14 +70,16 @@ console.log(this.currentCategories);
       this.categoriesTab=data.categories;
       this.topics=data.topics;
       this.sub=data.sub
-      console.log(this.candidatsTab);
+    //console.log(this.candidatsTab);
       
       //this.currentCategories=this.categories
     })
 
 
   }
-
+  selectCandidate(index: number) {
+    this.selectedCandidateIndex = index;
+  }
 
   changeTab(tab: string): void {
     this.activeTab = tab;

@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+.skeleton-container {
+    display:flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    background-color: #f0f0f0; /* Background color of the page */
+}
+.skeleton-text {
+    background-color: rgb(155, 155, 155);
+    width: 60%; /* Width of the text skeleton */
+    height: 30px;
+    margin-top: 15vh;
+}
+.skeleton-text-2 {
+    background-color: rgb(155, 155, 155);
+    width: 30%; /* Width of the text skeleton */
+    height: 30px;
+    margin-top: 10vh;
+}
+.skeleton-text-3 {
+    background-color: rgb(155, 155, 155);
+    width: 70%; /* Width of the text skeleton */
+    height: 60px;
+    margin-top: 5vh;
+}
+.last-paragraph{
+    margin-bottom: 5vh;
+}
+
+.skeleton-image {
+    background-color: #fff; /* Background color of the card */
+    width: 80%;
+    margin-top: 10vh;
+    justify-self: center;
+    height: 80vh; /* Height of the image skeleton */
+    border-radius:2px; /* Border radius for top corners */
+}
+
+.skeleton-container-2 {
+    display:flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    background-color: #f0f0f0; /* Background color of the page */
+}

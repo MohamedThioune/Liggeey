@@ -29,7 +29,6 @@ export class DetailJobComponent implements OnInit {
   candidate=false;
   canApply=true
   isBookmarked: boolean = false;
-  jobLoaded: boolean = false;
 
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
@@ -57,7 +56,6 @@ export class DetailJobComponent implements OnInit {
     this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
         this.job = data;
         this.loading=false
-        this.jobLoaded = true;
        console.log(this.job);
         
        //this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
