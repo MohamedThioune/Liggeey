@@ -18,6 +18,7 @@ export class CategorieComponent implements OnInit {
   p: number = 1;
   identifiant:number | null = 0;
   category:any;
+  loading:boolean=true;
   title!: string;
   location!: string;
   categori!:string;
@@ -44,6 +45,7 @@ export class CategorieComponent implements OnInit {
     console.log(this.identifiant);
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
+      this.loading=false;
       console.log(this.category.name);
       console.log(this.userConnect);
 

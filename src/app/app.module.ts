@@ -73,6 +73,8 @@ import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.compo
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SkeletonHeaderLoaderComponent } from './skeleton-header-loader/skeleton-header-loader.component';
 import { SkeletonDetailCandidateComponent } from './skeleton-detail-candidate/skeleton-detail-candidate.component';
+import { SkeletonDetailBlogComponent } from './skeleton-detail-blog/skeleton-detail-blog.component';
+import { SkeletonDetailCategoryComponent } from './skeleton-detail-category/skeleton-detail-category.component';
 
 @NgModule({
   declarations: [
@@ -141,6 +143,8 @@ import { SkeletonDetailCandidateComponent } from './skeleton-detail-candidate/sk
     SkeletonLoaderComponent,
     SkeletonHeaderLoaderComponent,
     SkeletonDetailCandidateComponent,
+    SkeletonDetailBlogComponent,
+    SkeletonDetailCategoryComponent,
 
 
   ],

@@ -1,4 +1,8 @@
 <app-header></app-header>
+<ng-template #skeleton>
+  <app-skeleton-detail-category></app-skeleton-detail-category>
+</ng-template>
+<div *ngIf="!loading; else skeleton">
 <section class="image_menu_about">
     <div class="container-fluid">
       <div class="color"></div>
@@ -210,3 +214,4 @@
   </section>
 
   <app-footers></app-footers>
+</div>
