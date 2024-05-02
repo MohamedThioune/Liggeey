@@ -16,6 +16,7 @@ export class DetailBlogComponent implements OnInit {
   identifiant:number | null = 0;
   article:any;
   comments:any;
+  loading:boolean=true;
   message: any = {
     type: '',
     message: ''
@@ -46,6 +47,7 @@ export class DetailBlogComponent implements OnInit {
       
     this.HomePageService.getDetailArticle( this.identifiant).subscribe(data=>{
       this.article=data;
+      this.loading=false;
       this.comments=this.article.comments;         
       this.article.title =   this.article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
     //  this.article.content = this.article.content.replace(/<[^>]*>|[#&]/g, '');
