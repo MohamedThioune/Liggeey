@@ -114,7 +114,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
 
     this.href = window.location.href;
-    console.log(this.href);
+   // console.log(this.href);
     
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
@@ -146,7 +146,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
     });
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
-        console.log(this.categories)
+      //  console.log(this.categories)
     })
     this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
       this.category = data
@@ -187,7 +187,7 @@ if (cachedData && typeof cachedData === 'object' ) {
         this.candidat = { work_as: data.work_as,first_name:data.first_name };
                         localStorage.setItem('cachedCandidat', JSON.stringify(data));
                         this.first_name=this.candidat.first_name;
-                        console.log(this.first_name,this.last_name);
+                        //console.log(this.first_name,this.last_name);
 
                     } else {
                         console.error('Received data does not contain work_as property or is not in the expected format.');
@@ -195,7 +195,7 @@ if (cachedData && typeof cachedData === 'object' ) {
                 });
     }
  
-     console.log(this.selectedJobId,this.job);
+     //console.log(this.selectedJobId,this.job);
    
 
   }
