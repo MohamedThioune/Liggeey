@@ -31,74 +31,111 @@ export class PostNewJobCompagnyComponent implements OnInit {
   isLoading: boolean = false;
 
   skillsTabs:any=[   
-    {
-      "cat_ID": 590,
-      "cat_name": "Afas",
-      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-      "open_position": 0
-  },
-  {
-      "cat_ID": 589,
-      "cat_name": "Freshworks",
-      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-      "open_position": 0
-  },
-  {
-      "cat_ID": 633,
-      "cat_name": "Google",
-      "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/google.png",
-      "open_position": 0
-  },
-  {
-    "cat_ID": 587,
-    "cat_name": "Google Workspace",
-    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-    "open_position": 0
+
+{
+  "term_id": 288,
+  "name": "Chocolatier",
+  "slug": "chocolatier",
+  "term_group": 0,
+  "term_taxonomy_id": 288,
+  "taxonomy": "course_category",
+  "description": "",
+  "parent": 119,
+  "count": 2,
+  "filter": "raw",
+  "cat_ID": 288,
+  "category_count": 0,
+  "category_description": "chocolatier",
+  "cat_name": "Chocolatier",
+  "category_nicename": "chocolatier"
 },
 {
-    "cat_ID": 640,
-    "cat_name": "HubSpot",
-    "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/hubspot_logo.jpeg",
-    "open_position": 0
+  "term_id": 285,
+  "name": "Ober",
+  "slug": "ober",
+  "term_group": 0,
+  "term_taxonomy_id": 285,
+  "taxonomy": "course_category",
+  "description": "",
+  "parent": 119,
+  "count": 2,
+  "filter": "raw",
+  "cat_ID": 285,
+  "category_count": 0,
+  "category_description": "ober",
+  "cat_name": "Ober",
+  "category_nicename": "ober"
+  
 },
 {
-    "cat_ID": 593,
-    "cat_name": "Microsoft 360",
-    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-    "open_position": 0
+  "term_id": 290,
+  "name": "Bartender",
+  "slug": "bartender",
+  "term_group": 0,
+  "term_taxonomy_id": 290,
+  "taxonomy": "course_category",
+  "description": "",
+  "parent": 119,
+  "count": 3,
+  "filter": "raw",
+  "cat_ID": 290,
+  "category_count": 0,
+  "category_description": "bartender",
+  "cat_name": "Bartender",
+  "category_nicename": "bartender"
 },
 {
-  "cat_ID": 634,
-  "cat_name": "Odoo",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
+  "term_id": 269,
+  "name": "Vuilnisman",
+  "slug": "vuilnisman",
+  "term_group": 0,
+  "term_taxonomy_id": 269,
+  "taxonomy": "course_category",
+  "description": "",
+  "parent": 113,
+  "count": 1,
+  "filter": "raw",
+  "cat_ID": 269,
+  "category_count": 0,
+  "category_description": "vuilnisman",
+  "cat_name": "Vuilnisman",
+  "category_nicename": "vuilnisman"
 },
 {
-  "cat_ID": 588,
-  "cat_name": "Salesforce",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
+  "term_id": 290,
+  "name": "Bartender",
+  "slug": "bartender",
+  "term_group": 0,
+  "term_taxonomy_id": 290,
+  "taxonomy": "course_category",
+  "description": "",
+  "parent": 119,
+  "count": 3,
+  "filter": "raw",
+  "cat_ID": 290,
+  "category_count": 0,
+  "category_description": "bartender",
+  "cat_name": "Bartender",
+  "category_nicename": "bartender"
 },
 {
-  "cat_ID": 635,
-  "cat_name": "UI-UX-Designer",
-  "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/UI-UX-Designer.png",
-  "open_position": 0
-},
-{
-  "cat_ID": 636,
-  "cat_name": "web-programming",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
-{
-  "cat_ID": 637,
-  "cat_name": "Webflow",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
-    
-    ]
+  "term_id": 286,
+  "name": "Traiteur",
+  "slug": "traiteur",
+  "term_group": 0,
+  "term_taxonomy_id": 286,
+  "taxonomy": "course_category",
+  "description": "",
+  "parent": 119,
+  "count": 1,
+  "filter": "raw",
+  "cat_ID": 286,
+  "category_count": 0,
+  "category_description": "traiteur",
+  "cat_name": "Traiteur",
+  "category_nicename": "traiteur"
+}
+]
 
 editorData = '<p>Hello, world!</p>';
 public editorConfig = {
