@@ -95,27 +95,26 @@ body, html {
   .skeleton-container-2 {
     display: flex;
     justify-content: start;
-    align-items: center;
     height: fit-content;
-    background-color: #f0f0f0; /* Background color of the page */
+    background-color: #fff; /* Background color of the page */
 }
 
 .left-contain {
     margin-top: 50px;
     width: 60%; /* Width of the card */
     height: fit-content; /* Height of the card */
-    background-color: #fff; /* Background color of the card */
+    background-color: #f0f0f0; /* Background color of the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
     border-radius: 8px; /* Border radius for rounded corners */
    /* animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 
 }
 .right-contain {
-    margin-top: 2Q0px;
+    margin-top: 50px;
     margin-left: 2%;
     width:  36%; /* Width of the card */
     height: 100%; /* Height of the card */
-    background-color: #fff; /* Background color of the card */
+    background-color: #f0f0f0; /* Background color of the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
     border-radius: 8px; /* Border radius for rounded corners */
     animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
