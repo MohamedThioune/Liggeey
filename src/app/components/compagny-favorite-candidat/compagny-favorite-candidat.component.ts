@@ -53,6 +53,7 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = true;
   }
+  
   trashFavoritesCandidat(idCandidate:string) {
     if (confirm('Do you want to remove this candidate from your favorites?')) {
 
