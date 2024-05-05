@@ -1,26 +1,25 @@
-body{
+body, html {
     margin: 0;
     padding: 0;
     height: 100%;
 }
 .skeleton-container {
-    display:flex;
-    width: 100%;
-    flex-direction: column;
+    display: flex;
     align-items: center;
-    height: 80vh;
+    height: 50vh;
     background-color: #f0f0f0; /* Background color of the page */
-}
-.card {
-    margin-top: 10px;
-    width: 40vh; /* Width of the card */
-    height: 40vh; /* Height of the card */
-    background-color: #fff; /* Background color of the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
-    border-radius: 8px; /* Border radius for rounded corners */
     animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 
 }
+.skeleton-infos {
+    display: flex;
+    margin-left: 1%;
+    flex-direction: column;
+    height: 150px;
+    width: 50%;
+    background-color: #ddd;
+}
+
 .smallbtt {
     display: flex;
     width: 100%;
@@ -36,41 +35,31 @@ body{
     margin-top: 35px; /* Margin between skeleton elements */
 }
 .skeleton-image {
-    background-color: #f0f0f0; /* Background color of the card */
-    width: 120px;
-    margin-left: 300px;
-    margin-top: 40px;
-    justify-self: center;
-    height: 120px; /* Height of the image skeleton */
-    border-radius: 50%; /* Border radius for top corners */
+    background-color: #ddd; /* Background color of the card */
+    width: 100px;
+    margin-left: 20px;
+    height: 100px; /* Height of the image skeleton */
+    border-radius: 5px; /* Border radius for top corners */
 }
 .skeleton-text {
     background-color: rgb(155, 155, 155);
-    width: 20%; /* Width of the text skeleton */
-    height: 40px;
-    margin-top: 15vh;
+    width: 40%; /* Width of the text skeleton */
+    height: 70px;
+    margin-top: 25px;
 }
 .skeleton-text-2 {
-    background-color: #ddd;
-    width: 30%; /* Width of the text skeleton */
+    background-color:rgb(155, 155, 155);
+    width: 35%; /* Width of the text skeleton */
     height: 40px;
-}
-.skeleton-text3 {
-    background-color: #ddd;
-    width: 40%; /* Width of the text skeleton */
-    height: 15px;
-    margin-left: 30%;
-    margin-top: 15px;
+    margin-top: 35px;
 }
 .skeleton-button {
-    width: 95%;
-    margin-top: 60px;
-    margin-bottom: 10px;
-    background-color: #ddd;
-
+    width: 33%;
+    margin-top: 20px;
+    margin-bottom: 10px;    
     height: 80px; /* Height of the button skeleton */
-    border-radius: 20px; /* Border radius for rounded corners */
-    
+    border-radius: 10px; /* Border radius for rounded corners */
+    background-color: rgb(155, 155, 155);
 }
 
 .skeleton-sidebar {
@@ -97,40 +86,31 @@ body{
   .content-sidebar { 
     margin-top: 30px;
   }
-  .one-category { 
-    display:flex;
-    width: 100%;
-    flex-direction: column;
-    margin-top: 10vh;
-    align-items: center;
-    background-color: #f0f0f0; /* Background color of the page */  
-    
-}
+
+
   .skeleton-container-2 {
-    display:flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
+    display: flex;
+    justify-content: start;
     height: fit-content;
-    background-color: #f0f0f0; /* Background color of the page */
+    background-color: #fff; /* Background color of the page */
 }
 
-.right-contain {
-    margin-top: 60px;
-    width: 68%; /* Width of the card */
-    height: 100%;
-    margin-left: 1%;
-    background-color: #fff; /* Background color of the card */
+.left-contain {
+    margin-top: 20vh;
+    width: 70%; /* Width of the card */
+    height: 100vh; /* Height of the card */
+    background-color: #f0f0f0; /* Background color of the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
     border-radius: 8px; /* Border radius for rounded corners */
    /* animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 
 }
-.left-contain {
-    margin-top: 90px;
-    width:  30%; /* Width of the card */
+.right-contain {
+    margin-top: 20vh;
+    margin-left: 2%;
+    width:  25%; /* Width of the card */
     height: 100%; /* Height of the card */
-    background-color: #fff; /* Background color of the card */
+    background-color: #f0f0f0; /* Background color of the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
     border-radius: 8px; /* Border radius for rounded corners */
     animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
@@ -140,7 +120,7 @@ body{
     width: 90%;
     margin-left: 5%;
     margin-top: 20px;
-    height: 50px; /* Hauteur de chaque élément du skeleton loader */
+    height: 30px; /* Hauteur de chaque élément du skeleton loader */
     margin-bottom: 15px; /* Marge entre chaque élément */
     background-color: #ddd; /* Couleur de fond du skeleton loader */
     border-radius: 10px; /* Arrondi des coins */
@@ -150,9 +130,9 @@ body{
 .skeleton-text-3 {
     background-color: rgb(155, 155, 155);
     width: 80%; /* Width of the text skeleton */
-    height: 70px;
+    height: 40px;
     margin-left: 1%;
-    margin-top: 30px;
+    margin-top: 10px;
     animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
 
 }
@@ -161,7 +141,7 @@ body{
     width: 80%; /* Width of the text skeleton */
     height: 70px;
     margin-left: 1%;
-    margin-top: 30px;
+    margin-top: 50px;
     animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
 
 }
@@ -170,7 +150,7 @@ body{
     width: 80%; /* Width of the text skeleton */
     height: 70px;
     margin-left: 1%;
-    margin-top: 30px;
+    margin-top: 80px;
     animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
 
 }
