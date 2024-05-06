@@ -1,4 +1,8 @@
 <app-header></app-header>
+<ng-template #skeleton>
+  <app-skeleton-all-jobs-loader></app-skeleton-all-jobs-loader>
+</ng-template>
+<div *ngIf="!loading; else skeleton">
 <section class="image_menu_about">
   <div class="container-fluid">
     <div class="color"></div>
@@ -332,3 +336,4 @@
       </div>
     </div>
   </section>
+  </div>
