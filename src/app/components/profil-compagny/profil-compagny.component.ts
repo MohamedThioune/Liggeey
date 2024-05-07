@@ -45,7 +45,7 @@ export class ProfilCompagnyComponent implements OnInit {
     this.profil=data;
     this.form.patchValue(this.profil);
     this.loading=false;    
-    console.log(this.profil);
+    console.log(this.form.value);
     
   })
 
