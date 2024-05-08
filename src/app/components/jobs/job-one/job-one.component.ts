@@ -19,6 +19,7 @@ export class JobOneComponent implements OnInit {
   searchTitle: string = ''; // Variable pour stocker la valeur de recherche
   searchLocation:string ='';
   date:any;
+  loading:boolean=true;
   currentDate!: Date;
   sentDate: any;
   identifiant:number | null = 0;
@@ -49,6 +50,8 @@ export class JobOneComponent implements OnInit {
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.homeService.getAllJob().subscribe((data:any)=>{
       this.jobs=data
+      this.loading=false
+      //this.jobLoaded=true
       this.jobs.forEach((element:any) => {
         element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       });

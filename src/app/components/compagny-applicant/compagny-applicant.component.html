@@ -54,7 +54,7 @@
           <ul class="row">
             <div class="text-center" *ngIf="filteredApplicant.length ==0">
               <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" >
-              <p>No Content Overlaible at the moment</p>
+              <p>No Content Overlable at the moment</p>
             </div>
           
             <li class="col-md-6"  *ngFor="let item of filteredApplicant | paginate: { itemsPerPage: 6, currentPage: p }">

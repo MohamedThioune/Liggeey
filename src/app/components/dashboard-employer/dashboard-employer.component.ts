@@ -17,8 +17,8 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
   loading:boolean=true;
   userConnect:any;
   homeCompagny:any;
-  applicant:any
-
+  applicant:any;
+  userId!:string;
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
   }

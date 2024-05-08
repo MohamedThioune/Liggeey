@@ -54,6 +54,8 @@ import {EditJobsComponent} from "./components/edit-jobs/edit-jobs.component";
 import {
   CandidatProfilDashboardComponent
 } from "./components/candidat-profil-dashboard/candidat-profil-dashboard.component";
+import { CandidateGuard } from './guards/candidate.guard';
+import { CompanyGuard } from './guards/company.guard';
 
 const routes: Routes = [
 
@@ -63,31 +65,31 @@ const routes: Routes = [
 
   { path: 'footer', component: FooterComponent },
 
-  { path: 'all-applicant-compagny/:id', component: CompagnyApplicantComponent ,canActivate: [AuthGuard]},
+  { path: 'all-applicant-compagny', component: CompagnyApplicantComponent ,canActivate: [AuthGuard]},
 
   { path: 'applicant-compagny/:id', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
 
-  { path: 'passport-candidat/:id', component: PassportAllCandidatComponent ,canActivate: [AuthGuard]},
+  { path: 'passport-candidat', component: PassportAllCandidatComponent ,canActivate: [AuthGuard]},
 
-  { path: 'post-compagny/:id', component: PostNewJobCompagnyComponent ,canActivate: [AuthGuard]},
+  { path: 'post-compagny', component: PostNewJobCompagnyComponent ,canActivate: [AuthGuard]},
 
-  { path: 'manage-compagny/:id', component: ManageJobCompagnyComponent ,canActivate: [AuthGuard]},
+  { path: 'manage-compagny', component: ManageJobCompagnyComponent ,canActivate: [AuthGuard]},
 
-  { path: 'resume-compagny/:id', component: ResumeAlertCompagnyComponent ,canActivate: [AuthGuard]},
+  { path: 'resume-compagny', component: ResumeAlertCompagnyComponent ,canActivate: [AuthGuard]},
 
   { path: 'change-compagny/:id', component: ChangePasswordCompagnyComponent ,canActivate: [AuthGuard]},
 
   { path: 'delete-compagny/:id', component: DeleteProfilCompagnyComponent ,canActivate: [AuthGuard]},
 
-  { path: 'profil-compagny/:id', component: ProfilCompagnyComponent ,canActivate: [AuthGuard]},
+  { path: 'profil-compagny', component: ProfilCompagnyComponent ,canActivate: [CompanyGuard]},
 
   { path: 'list-compagny', component: ListCompagnyComponent },
 
   { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
 
-  { path: 'dashboard-employer/:id', component: DashboardEmployerComponent,canActivate: [AuthGuard] },
+  { path: 'dashboard-employer', component: DashboardEmployerComponent,canActivate: [AuthGuard] },
 
-  { path: 'compagny-candidat/:id', component: CompagnyFavoriteCandidatComponent  ,canActivate: [AuthGuard]},
+  { path: 'compagny-candidat', component: CompagnyFavoriteCandidatComponent  ,canActivate: [AuthGuard]},
 
   { path: 'side', component: SidebarCompanyComponent },
 
@@ -97,7 +99,7 @@ const routes: Routes = [
 
   { path: 'cv-candidat/:id', component: CvCandidatComponent ,canActivate: [AuthGuard]},
 
-  { path: 'favorite/:id', component: JobFavoriteCandidatComponent },
+  { path: 'favorite', component: JobFavoriteCandidatComponent },
 
   { path: 'alert-candidat/:id', component: JobAlertCandidatComponent ,canActivate: [AuthGuard]},
 
@@ -109,17 +111,17 @@ const routes: Routes = [
 
 
 
-  { path: 'resume-candidat/:id', component: ResumeCandidatComponent ,canActivate: [AuthGuard]},
+  { path: 'resume-candidat', component: ResumeCandidatComponent ,canActivate: [CandidateGuard]},
 
-  { path: 'profil-candidat/:id', component: ProfilCandidatComponent,canActivate: [AuthGuard] },
+  { path: 'profil-candidat', component: ProfilCandidatComponent,canActivate: [AuthGuard] },
 
-  { path: 'detail-job/:id', component: DetailJobComponent },
+  { path: 'detail-job/:slug', component: DetailJobComponent },
 
   { path: 'detail-category/:id', component: CategorieComponent },
 
   { path: 'list-candidat', component: ListCandidatesComponent },
 
-  { path: 'applies-candidat/:id', component: AppliesJobsComponent },
+  { path: 'applies-candidat', component: AppliesJobsComponent },
 
   { path: 'sidebar', component: SidebarCandidatComponent },
 
@@ -146,13 +148,13 @@ const routes: Routes = [
 
   { path: 'app', component: OurAppsComponent },
 
-  { path: 'dashboard-candidat/:id', component: DashboardCandidatComponent ,canActivate: [AuthGuard]},
+  { path: 'dashboard-candidat', component: DashboardCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'skills-first', component: SkillsFirstComponent },
 
   { path: 'blog', component: BlogComponent },
 
-  { path: 'detail-article/:id', component: DetailBlogComponent },
+  { path: 'detail-article/:slug', component: DetailBlogComponent },
 
   { path: 'contact', component: ContactComponent },
 

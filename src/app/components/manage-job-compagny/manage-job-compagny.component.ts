@@ -101,7 +101,7 @@ export class ManageJobCompagnyComponent implements OnInit {
       message: this.message
     });
     if (typeR == "success") {
-      this.router.navigate(['/manage-compagny/'+this.userConnect.id]);
+      this.router.navigate(['/manage-compagny/']);
     }
   },
   // Gestion des erreurs

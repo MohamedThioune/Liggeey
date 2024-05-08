@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   candidate=false;
   compagny=false;
   searchTitle:string="";
-  jobLoaded=false;
+  loading=true;
   selectedCandidateIndex = 0;
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
     ) {
@@ -53,7 +53,9 @@ export class HomeComponent implements OnInit {
       this.categories=data.categories
       this.candidates=data.candidates
       this.article=data.artikels
+      
       this.currentCategories=data.jobs
+      this.loading=false;
       this.currentCategories.forEach(element => {
         element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       });
