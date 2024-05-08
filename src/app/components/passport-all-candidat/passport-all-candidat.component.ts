@@ -35,10 +35,17 @@ export class PassportAllCandidatComponent implements OnInit {
 
   ngOnInit(): void {
     this.ongletSelectionne = "All";
-    this.identifiant = +this.route.snapshot.params['id'];  
-
+    const storedToken = this.usagerService.getToken();
+    
+    if (storedToken) {   
+                // Décodage de la base64
+      const decodedToken = atob(storedToken);
  
-    this.homeService.getSkillsCandidate(this.identifiant).subscribe((data=>{
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+    }
+ 
+    this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
       this.skillAll=data
 
      this.badges= this.skillAll.badges;

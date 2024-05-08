@@ -63,7 +63,7 @@ export class HomePageService {
   getAlertCandidat(id:number | null):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/favorites/?userApplyId=${id}`,{});
 }
-  getDetailArticle(id:number | null):Observable<any>{
+  getDetailArticle(id:string):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
   }
   getAllCompagny():Observable<any>{
@@ -76,7 +76,8 @@ export class HomePageService {
 
   getAllJob(): Observable<any> {
     return this.http.get(`${this.baseUrl}/wp-json/custom/v1/jobs`,{});
-
+    //return this.http.get(`https://wp12.influid.nl/wp-json/custom/v1/jobs`,{});
+    
     // Vérifier si les données sont en cache
     if (this.cachedJobs.length > 0) {
       return of(this.cachedJobs);
@@ -101,9 +102,11 @@ export class HomePageService {
 
 
 
-  getDetailJob(id:number | null):Observable<any>{
+  getDetailJob(id:string):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/?id=${id}`,{});
+    //return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/job?slug=${id}`,{});
   }
+  
   getDetailCategory(id:number | null):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/category/detail/?id=${id}`,{});
   }
@@ -124,6 +127,7 @@ export class HomePageService {
       date_born:candidat.date_born,
       education_level:candidat.education_level,
       biographical_info:candidat.biographical_info,
+      language:candidat.language,
       facebook:candidat.facebook,
       twitter:candidat.twitter,
       linkedin:candidat.linkedin,

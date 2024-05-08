@@ -10,12 +10,14 @@ import { HomePageService } from 'src/app/services/home-page.service';
 export class DetailCompagnyComponent implements OnInit {
   identifiant:number | null = 0;
   employer:any
+  loading:boolean=true;
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService) { }
 
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];    
     this.HomePageService.getDetailCompagny( this.identifiant).subscribe(data=>{
-      this.employer=data    
+      this.employer=data;
+      this.loading=false;    
       console.log(this.employer);
               
     })
