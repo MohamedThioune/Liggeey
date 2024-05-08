@@ -20,6 +20,7 @@ export class ProfilCompagnyComponent implements OnInit {
   loading:boolean=true;
   userConnect:any;
   profil:any;
+  selectedCountry:any;
   message: any = {
     type: '',
     message: ''
@@ -43,6 +44,7 @@ export class ProfilCompagnyComponent implements OnInit {
    
    this.homeService.profilJob(this.userConnect.id).subscribe((data:any)=>{
     this.profil=data;
+    this.selectedCountry=this.profil.country
     this.form.patchValue(this.profil);
     this.loading=false;    
     console.log(this.form.value);

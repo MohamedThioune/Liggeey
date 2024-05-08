@@ -34,6 +34,7 @@ export class ProfilCandidatComponent implements OnInit {
     message: ''
   };
   userConnect:any;
+  selectedCountry:any;
 
   constructor(private fb: FormBuilder,private route : ActivatedRoute ,private router: Router,private HomePageService: HomePageService,private usagerService: UsagerService) { }
 
@@ -42,15 +43,15 @@ export class ProfilCandidatComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
       this.candidat=data
-      console.log(this.candidat.date_born);
       
       //this.candidat.date_born=this.convertDate(this.candidat.date_born);
       this.facebook=this.candidat.social_network.facebook;
       this.twitter=this.candidat.social_network.twitter;
       this.linkedin=this.candidat.social_network.linkedin;
       this.instagram=this.candidat.social_network.instagram;
+      this.selectedCountry=this.candidat.country
       this.form.patchValue(this.candidat);
-      console.log(this.candidat);
+      console.log(this.candidat.country);
       this.loading = false;
     })
     // Récupération du token depuis le local storage
