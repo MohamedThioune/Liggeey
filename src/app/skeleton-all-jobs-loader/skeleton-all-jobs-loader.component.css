@@ -1,22 +1,24 @@
-body, html {
+body{
     margin: 0;
     padding: 0;
     height: 100%;
 }
-.container{
-    display: flex;
-  }
 .skeleton-container {
-    display: flex;
-    justify-content: center;
+    display:flex;
+    width: 100%;
+    border: 2px solid #ddd;
+    flex-direction: column;
     align-items: center;
-    height: fit-content;
+    height: 80vh;
     background-color: #f0f0f0; /* Background color of the page */
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
 }
 .card {
-    margin-top: 10px;
-    width: 300px; /* Width of the card */
-    height: fit-content; /* Height of the card */
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 12vh; /* Width of the card */
+    height: 12vh; /* Height of the card */
     background-color: #fff; /* Background color of the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
     border-radius: 8px; /* Border radius for rounded corners */
@@ -39,35 +41,75 @@ body, html {
 }
 .skeleton-image {
     background-color: #f0f0f0; /* Background color of the card */
-    width: 50%;
-    margin-top: 10px;
-    margin-left: 25%;
-    height: 100px; /* Height of the image skeleton */
-    border-radius: 8px 8px 0 0; /* Border radius for top corners */
+    width: 120px;
+    margin-left: 300px;
+    margin-top: 40px;
+    justify-self: center;
+    height: 120px; /* Height of the image skeleton */
+    border-radius: 50%; /* Border radius for top corners */
 }
 .skeleton-text {
     background-color: rgb(155, 155, 155);
-    width: 90%; /* Width of the text skeleton */
-    height: 50px;
-    margin-left: 5%;
-    margin-top: 55px;
+    width: 20%; /* Width of the text skeleton */
+    height: 40px;
+    margin-top: 15vh;
+}
+.skeleton-text-1 {
+    background-color: rgb(155, 155, 155);
+    width: 50%; /* Width of the text skeleton */
+    height: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
 }
 .skeleton-text-2 {
     background-color: #ddd;
-    width: 20%; /* Width of the text skeleton */
+    width: 40%; /* Width of the text skeleton */
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.skeleton-text-4 {
+    background-color: #ddd;
+    width: 30%; /* Width of the text skeleton */
     height: 20px;
-    margin-left: 5%;
-    margin-top: 35px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.skeleton-infos {
+    background-color: #ddd;
+    width: 60%; /* Width of the text skeleton */
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
 }
 .skeleton-button {
-    width: 70%;
-    margin-left: 15%;
-    margin-top: 30px;
-    margin-bottom: 10px;    
-    height: 40px; /* Height of the button skeleton */
-    border-radius: 10px; /* Border radius for rounded corners */
+    width: 95%;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    background-color: #ddd;
+
+    height: 80px; /* Height of the button skeleton */
+    border-radius: 20px; /* Border radius for rounded corners */
     
 }
+.btts{
+   width: 98%;
+   display: flex;
+   margin-top: 60px;
+   justify-content: center;
+   align-items: center;
+}
+.skeleton-btt{
+    width: 40%;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color:rgb(155, 155, 155) ;
+    height: 50px; /* Height of the button skeleton */
+    border-radius: 20px; /* Border radius for rounded corners */
+    
+}
+
 
 .skeleton-sidebar {
     width: 60%;
@@ -93,31 +135,48 @@ body, html {
   .content-sidebar { 
     margin-top: 30px;
   }
-
-
+  .one-category { 
+    display:flex;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 30%;
+    height: 70vh;
+    margin-bottom: 5vh;
+    margin-left: 2.5%;
+    flex-direction: column;
+    margin-top: 10vh;
+    align-items: start;
+    background-color: #f0f0f0; /* Background color of the page */  
+    
+}
   .skeleton-container-2 {
-    display: flex;
-    justify-content: start;
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     height: fit-content;
-    background-color: #fff; /* Background color of the page */
+    background-color: #f0f0f0; /* Background color of the page */
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
 }
 
-.left-contain {
-    margin-top: 50px;
-    width: 60%; /* Width of the card */
-    height: fit-content; /* Height of the card */
-    background-color: #f0f0f0; /* Background color of the card */
+.right-contain {
+    margin-top: 60px;
+    width: 68%; /* Width of the card */
+    height: 100%;
+    margin-left: 1%;
+    background-color: #fff; /* Background color of the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
     border-radius: 8px; /* Border radius for rounded corners */
    /* animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 
 }
-.right-contain {
-    margin-top: 50px;
-    margin-left: 2%;
-    width:  36%; /* Width of the card */
+.left-contain {
+    margin-top: 90px;
+    width:  30%; /* Width of the card */
     height: 100%; /* Height of the card */
-    background-color: #f0f0f0; /* Background color of the card */
+    background-color: #fff; /* Background color of the card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
     border-radius: 8px; /* Border radius for rounded corners */
     animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
@@ -139,25 +198,17 @@ body, html {
     width: 80%; /* Width of the text skeleton */
     height: 70px;
     margin-left: 1%;
-    margin-top: 110px;
+    margin-top: 30px;
     animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
 
 }
-.skeleton-text-4 {
-    background-color: rgb(155, 155, 155);
-    width: 80%; /* Width of the text skeleton */
-    height: 70px;
-    margin-left: 1%;
-    margin-top: 25px;
-    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
 
-}
 .skeleton-text-5 {
     background-color: rgb(155, 155, 155);
     width: 80%; /* Width of the text skeleton */
     height: 70px;
     margin-left: 1%;
-    margin-top: 80px;
+    margin-top: 30px;
     animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
 
 }

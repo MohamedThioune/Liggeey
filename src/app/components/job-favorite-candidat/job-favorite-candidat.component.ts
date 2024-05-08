@@ -36,10 +36,19 @@ export class JobFavoriteCandidatComponent implements OnInit {
   constructor(private route : ActivatedRoute ,private cdr: ChangeDetectorRef,private HomePageService: HomePageService,private fb: FormBuilder,private router: Router ,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
-    this.identifiant = +this.route.snapshot.params['id'];    
-    console.log(this.identifiant);
+    const storedToken = this.usagerService.getToken();
+
+    if (storedToken) {
+                // Décodage de la base64
+      const decodedToken = atob(storedToken);
+
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+ 
+   // this.updateCachedData();
+    }    
     
-    this.HomePageService.getAlertCandidat( this.identifiant).subscribe(data=>{
+    this.HomePageService.getAlertCandidat( this.userConnect.id).subscribe(data=>{
       this.favorites=data  
       this.loading=false;
       console.log(this.favorites);

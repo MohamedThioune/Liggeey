@@ -17,14 +17,26 @@ export class AppliesJobsComponent implements OnInit {
   identifiant:number | null = 0;
   applies:any;
   formattedDate!: string;
-
+  userConnect:any
   constructor(private route : ActivatedRoute ,private router: Router,private HomePageService: HomePageService,private usagerService: UsagerService) {
     this.isMobile = window.innerWidth < 768; 
    }
    
    ngOnInit(): void {
+    const storedToken = this.usagerService.getToken();
+    //this.identifiant = +this.route.snapshot.params['id'];
+
+    if (storedToken) {
+                // Décodage de la base64
+      const decodedToken = atob(storedToken);
+
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+ 
+   // this.updateCachedData();
+    }   
     this.identifiant = +this.route.snapshot.params['id'];    
-    this.HomePageService.appliesJob( this.identifiant).subscribe(data=>{
+    this.HomePageService.appliesJob( this.userConnect.id).subscribe(data=>{
       this.applies=data  
       console.log(this.applies);
       this.loading=false

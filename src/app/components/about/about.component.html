@@ -95,7 +95,7 @@
                         <p class="description_">At LIGGÉEY, we have a clear mission: bridging borders to empower businesses. We connect European opportunities with the diverse talent pool in Africa. Our commitment lies in reshaping the future of work, emphasizing skills over diplomas, and fostering a global community that thrives on collaboration and innovation.</p>
                         <div class="content_list_mission">
                             <ul>
-                                <li *ngFor="let job of jobs.slice(0, 5)" style="cursor: pointer;text-decoration:underline" [routerLink]="['/detail-job',job.ID]">
+                                <li *ngFor="let job of jobs.slice(0, 5)" style="cursor: pointer;text-decoration:underline" [routerLink]="['/detail-job',job.slug]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                                         <path d="M12.4999 18.9625L23.9911 7.47375L25.7586 9.24125L12.5011 22.4988L4.54614 14.5438L6.31364 12.7763L12.5011 18.9638L12.4999 18.9625Z" fill="#1AC4A2"/>
                                     </svg>

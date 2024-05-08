@@ -14,7 +14,7 @@ export class DetailJobComponent implements OnInit {
 
   currentDate!: Date;
   sentDate: any;
-  identifiant:number | null = 0;
+  identifiant:any;
   job:any;
   userConnect:any;
   applyJobs=false;
@@ -29,7 +29,7 @@ export class DetailJobComponent implements OnInit {
   candidate=false;
   canApply=true
   isBookmarked: boolean = false;
-
+  slug:any;
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private usagerService: UsagerService, private router: Router , private cdr: ChangeDetectorRef,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
@@ -52,8 +52,10 @@ export class DetailJobComponent implements OnInit {
           }
     }
 
-    this.identifiant = +this.route.snapshot.params['id'];
-    this.HomePageService.getDetailJob(this.identifiant).subscribe(data => {
+    this.slug = this.route.snapshot.params['slug'];
+    console.log(this.slug);
+    
+    this.HomePageService.getDetailJob(this.slug).subscribe(data => {
         this.job = data;
         this.loading=false
        console.log(this.job);
@@ -182,7 +184,7 @@ calculateDurationLastJob(){
                 type: typeR,
                 message: this.message
               });
-              this.router.navigate(['/favorite',this.userConnect.id])
+              this.router.navigate(['/favorite',this.userConnect.slug])
               // if (typeR == "success") {
               //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
               // }

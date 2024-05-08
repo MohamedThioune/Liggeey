@@ -44,13 +44,13 @@ export class LoginComponent implements OnInit {
           // Parse du JSON pour obtenir l'objet original
           const userObject = JSON.parse(decodedToken);
           if(userObject.acf.is_liggeey == "candidate"){          
-            this.route.navigate(['/dashboard-candidat/',userObject.id])
+            this.route.navigate(['/dashboard-candidat/'])
             // ToastNotification.open({
             //   type: 'success',
             //   message: "Thank you for logging in, your dashboard will be available soon"
             // });
           } else if(userObject.acf.is_liggeey == "chief"){          
-            this.route.navigate(['/dashboard-employer/',userObject.id]);
+            this.route.navigate(['/dashboard-employer/']);
           }
           // Désactiver le loader
           this.isLoading = false;

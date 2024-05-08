@@ -21,7 +21,7 @@ export class DetailCandidatComponent implements OnInit {
     message: ''
   };
   applyJobs=false
-  jobId!: number ; // Initialisé à null
+  jobId!: any ; // Initialisé à null
   canApprove=false
   isBookmarked: boolean = false;
 
@@ -38,7 +38,7 @@ export class DetailCandidatComponent implements OnInit {
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
-      //console.log(this.userConnect);
+      console.log(this.userConnect,this.identifiant);
       
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
@@ -46,6 +46,7 @@ export class DetailCandidatComponent implements OnInit {
         this.compagny=true
       }
     }
+    console.log(this.userConnect,this.identifiant);
 
     this.route.queryParams.subscribe(params => {
       this.jobId = params['jobId'];
@@ -159,7 +160,7 @@ export class DetailCandidatComponent implements OnInit {
                 type: typeR,
                 message: this.message
               });
-              this.router.navigate(['/compagny-candidat',this.userConnect.id])
+              this.router.navigate(['/compagny-candidat'])
               // if (typeR == "success") {
               //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
               // }

@@ -30,7 +30,7 @@
               <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(categorie)" (click)="openApplyModal(categorie.ID)" data-target="#modal-apply">
                 {{ canAppl(categorie) ? 'Apply Now' : 'Already Applied' }}
               </button>                
-              <a [routerLink]="['/detail-job',categorie.ID]" class="btn btn-view-job">View Details</a>
+              <a [routerLink]="['/detail-job',categorie.slug]" class="btn btn-view-job">View Details</a>
             </div>
           </div>
         </div>

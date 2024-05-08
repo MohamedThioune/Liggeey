@@ -76,6 +76,8 @@ import { SkeletonDetailCandidateComponent } from './skeleton-detail-candidate/sk
 import { SkeletonDetailBlogComponent } from './skeleton-detail-blog/skeleton-detail-blog.component';
 import { SkeletonDetailCategoryComponent } from './skeleton-detail-category/skeleton-detail-category.component';
 import { SkeletonDetailCompanyComponent } from './skeleton-detail-company/skeleton-detail-company.component';
+import { SkeletonAllJobsLoaderComponent } from './skeleton-all-jobs-loader/skeleton-all-jobs-loader.component';
+import { SkeletonHomePageLoaderComponent } from './skeleton-home-page-loader/skeleton-home-page-loader.component';
 
 @NgModule({
   declarations: [
@@ -147,6 +149,8 @@ import { SkeletonDetailCompanyComponent } from './skeleton-detail-company/skelet
     SkeletonDetailBlogComponent,
     SkeletonDetailCategoryComponent,
     SkeletonDetailCompanyComponent,
+    SkeletonAllJobsLoaderComponent,
+    SkeletonHomePageLoaderComponent,
 
 
   ],

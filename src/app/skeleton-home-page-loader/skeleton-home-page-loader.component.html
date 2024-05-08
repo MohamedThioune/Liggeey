@@ -1,8 +1,5 @@
 <app-header></app-header>
-<ng-template #skeleton>
-  <app-skeleton-home-page-loader></app-skeleton-home-page-loader>
-</ng-template>
-<div *ngIf="!loading; else skeleton">
+
 <section class="description_home css-selector">
   <div class="container-fluid">
     <div class="content_home_">
@@ -17,7 +14,7 @@
               <h2>Build your remote digital workforce based on skills</h2>
               <p class="definition_home">Embrace the future of work with our best digital talent,not just remotely but with the full support of the LIGGEEY team.</p>
             </div>
-            <div class="hiring_work" *ngIf="!userConnect">
+            <div class="hiring_work">
               <a class="btn hiring" routerLink="register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
               <a class="work" routerLink="about" routerLinkActive="active_lien_navbar">How does it work</a>
             </div>
@@ -30,12 +27,12 @@
         </div>
       </div>
       <div class="d-flex align-items-center">
-        <p class="number_candidates">{{candidates.length}}+ Candidates</p>
+        <p class="number_candidates">10k+ Candidates</p>
         <div class="">
           <div class="jobholder">
-            <div class=" " *ngFor="let image of candidatsTab">
+            <div class=" ">
                 <span class="content_users_1">
-                  <img [src]="image" alt="">
+                  <img  alt="">
                 </span>
             </div>
         </div>
@@ -81,11 +78,73 @@
   <div class="container-fluid">
     <div class="most_jobs">
       <div class="header_popular_job">
-        <span>Most Popular Jobs</span>
-        <p>Discover popular remote jobs across diverse industries on our platform.</p>
-        <div class="" *ngIf="currentCategories.length==0">
-          <img class="mb-4 mt-4" src="../../../assets/img/empty-topic.png" alt="image team">
-          <p>No Content Overlable at the moment</p>
+        <div class="popular-jobs"></div>
+        <div class="skeleton-container-2">
+            <div class="one-job">
+                <div class="card"></div>
+                <div class="skeleton-text-1"></div>
+                <div class="skeleton-text-2"></div>
+                <div class="skeleton-infos"></div>
+                <div class="skeleton-text-4"></div>
+                <div class="btts">
+                    <div class="skeleton-btt"></div>
+                    <div class="skeleton-btt"></div>
+                </div>
+            </div>
+            <div class="one-job">
+                <div class="card"></div>
+                <div class="skeleton-text-1"></div>
+                <div class="skeleton-text-2"></div>
+                <div class="skeleton-infos"></div>
+                <div class="skeleton-text-4"></div>
+                <div class="btts">
+                    <div class="skeleton-btt"></div>
+                    <div class="skeleton-btt"></div>
+                </div>    </div>
+            <div class="one-job">
+                <div class="card"></div>
+                <div class="skeleton-text-1"></div>
+                <div class="skeleton-text-2"></div>
+                <div class="skeleton-infos"></div>
+                <div class="skeleton-text-4"></div>
+                <div class="btts">
+                    <div class="skeleton-btt"></div>
+                    <div class="skeleton-btt"></div>
+                </div>
+            </div>
+            <div class="one-job">
+                <div class="card"></div>
+                <div class="skeleton-text-1"></div>
+                <div class="skeleton-text-2"></div>
+                <div class="skeleton-infos"></div>
+                <div class="skeleton-text-4"></div>
+                <div class="btts">
+                    <div class="skeleton-btt"></div>
+                    <div class="skeleton-btt"></div>
+                </div>    
+            </div>
+            <div class="one-job">
+                <div class="card"></div>
+                <div class="skeleton-text-1"></div>
+                <div class="skeleton-text-2"></div>
+                <div class="skeleton-infos"></div>
+                <div class="skeleton-text-4"></div>
+                <div class="btts">
+                    <div class="skeleton-btt"></div>
+                    <div class="skeleton-btt"></div>
+                </div>    
+                </div>
+            <div class="one-job">
+                <div class="card"></div>
+                <div class="skeleton-text-1"></div>
+                <div class="skeleton-text-2"></div>
+                <div class="skeleton-infos"></div>
+                <div class="skeleton-text-4"></div>
+                <div class="btts">
+                    <div class="skeleton-btt"></div>
+                    <div class="skeleton-btt"></div>
+                </div>
+            </div>
         </div>
 
         <div class="tabs">
@@ -109,7 +168,7 @@
           </ul>
           -->
         </div>
-        <app-category-emploi [category]="currentCategories"></app-category-emploi>
+        <app-category-emploi ></app-category-emploi>
       </div>
     </div>
   </div>
@@ -119,21 +178,96 @@
   <div class="container-fluid">
         <div class="content_categories">
           <div class="header_categories">
-            <h2>Category</h2>
-            <p>Explore diverse job categories on our platform for a tailored remote career experience.</p>
+             <div class="category"></div>
+             <div class="cat-p"></div>
           </div>
           <div class="row">
-            <div class="col-md-3" *ngFor="let categorie of categories">
-              <div class="content_item" [routerLink]="['/detail-category',this.categorie.cat_ID]">
-                <div class="item_left">
-                  <img [src]="categorie.cat_image" alt="">
+            <div class="skeleton-container-2">
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
                 </div>
-                <div class="item_right">
-                  <span>{{categorie.cat_name}}</span>
-                  <p>({{categorie.open_position}} open positions)</p>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
                 </div>
-
-              </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                <div class="one-category">
+                    <div class="cat-img"></div>
+                        <div class="item_right">
+                            <div class="cat-title"></div>
+                            <div class="positions"></div>
+                        </div>
+                </div>
+                
             </div>
         </div>
       </div>
@@ -196,27 +330,24 @@
     </div>
   </div>
 </section>
-<section class="all_articles css-selector">
+<section class="all_articles ">
   <div class="container-fluid">
     <div class="articles">
       <div class="header_articles">
-        <span>Our recent articles</span>
-        <p>To help you stay informed about the latest news and updates, enabling a successful career.</p>
+        <div class="category"></div>
+        <div class="cat-p"></div>
       </div>
       <div class="row">
         <div class="col-md-4">
           <div class="card_article">
             <div class="rectangle_article">
-              <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
-                <img [src]="article[0].image" class="img-fluid"/>
-              </div>
+              <div class="art-img"></div>
               <div class="card-body">
                 <div class="tops">
-                <span>{{article[0].post_title  | slice:0:40}}</span>
+                 <div class="art-title"></div>   
                 </div>
-                <p class="card-text">{{article[0].short_description  | slice:0:100}}
-                </p>
-                <a [routerLink]="['/detail-article',article[0].slug]">Read More</a>
+                <div class="art-desc"></div>
+                <div class="art-link"></div>
               </div>
             </div>
           </div>
@@ -224,30 +355,24 @@
         <div class="col-md-8" >
              <div class="article_1 top_article">
                <div class="image_description_article">
-                <div class="content_image_article">
-                  <img [src]="article[1].image" alt="Job Image">
-                </div>
+              <div class="art-img-1"></div>
               <div class="description_article">
-                <p class="title">{{article[1].post_title}}</p>
-                <p>{{article[1].short_description}}</p>
-
-              <p> <a [routerLink]="['/detail-article',article[1].slug]">Read More</a></p>
+                 <div class="art-title-1"></div>   
+                <div class="art-desc-1"></div>
+                <div class="art-link-1"></div>
               </div>
             </div>
           </div>
           <div class="article_1 top_article">
             <div class="image_description_article">
-                <div class="content_image_article">
-                  <img [src]="article[2].image" alt="Job Image">
-                </div>
-              <div class="description_article">
-                <p class="title">{{article[2].post_title}}</p>
-                <p>{{article[2].short_description}}</p>
-
-                <p><a [routerLink]="['/detail-article',article[2].slug]">Read More</a></p>
-              </div>
-            </div>
-          </div>
+           <div class="art-img-1"></div>
+           <div class="description_article">
+              <div class="art-title-1"></div>   
+             <div class="art-desc-1"></div>
+             <div class="art-link-1"></div>
+           </div>
+         </div>
+       </div>
         </div>
       </div>
     </div>
@@ -257,36 +382,55 @@
   <div class="container-fluid">
     <div class="featured">
       <div class="header_featured">
-        <h2>Featured Talent </h2>
-        <a [routerLink]="['/list-candidat']" class="browser">Browser All
-          <p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M9.33355 5.53176L3.9934 0.191706C3.86989 0.068097 3.70501 0 3.5292 0C3.3534 0 3.18852 0.068097 3.06501 0.191706L2.67175 0.584873C2.41585 0.841066 2.41585 1.25745 2.67175 1.51326L7.156 5.99751L2.66677 10.4867C2.54326 10.6104 2.47507 10.7751 2.47507 10.9508C2.47507 11.1267 2.54326 11.2915 2.66677 11.4152L3.06004 11.8083C3.18365 11.9319 3.34843 12 3.52423 12C3.70003 12 3.86491 11.9319 3.98842 11.8083L9.33355 6.46336C9.45735 6.33936 9.52535 6.1738 9.52496 5.99781C9.52535 5.82112 9.45735 5.65566 9.33355 5.53176Z" fill="#1AC4A2"/>
-            </svg>
-          </p>
-        </a>
+        <div class="feat-talents"></div>
+        <div class="browser-all"></div>
       </div>
-      <p>Meet our standout candidates – to ensure you have access to a pool of ready-to-work talent matching your requirements.</p>
+      <div class="meet-cand"></div>
     </div>
     <div class="candidat_featured">
 
       <div class="row candidat_featured_">
-        <div class="col-md-3 item" *ngFor="let candidate of candidates" style="cursor: pointer;">
-            <div class="content_candidate"  [routerLink]="['/detail-candidat',candidate.ID]">
-              <div class="content_image_candidate">
-                <img [src]=candidate.image alt="Image Of Candidate">
-              </div>
+        <div class="col-md-3 item">
+            <div class="content_candidate">
+              <div class="cand-img"></div>
               <div class="info_candidat">
-                <span class="name_candidat">{{candidate.first_name}} {{candidate.last_name}}</span>
-                <p class="profil_candidat">{{candidate.work_as}}</p>
-                <div class="location_candidat">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18" viewBox="0 0 14 18" fill="none">
-                    <path d="M7.38986 0.15625C3.80585 0.15625 0.890137 3.07236 0.890137 6.65676C0.890137 9.21797 1.96242 11.8087 3.99107 14.149C5.50626 15.8969 7.00786 16.8873 7.0711 16.9286C7.1679 16.9919 7.27892 17.0235 7.38994 17.0235C7.50088 17.0235 7.6119 16.9919 7.70878 16.9286C7.77195 16.8873 9.27378 15.8969 10.789 14.1491C12.8178 11.8087 13.8901 9.21797 13.8901 6.65676C13.8901 3.07236 10.974 0.15625 7.38986 0.15625ZM7.38986 15.7254C6.19444 14.8346 2.05549 11.4063 2.05549 6.65676C2.05549 3.71493 4.44843 1.3216 7.38986 1.3216C10.3315 1.3216 12.7247 3.71493 12.7247 6.65676C12.7247 11.4063 8.58536 14.8346 7.38986 15.7254Z" fill="#696969"/>
-                    <path d="M7.39021 4.07568C5.9677 4.07568 4.81042 5.23304 4.81042 6.6557C4.81042 8.07798 5.9677 9.2351 7.39021 9.2351C8.81272 9.2351 9.96992 8.07798 9.96992 6.6557C9.96992 5.23311 8.81264 4.07568 7.39021 4.07568ZM7.39021 8.06974C6.61028 8.06974 5.97578 7.4354 5.97578 6.6557C5.97578 5.87561 6.61028 5.24104 7.39021 5.24104C8.17007 5.24104 8.80456 5.87561 8.80456 6.6557C8.80456 7.4354 8.17007 8.06974 7.39021 8.06974Z" fill="#696969"/>
-                  </svg>
-                  <p>{{candidate.country}}</p>
-                </div>
-                <a class="btn" [routerLink]="['detail-candidat',candidate.ID]" routerLinkActive="active_lien_navbar">See Candidate</a>
+                <div class="name_candidat"></div>
+                <div class="profil_candidat"></div>
+                <div class="location_candidat"></div>
+                <div class="btn"></div>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-3 item">
+            <div class="content_candidate">
+              <div class="cand-img"></div>
+              <div class="info_candidat">
+                <div class="name_candidat"></div>
+                <div class="profil_candidat"></div>
+                <div class="location_candidat"></div>
+                <div class="btn"></div>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-3 item">
+            <div class="content_candidate">
+              <div class="cand-img"></div>
+              <div class="info_candidat">
+                <div class="name_candidat"></div>
+                <div class="profil_candidat"></div>
+                <div class="location_candidat"></div>
+                <div class="btn"></div>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-3 item">
+            <div class="content_candidate">
+              <div class="cand-img"></div>
+              <div class="info_candidat">
+                <div class="name_candidat"></div>
+                <div class="profil_candidat"></div>
+                <div class="location_candidat"></div>
+                <div class="btn"></div>
               </div>
             </div>
         </div>
@@ -305,7 +449,7 @@
       -->
       <span class="bullet" appPrev>
         <svg xmlns="http://www.w3.org/2000/svg" width="110" height="9" viewBox="0 0 92 9" fill="none">
-          <circle *ngFor="let candidate of candidates; let i = index" [attr.cx]="4 + i * 18" cy="4.15625" r="4" [attr.fill]="i === selectedCandidateIndex ? '#202124' : '#BFC8CB'" (click)="selectCandidate(i)"/>
+          <circle   cy="4.15625" r="4"  />
         </svg>
       </span>
   
@@ -315,4 +459,3 @@
 <app-publication></app-publication>
 <app-app-mobile></app-app-mobile>
 <app-footers></app-footers>
-</div>
