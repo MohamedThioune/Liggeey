@@ -1,8 +1,8 @@
 
 /* section description home*/
-/*.description_home{
-    background: #F5F7FC;
-}*/
+.description_home{
+    background: #f0f0f0;
+}
 .definition_home {
     color: #202124;
     font-size: 20px;
@@ -30,10 +30,12 @@
 }
 
 .number_candidates{
-    font-weight: 700;
-    padding-right: 20px;
-    margin: 0;
-    line-height: -1.5;
+    background-color: #ddd;
+    height: 30px;
+    width: 10%;
+    margin-top: 10px;
+    border-radius: 5px;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 }
 .jobholder{
     height: 50px;
@@ -43,14 +45,16 @@
 .content_users_1{
   width: 50px;
   height: 50px;
-  margin-right: -10px;
-  border-radius: 100%;
+  margin-left: 10px;
+  border-radius: 50%;
   display: block;
   overflow: hidden;
+  animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 }
-.content_users_1 img{
-    width: 100%;
-    height: 100%;
+.content_users_1{
+    background-color: #ddd;
+    width: 5vw;
+    height: 5vw;
     object-fit: cover;
 }
 .image_home{
@@ -59,17 +63,19 @@
     border-radius: 100%;
     margin: 0 auto;
 }
-.image_home img{
-    width:100%;
-    height: 100%;
+.image_home{
+    background-color: #ddd;
+    width:30vw;
+    height: 30vw;
     object-fit: contain;
     margin: auto;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 }
 .new_remote{
     display: flex;
     align-items: center;
     border-radius: 42px;
-    background-color: #1ac4a226;
+    background-color: #cecece;
     padding: 15px 30px 16px 15px;
     width: fit-content;
 
@@ -92,6 +98,25 @@
     line-height: 1.5; /* Ajuster la hauteur de ligne pour centrer verticalement le texte */
 
 }
+.text_home{
+    background-color: #ddd;
+    width: 70%;
+    border-radius: 30px;
+    height: 20vh;
+    margin-top: 10vh;
+    margin-left: 2%;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+}
+.text_home2{
+    background-color: #ddd;
+    width: 70%;
+    border-radius: 30px;
+    height: 10vh;
+    margin-top: 2vh;
+    margin-left: 2%;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+}
+
 .text_home h2{
     color: #202124;
     font-size: 47px;
@@ -108,32 +133,37 @@
 /*section banner*/
 .banner{
     margin-top: 160px;
+    background-color: #f0f0f0;
 }
 .banner_left,.banner_right{
     display: flex;
     border-radius: 8px;
     overflow: hidden;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
 }
 .title_description{
-    color: #FFF;
-    font-size: 26px;
-    font-weight: bold;
+    background-color: #ddd;
+    height: 30px;
+    width: 40%;
+    border-radius: 5px;
 }
 .content_description{
-  color: #FFF;
-  font-size: 15px;
-  font-weight: bold;
-  padding-bottom: 17px;
-  padding-top: 13px;
-  line-height: 31px;
+ background-color: #ddd;
+ height: 15vh;
+ margin-top: 10px;
+ width: 80%;
+ border-radius: 10px;
 }
 .description_banner{
   width: 55%;
-  background-color: #202124;
+  background-color: #f0f0f0;
   padding: 35px 25px 40px 25px;
 }
 .right{
-    background-color: #1AC4A2;
+    background-color: #f0f0f0;
 }
 .description_banner.left  a{
     border-radius: 8px;
@@ -155,11 +185,11 @@
 
 .image_banner{
     width: 45%;
+    background-color: #a9a5a5;
    /* height: fit-content;*/
 }
-.image_banner img{
-    width: 100%;
-    height: 100%;
+.image_banner{
+    height: 52vh;
     object-fit: cover;
     margin: auto;
 }
@@ -223,12 +253,54 @@
 /* section skills*/
 .skills{
     margin-bottom: 100px;
+    background-color: #f0f0f0;
+}
+
+.skills_{
+    background-color: #ddd;
+    height: 5vh;
+    width: 90%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.skills_list{
+    background-color: #ddd;
+    height: 3vh;
+    width: 60%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.btn-apple{
+    background-color: #ddd;
+    height: 10vh;
+    width: 30%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.btn-play-store{
+    background-color: #ddd;
+    height: 10vh;
+    width: 30%;
+    margin-left: 10%;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
 .description_skills{
     padding-top:108px ;
+  animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
 }
 .description_skills ul {
+    top: 0;
+    padding-left: 0;
+}
+.skills_title  {
+    background-color: #ddd;
+    height: 10vh;
+    width: 90%;
+    border-radius: 10px;
+} ul {
     top: 0;
     padding-left: 0;
 }
@@ -279,6 +351,13 @@
 .content_mobile_images{
     width: 639px;
     height: 658px;
+}
+.apple-playstore{
+    width: 639px;
+    height: 658px;
+    background-color: #ddd;
+    border-radius: 10px;
+  animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 }
 .content_mobile_images img{
    width: 100%;
@@ -364,6 +443,21 @@
   animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 
 }
+.NEW{
+    background-color: #ddd;
+    width: 5vw;
+    height: 30px;
+    border-radius: 20px;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */  
+  }
+  .remote-text{
+    background-color: #ddd;
+    width: 25vw;
+    height: 10px;
+    margin-left: 10px;
+    border-radius: 20px;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */  
+  }  
 .candidat_featured_{
     margin-bottom:51px;
     border:1px solid transparent
@@ -1027,6 +1121,217 @@
     border-radius: 20px; /* Border radius for rounded corners */
     
 }
+.register-btn{
+    width: 80%;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    background-color: #ddd ;
+    height: 10vh; /* Height of the button skeleton */
+    border-radius: 20px; /* Border radius for rounded corners */
+    
+}
+
+
+/*sectiont recruting*/
+.recruting{
+    margin-bottom: 139px;
+    background-color: #f0f0f0;
+ }
+ 
+ .recrut-now{
+    background-color: #ddd;
+    width: 60%;
+    height: 10vh;
+    border-radius: 8px;
+ }
+  .recruting_now{
+     border-radius: 8px;
+     overflow: hidden;
+     background-color: #fffefe;
+     animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+    }
+  
+  .recrutement{
+    border-radius: 8px;
+   /* background: #EEE;*/
+    display: flex;
+  }
+  .content_image_recruting{
+    height: 50vh;
+    background-color: #bebaba;
+     width: 50%;
+  }
+  .recrut-btn{
+    background-color: #ddd;
+    width: 90%;
+    height: 10vh;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+  .text_recruting{
+    width: 50%;
+    padding: 51px 0px 49px 41px;
+    color:#202124 ;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .text_recruting .recrut{
+    color:#1AC4A2 ;
+    margin: 0;
+  }
+  .text_recruting a{
+    border-radius: 8px;
+    background-color:#1AC4A2 ;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFF !important;
+    padding: 13px 32px 13px 34px;
+  }
+
+  .content_image_recruting img{
+     width: 100%;
+     height: 100%;
+     margin: auto;
+     object-fit: cover;
+  }
+
+  @media screen and (max-width: 1079px) and (min-width: 768px){
+    .text_recruting a{
+      padding: 5px;
+    }
+  }
+  @media all and (min-width: 300px) and (max-width: 767px){
+    .recruting{
+      margin-bottom: 39px;
+   }
+    .recruting_now.one,.recruting_now.two{
+      margin-bottom: 16px;
+   }
+   .text_recruting{
+     padding: 10px 20px 10px 20px;
+     font-size: 14px;
+  }
+   .text_recruting a{
+    padding: 10px 15px 10px 17px;
+  }
+    .text_recruting .recrut {
+      font-size: 18px !important;
+      margin-bottom: 4px;
+    }
+
+}
+
+/*sectiont mobile*/
+
+.mobile{
+    background-color: #f0f0f0;
+}
+
+.title-download {
+    background-color: #ddd;
+    width: 20%;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 40%;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+  }
+  .mob-description {
+    background-color: #ddd;
+    width: 40%;
+    height: 30px;
+    margin-top: 15px;
+    border-radius: 5px;
+    margin-left: 30%;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+  }
+  .content-app-footer .btn-download{
+    height: 55px;
+  }
+  
+  
+  .content-img-app-footer{
+    width: 871px;
+    margin: 0 auto;
+    
+  }
+  .content-app-footer .btn-download img, .content-img-app-footer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .mob-img{
+    background-color: #ddd;
+    height: 80vh;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 10px;
+    margin-top: 30px;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+}
+  .mob-btn-apple{
+    background-color: #ddd;
+    height: 10vh;
+    width: 20%;
+    border-radius: 10px;
+    margin-top: 30px;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+}
+.mob-btn-playstore{
+    background-color: #ddd;
+    height: 10vh;
+    width: 20%;
+    margin-left: 2%;
+    border-radius: 10px;
+    margin-top: 30px;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+}
+
+  .about-element{
+    position: absolute;
+  }
+  #el-1{
+    right: 10%;
+    top: 10%;
+  }
+  #el-2{
+    right: 22%;
+    bottom: 10%;
+  }
+  #el-3{
+    left: 52%;
+    bottom: 50%;
+  }
+  #el-4{
+    left: 2%;
+    top: 18%;
+  }
+  #el-5{
+    right: 85%;
+    bottom: 26%;
+  }
+  @media all and (min-width: 300px) and (max-width: 767px){
+  
+    .content-img-app-footer{
+      width: 100%;
+      margin: 0 auto;
+    }
+  
+    .content-app-footer .description {
+      font-size: 18px;
+      width: 100%;
+      margin: 0 auto 35px;
+      color: #545454;
+      line-height: 31px;
+    }
+    .content-btn-download {
+      margin-bottom: 35px;
+    }
+  
+    }
+  
+
+
 
 @keyframes pulse {
     0% {

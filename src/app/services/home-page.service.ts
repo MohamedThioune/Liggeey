@@ -127,6 +127,7 @@ export class HomePageService {
       date_born:candidat.date_born,
       education_level:candidat.education_level,
       biographical_info:candidat.biographical_info,
+      language:candidat.language,
       facebook:candidat.facebook,
       twitter:candidat.twitter,
       linkedin:candidat.linkedin,

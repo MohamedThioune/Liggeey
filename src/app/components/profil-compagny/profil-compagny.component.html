@@ -155,8 +155,8 @@
                 <p>*</p>
               </label>
               <div class="input-group">
-                <select class="form-control fieldSelect" id="country" formControlName="country" name="country">
-                  <option *ngFor="let country of countries">
+                <select class="form-control fieldSelect" id="country" formControlName="country" name="country" [(ngModel)]="selectedCountry">
+                  <option *ngFor="let country of countries" [value]="country">
                     {{country}}
                   </option>
                 </select>
