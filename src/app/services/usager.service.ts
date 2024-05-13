@@ -15,6 +15,7 @@ export class UsagerService {
   private baseUrl = 'https://Livelearn.nl';
   private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   user$: Observable<any> = this.userSubject.asObservable();
+  private userId!: string;
 
   setUser(user: any) {
     this.userSubject.next(user);
@@ -101,6 +102,14 @@ export class UsagerService {
 
     }
     return this.http.post<UserResetPassword>(`${this.baseUrl}/bdpwr/v1/set-password`,bodyRequestPassword, { headers });
+  }
+
+  setUserId(userId: string): void {
+    this.userId = userId;
+  }
+
+  getUserId(): string {
+    return this.userId;
   }
 
   deconnexion() {

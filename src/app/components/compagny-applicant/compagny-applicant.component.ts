@@ -17,7 +17,13 @@ export class CompagnyApplicantComponent implements OnInit {
   loading:boolean=true;
   searchTitle:String="";
   identifiant:number | null = 0;
-  constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService) { }
+  userId: string;
+
+  constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService) {
+
+      this.userId = this.usagerService.getUserId();
+    
+   }
 
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];  

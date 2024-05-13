@@ -45,7 +45,7 @@ export class PublicationComponent implements OnInit {
               message: `this space is dedicated to employers`
             });
           } else if(this.userConnect.acf.is_liggeey == "chief"){
-              this.router.navigate(['/post-compagny',this.userConnect.id]);
+              this.router.navigate(['/post-compagny']);
             }
         }else{
         this.router.navigate(['/login']);

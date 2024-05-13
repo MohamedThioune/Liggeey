@@ -227,7 +227,7 @@ onSubmit() {
           });
           this.isLoading = false;
           if (typeR == "success") {
-            this.route.navigate(['/manage-compagny',this.userConnect.id]);
+            this.route.navigate(['/manage-compagny']);
           }
 
         },
