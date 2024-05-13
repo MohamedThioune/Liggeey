@@ -9,6 +9,8 @@ import { HomePageService } from 'src/app/services/home-page.service';
 export class BlogComponent implements OnInit {
   artikels:any;
   categories:any;
+  searchTitle: string = ''; // Variable pour stocker la valeur de recherche
+  searchLocation:string ='';
   constructor(private homeService:HomePageService) { }
   skillsTabs:any=[   
     {
@@ -90,6 +92,17 @@ export class BlogComponent implements OnInit {
           
     })
   }
-
+  get filteredJobs() {
+    if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
+      return this.artikels.filter((job:any) => {
+        const titleMatch = this.searchTitle.trim() === '' || job.post_title.toLowerCase().includes(this.searchTitle.toLowerCase());
+        //const placeMatch = this.searchLocation.trim() === '' || job.country.toLowerCase().includes(this.searchLocation.toLowerCase());
+        return titleMatch 
+      });
+    } else {
+      return this.artikels;
+    }
+    
+  }
 
 }

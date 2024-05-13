@@ -64,13 +64,13 @@ export class HomePageService {
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/favorites/?userApplyId=${id}`,{});
 }
   getDetailArticle(id:string):Observable<any>{
-    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/artikel/detail/?slug=${id}`,{});
   }
   getAllCompagny():Observable<any>{
     return this.http.get(`${this.baseUrl}/wp-json/custom/v1/companies`,{  });
   }
-  getDetailCompagny(id:number | null):Observable<any>{
-    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/company/detail/?id=${id}`,{});
+  getDetailCompagny(id:string):Observable<any>{
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/company/detail/?slug=${id}`,{});
   }
 
 
@@ -103,12 +103,12 @@ export class HomePageService {
 
 
   getDetailJob(id:string):Observable<any>{
-    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/?id=${id}`,{});
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/?slug=${id}`,{});
     //return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/job?slug=${id}`,{});
   }
   
-  getDetailCategory(id:number | null):Observable<any>{
-    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/category/detail/?id=${id}`,{});
+  getDetailCategory(id:string):Observable<any>{
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/category/detail/?slug=${id}`,{});
   }
   applyJob(idUser: number,idJob:string): Observable<any> {
     const requestBody = {

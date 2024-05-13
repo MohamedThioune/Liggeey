@@ -34,15 +34,16 @@ export class CategorieComponent implements OnInit {
   currentDate!: Date;
   sentDate: any;
   canApply=true;
-
+  slug:any
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];
+    this.slug = this.route.snapshot.params['slug'];
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
    // console.log(this.identifiant);
-    this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
+    this.homeService.getDetailCategory( this.slug).subscribe(data=>{
       this.category = data
       this.loading=false;
       console.log(this.category.name);
@@ -77,9 +78,9 @@ export class CategorieComponent implements OnInit {
 
 
     })
-    this.homeService.getDetailCategory(this.identifiant).subscribe((data:any)=>{
+    this.homeService.getDetailCategory(this.slug).subscribe((data:any)=>{
       this.category = data
-    //  console.log(this.category);
+     console.log(this.category);
 
       this.category.articles.forEach((element:any) => {
         element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -130,7 +131,8 @@ export class CategorieComponent implements OnInit {
 
         return titleMatch && placeMatch;
       });
-  
+      console.log("Nombre d'emplois filtrés : ", filteredJobs.length);
+
       return {
         jobs: filteredJobs,
         articles: filteredArticles,

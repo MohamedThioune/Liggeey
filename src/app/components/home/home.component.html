@@ -124,7 +124,7 @@
           </div>
           <div class="row">
             <div class="col-md-3" *ngFor="let categorie of categories">
-              <div class="content_item" [routerLink]="['/detail-category',this.categorie.cat_ID]">
+              <div class="content_item" [routerLink]="['/detail-category',this.categorie.cat_name]">
                 <div class="item_left">
                   <img [src]="categorie.cat_image" alt="">
                 </div>
@@ -216,7 +216,7 @@
                 </div>
                 <p class="card-text">{{article[0].short_description  | slice:0:100}}
                 </p>
-                <a [routerLink]="['/detail-article',article[0].slug]">Read More</a>
+                <a [routerLink]="['/detail-article',article[0].post_slug]">Read More</a>
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@
                 <p class="title">{{article[1].post_title}}</p>
                 <p>{{article[1].short_description}}</p>
 
-              <p> <a [routerLink]="['/detail-article',article[1].slug]">Read More</a></p>
+              <p> <a [routerLink]="['/detail-article',article[1].post_slug]">Read More</a></p>
               </div>
             </div>
           </div>
@@ -244,7 +244,7 @@
                 <p class="title">{{article[2].post_title}}</p>
                 <p>{{article[2].short_description}}</p>
 
-                <p><a [routerLink]="['/detail-article',article[2].slug]">Read More</a></p>
+                <p><a [routerLink]="['/detail-article',article[2].post_slug]">Read More</a></p>
               </div>
             </div>
           </div>

@@ -53,7 +53,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   notification:any;
   isLoading = false;
   title:any;
-
+  slug:any
   constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
     this.isMobile = window.innerWidth < 768;
     this.dropdownOpen = false;
@@ -146,9 +146,9 @@ export class HeaderComponent implements OnInit,OnDestroy {
     });
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
-      //  console.log(this.categories)
+       console.log(data,this.categories)
     })
-    this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
+    this.homeService.getDetailCategory( this.slug).subscribe(data=>{
       this.category = data
      // console.log(this.category);
 

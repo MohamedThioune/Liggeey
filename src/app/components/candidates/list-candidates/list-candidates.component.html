@@ -103,7 +103,7 @@
                   </div>
 
 
-                  <a class="btn" [routerLink]="['/detail-candidat',candidate.ID]" routerLinkActive="active_lien_navbar">See Candidate</a>
+                  <a class="btn"   (click)="send_id(candidate.ID)"   routerLinkActive="active_lien_navbar">See Candidate</a>
                 </div>
               </div>
           </div>

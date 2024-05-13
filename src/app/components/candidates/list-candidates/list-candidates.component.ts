@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 
 @Component({
@@ -22,13 +23,21 @@ export class ListCandidatesComponent implements OnInit {
   tabLevel=["Bac","Licence","Master"];
   filteredCandidates!:any
   selectedGender: string = '';
-  constructor(private homeService:HomePageService) { }
+  constructor(private homeService:HomePageService, private router: Router) { }
 
   ngOnInit(): void {
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.candidates=data.candidates
     console.log( this.candidates)
     })
+    
+  }
+
+  send_id(id: any) {
+    this.router.navigate(['/detail-candidat', id])
+      .then(() => {
+        window.location.reload();
+      });
   }
   get filteredJobs() {
     if (this.searchCountry.trim() !== '' || this.searchName.trim() !== '' || this.searchCategori.trim() !== '') {
