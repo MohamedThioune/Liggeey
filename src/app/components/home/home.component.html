@@ -272,7 +272,7 @@
 
       <div class="row candidat_featured_">
         <div class="col-md-3 item" *ngFor="let candidate of candidates" style="cursor: pointer;">
-            <div class="content_candidate"  [routerLink]="['/detail-candidat',candidate.ID]">
+            <div class="content_candidate" (click)="send_id(candidate.ID)">
               <div class="content_image_candidate">
                 <img [src]=candidate.image alt="Image Of Candidate">
               </div>
@@ -286,7 +286,7 @@
                   </svg>
                   <p>{{candidate.country}}</p>
                 </div>
-                <a class="btn" [routerLink]="['detail-candidat',candidate.ID]" routerLinkActive="active_lien_navbar">See Candidate</a>
+                <a class="btn" (click)="send_id(candidate.ID)" routerLinkActive="active_lien_navbar">See Candidate</a>
               </div>
             </div>
         </div>

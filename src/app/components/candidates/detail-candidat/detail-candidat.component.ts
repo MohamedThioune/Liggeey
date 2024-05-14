@@ -24,14 +24,18 @@ export class DetailCandidatComponent implements OnInit {
   jobId!: any ; // Initialisé à null
   canApprove=false
   isBookmarked: boolean = false;
-
+  id:any
   constructor(private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService, private router: Router) { }
   
   ngOnInit(): void {
 
     const storedToken = this.usagerService.getToken();
-    this.identifiant = +this.route.snapshot.params['id'];
-
+    //this.identifiant = +this.route.snapshot.params['id'];
+    const storedId = localStorage.getItem('candidatId');
+    if (storedId) {
+        this.id = storedId;
+    }
+    
     if (storedToken) {
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
@@ -46,20 +50,18 @@ export class DetailCandidatComponent implements OnInit {
         this.compagny=true
       }
     }
-    console.log(this.userConnect,this.identifiant);
+    // this.route.queryParams.subscribe(params => {
+    //   this.jobId = params['jobId'];
+    //     this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
+    //       if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
+    //         this.canApprove=!this.canApprove
+    //       }
+    //       console.log(this.jobId,job); 
 
-    this.route.queryParams.subscribe(params => {
-      this.jobId = params['jobId'];
-        this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
-          if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
-            this.canApprove=!this.canApprove
-          }
-          console.log(this.jobId,job); 
-
-        });
-    });
+    //     });
+    // });
   
-    this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
+    this.HomePageService.getDetailCandidate(this.id).subscribe(data=>{
       this.candidat=data;
       this.loading=false;
           

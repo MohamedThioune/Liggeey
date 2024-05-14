@@ -25,6 +25,11 @@ export class HomePageService {
   setSelectedJobId(jobId: string) {
     this.selectedJobIdSource.next(jobId);
   }
+  private candidatIdSource = new Subject<number>();
+  candidatId$ = this.candidatIdSource.asObservable();
+  setCandidatId(id: number) {
+    this.candidatIdSource.next(id);
+  }
   // on va mettre les données en cache
   getInfoHomepage(): Observable<any> {
     return this.http.get(`${this.baseUrl}/wp-json/custom/v1/homepage`)

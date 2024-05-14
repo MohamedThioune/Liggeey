@@ -268,7 +268,7 @@
     <div class="separateur"></div>
     <nav class="first-nav">
       <ul class="header_container_logo header_container_mobile">
-        <li class="content_image">
+        <li class="content_image" routerLink="/">
           <img height="70" src="../../../assets/img/logo_liggey.png" alt="image pas encore insérer">
         </li>
         <li class="categories dropdown">
@@ -288,7 +288,8 @@
             <p> {{categori.cat_name}} </p>
            </a>
             -->
-            <div *ngFor="let categorie of categories">
+            <div >
+              <!--
               <a class="dropdown-item"  href="/detail-category/{{categorie.cat_name}}"  routerLinkActive="active_lien_navbar">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <g clip-path="url(#clip0_2910_3473)">
@@ -301,6 +302,16 @@
                   </defs>
                 </svg>
                 {{categorie.cat_name}}
+              </a>
+              -->
+              <a class="dropdown-item" [routerLink]="['/detail-category',categori.cat_name]"    *ngFor="let categori of categories" routerLinkActive="active_lien_navbar">
+                <div class="content_image">
+                  <!--
+                  <img [src]="categori.cat_image" alt="Image Of Categorie">
+                  -->
+                </div>
+              
+                <p> {{categori.cat_name}} </p>
               </a>
             </div>
            

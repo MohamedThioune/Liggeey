@@ -34,7 +34,9 @@ export class ListCandidatesComponent implements OnInit {
   }
 
   send_id(id: any) {
-    this.router.navigate(['/detail-candidat', id])
+    this.homeService.setCandidatId(id);
+    localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
+    this.router.navigate(['/detail-candidat'])
       .then(() => {
         window.location.reload();
       });

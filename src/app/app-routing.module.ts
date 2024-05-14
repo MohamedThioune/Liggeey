@@ -125,7 +125,7 @@ const routes: Routes = [
 
   { path: 'sidebar', component: SidebarCandidatComponent },
 
-  { path: 'detail-candidat/:id', component: DetailCandidatComponent },
+  { path: 'detail-candidat', component: DetailCandidatComponent },
   
 
   { path: 'job', component: JobOneComponent },
