@@ -44,9 +44,9 @@ export class AppicantsAllCompagnyComponent implements OnInit {
 
 
   
-  goToDetailCandidate( idCandidat: number) {
-    this.router.navigate(['/detail-candidate', idCandidat]);
-  }
+  // goToDetailCandidate( idCandidat: number) {
+  //   this.router.navigate(['/detail-candidate', idCandidat]);
+  // }
   
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;

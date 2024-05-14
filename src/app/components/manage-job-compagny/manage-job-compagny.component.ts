@@ -36,6 +36,7 @@ export class ManageJobCompagnyComponent implements OnInit {
         // Parse du JSON pour obtenir l'objet original
         this. userConnect = JSON.parse(decodedToken);
       }
+      console.log(this.userConnect.id);
       
     this.homeService.manageJob(this.userConnect.id).subscribe((data:any)=>{
       this.openJobs=data;

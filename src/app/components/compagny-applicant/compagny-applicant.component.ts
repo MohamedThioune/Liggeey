@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compagny-applicant',
@@ -19,7 +20,7 @@ export class CompagnyApplicantComponent implements OnInit {
   identifiant:number | null = 0;
   userId: string;
 
-  constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService) {
+  constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService, private router: Router) {
 
       this.userId = this.usagerService.getUserId();
     
@@ -45,7 +46,14 @@ export class CompagnyApplicantComponent implements OnInit {
      
     })
  }
-
+ send_id(id: any) {
+  this.homeService.setCandidatId(id);
+  localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
+  this.router.navigate(['/detail-candidat'])
+    .then(() => {
+      window.location.reload();
+    });
+}
  toggleSidebar() {
    this.isSidebarVisible = !this.isSidebarVisible;
    this.showButton = false;
