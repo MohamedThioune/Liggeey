@@ -211,6 +211,12 @@ navigateToDetailCategory() {
   this.router.navigateByUrl(this.href);
 }
 
+send_id(id: any) {
+  this.router.navigate(['detail-category',id])
+    .then(() => {
+      window.location.reload();
+    });
+}
   switchToApplyBlock() {
     this.isLoading = true;
 

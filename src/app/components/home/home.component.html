@@ -85,7 +85,7 @@
         <p>Discover popular remote jobs across diverse industries on our platform.</p>
         <div class="" *ngIf="currentCategories.length==0">
           <img class="mb-4 mt-4" src="../../../assets/img/empty-topic.png" alt="image team">
-          <p>No Content Overlable at the moment</p>
+          <p>No content available at the moment</p>
         </div>
 
         <div class="tabs">
@@ -124,7 +124,7 @@
           </div>
           <div class="row">
             <div class="col-md-3" *ngFor="let categorie of categories">
-              <div class="content_item" [routerLink]="['/detail-category',this.categorie.cat_name]">
+              <div class="content_item" [routerLink]="['/detail-category',this.categorie.cat_slug]">
                 <div class="item_left">
                   <img [src]="categorie.cat_image" alt="">
                 </div>
