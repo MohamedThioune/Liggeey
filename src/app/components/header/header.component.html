@@ -57,7 +57,7 @@
             </svg>Categories</button>
             <div class="dropdown-menu" [class.show]="dropdownOpen">
                
-              <a class="dropdown-item" [routerLink]="['/detail-category',categori.cat_ID]"    *ngFor="let categori of categories" routerLinkActive="active_lien_navbar">
+              <a class="dropdown-item" [routerLink]="['/detail-category',categori.cat_name]"    *ngFor="let categori of categories" routerLinkActive="active_lien_navbar">
                 <div class="content_image">
                   <img [src]="categori.cat_image" alt="Image Of Categorie">
                 </div>
@@ -289,7 +289,7 @@
            </a>
             -->
             <div *ngFor="let categorie of categories">
-              <a class="dropdown-item"  href="/detail-category/{{categorie.cat_ID}}"  routerLinkActive="active_lien_navbar">
+              <a class="dropdown-item"  href="/detail-category/{{categorie.cat_name}}"  routerLinkActive="active_lien_navbar">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <g clip-path="url(#clip0_2910_3473)">
                     <path d="M21.375 3.15009C21.1171 2.98326 20.8222 2.88233 20.5162 2.85618C20.2102 2.83002 19.9024 2.87944 19.62 3.00009L10.365 6.64509C10.1459 6.73426 9.91156 6.78011 9.675 6.78009H3.75C3.25272 6.78009 2.77581 6.97763 2.42417 7.32926C2.07254 7.68089 1.875 8.1578 1.875 8.65509V8.80509H0V13.3051H1.875V13.5001C1.88675 13.9895 2.08947 14.455 2.43983 14.7969C2.7902 15.1389 3.26042 15.3302 3.75 15.3301L6 20.1001C6.15236 20.4213 6.39222 20.693 6.69204 20.8841C6.99187 21.0751 7.33949 21.1777 7.695 21.1801H8.64C9.13468 21.1761 9.60775 20.9768 9.95614 20.6256C10.3045 20.2744 10.5 19.7998 10.5 19.3051V15.5101L19.62 19.1551C19.8443 19.2444 20.0836 19.2902 20.325 19.2901C20.6996 19.284 21.0643 19.1694 21.375 18.9601C21.6217 18.7935 21.8252 18.5706 21.9687 18.3097C22.1121 18.0489 22.1914 17.7577 22.2 17.4601V4.69509C22.1986 4.38986 22.1228 4.08958 21.979 3.82034C21.8352 3.55109 21.6279 3.32101 21.375 3.15009ZM8.625 8.65509V13.5001H3.75V8.65509H8.625ZM8.625 19.3051H7.68L5.835 15.3301H8.625V19.3051ZM11.055 13.7251C10.8769 13.6341 10.6912 13.5588 10.5 13.5001V8.55009C10.6894 8.51101 10.875 8.45581 11.055 8.38509L20.325 4.69509V17.4151L11.055 13.7251ZM22.245 9.18009V12.9301C22.7423 12.9301 23.2192 12.7325 23.5708 12.3809C23.9225 12.0293 24.12 11.5524 24.12 11.0551C24.12 10.5578 23.9225 10.0809 23.5708 9.72926C23.2192 9.37763 22.7423 9.18009 22.245 9.18009Z" fill="#696969"/>

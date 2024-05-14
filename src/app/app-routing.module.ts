@@ -85,7 +85,7 @@ const routes: Routes = [
 
   { path: 'list-compagny', component: ListCompagnyComponent },
 
-  { path: 'detail-compagny/:id', component: DetailCompagnyComponent },
+  { path: 'detail-compagny/:post_slug', component: DetailCompagnyComponent },
 
   { path: 'dashboard-employer', component: DashboardEmployerComponent,canActivate: [AuthGuard] },
 
@@ -117,7 +117,7 @@ const routes: Routes = [
 
   { path: 'detail-job/:slug', component: DetailJobComponent },
 
-  { path: 'detail-category/:id', component: CategorieComponent },
+  { path: 'detail-category/:slug', component: CategorieComponent },
 
   { path: 'list-candidat', component: ListCandidatesComponent },
 
@@ -126,6 +126,7 @@ const routes: Routes = [
   { path: 'sidebar', component: SidebarCandidatComponent },
 
   { path: 'detail-candidat/:id', component: DetailCandidatComponent },
+  
 
   { path: 'job', component: JobOneComponent },
 
