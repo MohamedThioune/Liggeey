@@ -57,7 +57,7 @@
             </svg>Categories</button>
             <div class="dropdown-menu" [class.show]="dropdownOpen">
                
-              <a class="dropdown-item" (click)="send_id(categori.cat_slug)"     *ngFor="let categori of categories" routerLinkActive="active_lien_navbar">
+              <a class="dropdown-item" style="cursor: pointer;" (click)="send_id(categori.cat_slug)"     *ngFor="let categori of categories" routerLinkActive="active_lien_navbar">
                 <div class="content_image">
                   <img [src]="categori.cat_image" alt="Image Of Categorie">
                 </div>

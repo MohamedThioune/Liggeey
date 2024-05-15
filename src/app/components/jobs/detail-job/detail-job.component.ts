@@ -53,12 +53,10 @@ export class DetailJobComponent implements OnInit {
     }
 
     this.slug = this.route.snapshot.params['slug'];
-    console.log(this.slug);
     
     this.HomePageService.getDetailJob(this.slug).subscribe(data => {
         this.job = data;
         this.loading=false
-       console.log(this.job);
         
        //this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
        //this.job.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
@@ -234,8 +232,8 @@ calculateDurationLastJob(){
 
     }
 
-    openApplyModal(jobId: string) {
-      this.HomePageService.setSelectedJobId(jobId);
+    openApplyModal(jobId: string,jobSlug:string) {
+      this.HomePageService.setSelectedJobId(jobId,jobSlug);
       console.log(jobId);
 
       const modalElement = document.getElementById('modal-apply');
@@ -244,6 +242,12 @@ calculateDurationLastJob(){
       } else {
         console.error("Modal element not found");
       }
+    }
+    send_id(id: any) {
+      this.router.navigate(['/detail-job',id])
+        .then(() => {
+          window.location.reload();
+        });
     }
 
 }

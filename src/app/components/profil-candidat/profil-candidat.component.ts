@@ -61,7 +61,6 @@ export class ProfilCandidatComponent implements OnInit {
       this.instagram=this.candidat.social_network.instagram;
       this.selectedCountry=this.candidat.country
       this.form.patchValue(this.candidat);
-      console.log(this.candidat.country);
       this.loading = false;
     })
  
