@@ -306,7 +306,7 @@
                 <div class="d-flex align-items-center">
                   <div class="content-element content-localisation d-flex align-items-center">
                     <i class='fa fa-map-marker mr-1'></i>
-                    <p class="localisation-job mb-0">{{itemJob.country}} </p>
+                    <p class="localisation-job mb-0">{{itemJob.country ? itemJob.country :'Remote'}} </p>
                   </div>
                   <div class="content-element type-job d-flex align-items-center">
                     <i class='fa fa-clock-o mr-1'></i>
@@ -321,7 +321,7 @@
                 <p class="description-job">{{itemJob.description}}</p>   
 
                 <div class="content-footer-card align-items-center">
-                  <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(itemJob) || company" (click)="openApplyModal(itemJob.ID)" data-target="#modal-apply">
+                  <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(itemJob) || company" (click)="openApplyModal(itemJob.ID,itemJob.slug)" data-target="#modal-apply">
                     {{ canAppl(itemJob) ? 'Apply Now' : 'Already Applied' }}
                   </button>
                   <a [routerLink]="['/detail-job',itemJob.slug]" class="btn btn-view-job">View Details</a>

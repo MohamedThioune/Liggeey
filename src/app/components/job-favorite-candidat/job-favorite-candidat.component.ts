@@ -51,7 +51,6 @@ export class JobFavoriteCandidatComponent implements OnInit {
     this.HomePageService.getAlertCandidat( this.userConnect.id).subscribe(data=>{
       this.favorites=data  
       this.loading=false;
-      console.log(this.favorites);
       
       this.favorites.forEach((element:any) => {
         this.jobId = element.id 
@@ -64,13 +63,11 @@ export class JobFavoriteCandidatComponent implements OnInit {
   trashFavoritesJob(idJob:string) {
     if (confirm('Do you want to remove this job from your favorites?')) {
 
-    console.log(this.identifiant,idJob);
-    //return
     
     // Assurez-vous que this.userConnect et this.job sont définis
-    if (this.identifiant && idJob) {
+    if (this.userConnect && idJob) {
       // Utilisez le service pour postuler à l'emploi
-      this.HomePageService.trashFavoritesJob(this.identifiant, idJob)
+      this.HomePageService.trashFavoritesJob(this.userConnect.id, idJob)
         .subscribe(
           // Succès de la requête
           (response) => {
@@ -80,23 +77,27 @@ export class JobFavoriteCandidatComponent implements OnInit {
               
               typeR = "success";
               this.message= "Your job is deleted to favorites."
+              window.location.reload();
             }
             ToastNotification.open({
               type: typeR,
               message: this.message
+              
             });
+            
      
           },
           // Gestion des erreurs
           (error) => {
             ToastNotification.open({
               type: 'error',
-              message: error.error.message
+              message: error.error
             });
             
           }
         );
-    }} else {
+    }
+  } else {
       ToastNotification.open({
         type: 'error',
         message: "delete cancelled"
