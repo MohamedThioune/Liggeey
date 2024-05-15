@@ -69,8 +69,8 @@ export class JobOneComponent implements OnInit {
     }
     
   }
-  openApplyModal(jobId: string) {
-    this.homeService.setSelectedJobId(jobId);
+  openApplyModal(jobId: string,jobSlug :string) {
+    this.homeService.setSelectedJobId(jobId,jobSlug);
     const modalElement = document.getElementById('modal-apply');
     if (modalElement) {
       modalElement.click();

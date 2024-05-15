@@ -20,10 +20,14 @@ export class HomePageService {
   private baseUrl = 'https://Livelearn.nl';
   constructor(private http: HttpClient) { }
   private selectedJobIdSource = new Subject<string>();
-  selectedJobId$ = this.selectedJobIdSource.asObservable();
+  private selectedSlugSource = new Subject<string>();
 
-  setSelectedJobId(jobId: string) {
+  selectedJobId$ = this.selectedJobIdSource.asObservable();
+  selectedSlug$ = this.selectedSlugSource.asObservable();
+
+  setSelectedJobId(jobId: string, slug: string) {
     this.selectedJobIdSource.next(jobId);
+    this.selectedSlugSource.next(slug);
   }
   private candidatIdSource = new Subject<number>();
   candidatId$ = this.candidatIdSource.asObservable();
