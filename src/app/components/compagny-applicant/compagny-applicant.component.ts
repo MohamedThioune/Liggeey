@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compagny-applicant',
@@ -17,8 +18,13 @@ export class CompagnyApplicantComponent implements OnInit {
   loading:boolean=true;
   searchTitle:String="";
   identifiant:number | null = 0;
-  jobLoaded: boolean = false;
-  constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService) { }
+  userId: string;
+
+  constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService, private router: Router) {
+
+      this.userId = this.usagerService.getUserId();
+    
+   }
 
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];  
@@ -36,12 +42,18 @@ export class CompagnyApplicantComponent implements OnInit {
    this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
      this.applicant = data
      this.loading=false;
-    // this.jobLoaded = true
      console.log(this.applicant);
      
     })
  }
-
+ send_id(id: any) {
+  this.homeService.setCandidatId(id);
+  localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
+  this.router.navigate(['/detail-candidat'])
+    .then(() => {
+      window.location.reload();
+    });
+}
  toggleSidebar() {
    this.isSidebarVisible = !this.isSidebarVisible;
    this.showButton = false;
@@ -76,3 +88,4 @@ export class CompagnyApplicantComponent implements OnInit {
 
 
 }
+
