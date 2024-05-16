@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   applyJobs=false;
   job:any
   selectedJobId!: any;
+  selectedSlug!:any
    subscription!: Subscription;
 
   dropdownOpen: boolean = false;
@@ -53,7 +54,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   notification:any;
   isLoading = false;
   title:any;
-
+  slug:any
   constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
     this.isMobile = window.innerWidth < 768;
     this.dropdownOpen = false;
@@ -144,11 +145,14 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.subscription = this.homeService.selectedJobId$.subscribe(id => {
       this.selectedJobId = id;
     });
+    this.subscription = this.homeService.selectedSlug$.subscribe(slugJob => {
+      this.selectedSlug = slugJob;
+    });
+    
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
-      //  console.log(this.categories)
     })
-    this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
+    this.homeService.getDetailCategory( this.slug).subscribe(data=>{
       this.category = data
      // console.log(this.category);
 
@@ -180,7 +184,7 @@ if (cachedData && typeof cachedData === 'object' ) {
         // Récupérer les données depuis le service si elles ne sont pas en cache
         
   
-        this.homeService.getDetailCandidate(this.identifiant).subscribe(data => {
+        this.homeService.getDetailCandidate( this.id).subscribe(data => {
                     if (data ) {
                         
           
@@ -195,7 +199,6 @@ if (cachedData && typeof cachedData === 'object' ) {
                 });
     }
  
-     //console.log(this.selectedJobId,this.job);
    
 
   }
@@ -211,6 +214,12 @@ navigateToDetailCategory() {
   this.router.navigateByUrl(this.href);
 }
 
+send_id(id: any) {
+  this.router.navigate(['detail-category',id])
+    .then(() => {
+      window.location.reload();
+    });
+}
   switchToApplyBlock() {
     this.isLoading = true;
 
@@ -229,12 +238,6 @@ navigateToDetailCategory() {
         if (storedToken ) {
           const decodedToken = atob(storedToken);
           const userConnect = JSON.parse(decodedToken);
-        //  console.log(userObject);
-
-
-
-         // console.log(this.first_name, this.last_name);
-
           if(userConnect.acf.is_liggeey == "candidate"){
             this.candidate=true
             this.userObject=true
@@ -252,15 +255,13 @@ navigateToDetailCategory() {
             });
             localStorage.removeItem('access_token');
           }
-          console.log(this.selectedJobId);
           
           this.isLoading=false
           this.first_name = userConnect.first_name;
           this.last_name = userConnect.last_name;
           this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
           this.id=userConnect.id
-          console.log(userConnect,this.id,this.selectedJobId);
-          this.homeService.getDetailJob(this.selectedJobId).subscribe((data:any) => {
+          this.homeService.getDetailJob(this.selectedSlug).subscribe((data:any) => {
             this.job = data;
             this.title=this.job.title
   
@@ -282,11 +283,7 @@ navigateToDetailCategory() {
             this.work_as = parsedData.work_as;
 
           }
-        });
-        console.log(this.selectedJobId);
-        
-   
-
+        });        
         }else {
           console.log('noconnect');
           ToastNotification.open({
@@ -330,12 +327,12 @@ navigateToDetailCategory() {
       content:"Apply Job Successfully",
       receiver_id:this.id
     }
-    if (this.id && this.selectedJobId) {
+    
+    if (this.id && this.selectedJobId && this.selectedSlug) {
       if(this.candidate == true){
-        this.homeService.getDetailJob(this.selectedJobId).subscribe((data:any) => {
+        this.homeService.getDetailJob(this.selectedSlug).subscribe((data:any) => {
           this.job = data;
           this.title=this.job.title
-          console.log(this.job);
           
          // return
           if (this.canAppl(this.job)) {
@@ -345,14 +342,12 @@ navigateToDetailCategory() {
             .subscribe(
               // Succès de la requête
               (response) => {
-                console.log(response);
                 
             this.cdr.detectChanges(); // Force la détection des changements
 
             let typeR = "error"
             if (<any>response ) {
               typeR = "success";
-              console.log(this.job);
               this.message= "Your job application has been successfully submitted."
               this.homeService.sendNotification(this.id,this.notificationApplyJobs(this.id,this.job)).subscribe();
               this.homeService.sendNotification(response.chief.ID,this.notificationChiefApplyJobs(response.chief.ID,this.id,this.job,response.candidate.data)).subscribe();

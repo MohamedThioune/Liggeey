@@ -78,7 +78,7 @@
       <div class="candidat_featured">
         <div class="row" style="margin-bottom: 100px;" >
           <div class="col-md-4 item" *ngFor="let candidate of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }"  >
-              <div class="content_candidate" [routerLink]="['/detail-candidat',candidate.ID]">
+              <div class="content_candidate" (click)="send_id(candidate.ID)"   >
                 <div class="content_image_candidate">
                   <img [src]=candidate.image alt="Image Of Candidate">
                 </div>
@@ -96,14 +96,14 @@
                     <div class="tab_candidate w-100">
                       <div *ngFor="let skil of candidate.skills; let i=index">
                         <div *ngIf="i < 3">
-                          <p>{{ skil.name.slice(0, 12) }}</p>
+                          <p>{{ skil.name.slice(0, 10) }}</p>
                         </div>
                       </div>
                   </div>
                   </div>
 
 
-                  <a class="btn" [routerLink]="['/detail-candidat',candidate.ID]" routerLinkActive="active_lien_navbar">See Candidate</a>
+                  <a class="btn mb-4" (click)="send_id(candidate.ID)"   routerLinkActive="active_lien_navbar">See Candidate</a>
                 </div>
               </div>
           </div>

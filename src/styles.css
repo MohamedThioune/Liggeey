@@ -177,6 +177,10 @@ form h2 {
   font-size: 22px !important;
   margin-bottom: 10px !important;
   font-family: "Roboto-Medium";
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .card-emploie .content-element{
   padding: 5px 10px;

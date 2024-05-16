@@ -45,9 +45,7 @@ export class CategoryEmploiComponent implements OnInit {
         
       }
     }
-    
-    console.log(this.category);
-  
+      
   }
 
   canAppl(item: any): boolean {
@@ -58,8 +56,8 @@ export class CategoryEmploiComponent implements OnInit {
     return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
   }
   
-  openApplyModal(jobId: string) {
-    this.homeService.setSelectedJobId(jobId);    
+  openApplyModal(jobId: string,jobSlug:string) {
+    this.homeService.setSelectedJobId(jobId,jobSlug);    
     const modalElement = document.getElementById('modal-apply');
     if (modalElement) {
       modalElement.click();

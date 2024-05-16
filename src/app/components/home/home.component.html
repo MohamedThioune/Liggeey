@@ -83,9 +83,9 @@
       <div class="header_popular_job">
         <span>Most Popular Jobs</span>
         <p>Discover popular remote jobs across diverse industries on our platform.</p>
-        <div class="" *ngIf="!jobLoaded || currentCategories.length==0">
+        <div class="" *ngIf="currentCategories.length==0">
           <img class="mb-4 mt-4" src="../../../assets/img/empty-topic.png" alt="image team">
-          <p>No Content Overlaible at the moment</p>
+          <p>No content available at the moment</p>
         </div>
 
         <div class="tabs">
@@ -124,7 +124,7 @@
           </div>
           <div class="row">
             <div class="col-md-3" *ngFor="let categorie of categories">
-              <div class="content_item" [routerLink]="['/detail-category',this.categorie.cat_ID]">
+              <div class="content_item" [routerLink]="['/detail-category',this.categorie.cat_slug]">
                 <div class="item_left">
                   <img [src]="categorie.cat_image" alt="">
                 </div>
@@ -180,7 +180,7 @@
 
               Download on the<br> Apple Store
             </a>
-            <a class="btn play_store" href="https://play.google.com/store/apps/details? id=com.livelearn.livelearn_mobile_app&pli=1" target="_blank" routerLinkActive="active_lien_navbar">
+            <a class="btn play_store" href="https://play.google.com/store/apps/details?id=com.livelearn.livelearn_mobile_app" target="_blank" routerLinkActive="active_lien_navbar">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.431 17.424L23.8665 12.9885L9.54 4.93649C8.5905 4.42349 7.701 4.35149 6.921 4.91249L19.431 17.424ZM24.6225 22.617L29.2335 20.0235C30.1335 19.5195 30.627 18.8055 30.627 18.0135C30.627 17.223 30.1335 16.5075 29.235 16.0035L25.0605 13.659L20.361 18.357L24.6225 22.617ZM6.15 6.00299C6.054 6.29849 6 6.62849 6 6.98999V29.0475C6 29.619 6.126 30.111 6.354 30.5025L18.4995 18.3555L6.15 6.00299ZM19.431 19.2855L7.353 31.365C7.584 31.4535 7.833 31.5 8.0955 31.5C8.5635 31.5 9.051 31.362 9.5475 31.086L23.43 23.2905L19.431 19.2855Z" fill="white"/>
               </svg>
@@ -216,7 +216,7 @@
                 </div>
                 <p class="card-text">{{article[0].short_description  | slice:0:100}}
                 </p>
-                <a [routerLink]="['/detail-article',article[0].ID]">Read More</a>
+                <a [routerLink]="['/detail-article',article[0].post_slug]">Read More</a>
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@
                 <p class="title">{{article[1].post_title}}</p>
                 <p>{{article[1].short_description}}</p>
 
-              <p> <a [routerLink]="['/detail-article',article[1].ID]">Read More</a></p>
+              <p> <a [routerLink]="['/detail-article',article[1].post_slug]">Read More</a></p>
               </div>
             </div>
           </div>
@@ -244,7 +244,7 @@
                 <p class="title">{{article[2].post_title}}</p>
                 <p>{{article[2].short_description}}</p>
 
-                <p><a [routerLink]="['/detail-article',article[2].ID]">Read More</a></p>
+                <p><a [routerLink]="['/detail-article',article[2].post_slug]">Read More</a></p>
               </div>
             </div>
           </div>
@@ -272,7 +272,7 @@
 
       <div class="row candidat_featured_">
         <div class="col-md-3 item" *ngFor="let candidate of candidates" style="cursor: pointer;">
-            <div class="content_candidate"  [routerLink]="['/detail-candidat',candidate.ID]">
+            <div class="content_candidate" (click)="send_id(candidate.ID)">
               <div class="content_image_candidate">
                 <img [src]=candidate.image alt="Image Of Candidate">
               </div>
@@ -286,7 +286,7 @@
                   </svg>
                   <p>{{candidate.country}}</p>
                 </div>
-                <a class="btn" [routerLink]="['detail-candidat',candidate.ID]" routerLinkActive="active_lien_navbar">See Candidate</a>
+                <a class="btn" (click)="send_id(candidate.ID)" routerLinkActive="active_lien_navbar">See Candidate</a>
               </div>
             </div>
         </div>

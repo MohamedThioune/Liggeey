@@ -34,20 +34,17 @@ export class CategorieComponent implements OnInit {
   currentDate!: Date;
   sentDate: any;
   canApply=true;
-  jobLoaded: boolean = false;
-
+  slug:any
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];
+    this.slug = this.route.snapshot.params['slug'];
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-   // console.log(this.identifiant);
-    this.homeService.getDetailCategory( this.identifiant).subscribe(data=>{
+    this.homeService.getDetailCategory( this.slug).subscribe(data=>{
       this.category = data
       this.loading=false;
-      console.log(this.category.name);
-      console.log(this.userConnect);
 
       this.category.jobs.forEach((element:any) => {
          // Vérifier si l'utilisateur est contenu dans applied[] pour cet élément
@@ -78,9 +75,8 @@ export class CategorieComponent implements OnInit {
 
 
     })
-    this.homeService.getDetailCategory(this.identifiant).subscribe((data:any)=>{
+    this.homeService.getDetailCategory(this.slug).subscribe((data:any)=>{
       this.category = data
-    //  console.log(this.category);
 
       this.category.articles.forEach((element:any) => {
         element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -131,7 +127,7 @@ export class CategorieComponent implements OnInit {
 
         return titleMatch && placeMatch;
       });
-  
+
       return {
         jobs: filteredJobs,
         articles: filteredArticles,
@@ -195,9 +191,8 @@ export class CategorieComponent implements OnInit {
     }
   }
 
-  openApplyModal(jobId: string) {
-    this.homeService.setSelectedJobId(jobId);
-    //console.log(jobId);
+  openApplyModal(jobId: string,jobSlug:string) {
+    this.homeService.setSelectedJobId(jobId,jobSlug);
     const modalElement = document.getElementById('modal-apply');
     if (modalElement) {
       modalElement.click();

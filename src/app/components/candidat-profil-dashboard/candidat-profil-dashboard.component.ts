@@ -21,7 +21,7 @@ export class CandidatProfilDashboardComponent implements OnInit {
   };
   applyJobs=false
   job:any;
-  jobId!: number ; // Initialisé à null
+  jobId!: any ; // Initialisé à null
   canApprove=false
   notification:any;
   isLoading=false;

@@ -39,9 +39,19 @@ export class ProfilCandidatComponent implements OnInit {
   constructor(private fb: FormBuilder,private route : ActivatedRoute ,private router: Router,private HomePageService: HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
+       // Récupération du token depuis le local storage
+       const storedToken = this.usagerService.getToken();
+
+       if (storedToken) {
+         // Décodage de la base64
+         const decodedToken = atob(storedToken);
+   
+         // Parse du JSON pour obtenir l'objet original
+         this. userConnect = JSON.parse(decodedToken);
+       }
     this.initForm() ;
     this.identifiant = +this.route.snapshot.params['id'];
-    this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
+    this.HomePageService.getDetailCandidate( this.userConnect.id).subscribe(data=>{
       this.candidat=data
       
       //this.candidat.date_born=this.convertDate(this.candidat.date_born);
@@ -51,19 +61,9 @@ export class ProfilCandidatComponent implements OnInit {
       this.instagram=this.candidat.social_network.instagram;
       this.selectedCountry=this.candidat.country
       this.form.patchValue(this.candidat);
-      console.log(this.candidat.country);
       this.loading = false;
     })
-    // Récupération du token depuis le local storage
-    const storedToken = this.usagerService.getToken();
-
-    if (storedToken) {
-      // Décodage de la base64
-      const decodedToken = atob(storedToken);
-
-      // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
-    }
+ 
     this.HomePageService.getCountries().subscribe(
       (data: any[]) => {
         this.countries = data.map(country => country.name.common);
@@ -97,7 +97,7 @@ export class ProfilCandidatComponent implements OnInit {
             message: this.message
           });
           if (typeR == "success") {
-            this.router.navigate(['/dashboard-candidat',this.identifiant]);
+            this.router.navigate(['/dashboard-candidat']);
           }
         },
         // Gestion des erreurs

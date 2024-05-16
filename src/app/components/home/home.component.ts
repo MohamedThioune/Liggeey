@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -26,9 +27,8 @@ export class HomeComponent implements OnInit {
   compagny=false;
   searchTitle:string="";
   loading=true;
-  jobLoaded=false;
   selectedCandidateIndex = 0;
-  constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe,
+  constructor(private homeService:HomePageService,private usagerService: UsagerService,private datePipe: DatePipe, private router: Router
     ) {
 
   }
@@ -54,13 +54,12 @@ export class HomeComponent implements OnInit {
       this.categories=data.categories
       this.candidates=data.candidates
       this.article=data.artikels
+      
       this.currentCategories=data.jobs
       this.loading=false;
-      this.jobLoaded=true
       this.currentCategories.forEach(element => {
         element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       });
-      //console.log(this.currentCategories);
 
       this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -80,6 +79,15 @@ export class HomeComponent implements OnInit {
     })
 
 
+  }
+
+  send_id(id: any) {
+    this.homeService.setCandidatId(id);
+    localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
+    this.router.navigate(['/detail-candidat'])
+      .then(() => {
+        window.location.reload();
+      });
   }
   selectCandidate(index: number) {
     this.selectedCandidateIndex = index;

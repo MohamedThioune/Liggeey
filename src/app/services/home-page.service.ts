@@ -20,10 +20,19 @@ export class HomePageService {
   private baseUrl = 'https://Livelearn.nl';
   constructor(private http: HttpClient) { }
   private selectedJobIdSource = new Subject<string>();
-  selectedJobId$ = this.selectedJobIdSource.asObservable();
+  private selectedSlugSource = new Subject<string>();
 
-  setSelectedJobId(jobId: string) {
+  selectedJobId$ = this.selectedJobIdSource.asObservable();
+  selectedSlug$ = this.selectedSlugSource.asObservable();
+
+  setSelectedJobId(jobId: string, slug: string) {
     this.selectedJobIdSource.next(jobId);
+    this.selectedSlugSource.next(slug);
+  }
+  private candidatIdSource = new Subject<number>();
+  candidatId$ = this.candidatIdSource.asObservable();
+  setCandidatId(id: number) {
+    this.candidatIdSource.next(id);
   }
   // on va mettre les données en cache
   getInfoHomepage(): Observable<any> {
@@ -63,20 +72,21 @@ export class HomePageService {
   getAlertCandidat(id:number | null):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/favorites/?userApplyId=${id}`,{});
 }
-  getDetailArticle(id:number | null):Observable<any>{
-    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/artikel/detail/?id=${id}`,{});
+  getDetailArticle(id:string):Observable<any>{
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/artikel/detail/?slug=${id}`,{});
   }
   getAllCompagny():Observable<any>{
     return this.http.get(`${this.baseUrl}/wp-json/custom/v1/companies`,{  });
   }
-  getDetailCompagny(id:number | null):Observable<any>{
-    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/company/detail/?id=${id}`,{});
+  getDetailCompagny(id:string):Observable<any>{
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/company/detail/?slug=${id}`,{});
   }
 
 
   getAllJob(): Observable<any> {
     return this.http.get(`${this.baseUrl}/wp-json/custom/v1/jobs`,{});
-
+    //return this.http.get(`https://wp12.influid.nl/wp-json/custom/v1/jobs`,{});
+    
     // Vérifier si les données sont en cache
     if (this.cachedJobs.length > 0) {
       return of(this.cachedJobs);
@@ -101,11 +111,13 @@ export class HomePageService {
 
 
 
-  getDetailJob(id:number | null):Observable<any>{
-    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/?id=${id}`,{});
+  getDetailJob(id:string):Observable<any>{
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/?slug=${id}`,{});
+    //return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/job?slug=${id}`,{});
   }
-  getDetailCategory(id:number | null):Observable<any>{
-    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/category/detail/?id=${id}`,{});
+  
+  getDetailCategory(id:string):Observable<any>{
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/category/detail/?slug=${id}`,{});
   }
   applyJob(idUser: number,idJob:string): Observable<any> {
     const requestBody = {

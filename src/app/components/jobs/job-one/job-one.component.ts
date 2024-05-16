@@ -27,7 +27,6 @@ export class JobOneComponent implements OnInit {
   appliedJob=false
   candidate=false
   company=false
-  jobLoaded: boolean = false;
   constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) {}
   ngOnInit(): void {
         // Récupération du token depuis le local storage
@@ -52,7 +51,7 @@ export class JobOneComponent implements OnInit {
     this.homeService.getAllJob().subscribe((data:any)=>{
       this.jobs=data
       this.loading=false
-      this.jobLoaded=true
+      //this.jobLoaded=true
       this.jobs.forEach((element:any) => {
         element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       });
@@ -70,8 +69,8 @@ export class JobOneComponent implements OnInit {
     }
     
   }
-  openApplyModal(jobId: string) {
-    this.homeService.setSelectedJobId(jobId);
+  openApplyModal(jobId: string,jobSlug :string) {
+    this.homeService.setSelectedJobId(jobId,jobSlug);
     const modalElement = document.getElementById('modal-apply');
     if (modalElement) {
       modalElement.click();

@@ -21,25 +21,28 @@ export class DetailCandidatComponent implements OnInit {
     message: ''
   };
   applyJobs=false
-  jobId!: number ; // Initialisé à null
+  jobId!: any ; // Initialisé à null
   canApprove=false
-  jobLoaded: boolean = false;
   isBookmarked: boolean = false;
-
+  id:any
   constructor(private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService, private router: Router) { }
   
   ngOnInit(): void {
 
     const storedToken = this.usagerService.getToken();
-    this.identifiant = +this.route.snapshot.params['id'];
-
+    //this.identifiant = +this.route.snapshot.params['id'];
+    const storedId = localStorage.getItem('candidatId');
+    if (storedId) {
+        this.id = storedId;
+    }
+    
     if (storedToken) {
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
-      //console.log(this.userConnect);
+      console.log(this.userConnect,this.identifiant);
       
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
@@ -47,22 +50,21 @@ export class DetailCandidatComponent implements OnInit {
         this.compagny=true
       }
     }
+    // this.route.queryParams.subscribe(params => {
+    //   this.jobId = params['jobId'];
+    //     this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
+    //       if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
+    //         this.canApprove=!this.canApprove
+    //       }
+    //       console.log(this.jobId,job); 
 
-    this.route.queryParams.subscribe(params => {
-      this.jobId = params['jobId'];
-        this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
-          if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
-            this.canApprove=!this.canApprove
-          }
-          console.log(this.jobId,job); 
-
-        });
-    });
+    //     });
+    // });
   
-    this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
+    this.HomePageService.getDetailCandidate(this.id).subscribe(data=>{
       this.candidat=data;
       this.loading=false;
-      this.jobLoaded = true;          
+          
     })
     
   }
@@ -160,7 +162,7 @@ export class DetailCandidatComponent implements OnInit {
                 type: typeR,
                 message: this.message
               });
-              this.router.navigate(['/compagny-candidat',this.userConnect.id])
+              this.router.navigate(['/compagny-candidat'])
               // if (typeR == "success") {
               //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
               // }

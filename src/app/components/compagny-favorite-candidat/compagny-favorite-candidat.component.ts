@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compagny-favorite-candidat',
@@ -18,14 +19,13 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   applicants:any;
   searchTitle:string="";
   searchLocation:string="";
-  jobLoaded:boolean =false;
   message: any = {
     type: '',
     message: ''
   };
   identifiant:number | null = 0;
 
-  constructor(private route : ActivatedRoute,private usagerService:UsagerService,private homeService:HomePageService) { }
+  constructor(private route : ActivatedRoute,private usagerService:UsagerService,private homeService:HomePageService, private router: Router) { }
 
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];    
@@ -43,7 +43,6 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
     this.homeService.getCandidatCompagny(this.userConnect.id).subscribe((data:any)=>{
       this.loading=false;
       this.applicants=data 
-      this.jobLoaded=true     
      })
   }
   
@@ -54,6 +53,14 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   fermerSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = true;
+  }
+  send_id(id: any) {
+    this.homeService.setCandidatId(id);
+    localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
+    this.router.navigate(['/detail-candidat'])
+      .then(() => {
+        window.location.reload();
+      });
   }
   trashFavoritesCandidat(idCandidate:string) {
     if (confirm('Do you want to remove this candidate from your favorites?')) {

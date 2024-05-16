@@ -23,7 +23,6 @@ export class DashboardCandidatComponent implements OnInit {
   currentDate!: Date;
   sentDate: any;
   suggestions:any;
-  jobLoaded:boolean = false
 
   constructor(private usagerService:UsagerService,private homeService:HomePageService,private datePipe: DatePipe) { 
     this.isMobile = window.innerWidth < 768; 
@@ -42,7 +41,6 @@ export class DashboardCandidatComponent implements OnInit {
     this.homeService.homeCandidat(this.userConnect.id).subscribe((data:any)=>{
       this.homeCandidat=data
       this.suggestions=this.homeCandidat.suggestions
-      this.jobLoaded = true
       this.loading = false;
       this.suggestions.forEach((element:any) => {
         element.description =   element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
