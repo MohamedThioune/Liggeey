@@ -16,13 +16,13 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   loading:boolean=true;
   applicant:any;
   searchTitle:String="";
-  identifiant:number | null = 0;
+  identifiant:any;
 
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService,private router: Router) { }
 
   ngOnInit(): void {
     
-    this.identifiant = +this.route.snapshot.params['id'];  
+    this.identifiant = +this.route.snapshot.params['slug'];  
 
      // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
@@ -44,9 +44,9 @@ export class AppicantsAllCompagnyComponent implements OnInit {
 
 
   
-  goToDetailCandidate( idCandidat: number) {
-    this.router.navigate(['/detail-candidate', idCandidat]);
-  }
+  // goToDetailCandidate( idCandidat: number) {
+  //   this.router.navigate(['/detail-candidate', idCandidat]);
+  // }
   
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;

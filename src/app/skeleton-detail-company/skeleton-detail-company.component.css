@@ -1,0 +1,208 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.skeleton-container {
+    display: flex;
+    align-items: center;
+    height: 50vh;
+    background-color: #f0f0f0; /* Background color of the page */
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
+}
+.skeleton-infos {
+    display: flex;
+    margin-left: 1%;
+    flex-direction: column;
+    height: 150px;
+    width: 50%;
+    background-color: #ddd;
+}
+
+.smallbtt {
+    display: flex;
+    width: 100%;
+    margin-top: 05px;
+    justify-content: center;
+}
+.skeleton-element {
+    background-color: #ddd; /* Background color of the skeleton */
+    width: 80px;
+    border-radius: 20px;
+    margin-right: 10px;
+    height: 30px; /* Height of each skeleton element */
+    margin-top: 35px; /* Margin between skeleton elements */
+}
+.skeleton-image {
+    background-color: #ddd; /* Background color of the card */
+    width: 100px;
+    margin-left: 20px;
+    height: 100px; /* Height of the image skeleton */
+    border-radius: 5px; /* Border radius for top corners */
+}
+.skeleton-text {
+    background-color: rgb(155, 155, 155);
+    width: 40%; /* Width of the text skeleton */
+    height: 70px;
+    margin-top: 25px;
+}
+.skeleton-text-2 {
+    background-color:rgb(155, 155, 155);
+    width: 35%; /* Width of the text skeleton */
+    height: 40px;
+    margin-top: 35px;
+}
+.skeleton-button {
+    width: 33%;
+    margin-top: 20px;
+    margin-bottom: 10px;    
+    height: 80px; /* Height of the button skeleton */
+    border-radius: 10px; /* Border radius for rounded corners */
+    background-color: rgb(155, 155, 155);
+}
+
+.skeleton-sidebar {
+    width: 60%;
+    margin-left: 5%;
+    height: 50px; /* Hauteur de chaque élément du skeleton loader */
+    margin-bottom: 15px; /* Marge entre chaque élément */
+    background-color: #ddd; /* Couleur de fond du skeleton loader */
+    border-radius: 10px; /* Arrondi des coins */
+    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+}
+
+.sidebar {
+    padding: 20px;
+    width: 250px;
+    height: 100vh; /* Hauteur de la barre latérale */
+    position: fixed;
+    top: 100;
+    right: 0;
+    background-color: #f0f0f0; /* Couleur de fond de la barre latérale */
+    animation: slideIn 0.5s ease-in-out; 
+
+  }
+  .content-sidebar { 
+    margin-top: 30px;
+  }
+
+
+  .skeleton-container-2 {
+    display: flex;
+    justify-content: start;
+    height: fit-content;
+    background-color: #fff; /* Background color of the page */
+}
+
+.left-contain {
+    margin-top: 20vh;
+    width: 70%; /* Width of the card */
+    height: 100vh; /* Height of the card */
+    background-color: #f0f0f0; /* Background color of the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
+    border-radius: 8px; /* Border radius for rounded corners */
+   /* animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
+}
+.right-contain {
+    margin-top: 20vh;
+    margin-left: 2%;
+    width:  25%; /* Width of the card */
+    height: 100%; /* Height of the card */
+    background-color: #f0f0f0; /* Background color of the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
+    border-radius: 8px; /* Border radius for rounded corners */
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
+}
+.skeleton-sidebar {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    height: 30px; /* Hauteur de chaque élément du skeleton loader */
+    margin-bottom: 15px; /* Marge entre chaque élément */
+    background-color: #ddd; /* Couleur de fond du skeleton loader */
+    border-radius: 10px; /* Arrondi des coins */
+    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+}
+
+.skeleton-text-3 {
+    background-color: rgb(155, 155, 155);
+    width: 80%; /* Width of the text skeleton */
+    height: 40px;
+    margin-left: 1%;
+    margin-top: 10px;
+    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+
+}
+.skeleton-text-4 {
+    background-color: rgb(155, 155, 155);
+    width: 80%; /* Width of the text skeleton */
+    height: 70px;
+    margin-left: 1%;
+    margin-top: 50px;
+    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+
+}
+.skeleton-text-5 {
+    background-color: rgb(155, 155, 155);
+    width: 80%; /* Width of the text skeleton */
+    height: 70px;
+    margin-left: 1%;
+    margin-top: 80px;
+    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+
+}
+
+.btt {
+    display: flex;
+    width: 100%;
+    margin-top: 45px;
+    align-content: center;
+    justify-content: start;
+}
+.bttxt {
+    background-color: #ddd; /* Background color of the skeleton */
+    width: 80px;
+    border-radius: 20px;
+    margin-bottom: 5%;
+    margin-right: 10px;
+    height: 30px; /* Height of each skeleton element */
+    margin-top: 35px; /* Margin between skeleton elements */
+}
+.bttn {
+    background-color: #ddd; /* Background color of the skeleton */
+    width: 140px;
+    border-radius: 20px;
+    margin-bottom: 5%;
+    margin-right: 10px;
+    height: 40px; /* Height of each skeleton element */
+    margin-top: 35px; /* Margin between skeleton elements */
+}
+
+
+
+
+
+@keyframes pulse {
+    0% {
+      background-color: #ddd;
+    }
+    100% {
+      background-color: #c0c0c0;
+    }
+  }
+
+
+@keyframes loading {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}

@@ -51,13 +51,13 @@
       <div class="candidat_featured">
         <div class="row" style="margin-bottom: 100px;">
           <div class="col-md-3 item" style="cursor: pointer;" *ngFor="let employer of filteredJobs | paginate: { itemsPerPage: 12, currentPage: p }"  >
-              <div class="content_candidate" [routerLink]="['/detail-compagny',employer.ID]">
+              <div class="content_candidate" [routerLink]="['/detail-compagny',employer.post_slug]">
                 <!--
                 <button>
                     <i class="fa fa-bookmark"></i>
                 </button>
                 -->
-                <div class="content_image_candidate" [routerLink]="['/detail-compagny',employer.ID]">
+                <div class="content_image_candidate" [routerLink]="['/detail-compagny',employer.post_slug]">
                   <img [src]=employer.company_logo alt="Image Of Candidate">
                 </div>
                 <div class="info_candidat">

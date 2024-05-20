@@ -497,7 +497,7 @@
     cursor: pointer;
     flex: 1;
   }
-  
+
 
  /* section categories */
  .categories{
@@ -611,6 +611,14 @@
   margin-bottom: 0;
   font-weight: 500;
 }
+.rectangle_article .bg-image{
+  height: 302px;
+}
+.rectangle_article .bg-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
     .new_remote{
         display: flex;
@@ -677,6 +685,13 @@
     .banner{
         margin-top: 60px;
     }
+  .featured h2{
+    font-size: 25px;
+  }
+  .featured .browser{
+    margin-left: 35px;
+    margin-top: 3px;
+  }
     .description_banner.left  a{
       padding: 9px 15px 10px 15px;
       font-size: 13px;
@@ -750,7 +765,8 @@
       margin-bottom: 50px;
   }
   .featured{
-      display: flex;
+    display: flex;
+    flex-wrap: wrap;
   }
   .card_article{
       margin-bottom: 16px;

@@ -100,7 +100,9 @@ form h2 {
   margin-left: 5px;
 }
 
-
+p a {
+  color: #1ac4a2 !important;
+}
 .css-selector {
   background: linear-gradient(134deg, #eefaffd6, #ecfef642);
   background-size: 600% 600%;
@@ -177,6 +179,10 @@ form h2 {
   font-size: 22px !important;
   margin-bottom: 10px !important;
   font-family: "Roboto-Medium";
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 .card-emploie .content-element{
   padding: 5px 10px;
@@ -280,6 +286,11 @@ app-footers{
 .col-50{
   width: 48% !important;
 }
+.wp-block-heading {
+  font-size: 25px !important;
+  margin-bottom: 15px !important;
+  margin-top: 30px !important;
+}
 
 @media all and (min-width: 300px) and (max-width: 767px){
   .search_about .categorie {
@@ -328,9 +339,12 @@ app-footers{
   body {
     padding-top: 70px;
   }
+  .content-text {
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
 
 
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

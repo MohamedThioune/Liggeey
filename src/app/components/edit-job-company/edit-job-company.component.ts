@@ -26,6 +26,7 @@ export class EditJobCompanyComponent implements OnInit {
     type: '',
     message: ''
   };
+  slug:any
   langues: string[] = ['French', 'English', 'Dutch'];
   public Editor = ClassicEditor;
   public editorConfig = {
@@ -114,8 +115,8 @@ export class EditJobCompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm() ;
-    this.id = +this.route.snapshot.params['id'];
-    this.homeService.getDetailJob(this.id).subscribe(data => {
+    this.slug = +this.route.snapshot.params['id'];
+    this.homeService.getDetailJob(this.slug).subscribe(data => {
         this.job = data;
         this.loading=false;
         this.selectedSkills = this.job.skills.map((skill:any) => skill.term_id);
@@ -247,7 +248,7 @@ return allSkills;
           });
           if (typeR == "success") {
         //    alert("Job edited successfully.")
-            this.router.navigate(['/manage-compagny/'+this.userConnect.id]);
+            this.router.navigate(['/manage-compagny/']);
           }
         },
         // Gestion des erreurs

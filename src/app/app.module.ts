@@ -72,6 +72,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SkeletonHeaderLoaderComponent } from './skeleton-header-loader/skeleton-header-loader.component';
+import { SkeletonDetailCandidateComponent } from './skeleton-detail-candidate/skeleton-detail-candidate.component';
+import { SkeletonDetailBlogComponent } from './skeleton-detail-blog/skeleton-detail-blog.component';
+import { SkeletonDetailCategoryComponent } from './skeleton-detail-category/skeleton-detail-category.component';
+import { SkeletonDetailCompanyComponent } from './skeleton-detail-company/skeleton-detail-company.component';
+import { SkeletonAllJobsLoaderComponent } from './skeleton-all-jobs-loader/skeleton-all-jobs-loader.component';
+import { SkeletonHomePageLoaderComponent } from './skeleton-home-page-loader/skeleton-home-page-loader.component';
 
 @NgModule({
   declarations: [
@@ -139,6 +145,12 @@ import { SkeletonHeaderLoaderComponent } from './skeleton-header-loader/skeleton
     AppMobileComponent,
     SkeletonLoaderComponent,
     SkeletonHeaderLoaderComponent,
+    SkeletonDetailCandidateComponent,
+    SkeletonDetailBlogComponent,
+    SkeletonDetailCategoryComponent,
+    SkeletonDetailCompanyComponent,
+    SkeletonAllJobsLoaderComponent,
+    SkeletonHomePageLoaderComponent,
 
 
   ],

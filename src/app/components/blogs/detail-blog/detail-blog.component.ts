@@ -13,9 +13,10 @@ import { error } from 'jquery';
   styleUrls: ['./detail-blog.component.css']
 })
 export class DetailBlogComponent implements OnInit {
-  identifiant:number | null = 0;
+  slug:any;
   article:any;
   comments:any;
+  loading:boolean=true;
   message: any = {
     type: '',
     message: ''
@@ -42,10 +43,13 @@ export class DetailBlogComponent implements OnInit {
      this. userConnect = JSON.parse(decodedToken);
    }
     this.initForm()
-    this.identifiant = +this.route.snapshot.params['id'];  
+    this.slug = this.route.snapshot.params['slug'];  
       
-    this.HomePageService.getDetailArticle( this.identifiant).subscribe(data=>{
+    this.HomePageService.getDetailArticle( this.slug).subscribe(data=>{
       this.article=data;
+      console.log(this.article);
+      
+      this.loading=false;
       this.comments=this.article.comments;         
       this.article.title =   this.article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
     //  this.article.content = this.article.content.replace(/<[^>]*>|[#&]/g, '');

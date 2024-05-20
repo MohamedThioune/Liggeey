@@ -23,7 +23,6 @@ export class ManageJobCompagnyComponent implements OnInit {
     type: '',
     message: ''
   };
-  jobLoaded:boolean=false
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private router:Router) { }
 
   ngOnInit(): void {
@@ -37,10 +36,10 @@ export class ManageJobCompagnyComponent implements OnInit {
         // Parse du JSON pour obtenir l'objet original
         this. userConnect = JSON.parse(decodedToken);
       }
+      console.log(this.userConnect.id);
       
     this.homeService.manageJob(this.userConnect.id).subscribe((data:any)=>{
       this.openJobs=data;
-      this.jobLoaded=true;
       this.loading=false
       console.log(this.openJobs);
       
@@ -103,7 +102,7 @@ export class ManageJobCompagnyComponent implements OnInit {
       message: this.message
     });
     if (typeR == "success") {
-      this.router.navigate(['/manage-compagny/'+this.userConnect.id]);
+      this.router.navigate(['/manage-compagny/']);
     }
   },
   // Gestion des erreurs

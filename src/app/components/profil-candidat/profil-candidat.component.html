@@ -77,7 +77,7 @@
               </div>
 
               <div class="col-md-6 col-sm-6   p-2">
-                <label for="name"> Age
+                <label for="name"> AgeDate of birth
                   <p>*</p>
                 </label>
                 <div class="input-group">
@@ -151,7 +151,7 @@
                         </label>
                         <div class="input-group">
                             <input type="text" formControlName="facebook" name="facebook" class="form-control" id="facebook" placeholder="www.facebook.com/Invision"
-                             [value]="facebook" >
+                            [ngModel]="facebook" >
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6   p-2">
@@ -160,7 +160,7 @@
                         </label>
                         <div class="input-group">
                             <input type="text" name="twitter" formControlName="twitter" class="form-control" id="twitter" placeholder="www.twitter.sn"
-                            [value]="twitter"  >
+                            [ngModel]="twitter"  >
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6   p-2">
@@ -169,7 +169,7 @@
                       </label>
                       <div class="input-group">
                         <input type="text" name="linkedin" formControlName="linkedin" class="form-control" id="linkedin" placeholder="www.linkedin.com"
-                        [value]="linkedin"   >
+                        [ngModel]="linkedin"   >
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-6   p-2">
@@ -178,7 +178,7 @@
                       </label>
                       <div class="input-group">
                         <input type="text" name="instagram" formControlName="instagram" class="form-control" id="instagram" placeholder="www.instagram.com"
-                        [value]="instagram"   >
+                        [ngModel]="instagram">
                       </div>
                     </div>
                 </div>
@@ -195,8 +195,8 @@
                             <p>*</p>
                         </label>
                         <div class="input-group">
-                          <select class="form-control fieldSelect" id="country" formControlName="country" name="country">
-                            <option *ngFor="let country of countries">
+                          <select class="form-control fieldSelect" id="country" formControlName="country" name="country" [(ngModel)]="selectedCountry">
+                            <option *ngFor="let country of countries" [value]="country">
                               {{country}}
                             </option>
                           </select>

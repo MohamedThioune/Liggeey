@@ -1,4 +1,8 @@
 <app-header></app-header>
+<ng-template #skeleton>
+  <app-skeleton-all-jobs-loader></app-skeleton-all-jobs-loader>
+</ng-template>
+<div *ngIf="!loading; else skeleton">
 <section class="image_menu_about">
   <div class="container-fluid">
     <div class="color"></div>
@@ -287,8 +291,8 @@
           </div>
           <ul class="row">
             <li class="col-md-4" *ngFor="let itemJob of filteredJobs | paginate: { itemsPerPage: 9, currentPage: p }">
-              <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="!jobLoaded || filteredJobs.length==0">
-              <div class="card-emploie position-relative" *ngIf="jobLoaded">
+              <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf=" filteredJobs.length==0">
+              <div class="card-emploie position-relative" >
                 <div class="content-img">
                   <img [src]=itemJob.image alt="Job Image">
                 </div>
@@ -302,7 +306,7 @@
                 <div class="d-flex align-items-center">
                   <div class="content-element content-localisation d-flex align-items-center">
                     <i class='fa fa-map-marker mr-1'></i>
-                    <p class="localisation-job mb-0">{{itemJob.country}} </p>
+                    <p class="localisation-job mb-0">{{itemJob.country ? itemJob.country :'Remote'}} </p>
                   </div>
                   <div class="content-element type-job d-flex align-items-center">
                     <i class='fa fa-clock-o mr-1'></i>
@@ -317,10 +321,10 @@
                 <p class="description-job">{{itemJob.description}}</p>   
 
                 <div class="content-footer-card align-items-center">
-                  <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(itemJob) || company" (click)="openApplyModal(itemJob.ID)" data-target="#modal-apply">
+                  <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(itemJob) || company" (click)="openApplyModal(itemJob.ID,itemJob.slug)" data-target="#modal-apply">
                     {{ canAppl(itemJob) ? 'Apply Now' : 'Already Applied' }}
                   </button>
-                  <a [routerLink]="['/detail-job',itemJob.ID]" class="btn btn-view-job">View Details</a>
+                  <a [routerLink]="['/detail-job',itemJob.slug]" class="btn btn-view-job">View Details</a>
                 </div>
               </div>
             </li>
@@ -332,3 +336,4 @@
       </div>
     </div>
   </section>
+  </div>

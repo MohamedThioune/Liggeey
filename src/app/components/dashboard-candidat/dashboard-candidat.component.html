@@ -80,8 +80,8 @@
           <span>Suggestions</span>
         </div>
         <ul class="row">
-          <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="!jobLoaded">
-          <!--
+         <!-- <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf="!jobLoaded">
+          
           <li class="col-md-6" *ngFor="let item of suggestions | paginate: { itemsPerPage: 6, currentPage: p }">
             <div class="job_list_1">
               <div class="content_job_list_1">
@@ -152,7 +152,7 @@
           </li>
           -->
           <li class="col-md-4" *ngFor="let itemJob of suggestions | paginate: { itemsPerPage: 9, currentPage: p }">
-            <div class="card-emploie position-relative" *ngIf="jobLoaded">
+            <div class="card-emploie position-relative" >
               <div class="content-img">
                 <img [src]=itemJob.company.logo alt="Job Image">
               </div>
@@ -166,7 +166,7 @@
               <div class="d-flex align-items-center">
                 <div class="content-element content-localisation d-flex align-items-center">
                   <i class='fa fa-map-marker mr-1'></i>
-                  <p class="localisation-job mb-0">{{itemJob.company.country}} </p>
+                  <p class="localisation-job mb-0">{{itemJob.company.country ? itemJob.company.country :'Remote'}} </p>
                 </div>
                 <div class="content-element type-job d-flex align-items-center">
                   <i class='fa fa-clock-o mr-1'></i>
@@ -182,7 +182,7 @@
 
               <div class="content-footer-card align-items-center">
 
-                <a [routerLink]="['/detail-job',itemJob.ID]" class="btn btn-view-job">View Details</a>
+                <a [routerLink]="['/detail-job',itemJob.slug]" class="btn btn-view-job">View Details</a>
               </div>
             </div>
           </li>
@@ -261,7 +261,7 @@
         </div>
         <ul class="row" *ngIf="homeCandidat">
           <li class="col-md-6" *ngFor="let item of  homeCandidat.suggestions | paginate: { itemsPerPage: 6, currentPage: p }">
-            <div class="job_list_1" *ngIf="jobLoaded">
+            <div class="job_list_1">
               <div class="content_job_list_1">
                 <div class="logo">
                                     <span class="content_logo">
