@@ -365,7 +365,7 @@
     display: flex;
     justify-content: center;
 }
-.row .item:nth-child(n+5) {
+.row .item:nth-child(n+9) {
     display: none;
   }
 .header_featured a{

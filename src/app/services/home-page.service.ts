@@ -9,6 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { ProfilCompagny } from '../interfaces/profil-compagny';
 import { Notification } from '../interfaces/notification';
 import { Education } from '../interfaces/education';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -17,7 +18,7 @@ import { Education } from '../interfaces/education';
 export class HomePageService {
 
   private cachedJobs: any[] = [];
-  private baseUrl = 'https://Livelearn.nl';
+  private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   private selectedJobIdSource = new Subject<string>();
   private selectedSlugSource = new Subject<string>();
@@ -312,24 +313,45 @@ export class HomePageService {
   }
   deleteResume(userApplyId: number, index: number): Observable<any> {
     // Check if userApplyId is defined before converting to string
-    const userApplyIdString = userApplyId ? userApplyId.toString() : '';
+    const userApplyIdString = userApplyId ;
   
     let params = new HttpParams()
       .set('userApplyId', userApplyIdString) // Use the converted string or an empty string
       .set('field_type', "education")
       .set('index', index) // Convert index to string
-      .set('delete_education','2');
+      .set('delete_education','2')
+      .set('delete_award','3')
+      .set('delete_work','1');
   
     // const formData = new FormData();
-    // formData.append('userApplyId', userApplyIdString); // Use the converted string or an empty string
     // formData.append('delete_education', '2'); 
     // formData.append('delete_award', '3'); 
     // formData.append('delete_work', '1'); 
   
-    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`,  { params });
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`,   params );
   }
   
+  updateResume(idUser: string, education: Education): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      school:education.school,
+      degree:education.degree,
+      start_date:education.start_date,
+      end_date:education.end_date,
+      commentary:education.commentary,
+      job_title:education.job_title,
+      company:education.company,
+      work_start_date:education.work_start_date,
+      work_end_date:education.work_end_date,
+      work_description:education.work_description,
+      title:education.title,
+      description:education.description,
+      date:education.date
+    };
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/update`,requestBody,{});
 
+  }
+  
   profilJob(id: number): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/profil?userApplyId=${id}`,{});
   }

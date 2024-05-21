@@ -24,7 +24,7 @@ export class ResumeCandidatComponent implements OnInit {
   candidate=false;
   compagny=false;
   userConnect:any;
-
+  isUpdate = false;
   skillsTabs:any=[   
     {
       "cat_ID": 590,
@@ -255,7 +255,6 @@ export class ResumeCandidatComponent implements OnInit {
       this.selectedSkills.push(term_id);
       skillsArray.push(this.fb.control(term_id));
     }
-    console.log(this.selectedSkills);
     
   }
   
@@ -265,7 +264,6 @@ export class ResumeCandidatComponent implements OnInit {
     return skill ? skill.cat_name : '';
   }
   get skillsFormArray() {
-    console.log(this.form.get('skills'));
     
     return this.form.get('skills') as FormArray;
   }
@@ -277,7 +275,6 @@ export class ResumeCandidatComponent implements OnInit {
     if (this.form.valid) {
       // Vérifiez si au moins un des checkboxes est coché      
       if (this.form.value.skills.some((skill:boolean) => !!skill)) {
-        console.log(this.userConnect.id, this.form.value.skills);
         const selectedSkills = this.form.value.skills.filter((skill: boolean) => !!skill).join(',');
 
         // Utilisez le service pour postuler à l'emploi
@@ -303,7 +300,6 @@ export class ResumeCandidatComponent implements OnInit {
             },
             // Gestion des erreurs
             (error) => {
-              console.log(error.error);
 
               ToastNotification.open({
                 type: 'error',
@@ -321,7 +317,6 @@ export class ResumeCandidatComponent implements OnInit {
         this.isLoading = false;
       }
     } else {
-      console.log(this.message);
       
       // Le formulaire n'est pas valide, affichez un message d'erreur
       ToastNotification.open({
@@ -331,48 +326,54 @@ export class ResumeCandidatComponent implements OnInit {
       this.isLoading = false;
     }
   }
+
   onsubmitEducation() {
     this.isLoading = true;
   
       // Utilisez le service pour postuler à l'emploi
       console.log(this.userConnect.id,this.formEducation.value);
       if (this.validateFormEducation(this.formEducation.value)) {
-  
-      this.HomePageService.myResumeAdd(this.userConnect.id,this.formEducation.value)
-        .subscribe(
-          // Succès de la requête
-          (response) => {
-  
-            let typeR = "error"
-            if (<any>response ) {
-              typeR = "success";
-              this.message= "Education created successfully."
-              this.updateCachedData();
-              this.formEducation.reset();
+        if (this.isUpdate ) {          
+          this.updateEducation();
+        } else {
+     this.addEducation();
 
-            }
+      // this.HomePageService.myResumeAdd(this.userConnect.id,this.formEducation.value)
+      //   .subscribe(
+      //     // Succès de la requête
+      //     (response) => {
+  
+      //       let typeR = "error"
+      //       if (<any>response ) {
+      //         typeR = "success";
+      //         this.message= "Education created successfully."
+      //         this.updateCachedData();
+      //         this.formEducation.reset();
+
+      //       }
             
-            ToastNotification.open({
-              type: typeR,
-              message: this.message
-            });
-            this.isLoading = false;
-            if (typeR == "success") {
-              this.router.navigate(['/resume-candidat',this.userConnect.id]);
+      //       ToastNotification.open({
+      //         type: typeR,
+      //         message: this.message
+      //       });
+      //       this.isLoading = false;
+      //       if (typeR == "success") {
+      //         this.router.navigate(['/resume-candidat',this.userConnect.id]);
               
-            }
+      //       }
   
-          },
-          // Gestion des erreurs
-          (error) => {
-            ToastNotification.open({
-              type: 'error',
-              message: error.error.message
-            });
-            this.isLoading = false;
+      //     },
+      //     // Gestion des erreurs
+      //     (error) => {
+      //       ToastNotification.open({
+      //         type: 'error',
+      //         message: error.error.message
+      //       });
+      //       this.isLoading = false;
   
-          }
-        );
+      //     }
+      //   );
+      }
     } else {
       ToastNotification.open({
         type: 'error',
@@ -381,11 +382,88 @@ export class ResumeCandidatComponent implements OnInit {
       this.isLoading = false;
     }
   }
-  closeModal(){
-    this.router.navigate(['/resume-candidat',this.userConnect.id]);
+  openModal(action: string, education: any = null): void {
+    console.log(education);
+    //return
+    
+    if (action === 'add') {
+      this.modalTitle = 'Add Education';
+      this.isUpdate = false;
+      this.formEducation.reset();
+    } else if (action === 'update' && education) {
+      this.modalTitle = 'Update Education';
+      this.isUpdate = true;
+      this.formEducation.patchValue({
+        school: education.school,
+        degree: education.diploma,
+        start_date: education.year,
+        end_date: education.year,
+        commentary: education.description
+      });
+    }
+  }
+  addEducation(): void {
+    this.HomePageService.myResumeAdd(this.userConnect.id, this.formEducation.value)
+      .subscribe(
+        response => {
+          let typeR = "error";
+          if (response) {
+            typeR = "success";
+            this.message = "Education created successfully.";
+            this.updateCachedData();
+            this.formEducation.reset();
+          }
+          ToastNotification.open({
+            type: typeR,
+            message: this.message
+          });
+          this.isLoading = false;
+          if (typeR === "success") {
+            this.router.navigate(['/resume-candidat', this.userConnect.id]);
+          }
+        },
+        error => {
+          ToastNotification.open({
+            type: 'error',
+            message: error.error.message
+          });
+          this.isLoading = false;
+        }
+      );
+  }
 
-   this.modalVisible=false
-  };
+  updateEducation(): void {
+    console.log(this.formEducation.value);
+    this.HomePageService.updateResume(this.userConnect.id, this.formEducation.value)
+    
+      .subscribe(
+        response => {
+          let typeR = "error";
+          if (response) {
+            typeR = "success";
+            this.message = "Education updated successfully.";
+            this.updateCachedData();
+            this.formEducation.reset();
+          }
+          ToastNotification.open({
+            type: typeR,
+            message: this.message
+          });
+          this.isLoading = false;
+          if (typeR === "success") {
+            this.router.navigate(['/resume-candidat', this.userConnect.id]);
+          }
+        },
+        error => {
+          ToastNotification.open({
+            type: 'error',
+            message: error.error.message
+          });
+          this.isLoading = false;
+        }
+      );
+  }
+
 
   onsubmitExperience() {
     this.isLoading = true;
@@ -455,18 +533,18 @@ export class ResumeCandidatComponent implements OnInit {
       if (data) {
           this.candidat = data;
           localStorage.setItem('cachedCandidat', JSON.stringify(data));
+      
       } 
       else {  
             console.error('Received data is not in the expected format.');
       }
     });
-      console.log(this.candidat);
         
   }
   trashFavoritesJob(index:number) {
     if (confirm('Do you want to remove this education?')) {
 
-    console.log(this.userConnect,index);
+    //console.log(this.userConnect,index);
     //return
     
     // Assurez-vous que this.userConnect et this.job sont définis
@@ -478,7 +556,7 @@ export class ResumeCandidatComponent implements OnInit {
           (response) => {
             let typeR = "error"
             if (<any>response ) {
-              console.log(response);
+              //console.log(response);
               
               typeR = "success";
               this.message= response.message
@@ -504,30 +582,20 @@ export class ResumeCandidatComponent implements OnInit {
       });      
     }
   }
-  openModalForAdd(): void {
-    this.modalTitle = 'Add New Education';
-    (<any>$('#exampleModalEdu')).modal('show');
 
-    // Réinitialiser le formulaire si nécessaire
-  }
-
-  // openModalForEdit(): void {
-  //   this.modalTitle = 'Edit Education';
-  //   this.form.patchValue(this.candidat)
-  //   // Pré-remplir les champs du formulaire avec les données existantes pour la modification
+  // updateEducation(): void {
+  //   if (this.userConnect.id) {
+  //     this.HomePageService.updateResume(this.userConnect.id, this.formEducation.value).subscribe(
+  //       (response) => {
+  //         this.handleResponse(response, 'Education updated successfully.');
+  //       },
+  //       (error) => {
+  //         this.handleError(error);
+  //       }
+  //     );
+  //   }
   // }
-  openModalForEdit() {
-    // Pré-remplir le formulaire avec les données de l'élément à éditer
-    this.form.patchValue(this.candidat)
 
-  
-    // Définir le titre du modal
-    this.modalTitle = "Edit Education";
-  
-    // Ouvrir le modal
-    (<any>$('#exampleModalEdu')).modal('show');
-  }
-  
   // onSubmit() {
   //   this.isLoading = true;
   

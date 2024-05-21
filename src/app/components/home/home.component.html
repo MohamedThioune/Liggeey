@@ -122,8 +122,8 @@
             <h2>Category</h2>
             <p>Explore diverse job categories on our platform for a tailored remote career experience.</p>
           </div>
-          <div class="row">
-            <div class="col-md-3" *ngFor="let categorie of categories">
+          <div class="row candidat_featured_">
+            <div class="col-md-3 item" *ngFor="let categorie of categories">
               <div class="content_item" [routerLink]="['/detail-category',this.categorie.cat_slug]">
                 <div class="item_left">
                   <img [src]="categorie.cat_image" alt="">
@@ -136,6 +136,11 @@
               </div>
             </div>
         </div>
+        <span class="bullet" appPrev>
+          <svg xmlns="http://www.w3.org/2000/svg" width="110" height="9" viewBox="0 0 92 9" fill="none">
+            <circle *ngFor="let categorie of categories; let i = index" [attr.cx]="4 + i * 18" cy="4.15625" r="8" [attr.fill]="i === selectedCandidateIndex ? '#202124' : '#BFC8CB'" (click)="selectCandidate(i)"/>
+          </svg>
+        </span>
       </div>
   </div>
 </section>
@@ -305,7 +310,7 @@
       -->
       <span class="bullet" appPrev>
         <svg xmlns="http://www.w3.org/2000/svg" width="110" height="9" viewBox="0 0 92 9" fill="none">
-          <circle *ngFor="let candidate of candidates; let i = index" [attr.cx]="4 + i * 18" cy="4.15625" r="4" [attr.fill]="i === selectedCandidateIndex ? '#202124' : '#BFC8CB'" (click)="selectCandidate(i)"/>
+          <circle *ngFor="let candidate of candidates; let i = index" [attr.cx]="4 + i * 18" cy="4.15625" r="8" [attr.fill]="i === selectedCandidateIndex ? '#202124' : '#BFC8CB'" (click)="selectCandidate(i)"/>
         </svg>
       </span>
   

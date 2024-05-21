@@ -5,6 +5,7 @@ import { User } from '../interfaces/user';
 import { Usager } from '../interfaces/usager';
 import { UserResetPassword } from '../interfaces/user-reset-password';
 import { UsagerCompany } from '../interfaces/usager-company';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import { UsagerCompany } from '../interfaces/usager-company';
 })
 export class UsagerService {
 
-  private baseUrl = 'https://Livelearn.nl';
+  private baseUrl = environment.baseUrl;
   private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   user$: Observable<any> = this.userSubject.asObservable();
   private userId!: string;
@@ -101,7 +102,7 @@ export class UsagerService {
       code : userResetPassword.code,
 
     }
-    return this.http.post<UserResetPassword>(`${this.baseUrl}/bdpwr/v1/set-password`,bodyRequestPassword, { headers });
+    return this.http.post<UserResetPassword>(`${this.baseUrl}/bdpwr/v1/set-password`,{bodyRequestPassword}, { headers });
   }
 
   setUserId(userId: string): void {
