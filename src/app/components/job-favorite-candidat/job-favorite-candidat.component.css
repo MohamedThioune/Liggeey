@@ -195,6 +195,9 @@ table tbody .sub-detail-title{
 }
 
  @media all and (min-width: 300px) and (max-width: 767px){
+  tr td button {
+    margin-bottom: 10px !important;
+  }
 .logo{
     margin: 32px 11px 74px 12px;
     border-radius: 8px;

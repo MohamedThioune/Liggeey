@@ -47,7 +47,6 @@ export class DashboardCandidatComponent implements OnInit {
       });
 
      })
- 
   }
 
   ngOnChanges() {
@@ -76,6 +75,35 @@ export class DashboardCandidatComponent implements OnInit {
     }
   }
 
+  updateCachedData(){
+    const cachedCandidat = localStorage.getItem('cachedCandidat');
+    if (cachedCandidat) {
+        let cachedData;
+        try {
+            cachedData = JSON.parse(cachedCandidat);
+        } catch (error) {
+            console.error('Error parsing cached data:', error);
+        }
+
+        if (cachedData) {
+            this.homeCandidat = cachedData;
+        } else {
+            console.error('Cached data is not in the expected format.');
+        }
+
+    }
+    this.homeService.getDetailCandidate(this.userConnect.id).subscribe(data => {
+      if (data) {
+          this.homeCandidat = data;
+          localStorage.setItem('cachedCandidat', JSON.stringify(data));
+      
+      } 
+      else {  
+            console.error('Received data is not in the expected format.');
+      }
+    });
+        
+  }
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     console.log(this.isSidebarVisible);

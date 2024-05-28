@@ -45,10 +45,10 @@ export class ResetPasswordComponent implements OnInit {
         }
       },
       error =>{
-        console.log(error);
+        console.log(error.error);
         ToastNotification.open({
           type: 'error',
-          message: "Identifiant ou mot de passe incorrects: assurez vous de les avoir bien saisis "
+          message: error.error 
         });
        
       });
@@ -84,7 +84,8 @@ export class ResetPasswordComponent implements OnInit {
       console.log(error);
       ToastNotification.open({
         type: 'error',
-        message: error.error.message
+        message:"error"
+        //message: error.error.message
       });
      
     })

@@ -101,7 +101,7 @@ const routes: Routes = [
 
   { path: 'favorite', component: JobFavoriteCandidatComponent },
 
-  { path: 'alert-candidat/:id', component: JobAlertCandidatComponent ,canActivate: [AuthGuard]},
+  { path: 'alert-candidat', component: JobAlertCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'course', component: CourseCandidatComponent },
 

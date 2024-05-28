@@ -157,7 +157,6 @@ export class HeaderComponent implements OnInit,OnDestroy {
      // console.log(this.category);
 
     })
-
     const cachedCandidat = localStorage.getItem('cachedCandidat');
     if (cachedCandidat) {
         let cachedData;
@@ -166,12 +165,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
         } catch (error) {
             console.error('Error parsing cached data:', error);
         }
-
-        
-        
-
-     
-if (cachedData && typeof cachedData === 'object' ) {
+    if (cachedData && typeof cachedData === 'object' ) {
             this.candidat = { work_as: cachedData.work_as,first_name: cachedData.first_name,last_name:cachedData.last_name,avatar:cachedData.image};
             this.first_name=this.candidat.first_name,
             this.last_name=this.candidat.last_name,
@@ -180,7 +174,8 @@ if (cachedData && typeof cachedData === 'object' ) {
         } else {
             console.error('Cached data does not contain work_as property or is not in the expected format.');
         }
-    } else {
+    } 
+    else {
         // Récupérer les données depuis le service si elles ne sont pas en cache
         
   
@@ -201,6 +196,36 @@ if (cachedData && typeof cachedData === 'object' ) {
  
    
 
+  }
+ 
+  updateCachedData(){
+    const cachedCandidat = localStorage.getItem('cachedCandidat');
+    if (cachedCandidat) {
+        let cachedData;
+        try {
+            cachedData = JSON.parse(cachedCandidat);
+        } catch (error) {
+            console.error('Error parsing cached data:', error);
+        }
+
+        if (cachedData) {
+            this.candidat = cachedData;
+        } else {
+            console.error('Cached data is not in the expected format.');
+        }
+
+    }
+    this.homeService.getDetailCandidate(this.userConnect.id).subscribe(data => {
+      if (data) {
+          this.candidat = data;
+          localStorage.setItem('cachedCandidat', JSON.stringify(data));
+      
+      } 
+      else {  
+            console.error('Received data is not in the expected format.');
+      }
+    });
+        
   }
   navigateWithoutReload(event: Event) {
     event.preventDefault(); // Empêche le comportement par défaut du navigateur
@@ -460,7 +485,6 @@ send_id(id: any) {
   deconnexion(){
     this.usagerService.deconnexion()
     localStorage.removeItem('cachedCandidat');
-
   }
 
 

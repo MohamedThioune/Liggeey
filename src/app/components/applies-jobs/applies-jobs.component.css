@@ -223,4 +223,9 @@ thead th {
 .all_info{
     margin-bottom: 25px;
 }
+.map_menu{
+  width: 100%;
+  box-shadow: 1px 3px 1px 3px rgba(64, 79, 104, 0.05);
+  overflow-y: scroll;
+}
  }
