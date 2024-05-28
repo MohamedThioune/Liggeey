@@ -22,7 +22,6 @@ export class HomePageService {
   constructor(private http: HttpClient) { }
   private selectedJobIdSource = new Subject<string>();
   private selectedSlugSource = new Subject<string>();
-
   selectedJobId$ = this.selectedJobIdSource.asObservable();
   selectedSlug$ = this.selectedSlugSource.asObservable();
 
@@ -147,6 +146,63 @@ export class HomePageService {
       adress:candidat.adress
     };
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/profil/update`,requestBody);
+  }
+  getImageUser(file: File):Observable<any>{
+    const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + base64Credentials,
+   
+
+    });
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(`${this.baseUrl}/wp-json/wp/v2/media/`,formData, { headers });
+}
+
+uploadFile(imageId:string ): Observable<any> {
+  const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + base64Credentials,
+      'Content-Type': 'application/json;charset=UTF-8',
+
+    });
+  const requestBody = {
+    acf:{
+      "profile_img":imageId
+    },
+  };
+  return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/me`,requestBody,{headers});
+}
+uploadFileCv(imageId:string ): Observable<any> {
+  const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + base64Credentials,
+      'Content-Type': 'application/json;charset=UTF-8',
+
+    });
+  const requestBody = {
+    acf:{
+      "cv":imageId
+    },
+  };
+  return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/me`,requestBody,{headers});
+}
+getFileCv(cvId:string ): Observable<any>{
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json;charset=UTF-8',
+
+  });
+  return this.http.get(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { responseType: 'json' });
+}
+getPDF(cvId : string): Observable<Blob>
+  {
+      const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+      const headers = new HttpHeaders({ 'Content-Type': 'application/json',
+      "Authorization": 'Basic ' + base64Credentials, responseType : 'blob'});
+
+      return this.http.get<Blob>(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { headers : headers,responseType : 
+        'blob' as 'json'});
+
   }
 
   updateProfileCompany(idUser:string,profil:ProfilCompagny): Observable<any> {
@@ -318,21 +374,30 @@ export class HomePageService {
     let params = new HttpParams()
       .set('userApplyId', userApplyIdString) // Use the converted string or an empty string
       .set('field_type', "education")
-      .set('index', index) // Convert index to string
-      .set('delete_education','2')
-      .set('delete_award','3')
-      .set('delete_work','1');
+      .set('delete_education',index)
+    //   .set('delete_award',index)
+       //.set('delete_work',index);
   
-    // const formData = new FormData();
-    // formData.append('delete_education', '2'); 
-    // formData.append('delete_award', '3'); 
-    // formData.append('delete_work', '1'); 
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`,   params );
+  }
+  deleteResumeExperience(userApplyId: number, index: number): Observable<any> {
+    // Check if userApplyId is defined before converting to string
+    const userApplyIdString = userApplyId ;
+  
+    let params = new HttpParams()
+      .set('userApplyId', userApplyIdString) // Use the converted string or an empty string
+      .set('field_type', "work")
+      //.set('delete_education',index)
+    //   .set('delete_award',index)
+       .set('delete_work',index);
   
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`,   params );
   }
   
-  updateResume(idUser: string, education: Education): Observable<any> {
+  updateResume(idUser: string, education: Education,index:number): Observable<any> {
     const requestBody = {
+      education_index:index,
+      work_index:index,
       userApplyId:idUser,
       school:education.school,
       degree:education.degree,

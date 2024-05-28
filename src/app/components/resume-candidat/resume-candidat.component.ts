@@ -7,6 +7,9 @@ import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { Education } from 'src/app/interfaces/education';
 import { Experience } from 'src/app/interfaces/experience';
 import * as $ from 'jquery';
+import { switchMap } from 'rxjs/operators';
+import {DomSanitizer,SafeResourceUrl, SafeUrl} from '@angular/platform-browser'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-resume-candidat',
@@ -25,6 +28,8 @@ export class ResumeCandidatComponent implements OnInit {
   compagny=false;
   userConnect:any;
   isUpdate = false;
+  educationIndex!: number ; // Propriété pour stocker l'index
+  experienceIndex!: number ; // Propriété pour stocker l'index
   skillsTabs:any=[   
     {
       "cat_ID": 590,
@@ -107,9 +112,13 @@ export class ResumeCandidatComponent implements OnInit {
   modalTitle: string = 'Add New Education';
   isAddEducation!: boolean;
   modalVisible = true;
-
-
-  constructor(private fb: FormBuilder,private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService,private router: Router) {
+  selectedFile: File | null = null;
+  imageId:any
+  uploadedImage: string | null = null;
+  cvUrl!:string
+  safeCvUrl: SafeResourceUrl | null = null;  // Initialisé avec une valeur par défaut
+    //safeCvUrl!:SafeUrl 
+  constructor(private fb: FormBuilder,private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService,private router: Router,private sanitizer: DomSanitizer,private http: HttpClient) {
     this.isMobile = window.innerWidth < 768;
 
    }
@@ -127,6 +136,7 @@ export class ResumeCandidatComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
     this.initForm();
     this.initFormEducation();
     this.initFormExperience();
@@ -139,13 +149,53 @@ export class ResumeCandidatComponent implements OnInit {
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
+ console.log(this. userConnect );
  
     this.updateCachedData();
-    }
+    }   
+
 
     this.myForm = this.fb.group({
       file: ['', [Validators.required, Validators.email]],
     });
+  }
+  
+  downloadPDF(cvId:string) {
+    this.HomePageService.getFileCv(cvId).subscribe(
+      (response) => {
+        console.log('JSON response:', response);
+
+        // Utilisez l'URL du PDF à partir de la réponse JSON
+        const pdfUrl = response.source_url;
+        if (pdfUrl) {
+          console.log('PDF URL:', pdfUrl);
+          this.loadPdfFromUrl(pdfUrl);
+        } else {
+          console.error('Le JSON ne contient pas l\'URL du fichier PDF.');
+        }
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des informations du fichier PDF:', error);
+      }
+    );
+  }
+
+  loadPdfFromUrl(url: string): void {
+    this.http.get(url, { responseType: 'blob' }).subscribe(
+      (blob: Blob) => {
+        if (blob.type === 'application/pdf') {
+          const cvUrl = window.URL.createObjectURL(blob);
+          this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cvUrl);
+          //this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.location.protocol + '//' + window.location.host + cvUrl);
+          console.log('Safe URL:', this.safeCvUrl);
+        } else {
+          console.error('Le fichier téléchargé n\'est pas un PDF. Type:', blob.type);
+        }
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération du fichier PDF :', error);
+      }
+    );
   }
 
   toggleSidebar() {
@@ -258,7 +308,6 @@ export class ResumeCandidatComponent implements OnInit {
     
   }
   
-
   getSkillName(skillId: any): string {
     const skill = this.skillsTabs.find((skill:any) => skill.cat_ID === skillId);
     return skill ? skill.cat_name : '';
@@ -331,10 +380,10 @@ export class ResumeCandidatComponent implements OnInit {
     this.isLoading = true;
   
       // Utilisez le service pour postuler à l'emploi
-      console.log(this.userConnect.id,this.formEducation.value);
+      console.log(this.educationIndex);
       if (this.validateFormEducation(this.formEducation.value)) {
         if (this.isUpdate ) {          
-          this.updateEducation();
+          this.updateEducation(this.educationIndex);
         } else {
      this.addEducation();
 
@@ -382,10 +431,8 @@ export class ResumeCandidatComponent implements OnInit {
       this.isLoading = false;
     }
   }
-  openModal(action: string, education: any = null): void {
-    console.log(education);
-    //return
-    
+  openModal(action: string, education: any = null,index:any =null): void {
+    console.log(education,index,this.formEducation);
     if (action === 'add') {
       this.modalTitle = 'Add Education';
       this.isUpdate = false;
@@ -393,12 +440,32 @@ export class ResumeCandidatComponent implements OnInit {
     } else if (action === 'update' && education) {
       this.modalTitle = 'Update Education';
       this.isUpdate = true;
+      this.educationIndex=index
       this.formEducation.patchValue({
         school: education.school,
         degree: education.diploma,
         start_date: education.year,
         end_date: education.year,
         commentary: education.description
+      });
+    }
+  }
+  openModalExperience(action: string, education: any = null,index:any =null): void {
+    console.log(action,education,index,this.formExperience.value);
+    if (action === 'add') {
+      this.modalTitle = 'Add Work && Experience';
+      this.isUpdate = false;
+      this.formExperience.reset();
+    } else if (action === 'update' && education) {
+      this.modalTitle = 'Update Work  && Experience';
+      this.isUpdate = true;
+      this.experienceIndex=index
+      this.formExperience.patchValue({
+        job_title: education.job,
+        company: education.company,
+        work_start_date: education.year,
+        work_end_date: education.year,
+        work_description: education.description
       });
     }
   }
@@ -431,10 +498,9 @@ export class ResumeCandidatComponent implements OnInit {
         }
       );
   }
-
-  updateEducation(): void {
+  updateEducation(index:number): void {
     console.log(this.formEducation.value);
-    this.HomePageService.updateResume(this.userConnect.id, this.formEducation.value)
+    this.HomePageService.updateResume(this.userConnect.id, this.formEducation.value,index)
     
       .subscribe(
         response => {
@@ -463,9 +529,165 @@ export class ResumeCandidatComponent implements OnInit {
         }
       );
   }
+  uploadFile() {
+    if (this.selectedFile) {
+      this.HomePageService.getImageUser(this.selectedFile).pipe(
+        switchMap((imageResponse: any) => {
+          const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
+          //console.log(imageId);
+          return this.HomePageService.uploadFileCv(imageId);
+        }),
+        switchMap((response: any) => {
+          console.log(response);
+          this.userConnect = response;
+          
+          this.updateCachedDataa(response.id);
+  
+          // Use switchMap to chain the call to downloadPDF
+          return this.HomePageService.getFileCv(response.acf.cv);
+        }),
+        switchMap((fileResponse: any) => {
+          const pdfUrl = fileResponse.source_url;
+          if (pdfUrl) {
+            //yconsole.log('PDF URL:', pdfUrl);
+            return this.http.get(pdfUrl, { responseType: 'blob' });
+          } else {
+            throw new Error('Le JSON ne contient pas l\'URL du fichier PDF.');
+          }
+        })
+      ).subscribe(
+        (blob: Blob) => {
+          if (blob.type === 'application/pdf') {
+            const cvUrl = window.URL.createObjectURL(blob);
+            this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cvUrl);
+            console.log('Safe URL:', this.safeCvUrl);
+            //this.router.navigate(['/dashboard-candidat']);
+          } else {
+            console.error('Le fichier téléchargé n\'est pas un PDF. Type:', blob.type);
+          }
+        },
+        (error) => {
+          console.error('Erreur lors de la récupération du fichier PDF:', error);
+          ToastNotification.open({
+            type: 'error',
+            message: error.message
+          });
+        }
+      );
+    } else {   
+      // if (this.candidat.cv) {
+      //   this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.candidat.cv);
+      //   console.log( this.safeCvUrl);
+        
+      // }  
+      if (this.userConnect.acf && this.userConnect.acf.cv) {
+        this.downloadPDF(this.userConnect.acf.cv);
+      } 
+      
+      //this.router.navigate(['/dashboard-candidat']);
+    }
+  }
+  
+  // uploadFile() {
+  //   if (this.selectedFile) {
+  //     this.HomePageService.getImageUser(this.selectedFile).pipe(
+  //       switchMap((imageResponse: any) => {
+  //         const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
+  //         console.log( imageId);
 
+  //         return this.HomePageService.uploadFileCv(imageId);
+          
+  //       })
+  //     ).subscribe(
+  //       (response: any) => {
+  //         console.log(response);
+          
+  //         //this.userConnect=response;
+  //         this.updateCachedDataa(response.id)
 
+  //         this.downloadPDF(response.acf.cv);
+  //         this.router.navigate(['/dashboard-candidat']);
+  //       },
+  //       (error) => {
+  //         console.error('Error uploading image:', error);
+  //         ToastNotification.open({
+  //           type: 'error',
+  //           message: error.message
+  //         });
+  //       }
+  //     );
+  //   } else {
+  //     this.router.navigate(['/dashboard-candidat']);
+  //   }
+  // }
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.selectedFile = file; // Stocke le fichier sélectionné
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e: any) => {
+        this.uploadedImage = e.target.result;
+        this.form.get('file')?.setValue(file); // Met à jour le contrôle du formulaire
+      };
+    }
+  }
   onsubmitExperience() {
+    this.isLoading = true;
+  
+      // Utilisez le service pour postuler à l'emploi
+      console.log(this.experienceIndex);
+      if (this.validateFormExperience(this.formExperience.value)) {
+        if (this.isUpdate ) {          
+          this.updateExperience(this.experienceIndex);
+        } else {
+     this.addExperience();
+
+      // this.HomePageService.myResumeAdd(this.userConnect.id,this.formEducation.value)
+      //   .subscribe(
+      //     // Succès de la requête
+      //     (response) => {
+  
+      //       let typeR = "error"
+      //       if (<any>response ) {
+      //         typeR = "success";
+      //         this.message= "Education created successfully."
+      //         this.updateCachedData();
+      //         this.formEducation.reset();
+
+      //       }
+            
+      //       ToastNotification.open({
+      //         type: typeR,
+      //         message: this.message
+      //       });
+      //       this.isLoading = false;
+      //       if (typeR == "success") {
+      //         this.router.navigate(['/resume-candidat',this.userConnect.id]);
+              
+      //       }
+  
+      //     },
+      //     // Gestion des erreurs
+      //     (error) => {
+      //       ToastNotification.open({
+      //         type: 'error',
+      //         message: error.error.message
+      //       });
+      //       this.isLoading = false;
+  
+      //     }
+      //   );
+      }
+    } else {
+      ToastNotification.open({
+        type: 'error',
+        message: this.message.message
+      });
+      this.isLoading = false;
+    }
+  }
+  addExperience() {
     this.isLoading = true;
   
       // Utilisez le service pour postuler à l'emploi
@@ -512,6 +734,44 @@ export class ResumeCandidatComponent implements OnInit {
       this.isLoading = false;
     }
   }
+  updateExperience(index:number): void {
+    console.log(this.formExperience.value);
+    this.HomePageService.updateResume(this.userConnect.id, this.formExperience.value,index)
+    
+      .subscribe(
+        response => {
+          let typeR = "error";
+          if (response) {
+            typeR = "success";
+            this.message = "Education updated successfully.";
+            this.updateCachedData();
+            this.formExperience.reset();
+          }
+          if(response.error){
+            ToastNotification.open({
+              type: typeR,
+              message:response.error
+            }); 
+          }else if(response.message){
+            ToastNotification.open({
+              type: typeR,
+              message:response.message
+            }); 
+          }    
+          this.isLoading = false;
+          if (typeR === "success") {
+            this.router.navigate(['/resume-candidat', this.userConnect.id]);
+          }
+        },
+        error => {
+          ToastNotification.open({
+            type: 'error',
+            message: error.error.message
+          });
+          this.isLoading = false;
+        }
+      );
+  }
   updateCachedData(){
     const cachedCandidat = localStorage.getItem('cachedCandidat');
     if (cachedCandidat) {
@@ -539,42 +799,131 @@ export class ResumeCandidatComponent implements OnInit {
             console.error('Received data is not in the expected format.');
       }
     });
-        
+    const cvPath = this.userConnect.acf.cv; // Assurez-vous que `this.userConnect` est correctement défini
+
+    this.uploadFile()
+
+
   }
-  trashFavoritesJob(index:number) {
-    if (confirm('Do you want to remove this education?')) {
+  updateCachedDataa(id:number) {
+    const cachedCandidat = localStorage.getItem('cachedCandidat');
+    if (cachedCandidat) {
+      let cachedData;
+      try {
+        cachedData = JSON.parse(cachedCandidat);
+      } catch (error) {
+        console.error('Error parsing cached data:', error);
+      }
+  
+      if (cachedData) {
+        this.candidat = cachedData;
+      } else {
+        console.error('Cached data is not in the expected format.');
+      }
+    }
+  
+    if (id) {
+      this.HomePageService.getDetailCandidate(id).subscribe(
+        (data) => {
+          if (data) {
+            this.candidat = data;
+            localStorage.setItem('cachedCandidat', JSON.stringify(data));
+          } else {
+            console.error('Received data is not in the expected format.');
+          }
+        },
+        (error) => {
+          console.error('Error fetching candidate details:', error);
+        }
+      );
+    } else {
+      console.error('User is not connected or user ID is missing.');
+    }
+    //window.location.reload();
+  
+  }
+  trashFavoritesJob(index:number,option:string) {
+    console.log(option,index);
+    
+    if (confirm('Do you want to remove this resume?')) {
 
     //console.log(this.userConnect,index);
     //return
     
     // Assurez-vous que this.userConnect et this.job sont définis
-    if (this. userConnect) {
-      // Utilisez le service pour postuler à l'emploi
-      this.HomePageService.deleteResume(this.userConnect.id, index)
-        .subscribe(
-          // Succès de la requête
-          (response) => {
-            let typeR = "error"
-            if (<any>response ) {
-              //console.log(response);
+    if (this. userConnect && option) {
+        if(option=='education'){
+          this.HomePageService.deleteResume(this.userConnect.id, index)
+          .subscribe(
+            // Succès de la requête
+            (response) => {
+              let typeR = "error"
+              if (<any>response ) {
+                //console.log(response);
+                
+                typeR = "success";
+                this.message= response.message
+                this.updateCachedData();
+              }
+              console.log(response);
               
-              typeR = "success";
-              this.message= response.message
-              this.updateCachedData();
+              if(response.error){
+                ToastNotification.open({
+                  type: typeR,
+                  message:response.error
+                }); 
+              }else if(response.message){
+                ToastNotification.open({
+                  type: typeR,
+                  message:response.message
+                }); 
+              }    
+            },
+            // Gestion des erreurs
+            (error) => {
+              ToastNotification.open({
+                type: 'error',
+                message: error.error
+              });            
             }
-            ToastNotification.open({
-              type: typeR,
-              message:response.error
-            });     
-          },
-          // Gestion des erreurs
-          (error) => {
-            ToastNotification.open({
-              type: 'error',
-              message: error.error
-            });            
-          }
-        );
+          );
+        }else if(option=='work'){
+          this.HomePageService.deleteResumeExperience(this.userConnect.id, index)
+          .subscribe(
+            // Succès de la requête
+            (response) => {
+              let typeR = "error"
+              if (<any>response ) {
+                //console.log(response);
+                
+                typeR = "success";
+                this.message= response.message
+                this.updateCachedData();
+              }
+              console.log(response);
+              if(response.error){
+                ToastNotification.open({
+                  type: typeR,
+                  message:response.error
+                }); 
+              }else if(response.message){
+                ToastNotification.open({
+                  type: typeR,
+                  message:response.message
+                }); 
+              }
+                
+            },
+            // Gestion des erreurs
+            (error) => {
+              ToastNotification.open({
+                type: 'error',
+                message: error.error
+              });            
+            }
+          );
+        }
+    
     }} else {
       ToastNotification.open({
         type: 'error',

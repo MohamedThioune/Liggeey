@@ -5,7 +5,8 @@ import { HomePageService } from 'src/app/services/home-page.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { UsagerService } from 'src/app/services/usager.service';
 import { Candidat } from 'src/app/interfaces/candidate';
-
+import { Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-profil-candidat',
   templateUrl: './profil-candidat.component.html',
@@ -13,7 +14,8 @@ import { Candidat } from 'src/app/interfaces/candidate';
 })
 export class ProfilCandidatComponent implements OnInit {
 
-  uploadedImage: any; // Pour stocker l'image téléchargée
+  //uploadedImage: any; // Pour stocker l'image téléchargée
+  uploadedImage: string | null = null;
   p: number = 1;  someArrayOfThings!:any
   isSidebarVisible = true;
   countries:any;
@@ -35,6 +37,11 @@ export class ProfilCandidatComponent implements OnInit {
   };
   userConnect:any;
   selectedCountry:any;
+  image:any
+  selectedFile: File | null = null;
+  imageId!: any ;
+  idImage:any
+  subscription!: Subscription;
 
   constructor(private fb: FormBuilder,private route : ActivatedRoute ,private router: Router,private HomePageService: HomePageService,private usagerService: UsagerService) { }
 
@@ -49,11 +56,15 @@ export class ProfilCandidatComponent implements OnInit {
          // Parse du JSON pour obtenir l'objet original
          this. userConnect = JSON.parse(decodedToken);
        }
+       console.log(this.userConnect);
+       
+      
+
+       
     this.initForm() ;
     this.identifiant = +this.route.snapshot.params['id'];
     this.HomePageService.getDetailCandidate( this.userConnect.id).subscribe(data=>{
-      this.candidat=data
-      
+      this.candidat=data      
       //this.candidat.date_born=this.convertDate(this.candidat.date_born);
       this.facebook=this.candidat.social_network.facebook;
       this.twitter=this.candidat.social_network.twitter;
@@ -62,6 +73,7 @@ export class ProfilCandidatComponent implements OnInit {
       this.selectedCountry=this.candidat.country
       this.form.patchValue(this.candidat);
       this.loading = false;
+      
     })
  
     this.HomePageService.getCountries().subscribe(
@@ -72,16 +84,44 @@ export class ProfilCandidatComponent implements OnInit {
         console.log('Erreur lors de la récupération des pays:', error);
       });
   
-
   }
+
+
+  uploadFile() {
+    if (this.selectedFile) {
+      this.HomePageService.getImageUser(this.selectedFile).pipe(
+        switchMap((imageResponse: any) => {
+          const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
+          this.imageId = imageId;          
+          return this.HomePageService.uploadFile(imageId);
+        })
+      ).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.updateCachedData(response.id)
+
+          this.router.navigate(['/dashboard-candidat']);
+        },
+        (error) => {
+          console.error('Error uploading image:', error);
+          ToastNotification.open({
+            type: 'error',
+            message: error.error.message
+          });
+        }
+      );
+    } else {
+      this.router.navigate(['/dashboard-candidat']);
+    }
+  }
+
+  
+
   onSubmit(idUser:string) {
     // Utilisez le service pour postuler à l'emploi    
-    //console.log(idUser,this.form.value);
-    
     if (this.form.value!="") {
-      const newDate= this.swapDayAndMonth(this.form.value.date_born);
+      const newDate= this.form.value.date_born;
       this.form.value.date_born = newDate;
-      console.log(this.form.value);
       this.HomePageService.updateProfile(idUser,this.form.value)
       .subscribe(
         // Succès de la requête
@@ -90,6 +130,7 @@ export class ProfilCandidatComponent implements OnInit {
           let typeR = "error"
           if (<any>response ) {
             typeR = "success";
+            this.uploadFile();
             this.message= "Profile updated successfully."
           }
           ToastNotification.open({
@@ -116,28 +157,57 @@ export class ProfilCandidatComponent implements OnInit {
     //this.router.navigate(['/login']);
   }
 }
+updateCachedData(id:number) {
+  const cachedCandidat = localStorage.getItem('cachedCandidat');
+  if (cachedCandidat) {
+    let cachedData;
+    try {
+      cachedData = JSON.parse(cachedCandidat);
+    } catch (error) {
+      console.error('Error parsing cached data:', error);
+    }
 
+    if (cachedData) {
+      this.candidat = cachedData;
+    } else {
+      console.error('Cached data is not in the expected format.');
+    }
+  }
 
+  if (id) {
+    this.HomePageService.getDetailCandidate(id).subscribe(
+      (data) => {
+        if (data) {
+          this.candidat = data;
+          localStorage.setItem('cachedCandidat', JSON.stringify(data));
+        } else {
+          console.error('Received data is not in the expected format.');
+        }
+      },
+      (error) => {
+        console.error('Error fetching candidate details:', error);
+      }
+    );
+  } else {
+    console.error('User is not connected or user ID is missing.');
+  }
+  //window.location.reload();
 
-  // updateProfile(){
-  //     this.form_profil.value=
-  //   this.HomePageService.updateProfile().subscribe(data=>{
-
-  //   })
-  // }
-
-
+}
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {
+      this.selectedFile = file; // Stocke le fichier sélectionné
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (e: any) => {
         this.uploadedImage = e.target.result;
+        this.form.get('image')?.setValue(file); // Met à jour le contrôle du formulaire
       };
     }
   }
+
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
@@ -169,7 +239,8 @@ export class ProfilCandidatComponent implements OnInit {
       language: ['', Validators.required],
       name: ['', Validators.required],
       username: ['', Validators.required],
-      adress: ['', Validators.required]
+      adress: ['', Validators.required],
+      image: ['', Validators.required]
 
     });
   }

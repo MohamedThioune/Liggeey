@@ -362,6 +362,13 @@ label p {
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
 }
+.bottom-element.form-group-cv{
+  border-radius: 8px;
+  background: #FFF;
+  border: 1px solid #dae1e7;
+  margin-top: 35px;
+  padding: 30px 30px 70px 30px;
+}
 .modalEdu .modal-dialog {
   position: relative;
   max-width: 700px;
