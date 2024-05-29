@@ -6,7 +6,7 @@
       <div class="map_menu">
         <h1 class="title-page">My Resume</h1>
         <div class="applicants">
-          <form [formGroup]="myForm">
+          <form [formGroup]="myForm" (ngSubmit)="uploadFile()">
             <div class="card-body">
               
               <div class="bottom-element form-group-cv">
@@ -14,13 +14,15 @@
                   Select Your CV
                 </label>
                 <div class="input-group">
-                    <embed *ngIf="safeCvUrl" [src]="safeCvUrl"  type="application/pdf" width="100%" height="500px" />
+                    <iframe *ngIf="safeCvUrl" [src]="safeCvUrl"  type="application/pdf" width="100%" height="500px" ></iframe>
 
                     <!--  <embed src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />-->
                     <input type="file" (change)="onFileSelected($event)"   accept="application/pdf"  name="file" class="form-control" id="file" placeholder="My CV"
-                         formControlName="file">
+                    formControlName="file" required/>  
+                         
                 </div>
-                <button style="float: right;" (click)="uploadFile()" class="btn btn-submit-resume">Upload CV</button>
+                <button style="float: right;" type="submit" [disabled]="isLoading || myForm.invalid"  class="btn btn-submit-resume">Upload CV</button>
+                <div *ngIf="isLoading" class="loader">Loading...</div>
 
               </div>
 

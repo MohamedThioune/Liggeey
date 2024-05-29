@@ -154,9 +154,8 @@ export class ResumeCandidatComponent implements OnInit {
     this.updateCachedData();
     }   
 
-
     this.myForm = this.fb.group({
-      file: ['', [Validators.required, Validators.email]],
+      file: ['', Validators.required]
     });
   }
   
@@ -531,11 +530,13 @@ export class ResumeCandidatComponent implements OnInit {
   }
   uploadFile() {
     if (this.selectedFile) {
+      this.isLoading = true;
       this.HomePageService.getImageUser(this.selectedFile).pipe(
         switchMap((imageResponse: any) => {
           const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
           console.log(imageId,this.userConnect.id);
           return this.HomePageService.uploadFileCv(imageId,this.userConnect.id);
+
         }),
         switchMap((response: any) => {
           console.log(response);
@@ -560,6 +561,8 @@ export class ResumeCandidatComponent implements OnInit {
           if (blob.type === 'application/pdf') {
             const cvUrl = window.URL.createObjectURL(blob);
             this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cvUrl);
+            this.isLoading=false
+
             console.log('Safe URL:', this.safeCvUrl);
             //this.router.navigate(['/dashboard-candidat']);
           } else {
@@ -575,11 +578,15 @@ export class ResumeCandidatComponent implements OnInit {
         }
       );
     } else {   
-      // if (this.candidat.cv) {
-      //   this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.candidat.cv);
-      //   console.log( this.safeCvUrl);
+//       if (this.candidat.cv) {
+//         this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.candidat.cv +"?igu=1" );
+//         //this.safeCvUrl = this.candidat.cv + "&output=embed";
+// //window.location.replace(url);
+//         //this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.location.protocol + '//' + window.location.host + this.candidat.cv);
+
+//         console.log( this.safeCvUrl);
         
-      // }  
+//       }  
       if (this.userConnect.acf && this.userConnect.acf.cv) {
         this.downloadPDF(this.userConnect.acf.cv);
       } 
@@ -622,13 +629,15 @@ export class ResumeCandidatComponent implements OnInit {
   // }
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
-    if (file) {
+    if (event.target.files && file) {
       this.selectedFile = file; // Stocke le fichier sélectionné
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (e: any) => {
         this.uploadedImage = e.target.result;
-        this.form.get('file')?.setValue(file); // Met à jour le contrôle du formulaire
+        //this.form.controls['file']?.setValue(file ? file.name : ''); // Met à jour le contrôle du formulaire
+
+      this.form.get('file')?.setValue(file ); // Met à jour le contrôle du formulaire
       };
     }
   }

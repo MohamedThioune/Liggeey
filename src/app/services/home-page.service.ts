@@ -189,10 +189,12 @@ uploadFileCv(imageId:string,userId: string ): Observable<any> {
 }
 getFileCv(cvId:string ): Observable<any>{
   const headers = new HttpHeaders({
+    'Access-Control-Allow-Origin': '*',
+
     'Content-Type': 'application/json;charset=UTF-8',
 
   });
-  return this.http.get(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { responseType: 'json' });
+  return this.http.get(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { headers });
 }
 getPDF(cvId : string): Observable<Blob>
   {
