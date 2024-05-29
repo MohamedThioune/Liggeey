@@ -93,7 +93,7 @@ export class ProfilCandidatComponent implements OnInit {
         switchMap((imageResponse: any) => {
           const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
           this.imageId = imageId;          
-          return this.HomePageService.uploadFile(imageId);
+          return this.HomePageService.uploadFile(imageId,this.userConnect.id);
         })
       ).subscribe(
         (response: any) => {

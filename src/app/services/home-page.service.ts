@@ -159,7 +159,7 @@ export class HomePageService {
     return this.http.post(`${this.baseUrl}/wp-json/wp/v2/media/`,formData, { headers });
 }
 
-uploadFile(imageId:string ): Observable<any> {
+uploadFile(imageId:string ,userId: string): Observable<any> {
   const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + base64Credentials,
@@ -171,9 +171,9 @@ uploadFile(imageId:string ): Observable<any> {
       "profile_img":imageId
     },
   };
-  return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/me`,requestBody,{headers});
+  return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/${userId}`,requestBody,{headers});
 }
-uploadFileCv(imageId:string ): Observable<any> {
+uploadFileCv(imageId:string,userId: string ): Observable<any> {
   const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + base64Credentials,
@@ -185,7 +185,7 @@ uploadFileCv(imageId:string ): Observable<any> {
       "cv":imageId
     },
   };
-  return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/me`,requestBody,{headers});
+  return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/${userId}`,requestBody,{headers});
 }
 getFileCv(cvId:string ): Observable<any>{
   const headers = new HttpHeaders({

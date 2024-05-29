@@ -534,8 +534,8 @@ export class ResumeCandidatComponent implements OnInit {
       this.HomePageService.getImageUser(this.selectedFile).pipe(
         switchMap((imageResponse: any) => {
           const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
-          //console.log(imageId);
-          return this.HomePageService.uploadFileCv(imageId);
+          console.log(imageId,this.userConnect.id);
+          return this.HomePageService.uploadFileCv(imageId,this.userConnect.id);
         }),
         switchMap((response: any) => {
           console.log(response);
