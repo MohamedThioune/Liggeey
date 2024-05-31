@@ -575,18 +575,17 @@ export class ResumeCandidatComponent implements OnInit {
             type: 'error',
             message: error.message
           });
+          this.isLoading = false;
+
         }
       );
     } else {   
-//       if (this.candidat.cv) {
-//         this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.candidat.cv +"?igu=1" );
-//         //this.safeCvUrl = this.candidat.cv + "&output=embed";
-// //window.location.replace(url);
-//         //this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.location.protocol + '//' + window.location.host + this.candidat.cv);
+      // if (this.candidat.cv) {
+      //   this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.candidat.cv);
 
-//         console.log( this.safeCvUrl);
+      //   console.log( this.safeCvUrl);
         
-//       }  
+      // }  
       if (this.userConnect.acf && this.userConnect.acf.cv) {
         this.downloadPDF(this.userConnect.acf.cv);
       } 
@@ -595,6 +594,10 @@ export class ResumeCandidatComponent implements OnInit {
     }
   }
   
+  getGoogleDrivePreviewUrl(url: string): string {
+    const fileId = url.split('/d/')[1]?.split('/')[0];
+    return `https://drive.google.com/file/d/${fileId}/preview`;
+  }
   // uploadFile() {
   //   if (this.selectedFile) {
   //     this.HomePageService.getImageUser(this.selectedFile).pipe(
