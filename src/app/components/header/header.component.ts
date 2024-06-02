@@ -485,6 +485,7 @@ send_id(id: any) {
   deconnexion(){
     this.usagerService.deconnexion()
     localStorage.removeItem('cachedCandidat');
+    localStorage.removeItem('cvId');
   }
 
 

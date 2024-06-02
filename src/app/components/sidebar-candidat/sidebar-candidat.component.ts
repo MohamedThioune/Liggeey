@@ -33,6 +33,7 @@ export class SidebarCandidatComponent implements OnInit {
   deconnexion(){
     this.usagerService.deconnexion()
     localStorage.removeItem('cachedCandidat');
+    localStorage.removeItem('cvId');
 
   }
   constructor( private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }

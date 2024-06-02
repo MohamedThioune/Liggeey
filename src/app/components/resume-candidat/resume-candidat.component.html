@@ -14,8 +14,11 @@
                   Select Your CV
                 </label>
                 <div class="input-group">
-                    <iframe *ngIf="safeCvUrl" [src]="safeCvUrl" type="application/pdf" width="100%" height="500px" ></iframe>
-                    <!--  <embed src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />-->
+
+                   <iframe *ngIf="safeCvUrl" [src]="safeCvUrl" type="application/pdf" width="100%" height="500px" ></iframe>
+                    
+                      <!-- <embed src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />
+                    <a *ngIf="safeCvUrl" [href]="safeCvUrl" target="_blank">Télécharger CV</a>-->
                     <input type="file" (change)="onFileSelected($event)"   accept="application/pdf"  name="file" class="form-control" id="file" placeholder="My CV"
                     formControlName="file" required/>  
                          
