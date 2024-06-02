@@ -63,7 +63,10 @@ export class HomePageService {
 
   }
   getDetailCandidate(id:number | null):Observable<any>{
-      return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/detail/?id=${id}`,{});
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+      return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/detail/?id=${id}`,{headers});
   }
 
   getNotificationCandidat(id:number | null):Observable<any>{

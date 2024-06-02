@@ -30,6 +30,7 @@ export class ResumeCandidatComponent implements OnInit {
   isUpdate = false;
   educationIndex!: number ; // Propriété pour stocker l'index
   experienceIndex!: number ; // Propriété pour stocker l'index
+  idCv:any
   skillsTabs:any=[   
     {
       "cat_ID": 590,
@@ -528,6 +529,7 @@ export class ResumeCandidatComponent implements OnInit {
         }
       );
   }
+  
   uploadFile() {
     if (this.selectedFile) {
       this.isLoading = true;
@@ -539,12 +541,10 @@ export class ResumeCandidatComponent implements OnInit {
 
         }),
         switchMap((response: any) => {
-          console.log(response);
-          this.userConnect = response;
-          
-          this.updateCachedDataa(response.id);
-  
           // Use switchMap to chain the call to downloadPDF
+
+        const cvId = response.acf.cv;
+        localStorage.setItem('cvId', cvId); // Stocker le cvId dans localStorage
           return this.HomePageService.getFileCv(response.acf.cv);
         }),
         switchMap((fileResponse: any) => {
@@ -561,6 +561,8 @@ export class ResumeCandidatComponent implements OnInit {
           if (blob.type === 'application/pdf') {
             const cvUrl = window.URL.createObjectURL(blob);
             this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cvUrl);
+           // window.location.reload()
+
             this.isLoading=false
 
             console.log('Safe URL:', this.safeCvUrl);
@@ -575,19 +577,19 @@ export class ResumeCandidatComponent implements OnInit {
             type: 'error',
             message: error.message
           });
+          this.isLoading = false;
+
         }
       );
     } else {   
-//       if (this.candidat.cv) {
-//         this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.candidat.cv +"?igu=1" );
-//         //this.safeCvUrl = this.candidat.cv + "&output=embed";
-// //window.location.replace(url);
-//         //this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.location.protocol + '//' + window.location.host + this.candidat.cv);
-
-//         console.log( this.safeCvUrl);
+      const storedCvId = localStorage.getItem('cvId');
+      if (storedCvId) {
+        this.downloadPDF(storedCvId);
+      }
+      else if (this.userConnect.acf && this.userConnect.acf.cv) {
         
-//       }  
-      if (this.userConnect.acf && this.userConnect.acf.cv) {
+        console.log(this.userConnect,this.userConnect.acf.cv);
+        
         this.downloadPDF(this.userConnect.acf.cv);
       } 
       
@@ -595,6 +597,10 @@ export class ResumeCandidatComponent implements OnInit {
     }
   }
   
+  getGoogleDrivePreviewUrl(url: string): string {
+    const fileId = url.split('/d/')[1]?.split('/')[0];
+    return `https://drive.google.com/file/d/${fileId}/preview`;
+  }
   // uploadFile() {
   //   if (this.selectedFile) {
   //     this.HomePageService.getImageUser(this.selectedFile).pipe(
