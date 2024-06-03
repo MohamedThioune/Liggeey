@@ -55,6 +55,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
   isLoading = false;
   title:any;
   slug:any
+  notifications:any
+  myNotif:any
   constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
     this.isMobile = window.innerWidth < 768;
     this.dropdownOpen = false;
@@ -156,6 +158,13 @@ export class HeaderComponent implements OnInit,OnDestroy {
       this.category = data
      // console.log(this.category);
 
+    })
+    this.homeService.getNotificationCandidat( this.userConnect.id).subscribe(data=>{
+      //this.notifications = data.filter((notification:any) => notification.userApplyId === this.identifiant);
+      this.notifications=data;
+      this.myNotif=this.notifications.length
+      console.log(this.notifications.length);
+      
     })
     const cachedCandidat = localStorage.getItem('cachedCandidat');
     if (cachedCandidat) {
