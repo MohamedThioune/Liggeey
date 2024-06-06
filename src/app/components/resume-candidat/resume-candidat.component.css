@@ -73,6 +73,11 @@ label p {
   font-size: 18px;
   font-weight: 600;
 }
+
+.fa-file {
+  font-size: 50px; /* Ajuster la taille de l'icône si nécessaire */
+  color: #333; /* Ajuster la couleur de l'icône si nécessaire */
+}
 .bottom-element {
   margin-bottom: 40px;
 }

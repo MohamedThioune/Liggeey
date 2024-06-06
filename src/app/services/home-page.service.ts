@@ -1,6 +1,6 @@
 import { HttpClient,HttpHeaders,HttpResponse,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of,throwError } from 'rxjs';
 import { JobCompagny } from '../interfaces/job-compagny';
 import { Candidat } from '../interfaces/candidate';
 import { CommentArticle } from '../interfaces/comment-article';
@@ -190,25 +190,31 @@ uploadFileCv(imageId:string,userId: string ): Observable<any> {
   };
   return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/${userId}`,requestBody,{headers});
 }
-getFileCv(cvId:string ): Observable<any>{
+// getFileCv(cvId:string ): Observable<any>{
+  
+//   const headers = new HttpHeaders({
+//     'Access-Control-Allow-Origin':'*',
+//     'Content-Type': 'application/json;charset=UTF-8',
+
+//   });
+//   return this.http.get(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { headers });
+// }
+getFileCv(cvId: string): Observable<any> {
+  const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+
   const headers = new HttpHeaders({
-    'Access-Control-Allow-Origin': '*',
-
+    'Authorization': 'Basic ' + base64Credentials,
     'Content-Type': 'application/json;charset=UTF-8',
-
   });
-  return this.http.get(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { headers });
+
+  return this.http.get(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { headers }).pipe(
+    catchError((error) => {
+      console.error('Erreur lors de la récupération du fichier CV:', error);
+      return throwError(error);
+    })
+  );
 }
-getPDF(cvId : string): Observable<Blob>
-  {
-      const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
-      const headers = new HttpHeaders({ 'Content-Type': 'application/json',
-      "Authorization": 'Basic ' + base64Credentials, responseType : 'blob'});
 
-      return this.http.get<Blob>(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { headers : headers,responseType : 
-        'blob' as 'json'});
-
-  }
 
   updateProfileCompany(idUser:string,profil:ProfilCompagny): Observable<any> {
     const requestBody = {
