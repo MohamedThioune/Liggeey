@@ -118,6 +118,9 @@ export class ResumeCandidatComponent implements OnInit {
   uploadedImage: string | null = null;
   cvUrl!:string
   safeCvUrl: SafeResourceUrl | null = null;  // Initialisé avec une valeur par défaut
+  nameCv:any
+  urlCv:any
+
     //safeCvUrl!:SafeUrl 
   constructor(private fb: FormBuilder,private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService,private router: Router,private sanitizer: DomSanitizer,private http: HttpClient) {
     this.isMobile = window.innerWidth < 768;
@@ -150,7 +153,6 @@ export class ResumeCandidatComponent implements OnInit {
 
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
- console.log(this. userConnect );
  
     this.updateCachedData();
     }   
@@ -161,21 +163,18 @@ export class ResumeCandidatComponent implements OnInit {
   }
   
   downloadPDF(cvId:string) {
-    this.HomePageService.getFileCv(cvId).subscribe(
+    this.HomePageService.getFileCv(cvId ).subscribe(
       (response) => {
-        console.log('JSON response:', response);
-
         // Utilisez l'URL du PDF à partir de la réponse JSON
         const pdfUrl = response.source_url;
         if (pdfUrl) {
-          console.log('PDF URL:', pdfUrl);
           this.loadPdfFromUrl(pdfUrl);
         } else {
           console.error('Le JSON ne contient pas l\'URL du fichier PDF.');
         }
       },
       (error) => {
-        console.error('Erreur lors de la récupération des informations du fichier PDF:', error);
+        console.error('Erreur lors de la récupération des informations du fichier PDF:', error.message);
       }
     );
   }
@@ -186,18 +185,22 @@ export class ResumeCandidatComponent implements OnInit {
         if (blob.type === 'application/pdf') {
           const cvUrl = window.URL.createObjectURL(blob);
           this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cvUrl);
+          this.nameCv=this.extractFileName( url)          
           //this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.location.protocol + '//' + window.location.host + cvUrl);
-          console.log('Safe URL:', this.safeCvUrl);
         } else {
           console.error('Le fichier téléchargé n\'est pas un PDF. Type:', blob.type);
         }
       },
       (error) => {
-        console.error('Erreur lors de la récupération du fichier PDF :', error);
+        this.nameCv=url  
+        this.urlCv=this.extractFileName( url)        
+        //console.error('Erreur lors de la récupération du fichier PDF :', error);
       }
     );
   }
-
+  extractFileName(url: string): string {
+    return url.substring(url.lastIndexOf('/') + 1);
+  }
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
   }
@@ -561,12 +564,7 @@ export class ResumeCandidatComponent implements OnInit {
           if (blob.type === 'application/pdf') {
             const cvUrl = window.URL.createObjectURL(blob);
             this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cvUrl);
-           // window.location.reload()
-
             this.isLoading=false
-
-            console.log('Safe URL:', this.safeCvUrl);
-            //this.router.navigate(['/dashboard-candidat']);
           } else {
             console.error('Le fichier téléchargé n\'est pas un PDF. Type:', blob.type);
           }
@@ -587,13 +585,8 @@ export class ResumeCandidatComponent implements OnInit {
         this.downloadPDF(storedCvId);
       }
       else if (this.userConnect.acf && this.userConnect.acf.cv) {
-        
-        console.log(this.userConnect,this.userConnect.acf.cv);
-        
         this.downloadPDF(this.userConnect.acf.cv);
       } 
-      
-      //this.router.navigate(['/dashboard-candidat']);
     }
   }
   
@@ -601,38 +594,6 @@ export class ResumeCandidatComponent implements OnInit {
     const fileId = url.split('/d/')[1]?.split('/')[0];
     return `https://drive.google.com/file/d/${fileId}/preview`;
   }
-  // uploadFile() {
-  //   if (this.selectedFile) {
-  //     this.HomePageService.getImageUser(this.selectedFile).pipe(
-  //       switchMap((imageResponse: any) => {
-  //         const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
-  //         console.log( imageId);
-
-  //         return this.HomePageService.uploadFileCv(imageId);
-          
-  //       })
-  //     ).subscribe(
-  //       (response: any) => {
-  //         console.log(response);
-          
-  //         //this.userConnect=response;
-  //         this.updateCachedDataa(response.id)
-
-  //         this.downloadPDF(response.acf.cv);
-  //         this.router.navigate(['/dashboard-candidat']);
-  //       },
-  //       (error) => {
-  //         console.error('Error uploading image:', error);
-  //         ToastNotification.open({
-  //           type: 'error',
-  //           message: error.message
-  //         });
-  //       }
-  //     );
-  //   } else {
-  //     this.router.navigate(['/dashboard-candidat']);
-  //   }
-  // }
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (event.target.files && file) {
