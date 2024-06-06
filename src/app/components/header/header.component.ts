@@ -372,7 +372,7 @@ send_id(id: any) {
         }
       },
       (error) => {
-        //console.error('Erreur lors de la récupération des informations du fichier PDF:', error);
+        console.error('Erreur lors de la récupération des informations du fichier PDF:', error);
       }
     );
   }
@@ -491,7 +491,7 @@ send_id(id: any) {
             // this.userObject=true
                  // Utilisez le service pour postuler à l'emploi
                  this.uploadFile()
-               //return
+                // return
             this.homeService.applyJob(this.id, this.selectedJobId)
             .subscribe(
               // Succès de la requête
