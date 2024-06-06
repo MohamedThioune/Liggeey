@@ -5,6 +5,10 @@ import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { switchMap } from 'rxjs/operators';
+import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -28,7 +32,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   password: string = '';
   first_name:string='';
   last_name:string='';
-  id!:number;
+  id!:any;
   avatar:any;
   work_as:any
   work:any
@@ -48,14 +52,21 @@ export class HeaderComponent implements OnInit,OnDestroy {
     type: '',
     message: ''
   };
-  selectedFileName: string | undefined;
+  selectedFileName: string | null = null;
   isModalVisible: boolean = true; // Set to true initially to show the modal
   public href: string = "";
   notification:any;
   isLoading = false;
   title:any;
   slug:any
-  constructor(private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef) {
+  notifications:any
+  myNotif:any
+  safeCvUrl: SafeResourceUrl | null = null;  // Initialisé avec une valeur par défaut
+  selectedFile: File | null = null;
+  myForm!:FormGroup
+  cv:any
+  nameCv:any
+  constructor(private fb: FormBuilder,private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef,private sanitizer: DomSanitizer,private http: HttpClient) {
     this.isMobile = window.innerWidth < 768;
     this.dropdownOpen = false;
     this.dropdownUser = false;
@@ -134,7 +145,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
       this.last_name = this.userConnect.last_name;
       this.avatar = this.userConnect.avatar_urls && this.userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
       this.id=this.userConnect.id
-
+      this.cv=this.userConnect.acf.cv
+      
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
       } else if(this.userConnect.acf.is_liggeey == "chief"){
@@ -144,6 +156,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
     this.subscription = this.homeService.selectedJobId$.subscribe(id => {
       this.selectedJobId = id;
+      
     });
     this.subscription = this.homeService.selectedSlug$.subscribe(slugJob => {
       this.selectedSlug = slugJob;
@@ -152,11 +165,26 @@ export class HeaderComponent implements OnInit,OnDestroy {
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
     })
-    this.homeService.getDetailCategory( this.slug).subscribe(data=>{
-      this.category = data
-     // console.log(this.category);
+    // this.homeService.getDetailCategory( this.slug).subscribe(data=>{
+    //   this.category = data
+    //  // console.log(this.category);
 
+    // })
+    this.homeService.getNotificationCandidat( this.id).subscribe(data=>{
+      //this.notifications = data.filter((notification:any) => notification.userApplyId === this.identifiant);
+      this.notifications=data;
+      this.myNotif=this.notifications.length
+      
     })
+    const storedCvId = localStorage.getItem('cvId');          
+    if (storedCvId) {
+      this.downloadPDF(storedCvId);
+    }else{
+      this.downloadPDF(this.cv);
+    }
+    this.myForm = this.fb.group({
+      file: ['', Validators.required]
+    });
     const cachedCandidat = localStorage.getItem('cachedCandidat');
     if (cachedCandidat) {
         let cachedData;
@@ -285,12 +313,16 @@ send_id(id: any) {
           this.first_name = userConnect.first_name;
           this.last_name = userConnect.last_name;
           this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
+          this.cv =userConnect.acf.cv
           this.id=userConnect.id
+          
           this.homeService.getDetailJob(this.selectedSlug).subscribe((data:any) => {
             this.job = data;
             this.title=this.job.title
   
           })
+          this.downloadPDF(this.cv);
+
                   // Récupérer les détails du candidat et stocker les informations nécessaires dans le cache
         this.homeService.getDetailCandidate(this.id).subscribe(data => {
           if (data && 'work_as' in data) {
@@ -328,8 +360,106 @@ send_id(id: any) {
       });
 
   }
+  downloadPDF(cvId:string) {
+    this.homeService.getFileCv(cvId).subscribe(
+      (response) => {
+        // Utilisez l'URL du PDF à partir de la réponse JSON
+        const pdfUrl = response.source_url;
+        //this.nameCv=this.extractFileName( pdfUrl)          
 
+        if (pdfUrl) {
+          this.loadPdfFromUrl(pdfUrl);
+        } else {
+          console.error('Le JSON ne contient pas l\'URL du fichier PDF.');
+        }
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des informations du fichier PDF:', error);
+      }
+    );
+  }
 
+  loadPdfFromUrl(url: string): void {
+    this.http.get(url, { responseType: 'blob' }).subscribe(
+      (blob: Blob) => {
+
+        if (blob.type === 'application/pdf') {
+          const cvUrl = window.URL.createObjectURL(blob);
+          this.nameCv=this.extractFileName( url)          
+          this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cvUrl);
+        } else {
+          console.error('Le fichier téléchargé n\'est pas un PDF. Type:', blob.type);
+        }
+      },
+      (error) => {
+        this.nameCv=this.extractFileName( url)                  
+        //console.error('Erreur lors de la récupération du fichier PDF :', error);
+      }
+    );
+  }
+  extractFileName(url: string): string {
+    return url.substring(url.lastIndexOf('/') + 1);
+  }
+  uploadFile() {
+    if (this.selectedFile) {
+      this.isLoading = true;
+      this.homeService.getImageUser(this.selectedFile).pipe(
+        switchMap((imageResponse: any) => {
+          const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
+          return this.homeService.uploadFileCv(imageId,this.id);
+
+        }),
+        switchMap((response: any) => {
+          // Use switchMap to chain the call to downloadPDF
+        const cvId = response.acf.cv;
+        localStorage.setItem('cvId', cvId); // Stocker le cvId dans localStorage
+          return this.homeService.getFileCv(response.acf.cv);
+        }),
+        switchMap((fileResponse: any) => {
+          const pdfUrl = fileResponse.source_url;
+          this.nameCv=this.extractFileName( pdfUrl)          
+
+          if (pdfUrl) {
+            return this.http.get(pdfUrl, { responseType: 'blob' });
+          } else {
+            throw new Error('Le JSON ne contient pas l\'URL du fichier PDF.');
+          }
+        })
+      ).subscribe(
+        (blob: Blob) => {
+          if (blob.type === 'application/pdf') {
+            const cvUrl = window.URL.createObjectURL(blob);
+            this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cvUrl);
+            this.isLoading=false
+          } else {
+            console.error('Le fichier téléchargé n\'est pas un PDF. Type:', blob.type);
+          }
+        },
+        (error) => {
+          //console.error('Erreur lors de la récupération du fichier PDF:', error);
+          // ToastNotification.open({
+          //   type: 'error',
+          //   message: error.message
+          // });
+          this.isLoading = false;
+
+        }
+      );
+    } else { 
+      //console.log(this.userConnect,this.cv)  
+      const storedCvId = localStorage.getItem('cvId');  
+      console.log(storedCvId, this.userConnect.acf.cv);
+          
+      if (storedCvId) {
+        this.downloadPDF(storedCvId);
+      }
+      else{        
+        this.downloadPDF(this.userConnect.acf.cv);
+      } 
+       
+      //this.router.navigate(['/dashboard-candidat']);
+    }
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
@@ -352,6 +482,7 @@ send_id(id: any) {
       content:"Apply Job Successfully",
       receiver_id:this.id
     }
+
     
     if (this.id && this.selectedJobId && this.selectedSlug) {
       if(this.candidate == true){
@@ -363,6 +494,8 @@ send_id(id: any) {
           if (this.canAppl(this.job)) {
             // this.userObject=true
                  // Utilisez le service pour postuler à l'emploi
+                 this.uploadFile()
+                // return
             this.homeService.applyJob(this.id, this.selectedJobId)
             .subscribe(
               // Succès de la requête
@@ -376,8 +509,6 @@ send_id(id: any) {
               this.message= "Your job application has been successfully submitted."
               this.homeService.sendNotification(this.id,this.notificationApplyJobs(this.id,this.job)).subscribe();
               this.homeService.sendNotification(response.chief.ID,this.notificationChiefApplyJobs(response.chief.ID,this.id,this.job,response.candidate.data)).subscribe();
-              // this.showFirstStep =  !this.showFirstStep;
-              // this.showSecondStep = !this.showSecondStep;
             }
             ToastNotification.open({
               type: typeR,
@@ -413,6 +544,7 @@ send_id(id: any) {
         });
         this.isLoading=false
         this.userObject=true
+        this.showSecondStep=false
         
         //return
          //this.router.navigate(['']);
@@ -455,10 +587,20 @@ send_id(id: any) {
   onResize(event:Event) {
     this.isMobile = window.innerWidth < 768;
   }
-  onFileSelected(event: any): void {
-    const files: FileList = event.target.files;
-    if (files.length > 0) {
-      this.selectedFileName = files[0].name;
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (event.target.files && file) {
+      this.selectedFile = file; // Stocke le fichier sélectionné
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e: any) => {
+        this.selectedFileName = e.target.result;
+        //console.log(this.selectedFileName);
+        
+        //this.form.controls['file']?.setValue(file ? file.name : ''); // Met à jour le contrôle du formulaire
+
+      this.myForm.get('file')?.setValue(file ); // Met à jour le contrôle du formulaire
+      };
     }
   }
   @HostListener('document:click', ['$event'])

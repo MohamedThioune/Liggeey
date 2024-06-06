@@ -79,6 +79,18 @@ header .header_container_logo p {
   margin: 0px;
   width: auto;
 }
+.position-absolute {
+  position: absolute;
+}
+.top-0 {
+  top: 0;
+}
+.start-100 {
+  left: 100%;
+}
+.translate-middle {
+  transform: translate(-50%, -50%);
+}
 
 /*header .header_container_logo img {
     margin-right: 53px;

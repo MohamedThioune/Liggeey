@@ -181,6 +181,12 @@
       </div>
 
       <div class="account" *ngIf="userConnect">
+        <div class="position-relative mx-2" *ngIf="candidate" [routerLink]="['/alert-candidat']">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.001 5.001 0 0 0 3 6c0 1.098-.502 2.07-1.318 2.623A1.007 1.007 0 0 0 1 10v1c0 .386.232.723.595.895l.404.144a.5.5 0 0 1 .364.486v.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-.5a.5.5 0 0 1 .364-.486l.404-.144A1 1 0 0 0 15 11v-1a1.007 1.007 0 0 0-.682-.905C13.502 8.07 13 7.098 13 6a5.001 5.001 0 0 0-4.005-4.901zM14 10.818a.007.007 0 0 1-.004.003H2.004a.007.007 0 0 1-.004-.003V10c.862-.65 1.42-1.625 1.42-2.82a4 4 0 1 1 8 0c0 1.195.558 2.17 1.42 2.82v.818z"/>
+          </svg>
+        <!--  <span class="badge badge-danger position-absolute top-0 start-100 translate-middle">{{myNotif}}</span>-->
+        </div>
         <div class="content_image">
           <img [src]=avatar alt="Image User Connect">
         </div>
@@ -499,30 +505,56 @@
                 <label>Phone Number</label>
                 <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.phone}}" required>
               </div>
-              -->
+              
 
               <div class="d-grid">
                 <button (click)="goToFinalStep()" type="submit"  [disabled]="isLoading" data-toggle="modal"  data-target="modal-apply" class="btn btn-forgeet-passwoord">Apply</button>
                 <div *ngIf="isLoading" class="loader">Loading...</div>
 
               </div>
+              -->
             </div>
-            <!--
+            
             <div *ngIf="showSecondStep" class="second-step">
-              <div class="second-block">
+              <form [formGroup]="myForm" (ngSubmit)="uploadFile()">
+
+              <div class="second-block ">
                 <label for="">Select your cv</label>
-                <div class="custom-pdf-container">
-                  <embed src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />
+                <div class="custom-pdf-container d-flex align-item-center justify-content-center flex-column">
+                  <img *ngIf="!safeCvUrl" src="../../../../assets/img/file.svg" alt="">
+                  <!--  <embed *ngIf="!safeCvUrl" src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />-->
+                  <iframe *ngIf="safeCvUrl" [src]="safeCvUrl" type="application/pdf" width="100%" height="300px" ></iframe>
+                  <span class="mt-4 text-align-center">{{nameCv}}</span>
                 </div>
                 <label for="">Or Upload a new one</label>
+                <!--
                 <div class="custom-file">
-                  <input type="file" id="customFileInput" (change)="onFileSelected($event)" />
-                  <label for="customFileInput" class="custom-file-label">{{ selectedFileName || 'Choose file' }}</label>
+                  
+                  <input type="file" id="customFileInput" class="form-control" name="file" accept="application/pdf" (change)="onFileSelected($event)"    formControlName="file" required/>
+                  
+                  <label for="customFileInput" class="custom-file-label">{{ selectedFile || 'Choose file' }}</label>   
                 </div>
+                -->
+                <div class="input-group mb-4">
+
+                   
+                     <!-- <embed src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />-->
+                   <input type="file" (change)="onFileSelected($event)"   accept="application/pdf"  name="file" class="form-control" id="file" placeholder="My CV"
+                   formControlName="file" required/>  
+                        
+               </div>
+                <!--
                 <button (click)="goToFinalStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Apply</button>
+                -->
+                <div class="d-grid">
+                  <button (click)="goToFinalStep()" type="submit"  [disabled]="isLoading" data-toggle="modal"  data-target="modal-apply" class="btn btn-forgeet-passwoord">Apply</button>
+                  <div *ngIf="isLoading" class="loader">Loading...</div>
+  
+                </div>
               </div>
+              </form>
             </div>
-            -->
+            
             <div *ngIf="!showFirstStep && !showSecondStep" class="final-step">
               <div class="loader">
                 <svg class="circular">
