@@ -209,7 +209,7 @@ getFileCv(cvId: string): Observable<any> {
 
   return this.http.get(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { headers }).pipe(
     catchError((error) => {
-      console.error('Erreur lors de la récupération du fichier CV:', error);
+     // console.error('Erreur lors de la récupération du fichier CV:', error);
       return throwError(error);
     })
   );
