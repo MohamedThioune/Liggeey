@@ -136,14 +136,80 @@
 }
 .content_map_menu{
     max-width: 1540px;
+    height: 275px;
+    border-radius: 16px;
+    border: 1px solid  #ECEDF2;
+    background: #FFF;
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+    
+}
+
+.content_banner{
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(24,49,83);
+    padding-bottom: 10px !important;
+}
+.reduced-spacing {
+    line-height: 1.2; /* Ajustez cette valeur selon vos besoins */
+    font-weight: bold;
+  }
+  
+.map_menu a{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(24,49,83);
+    color: #FFF;
+    border-radius: 20px;
+}
+.map_menu {
+    position: relative; /* Make the parent container relative */
+  }
+  
+  .content_map_menu img {
+    width: 100%; /* Ensure the image takes up the full width */
+    height: 100%; /* Maintain aspect ratio */
+    border-radius: 16px;
+
+  }
+  
+  .overlay-content {
+    position: absolute; /* Position the overlay content absolutely */
+    top: 50%; /* Position it in the middle of the parent */
+    left: 50%; /* Center the content horizontally */
+    transform: translate(-50%, -50%); /* Adjust the position to be perfectly centered */
+    text-align: center; /* Center the text inside the overlay */
+    color: white; /* Ensure the text is readable */
+    padding: 20px; /* Add some padding for better presentation */
+    border-radius: 10px; /* Optional: Add some rounded corners */
+  }
+  
+  .btn-download {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Change the color as needed */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; /* Optional: Add rounded corners to the button */
+  }
+  .icon-container i {
+    color: green;
+    font-size: 60px;
+  }
+  
+/*
+.content_map_menu{
+    max-width: 1540px;
     height: 375px;
     border-radius: 8px;
     border: 1px solid  #ECEDF2;
     background: #FFF;
     margin-top: 35px;
-    /* Shadow / 1 */
+    /* Shadow / 1 
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
-}
+}*/
 .applicants{
     border-radius: 8px;
     border: 1px solid #ECEDF2;
