@@ -539,7 +539,6 @@ export class ResumeCandidatComponent implements OnInit {
       this.HomePageService.getImageUser(this.selectedFile).pipe(
         switchMap((imageResponse: any) => {
           const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
-          console.log(imageId,this.userConnect.id);
           return this.HomePageService.uploadFileCv(imageId,this.userConnect.id);
 
         }),
@@ -552,6 +551,7 @@ export class ResumeCandidatComponent implements OnInit {
         }),
         switchMap((fileResponse: any) => {
           const pdfUrl = fileResponse.source_url;
+          this.urlCv=this.extractFileName( pdfUrl)          
           if (pdfUrl) {
             //yconsole.log('PDF URL:', pdfUrl);
             return this.http.get(pdfUrl, { responseType: 'blob' });
@@ -570,11 +570,11 @@ export class ResumeCandidatComponent implements OnInit {
           }
         },
         (error) => {
-          console.error('Erreur lors de la récupération du fichier PDF:', error);
-          ToastNotification.open({
-            type: 'error',
-            message: error.message
-          });
+          // console.error('Erreur lors de la récupération du fichier PDF:', error);
+          // ToastNotification.open({
+          //   type: 'error',
+          //   message: error.message
+          // });
           this.isLoading = false;
 
         }

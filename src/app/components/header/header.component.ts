@@ -365,8 +365,6 @@ send_id(id: any) {
       (response) => {
         // Utilisez l'URL du PDF à partir de la réponse JSON
         const pdfUrl = response.source_url;
-        //this.nameCv=this.extractFileName( pdfUrl)          
-
         if (pdfUrl) {
           this.loadPdfFromUrl(pdfUrl);
         } else {
@@ -447,9 +445,7 @@ send_id(id: any) {
       );
     } else { 
       //console.log(this.userConnect,this.cv)  
-      const storedCvId = localStorage.getItem('cvId');  
-      console.log(storedCvId, this.userConnect.acf.cv);
-          
+      const storedCvId = localStorage.getItem('cvId');            
       if (storedCvId) {
         this.downloadPDF(storedCvId);
       }
