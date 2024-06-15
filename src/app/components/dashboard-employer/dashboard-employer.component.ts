@@ -19,6 +19,8 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
   homeCompagny:any;
   applicant:any;
   userId!:string;
+  downloadLink!: string;
+
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
   }
@@ -52,38 +54,52 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
     this.homeService.homeCompagny(this.userConnect.id).subscribe((data:any)=>{
       this.homeCompagny=data;
       this.loading=false;
-      console.log(this.homeCompagny);
+      //console.log(this.homeCompagny);
       this.homeCompagny.application.forEach((element:any) => {
         this.applicant=element 
        
       });
      })
+     this.setDownloadLink();
   }
     ngAfterViewInit(): void {
-      this.createChart();
+      //this.createChart();
+    }
+    setDownloadLink() {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      if (userAgent.includes('safari') && !userAgent.includes('chrome')) {
+        // Safari browser
+        this.downloadLink = 'https://apps.apple.com/nl/app/livelearn/id1666976386';
+      } else if (userAgent.includes('chrome')) {
+        // Android browser
+        this.downloadLink = 'https://play.google.com/store/apps/details?id=com.livelearn.livelearn_mobile_app&pli=1';
+      } else {
+        // Default link or other browsers
+        this.downloadLink = 'https://play.google.com/store/apps/details?id=com.livelearn.livelearn_mobile_app&pli=1';
+      }
     }
 
-  createChart() {
-    this.chart = new Chart('MyChart', {
-      type: 'line',
-      data: {
-        labels: ['2022-05-10', '2022-05-11', '2022-05-12', '2022-05-13', '2022-05-14', '2022-05-15', '2022-05-16', '2022-05-17'],
-        datasets: [
-          {
-            label: 'Sales',
-            data: [467, 576, 572, 79, 92, 574, 573, 576],
-            backgroundColor: 'blue'
-          },
-          {
-            label: 'Profit',
-            data: [542, 542, 536, 327, 17, 0.00, 538, 541],
-            backgroundColor: 'limegreen'
-          }
-        ]
-      },
-      options: {
-        aspectRatio: 2.5
-      }
-    });
-  }
+  // createChart() {
+  //   this.chart = new Chart('MyChart', {
+  //     type: 'line',
+  //     data: {
+  //       labels: ['2022-05-10', '2022-05-11', '2022-05-12', '2022-05-13', '2022-05-14', '2022-05-15', '2022-05-16', '2022-05-17'],
+  //       datasets: [
+  //         {
+  //           label: 'Sales',
+  //           data: [467, 576, 572, 79, 92, 574, 573, 576],
+  //           backgroundColor: 'blue'
+  //         },
+  //         {
+  //           label: 'Profit',
+  //           data: [542, 542, 536, 327, 17, 0.00, 538, 541],
+  //           backgroundColor: 'limegreen'
+  //         }
+  //       ]
+  //     },
+  //     options: {
+  //       aspectRatio: 2.5
+  //     }
+  //   });
+  // }
 }

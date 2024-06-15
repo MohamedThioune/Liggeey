@@ -10,6 +10,7 @@ import { ProfilCompagny } from '../interfaces/profil-compagny';
 import { Notification } from '../interfaces/notification';
 import { Education } from '../interfaces/education';
 import { environment } from 'src/environments/environment';
+import { User } from '../interfaces/user';
 
 
 @Injectable({
@@ -53,7 +54,7 @@ export class HomePageService {
     // }
   }
   getCategories(): Observable<any>{
-    const base64Credentials = btoa("peinda" + ':' + "1234ok");
+    const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + base64Credentials,
       'Content-Type': 'application/json;charset=UTF-8',
@@ -176,6 +177,11 @@ uploadFile(imageId:string ,userId: string): Observable<any> {
   };
   return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/${userId}`,requestBody,{headers});
 }
+ redirectToWhatsApp() {
+  const phoneNumber = '+31613596448'; // Replace with your phone number
+  const url = `https://wa.me/${phoneNumber}`;
+  window.location.href = url;
+}
 uploadFileCv(imageId:string,userId: string ): Observable<any> {
   const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
     const headers = new HttpHeaders({
@@ -214,8 +220,16 @@ getFileCv(cvId: string): Observable<any> {
     })
   );
 }
+getSubtopic(user:User): Observable<any> {
+  const base64Credentials = btoa(user.username + ':' + user.password);
 
+  const headers = new HttpHeaders({
+    'Authorization': 'Basic ' + base64Credentials,
+    'Content-Type': 'application/json;charset=UTF-8',
+  });
 
+  return this.http.get(`${this.baseUrl}/wp-json/custom/v2/user/subtopic/statistics`, { headers })
+}
   updateProfileCompany(idUser:string,profil:ProfilCompagny): Observable<any> {
     const requestBody = {
       userApplyId:idUser,

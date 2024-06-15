@@ -2,6 +2,61 @@ h1 {
   font-size: 25px;
   margin-bottom: 40px;
 }
+.btnSaveSetting {
+    background: #043356;
+    color: white;
+    padding: 10px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 5px;
+    float: right;
+    width: fit-content;
+  }
+  .btnCloseSetting {
+    background: #043356;
+    color: white;
+    padding: 14px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 5px;
+    float: right;
+    width: fit-content;
+  }
+  .btnSeeStatic {
+    background: #1AC4A2;
+    color: white;
+    padding: 10px 40px;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-top: 5px;
+    width: fit-content;
+  }
+  .group-input-settings {
+    display: grid;
+    margin-bottom: 20px;
+  }
+  .group-input-settings .statics p{
+    color:#043356 !important;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .group-input-settings label {
+    text-align: center;
+    font-size: 25px;
+    color: #1AC4A2;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .group-input-settings input {
+    box-sizing: border-box;
+    border-radius: 11px;
+    padding: 15px 20px !important;
+    font-size: 15px !important;
+    color: #3c3c3c !important;
+    background: #F0F5F7 !important;
+    border: none;
+    margin-bottom: 10px;
+  }
 .right_menu{
     width: 100%;
     margin-bottom: 121px;
@@ -344,12 +399,14 @@ h1 {
 .document .content_image_document img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 .document .content_image_document p{
     color: #47A99E;
     font-size: 20px;
     font-weight: 600;
 }
+
 .document p{
     color: #051D2F;
     font-size: 18px;
@@ -475,3 +532,7 @@ table tbody tr th {
     justify-content: center;
     margin-top: 40px;
 }
+
+
+
+

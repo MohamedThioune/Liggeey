@@ -5,7 +5,7 @@
      <span  class="close" (click)="fermerSidebar()">x</span>
        <div class="content_left_menu">
          <ul>
-           <li>
+           <li [class.active]="activeItem === 'dashboard'" (click)="setActiveItem('dashboard')">
             <a [routerLink]="['/dashboard-employer']">
              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                <g clip-path="url(#clip0_2843_10876)">
@@ -24,7 +24,7 @@
              <p>Dashboard</p>
             </a>
            </li>
-           <li>
+           <li [class.active]="activeItem === 'profile'" (click)="setActiveItem('profile')">
             <a [routerLink]="['/profil-compagny']">
              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18" fill="none">
                <g clip-path="url(#clip0_2843_10796)">
@@ -42,7 +42,7 @@
              </p>
             </a>
            </li>
-           <li>
+           <li [class.active]="activeItem === 'post'" (click)="setActiveItem('post')">
             <a [routerLink]="['/post-compagny']">
              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                <g clip-path="url(#clip0_2843_10817)">
@@ -66,7 +66,7 @@
              <p>Post a New Job</p>
             </a>
            </li>
-           <li>
+           <li [class.active]="activeItem === 'manage'" (click)="setActiveItem('manage')">
              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                <g clip-path="url(#clip0_2843_10814)">
                  <path d="M19.4141 4.70728H14.1162V3.5429C14.1162 2.23833 13.0548 1.177 11.7503 1.177H8.24973C6.9452 1.177 5.88383 2.23833 5.88383 3.5429V4.70728H0.585938C0.262344 4.70728 0 4.96962 0 5.29321V15.9377C0 17.529 1.29457 18.8235 2.88574 18.8235H17.1143C18.7054 18.8235 20 17.529 20 15.9377V5.29321C20 4.96962 19.7377 4.70728 19.4141 4.70728ZM11.3295 12.3538C11.3295 13.0868 10.733 13.6833 10 13.6833C9.26695 13.6833 8.67051 13.0868 8.67051 12.3538V11.0243H11.3295V12.3538ZM11.9154 9.85239H8.08457C7.76098 9.85239 7.49863 10.1147 7.49863 10.4383V11.5027C4.09129 10.7631 1.53703 8.55306 1.2084 5.87915H18.7916C18.4629 8.55306 15.9087 10.7631 12.5014 11.5027V10.4384C12.5014 10.1147 12.239 9.85239 11.9154 9.85239ZM7.05566 3.5429C7.05566 2.8845 7.59133 2.34888 8.24969 2.34888H11.7503C12.4086 2.34888 12.9443 2.8845 12.9443 3.5429V4.70728H7.05562V3.5429H7.05566ZM18.8281 15.9377C18.8281 16.8828 18.0593 17.6516 17.1143 17.6516H2.88574C1.94074 17.6516 1.17188 16.8828 1.17188 15.9377V8.90079C1.64492 9.57724 2.25484 10.2019 2.99168 10.7545C4.26852 11.7121 5.8273 12.377 7.52379 12.705C7.69512 13.9184 8.73996 14.8551 10 14.8551C11.26 14.8551 12.3049 13.9184 12.4762 12.705C14.1727 12.377 15.7314 11.7121 17.0083 10.7545C17.7452 10.2019 18.3551 9.5772 18.8281 8.90079V15.9377Z" fill="#696969"/>
@@ -79,7 +79,7 @@
              </svg>
              <a [routerLink]="['/manage-compagny']">Manage Jobs</a>
            </li>
-           <li>
+           <li [class.active]="activeItem === 'applicant'" (click)="setActiveItem('applicant')">
             <a  [routerLink]="['/all-applicant-compagny']">
              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
                <g clip-path="url(#clip0_2923_3646)">
@@ -94,7 +94,7 @@
              <p>All Applicants</p>
             </a>
            </li>
-           <li>
+           <li [class.active]="activeItem === 'compagny'" (click)="setActiveItem('compagny')">
             <a [routerLink]="['/compagny-candidat']">
              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
                <g clip-path="url(#clip0_2843_10882)">
