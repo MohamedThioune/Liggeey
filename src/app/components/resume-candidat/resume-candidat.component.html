@@ -290,6 +290,8 @@
   </div>
 </section>
 
+
+
 <div class="modal modalEdu fade" id="exampleModalEdu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -304,25 +306,25 @@
           <div class="row">
             <div class="col-lg-12 col-md-12">
               <div class="group-input-settings">
-                <label for="school">School</label>
+                <label for="school">School<span class="important">*</span></label>
                 <input id="school" formControlName="school" type="text" placeholder="Sonatel Academy" required>
               </div>
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="group-input-settings">
-                <label for="degree">Degree</label>
+                <label for="degree">Degree<span class="important">*</span></label>
                 <input formControlName="degree" id="degree" type="text" placeholder="Master" >
               </div>
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="group-input-settings">
-                <label for="start_date">Start Date</label>
+                <label for="start_date">Start Date<span class="important">*</span></label>
                 <input formControlName="start_date" id="start_date" type="date" placeholder="" required>
               </div>
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="group-input-settings">
-                <label for="end_date">End Date</label>
+                <label for="end_date">End Date<span class="important">*</span></label>
                 <input formControlName="end_date" id="end_date" type="date" placeholder="">
               </div>
             </div>
@@ -360,25 +362,25 @@
           <div class="row">
             <div class="col-lg-12 col-md-12">
               <div class="group-input-settings">
-                <label for="job_title">Job</label>
+                <label for="job_title">Job <span class="important">*</span></label>
                 <input id="job_title" formControlName="job_title" type="text" placeholder="Engineer">
               </div>
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="group-input-settings">
-                <label for="company">Company</label>
+                <label for="company">Company<span class="important">*</span></label>
                 <input formControlName="company" id="company" type="text" placeholder="LiveLearn">
               </div>
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="group-input-settings">
-                <label for="work_start_date">Start Date</label>
+                <label for="work_start_date">Start Date<span class="important">*</span></label>
                 <input formControlName="work_start_date" id="work_start_date" type="date" placeholder="">
               </div>
             </div>
             <div class="col-lg-12 col-md-12">
               <div class="group-input-settings">
-                <label for="work_end_date">End Date</label>
+                <label for="work_end_date">End Date<span class="important">*</span></label>
                 <input formControlName="work_end_date" id="work_end_date" type="date" placeholder="">
               </div>
             </div>
@@ -414,8 +416,8 @@
             <div class="col-lg-12 col-md-12">
               <!---->
               <div class="group-input-settings">
-                <label for="skills">Skill</label>
-                <!--
+                <!-- <label for="skills">Skill</label>
+               
                 <select id="multiple-checkboxes" multiple="multiple">
                   <option value="php">PHP</option>
                   <option value="javascript">JavaScript</option>
@@ -424,7 +426,14 @@
                   <option value="jquery">Jquery</option>
                   <option value=".net">.Net</option>
                 </select>
-                -->
+              
+                <div class="form-check">
+                  <input class="form-check-input checkbox" *ngFor="let skill of skillsTabs"  formArrayName="skills" [value]="skill.cat_ID" (change)="selectAll()" [checked]="selectedSkills.includes(skill.cat_ID)" type="checkbox">
+                  <label class="form-check-label">
+                   Select All
+                  </label>
+                </div>
+                  -->
                 <div class="form-check" *ngFor="let skill of skillsTabs">
                   <input class="form-check-input checkbox"  formArrayName="skills" type="checkbox" [value]="skill.cat_ID" (change)="toggleSkill(skill.cat_ID)" [checked]="selectedSkills.includes(skill.cat_ID)">
                   <label class="form-check-label">

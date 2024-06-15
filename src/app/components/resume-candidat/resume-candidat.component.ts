@@ -220,31 +220,31 @@ export class ResumeCandidatComponent implements OnInit {
       degree: this.fb.control("", [Validators.required]),
       start_date: this.fb.control("", Validators.required),
       end_date: this.fb.control("", Validators.required),
-      commentary: this.fb.control("", Validators.required),
+      commentary: this.fb.control("", []),
     });
   }
   validateFormEducation(education: Education): boolean {
     const { school, degree, start_date, end_date, commentary } = education;
-    if (school == "") {
+    if (school == null) {
       this.message.message = 'school is mandatory';
       return false;
     }
-    if (degree == "") {
+    if (degree == null) {
       this.message.message = 'degree level is mandatory';
       return false;
     }
-    if (start_date == "") {
+    if (start_date == null) {
       this.message.message = 'start_date is mandatory';
       return false;
     }
-    if (end_date == "") {
+    if (end_date == null) {
       this.message.message = 'end_date is mandatory';
       return false;
     }
-    if (commentary == "") {
-      this.message.message = 'commentary is mandatory';
-      return false;
-    }
+    // if (commentary == "") {
+    //   this.message.message = 'commentary is mandatory';
+    //   return false;
+    // }
     const startDate = new Date(start_date);
     const endDate = new Date(end_date);
     if (endDate < startDate) {
@@ -261,32 +261,33 @@ export class ResumeCandidatComponent implements OnInit {
       company: this.fb.control("", [Validators.required]),
       work_start_date: this.fb.control("", Validators.required),
       work_end_date: this.fb.control("", Validators.required),
-      work_description: this.fb.control("", Validators.required),
+      work_description: this.fb.control("", []),
     });
   }
 
   validateFormExperience(experience: Experience): boolean {
     const { job_title, company, work_start_date, work_end_date, work_description } = experience;
-    if (job_title == "") {
+    console.log(job_title,company,work_start_date,work_end_date);
+    if (job_title == null) {
       this.message.message = 'job title is mandatory';
       return false;
     }
-    if (company == "") {
+    if (company == null) {
       this.message.message = 'company is mandatory';
       return false;
     }
-    if (work_start_date == "") {
+    if (work_start_date == null) {
       this.message.message = 'start date of work is mandatory';
       return false;
     }
-    if (work_end_date == "") {
+    if (work_end_date == null) {
       this.message.message = 'end date of work is mandatory';
       return false;
     }
-    if (work_description == "") {
-      this.message.message = 'commentary on company is mandatory';
-      return false;
-    }
+    // if (work_description == "") {
+    //   this.message.message = 'commentary on company is mandatory';
+    //   return false;
+    // }
     const startDate = new Date(work_start_date);
     const endDate = new Date(work_end_date);
     if (endDate < startDate) {
@@ -299,7 +300,7 @@ export class ResumeCandidatComponent implements OnInit {
 
   toggleSkill(term_id: any) {
     const skillsArray = this.form.get('skills') as FormArray;
-  
+
     if (this.selectedSkills.includes(term_id)) {
       this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
       const index = skillsArray.value.indexOf(term_id);
@@ -308,9 +309,26 @@ export class ResumeCandidatComponent implements OnInit {
       this.selectedSkills.push(term_id);
       skillsArray.push(this.fb.control(term_id));
     }
+    console.log(this.selectedSkills);
     
   }
-  
+  selectAll() {
+    const skillsArray = this.form.get('skills') as FormArray;
+  console.log(skillsArray);
+  this.skillsTabs.forEach((element:any) => {
+   const term_id= element.cat_ID
+    if (this.selectedSkills.includes(term_id)) {
+      this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
+      const index = skillsArray.value.indexOf(term_id);
+      skillsArray.removeAt(index);
+    } else {
+      this.selectedSkills.push(term_id);
+      skillsArray.push(this.fb.control(term_id));
+    }
+  });
+    console.log(this.selectedSkills);
+    
+  }
   getSkillName(skillId: any): string {
     const skill = this.skillsTabs.find((skill:any) => skill.cat_ID === skillId);
     return skill ? skill.cat_name : '';
@@ -328,7 +346,7 @@ export class ResumeCandidatComponent implements OnInit {
       // Vérifiez si au moins un des checkboxes est coché      
       if (this.form.value.skills.some((skill:boolean) => !!skill)) {
         const selectedSkills = this.form.value.skills.filter((skill: boolean) => !!skill).join(',');
-
+        console.log(selectedSkills);
         // Utilisez le service pour postuler à l'emploi
         this.HomePageService.addSkill(this.userConnect.id, selectedSkills)
           .subscribe(
@@ -454,7 +472,7 @@ export class ResumeCandidatComponent implements OnInit {
     }
   }
   openModalExperience(action: string, education: any = null,index:any =null): void {
-    console.log(action,education,index,this.formExperience.value);
+   // console.log(action,education,index,this.formExperience.value);
     if (action === 'add') {
       this.modalTitle = 'Add Work && Experience';
       this.isUpdate = false;
@@ -907,6 +925,7 @@ export class ResumeCandidatComponent implements OnInit {
       });      
     }
   }
+  
 
   // updateEducation(): void {
   //   if (this.userConnect.id) {

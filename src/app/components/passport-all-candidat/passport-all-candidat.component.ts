@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
@@ -30,7 +31,13 @@ export class PassportAllCandidatComponent implements OnInit {
   showAllSkills: boolean = false;
   showAllBadges: boolean = false;
   showAllCertificates: boolean = false;
-
+  skill = { note: 75 };
+  subtopic: any[] = [];
+ // subtopic: any[] = [];
+ username: string = '';
+ password: string = '';
+ isLoading=false
+ form!:FormGroup
   constructor(private route : ActivatedRoute,private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
   ngOnInit(): void {
@@ -44,13 +51,14 @@ export class PassportAllCandidatComponent implements OnInit {
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
     }
+ console.log(this. userConnect);
  
     this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
       this.skillAll=data
 
      this.badges= this.skillAll.badges;
 
-          console.log(this.badges);
+          //console.log(this.badges);
           
           this.badges.forEach(element => {      
             // Diviser la chaîne de date en parties : date et heure
@@ -81,15 +89,29 @@ export class PassportAllCandidatComponent implements OnInit {
      this.topics=this.skillAll.topics;
      this.certificats=this.skillAll.certificats
      
-     console.log(this.skillAll);
+     //console.log(this.skillAll);
      
-     console.log(this.skillAll,this.courses_info,this.badges);
+    // console.log(this.skillAll,this.courses_info,this.badges);
      this.loading=false;
     }))
- 
+    //console.log( this.subtopic);
+    const user = {
+      username: "mbayamemansor@gmail.com",
+      password: "hidden"
+    }
+    console.log(user);
+    
+    this.homeService.getSubtopic(user).subscribe((data:any)=>{
+      this.subtopic=data
+console.log( data);
+
+     })
     
   }
-  
+  openSkillModal(skill: any): void {
+    // const modalRef = this.modalService.open(SkillModalComponent);
+    // modalRef.componentInstance.skill = skill;
+  }
   formatDate(date: Date): string {
     // Tableau des noms de mois
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -104,7 +126,7 @@ export class PassportAllCandidatComponent implements OnInit {
     return `${month} ${day} ${string} ${year}`;
   } 
   // Dans votre composant Angular
-getImageUrl(note: number): string {
+getImageUrlz(note: number): string {
   // Logique pour retourner l'URL de l'image en fonction du pourcentage
   // Par exemple :
   if (note >= 80) {
@@ -114,6 +136,20 @@ getImageUrl(note: number): string {
   } else {
       return "../../../assets/img/pourcent.png";
   }
+}
+getColor(note: number): string {
+  // Calculate red and green values based on the note
+  const red = Math.floor(255 * (1 - note / 100));
+  const green = Math.floor(255 * (note / 100));
+  return `rgb(${red}, ${green}, 0)`;
+}
+
+getImageUrl(note: number): string {
+  // Replace with your actual image URL logic
+  return 'path/to/image';
+}
+onSubmit(){
+  
 }
 
 getImageWidth(note: number): number {

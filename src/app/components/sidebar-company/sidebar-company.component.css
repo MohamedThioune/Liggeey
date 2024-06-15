@@ -37,6 +37,11 @@
   cursor: pointer;
   margin-bottom: 3px;
 }
+.content_left_menu ul li.active {
+  background-color: #043356; /* Change this to your desired active color */
+  color: #E6EBEF !important;
+  border-radius: 8px;
+}
 .content_left_menu ul li a{
   display: flex;
   border: none;
