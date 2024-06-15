@@ -80,7 +80,9 @@ export class HomeComponent implements OnInit {
 
 
   }
-
+  redirectToWhatsApp(){
+    this.homeService.redirectToWhatsApp()
+  }
   send_id(id: any) {
     this.homeService.setCandidatId(id);
     localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage

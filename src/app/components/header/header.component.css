@@ -18,7 +18,24 @@ header {
     width: 100%;
     top: 0;
 }
+.whatsapp-icon-container {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  background-color: #25D366; /* WhatsApp green background */
+  border-radius: 50%; /* Make it a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white; /* White border */
+  float:right;
+  margin-right: 15px;
+}
 
+.whatsapp-icon-container svg {
+  width: 35%; /* Adjust size of the icon within the circle */
+  height: 35%;
+  fill: white; /* Make the SVG icon white */
+}
 header ul {
     padding : 0px;
     margin : 0px;
@@ -103,9 +120,13 @@ header .header_container_logo p {
 /*second nav */
 .second-nav{
     display: flex;
-    justify-content: flex-end;
-    margin-top: 16px;
-}
+    justify-content: center;
+    align-items: center;
+    /*margin-top: 16px;*/
+    background-color: #1ac4a226;
+    padding: 10px;
+    width: 100%;
+  }
 .second-nav li button{
     width: 48px;
     height: 48px;
@@ -238,9 +259,8 @@ margin-top: 25px;
 
 nav ul li span{
     font-size: 16px;
-    font-weight: 400;
-   /* color: #64748B;*/
-    font-family: "Roboto-Bold";
+    color: #64748B;
+    font-family: "Italic";
 
 }
 .dropdown.dropdown-modife .dropdown-menu a{
@@ -427,6 +447,11 @@ nav ul li span{
   font-size: 14px; /* Exemple de taille de police */
   /* Ajoutez d'autres styles selon vos besoins */
 }
+.tilted {
+  transform: rotate(50deg);
+  transition: transform 0.3s ease-out;
+}
+
 
 .circular{animation:rotate 2s linear forwards ;width:100px;height:100px;position:relative}
 .path{stroke:#007aff; stroke-dasharray: 1,200;
@@ -576,6 +601,20 @@ nav ul li span{
 
 
 @media all and (min-width: 300px) and (max-width: 767px){
+  .second-nav{
+    background-color: #1AC4A2;
+}
+
+  nav ul li span{
+    font-size: 14px;
+    color: #FFF;
+    font-family: "Italic";
+    font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+}
     header ul li a:hover{
         color :#1AC4A2;
     }
@@ -627,15 +666,13 @@ nav ul li span{
       right: 0px !important;
       float: right;
     }
-    .second-nav{
-        padding-bottom: 25px;
-    }
+
     .web-header{
       display: none;
     }
   .mobile-header{
     display: block;
-    height: 76px;
+    height: 130px;
   }
   .mobile-header .header_container_logo {
     display: flex;
