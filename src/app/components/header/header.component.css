@@ -3,7 +3,8 @@ a{
     text-decoration: none;
 }
 header {
-    display: flex;
+    /*display:flex: */
+    display: block;
     align-items: center;
     justify-content: center;
     box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.31);
@@ -17,24 +18,6 @@ header {
     z-index: 999;
     width: 100%;
     top: 0;
-}
-.whatsapp-icon-container {
-  width: 30px; /* Adjust size as needed */
-  height: 30px; /* Adjust size as needed */
-  background-color: #25D366; /* WhatsApp green background */
-  border-radius: 50%; /* Make it a circle */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid white; /* White border */
-  float:right;
-  margin-right: 15px;
-}
-
-.whatsapp-icon-container svg {
-  width: 35%; /* Adjust size of the icon within the circle */
-  height: 35%;
-  fill: white; /* Make the SVG icon white */
 }
 header ul {
     padding : 0px;
@@ -126,6 +109,8 @@ header .header_container_logo p {
     background-color: #1ac4a226;
     padding: 10px;
     width: 100%;
+    text-align: center;
+    cursor: pointer;
   }
 .second-nav li button{
     width: 48px;
@@ -133,13 +118,16 @@ header .header_container_logo p {
     border-radius: 4px;
 }
 .second-nav li span{
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Roboto-Bold";
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     /*color: #1967D2;*/
 
 }
 .second-nav li p{
-    font-size: 13px;
+    font-size: 15px;
     font-family: "Roboto-Bold";
 }
 .Language{
@@ -260,7 +248,7 @@ margin-top: 25px;
 nav ul li span{
     font-size: 16px;
     color: #64748B;
-    font-family: "Italic";
+    font-family: "Roboto-Regular";
 
 }
 .dropdown.dropdown-modife .dropdown-menu a{
@@ -601,8 +589,27 @@ nav ul li span{
 
 
 @media all and (min-width: 300px) and (max-width: 767px){
-  .second-nav{
+  .second-nav {
     background-color: #1AC4A2;
+    text-align: center !important;
+    cursor: pointer;
+}
+
+.whatsapp-icon-contain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Ajuster selon la taille désirée */
+  height: 30px; /* Ajuster selon la taille désirée */
+  background-color: #25D366; /* Couleur de fond WhatsApp */
+  border-radius: 50%; /* Rendre l'icône circulaire */
+  margin-right: 10px; /* Espace entre l'icône et le texte */
+}
+
+.whatsapp-icon-contain svg {
+  fill: white; /* Couleur de l'icône */
+  width: 15px; /* Ajuster selon la taille désirée */
+  height: 15px; /* Ajuster selon la taille désirée */
 }
 
   nav ul li span{
@@ -610,11 +617,9 @@ nav ul li span{
     color: #FFF;
     font-family: "Italic";
     font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
+
 }
+
     header ul li a:hover{
         color :#1AC4A2;
     }
@@ -673,6 +678,8 @@ nav ul li span{
   .mobile-header{
     display: block;
     height: 130px;
+    text-align: center !important;
+
   }
   .mobile-header .header_container_logo {
     display: flex;

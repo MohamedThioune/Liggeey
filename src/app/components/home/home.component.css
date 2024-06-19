@@ -3,30 +3,6 @@
 /*.description_home{
     background: #F5F7FC;
 }*/
-.whatsapp-icon-container {
-    width: 60px; /* Adjust size as needed */
-    height: 60px; /* Adjust size as needed */
-    background-color: #25D366; /* WhatsApp green background */
-    border-radius: 50%; /* Make it a circle */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid white; /* White border */
-    position: fixed;
-    bottom: 150px;
-    right: 315px;
-    border-radius: 50%;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    z-index: 1000; /* Ensure it is above other elements */
-  }
-
-  .whatsapp-icon-container svg {
-    width: 50%; /* Adjust size of the icon within the circle */
-    height: 50%;
-    fill: white; /* Make the SVG icon white */
-  }
 .definition_home {
     color: #202124;
     font-size: 20px;
@@ -637,7 +613,7 @@
 }
 @media all and (min-width: 300px) and (max-width: 767px){
     .content-home{
-        margin-top: 100px;
+        margin-top: 70px;
     }
     .new_remote{
         display: flex;
@@ -804,11 +780,5 @@
   }
   .image_banner{
     display: none;
-  }
-
-  .whatsapp-icon-container {
-    bottom: 0px;
-    right: 35px;
-
   }
 }
