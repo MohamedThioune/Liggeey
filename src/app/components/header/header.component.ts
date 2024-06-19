@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, HostListener, ChangeDetectorRef,OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router ,NavigationEnd} from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
@@ -66,11 +66,18 @@ export class HeaderComponent implements OnInit,OnDestroy {
   myForm!:FormGroup
   cv:any
   nameCv:any
+  isTilted = false;
+
   constructor(private fb: FormBuilder,private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef,private sanitizer: DomSanitizer,private http: HttpClient) {
     this.isMobile = window.innerWidth < 768;
     this.dropdownOpen = false;
     this.dropdownUser = false;
     this.dropdownMobile = false;
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isTilted = false;
+      }
+    });
   }
 
   notificationApplyJobs(idUser:number,job:any):any{
@@ -122,7 +129,10 @@ export class HeaderComponent implements OnInit,OnDestroy {
   }
 
 
-
+  onClick() {
+    this.router.navigate(['/alert-candidat'])
+    this.isTilted = true;
+  }
   ngOnInit(): void {
 
     this.href = window.location.href;
@@ -273,6 +283,9 @@ send_id(id: any) {
       window.location.reload();
     });
 }
+redirectToWhatsApp(){
+  this.homeService.redirectToWhatsApp()
+}
   switchToApplyBlock() {
     this.isLoading = true;
 
@@ -372,7 +385,7 @@ send_id(id: any) {
         }
       },
       (error) => {
-        console.error('Erreur lors de la récupération des informations du fichier PDF:', error);
+      //  console.error('Erreur lors de la récupération des informations du fichier PDF:', error);
       }
     );
   }
@@ -578,6 +591,7 @@ send_id(id: any) {
 
     return !item.applied.some((appliedItem: any) => appliedItem.ID === this.id);
   }
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {

@@ -87,11 +87,9 @@
                     <a class="nav-link" [class.active]="ongletSelectionne === 'Certificates'" (click)="selectionnerOnglet('Certificates')">Certificates</a>
                 </div>
             </li>
-            <!--
             <li class="nav-item">
-              <a class="nav-link" [class.active]="ongletSelectionne === 'Badges'" (click)="selectionnerOnglet('Badges')">Badges</a>
+              <a class="nav-link" [class.active]="ongletSelectionne === 'Data'" (click)="selectionnerOnglet('Data')">Data</a>
             </li>
-            -->
             <li class="nav-item">
               <a class="nav-link" [class.active]="ongletSelectionne === 'Skills'" (click)="selectionnerOnglet('Skills')" >Skills</a>
           </li>
@@ -247,6 +245,29 @@
                 </div>
 
           </div>
+        <div class="map_menu mb-4" *ngIf="ongletSelectionne === 'Data' || ongletSelectionne === 'All'">
+          <div class="badge_certificate">
+            <p>Data or Statics</p>
+            <a *ngIf="subtopic.length > 6"  (click)="showAllSkills = !showAllSkills" (click)="openSkillModal(skill)">{{ showAllSkills ? 'Show Less' : 'See All' }}</a>
+          </div>
+            <div class="row">
+              <!--
+                <div class="col-md-2 document mt-4 btn-add-element"  *ngFor="let skill of (showAllSkills ? subtopic :  subtopic.slice(0,5))" data-toggle="modal" data-target="#exampleModalEdu">
+                -->
+                <div class="col-md-2 document mt-4 btn-add-element"  *ngFor="let skill of (showAllSkills ? subtopic :  subtopic.slice(0,5))">
+                  <p>Detail Handel</p>
+                  <div class="content_image_document">
+                      <p>{{skill.time_spent}}</p>
+                      <p style="color: #043356;">{{skill.category_name}}</p>
+                  </div>
+                </div>
+            </div>
+            <div class="text-center" *ngIf="subtopic.length === 0">
+              <img src="../../../assets/img/empty-topic.png" alt="image team">
+              <p>No content available at the moment </p>
+            </div>
+
+      </div>
           <div class="map_menu" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Skills</p>
@@ -254,17 +275,11 @@
               </div>
                 <div class="row">
                     <div class="col-md-2 document mt-4" style="position: relative;" *ngFor="let skill of (showAllSkills ? skillAll.topics :  skillAll.topics.slice(0,5))">
-                      <!--
+                      
                       <div class="content_image_document">
                           <img src="../../../assets/img/pourcent.png" alt="">
                           <p  style="position:absolute;top:30%;right:40%">{{skill.note}} %</p>
                       </div>
-                      -->
-                      <div class="content_image_document">
-                        <img [src]="getImageUrl(skill.note)" alt="Skill %" [style.width.%]="getImageWidth(skill.note)">
-                        <p style="position:absolute;top:30%;right:40%">{{skill.note}} %</p>
-                    </div>
-                    
                       <p>{{skill.topic_name}}</p>
                     </div>
                 </div>
@@ -446,6 +461,7 @@
               </table>
           </div>
           -->
+          
           <div class="content-detail" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                   <p>Preferred Course</p>
@@ -549,6 +565,53 @@
           </div>
           -->
         </div>
+    </div>
+  </div>
+  <div class="modal modalEdu fade" id="exampleModalEdu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLabel">Statistic for PHP</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="btn-add-element"  data-toggle="modal" data-target="#exampleModalEdu">
+          <form  (ngSubmit)="onSubmit()">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <!---->
+                  <div class="group-input-settings">
+                     <label for="skills">0h 6mn 0s</label>
+                     <div class="statics d-flex justify-content-between p-1">
+                      <p>Articles 0h 6mn 0s</p>
+                      <p>WorkShop 0h 6mn 0s</p>
+                     </div>
+                     <div class="statics d-flex justify-content-between p-1">
+                      <p>Videos 0h 6mn 0s</p>
+                      <p>MasterClasses 0h 6mn 0s</p>
+                     </div>
+                     <div class="statics d-flex justify-content-between p-1">
+                      <p>Articles 0h 6mn 0s</p>
+                      <p>Podcast 0h 6mn 0s</p>
+                     </div>
+                  </div>
+                  <button class="btn btnSeeStatic">See my all statics</button>
+
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btnCloseSetting close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">Close</span>
+              </button>
+              <button class="btn btnSaveSetting" type="submit" [disabled]="isLoading" data-toggle="modal" data-target="#exampleModalSkill">Save</button>
+              <div *ngIf="isLoading" class="loader">Loading...</div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </section>
