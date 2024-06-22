@@ -1,0 +1,44 @@
+<div class="items_job">
+    <div class="content-emploi">
+      <div class="row">
+        <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf=" category.length==0">
+
+        <div class="col-md-4" *ngFor="let categorie of category | paginate: { itemsPerPage: 9, currentPage: p }" >
+          <div class="card-emploie">
+            <div class="content-img a">
+              <img [src]="categorie.image" alt="Job Image">
+            </div>
+            <p class="name-company">{{categorie.company}}</p>
+            <p class="name-job">{{categorie.title}}</p>
+            <div class="d-flex align-items-center">
+              <div class="content-element content-localisation d-flex align-items-center">
+                <i class='fa fa-map-marker mr-1'></i>
+                <p class="localisation-job mb-0">{{categorie.company.place ?  categorie.company.place : "Remote"}}</p>
+              </div>
+              <div class="content-element type-job d-flex align-items-center">
+                <i class='fa fa-clock-o mr-1'></i>
+                <p class="job-type-text mb-0">Full Time</p>
+              </div>
+              <div class="content-element categorie-content d-flex align-items-center" *ngIf="categorie.skills.length > 0">
+                <i class='fa fa-list-alt mr-1'></i>
+                <p class="text-categori mb-0">{{ categorie.skills[0].name |slice:0:7}}</p>
+              </div>
+            
+            </div>
+            <p class="description-job">{{categorie.description}}</p>   
+
+            <div class="content-footer-card align-items-center">
+              
+              <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(categorie)" (click)="openApplyModal(categorie.ID,categorie.slug)" data-target="#modal-apply">
+                {{ canAppl(categorie) ? 'Apply Now' : 'Already Applied' }}
+              </button>                
+              <a [routerLink]="['/detail-job',categorie.slug]" class="btn btn-view-job">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagination" *ngIf="category.length>9">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+</div>

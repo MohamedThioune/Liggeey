@@ -180,7 +180,7 @@ uploadFile(imageId:string ,userId: string): Observable<any> {
  redirectToWhatsApp() {
   const phoneNumber = '+31613596448'; // Replace with your phone number
   const url = `https://wa.me/${phoneNumber}`;
-  window.location.href = url;
+  window.open(url,"_blank");
 }
 uploadFileCv(imageId:string,userId: string ): Observable<any> {
   const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");

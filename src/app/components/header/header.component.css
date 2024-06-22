@@ -590,8 +590,8 @@ nav ul li span{
 
 @media all and (min-width: 300px) and (max-width: 767px){
   .second-nav {
+    width: 100%;
     background-color: #1AC4A2;
-    text-align: center !important;
     cursor: pointer;
 }
 
@@ -603,7 +603,7 @@ nav ul li span{
   height: 30px; /* Ajuster selon la taille désirée */
   background-color: #25D366; /* Couleur de fond WhatsApp */
   border-radius: 50%; /* Rendre l'icône circulaire */
-  margin-right: 10px; /* Espace entre l'icône et le texte */
+  margin-right: 5px; /* Espace entre l'icône et le texte */
 }
 
 .whatsapp-icon-contain svg {
