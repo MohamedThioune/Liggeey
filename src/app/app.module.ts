@@ -79,6 +79,7 @@ import { SkeletonDetailCompanyComponent } from './skeleton-detail-company/skelet
 import { SkeletonAllJobsLoaderComponent } from './skeleton-all-jobs-loader/skeleton-all-jobs-loader.component';
 import { SkeletonHomePageLoaderComponent } from './skeleton-home-page-loader/skeleton-home-page-loader.component';
 import { SafePipe } from './safe.pipe';
+import { ItemAllJobComponent } from './components/item-all-job/item-all-job.component';
 
 @NgModule({
   declarations: [
@@ -153,6 +154,7 @@ import { SafePipe } from './safe.pipe';
     SkeletonAllJobsLoaderComponent,
     SkeletonHomePageLoaderComponent,
     SafePipe,
+    ItemAllJobComponent,
 
 
   ],
