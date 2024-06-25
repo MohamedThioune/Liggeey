@@ -41,7 +41,7 @@
               {{job.title}}
             </th>
             <td>
-              <a *ngIf="job.applied.length > 0 || job.approved.length > 0 || job.rejected.length > 0" [routerLink]="['/applicant-compagny', job.ID]">
+              <a *ngIf="job.applied.length > 0 || job.approved.length > 0 || job.rejected.length > 0" [routerLink]="['/applicant-compagny', job.slug]">
                 <div *ngIf="job.applied.length > 0"> {{ job.applied.length }}+ Applied </div>
                 <div *ngIf="job.approved.length > 0" [ngStyle]="{ color: '#1ac4a2' }"> {{ job.approved.length }}+ Accepted </div>
                 <div *ngIf="job.rejected.length > 0" [ngStyle]="{ color: '#dc3545' }"> {{ job.rejected.length }}+ Rejected </div>

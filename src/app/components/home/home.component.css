@@ -348,9 +348,10 @@
     display: flex;
     flex-wrap: wrap;
 }
-.content_image_article{
+.content_image_article {
     border-radius: 10px;
     width: 210px;
+    height: 155px;
 }
 .content_image_article img{
     width: 100%;
@@ -806,3 +807,4 @@
     display: none;
   }
 }
+

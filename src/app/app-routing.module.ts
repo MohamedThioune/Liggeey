@@ -67,7 +67,7 @@ const routes: Routes = [
 
   { path: 'all-applicant-compagny', component: CompagnyApplicantComponent ,canActivate: [AuthGuard]},
 
-  { path: 'applicant-compagny/:id', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
+  { path: 'applicant-compagny/:slug', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
 
   { path: 'passport-candidat', component: PassportAllCandidatComponent ,canActivate: [AuthGuard]},
 

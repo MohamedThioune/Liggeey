@@ -25,7 +25,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
   canApprove=false
   notification:any;
   isLoading=false;
-
+  nameCv:any
+  urlCv:any
   constructor(private usagerService: UsagerService,private route : ActivatedRoute,private router :Router ,private HomePageService: HomePageService) { }
 
   ngOnInit(): void {
@@ -63,9 +64,13 @@ export class CandidatProfilDashboardComponent implements OnInit {
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
       this.candidat=data      
       console.log(this.candidat);
-            
+      this.urlCv=this.extractFileName( this.candidat.cv)        
+      this.nameCv =this.candidat.cv 
     })
     
+  }
+  extractFileName(url: string): string {
+    return url.substring(url.lastIndexOf('/') + 1);
   }
   rejectCandidatByCompany(){
     this.isLoading=true
