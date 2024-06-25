@@ -16,13 +16,13 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   loading:boolean=true;
   applicant:any;
   searchTitle:String="";
-  identifiant:any;
+  slug:any;
 
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService,private router: Router) { }
 
   ngOnInit(): void {
     
-    this.identifiant = +this.route.snapshot.params['slug'];  
+    this.slug = this.route.snapshot.params['slug'];  
 
      // Récupération du token depuis le local storage
    const storedToken = this.usagerService.getToken();
@@ -34,11 +34,9 @@ export class AppicantsAllCompagnyComponent implements OnInit {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
-    this.homeService.getDetailJob(this.identifiant).subscribe((data:any)=>{
-      this.applicant=data
-      this.loading=false;
-      console.log(this.applicant);
-      
+    this.homeService.getDetailJob(this.slug).subscribe((data:any)=>{
+      this.applicant=data      
+      this.loading=false;      
      })
   }
 
