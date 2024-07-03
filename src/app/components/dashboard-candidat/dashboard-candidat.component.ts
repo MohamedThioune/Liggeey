@@ -23,6 +23,7 @@ export class DashboardCandidatComponent implements OnInit {
   currentDate!: Date;
   sentDate: any;
   suggestions:any;
+  downloadLink!: string;
 
   constructor(private usagerService:UsagerService,private homeService:HomePageService,private datePipe: DatePipe) { 
     this.isMobile = window.innerWidth < 768; 
@@ -47,8 +48,23 @@ export class DashboardCandidatComponent implements OnInit {
       });
 
      })
- 
+     this.setDownloadLink();
+
   }
+  setDownloadLink() {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    if (userAgent.includes('safari') && !userAgent.includes('chrome')) {
+      // Safari browser
+      this.downloadLink = 'https://apps.apple.com/nl/app/livelearn/id1666976386';
+    } else if (userAgent.includes('chrome')) {
+      // Android browser
+      this.downloadLink = 'https://play.google.com/store/apps/details?id=com.livelearn.livelearn_mobile_app&pli=1';
+    } else {
+      // Default link or other browsers
+      this.downloadLink = 'https://play.google.com/store/apps/details?id=com.livelearn.livelearn_mobile_app&pli=1';
+    }
+  }
+
 
   ngOnChanges() {
     this.currentDate = new Date();
@@ -76,6 +92,35 @@ export class DashboardCandidatComponent implements OnInit {
     }
   }
 
+  updateCachedData(){
+    const cachedCandidat = localStorage.getItem('cachedCandidat');
+    if (cachedCandidat) {
+        let cachedData;
+        try {
+            cachedData = JSON.parse(cachedCandidat);
+        } catch (error) {
+            console.error('Error parsing cached data:', error);
+        }
+
+        if (cachedData) {
+            this.homeCandidat = cachedData;
+        } else {
+            console.error('Cached data is not in the expected format.');
+        }
+
+    }
+    this.homeService.getDetailCandidate(this.userConnect.id).subscribe(data => {
+      if (data) {
+          this.homeCandidat = data;
+          localStorage.setItem('cachedCandidat', JSON.stringify(data));
+      
+      } 
+      else {  
+            console.error('Received data is not in the expected format.');
+      }
+    });
+        
+  }
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     console.log(this.isSidebarVisible);

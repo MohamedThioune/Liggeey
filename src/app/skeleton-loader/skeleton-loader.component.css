@@ -2,12 +2,15 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
-.container{
+.all-content{
   display: flex;
+  width: 100%;
 }
 .sidebar {
-    width: 250px;
+    width: 17%;
     height: 100vh; /* Hauteur de la barre latérale */
     position: fixed;
     left: 0;
@@ -29,10 +32,11 @@ body {
 }
 .main-content {
      /* margin-left: 220px;Assure que le contenu principal ne se superpose pas avec la barre latérale */
-    margin-top: 25px;
+    margin-top: 10px;
     border-radius: 5px;
     height: 100vh; /* Hauteur maximale */
-    width: 73vw;
+    width: 79%;
+    margin-left: 19%;
     background-color: #e0dddd; /* Couleur de fond */
     animation: fadeIn 1s ease-in-out infinite; /* Animation d'apparition */
 }

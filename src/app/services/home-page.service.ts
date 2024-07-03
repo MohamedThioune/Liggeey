@@ -1,6 +1,6 @@
 import { HttpClient,HttpHeaders,HttpResponse,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of,throwError } from 'rxjs';
 import { JobCompagny } from '../interfaces/job-compagny';
 import { Candidat } from '../interfaces/candidate';
 import { CommentArticle } from '../interfaces/comment-article';
@@ -9,6 +9,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { ProfilCompagny } from '../interfaces/profil-compagny';
 import { Notification } from '../interfaces/notification';
 import { Education } from '../interfaces/education';
+import { environment } from 'src/environments/environment';
+import { User } from '../interfaces/user';
 
 
 @Injectable({
@@ -17,11 +19,10 @@ import { Education } from '../interfaces/education';
 export class HomePageService {
 
   private cachedJobs: any[] = [];
-  private baseUrl = 'https://Livelearn.nl';
+  private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   private selectedJobIdSource = new Subject<string>();
   private selectedSlugSource = new Subject<string>();
-
   selectedJobId$ = this.selectedJobIdSource.asObservable();
   selectedSlug$ = this.selectedSlugSource.asObservable();
 
@@ -53,7 +54,7 @@ export class HomePageService {
     // }
   }
   getCategories(): Observable<any>{
-    const base64Credentials = btoa("peinda" + ':' + "1234ok");
+    const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + base64Credentials,
       'Content-Type': 'application/json;charset=UTF-8',
@@ -63,7 +64,10 @@ export class HomePageService {
 
   }
   getDetailCandidate(id:number | null):Observable<any>{
-      return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/detail/?id=${id}`,{});
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+      return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/detail/?id=${id}`,{headers});
   }
 
   getNotificationCandidat(id:number | null):Observable<any>{
@@ -147,7 +151,85 @@ export class HomePageService {
     };
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/profil/update`,requestBody);
   }
+  getImageUser(file: File):Observable<any>{
+    const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + base64Credentials,
+   
 
+    });
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(`${this.baseUrl}/wp-json/wp/v2/media/`,formData, { headers });
+}
+
+uploadFile(imageId:string ,userId: string): Observable<any> {
+  const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + base64Credentials,
+      'Content-Type': 'application/json;charset=UTF-8',
+
+    });
+  const requestBody = {
+    acf:{
+      "profile_img":imageId
+    },
+  };
+  return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/${userId}`,requestBody,{headers});
+}
+ redirectToWhatsApp() {
+  const phoneNumber = '+31613596448'; // Replace with your phone number
+  const url = `https://wa.me/${phoneNumber}`;
+  window.open(url,"_blank");
+}
+uploadFileCv(imageId:string,userId: string ): Observable<any> {
+  const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + base64Credentials,
+      'Content-Type': 'application/json;charset=UTF-8',
+
+    });
+  const requestBody = {
+    acf:{
+      "cv":imageId
+    },
+  };
+  return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/${userId}`,requestBody,{headers});
+}
+// getFileCv(cvId:string ): Observable<any>{
+  
+//   const headers = new HttpHeaders({
+//     'Access-Control-Allow-Origin':'*',
+//     'Content-Type': 'application/json;charset=UTF-8',
+
+//   });
+//   return this.http.get(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { headers });
+// }
+getFileCv(cvId: string): Observable<any> {
+  const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+
+  const headers = new HttpHeaders({
+    'Authorization': 'Basic ' + base64Credentials,
+    'Content-Type': 'application/json;charset=UTF-8',
+  });
+
+  return this.http.get(`${this.baseUrl}/wp-json/wp/v2/media/${cvId}`, { headers }).pipe(
+    catchError((error) => {
+     // console.error('Erreur lors de la récupération du fichier CV:', error);
+      return throwError(error);
+    })
+  );
+}
+getSubtopic(user:User): Observable<any> {
+  const base64Credentials = btoa(user.username + ':' + user.password);
+
+  const headers = new HttpHeaders({
+    'Authorization': 'Basic ' + base64Credentials,
+    'Content-Type': 'application/json;charset=UTF-8',
+  });
+
+  return this.http.get(`${this.baseUrl}/wp-json/custom/v2/user/subtopic/statistics`, { headers })
+}
   updateProfileCompany(idUser:string,profil:ProfilCompagny): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
@@ -312,24 +394,54 @@ export class HomePageService {
   }
   deleteResume(userApplyId: number, index: number): Observable<any> {
     // Check if userApplyId is defined before converting to string
-    const userApplyIdString = userApplyId ? userApplyId.toString() : '';
+    const userApplyIdString = userApplyId ;
   
     let params = new HttpParams()
       .set('userApplyId', userApplyIdString) // Use the converted string or an empty string
       .set('field_type', "education")
-      .set('index', index) // Convert index to string
-      .set('delete_education','2');
+      .set('delete_education',index)
+    //   .set('delete_award',index)
+       //.set('delete_work',index);
   
-    // const formData = new FormData();
-    // formData.append('userApplyId', userApplyIdString); // Use the converted string or an empty string
-    // formData.append('delete_education', '2'); 
-    // formData.append('delete_award', '3'); 
-    // formData.append('delete_work', '1'); 
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`,   params );
+  }
+  deleteResumeExperience(userApplyId: number, index: number): Observable<any> {
+    // Check if userApplyId is defined before converting to string
+    const userApplyIdString = userApplyId ;
   
-    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`,  { params });
+    let params = new HttpParams()
+      .set('userApplyId', userApplyIdString) // Use the converted string or an empty string
+      .set('field_type', "work")
+      //.set('delete_education',index)
+    //   .set('delete_award',index)
+       .set('delete_work',index);
+  
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/delete`,   params );
   }
   
+  updateResume(idUser: string, education: Education,index:number): Observable<any> {
+    const requestBody = {
+      education_index:index,
+      work_index:index,
+      userApplyId:idUser,
+      school:education.school,
+      degree:education.degree,
+      start_date:education.start_date,
+      end_date:education.end_date,
+      commentary:education.commentary,
+      job_title:education.job_title,
+      company:education.company,
+      work_start_date:education.work_start_date,
+      work_end_date:education.work_end_date,
+      work_description:education.work_description,
+      title:education.title,
+      description:education.description,
+      date:education.date
+    };
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/myResume/update`,requestBody,{});
 
+  }
+  
   profilJob(id: number): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/profil?userApplyId=${id}`,{});
   }

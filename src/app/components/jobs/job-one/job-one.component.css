@@ -301,6 +301,9 @@ input[type="search"]:focus {
    color: #D2D3D8;
    margin-right: 10px;
 }
+ul li{
+   width: 100% !important;
+}
 .content_sidebar ul li i:hover{
    border-radius: 30px;
    background: #1AC4A2;

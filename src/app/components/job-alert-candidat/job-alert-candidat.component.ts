@@ -17,13 +17,24 @@ export class JobAlertCandidatComponent implements OnInit {
   identifiant:number | null = 0;
   loading:boolean=true;
   notifications:any;
-
+  userConnect:any
 
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService,private fb: FormBuilder,private router: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
-    this.identifiant = +this.route.snapshot.params['id'];    
-    this.HomePageService.getNotificationCandidat( this.identifiant).subscribe(data=>{
+    this.identifiant = +this.route.snapshot.params['id'];  
+    const storedToken = this.usagerService.getToken();
+
+    if (storedToken) {
+                // Décodage de la base64
+      const decodedToken = atob(storedToken);
+
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+ 
+   // this.updateCachedData();
+    }      
+    this.HomePageService.getNotificationCandidat( this.userConnect.id).subscribe(data=>{
       //this.notifications = data.filter((notification:any) => notification.userApplyId === this.identifiant);
       this.notifications=data;
       this.loading=false;

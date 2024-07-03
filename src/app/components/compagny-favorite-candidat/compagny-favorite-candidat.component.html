@@ -10,6 +10,7 @@
       <h2>Favorites</h2>
         <div class="map_menu">
           <div class="head_map_menu">
+            <h3>My favorite candidates</h3>
             <div class="d-flex">
               <input type="search" [(ngModel)]="searchTitle" placeholder="Search" name="" id="search">
               <!--
@@ -119,11 +120,12 @@
                         </div>
                       </div>
                       <div class="all_info">
-                        <div class="time">
-                          <div class="content_time">
-                            <p>App</p>
-                          </div>
+                        <div class="time" *ngFor="let skil of item.skills; let i=index">
+                          <div class="content_time" *ngIf="i < 3">
+                           <p> {{ skil.cat_name.slice(0, 10) }} </p>                    
+                           </div>
                         </div>
+                        <!--
                         <div class="time">
                           <div class="content_time">
                             <p>Design</p>
@@ -134,6 +136,7 @@
                             <p>Digital</p>
                           </div>
                         </div>
+                        -->
                       </div>
                     </div>
                   </div>

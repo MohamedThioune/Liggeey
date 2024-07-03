@@ -21,6 +21,18 @@
           <h3>Candidates About</h3>
           <p>{{candidat.biographical_info}}.</p>
         </div>
+        <div class="block-about" >
+          <h3>Candidate CV</h3>
+          <p class="cv" *ngIf="candidat.cv">
+            <a class="" [href]="nameCv" target="_blank">
+              <div class="d-flex align-items-center">
+                <i class="fa fa-file "></i>
+                <span class="px-2 font-weight-bold">{{urlCv}}</span>
+              </div>
+            </a>
+          </p>
+          <p class="cv" *ngIf="!candidat.cv">No cv available at the moment</p>
+        </div>
         <div class="block-candidat">
           <h3>Education</h3>
           <div class="sub-block" *ngFor="let education of candidat.educations">
@@ -32,6 +44,9 @@
               <p class="date">{{education.year}}</p>
             </div>
             <p class="description">{{education.description}}.</p>
+          </div>
+          <div class="sub-block" *ngIf="candidat.educations.length==0">
+            <p class="description">No content available at the moment</p>
           </div>
         </div>
         <div class="block-candidat work-block">
@@ -45,6 +60,9 @@
               <p class="date">{{experience.year}}</p>
             </div>
             <p class="description">{{experience.description}}.</p>
+          </div>
+          <div class="sub-block" *ngIf="candidat.experiences.length==0">
+            <p class="description">No content available at the moment</p>
           </div>
         </div>
       </div>

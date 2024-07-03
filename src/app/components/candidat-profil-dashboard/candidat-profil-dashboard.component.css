@@ -109,6 +109,13 @@ h3, .h3 {
 .block-about{
   margin-bottom: 45px;
 }
+.block-about .cv{
+  font-size: 20px;
+  color: #1AC4A2 !important;
+}
+.block-about .cv a{
+  color: #1AC4A2 !important;
+}
 .sub-details{
   margin-bottom: 10px;
 }

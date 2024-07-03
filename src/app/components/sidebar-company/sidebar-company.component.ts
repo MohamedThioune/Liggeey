@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router ,NavigationEnd} from '@angular/router';
 import { UsagerService } from 'src/app/services/usager.service';
 
 @Component({
@@ -10,6 +11,7 @@ export class SidebarCompanyComponent implements OnInit {
   isSidebarVisible = false;
   showButton = true;
   userConnect:any;
+  activeItem: string | null = null;
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
@@ -24,7 +26,18 @@ export class SidebarCompanyComponent implements OnInit {
     localStorage.removeItem('cachedCandidat');
 
   }
-  constructor(private usagerService:UsagerService) { }
+  constructor(private usagerService:UsagerService,private router: Router) { 
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.activeItem = null; // Reset the active item on route change
+      }
+    });
+  }
+  setActiveItem(item: string) {
+    console.log(item);
+    
+    this.activeItem = item;
+  }
 
   ngOnInit(): void {
     // Récupération du token depuis le local storage

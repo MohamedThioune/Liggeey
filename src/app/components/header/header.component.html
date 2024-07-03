@@ -1,45 +1,51 @@
 <header class="web-header">
-  <div class="container-fluid">
-    <nav class="second-nav">
-      <ul>
-        <!--
-        <li class="search" >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M7.66732 13.9999C11.1651 13.9999 14.0007 11.1644 14.0007 7.66659C14.0007 4.16878 11.1651 1.33325 7.66732 1.33325C4.16951 1.33325 1.33398 4.16878 1.33398 7.66659C1.33398 11.1644 4.16951 13.9999 7.66732 13.9999Z" stroke="#64748B" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M14.6673 14.6666L13.334 13.3333" stroke="#64748B" stroke-linecap="round" stroke-linejoin="round"/>
+  <nav class="second-nav" (click)="redirectToWhatsApp()">
+    <ul>
+      <li>
+        <p style="margin: 0;">Do You Have a Question?</p>
+        <span>Chat directly with us via WhatsApp</span>
+      </li>
+    </ul>
+      <!-- <ul>
+   
+      <li class="search" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M7.66732 13.9999C11.1651 13.9999 14.0007 11.1644 14.0007 7.66659C14.0007 4.16878 11.1651 1.33325 7.66732 1.33325C4.16951 1.33325 1.33398 4.16878 1.33398 7.66659C1.33398 11.1644 4.16951 13.9999 7.66732 13.9999Z" stroke="#64748B" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14.6673 14.6666L13.334 13.3333" stroke="#64748B" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <input type="search" placeholder="Search" />
+      </li>
+      -->
+      <li class="Language dropdown">
+        <!-- <i class="fa fa-language"></i>
+        <p  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</p>
+       
+        <i class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="fa fa-caret-down"></i>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">English</a>
+          <a class="dropdown-item" href="#">Frensh</a>
+          <a class="dropdown-item" href="#">Deutsh</a>
+        </div>
+        
+
+      </li>
+      <li class="Light-Tel">
+        <button   [routerLink]="['/contact']">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+            <path d="M18.3083 16.2751C18.3083 16.5751 18.2417 16.8834 18.1 17.1834C17.9583 17.4834 17.775 17.7667 17.5333 18.0334C17.125 18.4834 16.675 18.8084 16.1667 19.0167C15.6667 19.2251 15.125 19.3334 14.5417 19.3334C13.6917 19.3334 12.7833 19.1334 11.825 18.7251C10.8667 18.3167 9.90832 17.7667 8.95832 17.0751C7.99999 16.3751 7.09166 15.6001 6.22499 14.7417C5.36666 13.8751 4.59166 12.9667 3.89999 12.0167C3.21666 11.0667 2.66666 10.1167 2.26666 9.17508C1.86666 8.22508 1.66666 7.31675 1.66666 6.45008C1.66666 5.88341 1.76666 5.34175 1.96666 4.84175C2.16666 4.33341 2.48332 3.86675 2.92499 3.45008C3.45832 2.92508 4.04166 2.66675 4.65832 2.66675C4.89166 2.66675 5.12499 2.71675 5.33332 2.81675C5.54999 2.91675 5.74166 3.06675 5.89166 3.28341L7.82499 6.00842C7.97499 6.21675 8.08332 6.40841 8.15832 6.59175C8.23332 6.76675 8.27499 6.94175 8.27499 7.10008C8.27499 7.30008 8.21666 7.50008 8.09999 7.69175C7.99166 7.88341 7.83332 8.08341 7.63332 8.28341L6.99999 8.94175C6.90832 9.03341 6.86666 9.14175 6.86666 9.27508C6.86666 9.34175 6.87499 9.40008 6.89166 9.46675C6.91666 9.53341 6.94166 9.58341 6.95832 9.63341C7.10832 9.90841 7.36666 10.2667 7.73332 10.7001C8.10832 11.1334 8.50832 11.5751 8.94166 12.0167C9.39166 12.4584 9.82499 12.8667 10.2667 13.2417C10.7 13.6084 11.0583 13.8584 11.3417 14.0084C11.3833 14.0251 11.4333 14.0501 11.4917 14.0751C11.5583 14.1001 11.625 14.1084 11.7 14.1084C11.8417 14.1084 11.95 14.0584 12.0417 13.9667L12.675 13.3417C12.8833 13.1334 13.0833 12.9751 13.275 12.8751C13.4667 12.7584 13.6583 12.7001 13.8667 12.7001C14.025 12.7001 14.1917 12.7334 14.375 12.8084C14.5583 12.8834 14.75 12.9917 14.9583 13.1334L17.7167 15.0917C17.9333 15.2417 18.0833 15.4167 18.175 15.6251C18.2583 15.8334 18.3083 16.0417 18.3083 16.2751Z" stroke="#1AC4A2" stroke-width="1.7" stroke-miterlimit="10"/>
+            <path d="M15.4167 8.50016C15.4167 8.00016 15.025 7.2335 14.4417 6.6085C13.9084 6.0335 13.2 5.5835 12.5 5.5835" stroke="#1AC4A2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18.3334 8.50008C18.3334 5.27508 15.725 2.66675 12.5 2.66675" stroke="#1AC4A2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <input type="search" placeholder="Search" />
-        </li>
-        -->
-        <li class="Language dropdown">
-          <!-- <i class="fa fa-language"></i>
-          <p  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</p>
-         
-          <i class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="fa fa-caret-down"></i>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">English</a>
-            <a class="dropdown-item" href="#">Frensh</a>
-            <a class="dropdown-item" href="#">Deutsh</a>
-          </div>
-          -->
-
-        </li>
-        <li class="Light-Tel">
-          <button   [routerLink]="['/contact']">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-              <path d="M18.3083 16.2751C18.3083 16.5751 18.2417 16.8834 18.1 17.1834C17.9583 17.4834 17.775 17.7667 17.5333 18.0334C17.125 18.4834 16.675 18.8084 16.1667 19.0167C15.6667 19.2251 15.125 19.3334 14.5417 19.3334C13.6917 19.3334 12.7833 19.1334 11.825 18.7251C10.8667 18.3167 9.90832 17.7667 8.95832 17.0751C7.99999 16.3751 7.09166 15.6001 6.22499 14.7417C5.36666 13.8751 4.59166 12.9667 3.89999 12.0167C3.21666 11.0667 2.66666 10.1167 2.26666 9.17508C1.86666 8.22508 1.66666 7.31675 1.66666 6.45008C1.66666 5.88341 1.76666 5.34175 1.96666 4.84175C2.16666 4.33341 2.48332 3.86675 2.92499 3.45008C3.45832 2.92508 4.04166 2.66675 4.65832 2.66675C4.89166 2.66675 5.12499 2.71675 5.33332 2.81675C5.54999 2.91675 5.74166 3.06675 5.89166 3.28341L7.82499 6.00842C7.97499 6.21675 8.08332 6.40841 8.15832 6.59175C8.23332 6.76675 8.27499 6.94175 8.27499 7.10008C8.27499 7.30008 8.21666 7.50008 8.09999 7.69175C7.99166 7.88341 7.83332 8.08341 7.63332 8.28341L6.99999 8.94175C6.90832 9.03341 6.86666 9.14175 6.86666 9.27508C6.86666 9.34175 6.87499 9.40008 6.89166 9.46675C6.91666 9.53341 6.94166 9.58341 6.95832 9.63341C7.10832 9.90841 7.36666 10.2667 7.73332 10.7001C8.10832 11.1334 8.50832 11.5751 8.94166 12.0167C9.39166 12.4584 9.82499 12.8667 10.2667 13.2417C10.7 13.6084 11.0583 13.8584 11.3417 14.0084C11.3833 14.0251 11.4333 14.0501 11.4917 14.0751C11.5583 14.1001 11.625 14.1084 11.7 14.1084C11.8417 14.1084 11.95 14.0584 12.0417 13.9667L12.675 13.3417C12.8833 13.1334 13.0833 12.9751 13.275 12.8751C13.4667 12.7584 13.6583 12.7001 13.8667 12.7001C14.025 12.7001 14.1917 12.7334 14.375 12.8084C14.5583 12.8834 14.75 12.9917 14.9583 13.1334L17.7167 15.0917C17.9333 15.2417 18.0833 15.4167 18.175 15.6251C18.2583 15.8334 18.3083 16.0417 18.3083 16.2751Z" stroke="#1AC4A2" stroke-width="1.7" stroke-miterlimit="10"/>
-              <path d="M15.4167 8.50016C15.4167 8.00016 15.025 7.2335 14.4417 6.6085C13.9084 6.0335 13.2 5.5835 12.5 5.5835" stroke="#1AC4A2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M18.3334 8.50008C18.3334 5.27508 15.725 2.66675 12.5 2.66675" stroke="#1AC4A2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="info">
-            <p>Have a question?</p>
-            <span>+221 871 83 33</span>
-          </div>
-        </li>
-      </ul>
-
-    </nav>
+        </button>
+        <div class="info">
+          <p>Have a question?</p>
+          <span>+221 871 83 33</span>
+        </div>
+      </li>
+    </ul>
+-->
+  </nav>
+  <div class="container-fluid">
     <div class="separateur"></div>
     <nav class="first-nav">
       <ul class="header_container_logo">
@@ -181,6 +187,27 @@
       </div>
 
       <div class="account" *ngIf="userConnect">
+        <div class="position-relative mx-2" *ngIf="candidate" (click)="onClick()" [ngClass]="{'tilted': isTilted}">
+        
+          <!--
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.001 5.001 0 0 0 3 6c0 1.098-.502 2.07-1.318 2.623A1.007 1.007 0 0 0 1 10v1c0 .386.232.723.595.895l.404.144a.5.5 0 0 1 .364.486v.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-.5a.5.5 0 0 1 .364-.486l.404-.144A1 1 0 0 0 15 11v-1a1.007 1.007 0 0 0-.682-.905C13.502 8.07 13 7.098 13 6a5.001 5.001 0 0 0-4.005-4.901zM14 10.818a.007.007 0 0 1-.004.003H2.004a.007.007 0 0 1-.004-.003V10c.862-.65 1.42-1.625 1.42-2.82a4 4 0 1 1 8 0c0 1.195.558 2.17 1.42 2.82v.818z"/>
+          </svg>
+          -->
+          <svg width="20" height="20" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_2923_7400)">
+            <path d="M24.619 19.6124H23.3917V9.80632C23.3917 4.3995 18.987 0.000244141 13.5735 0.000244141C8.16005 0.000244141 3.75536 4.3995 3.75536 9.80632V19.6124H2.52807C1.84938 19.6124 1.30078 20.1603 1.30078 20.8382C1.30078 21.516 1.84938 22.0639 2.52807 22.0639H3.75536H8.66445C8.66445 24.7679 10.8662 26.9669 13.5735 26.9669C16.2809 26.9669 18.4826 24.7679 18.4826 22.0639H23.3917H24.619C25.2977 22.0639 25.8463 21.516 25.8463 20.8381C25.8463 20.1603 25.2977 19.6124 24.619 19.6124ZM13.5735 24.5154C12.2199 24.5154 11.119 23.4159 11.119 22.0639H16.0281C16.0281 23.4159 14.9272 24.5154 13.5735 24.5154ZM20.9372 19.6124H18.4826H8.66445H6.20993V9.80632C6.20993 5.75031 9.51253 2.45179 13.5735 2.45179C17.6346 2.45179 20.9372 5.75031 20.9372 9.80632V19.6124Z" fill="#696969"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_2923_7400">
+            <rect width="27" height="26.9667" fill="white" transform="translate(0.0742188 0.000244141)"/>
+            </clipPath>
+            </defs>
+          </svg>
+            
+        <!--  <span class="badge badge-danger position-absolute top-0 start-100 translate-middle">{{myNotif}}</span>-->
+        </div>
+        
         <div class="content_image">
           <img [src]=avatar alt="Image User Connect">
         </div>
@@ -200,7 +227,7 @@
                   </clipPath>
                 </defs>
               </svg>
-              <p>My profil</p>
+              <p>My Profile</p>
             </a>
             <a class="dropdown-item" [routerLink]="['/profil-compagny']" *ngIf="compagny">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18" fill="none">
@@ -214,9 +241,9 @@
                   </clipPath>
                 </defs>
               </svg>
-              <p>My profil</p>
+              <p>My Profile</p>
             </a>
-            <a class="dropdown-item" [routerLink]="['/alert-candidat',userConnect.id]" *ngIf="candidate">
+            <a class="dropdown-item" [routerLink]="['/alert-candidat']" *ngIf="candidate">
               <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 27" fill="none">
                 <g clip-path="url(#clip0_2923_7735)">
                   <path d="M24.619 19.6124H23.3917V9.80632C23.3917 4.3995 18.987 0.000244141 13.5735 0.000244141C8.16005 0.000244141 3.75536 4.3995 3.75536 9.80632V19.6124H2.52807C1.84938 19.6124 1.30078 20.1603 1.30078 20.8382C1.30078 21.516 1.84938 22.0639 2.52807 22.0639H3.75536H8.66445C8.66445 24.7679 10.8662 26.9669 13.5735 26.9669C16.2809 26.9669 18.4826 24.7679 18.4826 22.0639H23.3917H24.619C25.2977 22.0639 25.8463 21.516 25.8463 20.8381C25.8463 20.1603 25.2977 19.6124 24.619 19.6124ZM13.5735 24.5154C12.2199 24.5154 11.119 23.4159 11.119 22.0639H16.0281C16.0281 23.4159 14.9272 24.5154 13.5735 24.5154ZM20.9372 19.6124H18.4826H8.66445H6.20993V9.80632C6.20993 5.75031 9.51253 2.45179 13.5735 2.45179C17.6346 2.45179 20.9372 5.75031 20.9372 9.80632V19.6124Z" fill="#696969"/>
@@ -264,6 +291,18 @@
 </header>
 
 <header class="mobile-header" *ngIf="isMobileScreen()">
+  <nav class="second-nav" target = "_blank" (click)="redirectToWhatsApp()">
+    <ul>
+      <li class="d-flex justify-content-center align-items-center">
+        <div class="whatsapp-icon-contain">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+          </svg>
+        </div>
+        <span>New! Chat directly with the LIGGÉEY team</span>
+      </li>
+    </ul>
+  </nav>
   <div class="container-fluid">
     <div class="separateur"></div>
     <nav class="first-nav">
@@ -323,9 +362,9 @@
           </button>
           <div class="dropdown-menu dropdown-menu-right" [class.show]="dropdownMobile">
             <ul class="account cathegories" *ngIf="userConnect">
-              <li><a class="job" [routerLink]="['/profil-candidat']" *ngIf="candidate">My profil</a></li>
-              <li><a class="job" [routerLink]="['/profil-compagny']" *ngIf="compagny">My profil</a></li>
-              <li><a class="job" [routerLink]="['/alert-candidat',userConnect.id]" *ngIf="candidate">Notification</a></li>
+              <li><a class="job" [routerLink]="['/profil-candidat']" *ngIf="candidate">My profile</a></li>
+              <li><a class="job" [routerLink]="['/profil-compagny']" *ngIf="compagny">My profile</a></li>
+              <li><a class="job" [routerLink]="['/alert-candidat']" *ngIf="candidate">Notification</a></li>
               <li><a class="job" [routerLink]="['/resume-compagny']" *ngIf="compagny">Notification</a></li>
               <li><a class="job" (click)="deconnexion()">Logout</a></li>
             </ul>
@@ -499,30 +538,56 @@
                 <label>Phone Number</label>
                 <input class = "input" name=""  type="number" placeholder="" aria-label="default input example" id="Phone-Number" value="{{userConnect.phone}}" required>
               </div>
-              -->
+              
 
               <div class="d-grid">
                 <button (click)="goToFinalStep()" type="submit"  [disabled]="isLoading" data-toggle="modal"  data-target="modal-apply" class="btn btn-forgeet-passwoord">Apply</button>
                 <div *ngIf="isLoading" class="loader">Loading...</div>
 
               </div>
+              -->
             </div>
-            <!--
+            
             <div *ngIf="showSecondStep" class="second-step">
-              <div class="second-block">
+              <form [formGroup]="myForm" (ngSubmit)="uploadFile()">
+
+              <div class="second-block ">
                 <label for="">Select your cv</label>
-                <div class="custom-pdf-container">
-                  <embed src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />
+                <div class="custom-pdf-container d-flex align-item-center justify-content-center flex-column">
+                  <img *ngIf="!safeCvUrl" src="../../../../assets/img/file.svg" alt="">
+                  <!--  <embed *ngIf="!safeCvUrl" src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />-->
+                  <iframe *ngIf="safeCvUrl" [src]="safeCvUrl" type="application/pdf" width="100%" height="300px" ></iframe>
+                  <span class="mt-4 text-align-center">{{nameCv}}</span>
                 </div>
                 <label for="">Or Upload a new one</label>
+                <!--
                 <div class="custom-file">
-                  <input type="file" id="customFileInput" (change)="onFileSelected($event)" />
-                  <label for="customFileInput" class="custom-file-label">{{ selectedFileName || 'Choose file' }}</label>
+                  
+                  <input type="file" id="customFileInput" class="form-control" name="file" accept="application/pdf" (change)="onFileSelected($event)"    formControlName="file" required/>
+                  
+                  <label for="customFileInput" class="custom-file-label">{{ selectedFile || 'Choose file' }}</label>   
                 </div>
+                -->
+                <div class="input-group mb-4">
+
+                   
+                     <!-- <embed src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />-->
+                   <input type="file" (change)="onFileSelected($event)"   accept="application/pdf"  name="file" class="form-control" id="file" placeholder="My CV"
+                   formControlName="file" required/>  
+                        
+               </div>
+                <!--
                 <button (click)="goToFinalStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Apply</button>
+                -->
+                <div class="d-grid">
+                  <button (click)="goToFinalStep()" type="submit"  [disabled]="isLoading" data-toggle="modal"  data-target="modal-apply" class="btn btn-forgeet-passwoord">Apply</button>
+                  <div *ngIf="isLoading" class="loader">Loading...</div>
+  
+                </div>
               </div>
+              </form>
             </div>
-            -->
+            
             <div *ngIf="!showFirstStep && !showSecondStep" class="final-step">
               <div class="loader">
                 <svg class="circular">

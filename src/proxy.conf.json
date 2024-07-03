@@ -1,0 +1,12 @@
+{
+    "/api": {
+      "target": "https://livelearn.nl",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "logLevel": "debug"
+    }
+  }
+  

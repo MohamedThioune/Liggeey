@@ -67,7 +67,7 @@ const routes: Routes = [
 
   { path: 'all-applicant-compagny', component: CompagnyApplicantComponent ,canActivate: [AuthGuard]},
 
-  { path: 'applicant-compagny/:id', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
+  { path: 'applicant-compagny/:slug', component: AppicantsAllCompagnyComponent ,canActivate: [AuthGuard]},
 
   { path: 'passport-candidat', component: PassportAllCandidatComponent ,canActivate: [AuthGuard]},
 
@@ -101,7 +101,7 @@ const routes: Routes = [
 
   { path: 'favorite', component: JobFavoriteCandidatComponent },
 
-  { path: 'alert-candidat/:id', component: JobAlertCandidatComponent ,canActivate: [AuthGuard]},
+  { path: 'alert-candidat', component: JobAlertCandidatComponent ,canActivate: [AuthGuard]},
 
   { path: 'course', component: CourseCandidatComponent },
 
