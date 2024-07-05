@@ -331,6 +331,7 @@ app-footers{
   }
   .content-page-dashboard {
     width: 100%;
+    padding-top: 65px;
   }
   .right_menu{
     width: 100% !important;

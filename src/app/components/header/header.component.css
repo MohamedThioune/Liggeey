@@ -263,7 +263,7 @@ nav ul li span{
 .dropdown.dropdown-modife .dropdown-menu a .content_image{
   height: 24px;
   width: 24px;
- 
+
 }
 .join{
     display: flex;
@@ -694,6 +694,13 @@ nav ul li span{
   .dropdown-menu-right li {
     width: 100%;
     text-align: left;
+  }
+  .categories .dropdown-menu a .content_image img{
+    object-fit: cover;
+  }
+  .categories .dropdown-menu a .content_image {
+    border-radius: unset;
+    padding-right: 0px !important;
   }
 }
 
