@@ -267,7 +267,6 @@ export class ResumeCandidatComponent implements OnInit {
 
   validateFormExperience(experience: Experience): boolean {
     const { job_title, company, work_start_date, work_end_date, work_description } = experience;
-    console.log(job_title,company,work_start_date,work_end_date);
     if (job_title == null) {
       this.message.message = 'job title is mandatory';
       return false;
@@ -308,13 +307,10 @@ export class ResumeCandidatComponent implements OnInit {
     } else {
       this.selectedSkills.push(term_id);
       skillsArray.push(this.fb.control(term_id));
-    }
-    console.log(this.selectedSkills);
-    
+    }    
   }
   selectAll() {
     const skillsArray = this.form.get('skills') as FormArray;
-  console.log(skillsArray);
   this.skillsTabs.forEach((element:any) => {
    const term_id= element.cat_ID
     if (this.selectedSkills.includes(term_id)) {
@@ -325,9 +321,7 @@ export class ResumeCandidatComponent implements OnInit {
       this.selectedSkills.push(term_id);
       skillsArray.push(this.fb.control(term_id));
     }
-  });
-    console.log(this.selectedSkills);
-    
+  });    
   }
   getSkillName(skillId: any): string {
     const skill = this.skillsTabs.find((skill:any) => skill.cat_ID === skillId);
@@ -346,7 +340,6 @@ export class ResumeCandidatComponent implements OnInit {
       // Vérifiez si au moins un des checkboxes est coché      
       if (this.form.value.skills.some((skill:boolean) => !!skill)) {
         const selectedSkills = this.form.value.skills.filter((skill: boolean) => !!skill).join(',');
-        console.log(selectedSkills);
         // Utilisez le service pour postuler à l'emploi
         this.HomePageService.addSkill(this.userConnect.id, selectedSkills)
           .subscribe(
@@ -401,7 +394,6 @@ export class ResumeCandidatComponent implements OnInit {
     this.isLoading = true;
   
       // Utilisez le service pour postuler à l'emploi
-      console.log(this.educationIndex);
       if (this.validateFormEducation(this.formEducation.value)) {
         if (this.isUpdate ) {          
           this.updateEducation(this.educationIndex);
@@ -453,7 +445,6 @@ export class ResumeCandidatComponent implements OnInit {
     }
   }
   openModal(action: string, education: any = null,index:any =null): void {
-    console.log(education,index,this.formEducation);
     if (action === 'add') {
       this.modalTitle = 'Add Education';
       this.isUpdate = false;
@@ -472,7 +463,6 @@ export class ResumeCandidatComponent implements OnInit {
     }
   }
   openModalExperience(action: string, education: any = null,index:any =null): void {
-   // console.log(action,education,index,this.formExperience.value);
     if (action === 'add') {
       this.modalTitle = 'Add Work && Experience';
       this.isUpdate = false;
@@ -520,7 +510,6 @@ export class ResumeCandidatComponent implements OnInit {
       );
   }
   updateEducation(index:number): void {
-    console.log(this.formEducation.value);
     this.HomePageService.updateResume(this.userConnect.id, this.formEducation.value,index)
     
       .subscribe(
@@ -571,7 +560,6 @@ export class ResumeCandidatComponent implements OnInit {
           const pdfUrl = fileResponse.source_url;
           this.urlCv=this.extractFileName( pdfUrl)          
           if (pdfUrl) {
-            //yconsole.log('PDF URL:', pdfUrl);
             return this.http.get(pdfUrl, { responseType: 'blob' });
           } else {
             throw new Error('Le JSON ne contient pas l\'URL du fichier PDF.');
@@ -630,7 +618,6 @@ export class ResumeCandidatComponent implements OnInit {
     this.isLoading = true;
   
       // Utilisez le service pour postuler à l'emploi
-      console.log(this.experienceIndex);
       if (this.validateFormExperience(this.formExperience.value)) {
         if (this.isUpdate ) {          
           this.updateExperience(this.experienceIndex);
@@ -729,7 +716,6 @@ export class ResumeCandidatComponent implements OnInit {
     }
   }
   updateExperience(index:number): void {
-    console.log(this.formExperience.value);
     this.HomePageService.updateResume(this.userConnect.id, this.formExperience.value,index)
     
       .subscribe(
@@ -836,12 +822,8 @@ export class ResumeCandidatComponent implements OnInit {
     //window.location.reload();
   
   }
-  trashFavoritesJob(index:number,option:string) {
-    console.log(option,index);
-    
+  trashFavoritesJob(index:number,option:string) {    
     if (confirm('Do you want to remove this resume?')) {
-
-    //console.log(this.userConnect,index);
     //return
     
     // Assurez-vous que this.userConnect et this.job sont définis
@@ -852,15 +834,11 @@ export class ResumeCandidatComponent implements OnInit {
             // Succès de la requête
             (response) => {
               let typeR = "error"
-              if (<any>response ) {
-                //console.log(response);
-                
+              if (<any>response ) {                
                 typeR = "success";
                 this.message= response.message
                 this.updateCachedData();
-              }
-              console.log(response);
-              
+              }              
               if(response.error){
                 ToastNotification.open({
                   type: typeR,
@@ -887,14 +865,11 @@ export class ResumeCandidatComponent implements OnInit {
             // Succès de la requête
             (response) => {
               let typeR = "error"
-              if (<any>response ) {
-                //console.log(response);
-                
+              if (<any>response ) {                
                 typeR = "success";
                 this.message= response.message
                 this.updateCachedData();
               }
-              console.log(response);
               if(response.error){
                 ToastNotification.open({
                   type: typeR,
@@ -926,71 +901,4 @@ export class ResumeCandidatComponent implements OnInit {
     }
   }
   
-
-  // updateEducation(): void {
-  //   if (this.userConnect.id) {
-  //     this.HomePageService.updateResume(this.userConnect.id, this.formEducation.value).subscribe(
-  //       (response) => {
-  //         this.handleResponse(response, 'Education updated successfully.');
-  //       },
-  //       (error) => {
-  //         this.handleError(error);
-  //       }
-  //     );
-  //   }
-  // }
-
-  // onSubmit() {
-  //   this.isLoading = true;
-  
-  //     // Utilisez le service pour postuler à l'emploi
-  //     console.log(this.form.value,this.form.value.skills);
-  //     if (this.form.value  ) {
-  //       alert('nook')
-  // return
-  //     this.HomePageService.addSkill(this.userConnect.id,this.form.value,)
-  //       .subscribe(
-  //         // Succès de la requête
-  //         (response) => {
-  
-  //           let typeR = "error"
-  //           if (<any>response ) {
-  //             typeR = "success";
-  //             this.message= "Skills added successfully."
-  //           }
-  //           ToastNotification.open({
-  //             type: typeR,
-  //             message: this.message
-  //           });
-  //           this.isLoading = false;
-  //           // if (typeR == "success") {
-  //           //   this.router.navigate(['/manage-compagny',this.userConnect.id]);
-  //           // }
-  
-  //         },
-  //         // Gestion des erreurs
-  //         (error) => {
-  //           ToastNotification.open({
-  //             type: 'error',
-  //             message: error.error.message
-  //           });
-  //          this.isLoading = false;
-  
-  //         }
-  //       );
-  //   }else if(!this.form.value){
-  //     let typeR = "error"
-
-  //     ToastNotification.open({
-  //       type: typeR,
-  //       message: "Select at least one skill "
-  //     });
-
-  //   } else {
-  //     ToastNotification.open({
-  //       type: 'error',
-  //       message: this.message.message
-  //     });
-  //   }
-  // }
 }

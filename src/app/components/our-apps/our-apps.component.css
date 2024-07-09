@@ -1,5 +1,5 @@
 body {
-  padding-top: 110px !important;
+  padding-top: 50px !important;
 }
 .text1{
   color: #2D2D2E;
@@ -191,6 +191,10 @@ subs {
   .btn-store{
     width: fit-content;
     margin: 0 auto 23px;
+  }
+  .imgApp{
+    max-width: 220px;
+    margin: -25px auto;
   }
 
 }

@@ -38,7 +38,6 @@ export class AppliesJobsComponent implements OnInit {
     this.identifiant = +this.route.snapshot.params['id'];    
     this.HomePageService.appliesJob( this.userConnect.id).subscribe(data=>{
       this.applies=data  
-      console.log(this.applies);
       this.loading=false
       
       this.applies.forEach((element:any) => {

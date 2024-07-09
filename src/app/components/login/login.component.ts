@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit {
           // Désactiver le loader
           this.isLoading = false;
         }else {
-          console.log('noconnect');
           ToastNotification.open({
             type: 'error',
             message: `Users cannot log in to the platform`

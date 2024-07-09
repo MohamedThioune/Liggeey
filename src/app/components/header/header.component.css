@@ -109,6 +109,7 @@ header .header_container_logo p {
     background-color: #1ac4a226;
     padding: 10px;
     width: 100%;
+    height: 50%;
     text-align: center;
     cursor: pointer;
   }
@@ -129,6 +130,9 @@ header .header_container_logo p {
 .second-nav li p{
     font-size: 15px;
     font-family: "Roboto-Bold";
+}
+.sub-first-nav{
+  height: 50%;
 }
 .Language{
     display: flex;
@@ -660,6 +664,13 @@ nav ul li span{
         height: 100%;
         object-fit: cover;
         margin: auto;
+    }
+    .categories .dropdown-menu a .content_image img{
+      object-fit: cover;
+    }
+    .categories .dropdown-menu a .content_image {
+      border-radius: unset;
+      padding-right: 0px !important;
     }
     .categories .dropdown-menu{
         margin: 0;

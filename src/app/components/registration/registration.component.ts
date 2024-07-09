@@ -68,8 +68,6 @@ showEmployer() {
           }
         },
         error => {        
-          console.log(error.error.code);
-            
           ToastNotification.open({
             type: 'error',
             message: error.error.code
@@ -80,9 +78,7 @@ showEmployer() {
       ToastNotification.open({
         type: 'error',
         message: this.message.message
-      });
-      console.log(this.message.message);
-      
+      });      
       this.isLoading = false;
     }
   }
@@ -177,7 +173,6 @@ notificationChief(idUser:number,user:any):any{
 
   inscriptionCompagny():void{
     this.isLoading=true
-    console.log(this.formCompagny.value);
     if (this.validateFormCompagny(this.formCompagny.value)) {
       this.usagerService.inscriptionCompagny(this.formCompagny.value).subscribe(
         usager => {
@@ -197,9 +192,7 @@ notificationChief(idUser:number,user:any):any{
             this.homeService.sendNotification(usager.ID,this.notificationChief(usager.ID,this.formCompagny.value)).subscribe();
           }
         },
-        error => { 
-          console.log(error.error.errors.errors.existing_user_email);
-                   
+        error => {                    
           ToastNotification.open({
             type: 'error',
             message: error.error.errors.errors.existing_user_email
@@ -207,7 +200,6 @@ notificationChief(idUser:number,user:any):any{
           this.isLoading=false
         });
     } else {
-      console.log(this.message);
       ToastNotification.open({
         type: 'error',
         message: this.message.message
@@ -230,9 +222,7 @@ notificationChief(idUser:number,user:any):any{
       return false;
     }
    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  if (!emailPattern.test(emailCompagny)) {
-    console.log(emailCompagny);
-    
+  if (!emailPattern.test(emailCompagny)) {    
     this.message.message = 'Check the email format of Company';
     return false;
   }

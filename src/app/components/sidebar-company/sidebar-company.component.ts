@@ -33,9 +33,7 @@ export class SidebarCompanyComponent implements OnInit {
       }
     });
   }
-  setActiveItem(item: string) {
-    console.log(item);
-    
+  setActiveItem(item: string) {    
     this.activeItem = item;
   }
 

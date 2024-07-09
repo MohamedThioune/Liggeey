@@ -213,8 +213,6 @@ calculateDurationLastJob(){
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
 
       const postedDate = new Date(this.job.posted_at);
-      console.log(postedDate);
-
       if (!isNaN(postedDate.getTime())) { // Check if postedDate is a valid date
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
      //   element.posted_at = postedDateFormatted;
@@ -234,8 +232,6 @@ calculateDurationLastJob(){
 
     openApplyModal(jobId: string,jobSlug:string) {
       this.HomePageService.setSelectedJobId(jobId,jobSlug);
-      console.log(jobId);
-
       const modalElement = document.getElementById('modal-apply');
       if (modalElement) {
         modalElement.click();

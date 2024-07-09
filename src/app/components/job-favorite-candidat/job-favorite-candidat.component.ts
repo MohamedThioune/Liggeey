@@ -72,9 +72,7 @@ export class JobFavoriteCandidatComponent implements OnInit {
           // Succès de la requête
           (response) => {
             let typeR = "error"
-            if (<any>response ) {
-              console.log(response);
-              
+            if (<any>response ) {              
               typeR = "success";
               this.message= "Your job is deleted to favorites."
               window.location.reload();

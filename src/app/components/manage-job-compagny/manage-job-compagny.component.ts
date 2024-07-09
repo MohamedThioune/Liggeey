@@ -35,19 +35,14 @@ export class ManageJobCompagnyComponent implements OnInit {
   
         // Parse du JSON pour obtenir l'objet original
         this. userConnect = JSON.parse(decodedToken);
-      }
-      console.log(this.userConnect.id);
-      
+      }      
     this.homeService.manageJob(this.userConnect.id).subscribe((data:any)=>{
       this.openJobs=data;
       this.loading=false
-      console.log(this.openJobs);
       
       this.openJobs.forEach((element:any) => {
         this.appliedNumber=element.applied.length
-       // console.log(this.appliedNumber);
         this.tabNumber.push(this.appliedNumber)
-        //console.log(this.tabNumber);
         const date = new Date(element.posted_at);
         element.date = this.formatDate(date);
         if (element.expired_at) {

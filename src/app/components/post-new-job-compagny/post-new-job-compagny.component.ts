@@ -170,7 +170,6 @@ onSubmit() {
   this.isLoading = true;
 
     // Utilisez le service pour postuler à l'emploi
-    console.log(this.form.value,this.form.value.skills);
     if (this.validateFormJob(this.form.value)) {
 
     this.homeService.postJob(this.form.value,this.userConnect.id)
@@ -194,9 +193,7 @@ onSubmit() {
 
         },
         // Gestion des erreurs
-        (error) => {
-          console.log(error);
-          
+        (error) => {          
           ToastNotification.open({
             type: 'error',
             message: error.error.errors

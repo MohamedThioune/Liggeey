@@ -41,9 +41,7 @@ export class DetailCandidatComponent implements OnInit {
       const decodedToken = atob(storedToken);
 
       // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
-      console.log(this.userConnect,this.identifiant);
-      
+      this. userConnect = JSON.parse(decodedToken);      
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
       } else if(this.userConnect.acf.is_liggeey == "chief"){
@@ -56,8 +54,6 @@ export class DetailCandidatComponent implements OnInit {
     //       if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
     //         this.canApprove=!this.canApprove
     //       }
-    //       console.log(this.jobId,job); 
-
     //     });
     // });
   
@@ -108,7 +104,7 @@ export class DetailCandidatComponent implements OnInit {
 
   approveCandidatByCompany(){
     if (this.userConnect && this.jobId ) {
-      console.log(this.userConnect,this.jobId);
+      //console.log(this.userConnect,this.jobId);
       
       // Utilisez le service pour ajouter l'emploi aux favoris
       this.HomePageService.approveCandidatByCompany(this.userConnect.id, this.jobId)

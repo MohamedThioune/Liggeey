@@ -13,9 +13,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.homeService.getAllJob().subscribe((data:any)=>{
-      this.jobs=data
-      console.log(this.jobs);
-      
+      this.jobs=data      
     })
   }
 

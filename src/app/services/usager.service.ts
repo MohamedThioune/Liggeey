@@ -20,8 +20,6 @@ export class UsagerService {
 
   setUser(user: any) {
     this.userSubject.next(user);
-    console.log(user);
-
   }
   constructor(private http: HttpClient) { }
   connection(user:User): Observable<any> {

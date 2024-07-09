@@ -15,14 +15,10 @@ export class DetailCompagnyComponent implements OnInit {
   constructor(private route : ActivatedRoute ,private HomePageService: HomePageService) { }
 
   ngOnInit(): void {
-    this.slug = this.route.snapshot.params['post_slug'];    
-    console.log(this.slug);
-    
+    this.slug = this.route.snapshot.params['post_slug'];        
     this.HomePageService.getDetailCompagny(this.slug).subscribe(data=>{
       this.employer=data;
-      this.loading=false;    
-      console.log(this.employer);
-              
+      this.loading=false;                  
     })
   }
 

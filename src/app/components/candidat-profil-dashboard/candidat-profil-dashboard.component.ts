@@ -39,9 +39,7 @@ export class CandidatProfilDashboardComponent implements OnInit {
       const decodedToken = atob(storedToken);
 
       // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
-      //console.log(this.userConnect);
-      
+      this. userConnect = JSON.parse(decodedToken);      
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
       } else if(this.userConnect.acf.is_liggeey == "chief"){
@@ -56,14 +54,11 @@ export class CandidatProfilDashboardComponent implements OnInit {
           if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
             this.canApprove=!this.canApprove
           }
-         // console.log(this.jobId,job, job.company,this.userConnect); 
-
         });
     });
   
     this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
       this.candidat=data      
-      console.log(this.candidat);
       this.urlCv=this.extractFileName( this.candidat.cv)        
       this.nameCv =this.candidat.cv 
     })
@@ -91,7 +86,6 @@ export class CandidatProfilDashboardComponent implements OnInit {
               if (<any>response ) {
                 typeR = "success";
                 this.message= "User application rejected with success !."
-                console.log(this.notification);
               //  return
                 
               this.HomePageService.sendNotification(this.candidat.ID,this.rejNotificationCand(this.candidat.ID,this.userConnect.id,this.job)).subscribe();
@@ -115,9 +109,6 @@ export class CandidatProfilDashboardComponent implements OnInit {
               message: error.error
             }); 
             this.isLoading=false
-
-         //   console.log(error.error);
-
           }
         );
     } else {      
@@ -125,19 +116,14 @@ export class CandidatProfilDashboardComponent implements OnInit {
         type: 'error',
         message: this.message.message
       });  
-      this.isLoading=false
-
-    //  console.log( this.message.message);
-      
+      this.isLoading=false      
     }
   }
 
   approveCandidatByCompany(){
     this.isLoading=true
 
-    if (this.candidat && this.jobId ) {
-     // console.log(this.userConnect,this.jobId);
-      
+    if (this.candidat && this.jobId ) {      
       // Utilisez le service pour ajouter l'emploi aux favoris
       this.HomePageService.approveCandidatByCompany(this.candidat.ID, this.jobId)
         .subscribe(

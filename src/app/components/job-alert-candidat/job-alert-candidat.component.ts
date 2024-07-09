@@ -37,9 +37,7 @@ export class JobAlertCandidatComponent implements OnInit {
     this.HomePageService.getNotificationCandidat( this.userConnect.id).subscribe(data=>{
       //this.notifications = data.filter((notification:any) => notification.userApplyId === this.identifiant);
       this.notifications=data;
-      this.loading=false;
-      console.log(this.notifications);
-      
+      this.loading=false;      
     })
   }
 
