@@ -15,7 +15,7 @@
         </svg>
         <input type="search" placeholder="Search" />
       </li>
-      -->
+      
       <li class="Language dropdown">
         <!-- <i class="fa fa-language"></i>
         <p  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</p>
@@ -39,13 +39,13 @@
         </button>
         <div class="info">
           <p>Have a question?</p>
-          <span>+221 871 83 33</span>
+          <span>+31613596448</span>
         </div>
       </li>
     </ul>
 -->
   </nav>
-  <div class="container-fluid">
+  <div class="container-fluid sub-first-nav">
     <div class="separateur"></div>
     <nav class="first-nav">
       <ul class="header_container_logo">
@@ -345,9 +345,7 @@
               -->
               <a class="dropdown-item"  (click)="send_id(categori.cat_slug)"    *ngFor="let categori of categories" routerLinkActive="active_lien_navbar">
                 <div class="content_image">
-                  <!--
                   <img [src]="categori.cat_image" alt="Image Of Categorie">
-                  -->
                 </div>
               
                 <p> {{categori.cat_name}} </p>

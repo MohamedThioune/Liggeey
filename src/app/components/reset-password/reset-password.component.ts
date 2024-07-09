@@ -24,19 +24,15 @@ export class ResetPasswordComponent implements OnInit {
    const email = this.email;
     this.usagerService.generateCode(email).subscribe(
       (data:any) => {
-        console.log(data)
         if (data.data.status == 200) {    
           ToastNotification.open({
             type: 'success',
             message: data.message
-          });  
-          console.log(data);
-           
+          });             
           this.passwordShow = true;   
           this.emailShow = false;
           this.route.navigate(['/reset-password']);
         }else {
-          console.log('noconnect');
           ToastNotification.open({
             type: 'error',
             message: data.message
@@ -45,7 +41,6 @@ export class ResetPasswordComponent implements OnInit {
         }
       },
       error =>{
-        console.log(error.error);
         ToastNotification.open({
           type: 'error',
           message: error.error 
@@ -58,21 +53,16 @@ export class ResetPasswordComponent implements OnInit {
        email : this.email,
        password : this.password,
        code : this.code,
-    };
-    console.log(userResetPassword);
-    
+    };    
     this.usagerService.resetPassword(userResetPassword).subscribe(
       (data:any)=>{
-      console.log(data);
       if (data.data.status == 200) {    
         ToastNotification.open({
           type: 'success',
           message: data.message
         });  
-        console.log(data);
         this.route.navigate(['/login']);
       }else {
-        console.log('noconnect');
         ToastNotification.open({
           type: 'error',
           message: data.message
@@ -81,7 +71,6 @@ export class ResetPasswordComponent implements OnInit {
       }
     },
     error =>{
-      console.log(error);
       ToastNotification.open({
         type: 'error',
         message:"error"

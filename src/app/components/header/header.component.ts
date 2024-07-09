@@ -135,9 +135,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   }
   ngOnInit(): void {
 
-    this.href = window.location.href;
-   // console.log(this.href);
-    
+    this.href = window.location.href;    
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
     const storedToken = this.usagerService.getToken();
@@ -177,8 +175,6 @@ export class HeaderComponent implements OnInit,OnDestroy {
     })
     // this.homeService.getDetailCategory( this.slug).subscribe(data=>{
     //   this.category = data
-    //  // console.log(this.category);
-
     // })
     this.homeService.getNotificationCandidat( this.id).subscribe(data=>{
       //this.notifications = data.filter((notification:any) => notification.userApplyId === this.identifiant);
@@ -355,7 +351,6 @@ redirectToWhatsApp(){
           }
         });        
         }else {
-          console.log('noconnect');
           ToastNotification.open({
             type: 'error',
             message: `Users cannot log in to the platform`
@@ -457,7 +452,6 @@ redirectToWhatsApp(){
         }
       );
     } else { 
-      //console.log(this.userConnect,this.cv)  
       const storedCvId = localStorage.getItem('cvId');            
       if (storedCvId) {
         this.downloadPDF(storedCvId);

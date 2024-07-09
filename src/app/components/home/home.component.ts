@@ -72,9 +72,7 @@ export class HomeComponent implements OnInit {
     this.homeService.getCategories().subscribe((data:any)=>{
       this.categoriesTab=data.categories;
       this.topics=data.topics;
-      this.sub=data.sub
-    //console.log(this.candidatsTab);
-      
+      this.sub=data.sub      
       //this.currentCategories=this.categories
     })
 

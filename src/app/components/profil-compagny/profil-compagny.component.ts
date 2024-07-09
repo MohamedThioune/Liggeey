@@ -46,9 +46,7 @@ export class ProfilCompagnyComponent implements OnInit {
     this.profil=data;
     this.selectedCountry=this.profil.country
     this.form.patchValue(this.profil);
-    this.loading=false;    
-    console.log(this.form.value);
-    
+    this.loading=false;        
   })
 
 
@@ -57,11 +55,8 @@ export class ProfilCompagnyComponent implements OnInit {
       this.countries = data.map(country => country.name.common);
     },
     error => {
-      console.log('Erreur lors de la récupération des pays:', error);
-    });
-
-   //console.log(this.userConnect.id);
-   
+      //console.log('Erreur lors de la récupération des pays:', error);
+    });   
   }
 
   initForm() {
@@ -79,9 +74,7 @@ export class ProfilCompagnyComponent implements OnInit {
   }
 
   onSubmit() {
-    // Utilisez le service pour postuler à l'emploi
-    //console.log(this.profil);
-    
+    // Utilisez le service pour postuler à l'emploi    
     if (this.validateFormJob(this.form.value)) {
     this.homeService.updateProfileCompany(this.userConnect.id,this.form.value)
       .subscribe(
@@ -90,7 +83,6 @@ export class ProfilCompagnyComponent implements OnInit {
 
           let typeR = "error"
           if (<any>response ) {
-            console.log(response);
             typeR = "success";
             this.message= "Company Updated successfully."
           }

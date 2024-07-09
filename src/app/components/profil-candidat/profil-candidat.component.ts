@@ -80,7 +80,7 @@ export class ProfilCandidatComponent implements OnInit {
         this.countries = data.map(country => country.name.common);
       },
       error => {
-        console.log('Erreur lors de la récupération des pays:', error);
+        //console.log('Erreur lors de la récupération des pays:', error);
       });
   
   }
@@ -96,7 +96,6 @@ export class ProfilCandidatComponent implements OnInit {
         })
       ).subscribe(
         (response: any) => {
-          console.log(response);
           this.updateCachedData(response.id)
 
           this.router.navigate(['/dashboard-candidat']);
@@ -210,7 +209,6 @@ updateCachedData(id:number) {
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
-    console.log(this.isSidebarVisible);
   }
   fermerSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;

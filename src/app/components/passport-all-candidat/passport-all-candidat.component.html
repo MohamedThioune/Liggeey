@@ -248,17 +248,14 @@
         <div class="map_menu mb-4" *ngIf="ongletSelectionne === 'Data' || ongletSelectionne === 'All'">
           <div class="badge_certificate">
             <p>Data or Statics</p>
-            <a *ngIf="subtopic.length > 6"  (click)="showAllSkills = !showAllSkills" (click)="openSkillModal(skill)">{{ showAllSkills ? 'Show Less' : 'See All' }}</a>
+            <a *ngIf="subtopic.length > 6"  (click)="showAllSkills = !showAllSkills">{{ showAllSkills ? 'Show Less' : 'See All' }}</a>
           </div>
             <div class="row">
-              <!--
-                <div class="col-md-2 document mt-4 btn-add-element"  *ngFor="let skill of (showAllSkills ? subtopic :  subtopic.slice(0,5))" data-toggle="modal" data-target="#exampleModalEdu">
-                -->
-                <div class="col-md-2 document mt-4 btn-add-element"  *ngFor="let skill of (showAllSkills ? subtopic :  subtopic.slice(0,5))">
+                <div class="col-md-2 document mt-4 btn-add-element"  *ngFor="let sub of (showAllSkills ? subtopic :  subtopic.slice(0,5))" (click)="openApplyModal(sub)" data-toggle="modal" data-target="#exampleModalEdu">
                   <p>Detail Handel</p>
                   <div class="content_image_document">
-                      <p>{{skill.time_spent}}</p>
-                      <p style="color: #043356;">{{skill.category_name}}</p>
+                      <p>{{sub.time_spent}}</p>
+                      <p style="color: #043356;">{{sub.category_name}}</p>
                   </div>
                 </div>
             </div>
@@ -289,7 +286,6 @@
                 </div>
 
           </div>
-          <!--
           <div class="map_menu"  *ngIf="ongletSelectionne === 'Assessments' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Assessment</p>
@@ -460,7 +456,6 @@
                 </tbody>
               </table>
           </div>
-          -->
           
           <div class="content-detail" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
@@ -571,7 +566,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h6 class="modal-title" id="exampleModalLabel">Statistic for PHP</h6>
+          <h6 class="modal-title" id="exampleModalLabel">Statistic for Media</h6>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -583,18 +578,18 @@
                 <div class="col-lg-12 col-md-12">
                   <!---->
                   <div class="group-input-settings">
-                     <label for="skills">0h 6mn 0s</label>
+                     <label for="skills">0h 1mn 40s</label>
                      <div class="statics d-flex justify-content-between p-1">
-                      <p>Articles 0h 6mn 0s</p>
-                      <p>WorkShop 0h 6mn 0s</p>
+                      <p>Articles 0h 0mn 0s</p>
+                      <p>WorkShop 0h 0mn 0s</p>
                      </div>
                      <div class="statics d-flex justify-content-between p-1">
-                      <p>Videos 0h 6mn 0s</p>
-                      <p>MasterClasses 0h 6mn 0s</p>
+                      <p>Videos 0h 0mn 0s</p>
+                      <p>MasterClasses 0h 0mn 0s</p>
                      </div>
                      <div class="statics d-flex justify-content-between p-1">
-                      <p>Articles 0h 6mn 0s</p>
-                      <p>Podcast 0h 6mn 0s</p>
+                      <p>opleidingen 0h 0mn 0s</p>
+                      <p>Podcast 0h 1mn 40s</p>
                      </div>
                   </div>
                   <button class="btn btnSeeStatic">See my all statics</button>

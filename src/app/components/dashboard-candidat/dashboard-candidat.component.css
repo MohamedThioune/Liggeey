@@ -345,6 +345,29 @@
     visibility:hidden;
   }
 
+  .for-img-download{
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 25px 45px 0px 30px;
+    border: none;
+  }
+ .for-img-download .overlay-content{
+   width: 58%;
+ }
+ .for-img-download .content_banner {
+   font-size: 23px;
+   font-weight: 700 !important;
+   color: rgb(24, 49, 83);
+   padding-bottom: 0px !important;
+   line-height: 36px !important;
+   margin-bottom: 5px;
+ }
+ .btn-download {
+   font-size: 18px !important;
+   font-weight: 500;
+   border-radius: 8px !important;
+   padding: 7px 20px 10px !important;
+ } 
  @media all and (min-width: 300px) and (max-width: 767px){
    .content_right_menu{
      margin-top: 75px;

@@ -33,6 +33,7 @@ export class PassportAllCandidatComponent implements OnInit {
   showAllCertificates: boolean = false;
   skill = { note: 75 };
   subtopic: any[] = [];
+  sub:any
  // subtopic: any[] = [];
  username: string = '';
  password: string = '';
@@ -50,16 +51,11 @@ export class PassportAllCandidatComponent implements OnInit {
  
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
-    }
- console.log(this. userConnect);
- 
+    } 
     this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
       this.skillAll=data
 
-     this.badges= this.skillAll.badges;
-
-          //console.log(this.badges);
-          
+     this.badges= this.skillAll.badges;          
           this.badges.forEach(element => {      
             // Diviser la chaîne de date en parties : date et heure
             const parts = element.post_date.split(" ");
@@ -87,30 +83,33 @@ export class PassportAllCandidatComponent implements OnInit {
         
      this.courses_info=this.skillAll.courses_info;
      this.topics=this.skillAll.topics;
-     this.certificats=this.skillAll.certificats
-     
-     //console.log(this.skillAll);
-     
-    // console.log(this.skillAll,this.courses_info,this.badges);
+     this.certificats=this.skillAll.certificats     
      this.loading=false;
     }))
-    //console.log( this.subtopic);
     const user = {
       username: "mbayamemansor@gmail.com",
       password: "hidden"
-    }
-    console.log(user);
-    
+    }    
     this.homeService.getSubtopic(user).subscribe((data:any)=>{
       this.subtopic=data
-console.log( data);
-
+      console.log(this.subtopic);
+      
      })
     
   }
   openSkillModal(skill: any): void {
     // const modalRef = this.modalService.open(SkillModalComponent);
     // modalRef.componentInstance.skill = skill;
+  }
+
+  openApplyModal(skill:any) {
+    console.log(skill)
+    const modalElement = document.getElementById('exampleModalEdu');
+    if (modalElement) {
+      modalElement.click();
+    } else {
+      console.error("Modal element not found");
+    }
   }
   formatDate(date: Date): string {
     // Tableau des noms de mois

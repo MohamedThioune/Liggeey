@@ -70,9 +70,7 @@ export class DashboardCandidatComponent implements OnInit {
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     if (Array.isArray(this.suggestions)) {
-      this.suggestions.forEach((element: any) => {
-        console.log(element.posted_at);
-        
+      this.suggestions.forEach((element: any) => {        
       const postedDate = new Date(element.posted_at);
       if (!isNaN(postedDate.getTime())) { // Check if postedDate is a valid date
         const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
@@ -122,9 +120,7 @@ export class DashboardCandidatComponent implements OnInit {
         
   }
   toggleSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible;
-    console.log(this.isSidebarVisible);
-    
+    this.isSidebarVisible = !this.isSidebarVisible;    
   }
   @HostListener('window:resize', ['$event'])
   onResize(event:Event) {

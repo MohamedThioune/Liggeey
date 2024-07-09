@@ -28,7 +28,6 @@ export class ListCandidatesComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.candidates=data.candidates
-    console.log( this.candidates)
     })
     
   }
@@ -56,7 +55,7 @@ export class ListCandidatesComponent implements OnInit {
 
   filterCandidatesByGender(event: any): void {
     const selectedGender = event.target?.value; // Utilisation de l'opérateur de navigation sécurisée (?.) pour éviter l'erreur si event.target est null
-    console.log(selectedGender);
+    //console.log(selectedGender);
 
     if (selectedGender === '') {
       // Si aucune option n'est sélectionnée, afficher tous les candidats
@@ -64,7 +63,7 @@ export class ListCandidatesComponent implements OnInit {
     } else if(selectedGender) {
       // Filtrer les candidats en fonction du genre sélectionné
       this.filteredCandidates = this.candidates.filter((candidate: any) => candidate.gender === selectedGender);
-      console.log(this.filteredCandidates);
+      //console.log(this.filteredCandidates);
 
     }
   }

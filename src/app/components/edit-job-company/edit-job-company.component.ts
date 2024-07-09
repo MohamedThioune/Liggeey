@@ -120,7 +120,6 @@ export class EditJobCompanyComponent implements OnInit {
         this.job = data;
         this.loading=false;
         this.selectedSkills = this.job.skills.map((skill:any) => skill.term_id);
-        console.log(this.job);
         this.form.patchValue(this.job);
 
     });
@@ -178,7 +177,6 @@ toggleSkill(term_id: any) {
     this.selectedSkills.push(term_id);
     skillsArray.push(this.fb.control(term_id));
   }
-  console.log(this.selectedSkills);
 }
 
 removeSkill(term_id: any) {
@@ -230,8 +228,6 @@ return allSkills;
   onSubmit(){
     if (this.validateFormJob(this.form.value)) {
     this.form.value.skills=this.selectedSkills;
-    console.log(this.form.value);
-    //console.log(jobData);
     this.homeService.editJob(this.form.value,this.userConnect.id)
       .subscribe(
         // Succès de la requête

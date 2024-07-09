@@ -64,8 +64,6 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   }
   trashFavoritesCandidat(idCandidate:string) {
     if (confirm('Do you want to remove this candidate from your favorites?')) {
-
-    console.log(this.identifiant,idCandidate);
     //return
     
     // Assurez-vous que this.userConnect et this.job sont définis
@@ -76,9 +74,7 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
           // Succès de la requête
           (response) => {
             let typeR = "error"
-            if (<any>response ) {
-              console.log(response);
-              
+            if (<any>response ) {              
               typeR = "success";
               this.message= "This Candidate is deleted to favorites."
             }

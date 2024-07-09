@@ -56,13 +56,10 @@ export class SkillsCandidatComponent implements OnInit {
        // Parse du JSON pour obtenir l'objet original
        this. userConnect = JSON.parse(decodedToken);
      }
-     //console.log(this.userConnect);
      this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
       this.badges=data.badges;
       this.courses=data.courses;
-      this.topics=data.topics
-    //  console.log(this.badges,this.courses,this.topics);
-      
+      this.topics=data.topics      
      }))
 }
 

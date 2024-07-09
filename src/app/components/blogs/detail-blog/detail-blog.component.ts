@@ -46,16 +46,11 @@ export class DetailBlogComponent implements OnInit {
     this.slug = this.route.snapshot.params['slug'];  
       
     this.HomePageService.getDetailArticle( this.slug).subscribe(data=>{
-      this.article=data;
-      console.log(this.article);
-      
+      this.article=data;      
       this.loading=false;
       this.comments=this.article.comments;         
       this.article.title =   this.article.title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-    //  this.article.content = this.article.content.replace(/<[^>]*>|[#&]/g, '');
-      console.log(this.comments);
-      
-         
+    //  this.article.content = this.article.content.replace(/<[^>]*>|[#&]/g, '');      
     })
   }
   postArticleComment(){
@@ -69,9 +64,7 @@ export class DetailBlogComponent implements OnInit {
       this.isLoading = false;
 
       return; 
-    }
-      console.log(this.form.value,this.article.ID,this.userConnect.id);
-    
+    }    
       if (this.validateFormJob(this.form.value)) {
   
       this.homeService.postArticleComment(this.form.value,this.userConnect.id,this.article.ID)
@@ -84,7 +77,6 @@ export class DetailBlogComponent implements OnInit {
               typeR = "success";
               this.message= "Comment created successfully."
               this.form.reset()
-              console.log(response);
             }
             ToastNotification.open({
               type: typeR,

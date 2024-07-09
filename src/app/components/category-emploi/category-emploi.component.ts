@@ -35,9 +35,7 @@ export class CategoryEmploiComponent implements OnInit {
       const decodedToken = atob(storedToken);
 
       // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
-    //  console.log(this.userConnect);
-      
+      this. userConnect = JSON.parse(decodedToken);      
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
       } else if(this.userConnect.acf.is_liggeey == "chief"){
