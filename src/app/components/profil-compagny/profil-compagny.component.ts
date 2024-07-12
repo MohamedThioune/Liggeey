@@ -26,6 +26,7 @@ export class ProfilCompagnyComponent implements OnInit {
     message: ''
   };
    countries:any;
+   isLoading: boolean = false;
 
   constructor(private fb: FormBuilder,private route: Router,private homeService:HomePageService,private usagerService: UsagerService) { }
 
@@ -63,7 +64,7 @@ export class ProfilCompagnyComponent implements OnInit {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       title:['',[]],
-      website:['',[]],
+      website:['',[Validators.required]],
       sector:['',[Validators.required]],
       size:['',[Validators.required]],
       biography:['',[]],
@@ -74,6 +75,7 @@ export class ProfilCompagnyComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isLoading = true;
     // Utilisez le service pour postuler à l'emploi    
     if (this.validateFormJob(this.form.value)) {
     this.homeService.updateProfileCompany(this.userConnect.id,this.form.value)
@@ -93,6 +95,7 @@ export class ProfilCompagnyComponent implements OnInit {
           if (typeR == "success") {
             this.route.navigate(['/dashboard-employer',this.userConnect.id]);
           }
+          this.isLoading = false;
         },
         // Gestion des erreurs
         (error) => {
@@ -100,6 +103,7 @@ export class ProfilCompagnyComponent implements OnInit {
             type: 'error',
             message: error.error.message
           });
+          this.isLoading = false;
         }
       );
   } else {
@@ -107,6 +111,7 @@ export class ProfilCompagnyComponent implements OnInit {
       type: 'error',
       message: this.message.message
     });
+    this.isLoading = false;
   }
 
 
@@ -130,7 +135,7 @@ validateFormJob(profile: ProfilCompagny): boolean {
     this.message.message = 'Your Website is mandatory';
     return false;
   }
-  if (size == "") {
+  if (size == null) {
     this.message.message = 'Size of your Company is mandatory';
     return false;
   }

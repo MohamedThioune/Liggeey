@@ -115,7 +115,7 @@ export class EditJobCompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm() ;
-    this.slug = +this.route.snapshot.params['id'];
+    this.slug = this.route.snapshot.params['slug'];
     this.homeService.getDetailJob(this.slug).subscribe(data => {
         this.job = data;
         this.loading=false;

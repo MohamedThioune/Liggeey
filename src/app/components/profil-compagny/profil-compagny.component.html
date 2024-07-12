@@ -55,7 +55,7 @@
                 <label for="name"> Team Size  <span class="important">*</span>
                 </label>
                 <div class="input-group">
-                  <input type="text" name="size"  formControlName="size" class="form-control" id="size" placeholder="50-100">
+                  <input type="number" name="size"  formControlName="size" class="form-control" id="size" placeholder="50-100" required>
                 </div>
               </div>
               <!--
@@ -149,7 +149,7 @@
       <h2 class="sub-title-page">Contact Information</h2>
         <div class="card-body">
           <div class="row w-100">
-            <div class="col-md-6 col-sm-6 p-2">
+            <div class="col-md-6 col-sm-6">
               <label for="email">
                 Country
                 <p>*</p>
@@ -191,7 +191,8 @@
     </div>
   </div>
   <div class="card-footer">
-    <button class="btn btn-outline-secondary create " type="submit"> Save </button>
+    <button class="btn btn-outline-secondary create " type="submit" [disabled]="isLoading"> Save </button>
+    <div *ngIf="isLoading" class="loader">Loading...</div>
   </div>
 </form>
 </section>
