@@ -39,12 +39,13 @@ export class PassportAllCandidatComponent implements OnInit {
  password: string = '';
  isLoading=false
  form!:FormGroup
+ selectedSkill: any ;
   constructor(private route : ActivatedRoute,private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
   ngOnInit(): void {
     this.ongletSelectionne = "All";
     const storedToken = this.usagerService.getToken();
-    
+
     if (storedToken) {   
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
@@ -86,15 +87,31 @@ export class PassportAllCandidatComponent implements OnInit {
      this.certificats=this.skillAll.certificats     
      this.loading=false;
     }))
-    const user = {
-      username: "mbayamemansor@gmail.com",
-      password: "hidden"
-    }    
-    this.homeService.getSubtopic(user).subscribe((data:any)=>{
-      this.subtopic=data
-      console.log(this.subtopic);
+        const user = this.usagerService.getCurrentUser();
+    //console.log(user);
+    
+    if (user) {
+      this.homeService.getSubtopic(user).subscribe(
+        (data: any) => {
+          this.subtopic = data;
+         // console.log(this.subtopic);
+        },
+        (error) => {
+          console.error('Error fetching subtopics', error);
+        }
+      );
+    } else {
+      console.error('User not logged in');
+    }
+    // const user = {
+    //   username: "mbayamemansor@gmail.com",
+    //   password: "hidden"
+    // }    
+    // this.homeService.getSubtopic(user).subscribe((data:any)=>{
+    //   this.subtopic=data
+    //   console.log(this.subtopic);
       
-     })
+    //  })
     
   }
   openSkillModal(skill: any): void {
@@ -103,7 +120,8 @@ export class PassportAllCandidatComponent implements OnInit {
   }
 
   openApplyModal(skill:any) {
-    console.log(skill)
+    //console.log(skill)
+    this.selectedSkill=skill
     const modalElement = document.getElementById('exampleModalEdu');
     if (modalElement) {
       modalElement.click();

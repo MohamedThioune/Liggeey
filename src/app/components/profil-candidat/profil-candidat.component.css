@@ -267,6 +267,9 @@ h2 {
 .social-block .btn-save, .contact-infos .btn-save{
   margin-top: 25px !important;
 }
+.card-modife.contact-infos .btn.btn-save{
+  margin-left: 35px !important;
+}
 .right_menu {
   width: 77%;
 }

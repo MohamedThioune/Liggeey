@@ -161,7 +161,7 @@ const routes: Routes = [
 
   { path:'',redirectTo: '/login', pathMatch: 'full'},
 
-  { path: 'edit-job/:id', component: EditJobCompanyComponent },
+  { path: 'edit-job/:slug', component: EditJobCompanyComponent },
 
 
   { path: 'edit-job', component: EditJobsComponent },

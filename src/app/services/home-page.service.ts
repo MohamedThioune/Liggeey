@@ -368,10 +368,10 @@ getSubtopic(user:User): Observable<any> {
   addSkill(idUser: number,idTopic:string): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
-      topic_id:idTopic,
+      topics:idTopic,
 
     };
-    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/skill`,requestBody,{});
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/skills`,requestBody,{});
   }
   myResumeAdd(idUser: number,education:Education): Observable<any> {
     const requestBody = {

@@ -286,6 +286,7 @@
                 </div>
 
           </div>
+          <!--
           <div class="map_menu"  *ngIf="ongletSelectionne === 'Assessments' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Assessment</p>
@@ -456,7 +457,7 @@
                 </tbody>
               </table>
           </div>
-          
+          -->
           <div class="content-detail" *ngIf="ongletSelectionne === 'Course' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                   <p>Preferred Course</p>
@@ -566,7 +567,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h6 class="modal-title" id="exampleModalLabel">Statistic for Media</h6>
+          <h6 class="modal-title" id="exampleModalLabel">Statistic for {{selectedSkill?.category_name}}</h6>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -578,18 +579,18 @@
                 <div class="col-lg-12 col-md-12">
                   <!---->
                   <div class="group-input-settings">
-                     <label for="skills">0h 1mn 40s</label>
+                     <label for="skills">{{selectedSkill?.time_spent}}</label>
                      <div class="statics d-flex justify-content-between p-1">
-                      <p>Articles 0h 0mn 0s</p>
-                      <p>WorkShop 0h 0mn 0s</p>
+                      <p>Articles {{selectedSkill?.artikel}}</p>
+                      <p>WorkShop {{selectedSkill?.workshop}}</p>
                      </div>
                      <div class="statics d-flex justify-content-between p-1">
-                      <p>Videos 0h 0mn 0s</p>
-                      <p>MasterClasses 0h 0mn 0s</p>
+                      <p>Videos {{selectedSkill?.video}}</p>
+                      <p>MasterClasses {{selectedSkill?.masterclass}}</p>
                      </div>
                      <div class="statics d-flex justify-content-between p-1">
-                      <p>opleidingen 0h 0mn 0s</p>
-                      <p>Podcast 0h 1mn 40s</p>
+                      <p>opleidingen {{selectedSkill?.opleidingen}}</p>
+                      <p>Podcast {{selectedSkill?.podcast}}</p>
                      </div>
                   </div>
                   <button class="btn btnSeeStatic">See my all statics</button>
@@ -601,8 +602,10 @@
               <button type="button" class="btn btnCloseSetting close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">Close</span>
               </button>
+              <!--
               <button class="btn btnSaveSetting" type="submit" [disabled]="isLoading" data-toggle="modal" data-target="#exampleModalSkill">Save</button>
               <div *ngIf="isLoading" class="loader">Loading...</div>
+              -->
             </div>
           </form>
         </div>

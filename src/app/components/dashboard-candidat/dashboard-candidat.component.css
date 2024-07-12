@@ -414,4 +414,7 @@
     .profil-view{
       display: none;
     }
+    .applicants ul li .job_list_1{
+      border: none;
+    }
  }

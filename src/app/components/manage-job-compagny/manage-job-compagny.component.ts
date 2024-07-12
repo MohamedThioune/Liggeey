@@ -82,7 +82,7 @@ export class ManageJobCompagnyComponent implements OnInit {
     this.showButton = true;
   }
   delete(jobID:number) {
-    if (confirm('Voulez vous supprimer ce job')) {
+    if (confirm('Do you want to delete this job?')) {
    this.homeService.deleteJob(jobID,this.userConnect.id).subscribe(
   // Succès de la requête
   (response) => {

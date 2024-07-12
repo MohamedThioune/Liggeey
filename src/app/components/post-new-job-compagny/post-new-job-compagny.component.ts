@@ -123,7 +123,7 @@ public editorConfig = {
 
 public Editor = ClassicEditor;
 selectedSkills: any[] = [];
-
+tabContrast=['Full Time', 'Partial Time','Remote']
 toggleSkill(term_id: any) {
   const skillsArray = this.form.get('skills') as FormArray;
 
@@ -135,13 +135,15 @@ toggleSkill(term_id: any) {
     this.selectedSkills.push(term_id);
     skillsArray.push(this.fb.control(term_id));
   }
+  console.log(this.selectedSkills);
+  
 }
 
 removeSkill(term_id: any) {
   this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
 }
 getSkillName(skillId: any): string {
-  const skill = this.skillsTabs.find((skill:any) => skill.term_id === skillId);
+  const skill = this.skillsTabs.find((skill:any) => skill.cat_ID === skillId);
   return skill ? skill.cat_name : '';
 }
 get skillsFormArray() {
