@@ -155,9 +155,9 @@
                 <p>*</p>
               </label>
               <div class="input-group">
-                <select class="form-control fieldSelect" id="country" formControlName="country" name="country" [(ngModel)]="selectedCountry">
-                  <option *ngFor="let country of countries" [value]="country">
-                    {{country}}
+                <select class="form-control fieldSelect" id="country" formControlName="country" name="country" [(ngModel)]="selectedCountry" (change)="onCountryChange($event)">
+                  <option *ngFor="let country of countries" [value]="country.name.common">
+                    {{country.name.common}}
                   </option>
                 </select>
               </div>
@@ -168,8 +168,8 @@
               </label>
               <div class="input-group">
                 <div class="input-group">
-                  <input type="text" name="place" formControlName="place" class="form-control" id="place" placeholder="Dakar"
-                    >
+                  <input type="text" name="place" [value]="selectedCountryCapital" formControlName="place" class="form-control" id="place" placeholder="Dakar"
+                   readonly>
               </div>
               </div>
             </div>

@@ -27,6 +27,7 @@ export class ProfilCompagnyComponent implements OnInit {
   };
    countries:any;
    isLoading: boolean = false;
+   selectedCountryCapital: string | null = null;
 
   constructor(private fb: FormBuilder,private route: Router,private homeService:HomePageService,private usagerService: UsagerService) { }
 
@@ -51,15 +52,23 @@ export class ProfilCompagnyComponent implements OnInit {
   })
 
 
-  this.homeService.getCountries().subscribe(
-    (data: any[]) => {
-      this.countries = data.map(country => country.name.common);
-    },
-    error => {
-      //console.log('Erreur lors de la récupération des pays:', error);
-    });   
-  }
 
+    this.homeService.getCountries().subscribe(
+      (data: any) => {
+        this.countries = data.sort((a: any, b: any) => a.name.common.localeCompare(b.name.common));
+      },
+      (error) => {
+        console.error('Error fetching countries', error);
+      }
+    );
+  }
+  onCountryChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedCountryName = selectElement.value;
+    const selectedCountry = this.countries.find((country:any) => country.name.common === selectedCountryName);
+    this.selectedCountryCapital = selectedCountry?.capital ? selectedCountry.capital[0] : 'No capital found';
+    this.form.patchValue({ place: this.selectedCountryCapital });
+  }
   initForm() {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
