@@ -37,9 +37,19 @@ export class AppicantsAllCompagnyComponent implements OnInit {
     this.homeService.getDetailJob(this.slug).subscribe((data:any)=>{
       this.applicant=data      
       this.loading=false;      
+      console.log(this.applicant.slug);
+      
      })
   }
 
+  send_id(id: any, jobId: string) {
+    this.homeService.setCandidatId(id);
+    localStorage.setItem('candidatId', id); // Store the ID in localStorage
+    this.router.navigate(['/candidat-profil'], { queryParams: { jobId: jobId } })
+      .then(() => {
+        window.location.reload();
+      });
+}
 
   
   // goToDetailCandidate( idCandidat: number) {

@@ -208,9 +208,9 @@
                             <p>*</p>
                         </label>
                         <div class="input-group">
-                          <select class="form-control fieldSelect" id="country" formControlName="country" name="country" [(ngModel)]="selectedCountry">
-                            <option *ngFor="let country of countries" [value]="country">
-                              {{country}}
+                          <select class="form-control fieldSelect" id="country" formControlName="country" name="country" [(ngModel)]="selectedCountry" (change)="onCountryChange($event)">
+                            <option *ngFor="let country of countries" [value]="country.name.common">
+                              {{country.name.common}}
                             </option>
                           </select>
                         </div>
@@ -220,8 +220,8 @@
                             <p>*</p>
                         </label>
                         <div class="input-group">
-                            <input type="text" name="city" formControlName="city" class="form-control" id="city" placeholder="Dakar"
-                                >
+                          <input type="text" name="city" [value]="selectedCountryCapital" formControlName="city" class="form-control" id="place" placeholder="Dakar"
+                          readonly>
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-12 p-2">
@@ -236,7 +236,8 @@
               </div>
 
           </div>
-        <button type="submit" class="btn btn-save">Save</button>
+        <button type="submit" class="btn btn-save"  [disabled]="isLoading">Save</button>
+        <div *ngIf="isLoading" class="loader">Loading...</div>
         </div>
       </form>
 

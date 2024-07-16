@@ -42,6 +42,8 @@ export class ProfilCandidatComponent implements OnInit {
   imageId!: any ;
   idImage:any
   subscription!: Subscription;
+  selectedCountryCapital: string | null = null;
+  isLoading: boolean = false;
 
   constructor(private fb: FormBuilder,private route : ActivatedRoute ,private router: Router,private HomePageService: HomePageService,private usagerService: UsagerService) { }
 
@@ -75,16 +77,31 @@ export class ProfilCandidatComponent implements OnInit {
       
     })
  
-    this.HomePageService.getCountries().subscribe(
-      (data: any[]) => {
-        this.countries = data.map(country => country.name.common);
-      },
-      error => {
-        //console.log('Erreur lors de la récupération des pays:', error);
-      });
+    // this.HomePageService.getCountries().subscribe(
+    //   (data: any[]) => {
+    //     this.countries = data.map(country => country.name.common);
+    //   },
+    //   error => {
+    //     //console.log('Erreur lors de la récupération des pays:', error);
+    //   });
+      this.HomePageService.getCountries().subscribe(
+        (data: any) => {
+          this.countries = data.sort((a: any, b: any) => a.name.common.localeCompare(b.name.common));
+        },
+        (error) => {
+          console.error('Error fetching countries', error);
+        }
+      );
   
   }
 
+  onCountryChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedCountryName = selectElement.value;
+    const selectedCountry = this.countries.find((country:any) => country.name.common === selectedCountryName);
+    this.selectedCountryCapital = selectedCountry?.capital ? selectedCountry.capital[0] : 'No capital found';
+    this.form.patchValue({ city: this.selectedCountryCapital });
+  }
 
   uploadFile() {
     if (this.selectedFile) {
@@ -116,7 +133,8 @@ export class ProfilCandidatComponent implements OnInit {
   
 
   onSubmit(idUser:string) {
-    // Utilisez le service pour postuler à l'emploi    
+    // Utilisez le service pour postuler à l'emploi 
+    this.isLoading = true;   
     if (this.form.value!="") {
       const newDate= this.form.value.date_born;
       this.form.value.date_born = newDate;
@@ -135,6 +153,7 @@ export class ProfilCandidatComponent implements OnInit {
             type: typeR,
             message: this.message
           });
+          this.isLoading = false;
           if (typeR == "success") {
             this.router.navigate(['/dashboard-candidat']);
           }
@@ -145,6 +164,7 @@ export class ProfilCandidatComponent implements OnInit {
             type: 'error',
             message: error.error.message
           });
+          this.isLoading = false;
         }
       );
   } else {
@@ -152,6 +172,7 @@ export class ProfilCandidatComponent implements OnInit {
       type: 'error',
       message: this.message.message
     });
+    this.isLoading = false;
     //this.router.navigate(['/login']);
   }
 }

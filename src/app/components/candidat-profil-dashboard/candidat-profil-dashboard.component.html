@@ -2,16 +2,16 @@
 <section class="content-page-dashboard content-page-view-candidat">
   <app-sidebar-company></app-sidebar-company>
   <div class="right_menu">
-    <h2 class="title-page">View <span>{{candidat.first_name}} {{candidat.last_name}}</span> profil</h2>
+    <h2 class="title-page">View <span>{{candidat?.first_name}} {{candidat?.last_name}}</span> profil</h2>
     <div class="content-profil">
       <div class="d-flex">
         <div class="content-img">
-          <img [src]="candidat.image" alt="Image Of Candidat">
+          <img [src]="candidat?.image" alt="Image Of Candidat">
         </div>
         <div>
-          <p class="name">{{candidat.first_name}} {{candidat.last_name}}</p>
-          <p class="profil">{{candidat.work_as}}</p>
-          <p class="nationality">{{candidat.country}}</p>
+          <p class="name">{{candidat?.first_name}} {{candidat?.last_name}}</p>
+          <p class="profil">{{candidat?.work_as}}</p>
+          <p class="nationality">{{candidat?.country}}</p>
         </div>
       </div>
     </div>
@@ -19,11 +19,11 @@
       <div class="col-md-8">
         <div class="block-about">
           <h3>Candidates About</h3>
-          <p>{{candidat.biographical_info}}.</p>
+          <p>{{candidat?.biographical_info}}.</p>
         </div>
         <div class="block-about" >
           <h3>Candidate CV</h3>
-          <p class="cv" *ngIf="candidat.cv">
+          <p class="cv" *ngIf="candidat?.cv">
             <a class="" [href]="nameCv" target="_blank">
               <div class="d-flex align-items-center">
                 <i class="fa fa-file "></i>
@@ -31,11 +31,11 @@
               </div>
             </a>
           </p>
-          <p class="cv" *ngIf="!candidat.cv">No cv available at the moment</p>
+          <p class="cv" *ngIf="!candidat?.cv">No cv available at the moment</p>
         </div>
         <div class="block-candidat">
           <h3>Education</h3>
-          <div class="sub-block" *ngFor="let education of candidat.educations">
+          <div class="sub-block" *ngFor="let education of candidat?.educations">
             <div class="d-flex sub-details">
               <div class="group-details-one">
                 <p class="name-formation">{{education.diploma}}</p>
@@ -45,13 +45,13 @@
             </div>
             <p class="description">{{education.description}}.</p>
           </div>
-          <div class="sub-block" *ngIf="candidat.educations.length==0">
+          <div class="sub-block" *ngIf="candidat?.educations.length==0">
             <p class="description">No content available at the moment</p>
           </div>
         </div>
         <div class="block-candidat work-block">
           <h3>Work & Experience</h3>
-          <div class="sub-block" *ngFor="let experience of candidat.experiences">
+          <div class="sub-block" *ngFor="let experience of candidat?.experiences">
             <div class="d-flex sub-details">
               <div class="group-details-one">
                 <p class="name-formation">{{experience.job}}</p>
@@ -61,7 +61,7 @@
             </div>
             <p class="description">{{experience.description}}.</p>
           </div>
-          <div class="sub-block" *ngIf="candidat.experiences.length==0">
+          <div class="sub-block" *ngIf="candidat?.experiences.length==0">
             <p class="description">No content available at the moment</p>
           </div>
         </div>
@@ -72,28 +72,28 @@
             <img src="../../../assets/img/experience-icon.svg" alt="">
             <div>
               <p class="sub-title">Experience</p>
-              <p class="sub-detail-title">{{candidat.experience}} Years</p>
+              <p class="sub-detail-title">{{candidat?.experience}} Years</p>
             </div>
           </div>
           <div class="one-element d-flex">
             <img src="../../../assets/img/age-icon.svg" alt="">
             <div>
               <p class="sub-title">Age</p>
-              <p class="sub-detail-title">{{candidat.age}} Years</p>
+              <p class="sub-detail-title">{{candidat?.age}} Years</p>
             </div>
           </div>
           <div class="one-element d-flex">
             <img src="../../../assets/img/genre-icon.svg" alt="">
             <div>
               <p class="sub-title">Gender</p>
-              <p class="sub-detail-title">{{candidat.gender}}</p>
+              <p class="sub-detail-title">{{candidat?.gender}}</p>
             </div>
           </div>
           <div class="one-element d-flex">
             <img src="../../../assets/img/langue-icon.svg" alt="">
             <div>
               <p class="sub-title">Language</p>
-              <div class="" *ngFor="let langue of candidat.language">
+              <div class="" *ngFor="let langue of candidat?.language">
                 <p class="sub-detail-title">{{langue}}</p>
               </div>
             </div>
@@ -102,14 +102,14 @@
             <img src="../../../assets/img/education-icon.svg" alt="">
             <div>
               <p class="sub-title">Education Level</p>
-              <p class="sub-detail-title">{{candidat.education_level}}</p>
+              <p class="sub-detail-title">{{candidat?.education_level}}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div *ngIf="compagny && jobId  " class="content-btn d-flex align-items-center justify-content-center">
+    <div *ngIf="compagny && jobId " class="content-btn d-flex align-items-center justify-content-center">
       <button (click)="approveCandidatByCompany()" class="btn btn-accpet" [disabled]="isLoading">Approve</button>
       <button (click)="rejectCandidatByCompany()" class="btn btn-reject" [disabled]="isLoading">Reject</button>
       <div *ngIf="isLoading" class="loader">Loading...</div>
