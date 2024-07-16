@@ -10,7 +10,6 @@ import { UsagerService } from 'src/app/services/usager.service';
   styleUrls: ['./candidat-profil-dashboard.component.css']
 })
 export class CandidatProfilDashboardComponent implements OnInit {
-  identifiant:number | null = 0;
   candidat:any
   candidate=false;
   compagny=false;
@@ -23,17 +22,22 @@ export class CandidatProfilDashboardComponent implements OnInit {
   job:any;
   jobId!: any ; // Initialisé à null
   canApprove=false
+  alreadyReject=true
+  alreadyApproved=true
   notification:any;
   isLoading=false;
   nameCv:any
   urlCv:any
+  id:any
   constructor(private usagerService: UsagerService,private route : ActivatedRoute,private router :Router ,private HomePageService: HomePageService) { }
 
   ngOnInit(): void {
 
     const storedToken = this.usagerService.getToken();
-    this.identifiant = +this.route.snapshot.params['id'];
-
+    const storedId = localStorage.getItem('candidatId');
+    if (storedId) {
+        this.id = storedId;
+    }
     if (storedToken) {
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
@@ -49,15 +53,22 @@ export class CandidatProfilDashboardComponent implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       this.jobId = params['jobId'];
+      
         this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
-          this.job=job;          
+          this.job=job;                    
           if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
             this.canApprove=!this.canApprove
+          }
+          if (job.rejected.includes(this.id) && job.company === this.userConnect) {
+            this.alreadyReject=!this.alreadyReject
+          }
+          if (job.approved.includes(this.id) && job.company === this.userConnect) {
+            this.alreadyApproved=!this.alreadyApproved
           }
         });
     });
   
-    this.HomePageService.getDetailCandidate( this.identifiant).subscribe(data=>{
+    this.HomePageService.getDetailCandidate( this.id).subscribe(data=>{
       this.candidat=data      
       this.urlCv=this.extractFileName( this.candidat.cv)        
       this.nameCv =this.candidat.cv 
@@ -77,7 +88,7 @@ export class CandidatProfilDashboardComponent implements OnInit {
     }
     if (this.candidat && this.jobId ) {
       // Utilisez le service pour ajouter l'emploi aux favoris
-      this.HomePageService.rejectCandidatByCompany(this.candidat.ID, this.jobId)
+      this.HomePageService.rejectCandidatByCompany(this.candidat.ID, this.job.ID)
         .subscribe(
           // Succès de la requête
              (response) => {
@@ -122,10 +133,9 @@ export class CandidatProfilDashboardComponent implements OnInit {
 
   approveCandidatByCompany(){
     this.isLoading=true
-
     if (this.candidat && this.jobId ) {      
       // Utilisez le service pour ajouter l'emploi aux favoris
-      this.HomePageService.approveCandidatByCompany(this.candidat.ID, this.jobId)
+      this.HomePageService.approveCandidatByCompany(this.candidat.ID, this.job.ID)
         .subscribe(
           // Succès de la requête
              (response) => {
@@ -147,10 +157,12 @@ export class CandidatProfilDashboardComponent implements OnInit {
               }
             },
           // Gestion des erreurs
-          (error) => {            
+          (error) => {   
+            console.log(error);
+                     
             ToastNotification.open({
               type: 'error',
-              message: error.error
+              message: error.errors
             }); 
             this.isLoading=false
 

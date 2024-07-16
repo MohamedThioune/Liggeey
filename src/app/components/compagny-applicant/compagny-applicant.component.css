@@ -123,6 +123,7 @@ input[type="search"]:focus {
  }
  .applicants ul li{
    list-style: none;
+   cursor: pointer;
  }
  .applicants .job_list_1{
     margin-bottom: 30px;

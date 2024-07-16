@@ -126,7 +126,14 @@ input[type="search"]:focus {
  }
  .applicants ul li{
    list-style: none;
+   cursor: pointer;
  }
+
+ ul li .job_list_1 :hover{
+  color:#1ac4a2;
+
+
+}
  .applicants .job_list_1{
     margin-bottom: 30px;
     border-radius: 8px;

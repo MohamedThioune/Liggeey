@@ -7,11 +7,11 @@
   <app-sidebar-company></app-sidebar-company>
   <div class="right_menu">
     <div class="content_right_menu">
-      <h1 class="py-4">All Aplicants {{applicant.title}} </h1>
+      <h1 class="py-4">All applicants {{applicant.title}} </h1>
       <div class="map_menu">
         <div class="applicants">
           <div class="header_applicants d-flex justify-content-between align-items-center">
-            <p>Recent Applicants</p>
+            <p>Recent applicants</p>
             <div class="element-search-filter d-flex align-items-center">
               <div class="position-relative">
                 <i class="fa fa-search"></i>
@@ -52,7 +52,7 @@
           </div>
           -->
           <ul class="row">
-            <li class="col-md-6" *ngFor="let item of filteredApplicant | paginate: { itemsPerPage: 6, currentPage: p }">
+            <li class="col-md-6" *ngFor="let item of filteredApplicant | paginate: { itemsPerPage: 6, currentPage: p }"  (click)="send_id(item.ID,slug)">
               <div class="job_list_1">
                 <div class="content_job_list_1">
                   <div class="logo">
@@ -81,16 +81,16 @@
                                 <path d="M6.49973 0C2.91572 0 0 2.91611 0 6.50051C0 9.06172 1.07228 11.6525 3.10093 13.9927C4.61613 15.7407 6.11772 16.731 6.18096 16.7723C6.27777 16.8356 6.38879 16.8673 6.49981 16.8673C6.61075 16.8673 6.72177 16.8356 6.81865 16.7723C6.88181 16.731 8.38364 15.7407 9.89884 13.9928C11.9276 11.6525 13 9.06172 13 6.50051C12.9999 2.91611 10.0839 0 6.49973 0ZM6.49973 15.5691C5.30431 14.6783 1.16535 11.25 1.16535 6.50051C1.16535 3.55868 3.55829 1.16535 6.49973 1.16535C9.44139 1.16535 11.8346 3.55868 11.8346 6.50051C11.8346 11.25 7.69523 14.6783 6.49973 15.5691Z" fill="#696969"/>
                                 <path d="M6.50007 3.91943C5.07756 3.91943 3.92029 5.07679 3.92029 6.49945C3.92029 7.92173 5.07756 9.07885 6.50007 9.07885C7.92258 9.07885 9.07978 7.92173 9.07978 6.49945C9.07978 5.07686 7.92251 3.91943 6.50007 3.91943ZM6.50007 7.91349C5.72014 7.91349 5.08564 7.27915 5.08564 6.49945C5.08564 5.71936 5.72014 5.08479 6.50007 5.08479C7.27993 5.08479 7.91443 5.71936 7.91443 6.49945C7.91443 7.27915 7.27993 7.91349 6.50007 7.91349Z" fill="#696969"/>
                               </svg>
-                              <p class="mb-0">{{item.adress}}</p>
+                              <p class="mb-0">{{item.adress ? item.adress : 'N/A'}}</p>
                             </div>
-                      <a class="btn btn-view-candidat" [routerLink]="['/candidat-profil', item.ID]" [queryParams]="{ jobId: applicant.slug }">
+                      <a class="btn btn-view-candidat" (click)="send_id(item.ID,slug)">
                         <i class="fa fa-eye"></i>
                       </a>
                     </div>
                     <div class="all_info">
 
                     <div class="all_info">
-                      <div class="time" *ngFor="let skill of item.skills.slice(0, 3)">
+                      <div class="time" *ngFor="let skill of item.skills?.slice(0, 3)">
                         <div class="content_time">
                             <p>{{ skill.name }}</p>
                         </div>
@@ -106,7 +106,7 @@
         </div>
         <div class="applicants" *ngIf="applicant.approved.length != 0">
           <div class="header_applicants d-flex justify-content-between align-items-center">
-            <p>Accepted Applicants</p>
+            <p>Accepted applicants</p>
             <div class="element-search-filter d-flex align-items-center">
               <!--
               <div class="position-relative">
@@ -148,7 +148,7 @@
           </div>
           -->
           <ul class="row">
-            <li class="col-md-6" *ngFor="let item of applicant.approved | paginate: { itemsPerPage: 6, currentPage: p }">
+            <li class="col-md-6" *ngFor="let item of applicant.approved | paginate: { itemsPerPage: 6, currentPage: p }" (click)="send_id(item.ID,slug)">
               <div class="job_list_1">
                 <div class="content_job_list_1">
                   <div class="logo">
@@ -177,16 +177,16 @@
                                 <path d="M6.49973 0C2.91572 0 0 2.91611 0 6.50051C0 9.06172 1.07228 11.6525 3.10093 13.9927C4.61613 15.7407 6.11772 16.731 6.18096 16.7723C6.27777 16.8356 6.38879 16.8673 6.49981 16.8673C6.61075 16.8673 6.72177 16.8356 6.81865 16.7723C6.88181 16.731 8.38364 15.7407 9.89884 13.9928C11.9276 11.6525 13 9.06172 13 6.50051C12.9999 2.91611 10.0839 0 6.49973 0ZM6.49973 15.5691C5.30431 14.6783 1.16535 11.25 1.16535 6.50051C1.16535 3.55868 3.55829 1.16535 6.49973 1.16535C9.44139 1.16535 11.8346 3.55868 11.8346 6.50051C11.8346 11.25 7.69523 14.6783 6.49973 15.5691Z" fill="#696969"/>
                                 <path d="M6.50007 3.91943C5.07756 3.91943 3.92029 5.07679 3.92029 6.49945C3.92029 7.92173 5.07756 9.07885 6.50007 9.07885C7.92258 9.07885 9.07978 7.92173 9.07978 6.49945C9.07978 5.07686 7.92251 3.91943 6.50007 3.91943ZM6.50007 7.91349C5.72014 7.91349 5.08564 7.27915 5.08564 6.49945C5.08564 5.71936 5.72014 5.08479 6.50007 5.08479C7.27993 5.08479 7.91443 5.71936 7.91443 6.49945C7.91443 7.27915 7.27993 7.91349 6.50007 7.91349Z" fill="#696969"/>
                               </svg>
-                              <p class="mb-0">{{item.adress}}</p>
+                              <p class="mb-0">{{item.adress ? item.adress : 'N/A'}}</p>
                             </div>
-                      <a class="btn btn-view-candidat" [routerLink]="['/candidat-profil', item.ID]" [queryParams]="{ jobId: applicant.slug }">
+                      <a class="btn btn-view-candidat" (click)="send_id(item.ID,slug)">
                         <i class="fa fa-eye"></i>
                       </a>
                     </div>
                     <div class="all_info">
 
                     <div class="all_info">
-                      <div class="time" *ngFor="let skill of item.skills.slice(0, 3)">
+                      <div class="time" *ngFor="let skill of item.skills?.slice(0, 3)">
                         <div class="content_time">
                             <p>{{ skill.name }}</p>
                         </div>
@@ -202,7 +202,7 @@
         </div>
         <div class="applicants" *ngIf="applicant.rejected.length != 0">
           <div class="header_applicants d-flex justify-content-between align-items-center">
-            <p>Rejected Applicants</p>
+            <p>Rejected applicants</p>
             <div class="element-search-filter d-flex align-items-center">
               <!--
               <div class="position-relative">
@@ -244,7 +244,7 @@
           </div>
           -->
           <ul class="row">
-            <li class="col-md-6" *ngFor="let item of applicant.rejected | paginate: { itemsPerPage: 6, currentPage: p }">
+            <li class="col-md-6" *ngFor="let item of applicant.rejected | paginate: { itemsPerPage: 6, currentPage: p }" (click)="send_id(item.ID,slug)">
               <div class="job_list_1">
                 <div class="content_job_list_1">
                   <div class="logo">
@@ -273,16 +273,16 @@
                                 <path d="M6.49973 0C2.91572 0 0 2.91611 0 6.50051C0 9.06172 1.07228 11.6525 3.10093 13.9927C4.61613 15.7407 6.11772 16.731 6.18096 16.7723C6.27777 16.8356 6.38879 16.8673 6.49981 16.8673C6.61075 16.8673 6.72177 16.8356 6.81865 16.7723C6.88181 16.731 8.38364 15.7407 9.89884 13.9928C11.9276 11.6525 13 9.06172 13 6.50051C12.9999 2.91611 10.0839 0 6.49973 0ZM6.49973 15.5691C5.30431 14.6783 1.16535 11.25 1.16535 6.50051C1.16535 3.55868 3.55829 1.16535 6.49973 1.16535C9.44139 1.16535 11.8346 3.55868 11.8346 6.50051C11.8346 11.25 7.69523 14.6783 6.49973 15.5691Z" fill="#696969"/>
                                 <path d="M6.50007 3.91943C5.07756 3.91943 3.92029 5.07679 3.92029 6.49945C3.92029 7.92173 5.07756 9.07885 6.50007 9.07885C7.92258 9.07885 9.07978 7.92173 9.07978 6.49945C9.07978 5.07686 7.92251 3.91943 6.50007 3.91943ZM6.50007 7.91349C5.72014 7.91349 5.08564 7.27915 5.08564 6.49945C5.08564 5.71936 5.72014 5.08479 6.50007 5.08479C7.27993 5.08479 7.91443 5.71936 7.91443 6.49945C7.91443 7.27915 7.27993 7.91349 6.50007 7.91349Z" fill="#696969"/>
                               </svg>
-                              <p class="mb-0">{{item.adress}}</p>
+                              <p class="mb-0">{{item.adress ? item.adress : 'N/A'}}</p>
                             </div>
-                      <a class="btn btn-view-candidat" [routerLink]="['/candidat-profil', item.ID]" [queryParams]="{ jobId: applicant.slug }">
+                      <a class="btn btn-view-candidat" (click)="send_id(item.ID,slug)">
                         <i class="fa fa-eye"></i>
                       </a>
                     </div>
                     <div class="all_info">
 
                     <div class="all_info">
-                      <div class="time" *ngFor="let skill of item.skills.slice(0, 3)">
+                      <div class="time" *ngFor="let skill of item.skills?.slice(0, 3)">
                         <div class="content_time">
                             <p>{{ skill.name }}</p>
                         </div>
