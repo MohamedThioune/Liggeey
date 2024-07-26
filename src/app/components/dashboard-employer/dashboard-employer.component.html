@@ -96,7 +96,7 @@
       
       <div class="applicants">
         <div class="header_applicants">
-          <span>Recent Applicants</span>
+          <span>Recent applicants</span>
         </div>
         <ul class="row">
           <div class="text-center" *ngIf="this.homeCompagny.application.length == 0">
@@ -104,7 +104,7 @@
             <p>No Applicant Now</p>
           </div>
           <li class="col-md-6" *ngFor="let item of  this.homeCompagny.application | paginate: { itemsPerPage: 6, currentPage: p }">
-            <div class="job_list_1">
+            <div class="job_list_1" (click)="send_id(item.ID)">
               <div class="content_job_list_1">
                 <div class="content_logo">
                   <img [src]="item.image" alt="Logo">
@@ -166,24 +166,11 @@
                     </div>
                   </div>
                   <div class="all_info">
-
-                    <div class="time">
+                    <div class="time" *ngFor="let skill of item.skills?.slice(0, 3)">
                       <div class="content_time">
-                        <p>Audicien</p>
+                          <p>{{ skill.name }}</p>
                       </div>
                     </div>
-
-                    <div class="time">
-                      <div class="content_time">
-                        <p> BIM-modelleur</p>
-                      </div>
-                    </div>
-                    <div class="time">
-                      <div class="content_time">
-                        <p>Gezondheid</p>
-                      </div>
-                    </div>
-
                   </div>
                 </div>
               </div>

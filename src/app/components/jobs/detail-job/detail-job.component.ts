@@ -57,6 +57,8 @@ export class DetailJobComponent implements OnInit {
     this.HomePageService.getDetailJob(this.slug).subscribe(data => {
         this.job = data;
         this.loading=false
+        console.log(this.job.description);
+        console.log(this.job.responsibilities);
         
        //this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
        //this.job.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
@@ -69,6 +71,12 @@ export class DetailJobComponent implements OnInit {
         this.calculateDuration();
         this.calculateDurationLastJob();
     });
+}
+formatTextToHTML(text: string): string {
+  // On suppose que chaque ligne du texte est séparée par un retour à la ligne
+  const lines = text.split('\n').filter(line => line.trim() !== '');
+  const listItems = lines.map(line => `<p>${line}</p>`).join('');
+  return `${listItems}`;
 }
 
 canAppl(item: any): boolean {

@@ -131,6 +131,9 @@ input[type="search"]:focus {
     border: 1px solid #ECEDF2;
     background-color: #FFF;
  }
+ .applicants .job_list_1 :hover{
+  color:#1ac4a2 !important;
+}
  .job_list_1 .content_job_list_1{
     display: flex;
    padding: 25px;

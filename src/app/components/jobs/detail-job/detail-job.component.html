@@ -88,19 +88,20 @@
         <div class="inner">
           <div class="job_description">
             <p>Job Description</p>
-            <div [innerHTML]="job.description"></div>   
+            <div [innerHTML]="formatTextToHTML(job.description)"></div>   
 
           </div>
           <div class="key">
             <p>Key Responsibilities</p>
+
             <ul>
-              <li>{{job.responsibilities}}</li>
+              <li [innerHTML]="formatTextToHTML(job.responsibilities)"></li>
             </ul>
           </div>
           <div class="skill" >
             <p>Skill & Experience</p>
             <ul *ngFor="let skill of job.skills_experiences">
-              <li>{{skill.row}}.</li>
+              <li>{{skill.row}}</li>
             </ul>
             <li *ngIf="!isArray(job.skills_experiences)">{{job.skills_experiences}}</li>
           </div>
@@ -167,7 +168,7 @@
                   <path d="M8.50052 5.12549C6.64031 5.12549 5.12695 6.63895 5.12695 8.49936C5.12695 10.3593 6.64031 11.8724 8.50052 11.8724C10.3607 11.8724 11.874 10.3593 11.874 8.49936C11.874 6.63905 10.3606 5.12549 8.50052 5.12549ZM8.50052 10.3485C7.48061 10.3485 6.65088 9.51897 6.65088 8.49936C6.65088 7.47924 7.48061 6.64941 8.50052 6.64941C9.52033 6.64941 10.3501 7.47924 10.3501 8.49936C10.3501 9.51897 9.52033 10.3485 8.50052 10.3485Z" fill="#043356"/>
                 </svg>
                 <div class="date">
-                  <p>Location: <span>{{job.company.place}}</span></p>
+                  <p>Location: <span>{{job.company.place ? job.company.place :"Remote" }}</span></p>
                 </div>
               </div>
               <div class="calendrier">
@@ -244,6 +245,11 @@
                   <span>{{skil.name}}</span>
                 </div>
               </div>
+              <div class="skills_first" >
+                <div class="skills" *ngIf="!job.skills">
+                  <span>No skills available</span>
+                </div>
+              </div>
             </div>
           </div>
           <div class="bottom_sidebar">
@@ -251,11 +257,11 @@
               <div class="inner">
                 <div class="inner_1">
                   <span>Primary industry:</span>
-                  <p>{{job.company.sector}}</p>
+                  <p>{{job.company.sector ? job.company.sector : "Unavailable"}}</p>
                 </div>
                 <div class="inner_1">
                   <span>Company size:</span>
-                  <p>{{job.company.size}}</p>
+                  <p>{{job.company.size ? job.company.size:"Unavailable"}}</p>
                 </div>
                 <!--
                 <div class="inner_1">
@@ -269,7 +275,8 @@
                 -->
                 <div class="inner_1">
                   <span> Location:</span>
-                  <p>{{job.company.place}}</p>
+                  <p>{{job.company.place ? job.company.place :"Remote"}}</p>
+
                 </div>
                 <div class="inner_1">
                   <span> Social media:</span>

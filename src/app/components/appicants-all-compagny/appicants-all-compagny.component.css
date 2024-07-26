@@ -130,7 +130,7 @@ input[type="search"]:focus {
  }
 
  ul li .job_list_1 :hover{
-  color:#1ac4a2;
+  color:#1ac4a2 !important;
 
 
 }

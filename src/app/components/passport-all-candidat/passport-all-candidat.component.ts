@@ -112,8 +112,25 @@ export class PassportAllCandidatComponent implements OnInit {
     //   console.log(this.subtopic);
       
     //  })
+    this.updateProgress();
+
     
   }
+  updateProgress() {
+    const progressCircles = document.querySelectorAll('.progress-circle');
+    progressCircles.forEach(circle => {
+      const percent = circle.getAttribute('data-percent');
+      const rightBar = circle.querySelector('.progress-circle-right .progress-circle-bar') as HTMLElement;
+      const leftBar = circle.querySelector('.progress-circle-left .progress-circle-bar') as HTMLElement;
+      
+      if (Number(percent) <= 50) {
+        rightBar.style.transform = `rotate(${Number(percent) / 100 * 360}deg)`;
+        leftBar.style.transform = `rotate(0deg)`;
+      } else {
+        rightBar.style.transform = `rotate(180deg)`;
+        leftBar.style.transform = `rotate(${(Number(percent) - 50) / 100 * 360}deg)`;
+      }
+    });}
   openSkillModal(skill: any): void {
     // const modalRef = this.modalService.open(SkillModalComponent);
     // modalRef.componentInstance.skill = skill;

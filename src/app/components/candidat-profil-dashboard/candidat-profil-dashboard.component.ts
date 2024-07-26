@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-candidat-profil-dashboard',
@@ -29,7 +30,9 @@ export class CandidatProfilDashboardComponent implements OnInit {
   nameCv:any
   urlCv:any
   id:any
-  constructor(private usagerService: UsagerService,private route : ActivatedRoute,private router :Router ,private HomePageService: HomePageService) { }
+  subtopic: any[] = [];
+
+  constructor(private usagerService: UsagerService,private route : ActivatedRoute,private router :Router ,private HomePageService: HomePageService,private location: Location) { }
 
   ngOnInit(): void {
 
@@ -50,7 +53,22 @@ export class CandidatProfilDashboardComponent implements OnInit {
         this.compagny=true
       }
     }
-
+    const user = this.usagerService.getCurrentUser();
+    //console.log(user);
+    
+    if (user) {
+      this.HomePageService.getSubtopic(user).subscribe(
+        (data: any) => {
+          this.subtopic = data;
+         console.log(this.subtopic);
+        },
+        (error) => {
+          console.error('Error fetching subtopics', error);
+        }
+      );
+    } else {
+      console.error('User not logged in');
+    }
     this.route.queryParams.subscribe(params => {
       this.jobId = params['jobId'];
       
@@ -74,6 +92,12 @@ export class CandidatProfilDashboardComponent implements OnInit {
       this.nameCv =this.candidat.cv 
     })
     
+  }
+  goBack(): void {
+    this.location.back();
+  }
+  cleanText(text: string): string {
+    return text ? text.replace(/<[^>]+>/g, '') : '';
   }
   extractFileName(url: string): string {
     return url.substring(url.lastIndexOf('/') + 1);

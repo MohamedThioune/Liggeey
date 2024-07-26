@@ -2,7 +2,13 @@
 <section class="content-page-dashboard content-page-view-candidat">
   <app-sidebar-company></app-sidebar-company>
   <div class="right_menu">
-    <h2 class="title-page">View <span>{{candidat?.first_name}} {{candidat?.last_name}}</span> profil</h2>
+    <div class="d-flex align-items-center">
+      <div class="icon-container" (click)="goBack()">
+        <i class="fa fa-arrow-left fa-lg"></i>
+      </div>
+        <h2 class="title-page">View <span>{{candidat?.first_name}} {{candidat?.last_name}}</span> profil</h2>
+    </div>
+
     <div class="content-profil">
       <div class="d-flex">
         <div class="content-img">
@@ -19,7 +25,7 @@
       <div class="col-md-8">
         <div class="block-about">
           <h3>Candidates About</h3>
-          <p>{{candidat?.biographical_info}}.</p>
+          <p>{{cleanText(candidat?.biographical_info)}}</p>
         </div>
         <div class="block-about" >
           <h3>Candidate CV</h3>

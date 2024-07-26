@@ -88,23 +88,23 @@ export class EditJobCompanyComponent implements OnInit {
   "open_position": 0
 },
 {
-  "cat_ID": 635,
-  "cat_name": "UI-UX-Designer",
-  "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/UI-UX-Designer.png",
+  "cat_ID": 641,
+  "cat_name": "Exact",
+  "cat_image": "https://livelearn.nl/wp-content/uploads/2024/05/Exact.jpeg",
   "open_position": 0
 },
-{
-  "cat_ID": 636,
-  "cat_name": "web-programming",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
-{
-  "cat_ID": 637,
-  "cat_name": "Webflow",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
+// {
+//   "cat_ID": 636,
+//   "cat_name": "web-programming",
+//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+//   "open_position": 0
+// },
+// {
+//   "cat_ID": 637,
+//   "cat_name": "Webflow",
+//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+//   "open_position": 0
+// },
     
     ]
     
