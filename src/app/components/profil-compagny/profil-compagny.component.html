@@ -12,6 +12,16 @@
       <p>Ready to jump back in?</p>
       <div class="map_menu">
           <div class="card-body">
+            <div class="image-container">
+              <div class="default-image" [style.backgroundImage]="'url(' + (uploadedImage || profil.logo) + ')'">
+                <!-- Image par défaut ou image téléchargée -->
+              </div>
+              <input name="logo" type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+              <label for="fileInput" class="upload-button">
+                Télécharger une image
+              </label>
+              <!-- Bouton pour télécharger une nouvelle image -->
+            </div>
             <div class="row">
               <div class="col-md-6 col-sm-6 ">
                 <label for="email">

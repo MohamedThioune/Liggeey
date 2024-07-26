@@ -6,6 +6,7 @@ import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { Router } from '@angular/router';
 import { JobCompagny } from 'src/app/interfaces/job-compagny';
 import { ProfilCompagny } from 'src/app/interfaces/profil-compagny';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-profil-compagny',
@@ -28,7 +29,11 @@ export class ProfilCompagnyComponent implements OnInit {
    countries:any;
    isLoading: boolean = false;
    selectedCountryCapital: string | null = null;
-
+   uploadedImage: string | null = null;
+   selectedFile: File | null = null;
+   logoId:any
+   candidat:any
+   
   constructor(private fb: FormBuilder,private route: Router,private homeService:HomePageService,private usagerService: UsagerService) { }
 
   ngOnInit(): void {
@@ -41,14 +46,15 @@ export class ProfilCompagnyComponent implements OnInit {
      const decodedToken = atob(storedToken);
 
      // Parse du JSON pour obtenir l'objet original
-     this. userConnect = JSON.parse(decodedToken);
+     this. userConnect = JSON.parse(decodedToken); 
+
    }
    
    this.homeService.profilJob(this.userConnect.id).subscribe((data:any)=>{
     this.profil=data;
     this.selectedCountry=this.profil.country
     this.form.patchValue(this.profil);
-    this.loading=false;        
+    this.loading=false;       
   })
 
 
@@ -69,10 +75,91 @@ export class ProfilCompagnyComponent implements OnInit {
     this.selectedCountryCapital = selectedCountry?.capital ? selectedCountry.capital[0] : 'No capital found';
     this.form.patchValue({ place: this.selectedCountryCapital });
   }
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      this.selectedFile = file; // Stocke le fichier sélectionné
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e: any) => {
+        this.uploadedImage = e.target.result;
+        this.form.get('logo')?.setValue(file); // Met à jour le contrôle du formulaire
+      };
+    }
+  }
+  uploadFile() {
+    if (this.selectedFile) {
+      this.homeService.getImageUser(this.selectedFile).pipe(
+        switchMap((imageResponse: any) => {
+          const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
+          if (!imageId) {
+            throw new Error('Image ID is missing or invalid.');
+          }
+          return this.homeService.uploadLogoCompany(imageId,this.profil.ID);
+        })
+      ).subscribe(
+        (response: any) => {
+          console.log(response);
+          
+          this.updateCachedData(response.slug)
+
+          this.route.navigate(['/dashboard-employer']);
+        },
+        (error) => {
+          ToastNotification.open({
+            type: 'error',
+            message: error.error.message
+          });
+        }
+      );
+    } else {
+      this.route.navigate(['/dashboard-employer']);
+    }
+  }
+  updateCachedData(id:string) {
+    // const cachedCandidat = localStorage.getItem('cachedCandidat');
+    // if (cachedCandidat) {
+    //   let cachedData;
+    //   try {
+    //     cachedData = JSON.parse(cachedCandidat);
+    //   } catch (error) {
+    //     console.error('Error parsing cached data:', error);
+    //   }
+  
+    //   if (cachedData) {
+    //     this.candidat = cachedData;
+    //   } else {
+    //     console.error('Cached data is not in the expected format.');
+    //   }
+    // }
+  
+    if (id) {
+      this.homeService.getDetailCompagny(id).subscribe(
+        (data) => {
+          if (data) {
+            this.candidat = data;
+            console.log(this.candidat);
+            
+            localStorage.setItem('cachedCandidat', JSON.stringify(data));
+          } else {
+            console.error('Received data is not in the expected format.');
+          }
+        },
+        (error) => {
+          console.error('Error fetching candidate details:', error);
+        }
+      );
+    } else {
+      console.error('User is not connected or user ID is missing.');
+    }
+    //window.location.reload();
+  
+  }
   initForm() {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       title:['',[]],
+      //logo:['',[]],
       website:['',[Validators.required]],
       sector:['',[Validators.required]],
       size:['',[Validators.required]],
@@ -95,6 +182,7 @@ export class ProfilCompagnyComponent implements OnInit {
           let typeR = "error"
           if (<any>response ) {
             typeR = "success";
+            this.uploadFile();
             this.message= "Company Updated successfully."
           }
           ToastNotification.open({
@@ -102,7 +190,7 @@ export class ProfilCompagnyComponent implements OnInit {
             message: this.message
           });
           if (typeR == "success") {
-            this.route.navigate(['/dashboard-employer',this.userConnect.id]);
+            this.route.navigate(['/dashboard-employer']);
           }
           this.isLoading = false;
         },

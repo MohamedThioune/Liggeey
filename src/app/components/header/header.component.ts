@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { switchMap } from 'rxjs/operators';
-import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
+import { FormBuilder, FormGroup ,Validators,FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   id!:any;
   avatar:any;
   work_as:any
+  skills:any[]=[]
   work:any
   jobs:any;
   applyJobs=false;
@@ -67,7 +68,77 @@ export class HeaderComponent implements OnInit,OnDestroy {
   cv:any
   nameCv:any
   isTilted = false;
-
+  selectedSkills: any[] = [];
+  form!:FormGroup;
+  skillsTabs:any=[   
+    {
+      "cat_ID": 590,
+      "cat_name": "Afas",
+      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+      "open_position": 0
+  },
+  {
+      "cat_ID": 589,
+      "cat_name": "Freshworks",
+      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+      "open_position": 0
+  },
+  {
+      "cat_ID": 633,
+      "cat_name": "Google",
+      "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/google.png",
+      "open_position": 0
+  },
+  {
+    "cat_ID": 587,
+    "cat_name": "Google Workspace",
+    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+    "open_position": 0
+},
+{
+    "cat_ID": 640,
+    "cat_name": "HubSpot",
+    "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/hubspot_logo.jpeg",
+    "open_position": 0
+},
+{
+    "cat_ID": 593,
+    "cat_name": "Microsoft 360",
+    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+    "open_position": 0
+},
+{
+  "cat_ID": 634,
+  "cat_name": "Odoo",
+  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+  "open_position": 0
+},
+{
+  "cat_ID": 588,
+  "cat_name": "Salesforce",
+  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+  "open_position": 0
+},
+{
+  "cat_ID": 641,
+  "cat_name": "Exact",
+  "cat_image": "https://livelearn.nl/wp-content/uploads/2024/05/Exact.jpeg",
+  "open_position": 0
+},
+// {
+//   "cat_ID": 636,
+//   "cat_name": "web-programming",
+//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+//   "open_position": 0
+// },
+// {
+//   "cat_ID": 637,
+//   "cat_name": "Webflow",
+//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
+//   "open_position": 0
+// },
+    
+    ]
   constructor(private fb: FormBuilder,private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef,private sanitizer: DomSanitizer,private http: HttpClient) {
     this.isMobile = window.innerWidth < 768;
     this.dropdownOpen = false;
@@ -138,6 +209,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.href = window.location.href;    
     // Récupération du token depuis le local storage
     this.identifiant = +this.route.snapshot.params['id'];
+    this.initForm()
     const storedToken = this.usagerService.getToken();
 
 
@@ -147,7 +219,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
 
       // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);
+      this. userConnect = JSON.parse(decodedToken);      
       this.userObject=true
       this.first_name = this.userConnect.first_name;
       this.last_name = this.userConnect.last_name;
@@ -172,9 +244,12 @@ export class HeaderComponent implements OnInit,OnDestroy {
     
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
+        
     })
-    // this.homeService.getDetailCategory( this.slug).subscribe(data=>{
-    //   this.category = data
+    // this.homeService.getSkills().subscribe(data=>{
+    //   this.skillsTabs = data
+    //   console.log( this.skillsTabs);
+      
     // })
     this.homeService.getNotificationCandidat( this.id).subscribe(data=>{
       //this.notifications = data.filter((notification:any) => notification.userApplyId === this.identifiant);
@@ -191,6 +266,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.myForm = this.fb.group({
       file: ['', Validators.required]
     });
+
+    
     const cachedCandidat = localStorage.getItem('cachedCandidat');
     if (cachedCandidat) {
         let cachedData;
@@ -200,11 +277,12 @@ export class HeaderComponent implements OnInit,OnDestroy {
             console.error('Error parsing cached data:', error);
         }
     if (cachedData && typeof cachedData === 'object' ) {
-            this.candidat = { work_as: cachedData.work_as,first_name: cachedData.first_name,last_name:cachedData.last_name,avatar:cachedData.image};
+            this.candidat = { work_as: cachedData.work_as,first_name: cachedData.first_name || cachedData.title,last_name:cachedData.last_name,avatar:cachedData.image || cachedData.logo,skills:cachedData.skills};
             this.first_name=this.candidat.first_name,
             this.last_name=this.candidat.last_name,
-            this.avatar=this.candidat.avatar,
-            this.work_as=this.candidat.work_as
+            this.avatar=this.candidat.avatar  ,
+            this.work_as=this.candidat.work_as,
+            this.skills=this.candidat.skills
         } else {
             console.error('Cached data does not contain work_as property or is not in the expected format.');
         }
@@ -226,10 +304,11 @@ export class HeaderComponent implements OnInit,OnDestroy {
                         console.error('Received data does not contain work_as property or is not in the expected format.');
                     }
                 });
-    }
- 
-   
 
+                
+    }   
+    console.log(this.candidat);
+    
   }
  
   updateCachedData(){
@@ -281,6 +360,82 @@ send_id(id: any) {
 }
 redirectToWhatsApp(){
   this.homeService.redirectToWhatsApp()
+}
+toggleSkill(term_id: any) {
+  const skillsArray = this.form.get('skills') as FormArray;
+
+  if (this.selectedSkills.includes(term_id)) {
+    this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
+    const index = skillsArray.value.indexOf(term_id);
+    skillsArray.removeAt(index);
+  } else {
+    this.selectedSkills.push(term_id);
+    skillsArray.push(this.fb.control(term_id));
+  }    
+}
+initForm() {
+  this.form = this.fb.group({
+    skills: this.fb.array([]),
+
+  });
+}
+onSubmit() {
+  this.isLoading = true;
+
+  // Vérifiez si le formulaire est valide
+  if (this.form.valid) {
+    // Vérifiez si au moins un des checkboxes est coché      
+    if (this.form.value.skills.some((skill:boolean) => !!skill)) {
+      const selectedSkills = this.form.value.skills.filter((skill: boolean) => !!skill).join(',');
+      // Utilisez le service pour postuler à l'emploi
+      this.homeService.addSkill(this.userConnect.id, selectedSkills)
+        .subscribe(
+          // Succès de la requête
+          (response) => {
+            let typeR = "error";
+            if (<any>response) {
+              typeR = "success";
+              this.message = "Skills added successfully.";
+              this.updateCachedData();
+              //this.form.reset();
+            }
+            ToastNotification.open({
+              type: typeR,
+              message: this.message
+            });
+            this.isLoading = false;
+            // if (typeR == "success") {
+            //   this.router.navigate(['/manage-compagny',this.userConnect.id]);
+            // }
+          },
+          // Gestion des erreurs
+          (error) => {
+console.log(error);
+
+            ToastNotification.open({
+              type: 'error',
+              message: error.error.message
+            });
+            this.isLoading = false;
+          }
+        );
+    } else {
+      // Aucun checkbox n'est coché, affichez un message d'erreur
+      ToastNotification.open({
+        type: 'error',
+        message: "Select at least one skill"
+      });
+      this.isLoading = false;
+    }
+  } else {
+    
+    // Le formulaire n'est pas valide, affichez un message d'erreur
+    ToastNotification.open({
+      type: 'error',
+      message: this.message.message
+    });
+    this.isLoading = false;
+  }
 }
   switchToApplyBlock() {
     this.isLoading = true;
@@ -339,7 +494,9 @@ redirectToWhatsApp(){
               work_as: data.work_as,
               first_name:data.first_name,
               last_name:data.last_name,
-              avatar:data.image
+              avatar:data.image,
+              skills:data.skills,
+
               // Vous pouvez ajouter d'autres informations nécessaires ici
             };
             localStorage.setItem('cachedCandidat', JSON.stringify(data));
@@ -347,7 +504,7 @@ redirectToWhatsApp(){
             this.work= localStorage.getItem('cachedCandidat');
             const parsedData = JSON.parse(this.work);
             this.work_as = parsedData.work_as;
-
+            this.skills=parsedData.skills            
           }
         });        
         }else {

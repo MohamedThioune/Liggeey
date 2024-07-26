@@ -237,6 +237,201 @@ h1 {
     font-size: 15px;
     font-weight: 500;
 }
+
+.content_image_document {
+    position: relative;
+    display: inline-block;
+}
+.content_image_document img {
+    width: 100%;
+    height: auto;
+}
+
+.progress-bar{
+    height: 23px;
+    line-height: 30px;
+    background-color: #1AC4A2;
+    color:white;
+    text-align: center;
+}
+.progress-container{
+    width: 100%;
+    background-color: #DDF6F1;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+
+.progress-circle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(#007bff 0% 50%, #e0e0e0 50% 100%);
+    display: flex;
+  }
+  
+  .progress-circle-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+  
+  .progress-circle-left, .progress-circle-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    overflow: hidden;
+  }
+  
+  .progress-circle-left {
+    left: 0;
+  }
+  
+  .progress-circle-right {
+    right: 0;
+  }
+  
+  .progress-circle-bar {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: #007bff;
+    border-radius: 50%;
+    clip-path: inset(0 0 0 50%);
+    transform: rotate(0deg);
+    transform-origin: center left;
+    transition: transform 0.5s linear;
+  }
+  
+  .progress-circle[data-percent="100"] .progress-circle-bar {
+    transform: rotate(180deg);
+  }
+  
+  .progress-circle-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+  }
+  .progress-circle{
+    position: relative;             /* pour servir de référent */
+    box-sizing: border-box;         /* prise en compte bordure dans la dimension */
+    font-size: 6em;                 /* pour définir les dimensions */
+    width: 1em;                     /* fixe la largeur */
+    height: 1em;                    /* fixe la hauteur */
+    border-radius: 50%;             /* rendu aspect circulaire */
+    border: .15em solid #CDE;       /* couleur de fond de l'anneau */
+    background-color: #FFF;         /* couleur de fond de la progress bar */
+  }
+  .progress-masque {
+    position: absolute;
+    width: 1em;                     /* 100% de la largeur */
+    height: 1em;                    /* 100% de la hauteur */
+    left: -.15em;                   /* décalage de la largeur bordure de la gauge */
+    top: -.15em;                    /* décalage de la largeur bordure de la gauge */
+    clip: rect(0, 1em, 1em, .5em);  /* par défaut seule la partie droite est visible */
+  }
+  .progress-barre,
+.progress-sup50 {
+  position: absolute;
+  box-sizing: border-box;         /* prise en compte bordure dans la dimension */
+  border-width: .15em;            /* largeur bordure de la gauge */
+  border-style: solid;
+  border-color: #069;
+  border-radius: 50%;             /* rendu aspect circulaire */
+  width: 1em;                     /* largeur à 100% */
+  height: 1em;                    /* hauteur à 100% */
+  clip: rect(0, .5em, 1em, 0);    /* on ne garde que la partie gauche */
+}
+.progress-sup50 {
+    display: none;
+    clip: rect(0, 1em, 1em, .5em);
+  }
+  .progress-circle:after {
+    content: attr(data-value) "%";  /* récup. valeur de progression */
+    font-size: 0.15em;              /* taille de la font en % du parent */
+    height: 100%;                   /* centrage dans le parent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /*-- pour effet shadow intérieur --*/
+    border-radius: 50%;
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .5) inset;
+  }
+       /* Apply css properties to h1 element */
+       h1 {
+        text-align: center;
+    }
+
+    /* Create a container using CSS properties */
+    .container {
+        top: 30%;
+        left: 50%;
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Apply CSS properties to ui-widgets class */
+    .ui-widgets {
+        position: relative;
+        display: inline-block;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 9rem;
+        margin: 1.5rem;
+        border: 1.2rem solid palegreen;
+        box-shadow: inset 0 0 7px grey;
+        border-left-color: palegreen;
+        border-top-color: chartreuse;
+        border-right-color: darkgreen;
+        border-bottom-color: white;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /*  Apply css properties to the second 
+        child of ui-widgets class */
+    .ui-widgets:nth-child(2) {
+        border-top-color: chartreuse;
+        border-right-color: white;
+        border-left-color: palegreen;
+        border-bottom-color: white;
+    }
+
+    /*  Apply css properties to ui-widgets class 
+        and ui-values class*/
+    .ui-widgets .ui-values {
+        top: 40px;
+        position: absolute;
+        left: 10px;
+        right: 0;
+        font-weight: 700;
+        font-size: 2.0rem;
+
+    }
+
+    /*  Apply css properties to ui-widgets 
+        class and ui-labels class*/
+    .ui-widgets .ui-labels {
+
+        left: 0;
+        bottom: -16px;
+        text-shadow: 0 0 4px grey;
+        color: black;
+        position: absolute;
+        width: 100%;
+        font-size: 16px;
+    }
  @media all and (min-width: 300px) and (max-width: 767px){
 .right_menu{
     width: fit-content;

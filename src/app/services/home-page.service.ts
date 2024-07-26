@@ -177,6 +177,21 @@ uploadFile(imageId:string ,userId: string): Observable<any> {
   };
   return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/${userId}`,requestBody,{headers});
 }
+
+uploadLogoCompany(imageId:string ,userId: string ): Observable<any> {
+  const base64Credentials = btoa("mbayamemansor@gmail.com" + ':' + "hidden");
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + base64Credentials,
+      'Content-Type': 'application/json;charset=UTF-8',
+
+    });
+  const requestBody = {
+    acf:{
+      "company_logo":imageId
+    },
+  };
+  return this.http.post(`${this.baseUrl}/wp-json/wp/v2/company/${userId}`,requestBody,{headers});
+}
  redirectToWhatsApp() {
   const phoneNumber = '+31613596448'; // Replace with your phone number
   const url = `https://wa.me/${phoneNumber}`;
@@ -333,6 +348,10 @@ getSubtopic(user:User): Observable<any> {
   homeCandidat(id: number): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/home/?userApplyId=${id}`,{});
   }
+  getSkills() {
+    return this.http.get<any>(`${this.baseUrl}/sub-topic-2/?subtopic=202`,{});
+   }
+
   getOffsetFromNow(date: Date): number {
     const currentDate = new Date();
     const targetDate = new Date(date);

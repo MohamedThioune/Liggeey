@@ -1,4 +1,5 @@
 import { AfterViewInit, Component ,HostListener, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { Chart } from 'chart.js/auto';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
@@ -37,7 +38,7 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
   isMobileScreen(): boolean {
     return this.isMobile;
   }
-  constructor(private usagerService:UsagerService,private homeService:HomePageService){
+  constructor(private usagerService:UsagerService,private homeService:HomePageService,private router: Router){
 
   }
   ngOnInit(): void {
@@ -56,6 +57,7 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
       this.loading=false;
       this.homeCompagny.application.forEach((element:any) => {
         this.applicant=element 
+        
        
       });
      })
@@ -77,7 +79,14 @@ export class DashboardEmployerComponent implements OnInit,AfterViewInit {
         this.downloadLink = 'https://play.google.com/store/apps/details?id=com.livelearn.livelearn_mobile_app&pli=1';
       }
     }
-
+    send_id(id: any) {
+      this.homeService.setCandidatId(id);
+      localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
+      this.router.navigate(['/detail-candidat'])
+        .then(() => {
+          window.location.reload();
+        });
+    }
   // createChart() {
   //   this.chart = new Chart('MyChart', {
   //     type: 'line',

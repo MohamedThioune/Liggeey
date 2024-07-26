@@ -550,7 +550,7 @@
               <form [formGroup]="myForm" (ngSubmit)="uploadFile()">
 
               <div class="second-block ">
-                <label for="">Select your cv</label>
+                <label for="" class="skill">Select your cv</label>
                 <div class="custom-pdf-container d-flex align-item-center justify-content-center flex-column">
                   <img *ngIf="!safeCvUrl" src="../../../../assets/img/file.svg" alt="">
                   <!--  <embed *ngIf="!safeCvUrl" src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />-->
@@ -577,11 +577,30 @@
                 <!--
                 <button (click)="goToFinalStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Apply</button>
                 -->
-                <div class="d-grid">
-                  <button (click)="goToFinalStep()" type="submit"  [disabled]="isLoading" data-toggle="modal"  data-target="modal-apply" class="btn btn-forgeet-passwoord">Apply</button>
-                  <div *ngIf="isLoading" class="loader">Loading...</div>
-  
+             
+              </div>
+              <div class="" *ngIf="candidate">
+                <label class="skill"  for="">Share your skills</label>
+                <div class="header_education">
+                  <div class="" *ngFor="let skill of skills?.slice(-3)">
+                      <p>{{skill.cat_name}}</p>
+                  </div>
+                  <button class="btn add">
+                    <div class="element-svg" data-toggle="modal" data-target="#exampleModalSkill">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
+                        <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
+                        <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
+                      </svg>
+                    </div>
+                    <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalSkill">Add Skills</button>
+                  </button>
                 </div>
+              </div>
+          
+              <div class="d-grid">
+                <button (click)="goToFinalStep()" type="submit"  [disabled]="isLoading" data-toggle="modal"  data-target="modal-apply" class="btn btn-forgeet-passwoord">Apply</button>
+                <div *ngIf="isLoading" class="loader">Loading...</div>
+
               </div>
               </form>
             </div>
@@ -606,7 +625,58 @@
     </div>
   </div>
 </div>
-
+<div class="modal modalEdu fade" id="exampleModalSkill" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add new skills</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <!---->
+                <div class="group-input-settings">
+                  <!-- <label for="skills">Skill</label>
+                 
+                  <select id="multiple-checkboxes" multiple="multiple">
+                    <option value="php">PHP</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
+                    <option value="sql">SQL</option>
+                    <option value="jquery">Jquery</option>
+                    <option value=".net">.Net</option>
+                  </select>
+                
+                  <div class="form-check">
+                    <input class="form-check-input checkbox" *ngFor="let skill of skillsTabs"  formArrayName="skills" [value]="skill.cat_ID" (change)="selectAll()" [checked]="selectedSkills.includes(skill.cat_ID)" type="checkbox">
+                    <label class="form-check-label">
+                     Select All
+                    </label>
+                  </div>
+                    -->
+                  <div class="form-check" *ngFor="let skill of skillsTabs">
+                    <input class="form-check-input checkbox"  formArrayName="skills" type="checkbox" [value]="skill.cat_ID" (change)="toggleSkill(skill.cat_ID)" [checked]="selectedSkills.includes(skill.cat_ID)">
+                    <label class="form-check-label">
+                      {{skill.cat_name}}
+                    </label>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btnSaveSetting" type="submit" [disabled]="isLoading" data-toggle="modal" data-target="#exampleModalSkill">Save</button>
+            <div *ngIf="isLoading" class="loader">Loading...</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
 

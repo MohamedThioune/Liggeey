@@ -56,7 +56,7 @@ export class ProfilCandidatComponent implements OnInit {
          const decodedToken = atob(storedToken);
    
          // Parse du JSON pour obtenir l'objet original
-         this. userConnect = JSON.parse(decodedToken);
+         this. userConnect = JSON.parse(decodedToken);         
        }
        
       

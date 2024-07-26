@@ -591,7 +591,126 @@ nav ul li span{
   min-width: 66%;
 }
 
+.modalEdu .modal-dialog {
+  position: relative;
+  max-width: 700px;
+}
+.modalEdu .modal-dialog>* {
+  padding: 1rem;
+}
+.modalEdu .modal-header {
+  border-bottom-color: #EEEEEE;
+  background-color: #FAFAFA;
+  padding: 10px 0;
+}
+.group-input-settings {
+  display: grid;
+  margin-bottom: 20px;
+}
+.group-input-settings label {
+  font-size: 15px;
+  color: #202124;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+.group-input-settings input {
+  box-sizing: border-box;
+  border-radius: 11px;
+  padding: 15px 20px !important;
+  font-size: 15px !important;
+  color: #3c3c3c !important;
+  background: #F0F5F7 !important;
+  border: none;
+  margin-bottom: 10px;
+}
+.btnSaveSetting {
+  background: #043356;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 5px;
+  float: right;
+  width: fit-content;
+}
 
+.custom-multi-select {
+  display: inline-block;
+  position: relative;
+}
+
+.selected-options,
+.select-options {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px; /* Réglez la hauteur maximale si vous voulez une boîte de sélection déroulante */
+  overflow-y: auto;
+}
+
+.selected-options ul,
+.select-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selected-options li,
+.select-options li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.select-options li:hover {
+  background-color: #f0f0f0;
+}
+
+.selected-options li {
+  background-color: #f0f0f0;
+}
+
+.selected-options li:hover {
+  background-color: #e0e0e0;
+}
+.header_education{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.header_education .add {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+.header_education span{
+  color: #202124;
+  font-size: 18px;
+  font-weight: 700;
+}
+.btn-add-element{
+  color: #D93025;
+  font-size: 14px;
+  font-weight: 600;
+  width: fit-content;
+  border: none;
+  background: none;
+}
+.element-svg{
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background: #FAE0DF;
+  color: #D93025;
+  border: none;
+  margin-right: 7px;
+  text-align: center;
+}
+.element-svg svg{
+  margin-top: -3px;
+}
+.skill{
+  font-weight: bold !important;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
   .second-nav {
     width: 100%;
