@@ -227,6 +227,8 @@ onSubmit() {
       description: this.fb.control("", [Validators.required]),
       job_level_of_experience: this.fb.control("", Validators.required),
       job_contract: this.fb.control("", []),
+      responsibilities: this.fb.control("", []),
+      skills_experiences: this.fb.control("", []),
       job_langues: this.fb.control("", Validators.required),
       job_application_deadline: this.fb.control("", [Validators.email, Validators.required]),
       skills: this.fb.array([]),

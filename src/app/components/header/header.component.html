@@ -519,7 +519,7 @@
           <form>
             <div  *ngIf="showFirstStep" class="first-step">
               <div class="my_container_input_1 form-group">
-                <label for="username">Fisrt Name</label>
+                <label for="username">First Name</label>
                 <input class = "input" name="first_name" id="first_name" type="text" placeholder="" aria-label="default input example" value="{{first_name}}" required>
               </div>
               <div class="my_container_input_2 form-group">
@@ -574,37 +574,36 @@
                    formControlName="file" required/>  
                         
                </div>
-                <!--
-                <button (click)="goToFinalStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Apply</button>
-                -->
+                <button (click)="goToSecondStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Next</button>
              
               </div>
-              <div class="" *ngIf="candidate">
-                <label class="skill"  for="">Share your skills</label>
-                <div class="header_education">
-                  <div class="" *ngFor="let skill of skills?.slice(-3)">
-                      <p>{{skill.cat_name}}</p>
-                  </div>
-                  <button class="btn add">
-                    <div class="element-svg" data-toggle="modal" data-target="#exampleModalSkill">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
-                        <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
-                        <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
-                      </svg>
-                    </div>
-                    <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalSkill">Add Skills</button>
-                  </button>
-                </div>
-              </div>
+             
           
+
+              </form>
+            </div>
+            <div class="" *ngIf="candidate && !showThirdStep">
+              <label class="skill"  for="">Share your skills</label>
+              <div class="header_education">
+                <div class="" *ngFor="let skill of skills?.slice(-3)">
+                    <p>{{skill.cat_name}}</p>
+                </div>
+                <button class="btn add">
+                  <div class="element-svg" data-toggle="modal" data-target="#exampleModalSkill">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
+                      <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
+                      <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
+                    </svg>
+                  </div>
+                  <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalSkill">Add Skills</button>
+                </button>
+              </div>
               <div class="d-grid">
                 <button (click)="goToFinalStep()" type="submit"  [disabled]="isLoading" data-toggle="modal"  data-target="modal-apply" class="btn btn-forgeet-passwoord">Apply</button>
                 <div *ngIf="isLoading" class="loader">Loading...</div>
 
               </div>
-              </form>
             </div>
-            
             <div *ngIf="!showFirstStep && !showSecondStep" class="final-step">
               <div class="loader">
                 <svg class="circular">

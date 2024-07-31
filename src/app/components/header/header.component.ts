@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   showLoginBlock: boolean = true;
   showFirstStep: boolean = true;
   showSecondStep: boolean = true;
+  showThirdStep: boolean = false;
   username: string = '';
   password: string = '';
   first_name:string='';
@@ -306,9 +307,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
                 });
 
                 
-    }   
-    console.log(this.candidat);
-    
+    }       
   }
  
   updateCachedData(){
@@ -410,7 +409,6 @@ onSubmit() {
           },
           // Gestion des erreurs
           (error) => {
-console.log(error);
 
             ToastNotification.open({
               type: 'error',
@@ -459,7 +457,6 @@ console.log(error);
             this.candidate=true
             this.userObject=true
             this.showFirstStep=true
-            //console.log(this.showFirstStep);
           } else if(userConnect.acf.is_liggeey == "chief"){
             this.compagny=true
             this.userObject=false;
@@ -630,8 +627,8 @@ console.log(error);
 
 
   goToSecondStep() {
-    this.showFirstStep = false;
-    this.showSecondStep = true;
+    this.candidate =   this.candidate
+    this.showThirdStep = !this.showThirdStep;
   }
 
   goToFinalStep() {
@@ -652,7 +649,6 @@ console.log(error);
           
          // return
           if (this.canAppl(this.job)) {
-            // this.userObject=true
                  // Utilisez le service pour postuler à l'emploi
                  this.uploadFile()
                 // return
@@ -677,14 +673,6 @@ console.log(error);
             this.isLoading=false
             this.showFirstStep =  !this.showFirstStep;
             this.showSecondStep = !this.showSecondStep;
-            //this.showFirstStep=true
-
-            // if (typeR == "success") {
-            //   this.showFirstStep =  !this.showFirstStep;
-            //   this.showSecondStep = !this.showSecondStep;
-            // //  this.userConnect=true
-            //   //this.router.navigate(['/applies-candidat',this.userConnect.id]);
-            // }
           },
           // Gestion des erreurs
           (error) => {
@@ -706,8 +694,6 @@ console.log(error);
         this.userObject=true
         this.showSecondStep=false
         
-        //return
-         //this.router.navigate(['']);
           }
         });
 
