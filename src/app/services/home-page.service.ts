@@ -368,9 +368,11 @@ getSubtopic(user:User): Observable<any> {
       job_description: job.description,
       job_level_of_experience: job.job_level_of_experience,
       job_contract: job.job_contract,
+      job_responsibilities:job.responsibilities,
+      job_skills_experiences:job.skills_experiences,
       job_langues:job.job_langues,
       job_application_deadline:job. job_application_deadline,
-      skills:job.skills
+      skills:job.skills,
 
     };
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/postJob`,requestBody);
