@@ -170,7 +170,6 @@ get skillsFormArray() {
 
 onSubmit() {
   this.isLoading = true;
-
     // Utilisez le service pour postuler à l'emploi
     if (this.validateFormJob(this.form.value)) {
 
@@ -227,8 +226,8 @@ onSubmit() {
       description: this.fb.control("", [Validators.required]),
       job_level_of_experience: this.fb.control("", Validators.required),
       job_contract: this.fb.control("", []),
-      responsibilities: this.fb.control("", []),
-      skills_experiences: this.fb.control("", []),
+      responsibilities: this.fb.control("", [Validators.required]),
+      skills_experiences: this.fb.control("", [Validators.required]),
       job_langues: this.fb.control("", Validators.required),
       job_application_deadline: this.fb.control("", [Validators.email, Validators.required]),
       skills: this.fb.array([]),
@@ -236,7 +235,7 @@ onSubmit() {
     });
   }
   validateFormJob(job: JobCompagny): boolean {
-    const { title, job_level_of_experience, job_langues, job_contract, job_application_deadline } = job;
+    const { title, job_level_of_experience, job_langues, job_contract,responsibilities,skills_experiences, job_application_deadline } = job;
     if (title == "") {
       this.message.message = 'Title is mandatory';
       return false;
@@ -249,6 +248,16 @@ onSubmit() {
       this.message.message = 'Language is mandatory';
       return false;
     }
+    if (responsibilities == "") {
+      this.message.message = 'Job responsibilities is mandatory';
+      return false;
+    }
+    if (skills_experiences === []) {
+      this.message.message = 'Skills experience is mandatory';
+      return false;
+    }
+    
+    
     // if (job_contract == "") {
     //   this.message.message = 'The type of contract is mandatory';
     //   return false;

@@ -711,6 +711,54 @@ nav ul li span{
 .skill{
   font-weight: bold !important;
 }
+
+
+.badge_certificate{
+  display: flex;
+  justify-content: space-between;
+}
+.badge_certificate p:first-child{
+  color: #202124;
+  font-size: 19px;
+font-family: "Roboto-Medium";
+}
+.badge_certificate a{
+  color:  #1AC4A2;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.map_menu{
+  border-radius: 8px;
+  border: 1px solid  #ECEDF2;
+  background: #FFF;
+  padding: 20px;
+  width: 100%;
+}
+.document{
+  border-radius: 5px;
+  border: 1px solid #ECEDF2;
+  background: #FFF;
+  text-align: center;
+ /* padding: 32px 12px 13px;
+  max-width: 18%;
+  flex: 18%;*/
+}
+.document .content_image_document{
+  width: 95px;
+  height: 95px;
+  margin: 0 auto 22px;
+}
+.document .content_image_document img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.document .content_image_document p{
+  color: #47A99E;
+  font-size: 20px;
+  font-weight: 600;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
   .second-nav {
     width: 100%;

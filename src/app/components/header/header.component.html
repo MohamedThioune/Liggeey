@@ -582,8 +582,8 @@
 
               </form>
             </div>
-            <div class="" *ngIf="candidate && !showThirdStep">
-              <label class="skill"  for="">Share your skills</label>
+            <div *ngIf="!showFirstStep && !showSecondStep">
+              <!--
               <div class="header_education">
                 <div class="" *ngFor="let skill of skills?.slice(-3)">
                     <p>{{skill.cat_name}}</p>
@@ -598,13 +598,36 @@
                   <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalSkill">Add Skills</button>
                 </button>
               </div>
+              -->
+              <div class="map_menu mb-4">
+                <div class="badge_certificate d-flex justify-content-between align-items-center">
+                  <p>Data or Statics</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                  <div class="row">
+                      <div class="col-md-6 mb-2 document "  *ngFor="let sub of ( subtopic.slice(0,6))" (click)="openApplyModal(sub)" data-toggle="modal" data-target="#exampleModalEdu">
+                       <p class="mt-1">Subtopic</p>
+                        <div class="content_image_document">
+                            <p>{{sub.time_spent}}</p>
+                            <p style="color: #043356; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{sub.category_name}}</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="text-center" *ngIf="subtopic.length === 0">
+                    <img src="../../../assets/img/empty-topic.png" alt="image team">
+                    <p>No content available at the moment </p>
+                  </div>
+      
+            </div>
               <div class="d-grid">
                 <button (click)="goToFinalStep()" type="submit"  [disabled]="isLoading" data-toggle="modal"  data-target="modal-apply" class="btn btn-forgeet-passwoord">Apply</button>
                 <div *ngIf="isLoading" class="loader">Loading...</div>
 
               </div>
             </div>
-            <div *ngIf="!showFirstStep && !showSecondStep" class="final-step">
+            <div *ngIf="!showFirstStep && !showSecondStep && !showThirdStep" class="final-step">
               <div class="loader">
                 <svg class="circular">
                   <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2"  stroke-color="#f00" stroke-miterlimit="10"/>
