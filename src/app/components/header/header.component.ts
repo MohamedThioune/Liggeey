@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   showLoginBlock: boolean = true;
   showFirstStep: boolean = true;
   showSecondStep: boolean = true;
+  showThirdStep: boolean = true;
   username: string = '';
   password: string = '';
   first_name:string='';
@@ -69,7 +70,9 @@ export class HeaderComponent implements OnInit,OnDestroy {
   nameCv:any
   isTilted = false;
   selectedSkills: any[] = [];
+  selectedSkill: any ;
   form!:FormGroup;
+  subtopic: any[] = [];
   skillsTabs:any=[   
     {
       "cat_ID": 590,
@@ -233,7 +236,20 @@ export class HeaderComponent implements OnInit,OnDestroy {
         this.compagny=true
       }
     }
+    const user = this.usagerService.getCurrentUser();
 
+    if (user) {
+      this.homeService.getSubtopic(user).subscribe(
+        (data: any) => {
+          this.subtopic = data;
+        },
+        (error) => {
+          console.error('Error fetching subtopics', error);
+        }
+      );
+    } else {
+      console.error('User not logged in');
+    }
     this.subscription = this.homeService.selectedJobId$.subscribe(id => {
       this.selectedJobId = id;
       
@@ -306,11 +322,18 @@ export class HeaderComponent implements OnInit,OnDestroy {
                 });
 
                 
-    }   
-    console.log(this.candidat);
-    
+    }       
   }
- 
+  openApplyModal(skill:any) {
+    //console.log(skill)
+    this.selectedSkill=skill
+    const modalElement = document.getElementById('exampleModalEdu');
+    if (modalElement) {
+      modalElement.click();
+    } else {
+      console.error("Modal element not found");
+    }
+  }
   updateCachedData(){
     const cachedCandidat = localStorage.getItem('cachedCandidat');
     if (cachedCandidat) {
@@ -410,7 +433,6 @@ onSubmit() {
           },
           // Gestion des erreurs
           (error) => {
-console.log(error);
 
             ToastNotification.open({
               type: 'error',
@@ -459,7 +481,6 @@ console.log(error);
             this.candidate=true
             this.userObject=true
             this.showFirstStep=true
-            //console.log(this.showFirstStep);
           } else if(userConnect.acf.is_liggeey == "chief"){
             this.compagny=true
             this.userObject=false;
@@ -630,8 +651,10 @@ console.log(error);
 
 
   goToSecondStep() {
-    this.showFirstStep = false;
-    this.showSecondStep = true;
+    //this.candidate =   this.candidate,
+    this.showFirstStep = !this.showFirstStep,
+    this.showSecondStep = !this.showSecondStep
+    //this.showThirdStep = !this.showThirdStep;
   }
 
   goToFinalStep() {
@@ -652,7 +675,6 @@ console.log(error);
           
          // return
           if (this.canAppl(this.job)) {
-            // this.userObject=true
                  // Utilisez le service pour postuler à l'emploi
                  this.uploadFile()
                 // return
@@ -677,14 +699,7 @@ console.log(error);
             this.isLoading=false
             this.showFirstStep =  !this.showFirstStep;
             this.showSecondStep = !this.showSecondStep;
-            //this.showFirstStep=true
-
-            // if (typeR == "success") {
-            //   this.showFirstStep =  !this.showFirstStep;
-            //   this.showSecondStep = !this.showSecondStep;
-            // //  this.userConnect=true
-            //   //this.router.navigate(['/applies-candidat',this.userConnect.id]);
-            // }
+            this.showThirdStep = !this.showThirdStep;
           },
           // Gestion des erreurs
           (error) => {
@@ -706,8 +721,6 @@ console.log(error);
         this.userObject=true
         this.showSecondStep=false
         
-        //return
-         //this.router.navigate(['']);
           }
         });
 

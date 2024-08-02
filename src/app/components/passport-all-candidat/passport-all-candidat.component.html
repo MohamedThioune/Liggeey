@@ -252,10 +252,10 @@
           </div>
             <div class="row">
                 <div class="col-md-2 document mt-4 btn-add-element"  *ngFor="let sub of (showAllSkills ? subtopic :  subtopic.slice(0,5))" (click)="openApplyModal(sub)" data-toggle="modal" data-target="#exampleModalEdu">
-                 <p>Detail {{sub.category_name}}</p>
+                 <p>Subtopic</p>
                   <div class="content_image_document">
                       <p>{{sub.time_spent}}</p>
-                      <p style="color: #043356;">{{sub.category_name}}</p>
+                      <p style="color: #043356;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{sub.category_name}}</p>
                   </div>
                 </div>
             </div>
@@ -570,7 +570,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h6 class="modal-title" id="exampleModalLabel">Statistic for {{selectedSkill?.category_name}}</h6>
+          <h6 class="modal-title" id="exampleModalLabel">Statistic for <strong> {{selectedSkill?.category_name}}</strong></h6>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

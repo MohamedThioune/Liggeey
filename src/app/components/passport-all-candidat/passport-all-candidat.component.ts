@@ -88,7 +88,6 @@ export class PassportAllCandidatComponent implements OnInit {
      this.loading=false;
     }))
         const user = this.usagerService.getCurrentUser();
-    //console.log(user);
     
     if (user) {
       this.homeService.getSubtopic(user).subscribe(
