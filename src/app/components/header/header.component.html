@@ -608,7 +608,7 @@
                 </div>
                   <div class="row">
                       <div class="col-md-6 mb-2 document "  *ngFor="let sub of ( subtopic.slice(0,6))" (click)="openApplyModal(sub)" data-toggle="modal" data-target="#exampleModalEdu">
-                       <p class="mt-1">Subtopic</p>
+                       <p class="mt-1">{{sub.category_name}}</p>
                         <div class="content_image_document">
                             <p>{{sub.time_spent}}</p>
                             <p style="color: #043356; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{sub.category_name}}</p>
