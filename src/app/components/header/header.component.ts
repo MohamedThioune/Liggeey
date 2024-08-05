@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   showLoginBlock: boolean = true;
   showFirstStep: boolean = true;
   showSecondStep: boolean = true;
-  showThirdStep: boolean = false;
+  showThirdStep: boolean = true;
   username: string = '';
   password: string = '';
   first_name:string='';
@@ -70,7 +70,9 @@ export class HeaderComponent implements OnInit,OnDestroy {
   nameCv:any
   isTilted = false;
   selectedSkills: any[] = [];
+  selectedSkill: any ;
   form!:FormGroup;
+  subtopic: any[] = [];
   skillsTabs:any=[   
     {
       "cat_ID": 590,
@@ -234,7 +236,20 @@ export class HeaderComponent implements OnInit,OnDestroy {
         this.compagny=true
       }
     }
+    const user = this.usagerService.getCurrentUser();
 
+    if (user) {
+      this.homeService.getSubtopic(user).subscribe(
+        (data: any) => {
+          this.subtopic = data;
+        },
+        (error) => {
+          console.error('Error fetching subtopics', error);
+        }
+      );
+    } else {
+      console.error('User not logged in');
+    }
     this.subscription = this.homeService.selectedJobId$.subscribe(id => {
       this.selectedJobId = id;
       
@@ -309,7 +324,16 @@ export class HeaderComponent implements OnInit,OnDestroy {
                 
     }       
   }
- 
+  openApplyModal(skill:any) {
+    //console.log(skill)
+    this.selectedSkill=skill
+    const modalElement = document.getElementById('exampleModalEdu');
+    if (modalElement) {
+      modalElement.click();
+    } else {
+      console.error("Modal element not found");
+    }
+  }
   updateCachedData(){
     const cachedCandidat = localStorage.getItem('cachedCandidat');
     if (cachedCandidat) {
@@ -627,8 +651,10 @@ onSubmit() {
 
 
   goToSecondStep() {
-    this.candidate =   this.candidate
-    this.showThirdStep = !this.showThirdStep;
+    //this.candidate =   this.candidate,
+    this.showFirstStep = !this.showFirstStep,
+    this.showSecondStep = !this.showSecondStep
+    //this.showThirdStep = !this.showThirdStep;
   }
 
   goToFinalStep() {
@@ -673,6 +699,7 @@ onSubmit() {
             this.isLoading=false
             this.showFirstStep =  !this.showFirstStep;
             this.showSecondStep = !this.showSecondStep;
+            this.showThirdStep = !this.showThirdStep;
           },
           // Gestion des erreurs
           (error) => {

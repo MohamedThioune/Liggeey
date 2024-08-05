@@ -204,6 +204,7 @@ notificationChief(idUser:number,user:any):any{
         type: 'error',
         message: this.message.message
       });
+      this.isLoading=false
     }
 
   }

@@ -5,7 +5,7 @@ export interface JobCompagny {
     job_level_of_experience: Number;
     job_contract: String;
     responsibilities:string;
-    skills_experiences:string[];
+    skills_experiences:[];
     job_langues: String;
     job_application_deadline: String;
     skills:string
