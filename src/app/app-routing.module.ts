@@ -56,6 +56,8 @@ import {
 } from "./components/candidat-profil-dashboard/candidat-profil-dashboard.component";
 import { CandidateGuard } from './guards/candidate.guard';
 import { CompanyGuard } from './guards/company.guard';
+import { HireCompanyComponent } from './components/hire-company/hire-company.component';
+import { HireCandidatComponent } from './components/hire-candidat/hire-candidat.component';
 
 const routes: Routes = [
 
@@ -167,6 +169,10 @@ const routes: Routes = [
   { path: 'edit-job', component: EditJobsComponent },
 
   { path: 'candidat-profil', component: CandidatProfilDashboardComponent},
+
+  { path:'hire-company',component: HireCompanyComponent},
+
+  { path:'hire-candidat',component: HireCandidatComponent}
 
 
 ];

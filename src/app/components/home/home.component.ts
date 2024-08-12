@@ -53,15 +53,14 @@ export class HomeComponent implements OnInit {
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
       this.candidates=data.candidates      
-      this.article=data.artikels
-      
+      this.article=data.artikels      
       this.currentCategories=data.jobs
       this.loading=false;
       this.currentCategories.forEach(element => {
         element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       });
 
-      this.candidatsTab.push(this.candidates[2].image,this.candidates[3].image,this.candidates[4].image,this.candidates[6].image,this.candidates[7].image)
+      this.candidatsTab.push(this.candidates[9].image,"../../../assets/img/khadim.jpg",this.candidates[19].image,"assets/img/seydou.jpg","../../../assets/img/selle.jpeg",this.candidates[12].image,this.candidates[6].image,this.candidates[7].image)
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[0].short_description =   this.article[0].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[1].post_title =   this.article[1].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');

@@ -8,7 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Liggey_Platform';
+  title = 'Liggeey_Platform';
 
   constructor(private router: Router) { }
 

@@ -71,7 +71,7 @@
                 {{ canAppl(job) ? 'Apply Now' : 'Already Applied' }}
               </button>
               <div class="bookmark" *ngIf="candidate">
-                <button [disabled]="isBookmarked" (click)="favoritesJob()">
+                <button [disabled]="job.favorited" (click)="favoritesJob()">
                     <i class="fa fa-bookmark"></i>
                 </button>
               </div>

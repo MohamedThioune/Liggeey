@@ -132,6 +132,7 @@
 /*section banner*/
 .banner{
     margin-top: 160px;
+    margin-bottom: 40px;
 }
 .banner_left,.banner_right{
     display: flex;
@@ -186,6 +187,36 @@
     height: 100%;
     object-fit: cover;
     margin: auto;
+}
+
+/* section beneath*/
+.beneath .up_remote{
+    border :1px solid #D5DBE4;
+    border-radius: 8px;
+    padding-top: 20px;
+}
+.beneath .content_image {
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+.beneath .content_image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.beneath .remote .under_remote{
+    background-color: #c2eae6;
+}
+.beneath .remote p{
+    color: #696969;
+    font-weight: 400;
+}
+.beneath .remote .work{
+  color:#696969;
+  font-weight: bold;
 }
 /* section jobs*/
 .jobs{
