@@ -119,7 +119,14 @@ export class HomePageService {
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/?slug=${id}`,{});
     //return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/job?slug=${id}`,{});
   }
-  
+  getOneJob(id:string,userId:string):Observable<any>{
+    const requestBody ={
+      slug:id,
+      userID:userId
+    }
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/`,requestBody);
+    //return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/job?slug=${id}`,{});
+  }
   getDetailCategory(id:string):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/category/detail/?slug=${id}`,{});
   }
@@ -235,16 +242,17 @@ getFileCv(cvId: string): Observable<any> {
     })
   );
 }
-getSubtopic(user:User): Observable<any> {
-  const base64Credentials = btoa(user.username + ':' + user.password);
+getSubtopic(user:string): Observable<any> {
+  //const base64Credentials = btoa(user.username + ':' + user.password);
 
-  const headers = new HttpHeaders({
-    'Authorization': 'Basic ' + base64Credentials,
-    'Content-Type': 'application/json;charset=UTF-8',
-  });
+  // const headers = new HttpHeaders({
+  //   'Authorization': 'Basic ' + base64Credentials,
+  //   'Content-Type': 'application/json;charset=UTF-8',
+  // });
 
-  return this.http.get(`${this.baseUrl}/wp-json/custom/v2/user/subtopic/statistics`, { headers })
+  return this.http.get(`${this.baseUrl}/wp-json/custom/v1/user/subtopic/statistics/${user}`)
 }
+
   updateProfileCompany(idUser:string,profil:ProfilCompagny): Observable<any> {
     const requestBody = {
       userApplyId:idUser,

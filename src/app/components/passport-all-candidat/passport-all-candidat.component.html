@@ -247,15 +247,15 @@
           </div>
         <div class="map_menu mb-4" *ngIf="ongletSelectionne === 'Data' || ongletSelectionne === 'All'">
           <div class="badge_certificate">
-            <p>Data or Statics</p>
+            <p>Data and Statics</p>
             <a *ngIf="subtopic.length > 6"  (click)="showAllSkills = !showAllSkills">{{ showAllSkills ? 'Show Less' : 'See All' }}</a>
           </div>
             <div class="row">
                 <div class="col-md-2 document mt-4 btn-add-element"  *ngFor="let sub of (showAllSkills ? subtopic :  subtopic.slice(0,5))" (click)="openApplyModal(sub)" data-toggle="modal" data-target="#exampleModalEdu">
-                 <p>Subtopic</p>
+                  <p style="color: #043356;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{sub.category_name}}</p>
                   <div class="content_image_document">
                       <p>{{sub.time_spent}}</p>
-                      <p style="color: #043356;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{sub.category_name}}</p>
+                <!--     <p style="color: #043356;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{sub.category_name}}</p>--> 
                   </div>
                 </div>
             </div>

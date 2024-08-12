@@ -18,7 +18,6 @@ export class UsagerService {
   private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   user$: Observable<any> = this.userSubject.asObservable();
   private userId!: string;
-  private currentUser: User | null = null;
 
   setUser(user: any) {
     this.userSubject.next(user);
@@ -40,16 +39,9 @@ export class UsagerService {
       'Content-Type': 'application/json;charset=UTF-8',
 
     });
-    return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/me`,{}, { headers }).pipe(
-      tap((response: any) => {
-        this.currentUser = { username: user.username, password: user.password };
-      })
-    );
+    return this.http.post(`${this.baseUrl}/wp-json/wp/v2/users/me`,{}, { headers })
   }
 
-  getCurrentUser(): { username: string; password: string } | null {
-    return this.currentUser;
-  }
   inscription(usager: Usager): Observable<any> {
     const base64Credentials = btoa("aaondiaye@gmail.com" + ':' + "Livelearn@2023");
     const headers = new HttpHeaders({
@@ -133,6 +125,5 @@ export class UsagerService {
   deconnexion() {
     localStorage.removeItem('access_token');
     window.location.href = "login";
-    this.currentUser = null;
   }
 }

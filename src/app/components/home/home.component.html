@@ -18,7 +18,7 @@
               <p class="definition_home">Embrace the future of work with our best digital talent, not just remotely but with the full support of the LIGGEEY team.</p>
             </div>
             <div class="hiring_work" *ngIf="!userConnect">
-              <a class="btn hiring" routerLink="register" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
+              <a class="btn hiring" routerLink="hire-candidat" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
               <a class="work" routerLink="about" routerLinkActive="active_lien_navbar">How does it work</a>
             </div>
           </div>
@@ -33,12 +33,10 @@
         </div>
       </div>
       <div class="d-flex align-items-center">
-        <i class="fa-brands fa-whatsapp"></i>
-
-        <p class="number_candidates">{{candidates.length}}K Candidates</p>
+        <p class="number_candidates">2K Candidates</p>
         <div class="">
           <div class="jobholder">
-            <div class=" " *ngFor="let image of candidatsTab">
+            <div class=" " *ngFor="let image of candidatsTab?.slice(0,5)">
                 <span class="content_users_1">
                   <img [src]="image" alt="">
                 </span>
@@ -79,7 +77,43 @@
         </div>
       </div>
     </div>
+
   </div>
+</section>
+<section class="beneath">
+  <div class="container-fluid">
+    <div class="row up_remote">
+      <div class="col-md-3 remote">
+          <div class="content_image">
+            <img src="../../../assets/img/work-from-home.png" alt="">
+          </div>
+          <p class="work">Work Remotely</p>
+          <p>When hired by one of our clients, you will work remotely but not from home.We provide you with office space in your contry to insure  a professionnel work environment.</p>
+      </div>
+      <div class="col-md-3 remote">
+          <div class="content_image">
+            <img src="../../../assets/img/responsibility.png" alt="">
+          </div>
+          <p class="work">Social Benefits Included</p>
+          <p>We offer comprehensive health insurance, ensuring that you are covered in case of illness or inability to work.Your well-being is our priority.</p>
+      </div>
+      <div class="col-md-3 remote">
+          <div class="content_image">
+            <img src="../../../assets/img/check.png" alt="">
+          </div>
+          <p class="work">On Our Payroll</p>
+          <p>All Talent is placed on our payroall, giving you flexibility.We handle invoicing and management, making it easy for you to scale your team up or down.</p>
+      </div>
+      <div class="col-md-3 remote">
+          <div class="content_image">
+            <img src="../../../assets/img/help.png" alt="">
+          </div>
+          <p class="work">We Stay Involved</p>
+          <p>We provide ongoing support with a LiveLearn account for continous learning and skill development.We also assist in setting up your remote workforce effectively.</p>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <section class="jobs">

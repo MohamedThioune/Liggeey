@@ -87,30 +87,19 @@ export class PassportAllCandidatComponent implements OnInit {
      this.certificats=this.skillAll.certificats     
      this.loading=false;
     }))
-        const user = this.usagerService.getCurrentUser();
     
-    if (user) {
-      this.homeService.getSubtopic(user).subscribe(
+    if (this.userConnect && this.userConnect.id) {
+      this.homeService.getSubtopic(this.userConnect.id).subscribe(
         (data: any) => {
           this.subtopic = data;
-         // console.log(this.subtopic);
         },
         (error) => {
-          console.error('Error fetching subtopics', error);
+         // console.error('Error fetching subtopics', error);
         }
       );
     } else {
-      console.error('User not logged in');
+     // console.error('User not logged in');
     }
-    // const user = {
-    //   username: "mbayamemansor@gmail.com",
-    //   password: "hidden"
-    // }    
-    // this.homeService.getSubtopic(user).subscribe((data:any)=>{
-    //   this.subtopic=data
-    //   console.log(this.subtopic);
-      
-    //  })
     this.updateProgress();
 
     
