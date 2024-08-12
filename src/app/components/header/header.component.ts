@@ -236,12 +236,10 @@ export class HeaderComponent implements OnInit,OnDestroy {
         this.compagny=true
       }
     }
-    const user = this.usagerService.getCurrentUser();
-
-    if (user) {
-      this.homeService.getSubtopic(user).subscribe(
+    if ( this.id) {
+      this.homeService.getSubtopic(this.id).subscribe(
         (data: any) => {
-          this.subtopic = data;
+          this.subtopic = data;          
         },
         (error) => {
           console.error('Error fetching subtopics', error);
@@ -500,7 +498,18 @@ onSubmit() {
           this.avatar = userConnect.avatar_urls && userConnect.avatar_urls[96]; // Stockage de l'URL de l'avatar
           this.cv =userConnect.acf.cv
           this.id=userConnect.id
-          
+          if ( this.id) {
+            this.homeService.getSubtopic(this.id).subscribe(
+              (data: any) => {
+                this.subtopic = data;          
+              },
+              (error) => {
+                console.error('Error fetching subtopics', error);
+              }
+            );
+          } else {
+            console.error('User not logged in');
+          }
           this.homeService.getDetailJob(this.selectedSlug).subscribe((data:any) => {
             this.job = data;
             this.title=this.job.title

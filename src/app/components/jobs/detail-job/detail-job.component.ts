@@ -51,10 +51,11 @@ export class DetailJobComponent implements OnInit {
           this.company=true
           }
     }
+console.log(this.userConnect.id);
 
     this.slug = this.route.snapshot.params['slug'];
     
-    this.HomePageService.getDetailJob(this.slug).subscribe(data => {
+    this.HomePageService.getOneJob(this.slug,this.userConnect.id).subscribe(data => {
         this.job = data;
         this.loading=false
         
@@ -181,7 +182,7 @@ calculateDurationLastJob(){
               let typeR = "error"
               if (<any>response ) {
                 typeR = "success";
-                this.message= "Your new favorite job has been added."
+                this.message= response
                 this.isBookmarked = true;
               }
               ToastNotification.open({

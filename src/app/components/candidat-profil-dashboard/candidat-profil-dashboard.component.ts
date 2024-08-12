@@ -53,14 +53,11 @@ export class CandidatProfilDashboardComponent implements OnInit {
         this.compagny=true
       }
     }
-    const user = this.usagerService.getCurrentUser();
-    //console.log(user);
     
-    if (user) {
-      this.HomePageService.getSubtopic(user).subscribe(
+    if (this.userConnect && this.userConnect.id) {
+      this.HomePageService.getSubtopic(this.userConnect.id).subscribe(
         (data: any) => {
           this.subtopic = data;
-         console.log(this.subtopic);
         },
         (error) => {
           console.error('Error fetching subtopics', error);

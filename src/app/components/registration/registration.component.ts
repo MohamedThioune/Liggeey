@@ -118,9 +118,9 @@ showEmployer() {
   notificationTalent(idUser:number,user:any):any{
     const notif={
       userApplyId:idUser,
-      title:"Inscription as candidate to Liggey",
+      title:"Inscription as candidate to Liggéey",
       content: `
-      Welcome to Liggey, your account has been successfully created.<br>
+      Welcome to Liggéey, your account has been successfully created.<br>
       Here is your account information:<br>
       Username: ${user.email}<br>
       Password: what you already filled up<br>
@@ -133,9 +133,9 @@ showEmployer() {
 notificationChief(idUser:number,user:any):any{
   const notif={
     userApplyId:idUser,
-    title:"Inscription as employer to Liggey",
+    title:"Inscription as employer to Liggéey",
     content: `
-    Welcome to Liggey, your account has been successfully created.<br>
+    Welcome to Liggéey, your account has been successfully created.<br>
     Here is your account information:<br>
     Username: ${user.emailCompagny}<br>
     Password: what you already filled up<br>

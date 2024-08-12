@@ -29,6 +29,9 @@ export class PostNewJobCompagnyComponent implements OnInit {
   };
   langues: string[] = ['French', 'English', 'Dutch'];
   isLoading: boolean = false;
+  inputValue: string = '';
+  skills: string[] = [];
+  showRemove: boolean = false;
   skillsTabs:any=[   
     {
       "cat_ID": 590,
@@ -134,9 +137,7 @@ toggleSkill(term_id: any) {
   } else {
     this.selectedSkills.push(term_id);
     skillsArray.push(this.fb.control(term_id));
-  }
-  console.log(this.selectedSkills);
-  
+  }  
 }
 
 removeSkill(term_id: any) {
@@ -150,6 +151,25 @@ get skillsFormArray() {
   return this.form.get('skills') as FormArray;
 }
 
+addSkill(event: Event): void {
+  event.preventDefault(); // Prevent form submission on Enter
+
+  const skillValue = this.form.get('newSkill')?.value?.trim(); // Get the new skill value
+  if (skillValue) {
+    this.skillsExperiences.push(this.fb.control(skillValue)); // Add to FormArray
+    this.form.get('newSkill')?.reset(); // Clear the input field
+  }
+}
+get skillsExperiences(): FormArray {
+  return this.form.get('skills_experiences') as FormArray;
+}
+
+toggleRemoveIcon(): void {
+  this.showRemove = this.inputValue.includes(' ');
+}
+removeSkills(index: number): void {
+  this.skillsExperiences.removeAt(index); // Remove skill by index
+}
 
   constructor(private fb: FormBuilder,private route: Router , private homeService:HomePageService,private usagerService: UsagerService) { }
 
@@ -170,7 +190,7 @@ get skillsFormArray() {
 
 onSubmit() {
   this.isLoading = true;
-    // Utilisez le service pour postuler à l'emploi
+    // Utilisez le service pour postuler à l'emploi    
     if (this.validateFormJob(this.form.value)) {
 
     this.homeService.postJob(this.form.value,this.userConnect.id)
@@ -227,7 +247,8 @@ onSubmit() {
       job_level_of_experience: this.fb.control("", Validators.required),
       job_contract: this.fb.control("", []),
       responsibilities: this.fb.control("", [Validators.required]),
-      skills_experiences: this.fb.control("", [Validators.required]),
+      skills_experiences:this.fb.array([]) ,
+      newSkill: this.fb.control("") ,// FormControl for capturing a new skill
       job_langues: this.fb.control("", Validators.required),
       job_application_deadline: this.fb.control("", [Validators.email, Validators.required]),
       skills: this.fb.array([]),
@@ -252,7 +273,7 @@ onSubmit() {
       this.message.message = 'Job responsibilities is mandatory';
       return false;
     }
-    if (skills_experiences === []) {
+    if (skills_experiences =="") {
       this.message.message = 'Skills experience is mandatory';
       return false;
     }

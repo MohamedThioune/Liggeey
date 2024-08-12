@@ -12,9 +12,10 @@
                 Title <span class="important">*</span>
               </label>
               <div class="input-group">
-                <input type="text" name="title" id="title" formControlName="title" class="form-control" placeholder="Title">
+                <input type="text" name="title" id="title" formControlName="title" class="form-control" placeholder="Title" autofocus>
               </div>
             </div>
+            
             <!--
             <div class="form-group">
               <label>
@@ -35,11 +36,22 @@
               </label>
               <ckeditor  name="responsibilities"  formControlName="responsibilities" [editor]="Editor" [config]="editorConfig" ></ckeditor>
             </div>
-            <div class="form-group mb-4">
-              <label>
-                Skills & Experiences
-              </label>
-              <ckeditor  name="skills_experiences"  formControlName="skills_experiences" [editor]="Editor" [config]="editorConfig" ></ckeditor>
+            <div class="form-group mb-4 ">
+              <label>Skills & Experiences</label>
+              <div class="chips-container">
+                <div class="chip" *ngFor="let skillControl of skillsExperiences.controls; let i = index">
+                  {{ skillControl.value }}
+                  <span class="remove-chip" (click)="removeSkills(i)">×</span>
+                </div>
+                <input
+                  type="text"
+                  (keydown.enter)="addSkill($event)"
+                  (keydown.space)="toggleRemoveIcon()"
+                  placeholder="Add a Skills & Experiences"
+                  formControlName="newSkill"
+
+                />
+              </div>
             </div>
             <div class="form-group col-50">
               <label for="email">
