@@ -70,11 +70,15 @@
               <button class="btn btn-apply" data-toggle="modal" [disabled]="!canAppl(job)" (click)="openApplyModal(job.ID,job.slug)" data-target="#modal-apply">
                 {{ canAppl(job) ? 'Apply Now' : 'Already Applied' }}
               </button>
-              <div class="bookmark" *ngIf="candidate">
-                <button [disabled]="job.favorited" (click)="favoritesJob()">
-                    <i class="fa fa-bookmark"></i>
+              <div class="bookmark" *ngIf="candidate"
+              [ngStyle]="{ 'background-color': job.favorited ? '#DAE1E6' : '#9fa3a5', 'color': job.favorited ? '#DAE1E6' : '#9fa3a5' }">
+                <button 
+                  [disabled]="job.favorited" 
+                  (click)="favoritesJob()">
+                  <i class="fa fa-bookmark"></i>
                 </button>
               </div>
+              
             
             </div>
           </div>

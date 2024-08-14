@@ -45,6 +45,7 @@
     font-weight: 700;
     border: 1px solid  #FFF;
     background-color:  #1AC4A2;
+    margin-right: 5px;
 }
 .hiring_work .work{
     color: #696969;
@@ -190,10 +191,17 @@
 }
 
 /* section beneath*/
+.beneath{
+    padding: 15px;
+}
 .beneath .up_remote{
     border :1px solid #D5DBE4;
     border-radius: 8px;
     padding-top: 20px;
+}
+.beneath .up_remote .remote{
+
+    padding-bottom: 50px;
 }
 .beneath .content_image {
     border-radius: 10px;
@@ -666,6 +674,13 @@
 .featured h2 {
   margin-bottom: 0;
   font-weight: 500;
+}
+.hiring_work a:last-child{
+    padding: 14px 17px 13px 17px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid  #FFF;
+    background-color: #1ac4a226;
 }
 @media all and (min-width: 300px) and (max-width: 767px){
     .content-home{
