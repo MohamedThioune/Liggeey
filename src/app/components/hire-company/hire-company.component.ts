@@ -35,7 +35,7 @@ export class HireCompanyComponent implements OnInit {
         type: 'error',
         message: 'log in as a company to publish a job.'
       });
-
+      this.router.navigate(['login'])
       return; 
     }else{
       this.router.navigate(['post-company'])

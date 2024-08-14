@@ -189,6 +189,7 @@ calculateDurationLastJob(){
                 type: typeR,
                 message: this.message
               });
+             // window.location.reload();
               this.router.navigate(['/favorite',this.userConnect.slug])
               // if (typeR == "success") {
               //   this.router.navigate(['/applies-candidat',this.userConnect.id]);

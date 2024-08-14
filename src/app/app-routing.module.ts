@@ -141,7 +141,16 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
 
-  { path: 'register', component: RegistrationComponent },
+  {
+    path: 'register',
+    component: RegistrationComponent,
+    data: { employer: false } // Default is showing candidate form
+  },
+  {
+    path: 'register/employer',
+    component: RegistrationComponent,
+    data: { employer: true } // This shows the employer form
+  },
 
   { path: 'courses', component: CoursesComponent },
 

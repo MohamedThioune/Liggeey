@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usager } from 'src/app/interfaces/usager';
 import { UsagerCompany } from 'src/app/interfaces/usager-company';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
@@ -22,30 +22,36 @@ export class RegistrationComponent implements OnInit {
     type: '',
     message: ''
   };
-  canditate = true;
+  canditate = false;
   employer = false;
-  isCandidateActive: boolean = true;
+  isCandidateActive: boolean = false;
   isEmployerActive: boolean = false;
   isLoading: boolean = false;
 
-  constructor(private usagerService: UsagerService, private formBuilder: FormBuilder, private route: Router,private homeService:HomePageService) { }
+  constructor(private usagerService: UsagerService, private formBuilder: FormBuilder, private route: Router,private homeService:HomePageService,private router: ActivatedRoute) { }
   ngOnInit(): void {
     this.initForm();
     this.initFormCompagny();
-
+    this.router.data.subscribe(data => {
+      if (data['employer']) {
+        this.showEmployer();
+      } else {
+        this.showCandidate();
+      }
+    });
   }
-  showCandidate() {
-    this.isCandidateActive = true;
-    this.isEmployerActive = false;
-    this.canditate = true;
-    this.employer = false;
+showCandidate() {
+  this.isCandidateActive = true;
+  this.isEmployerActive = false;
+  this.canditate = true;
+  this.employer = false;
 }
 
 showEmployer() {
-    this.isCandidateActive = false;
-    this.isEmployerActive = true;
-    this.canditate = false;
-    this.employer = true;
+  this.isEmployerActive = true;
+  this.isCandidateActive = false;
+  this.canditate = false;
+  this.employer = true;
 }
   onSubmit(): void {
     this.isLoading = true;
