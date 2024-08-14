@@ -421,7 +421,13 @@ nav ul li span{
   cursor: pointer;
 }
 .custom-pdf-container{
-  margin-bottom: 35px;
+  margin-bottom: 25px;
+  height: 200px;
+}
+.custom-pdf-container img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .second-step label{
   margin-bottom: 15px;

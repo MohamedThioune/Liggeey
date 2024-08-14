@@ -660,10 +660,8 @@ onSubmit() {
 
 
   goToSecondStep() {
-    //this.candidate =   this.candidate,
     this.showFirstStep = !this.showFirstStep,
     this.showSecondStep = !this.showSecondStep
-    //this.showThirdStep = !this.showThirdStep;
   }
 
   goToFinalStep() {
@@ -706,8 +704,8 @@ onSubmit() {
               message: this.message
             });
             this.isLoading=false
-            this.showFirstStep =  !this.showFirstStep;
-            this.showSecondStep = !this.showSecondStep;
+            this.showFirstStep =  this.showFirstStep;
+            this.showSecondStep = this.showSecondStep;
             this.showThirdStep = !this.showThirdStep;
           },
           // Gestion des erreurs

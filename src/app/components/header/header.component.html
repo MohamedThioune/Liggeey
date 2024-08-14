@@ -181,7 +181,7 @@
         </ul>
       </ul>
       <div class="join" *ngIf="!userConnect">
-        <a class="btn nav-connecte" routerLink="/register" routerLinkActive="active_lien_navbar">Apply as an IT Specialist</a>
+        <a class="btn nav-connecte" routerLink="/hire-candidat" routerLinkActive="active_lien_navbar">Apply as an IT Specialist</a>
         <a class="btn hiring" routerLink="/hire-company" routerLinkActive="active_lien_navbar">Hire IT Talent</a>
         <a routerLink="/login" class="login nav-connecte" routerLinkActive="active_lien_navbar">Login</a>
       </div>
@@ -374,7 +374,7 @@
               <li class="skills"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills First</a></li>
             </ul>
             <ul class="join cathegories" *ngIf="!userConnect">
-              <li class="job"><a class="btn nav-connecte" routerLink="/register" routerLinkActive="active_lien_navbar">Apply as an IT Specialist</a></li>
+              <li class="job"><a class="btn nav-connecte" routerLink="/hire-candidat" routerLinkActive="active_lien_navbar">Apply as an IT Specialist</a></li>
               <li class="job"><a class="btn hiring" routerLink="/hire-company" routerLinkActive="active_lien_navbar">Hire IT Talent</a></li>
               <li class="job"><a routerLink="/login" class="login nav-connecte" routerLinkActive="active_lien_navbar">Login</a></li>
             </ul>
@@ -552,9 +552,9 @@
               <div class="second-block ">
                 <label for="" class="skill">Select your cv</label>
                 <div class="custom-pdf-container d-flex align-item-center justify-content-center flex-column">
-                  <img *ngIf="!safeCvUrl" src="../../../../assets/img/file.svg" alt="">
+                  <img *ngIf="!safeCvUrl" src="../../../../assets/img/file.svg" alt="Cv Candidat">
                   <!--  <embed *ngIf="!safeCvUrl" src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />-->
-                  <iframe *ngIf="safeCvUrl" [src]="safeCvUrl" type="application/pdf" width="100%" height="300px" ></iframe>
+                  <iframe *ngIf="safeCvUrl" [src]="safeCvUrl" type="application/pdf" width="100%" height="200px" ></iframe>
                   <span class="mt-4 text-align-center">{{nameCv}}</span>
                 </div>
                 <label for="">Or Upload a new one</label>
@@ -566,7 +566,7 @@
                   <label for="customFileInput" class="custom-file-label">{{ selectedFile || 'Choose file' }}</label>   
                 </div>
                 -->
-                <div class="input-group mb-4">
+                <div class="input-group">
 
                    
                      <!-- <embed src="../../../../assets/cv.pdf" type="application/pdf" width="100%" height="300px" />-->
@@ -583,22 +583,6 @@
               </form>
             </div>
             <div *ngIf="!showFirstStep && !showSecondStep">
-              <!--
-              <div class="header_education">
-                <div class="" *ngFor="let skill of skills?.slice(-3)">
-                    <p>{{skill.cat_name}}</p>
-                </div>
-                <button class="btn add">
-                  <div class="element-svg" data-toggle="modal" data-target="#exampleModalSkill">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
-                      <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
-                      <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
-                    </svg>
-                  </div>
-                  <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalSkill">Add Skills</button>
-                </button>
-              </div>
-              -->
               <div class="map_menu mb-4">
                 <div class="badge_certificate d-flex justify-content-between align-items-center">
                   <p>Data and Statics</p>
@@ -627,7 +611,7 @@
 
               </div>
             </div>
-            <div *ngIf="!showFirstStep && !showSecondStep && !showThirdStep" class="final-step">
+            <div *ngIf=" !showThirdStep" class="final-step">
               <div class="loader">
                 <svg class="circular">
                   <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2"  stroke-color="#f00" stroke-miterlimit="10"/>
