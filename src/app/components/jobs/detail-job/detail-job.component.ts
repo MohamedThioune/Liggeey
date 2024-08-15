@@ -51,11 +51,9 @@ export class DetailJobComponent implements OnInit {
           this.company=true
           }
     }
-console.log(this.userConnect.id);
-
     this.slug = this.route.snapshot.params['slug'];
-    
-    this.HomePageService.getOneJob(this.slug,this.userConnect.id).subscribe(data => {
+    if (this.userConnect && this.userConnect.id) {
+      this.HomePageService.getOneJob(this.slug,this.userConnect.id).subscribe(data => {
         this.job = data;
         this.loading=false
         
@@ -70,6 +68,24 @@ console.log(this.userConnect.id);
         this.calculateDuration();
         this.calculateDurationLastJob();
     });
+    }else{
+      this.HomePageService.getDetailJob(this.slug).subscribe(data => {
+        this.job = data;
+        this.loading=false
+        
+       //this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
+       //this.job.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
+      this.job.other_jobs.forEach((element:any) => {
+          element.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
+
+      });
+
+
+        this.calculateDuration();
+        this.calculateDurationLastJob();
+    });
+    }
+   
 }
 formatTextToHTML(text: string): string {
   // On suppose que chaque ligne du texte est séparée par un retour à la ligne
@@ -189,7 +205,7 @@ calculateDurationLastJob(){
                 type: typeR,
                 message: this.message
               });
-             // window.location.reload();
+             window.location.reload();
               this.router.navigate(['/favorite',this.userConnect.slug])
               // if (typeR == "success") {
               //   this.router.navigate(['/applies-candidat',this.userConnect.id]);

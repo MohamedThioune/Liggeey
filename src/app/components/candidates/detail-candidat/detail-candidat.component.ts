@@ -56,12 +56,20 @@ export class DetailCandidatComponent implements OnInit {
     //       }
     //     });
     // });
+    if (this. userConnect && this. userConnect.id) {      
+      this.HomePageService.getOneCandidate(this.id, this.userConnect.id).subscribe(data=>{
+        this.candidat=data;        
+        this.loading=false;
+      })
+    }else{
+      this.HomePageService.getDetailCandidate(this.id).subscribe(data=>{
+        this.candidat=data;        
+        this.loading=false;
+            
+      })
+    }
   
-    this.HomePageService.getDetailCandidate(this.id).subscribe(data=>{
-      this.candidat=data;
-      this.loading=false;
-          
-    })
+    
     
   }
   rejectCandidatByCompany(){
