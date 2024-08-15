@@ -173,7 +173,7 @@ notificationChief(idUser:number,user:any):any{
       phoneCompagny: this.formBuilder.control("", []),
       passwordCompagny: this.formBuilder.control("", Validators.required),
       confirmPasswordCompagny: this.formBuilder.control("", Validators.required),
-     // bedrijf: this.formBuilder.control("", Validators.required),
+     bedrijf: this.formBuilder.control("", Validators.required),
     });
   }
 
@@ -198,7 +198,9 @@ notificationChief(idUser:number,user:any):any{
             this.homeService.sendNotification(usager.ID,this.notificationChief(usager.ID,this.formCompagny.value)).subscribe();
           }
         },
-        error => {                    
+        error => {   
+          console.log(error.error);
+                           
           ToastNotification.open({
             type: 'error',
             message: error.error.errors.errors.existing_user_email

@@ -205,9 +205,9 @@
 }
 .beneath .content_image {
     border-radius: 10px;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 30px;
 }
 .beneath .content_image img{
     width: 100%;
@@ -223,8 +223,9 @@
     font-weight: 400;
 }
 .beneath .remote .work{
-  color:#696969;
+  color:#202124;
   font-weight: bold;
+  font-size: 20px;
 }
 /* section jobs*/
 .jobs{
