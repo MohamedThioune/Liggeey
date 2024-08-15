@@ -246,7 +246,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
         }
       );
     } else {
-      console.error('User not logged in');
+      //console.error('User not logged in');
     }
     this.subscription = this.homeService.selectedJobId$.subscribe(id => {
       this.selectedJobId = id;

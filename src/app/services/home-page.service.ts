@@ -69,7 +69,13 @@ export class HomePageService {
     });
       return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/detail/?id=${id}`,{headers});
   }
-
+  getOneCandidate(id:string,userId:string):Observable<any>{
+    const requestBody ={
+      id:id,
+      userID:userId
+    }
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/detail/`,requestBody);
+  }
   getNotificationCandidat(id:number | null):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/notification/list/?userApplyId=${id}`,{});
 }
