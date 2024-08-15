@@ -71,7 +71,7 @@
                 {{ canAppl(job) ? 'Apply Now' : 'Already Applied' }}
               </button>
               <div class="bookmark" *ngIf="candidate"
-              [ngStyle]="{ 'background-color': job.favorited ? '#DAE1E6' : '#9fa3a5', 'color': job.favorited ? '#DAE1E6' : '#9fa3a5' }">
+              [ngStyle]="{ 'background-color': job.favorited ? '#DAE1E6' : '#043356', 'color': job.favorited ? '#DAE1E6' : '#043356' }">
                 <button 
                   [disabled]="job.favorited" 
                   (click)="favoritesJob()">
