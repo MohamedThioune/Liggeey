@@ -109,10 +109,6 @@ const routes: Routes = [
 
   { path: 'skills', component: SkillsCandidatComponent },
   
-
-
-
-
   { path: 'resume-candidat', component: ResumeCandidatComponent ,canActivate: [CandidateGuard]},
 
   { path: 'profil-candidat', component: ProfilCandidatComponent,canActivate: [AuthGuard] },
@@ -129,9 +125,7 @@ const routes: Routes = [
 
   { path: 'detail-candidat', component: DetailCandidatComponent },
   
-
   { path: 'job', component: JobOneComponent },
-
 
   { path: 'joba', component: JobTwoComponent },
 
@@ -144,12 +138,12 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent,
-    data: { employer: false } // Default is showing candidate form
+    data: { employer: false } 
   },
   {
     path: 'register/employer',
     component: RegistrationComponent,
-    data: { employer: true } // This shows the employer form
+    data: { employer: true } 
   },
 
   { path: 'courses', component: CoursesComponent },
@@ -173,7 +167,6 @@ const routes: Routes = [
   { path:'',redirectTo: '/login', pathMatch: 'full'},
 
   { path: 'edit-job/:slug', component: EditJobCompanyComponent },
-
 
   { path: 'edit-job', component: EditJobsComponent },
 

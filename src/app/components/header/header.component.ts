@@ -28,7 +28,11 @@ export class HeaderComponent implements OnInit,OnDestroy {
   showLoginBlock: boolean = true;
   showFirstStep: boolean = true;
   showSecondStep: boolean = true;
-  showThirdStep: boolean = true;
+  showThirdStep: boolean = false;
+  showFourStep:boolean = false;
+  showFiveStep:boolean=false;
+  showSixStep:boolean=false;
+  showSevenStep:boolean=false;
   username: string = '';
   password: string = '';
   first_name:string='';
@@ -66,6 +70,8 @@ export class HeaderComponent implements OnInit,OnDestroy {
   safeCvUrl: SafeResourceUrl | null = null;  // Initialisé avec une valeur par défaut
   selectedFile: File | null = null;
   myForm!:FormGroup
+  motivation!:FormGroup;
+  contentMotivation:any
   cv:any
   nameCv:any
   isTilted = false;
@@ -280,7 +286,9 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.myForm = this.fb.group({
       file: ['', Validators.required]
     });
-
+    this.motivation = this.fb.group({
+      motivation: ['', Validators.required]
+    });
     
     const cachedCandidat = localStorage.getItem('cachedCandidat');
     if (cachedCandidat) {
@@ -644,7 +652,11 @@ onSubmit() {
         this.downloadPDF(storedCvId);
       }
       else{        
-        this.downloadPDF(this.userConnect.acf.cv);
+        if (this.userConnect?.acf?.cv) {
+          this.downloadPDF(this.userConnect.acf.cv);
+        } else {
+          console.error('userConnect or acf is undefined');
+        }
       } 
        
       //this.router.navigate(['/dashboard-candidat']);
@@ -657,13 +669,29 @@ onSubmit() {
     this.location.back();
   }
 
-
-
-  goToSecondStep() {
+  // goToSecondStep() {
+  //   this.showFirstStep = !this.showFirstStep,
+  //   this.showSecondStep = !this.showSecondStep
+  // }
+  goToSecondStep(){
     this.showFirstStep = !this.showFirstStep,
     this.showSecondStep = !this.showSecondStep
+    this.showThirdStep =  !this.showThirdStep
   }
 
+  goToThirdStep() {
+    this.showThirdStep =  !this.showThirdStep
+    this.showFourStep = !this.showFourStep
+  }
+
+  goToFourStep() {
+    this.showFourStep = !this.showFourStep
+    this.showFiveStep = !this.showFiveStep
+  }
+  goToFiveStep(){
+    this.showSixStep = !this.showSixStep
+    this.showFiveStep=! this.showFiveStep
+  }
   goToFinalStep() {
     this.isLoading=true
     this.notification ={
@@ -679,16 +707,19 @@ onSubmit() {
         this.homeService.getDetailJob(this.selectedSlug).subscribe((data:any) => {
           this.job = data;
           this.title=this.job.title
+          this.contentMotivation=this.motivation.value.motivation
+          //console.log(this.id, this.selectedJobId,this.contentMotivation);
           
-         // return
+         //return
           if (this.canAppl(this.job)) {
                  // Utilisez le service pour postuler à l'emploi
-                 this.uploadFile()
-                // return
-            this.homeService.applyJob(this.id, this.selectedJobId)
+                 this.uploadFile()                 
+                 //return
+            this.homeService.applyJobMotivation(this.id, this.selectedJobId,this.contentMotivation)
             .subscribe(
               // Succès de la requête
               (response) => {
+                //console.log(response);
                 
             this.cdr.detectChanges(); // Force la détection des changements
 
@@ -704,12 +735,16 @@ onSubmit() {
               message: this.message
             });
             this.isLoading=false
-            this.showFirstStep =  this.showFirstStep;
-            this.showSecondStep = this.showSecondStep;
-            this.showThirdStep = !this.showThirdStep;
+            // this.showFirstStep =  this.showFirstStep;
+            // this.showSecondStep = this.showSecondStep;
+            // this.showThirdStep = !this.showThirdStep;
+            this.showFourStep=!this.showFourStep
+            this.showSevenStep =!this.showSevenStep
           },
           // Gestion des erreurs
           (error) => {
+            console.log(error);
+            
             ToastNotification.open({
               type: 'error',
               message: error.error.message

@@ -231,6 +231,7 @@ h1 {
 .livraison .all_items{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .livraison .items p{
     color: rgba(33, 36, 44, 0.64);
@@ -472,11 +473,13 @@ h1 {
     padding: 16px 0;
 }
 .livraison .all_items{
-    display: block;
+ /*   display: block;*/
+ border: 1px solid red;
 }
 .livraison .all_items .items{
     margin-bottom: 66px;
     border-bottom: 1px solid #ECEDF2;
+    border: 1px solid green;
 }
 .head_map_menu span{
     font-size: 20px;
