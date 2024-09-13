@@ -722,6 +722,8 @@ nav ul li span{
 .badge_certificate{
   display: flex;
   justify-content: space-between;
+  align-items: center !important;
+  border-bottom: 1px solid #7F7F7F;
 }
 .badge_certificate p:first-child{
   color: #202124;
@@ -750,6 +752,29 @@ font-family: "Roboto-Medium";
   max-width: 18%;
   flex: 18%;*/
 }
+.required{
+  border-bottom: 1px solid #7F7F7F;
+
+  p{
+    font-size: 14px;
+  }
+}
+
+.left-required{
+  border-radius: 5px;
+  border: 1px solid #7F7F7F;
+  background: #FFF;
+  text-align: center;
+  margin-right: 5px;
+  padding: 15px;
+ /* padding: 32px 12px 13px;
+  max-width: 18%;
+  flex: 18%;*/
+}
+.textarea{
+  width: 100% !important;
+  border-radius:8px !important ;
+}
 .document .content_image_document{
   width: 95px;
   height: 95px;
@@ -764,6 +789,28 @@ font-family: "Roboto-Medium";
   color: #47A99E;
   font-size: 20px;
   font-weight: 600;
+}
+.text-required {
+  p{
+    margin: 0;
+    font-size: 14px;
+  }
+}
+.large-checkbox {
+  width: 20px;
+  height: 20px;
+  transform: scale(1.5); /* Augmente la taille */
+  -webkit-transform: scale(1.5); /* Compatibilité avec les anciens navigateurs */
+}
+.content-motivation{
+  width: 400px;
+  height: 400px;
+  text-align: center;
+}
+.content-motivation img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 @media all and (min-width: 300px) and (max-width: 767px){
   .second-nav {
@@ -878,6 +925,10 @@ font-family: "Roboto-Medium";
   .dropdown-menu-right li {
     width: 100%;
     text-align: left;
+  }
+  .content-motivation{
+    width: 200px;
+    height: 200px;
   }
 }
 

@@ -102,6 +102,13 @@
               <div [innerHTML]="formatTextToHTML(job.responsibilities)"></div>
             </div>
           </div>
+          <div class="key" *ngIf="false">
+            <p>Motivation</p>
+
+            <div>
+              <div>{{job.motivational}}</div>
+            </div>
+          </div>
           <div class="skill" >
             <p>Skills & Experiences</p>
             <ul *ngFor="let skill of job.skills_experiences">
@@ -112,13 +119,13 @@
           <div class="share">
             <p>Share this job</p>
             <div class="social">
-              <a class="btn btn-whatssap" href="https://wa.me/?text= {{href}}/ " target="_blank">
+              <a class="btn btn-whatssap mb-2" href="https://wa.me/?text= {{href}}/ " target="_blank">
                 <i class="fa fa-whatsapp"></i> WhatsApp
               </a>
-              <a class="btn btn-twitter" href="https://twitter.com/intent/tweet?url={{href}}" target="_blank">
+              <a class="btn btn-twitter mb-2" href="https://twitter.com/intent/tweet?url={{href}}" target="_blank">
                 <i class="fa fa-twitter"></i> Twitter
               </a>
-              <a class="btn btn-linkedin" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url={{href}}" target="_blank">
+              <a class="btn btn-linkedin mb-2" href="https://www.linkedin.com/sharing/share-offsite?mini=true&url={{href}}" target="_blank">
                 <i class="fa fa-linkedin"></i> LinkedIn
             </a>
             </div>
