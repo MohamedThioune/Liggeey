@@ -40,6 +40,8 @@ export class PassportAllCandidatComponent implements OnInit {
  isLoading=false
  form!:FormGroup
  selectedSkill: any ;
+ groupedTopics!: any[][];
+
   constructor(private route : ActivatedRoute,private usagerService:UsagerService,private router: Router,private homeService:HomePageService) { }
 
   ngOnInit(): void {
@@ -53,6 +55,8 @@ export class PassportAllCandidatComponent implements OnInit {
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
     } 
+
+    
     this.homeService.getSkillsCandidate(this.userConnect.id).subscribe((data=>{
       this.skillAll=data
 
@@ -84,6 +88,7 @@ export class PassportAllCandidatComponent implements OnInit {
         
      this.courses_info=this.skillAll.courses_info;
      this.topics=this.skillAll.topics;
+     this.groupedTopics = this.groupArray(this.topics, 3);
      this.certificats=this.skillAll.certificats     
      this.loading=false;
     }))
@@ -103,6 +108,13 @@ export class PassportAllCandidatComponent implements OnInit {
     this.updateProgress();
 
     
+  }
+  groupArray(array: any[], groupSize: number): any[][] {
+    const result = [];
+    for (let i = 0; i < array.length; i += groupSize) {
+      result.push(array.slice(i, i + groupSize));
+    }
+    return result;
   }
   updateProgress() {
     const progressCircles = document.querySelectorAll('.progress-circle');

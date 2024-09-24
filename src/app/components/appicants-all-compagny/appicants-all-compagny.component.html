@@ -102,6 +102,9 @@
                 </div>
               </div>
             </li>
+            <div class="pagination mt-4" *ngIf="filteredApplicant.length > 6">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
           </ul>
         </div>
         <div class="applicants" *ngIf="applicant.approved.length != 0">
@@ -198,6 +201,9 @@
                 </div>
               </div>
             </li>
+            <div class="pagination mt-4" *ngIf="applicant.approved.length > 6">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
           </ul>
         </div>
         <div class="applicants" *ngIf="applicant.rejected.length != 0">
@@ -294,6 +300,9 @@
                 </div>
               </div>
             </li>
+            <div class="pagination mt-4" *ngIf="applicant.rejected.length > 6">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
           </ul>
         </div>
       </div>

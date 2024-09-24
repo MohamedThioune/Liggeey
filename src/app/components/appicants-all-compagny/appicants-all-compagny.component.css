@@ -131,8 +131,11 @@ input[type="search"]:focus {
 
  ul li .job_list_1 :hover{
   color:#1ac4a2 !important;
-
-
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
  .applicants .job_list_1{
     margin-bottom: 30px;

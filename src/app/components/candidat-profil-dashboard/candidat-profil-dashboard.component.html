@@ -39,6 +39,19 @@
           </p>
           <p class="cv" *ngIf="!candidat?.cv">No cv available at the moment</p>
         </div>
+        <div class="block-candidat work-block">
+          <h3>Motivation</h3>
+          <div class="sub-block" *ngIf="job?.motivational!=false">
+            <div class="d-flex sub-details">
+              <div class="group-details-one">
+                <p class="name-formation">{{job?.motivational}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="sub-block" *ngIf="job?.motivational==false">
+            <p class="description">No content available at the moment</p>
+          </div>
+        </div>
         <div class="block-candidat">
           <h3>Education</h3>
           <div class="sub-block" *ngFor="let education of candidat?.educations">
@@ -71,6 +84,21 @@
             <p class="description">No content available at the moment</p>
           </div>
         </div>
+        <div class="block-candidat work-block">
+          <h3>Skills Passport</h3>
+          <div class="sub-block" *ngFor="let skill of candidat?.skills">
+            <div class="d-flex sub-details">
+              <div class="group-details-one">
+                <p class="name-formation">{{skill.category_name}}</p>
+                <p class="college" *ngIf="skill.time_spent">{{skill.time_spent}}</p>
+              </div>
+            </div>
+          </div>      
+          <div class="sub-block" *ngIf="candidat?.skills?.length === 0">
+            <p class="description">No content available at the moment</p>
+          </div>
+        </div>
+        
       </div>
       <div class="col-md-4">
         <div class="group-bloc-mor-details">

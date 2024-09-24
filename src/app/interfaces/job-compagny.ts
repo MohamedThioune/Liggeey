@@ -8,5 +8,6 @@ export interface JobCompagny {
     skills_experiences:string;
     job_langues: String;
     job_application_deadline: String;
-    skills:string
+    skills:string;
+    motivation:string;
 }

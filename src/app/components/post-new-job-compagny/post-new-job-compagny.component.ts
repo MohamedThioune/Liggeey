@@ -190,7 +190,8 @@ removeSkills(index: number): void {
 
 onSubmit() {
   this.isLoading = true;
-    // Utilisez le service pour postuler à l'emploi    
+    // Utilisez le service pour postuler à l'emploi   
+    console.log(this.form.value);
     if (this.validateFormJob(this.form.value)) {
 
     this.homeService.postJob(this.form.value,this.userConnect.id)
@@ -252,7 +253,7 @@ onSubmit() {
       job_langues: this.fb.control("", Validators.required),
       job_application_deadline: this.fb.control("", [Validators.email, Validators.required]),
       skills: this.fb.array([]),
-
+      motivation :this.fb.control("", [])
     });
   }
   validateFormJob(job: JobCompagny): boolean {

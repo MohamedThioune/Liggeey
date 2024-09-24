@@ -136,6 +136,14 @@ export class HomePageService {
   getDetailCategory(id:string):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/category/detail/?slug=${id}`,{});
   }
+  applyJobMotivation(idUser: number,idJob:string,motivation:string): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      jobAppliedId: idJob,
+      motivation:motivation,
+    };
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/apply/`,requestBody);
+  }
   applyJob(idUser: number,idJob:string): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
@@ -387,6 +395,7 @@ getSubtopic(user:string): Observable<any> {
       job_langues:job.job_langues,
       job_application_deadline:job. job_application_deadline,
       skills:job.skills,
+      motivation:job.motivation,
 
     };
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/postJob`,requestBody);

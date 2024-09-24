@@ -74,11 +74,11 @@
             <li class="nav-item">
                 <a class="nav-link active" [class.active]="ongletSelectionne === 'All'" (click)="selectionnerOnglet('All')"  aria-current="page">All</a>
             </li>
-            <!--
+            
             <li class="nav-item">
                 <a class="nav-link" [class.active]="ongletSelectionne === 'Topics'" (click)="selectionnerOnglet('Topics')" >Topics</a>
             </li>
-            -->
+            
             <li class="nav-item">
               <a class="nav-link" [class.active]="ongletSelectionne === 'Data'" (click)="selectionnerOnglet('Data')">Data</a>
             </li>
@@ -111,9 +111,8 @@
             </li>
             -->
           </ul>
-          <!--
-          <div class="map_menu" *ngIf="ongletSelectionne === 'Topics'|| ongletSelectionne === 'All'">
-            <div class="livraison" id="livraison">
+          <div class="map_menu my-4" *ngIf="ongletSelectionne === 'Topics'|| ongletSelectionne === 'All'">
+            <div class="livraison" id="livraison" *ngIf="topics.length != 0">
                 <div class="content_image_livraison_livraison">
                     <img src="../../../assets/img/livraison.png" alt="">
                 </div>
@@ -123,77 +122,20 @@
                         <a href="">See Course</a>
                     </div>
                     <div class="all_items">
-                        <div class="items" *ngFor="let topic of topics">
-                            <p>{{topic.topic_name}}</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
+                      <div class="items" *ngFor="let group of groupedTopics">
+                        <div *ngFor="let topic of group">
+                          <p>{{topic.topic_name}}</p>
                         </div>
-                        <div class="items">
-                            <p>Audicien</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
-                        </div>
-                        <div class="items">
-                            <p>Audicien</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
-                        </div>
-                        <div class="items">
-                            <p>Audicien</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
-                        </div>
-                        <div class="items">
-                            <p>Audicien</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
-                        </div>
+                      </div>
                     </div>
-
-
                 </div>
             </div>
-            <div class="livraison">
-                <div class="content_image_livraison_livraison">
-                    <img src="../../../assets/img/livraison.png" alt="">
-                </div>
-                <div class="" style="width: 100%;padding-top:30px;padding-left:36px;padding-right:36px">
-                    <div class="detail">
-                        <p>(Detail) Handel</p>
-                        <a href="">See Course</a>
-                    </div>
-                    <div class="all_items">
-                        <div class="items">
-                            <p>Audicien</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
-                        </div>
-                        <div class="items">
-                            <p>Audicien</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
-                        </div>
-                        <div class="items">
-                            <p>Audicien</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
-                        </div>
-                        <div class="items">
-                            <p>Audicien</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
-                        </div>
-                        <div class="items">
-                            <p>Audicien</p>
-                            <p>Edelsmit</p>
-                            <p>Kleermaker</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center" *ngIf="topics.length === 0">
+              <img src="../../../assets/img/empty-badge.png" alt="image team" >
+              <p>No content available at the moment</p>
             </div>
           </div>
-          -->
-          <div class="content-detail" *ngIf="ongletSelectionne === 'Badges' || ongletSelectionne === 'All'" >
+          <div class="map_menu" *ngIf="ongletSelectionne === 'Badges' || ongletSelectionne === 'All'" >
               <div class="badge_certificate">
                 <p>Badges</p>
                 <a *ngIf="badges.length > 6"  (click)="showAllBadges = !showAllBadges">{{ showAllBadges ? 'Show Less' : 'See All' }}</a>
@@ -222,7 +164,7 @@
 
           </div>
 
-          <div class="map_menu mb-4" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
+          <div class="map_menu my-4" *ngIf="ongletSelectionne === 'Certificates' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Certificat</p>
                 <a *ngIf="skillAll.certificats.length > 6"  (click)="showAllCertificates = !showAllCertificates">{{ showAllCertificates ? 'Show Less' : 'See All' }}</a>

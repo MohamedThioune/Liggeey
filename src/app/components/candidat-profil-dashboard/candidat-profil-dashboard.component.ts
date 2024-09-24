@@ -46,7 +46,7 @@ export class CandidatProfilDashboardComponent implements OnInit {
       const decodedToken = atob(storedToken);
 
       // Parse du JSON pour obtenir l'objet original
-      this. userConnect = JSON.parse(decodedToken);      
+      this. userConnect = JSON.parse(decodedToken);  
       if(this.userConnect.acf.is_liggeey == "candidate"){
         this.candidate=true
       } else if(this.userConnect.acf.is_liggeey == "chief"){
@@ -57,7 +57,7 @@ export class CandidatProfilDashboardComponent implements OnInit {
     if (this.userConnect && this.userConnect.id) {
       this.HomePageService.getSubtopic(this.userConnect.id).subscribe(
         (data: any) => {
-          this.subtopic = data;
+          this.subtopic = data;          
         },
         (error) => {
           console.error('Error fetching subtopics', error);
@@ -70,7 +70,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
       this.jobId = params['jobId'];
       
         this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
-          this.job=job;                    
+          this.job=job;     
+                         
           if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
             this.canApprove=!this.canApprove
           }
@@ -84,10 +85,25 @@ export class CandidatProfilDashboardComponent implements OnInit {
     });
   
     this.HomePageService.getDetailCandidate( this.id).subscribe(data=>{
-      this.candidat=data      
+      this.candidat=data  
       this.urlCv=this.extractFileName( this.candidat.cv)        
       this.nameCv =this.candidat.cv 
-    })
+     // this.candidat.skills = this.candidat.skills || [];
+       
+     if (this.candidat && this.candidat.ID) {
+       this.HomePageService.getSubtopic(this.candidat.ID).subscribe(
+         (data: any) => {
+           this.candidat.skills = data || [];                     
+         },
+         (error) => {
+           console.error('Error fetching subtopics', error);
+         }
+       );
+     } else {
+       console.error('User not logged in');
+     }
+    })    
+ 
     
   }
   goBack(): void {
