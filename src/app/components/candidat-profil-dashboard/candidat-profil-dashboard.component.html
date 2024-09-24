@@ -89,11 +89,11 @@
           <div class="sub-block" *ngFor="let skill of candidat?.skills">
             <div class="d-flex sub-details">
               <div class="group-details-one">
-                <p class="name-formation">{{skill.name}}</p>
-                <p class="college" *ngIf="skill.description">{{skill.description}}</p>
+                <p class="name-formation">{{skill.category_name}}</p>
+                <p class="college" *ngIf="skill.time_spent">{{skill.time_spent}}</p>
               </div>
             </div>
-          </div>
+          </div>      
           <div class="sub-block" *ngIf="candidat?.skills?.length === 0">
             <p class="description">No content available at the moment</p>
           </div>
