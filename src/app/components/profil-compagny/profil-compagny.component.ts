@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { JobCompagny } from 'src/app/interfaces/job-compagny';
 import { ProfilCompagny } from 'src/app/interfaces/profil-compagny';
 import { switchMap } from 'rxjs/operators';
@@ -33,8 +33,7 @@ export class ProfilCompagnyComponent implements OnInit {
    selectedFile: File | null = null;
    logoId:any
    candidat:any
-   
-  constructor(private fb: FormBuilder,private route: Router,private homeService:HomePageService,private usagerService: UsagerService) { }
+  constructor(private fb: FormBuilder,private route: Router,private homeService:HomePageService,private usagerService: UsagerService,private router : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -49,9 +48,18 @@ export class ProfilCompagnyComponent implements OnInit {
      this. userConnect = JSON.parse(decodedToken); 
 
    }
+  
    
+   this.homeService.profilCompany(this.userConnect.slug).subscribe((data:any)=>{
+    this.profil=data;
+    
+    this.selectedCountry=this.profil.country
+    this.form.patchValue(this.profil);
+    this.loading=false;       
+  })
    this.homeService.profilJob(this.userConnect.id).subscribe((data:any)=>{
     this.profil=data;
+
     this.selectedCountry=this.profil.country
     this.form.patchValue(this.profil);
     this.loading=false;       

@@ -480,6 +480,9 @@ getSubtopic(user:string): Observable<any> {
   profilJob(id: number): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/profil?userApplyId=${id}`,{});
   }
+  profilCompany(id: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/company/detail?slug=${id}`,{});
+  }
   appliesJob(id: number): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/applieds?userApplyId=${id}`,{});
   }

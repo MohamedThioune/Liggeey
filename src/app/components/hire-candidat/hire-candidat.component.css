@@ -4,7 +4,6 @@ body {
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
   }
-  
 /* section categories */
  .categories{
     margin-top: 100px;
@@ -70,12 +69,16 @@ body {
 .header_categories{
     text-align: center;
     padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .header_categories h2{
     text-align: center;
     padding-bottom: 50px;
     color: #023356;
-    scale: 1.4;
+    scale: 1.2;
 }
 .header_categories span{
     color: #202124;
@@ -94,10 +97,9 @@ body {
     .categories{
         margin-top: 150px !important;
     }
+ 
     .header_categories h2{
-        font-size: 25px !important;
-        scale: 1.2;
-
+        font-size: 16px !important;
     }
     
 }
