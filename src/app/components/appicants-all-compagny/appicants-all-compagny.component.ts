@@ -36,9 +36,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
    }
     this.homeService.getDetailJob(this.slug).subscribe((data:any)=>{
       this.applicant=data      
-      this.loading=false;      
-      console.log(this.applicant.slug);
-      
+      this.loading=false;            
      })
   }
 

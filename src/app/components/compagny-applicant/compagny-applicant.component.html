@@ -137,7 +137,9 @@
                 </div>
               </div>
             </li>
-
+            <div class="pagination mt-4" *ngIf="applicant > 6">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
           </ul>
 
         </div>

@@ -56,7 +56,6 @@ export class DetailJobComponent implements OnInit {
       this.HomePageService.getOneJob(this.slug,this.userConnect.id).subscribe(data => {
         this.job = data;
         this.loading=false
-        console.log(this.userConnect.id,this.job);
         
        //this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
        //this.job.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
