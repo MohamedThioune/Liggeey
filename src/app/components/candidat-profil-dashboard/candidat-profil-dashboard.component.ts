@@ -70,7 +70,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
       this.jobId = params['jobId'];
       
         this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
-          this.job=job;                    
+          this.job=job;     
+                         
           if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
             this.canApprove=!this.canApprove
           }
@@ -84,10 +85,11 @@ export class CandidatProfilDashboardComponent implements OnInit {
     });
   
     this.HomePageService.getDetailCandidate( this.id).subscribe(data=>{
-      this.candidat=data      
+      this.candidat=data            
       this.urlCv=this.extractFileName( this.candidat.cv)        
       this.nameCv =this.candidat.cv 
-    })
+      this.candidat.skills = this.candidat.skills || [];
+    })    
     
   }
   goBack(): void {

@@ -142,19 +142,22 @@
                   </div>
                 </div>
               </li>
+              <div class="pagination mt-4" *ngIf="filteredJobs.length > 6">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
             </ul>
             <div class="text-center" *ngIf=" applicants.length== 0 ">
               <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" >
               <p>No content avalable at the moment</p>
             </div>
-
+            <!--
             <div class="pagination" *ngIf="filteredJobs.length > 6">
                 <pagination-controls (pageChange)="p = $event"
                 previousLabel="Previous"
                 nextLabel="Next"
                 ></pagination-controls>
             </div>
-
+            -->
           </div>
         </div>
     </div>

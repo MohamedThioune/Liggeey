@@ -42,7 +42,7 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
    }
     this.homeService.getCandidatCompagny(this.userConnect.id).subscribe((data:any)=>{
       this.loading=false;
-      this.applicants=data 
+      this.applicants=data       
      })
   }
   
