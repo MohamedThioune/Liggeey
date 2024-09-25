@@ -41,14 +41,14 @@
         </div>
         <div class="block-candidat work-block">
           <h3>Motivation</h3>
-          <div class="sub-block" *ngIf="job?.motivational!=false">
+          <div class="sub-block" *ngIf="motivation">
             <div class="d-flex sub-details">
               <div class="group-details-one">
-                <p class="name-formation">{{job?.motivational}}</p>
+                <p class="name-formation">{{motivation}}</p>
               </div>
             </div>
           </div>
-          <div class="sub-block" *ngIf="job?.motivational==false">
+          <div class="sub-block" *ngIf="!motivation">
             <p class="description">No content available at the moment</p>
           </div>
         </div>
