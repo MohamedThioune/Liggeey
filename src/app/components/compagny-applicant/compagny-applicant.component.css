@@ -60,6 +60,40 @@ input[type="search"]:focus
 {
     outline: none;
 }
+input[type="search"]::placeholder {
+  font-style: italic;
+  font-weight: bold;
+}
+table tbody tr th {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  overflow: hidden;
+ }
+ table tbody tr th img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+
+ }
+ table tbody tr td button{
+  border: none;
+  margin-right: 9px;
+  border-radius: 8px;
+}
+.logo{
+  width: 30px;
+  height: 30px;
+ border-radius: 8px;
+ overflow: hidden;
+ background-color: #EFEFEF;
+ text-align: center;
+}
+.logo img{
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
 .map_menu .profil{
     display: flex;
     justify-content: space-between;
@@ -115,6 +149,15 @@ input[type="search"]:focus {
   font-weight: 600;
   margin-bottom: 0px;
 }
+.btn-view-vacancy{
+  border-radius: 16px;
+  background-color:#1AC4A2 ;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFF !important;
+  padding: 11px 32px 11px 34px;
+}
 .applicants ul{
     margin-left: 0px;
     margin-right: 0px;
@@ -143,6 +186,7 @@ input[type="search"]:focus {
   justify-content: center;
   width: 100%;
 }
+/*
  .logo{
     width: 50px;
     height: 50px;
@@ -153,7 +197,7 @@ input[type="search"]:focus {
     width: 100%;
     height: 100%;
     object-fit: cover;
- }
+ }*/
  .description_job{
    width: 85%;
    margin-left: 15px;
@@ -296,6 +340,9 @@ input:focus-visible {
 }
 
  @media all and (min-width: 300px) and (max-width: 767px){
+  .vacancy{
+    display: none !important;
+  }
 .logo{
     border-radius: 8px;
     overflow: hidden;

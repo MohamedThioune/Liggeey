@@ -32,7 +32,7 @@ export class CandidatProfilDashboardComponent implements OnInit {
   id:any
   subtopic: any[] = [];
   motivation:any
-
+  skills:any
   constructor(private usagerService: UsagerService,private route : ActivatedRoute,private router :Router ,private HomePageService: HomePageService,private location: Location) { }
 
   ngOnInit(): void {
@@ -78,9 +78,9 @@ export class CandidatProfilDashboardComponent implements OnInit {
             this.motivation = applicant.motivation
             
             if (applicant) {
-              console.log('Found applicant:');
+              //console.log('Found applicant:');
             } else {
-              console.log('Applicant not found');
+              //console.log('Applicant not found');
             }
           }
           
@@ -102,7 +102,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
       this.candidat=data  
       this.urlCv=this.extractFileName( this.candidat.cv)        
       this.nameCv =this.candidat.cv 
-     // this.candidat.skills = this.candidat.skills || [];
+      //this.candidat.skills = this.candidat.skills || [];
+       this.skills=this.candidat.skills
        
      if (this.candidat && this.candidat.ID) {
        this.HomePageService.getSubtopic(this.candidat.ID).subscribe(
