@@ -48,6 +48,8 @@ export class CompagnyApplicantComponent implements OnInit {
   }
    this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
      this.applicant = data     
+     console.log(this.applicant);
+     
      this.loading=false;          
     })
  }
