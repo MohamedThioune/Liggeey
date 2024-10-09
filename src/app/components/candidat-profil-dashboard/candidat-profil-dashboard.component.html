@@ -6,7 +6,7 @@
       <div class="icon-container" (click)="goBack()">
         <i class="fa fa-arrow-left fa-lg"></i>
       </div>
-        <h2 class="title-page">View <span>{{candidat?.first_name}} {{candidat?.last_name}}</span> profil</h2>
+        <h2 class="title-page ">View <span>{{candidat?.first_name}} {{candidat?.last_name}}</span> profil</h2>
     </div>
 
     <div class="content-profil" style="background-color: #FFFF;padding:20px;border-radius:8px">
@@ -45,7 +45,7 @@
             <button (click)="rejectCandidatByCompany()" class="btn btn-reject" [disabled]="isLoading">Reject</button>
             <div *ngIf="isLoading" class="loader">Loading...</div>
           </div>
-          <div class="d-flex custom  align-items-center  mx-2">
+          <div class="d-flex custom  align-items-center py-2 mx-2">
             <div class="content-icon mx-2">
               <img src="../../../assets/img/Icon_ionic-ios-mail.png" alt="" class="icon-image">
             </div>
@@ -63,7 +63,7 @@
               <p style="margin: 0;">{{candidat?.mobile_phone ? candidat?.mobile_phone : "+221 773977487"}}</p>
             </div>
           </div>
-          <div class="d-flex custom  align-items-center  mx-2">
+          <div class="d-flex custom  align-items-center py-2 mx-2">
             <div class="content-icon mx-2">
               <img src="../../../assets/img/Icon_material-work.png" alt="" class="icon-image">
             </div>
@@ -127,7 +127,7 @@
           <p class="mt-2">{{cleanText(candidat?.biographical_info)}}</p>
         </div>
         <div class="d-flex flex-wrap justify-content-between mt-4">
-          <div class="block-candidat work-block col-md-8" style="background-color: #FFFF;padding:20px;border-radius:8px">
+          <div class="block-candidat work-block col-md-8" style="background-color: #FFFF;padding:20px;border-radius:8px;">
             <div class="d-flex align-items-center justify-content-between">
               <h3>Motivation</h3>
               <!--
@@ -144,7 +144,7 @@
               <p class="description">No content available at the moment</p>
             </div>
           </div>
-          <div class="block-about col-md-4 col-sm-8" style="background-color: #FFFF;padding:20px;border-radius:8px">
+          <div class="block-about col-md-4 col-sm-8" style="background-color: #FFFF;padding:20px;border-radius:8px;width:100%">
             <div class="d-flex align-items-center justify-content-between">
               <h3>Candidate CV</h3>
               <!--
@@ -221,7 +221,7 @@
         </div>
         
       </div>
-      <div class="col-12 col-md-4" style="background-color: #FFFF;">
+      <div class=" col-md-4" style="background-color: #FFFF;width:100%;">
         <div class="group-bloc-mor-details">
           <div class="one-element d-flex">
             <img src="../../../assets/img/experience-icon.svg" alt="">

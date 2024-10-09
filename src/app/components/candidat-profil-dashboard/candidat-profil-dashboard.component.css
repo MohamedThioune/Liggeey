@@ -200,8 +200,14 @@ h3, .h3 {
   
 }
 .content-btn{
- /* margin-top: 15px;
-  margin-bottom: 40px;*/
+  margin-top: 15px;
+  margin-bottom: 40px;
 }
 
-
+@media all and (min-width: 300px) and (max-width: 767px){
+  .content-page-view-candidat .col-md-4{
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  
+}
