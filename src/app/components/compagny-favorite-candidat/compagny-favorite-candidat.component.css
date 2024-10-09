@@ -273,6 +273,23 @@ input[type="search"]:focus {
  .show_sidebar{
     visibility:hidden;
 }
+table tbody tr th {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  overflow: hidden;
+ }
+ table tbody tr th img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+
+ }
+ table tbody tr td button{
+  border: none;
+  margin-right: 9px;
+  border-radius: 8px;
+}
  @media all and (min-width: 300px) and (max-width: 767px){
 .logo{
     margin: 32px 11px 74px 12px;
