@@ -60,7 +60,8 @@ export class UsagerService {
       username:usager. email,
       roles: ["subscriber"],
       acf:{
-        "is_liggeey":"candidate"
+        "is_liggeey":"candidate",
+        "country":usager.country
       },
     };
     return this.http.post<Usager>(`${this.baseUrl}/wp-json/wp/v2/users`, requestBody, { headers });

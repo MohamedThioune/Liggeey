@@ -9,5 +9,6 @@ export interface Usager {
     firstName: String;
     lastName: String;
     roles:String;
-    avatar_urls:[]
+    avatar_urls:[],
+    country:String,
 }

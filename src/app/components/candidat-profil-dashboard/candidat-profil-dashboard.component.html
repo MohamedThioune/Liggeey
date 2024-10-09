@@ -14,11 +14,13 @@
         <div class="content-img">
           <img [src]="candidat?.image" alt="Image Of Candidat">
         </div>
-        <div class="d-block">
+        <div class="d-block w-100">
           <div>
             <div class="d-flex align-items-center justify-content-between">
               <p class="name">{{candidat?.first_name}} {{candidat?.last_name}}</p>
+              <!--
               <button class="btn btn-action">Action</button>
+              -->
             </div>
             <div class="d-flex align-items-center">
               <p class="profil mr-4">{{candidat?.work_as}}</p>
@@ -119,16 +121,18 @@
         <div class="block-about" style="background-color: #FFFF;padding:20px;border-radius:8px">
           <div class="d-flex align-items-center justify-content-between">
             <h3>About</h3>
-            <button class="btn btn-action" >Action</button>
-          </div>
+            <!--
+              <button class="btn btn-action">Action</button>
+              -->          </div>
           <p class="mt-2">{{cleanText(candidat?.biographical_info)}}</p>
         </div>
         <div class="d-flex flex-wrap justify-content-between mt-4">
           <div class="block-candidat work-block col-md-8" style="background-color: #FFFF;padding:20px;border-radius:8px">
             <div class="d-flex align-items-center justify-content-between">
               <h3>Motivation</h3>
-              <button class="btn btn-action" >Action</button>
-            </div>
+              <!--
+              <button class="btn btn-action">Action</button>
+              -->            </div>
             <div class="sub-block" *ngIf="motivation">
               <div class="d-flex sub-details">
                 <div class="group-details-one">
@@ -143,8 +147,9 @@
           <div class="block-about col-md-4 col-sm-8" style="background-color: #FFFF;padding:20px;border-radius:8px">
             <div class="d-flex align-items-center justify-content-between">
               <h3>Candidate CV</h3>
-              <button class="btn btn-action" >Action</button>
-            </div>
+              <!--
+              <button class="btn btn-action">Action</button>
+              -->            </div>
             <p class="cv mt-4" *ngIf="candidat?.cv">
               <a class="" [href]="nameCv" target="_blank">
                 <div class="d-flex align-items-center">
@@ -159,8 +164,9 @@
         <div class="block-candidat work-block mt-4" style="background-color: #FFFF;padding:20px;border-radius:8px">
           <div class="d-flex align-items-center justify-content-between">
             <h3>Skills Passport</h3>
-            <button class="btn btn-action" >Action</button>
-          </div>
+            <!--
+              <button class="btn btn-action">Action</button>
+              -->          </div>
           <div class="sub-block" *ngFor="let skill of candidat?.skills">
             <div class="d-flex sub-details">
               <div class="group-details-one">
@@ -176,8 +182,9 @@
         <div class="block-candidat" style="background-color: #FFFF;padding:20px;border-radius:8px">
           <div class="d-flex align-items-center justify-content-between">
             <h3>Education</h3>
-            <button class="btn btn-action" >Action</button>
-          </div>
+            <!--
+              <button class="btn btn-action">Action</button>
+              -->          </div>
           <div class="sub-block" *ngFor="let education of candidat?.educations">
             <div class="d-flex sub-details">
               <div class="group-details-one">
@@ -195,8 +202,9 @@
         <div class="block-candidat work-block" style="background-color:#FFFF;padding: 20px;border-radius:8px">
           <div class="d-flex align-items-center justify-content-between">
             <h3>Work & Experience</h3>
-            <button class="btn btn-action" >Action</button>
-          </div>
+            <!--
+              <button class="btn btn-action">Action</button>
+              -->          </div>
           <div class="sub-block" *ngFor="let experience of candidat?.experiences">
             <div class="d-flex sub-details">
               <div class="group-details-one">
