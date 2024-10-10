@@ -28,6 +28,8 @@ export class AppicantsAllCompagnyComponent implements OnInit {
     type: '',
     message: ''
   };
+  isBookmarked: boolean = false;
+
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService,private router: Router) { }
 
   ngOnInit(): void {
@@ -58,6 +60,57 @@ export class AppicantsAllCompagnyComponent implements OnInit {
       .then(() => {
         window.location.reload();
       });
+}
+favoritesCandidat(candidat:any) {
+  this.isLoading=true
+  // Assurez-vous que this.userConnect et this.job sont définis
+  if (this.userConnect && candidat) {
+    // Utilisez le service pour ajouter l'emploi aux favoris
+    this.homeService.favoritesCandidat(this.userConnect.id,candidat.ID)
+      .subscribe(
+        // Succès de la requête
+           (response) => {
+            this.applyJobs=true ;
+            let typeR = "error"
+            if (<any>response ) {
+              typeR = "success";
+              this.message= "Your new favorite Candidate has been added."
+              this.isBookmarked = true;
+            }
+            ToastNotification.open({
+              type: typeR,
+              message: this.message
+            });
+            this.isLoading=false
+
+            this.router.navigate(['/compagny-candidat'])
+            .then(() => {
+              window.location.reload();
+            });
+            // if (typeR == "success") {
+            //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
+            // }
+          },
+        // Gestion des erreurs
+        (error) => {
+          ToastNotification.open({
+            type: 'error',
+            message: error.error.message
+          });
+          this.isLoading=false
+        }
+        
+      );
+  } else {
+    ToastNotification.open({
+      type: 'error',
+      message: "please log in first"
+    });
+    this.isLoading=false
+
+    this.router.navigate(['/login']);
+
+  }
 }
 
   
@@ -102,10 +155,11 @@ export class AppicantsAllCompagnyComponent implements OnInit {
       content:"Your job application has been rejected",
       receiver_id:candidat.ID
     }
+    console.log(candidat,this.applicant.ID);
     
-    if (this.candidat && this.applicant.ID ) {
+    if (candidat && this.applicant.ID ) {
       // Utilisez le service pour ajouter l'emploi aux favoris
-      this.homeService.rejectCandidatByCompany(this.candidat.ID, this.applicant.ID)
+      this.homeService.rejectCandidatByCompany(candidat.ID, this.applicant.ID)
         .subscribe(
           // Succès de la requête
              (response) => {
@@ -116,22 +170,30 @@ export class AppicantsAllCompagnyComponent implements OnInit {
                 this.message= "User application rejected with success !."
               //  return
                 
-              this.homeService.sendNotification(this.candidat.ID,this.rejNotificationCand(this.candidat.ID,this.userConnect.id,this.applicant.ID)).subscribe();
-              this.homeService.sendNotification(this.userConnect.id,this.rejNotificationComp(this.userConnect.id,this.applicant,this.candidat)).subscribe();
+              this.homeService.sendNotification(candidat.ID,this.rejNotificationCand(candidat.ID,this.userConnect.id,this.applicant.ID)).subscribe();
+              this.homeService.sendNotification(this.userConnect.id,this.rejNotificationComp(this.userConnect.id,this.applicant,candidat)).subscribe();
               }          
               ToastNotification.open({
                 type: typeR,
                 message: this.message
 
               });
+              
               this.isLoading=false
-
+              this.router.navigate(['/applicant-compagny',this.applicant.ID])
+              .then(() => {
+                window.location.reload();
+              });
               if (typeR == "success") {
                 this.router.navigate(['/applicant-compagny',this.applicant.ID]);
+                
               }
+              
             },
           // Gestion des erreurs
-          (error) => {            
+          (error) => {       
+            console.log(error);
+                 
             ToastNotification.open({
               type: 'error',
               message: error.error

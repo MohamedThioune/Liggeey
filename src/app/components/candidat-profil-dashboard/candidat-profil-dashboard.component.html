@@ -9,7 +9,7 @@
         <h2 class="title-page ">View <span>{{candidat?.first_name}} {{candidat?.last_name}}</span> profil</h2>
     </div>
 
-    <div class="content-profil" style="background-color: #FFFF;padding:20px;border-radius:8px">
+    <div class="content-profil col-md-11" style="background-color: #FFFF;padding:20px;border-radius:8px">
       <div class="d-flex">
         <div class="content-img">
           <img [src]="candidat?.image" alt="Image Of Candidat">
@@ -117,7 +117,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-11">
         <div class="block-about" style="background-color: #FFFF;padding:20px;border-radius:8px">
           <div class="d-flex align-items-center justify-content-between">
             <h3>About</h3>
@@ -154,7 +154,7 @@
               <a class="" [href]="nameCv" target="_blank">
                 <div class="d-flex align-items-center">
                   <i class="fa fa-file "></i>
-                  <span class="px-2 font-weight-bold">{{urlCv}}</span>
+                  <span class="name-cv px-2 font-weight-bold">{{urlCv}}</span>
                 </div>
               </a>
             </p>
@@ -221,6 +221,7 @@
         </div>
         
       </div>
+      <!--
       <div class=" col-md-4" style="background-color: #FFFF;width:100%;">
         <div class="group-bloc-mor-details">
           <div class="one-element d-flex">
@@ -262,6 +263,7 @@
           </div>
         </div>
       </div>
+      -->
     </div>
 
 

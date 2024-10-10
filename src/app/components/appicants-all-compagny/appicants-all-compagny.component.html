@@ -69,11 +69,11 @@
               <th scope="col">Last Name </th>
               <th scope="col">Date of born </th>
               <th scope="col">Education </th>
-              <th scope="col">City</th>
-              <th scope="col">Contry</th>
-              <th scope="col">See</th>
-              <th scope="col">Reject</th>
-              <th scope="col">Favourite</th>
+            <!--  <th scope="col">City</th>-->
+              <th scope="col">Country</th>
+              <th scope="col" class="text-center"> Skill passport </th>
+              <th scope="col" class="text-center">Reject</th>
+              <th scope="col" class="text-center">Favourite</th>
             </tr>
             </thead>
             <tbody>
@@ -89,22 +89,22 @@
               <td>{{job.last_name}}</td>
               <td>{{job.date_born ? job.date_born : "No available"}}</td>
               <td>{{ job.education_level?.length > 0 ? job.education_level : "No available" }}</td>
-              <td>{{job.city ? job.city : "No available"}}</td>
+            <!--  <td>{{job.city ? job.city : "No available"}}</td>-->
               <td>{{job.country ? job.country : "No available"}}</td>
              
-              <td>
+              <td class="text-center">
                 <button class="" (click)="send_id(job.ID,slug)" style="padding: 8px;">
                   <img src="../../../assets/img/Icon_awesome-eye.png" alt="">
                 </button>
               </td>
-              <td>
-                <div class="logo" (click)="rejectCandidatByCompany(job)">
+              <td class="text-center">
+                <button class="logo" (click)="rejectCandidatByCompany(job)">
                   <img src="../../../assets/img/Icon_metro-cross.png" alt="">
-                </div>
+                </button>
         
               </td>
-              <td>
-                <button (click)="send_id(job.ID,slug)" style="background-color: transparent;">
+              <td class="text-center">
+                <button (click)="favoritesCandidat(job)" style="background-color: transparent;" >
                   <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
                 </button>
               </td>
@@ -243,10 +243,10 @@
               <th scope="col">Last Name </th>
               <th scope="col">Date of born </th>
               <th scope="col">Education </th>
-              <th scope="col">City</th>
-              <th scope="col">Contry</th>
-              <th scope="col">See</th>
-              <th scope="col">Favourite</th>
+              <!--<th scope="col">City</th>-->
+              <th scope="col">Country</th>
+              <th scope="col" class="text-center"> Skill passport </th>
+              <th scope="col" class="text-center">Favourite</th>
             </tr>
             </thead>
             <tbody>
@@ -262,16 +262,16 @@
               <td>{{job.last_name}}</td>
               <td>{{job.date_born ? job.date_born : "No available"}}</td>
               <td>{{ job.education_level?.length > 0 ? job.education_level : "No available" }}</td>
-              <td>{{job.city ? job.city : "No available"}}</td>
+            <!--  <td>{{job.city ? job.city : "No available"}}</td>-->
               <td>{{job.country ? job.country : "No available"}}</td>
              
-              <td>
+              <td class="text-center">
                 <button class="" (click)="send_id(job.ID,slug)" style="padding: 8px;">
                   <img src="../../../assets/img/Icon_awesome-eye.png" alt="">
                 </button>
               </td>
-              <td>
-                <button (click)="send_id(job.ID,slug)" style="background-color: transparent;">
+              <td class="text-center">
+                <button (click)="favoritesCandidat(job)" style="background-color: transparent;">
                   <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
                 </button>
               </td>
@@ -351,10 +351,10 @@
               <th scope="col">Last Name </th>
               <th scope="col">Date of born </th>
               <th scope="col">Education </th>
-              <th scope="col">City</th>
-              <th scope="col">Contry</th>
-              <th scope="col">See</th>
-              <th scope="col">Favourite</th>
+            <!--  <th scope="col">City</th>-->
+              <th scope="col">Country</th>
+              <th scope="col" class="text-center"> Skill passport </th>
+              <th scope="col" class="text-center">Favourite</th>
             </tr>
             </thead>
             <tbody>
@@ -370,16 +370,16 @@
               <td>{{job.last_name}}</td>
               <td>{{job.date_born ? job.date_born : "No available"}}</td>
               <td>{{ job.education_level?.length > 0 ? job.education_level : "No available" }}</td>
-              <td>{{job.city ? job.city : "No available"}}</td>
+            <!--  <td>{{job.city ? job.city : "No available"}}</td>-->
               <td>{{job.country ? job.country : "No available"}}</td>
              
-              <td>
+              <td class="text-center">
                 <button class="" (click)="send_id(job.ID,slug)" style="padding: 8px;">
                   <img src="../../../assets/img/Icon_awesome-eye.png" alt="">
                 </button>
               </td>
-              <td>
-                <button (click)="send_id(job.ID,slug)" style="background-color: transparent;">
+              <td class="text-center">
+                <button (click)="favoritesCandidat(job)" style="background-color: transparent;">
                   <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
                 </button>
               </td>
