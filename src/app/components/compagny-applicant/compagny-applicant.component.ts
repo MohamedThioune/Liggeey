@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { Router } from '@angular/router';
+import { ToastNotification } from 'src/app/notification/ToastNotification';
 
 @Component({
   selector: 'app-compagny-applicant',
@@ -19,6 +20,12 @@ export class CompagnyApplicantComponent implements OnInit {
   searchTitle:String="";
   identifiant:number | null = 0;
   userId: string;
+  message: any = {
+    type: '',
+    message: ''
+  };
+  applyJobs=false
+  isBookmarked: boolean = false;
 
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService, private router: Router) {
 
@@ -40,7 +47,9 @@ export class CompagnyApplicantComponent implements OnInit {
     this. userConnect = JSON.parse(decodedToken);
   }
    this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
-     this.applicant = data
+     this.applicant = data     
+     console.log(this.applicant);
+     
      this.loading=false;          
     })
  }
@@ -81,7 +90,47 @@ export class CompagnyApplicantComponent implements OnInit {
      return this.applicant; // Retournez le tableau complet d'applicants
    }
  }
- 
+ favoritesCandidat(candidat:any) {
+  // Assurez-vous que this.userConnect et this.job sont définis
+  if (this.userConnect && candidat) {
+    // Utilisez le service pour ajouter l'emploi aux favoris
+    this.homeService.favoritesCandidat(this.userConnect.id, candidat.ID)
+      .subscribe(
+        // Succès de la requête
+           (response) => {
+            this.applyJobs=true ;
+            let typeR = "error"
+            if (<any>response ) {
+              typeR = "success";
+              this.message= "Your new favorite Candidate has been added."
+              this.isBookmarked = true;
+            }
+            ToastNotification.open({
+              type: typeR,
+              message: this.message
+            });
+            this.router.navigate(['/compagny-candidat'])
+            // if (typeR == "success") {
+            //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
+            // }
+          },
+        // Gestion des erreurs
+        (error) => {
+          ToastNotification.open({
+            type: 'error',
+            message: error.error.message
+          });
+        }
+      );
+  } else {
+    ToastNotification.open({
+      type: 'error',
+      message: "please log in first"
+    });
+    this.router.navigate(['/login']);
+
+  }
+}
 
 
 

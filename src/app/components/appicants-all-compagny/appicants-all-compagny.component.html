@@ -7,11 +7,31 @@
   <app-sidebar-company></app-sidebar-company>
   <div class="right_menu">
     <div class="content_right_menu">
-      <h1 class="py-4">All applicants {{applicant.title}} </h1>
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="py-4">Applications for {{applicant.title}} ({{numberCandidat}}) </h1>
+        <div class="d-flex vancancy justify-content-between align-items-center mr-4">
+          <a class="btn btn-view-vacancy mr-4">
+            See vacancy
+          </a>
+          <a class="btn btn-view-vacancy">
+            Add a vacancy
+          </a>
+        </div>
+      </div>
+      <!--
+      <div class="content-other-infos d-flex justify-content-between align-items-center">
+        <p class="title-post">Senior Product Designer</p>
+        <div class="d-flex justify-content-center">
+          <p class="total">Total(s): <span>34</span></p>
+          <p class="approved">Approved: <span>2</span></p>
+          <p class="rejected">Rejected(s): <span>8</span></p>
+        </div>
+      </div>
+      -->
       <div class="map_menu">
         <div class="applicants">
           <div class="header_applicants d-flex justify-content-between align-items-center">
-            <p>Recent applicants</p>
+            <p>Recent applications</p>
             <div class="element-search-filter d-flex align-items-center">
               <div class="position-relative">
                 <i class="fa fa-search"></i>
@@ -41,16 +61,60 @@
               -->
             </div>
           </div>
-          <!--
-          <div class="content-other-infos d-flex justify-content-between align-items-center">
-            <p class="title-post">Senior Product Designer</p>
-            <div class="d-flex justify-content-center">
-              <p class="total">Total(s): <span>34</span></p>
-              <p class="approved">Approved: <span>2</span></p>
-              <p class="rejected">Rejected(s): <span>8</span></p>
-            </div>
+          <table class="table" *ngIf="applicant.applied.length >0" style="margin: 4px auto; width: 98%;">
+            <thead class="thead table_head">
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name </th>
+              <th scope="col">Date of born </th>
+              <th scope="col">Education </th>
+              <th scope="col">City</th>
+              <th scope="col">Contry</th>
+              <th scope="col">See</th>
+              <th scope="col">Reject</th>
+              <th scope="col">Favourite</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let job of applicant.applied | paginate: { itemsPerPage: 8, currentPage: p }">
+              <th scope="row">
+                <img [src]="job.image" alt="Logo">
+              </th>
+              <td>
+                <a>
+                  <div> {{ job.first_name}} </div>
+                </a>
+              </td>
+              <td>{{job.last_name}}</td>
+              <td>{{job.date_born ? job.date_born : "No available"}}</td>
+              <td>{{ job.education_level?.length > 0 ? job.education_level : "No available" }}</td>
+              <td>{{job.city ? job.city : "No available"}}</td>
+              <td>{{job.country ? job.country : "No available"}}</td>
+             
+              <td>
+                <button class="" (click)="send_id(job.ID,slug)" style="padding: 8px;">
+                  <img src="../../../assets/img/Icon_awesome-eye.png" alt="">
+                </button>
+              </td>
+              <td>
+                <div class="logo" (click)="rejectCandidatByCompany(job)">
+                  <img src="../../../assets/img/Icon_metro-cross.png" alt="">
+                </div>
+        
+              </td>
+              <td>
+                <button (click)="send_id(job.ID,slug)" style="background-color: transparent;">
+                  <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="pagination mt-4" *ngIf="applicant.applied.length > 8">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
-          -->
+          <!--
           <ul class="row">
             <li class="col-md-6" *ngFor="let item of filteredApplicant | paginate: { itemsPerPage: 6, currentPage: p }"  (click)="send_id(item.ID,slug)">
               <div class="job_list_1">
@@ -106,50 +170,15 @@
               <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
           </ul>
+          -->
         </div>
-        <div class="applicants" *ngIf="applicant.approved.length != 0">
+        <div class="applicants mt-4" *ngIf="applicant.approved.length != 0">
           <div class="header_applicants d-flex justify-content-between align-items-center">
-            <p>Accepted applicants</p>
+            <p>Accepted applications</p>
             <div class="element-search-filter d-flex align-items-center">
-              <!--
-              <div class="position-relative">
-                <i class="fa fa-search"></i>
-                <input type="search"  [(ngModel)]="searchTitle"   class="Search-applicant" placeholder="Search">
-              </div>
-              
-              <div class="dropdown select-job">
-                <button class="btn dropdown-toggle" type="button" id="dropdownjob" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select Jobs
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownjob">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-              <div class="dropdown select-job">
-                <button class="btn dropdown-toggle" type="button" id="dropdownStatu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All Status
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownStatu">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-              -->
             </div>
           </div>
           <!--
-          <div class="content-other-infos d-flex justify-content-between align-items-center">
-            <p class="title-post">Senior Product Designer</p>
-            <div class="d-flex justify-content-center">
-              <p class="total">Total(s): <span>34</span></p>
-              <p class="approved">Approved: <span>2</span></p>
-              <p class="rejected">Rejected(s): <span>8</span></p>
-            </div>
-          </div>
-          -->
           <ul class="row">
             <li class="col-md-6" *ngFor="let item of applicant.approved | paginate: { itemsPerPage: 6, currentPage: p }" (click)="send_id(item.ID,slug)">
               <div class="job_list_1">
@@ -205,50 +234,59 @@
               <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
           </ul>
+          -->
+          <table class="table" *ngIf="applicant.approved.length >0" style="margin: 4px auto; width: 98%;">
+            <thead class="thead table_head">
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name </th>
+              <th scope="col">Date of born </th>
+              <th scope="col">Education </th>
+              <th scope="col">City</th>
+              <th scope="col">Contry</th>
+              <th scope="col">See</th>
+              <th scope="col">Favourite</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let job of applicant.approved | paginate: { itemsPerPage: 8, currentPage: p }">
+              <th scope="row">
+                <img [src]="job.image" alt="Logo">
+              </th>
+              <td>
+                <a>
+                  <div> {{ job.first_name}} </div>
+                </a>
+              </td>
+              <td>{{job.last_name}}</td>
+              <td>{{job.date_born ? job.date_born : "No available"}}</td>
+              <td>{{ job.education_level?.length > 0 ? job.education_level : "No available" }}</td>
+              <td>{{job.city ? job.city : "No available"}}</td>
+              <td>{{job.country ? job.country : "No available"}}</td>
+             
+              <td>
+                <button class="" (click)="send_id(job.ID,slug)" style="padding: 8px;">
+                  <img src="../../../assets/img/Icon_awesome-eye.png" alt="">
+                </button>
+              </td>
+              <td>
+                <button (click)="send_id(job.ID,slug)" style="background-color: transparent;">
+                  <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="pagination mt-4" *ngIf="applicant.approved.lenght > 8">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
         </div>
-        <div class="applicants" *ngIf="applicant.rejected.length != 0">
+        <div class="applicants mt-4" *ngIf="applicant.rejected.length != 0">
           <div class="header_applicants d-flex justify-content-between align-items-center">
-            <p>Rejected applicants</p>
-            <div class="element-search-filter d-flex align-items-center">
-              <!--
-              <div class="position-relative">
-                <i class="fa fa-search"></i>
-                <input type="search"  [(ngModel)]="searchTitle"   class="Search-applicant" placeholder="Search">
-              </div>
-              
-              <div class="dropdown select-job">
-                <button class="btn dropdown-toggle" type="button" id="dropdownjob" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select Jobs
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownjob">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-              <div class="dropdown select-job">
-                <button class="btn dropdown-toggle" type="button" id="dropdownStatu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  All Status
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownStatu">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-              -->
-            </div>
+            <p>Rejected applications</p>
           </div>
           <!--
-          <div class="content-other-infos d-flex justify-content-between align-items-center">
-            <p class="title-post">Senior Product Designer</p>
-            <div class="d-flex justify-content-center">
-              <p class="total">Total(s): <span>34</span></p>
-              <p class="approved">Approved: <span>2</span></p>
-              <p class="rejected">Rejected(s): <span>8</span></p>
-            </div>
-          </div>
-          -->
           <ul class="row">
             <li class="col-md-6" *ngFor="let item of applicant.rejected | paginate: { itemsPerPage: 6, currentPage: p }" (click)="send_id(item.ID,slug)">
               <div class="job_list_1">
@@ -304,6 +342,53 @@
               <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
           </ul>
+          -->
+          <table class="table" *ngIf="applicant.rejected.length >0" style="margin: 4px auto; width: 98%;">
+            <thead class="thead table_head">
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name </th>
+              <th scope="col">Date of born </th>
+              <th scope="col">Education </th>
+              <th scope="col">City</th>
+              <th scope="col">Contry</th>
+              <th scope="col">See</th>
+              <th scope="col">Favourite</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let job of applicant.rejected | paginate: { itemsPerPage: 8, currentPage: p }">
+              <th scope="row">
+                <img [src]="job.image" alt="Logo">
+              </th>
+              <td>
+                <a>
+                  <div> {{ job.first_name}} </div>
+                </a>
+              </td>
+              <td>{{job.last_name}}</td>
+              <td>{{job.date_born ? job.date_born : "No available"}}</td>
+              <td>{{ job.education_level?.length > 0 ? job.education_level : "No available" }}</td>
+              <td>{{job.city ? job.city : "No available"}}</td>
+              <td>{{job.country ? job.country : "No available"}}</td>
+             
+              <td>
+                <button class="" (click)="send_id(job.ID,slug)" style="padding: 8px;">
+                  <img src="../../../assets/img/Icon_awesome-eye.png" alt="">
+                </button>
+              </td>
+              <td>
+                <button (click)="send_id(job.ID,slug)" style="background-color: transparent;">
+                  <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="pagination mt-4" *ngIf="applicant.rejected.lenght > 8">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
         </div>
       </div>
     </div>

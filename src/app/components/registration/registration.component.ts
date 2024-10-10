@@ -16,7 +16,8 @@ export class RegistrationComponent implements OnInit {
 
   form!: FormGroup;
   formCompagny!: FormGroup;
-  
+  countries:any;
+
   usager: Usager | undefined;
   message: any = {
     type: '',
@@ -27,6 +28,8 @@ export class RegistrationComponent implements OnInit {
   isCandidateActive: boolean = false;
   isEmployerActive: boolean = false;
   isLoading: boolean = false;
+  selectedCountryCapital: string | null = null;
+  selectedCountry:any;
 
   constructor(private usagerService: UsagerService, private formBuilder: FormBuilder, private route: Router,private homeService:HomePageService,private router: ActivatedRoute) { }
   ngOnInit(): void {
@@ -39,6 +42,21 @@ export class RegistrationComponent implements OnInit {
         this.showCandidate();
       }
     });
+    this.homeService.getCountries().subscribe(
+      (data: any) => {
+        this.countries = data.sort((a: any, b: any) => a.name.common.localeCompare(b.name.common));
+      },
+      (error) => {
+        console.error('Error fetching countries', error);
+      }
+    );
+  }
+  onCountryChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedCountryName = selectElement.value;
+    const selectedCountry = this.countries.find((country:any) => country.name.common === selectedCountryName);
+    this.selectedCountryCapital = selectedCountry?.capital ? selectedCountry.capital[0] : 'No capital found';
+    //this.form.patchValue({ city: this.selectedCountryCapital });
   }
 showCandidate() {
   this.isCandidateActive = true;
@@ -161,7 +179,7 @@ notificationChief(idUser:number,user:any):any{
       phone: this.formBuilder.control("", []),
       lastName: this.formBuilder.control("", Validators.required),
       name: this.formBuilder.control("", Validators.required),
-    //  username: this.formBuilder.control("", Validators.required),
+      country: this.formBuilder.control("",[]),
       email: this.formBuilder.control("", [Validators.email, Validators.required]),
     });
   }

@@ -40,8 +40,16 @@
               <label>
                 Motivation
               </label>
+              <input type="text" name="motivation" id="motivation" class="form-control" formControlName="motivation" cols="30" rows="10"/>
+            </div>
+            <!--
+            <div class="form-group mt-4">
+              <label>
+                Motivation
+              </label>
               <textarea name="motivation" id="motivation" class="form-control" formControlName="motivation" cols="30" rows="10"></textarea>
             </div>
+            -->
             <div class="form-group mb-4 ">
               <label>Skills & Experiences</label>
               <div class="chips-container">
@@ -82,7 +90,7 @@
               </div>
             </div>
             <div class="form-group col-50">
-              <label for="job_langues">Langues <span class="important">*</span></label>
+              <label for="job_langues">Languages <span class="important">*</span></label>
               <div class="input-group">
                   <select name="job_langues" formControlName="job_langues" class="form-control" id="job_langues">
                       <option *ngFor="let langue of langues" [value]="langue">{{ langue }}</option>

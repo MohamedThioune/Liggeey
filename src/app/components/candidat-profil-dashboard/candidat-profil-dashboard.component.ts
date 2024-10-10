@@ -31,7 +31,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
   urlCv:any
   id:any
   subtopic: any[] = [];
-
+  motivation:any
+  skills:any
   constructor(private usagerService: UsagerService,private route : ActivatedRoute,private router :Router ,private HomePageService: HomePageService,private location: Location) { }
 
   ngOnInit(): void {
@@ -66,12 +67,25 @@ export class CandidatProfilDashboardComponent implements OnInit {
     } else {
       console.error('User not logged in');
     }
+    
     this.route.queryParams.subscribe(params => {
       this.jobId = params['jobId'];
       
         this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
-          this.job=job;     
-                         
+          this.job=job;   
+          if (Array.isArray(job.applied)) {
+            const applicant = job.applied.find((applicant: any) => Number(applicant.ID) === Number(this.id));
+            this.motivation = applicant.motivation
+            
+            if (applicant) {
+              //console.log('Found applicant:');
+            } else {
+              //console.log('Applicant not found');
+            }
+          }
+          
+          
+          
           if (job.applied.includes(this.userConnect) && job.company === this.userConnect) {
             this.canApprove=!this.canApprove
           }
@@ -88,7 +102,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
       this.candidat=data  
       this.urlCv=this.extractFileName( this.candidat.cv)        
       this.nameCv =this.candidat.cv 
-     // this.candidat.skills = this.candidat.skills || [];
+      //this.candidat.skills = this.candidat.skills || [];
+       this.skills=this.candidat.skills
        
      if (this.candidat && this.candidat.ID) {
        this.HomePageService.getSubtopic(this.candidat.ID).subscribe(
@@ -113,6 +128,9 @@ export class CandidatProfilDashboardComponent implements OnInit {
     return text ? text.replace(/<[^>]+>/g, '') : '';
   }
   extractFileName(url: string): string {
+    if (!url) {
+      return ''; 
+    }
     return url.substring(url.lastIndexOf('/') + 1);
   }
   rejectCandidatByCompany(){

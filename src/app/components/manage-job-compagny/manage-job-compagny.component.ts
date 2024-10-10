@@ -18,7 +18,6 @@ export class ManageJobCompagnyComponent implements OnInit {
   loading:boolean=true;
   appliedNumber!:number;
   tabNumber:any[]=[];
-
   message: any = {
     type: '',
     message: ''
@@ -116,4 +115,6 @@ message: this.message.message
     }
   }
 
+
+ 
 }

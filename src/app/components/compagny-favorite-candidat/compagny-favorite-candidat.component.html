@@ -24,6 +24,7 @@
 
           </div>
           <div class="applicants">
+            <!--
             <ul class="row">
               <li class="col-md-6" *ngFor="let item of filteredJobs | paginate: { itemsPerPage: 6, currentPage: p }">
                 <div class="job_list_1" >
@@ -125,7 +126,6 @@
                            <p> {{ skil.cat_name.slice(0, 10) }} </p>                    
                            </div>
                         </div>
-                        <!--
                         <div class="time">
                           <div class="content_time">
                             <p>Design</p>
@@ -136,7 +136,6 @@
                             <p>Digital</p>
                           </div>
                         </div>
-                        -->
                       </div>
                     </div>
                   </div>
@@ -146,18 +145,85 @@
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
               </div>
             </ul>
+          -->
             <div class="text-center" *ngIf=" applicants.length== 0 ">
               <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" >
               <p>No content avalable at the moment</p>
             </div>
-            <!--
-            <div class="pagination" *ngIf="filteredJobs.length > 6">
-                <pagination-controls (pageChange)="p = $event"
-                previousLabel="Previous"
-                nextLabel="Next"
-                ></pagination-controls>
+            <table class="table" *ngIf="filteredJobs.length >0" style="margin: 4px auto; width: 98%;">
+              <thead class="thead table_head">
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">First Name</th>
+               <!-- <th scope="col">Created & Expired</th> {{job.expiration}}-->
+                <th scope="col">Last Name </th>
+                <th scope="col">Date of born </th>
+                <th scope="col">Education </th>
+                <th scope="col">City</th>
+                <th scope="col">Contry</th>
+              <!-- <th scope="col">Vacancy</th>--> 
+                <th scope="col">See</th>
+              <th scope="col">Delete</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let favorite of filteredJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+                <th scope="row">
+                  <img [src]="favorite.image" alt="Logo">
+                </th>
+                <td>
+                  <a>
+                    <div> {{ favorite.first_name}} </div>
+  
+                  </a>
+                </td>
+                <td>{{favorite.last_name}}</td>
+                <td>{{favorite.date_born ? favorite.date_born : "No available"}}</td>
+                <td>{{ favorite.education_level?.length > 0 ? favorite.education_level : "No available" }}</td>
+                <td>{{favorite.city ? favorite.city : "No available"}}</td>
+                <td>{{favorite.country ? favorite.country : "No available"}}</td>
+              <!--  <td>{{job.title}}</td>-->
+               
+                <td>
+                  <button class=""  style="padding: 8px;" (click)="send_id(favorite.ID)">
+                    <img src="../../../assets/img/Icon_awesome-eye.png" alt="">
+                  </button>
+                  <!--
+                  <button (click)="send_id(job.ID,slug)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                      <g clip-path="url(#clip0_2859_8925)">
+                        <path d="M12.2661 6.11685L10.1178 3.85485C7.978 1.60177 4.50908 1.60177 2.36929 3.85485L0.220984 6.11685C0.0200888 6.32838 0.0200888 6.67136 0.220984 6.88289L2.36927 9.14489C4.50908 11.398 7.978 11.398 10.1178 9.14489L12.2661 6.88289C12.467 6.67136 12.467 6.32838 12.2661 6.11685ZM9.39029 8.37885C7.65229 10.2089 4.83482 10.2089 3.09681 8.37885L1.31227 6.49987L3.09679 4.62089C4.83479 2.79089 7.65227 2.79089 9.39027 4.62089L11.1748 6.49987L9.39029 8.37885Z" fill="#043356"/>
+                        <path d="M6.24405 3.7915C4.82356 3.7915 3.67188 5.00414 3.67188 6.49986C3.67188 7.99557 4.82356 9.20821 6.24405 9.20821C7.66454 9.20821 8.81623 7.99555 8.81623 6.49986C8.81623 5.00416 7.66454 3.7915 6.24405 3.7915ZM6.24405 8.12486C5.39179 8.12486 4.70075 7.39724 4.70075 6.49986C4.70075 5.60247 5.39179 4.87485 6.24405 4.87485C7.09632 4.87485 7.78735 5.60247 7.78735 6.49986C7.78735 7.39724 7.09632 8.12486 6.24405 8.12486Z" fill="#043356"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_2859_8925">
+                          <rect width="12.3465" height="13" fill="white" transform="translate(0.0703125)"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </button>
+                  -->
+                </td>
+                <!--
+                <td>
+                  <button class="" style="padding: 8px;">
+                    <img src="../../../assets/img/Icon_awesome-trash-alt.png" alt="">
+                  </button>
+          
+                </td>
+                -->
+                <td>
+                  <button style="padding:8px;" (click)="trashFavoritesCandidat(favorite.ID)">
+                    <img src="../../../assets/img/Icon_awesome-trash-alt.png" alt="">
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="pagination mt-4" *ngIf="filteredJobs.length > 6">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
-            -->
+  
           </div>
         </div>
     </div>
