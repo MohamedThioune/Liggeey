@@ -37,11 +37,13 @@
               <ckeditor  name="responsibilities"  formControlName="responsibilities" [editor]="Editor" [config]="editorConfig" ></ckeditor>
             </div>
             <div class="form-group mt-4">
-              <label>
-                Motivation
-              </label>
-              <input type="text" name="motivation" id="motivation" class="form-control" formControlName="motivation" cols="30" rows="10"/>
+              <input type="radio" name="motivation" id="motivation" value="true" formControlName="motivation" />
+              <label for="motivation">Motivation </label>
             </div>
+      
+
+
+
             <!--
             <div class="form-group mt-4">
               <label>

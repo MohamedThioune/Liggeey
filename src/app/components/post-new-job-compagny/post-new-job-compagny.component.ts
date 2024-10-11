@@ -186,12 +186,19 @@ removeSkills(index: number): void {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
+       // Écouter les changements de la valeur du champ 'motivation'
+       this.form.get('motivation')?.valueChanges.subscribe(value => {
+        console.log('Radio checked:', value === 'motivation' ? false : true);
+      });
 }
 
 onSubmit() {
   this.isLoading = true;
-    // Utilisez le service pour postuler à l'emploi   
+    // Utilisez le service pour postuler à l'emploi
+    const motivationValue = this.form.get('motivation')?.value;
+    console.log('Motivation:', motivationValue);     
     console.log(this.form.value);
+    return
     if (this.validateFormJob(this.form.value)) {
 
     this.homeService.postJob(this.form.value,this.userConnect.id)
@@ -253,7 +260,7 @@ onSubmit() {
       job_langues: this.fb.control("", Validators.required),
       job_application_deadline: this.fb.control("", [Validators.email, Validators.required]),
       skills: this.fb.array([]),
-      motivation :this.fb.control("", [])
+      motivation :this.fb.control("null", [])
     });
   }
   validateFormJob(job: JobCompagny): boolean {
