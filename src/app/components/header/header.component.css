@@ -99,7 +99,12 @@ header .header_container_logo p {
     height: 93px;
 
 }*/
-
+.name-cv{
+  white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-width: 100%;
+} 
 /*second nav */
 .second-nav{
     display: flex;

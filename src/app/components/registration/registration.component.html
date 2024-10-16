@@ -80,7 +80,7 @@
                         Country
                       </label>
                       <div class="input-group">
-                        <select class="form-control fieldSelect" id="country" formControlName="country" name="country" [(ngModel)]="selectedCountry" (change)="onCountryChange($event)">
+                        <select class="form-control fieldSelect p-10" id="country" formControlName="country" name="country" [(ngModel)]="selectedCountry" (change)="onCountryChange($event)" style="padding: 10px;">
                           <option *ngFor="let country of countries" [value]="country.name.common">
                             {{country.name.common}}
                           </option>

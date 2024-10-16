@@ -73,9 +73,10 @@ export class CandidatProfilDashboardComponent implements OnInit {
       
         this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
           this.job=job;   
+          
           if (Array.isArray(job.applied)) {
             const applicant = job.applied.find((applicant: any) => Number(applicant.ID) === Number(this.id));
-            this.motivation = applicant.motivation
+            this.motivation = applicant?.motivation
             
             if (applicant) {
               //console.log('Found applicant:');
@@ -99,11 +100,12 @@ export class CandidatProfilDashboardComponent implements OnInit {
     });
   
     this.HomePageService.getDetailCandidate( this.id).subscribe(data=>{
-      this.candidat=data  
+      this.candidat=data        
       this.urlCv=this.extractFileName( this.candidat.cv)        
       this.nameCv =this.candidat.cv 
       //this.candidat.skills = this.candidat.skills || [];
        this.skills=this.candidat.skills
+       
        
      if (this.candidat && this.candidat.ID) {
        this.HomePageService.getSubtopic(this.candidat.ID).subscribe(
@@ -124,6 +126,80 @@ export class CandidatProfilDashboardComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  action(action: any) {
+    this.isLoading=true
+    try {
+      this.HomePageService.sendNotificationAction(
+        this.candidat.ID,
+        this.notificationCand(this.candidat.ID, this.userConnect.id, action, this.job)
+      ).subscribe({
+        next: (response) => {
+          let typeR = "error"
+              if (<any>response ) {
+                typeR = "success";
+                this.message= "Candidate request sended with success !."
+              //  return
+              }  
+          ToastNotification.open({
+            type: typeR,
+            message: this.message
+
+          });
+          this.isLoading=false
+          // Handle successful response here
+        },
+        error: (err) => {
+          //console.error('Error sending notification:', err);
+          // Handle error here, e.g., show an error message to the user
+          this.handleError(err);
+        },
+        complete: () => {
+          //console.log('Notification request completed.');
+          // Any cleanup or final actions can be performed here
+        }
+      });
+    } catch (exception) {
+      //console.error('Unexpected exception:', exception);
+      // Handle any unexpected exceptions that might not be caught in subscribe
+      this.handleUnexpectedError(exception);
+    }
+  }
+  
+  // Optional: Separate error handling functions
+  handleError(err: any) {
+    // You can implement custom error handling logic here, e.g., displaying user-friendly error messages
+    alert('An error occurred while sending the notification. Please try again later.');
+  }
+  
+  handleUnexpectedError(exception: any) {
+    // Handle unexpected exceptions separately, if necessary
+    alert('An unexpected error occurred. Please contact support.');
+  }
+  
+ notificationCand(idUser:number,idUser2:number,action:any,job:any):any{
+  const notif={
+    userApplyId:idUser,
+    title:action,
+    content: `
+    I hope this message finds you well.<br> 
+    Thank you for your recent application for ${job.title} with ${job.company.title} . We appreciate your interest in joining our team.<br>
+
+    Upon reviewing your application, we noticed that some required information is missing. To proceed with your application, could you please provide the following details:
+    <strong>${action}</strong>.<br>
+
+    Kindly submit the above information at your earliest convenience, preferably within ${job.expired_at}.<br>
+    If you have any questions or need further clarification, please don't hesitate to reach out.<br>
+    We look forward to receiving the complete details and continuing with your application process.<br>
+
+    Thank you for your attention to this matter.<br>
+    Best regards,<br>
+    `,
+    trigger:"Livelearn",
+    receiver_id:idUser2,
+  }
+  return notif; 
+}
   cleanText(text: string): string {
     return text ? text.replace(/<[^>]+>/g, '') : '';
   }
