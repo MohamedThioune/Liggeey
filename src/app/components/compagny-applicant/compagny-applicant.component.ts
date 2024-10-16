@@ -47,11 +47,9 @@ export class CompagnyApplicantComponent implements OnInit {
     this. userConnect = JSON.parse(decodedToken);
   }
    this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
-     this.applicant = data     
-     console.log(this.applicant);
-     
+     this.applicant = data       
      this.loading=false;          
-    })
+    })    
  }
  send_id(id: any) {
   this.homeService.setCandidatId(id);

@@ -119,8 +119,18 @@ export class EditJobCompanyComponent implements OnInit {
     this.homeService.getDetailJob(this.slug).subscribe(data => {
         this.job = data;
         this.loading=false;
-        this.selectedSkills = this.job.skills.map((skill:any) => skill.term_id);
+        //this.selectedSkills = this.job.skills.map((skill:any) => skill.term_id);
+        if (this.job) {
+          if (Array.isArray(this.job.skills)) {
+            this.selectedSkills = this.job.skills.map((skill: any) => skill.term_id);
+          } else {
+            // Handle the case where this.job.skills is not an array
+            this.selectedSkills = [];
+            //console.error('this.job.skills is not an array:', this.job.skills);
+          }
+
         this.form.patchValue(this.job);
+      }
 
     });
      // Récupération du token depuis le local storage

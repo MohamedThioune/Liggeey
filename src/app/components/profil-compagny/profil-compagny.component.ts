@@ -50,8 +50,9 @@ export class ProfilCompagnyComponent implements OnInit {
    }
   
    
-   this.homeService.profilCompany(this.userConnect.slug).subscribe((data:any)=>{
+   this.homeService.profilCompany(this.userConnect?.slug).subscribe((data:any)=>{
     this.profil=data;
+    
     
     this.selectedCountry=this.profil.country
     this.form.patchValue(this.profil);
