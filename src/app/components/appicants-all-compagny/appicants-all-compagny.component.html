@@ -71,13 +71,13 @@
               <th scope="col">Education </th>
             <!--  <th scope="col">City</th>-->
               <th scope="col">Country</th>
-              <th scope="col" class="text-center"> Skill passport </th>
+              <th scope="col" class="text-center"> View </th>
               <th scope="col" class="text-center">Reject</th>
               <th scope="col" class="text-center">Favourite</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let job of applicant.applied | paginate: { itemsPerPage: 8, currentPage: p }">
+            <tr *ngFor="let job of getFilteredApplicants('applied') | paginate: { itemsPerPage: 8, currentPage: p }">
               <th scope="row">
                 <img [src]="job.image" alt="Logo">
               </th>
@@ -103,7 +103,9 @@
                 </button>
         
               </td>
-              <td class="text-center">
+              <td class="text-center"
+
+                >
                 <button (click)="favoritesCandidat(job)" style="background-color: transparent;" >
                   <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
                 </button>
@@ -111,8 +113,12 @@
             </tr>
             </tbody>
           </table>
-          <div class="pagination mt-4" *ngIf="applicant.applied.length > 8">
+          <div class="pagination mt-4" *ngIf="getFilteredApplicants('applied').length > 8">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+          <div class=" empty text-center" *ngIf="getFilteredApplicants('applied').length == 0">
+            <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" >
+            <p>No matching data</p>          
           </div>
           <!--
           <ul class="row">
@@ -250,7 +256,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let job of applicant.approved | paginate: { itemsPerPage: 8, currentPage: p }">
+            <tr *ngFor="let job of getFilteredApplicants('approved') | paginate: { itemsPerPage: 8, currentPage: p }">
               <th scope="row">
                 <img [src]="job.image" alt="Logo">
               </th>
@@ -280,6 +286,10 @@
           </table>
           <div class="pagination mt-4" *ngIf="applicant.approved.lenght > 8">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+          <div class=" empty text-center" *ngIf="getFilteredApplicants('approved').length == 0">
+            <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" >
+            <p>No matching data</p>          
           </div>
         </div>
         <div class="applicants mt-4" *ngIf="applicant.rejected.length != 0">
@@ -343,7 +353,7 @@
             </div>
           </ul>
           -->
-          <table class="table" *ngIf="applicant.rejected.length >0" style="margin: 4px auto; width: 98%;">
+          <table class="table" *ngIf="getFilteredApplicants('rejected').length >0" style="margin: 4px auto; width: 98%;">
             <thead class="thead table_head">
             <tr>
               <th scope="col">Image</th>
@@ -388,6 +398,10 @@
           </table>
           <div class="pagination mt-4" *ngIf="applicant.rejected.lenght > 8">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+          <div class=" empty text-center" *ngIf="getFilteredApplicants('rejected').length === 0">
+            <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" >
+            <p>No matching data</p>          
           </div>
         </div>
       </div>

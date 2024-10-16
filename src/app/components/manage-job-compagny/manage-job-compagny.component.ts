@@ -39,7 +39,7 @@ export class ManageJobCompagnyComponent implements OnInit {
       this.openJobs=data;
       this.loading=false
       
-      this.openJobs.forEach((element:any) => {
+      this.openJobs.forEach((element:any) => {        
         this.appliedNumber=element.applied.length
         this.tabNumber.push(this.appliedNumber)
         const date = new Date(element.posted_at);

@@ -154,52 +154,7 @@
   border: 1px solid #1AC4A2;
   background-color: transparent;
 }
-input[type="radio"] {
-  /* Hide the default radio button */
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
 
-input[type="radio"] + label {
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-input[type="radio"] + label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #555;
-  border-radius: 50%;
-  background-color: #fff;
-}
-
-input[type="radio"]:checked + label:before {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-input[type="radio"]:checked + label:after {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #fff;
-}
-
-input[type="radio"]:focus + label:before {
-  outline: 2px solid #007bff;
-}
 
 .input-group-text {
    background-color: #f8f9fa;
@@ -368,8 +323,16 @@ input[type="checkbox"]{
   margin-left: 5px;
   color: red !important;
 }
-
-
+.motivation{
+  display:flex ;
+  align-items:center !important
+}
+.motivation label{
+  margin: 0;
+}
+.motivation input{
+  margin-right: 10px;
+}
 
 .chips-container {
   display: flex;

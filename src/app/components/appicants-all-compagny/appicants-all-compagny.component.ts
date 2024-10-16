@@ -47,7 +47,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
      this. userConnect = JSON.parse(decodedToken);
    }
     this.homeService.getDetailJob(this.slug).subscribe((data:any)=>{
-      this.applicant = data          
+      this.applicant = data                            
       this.numberCandidat =  this.applicant.applied.length      
       this.loading=false;            
      })
@@ -138,6 +138,8 @@ favoritesCandidat(candidat:any) {
     }
   }
   get filteredApplicant() {
+    console.log(this.searchTitle);
+    
     if (this.searchTitle.trim() !== '') {
       return this.applicant.applied.filter((applicant: any) => {
         const titleMatch = applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
@@ -147,6 +149,20 @@ favoritesCandidat(candidat:any) {
       return this.applicant.applied; // Retournez le tableau complet d'applicants
     }
   }
+  getFilteredApplicants(listType: 'applied' | 'approved' | 'rejected') {
+  
+    const applicant = this.applicant[listType]; // Dynamically access the correct list
+  
+    if (this.searchTitle.trim() !== '') {
+      return applicant.filter((applicant: any) => {
+        const titleMatch = applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
+        return titleMatch;
+      });
+    } else {
+      return applicant; // Return the full list if no searchTitle is provided
+    }
+  }
+  
   rejectCandidatByCompany(candidat:any){
     this.isLoading=true
     this.notification ={
