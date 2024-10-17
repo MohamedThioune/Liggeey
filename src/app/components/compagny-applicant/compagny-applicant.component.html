@@ -161,8 +161,8 @@
               <th scope="col">Date of born </th>
               <th scope="col">Education </th>
               <th scope="col">City</th>
-              <th scope="col">Contry</th>
-            <!-- <th scope="col">Vacancy</th>--> 
+              <th scope="col">Country</th>
+             <th scope="col">Vacancy</th>
               <th scope="col">See</th>
              <!-- <th scope="col">Delete</th>-->
               <th scope="col">Favourite</th>
@@ -184,7 +184,7 @@
               <td>{{ job.education_level?.length > 0 ? job.education_level : "No available" }}</td>
               <td>{{job.city ? job.city : "No available"}}</td>
               <td>{{job.country ? job.country : "No available"}}</td>
-            <!--  <td>{{job.title}}</td>-->
+             <td class="name-cv">{{job.job.post_title}}</td>
              
               <td>
                 <button class=""  style="padding: 8px;" (click)="send_id(job.ID)">

@@ -81,6 +81,12 @@ table tbody tr th {
   margin-right: 9px;
   border-radius: 8px;
 }
+.name-cv{
+  white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-width: 100%;
+}
 .logo{
   width: 30px;
   height: 30px;

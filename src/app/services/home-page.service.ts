@@ -290,7 +290,17 @@ getSubtopic(user:string): Observable<any> {
     };
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/notification/create`,requestBody);
   }
-
+  sendNotificationAction(idUser:number,notification:Notification): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      title:notification.title,
+      content:notification.content,
+      trigger:notification.trigger,
+      author_trigger:notification.receiver_id,
+      is_livelearn:true
+    };
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/notification/create`,requestBody);
+  }
   favoritesJob(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
       userApplyId:idUser,
@@ -360,6 +370,9 @@ getSubtopic(user:string): Observable<any> {
   }
   getSkillsCandidate(id: number): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/candidate/skillsPassport/?userApplyId=${id}`,{});
+  }
+  getSkillsAll(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/wp-json/custom/v1/skills/all`,{});
   }
   getCandidatCompagny(id: number): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/user/favorites/?userApplyId=${id}`,{});
