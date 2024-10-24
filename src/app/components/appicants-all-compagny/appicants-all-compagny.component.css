@@ -186,6 +186,27 @@ input[type="search"]:focus {
   margin-right: 9px;
   border-radius: 8px;
 }
+
+.heart-icon {
+  cursor: pointer;
+  padding: 10px;                       /* Optional: add some space around the icon */
+  border-radius: 50%;                 /* Keep the circular shape */
+  background-color: transparent;      /* No background color by default */
+  color: white;
+  font-weight: bold;                         /* Set the heart color to red */
+  text-shadow: 0px 0px 0px black,     /* Optional: initial shadow to offset */
+               1px 1px 0px black,     /* Right and bottom shadow */
+               -1px 1px 0px black,    /* Left and bottom shadow */
+               1px -1px 0px black,    /* Right and top shadow */
+               -1px -1px 0px black;   /* Left and top shadow */
+}
+
+
+.image-favorite-bg {
+  cursor: pointer;
+  color: black;              /* Change heart color to white for better contrast */
+}
+
  .description_job_ span:first-child{
     color:  #202124;
     font-size: 18px;
@@ -287,6 +308,10 @@ input[type="search"]:focus {
   color: #696969;
   top: 16px;
 }
+i.fa-heart {
+
+}
+
 input:focus-visible {
   outline: -webkit-focus-ring-color auto 0px !important;
 }

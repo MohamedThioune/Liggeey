@@ -363,7 +363,6 @@ export class ResumeCandidatComponent implements OnInit {
             },
             // Gestion des erreurs
             (error) => {
-console.log(error);
 
               ToastNotification.open({
                 type: 'error',

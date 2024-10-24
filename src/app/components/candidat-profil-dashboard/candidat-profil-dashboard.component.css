@@ -209,6 +209,23 @@ h3, .h3 {
    text-overflow: ellipsis;
    max-width: 100%;
 }     
+.heart-icon {
+  padding: 5px;                       /* Optional: add some space around the icon */
+  border-radius: 50%;                 /* Keep the circular shape */
+  background-color: transparent;      /* No background color by default */
+  color: white;                         /* Set the heart color to red */
+  text-shadow: 0px 0px 0px black,     /* Optional: initial shadow to offset */
+               1px 1px 0px black,     /* Right and bottom shadow */
+               -1px 1px 0px black,    /* Left and bottom shadow */
+               1px -1px 0px black,    /* Right and top shadow */
+               -1px -1px 0px black;   /* Left and top shadow */
+}
+
+
+.image-favorite-bg {
+  color: black;              /* Change heart color to white for better contrast */
+}
+
 @media all and (min-width: 300px) and (max-width: 767px){
   .content-page-view-candidat .col-md-4{
     flex: 0 0 100% !important;

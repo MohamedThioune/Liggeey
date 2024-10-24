@@ -18,8 +18,8 @@
           <div>
             <div class="d-flex align-items-center justify-content-between">
               <p class="name">{{candidat?.first_name}} {{candidat?.last_name}}</p>
-              <button class="btn btn-action" (click)="action('Profil')" [disabled]="isLoading">Action</button>
-              <div *ngIf="isLoading" class="loader">Loading...</div>
+              <button class="btn btn-action" (click)="action('Profil')" [disabled]="isLoadingProfil">Action</button>
+              <div *ngIf="isLoadingProfil" class="loader">Loading...</div>
             </div>
             <div class="d-flex align-items-center">
               <p class="profil mr-4">{{candidat?.work_as}}</p>
@@ -107,12 +107,14 @@
           </div>
           -->
         </div>
-        <!--
-        <div class="content-favorite mx-4">
+        <div class="mx-4">
           <span class="mx-2">Favorite</span>
-          <img src="../../../assets/img/Icon_material-favorite-border.png" alt="" class="icon-image">
+          <i class="fa fa-heart"
+              [ngClass]="{'image-favorite-bg': favourite, 'heart-icon': true}">
+          </i>
         </div>
-        -->
+        
+        
       </div>
     </div>
     <div class="row">
@@ -120,8 +122,8 @@
         <div class="block-about" style="background-color: #FFFF;padding:20px;border-radius:8px">
           <div class="d-flex align-items-center justify-content-between">
             <h3>About</h3>
-              <button class="btn btn-action" (click)="action('About')" [disabled]="isLoading">Action</button>
-              <div *ngIf="isLoading" class="loader">Loading...</div>
+              <button class="btn btn-action" (click)="action('About')" [disabled]="isLoadingAbout">Action</button>
+              <div *ngIf="isLoadingAbout" class="loader">Loading...</div>
           </div>
           <p class="mt-2">{{cleanText(candidat?.biographical_info)}}</p>
         </div>
@@ -129,8 +131,8 @@
           <div class="block-candidat work-block col-md-8" style="background-color: #FFFF;padding:20px;border-radius:8px;">
             <div class="d-flex align-items-center justify-content-between">
               <h3>Motivation</h3>
-              <button class="btn btn-action" (click)="action('Motivation')"  [disabled]="isLoading">Action</button>
-              <div *ngIf="isLoading" class="loader">Loading...</div>
+              <button class="btn btn-action" (click)="action('Motivation')"  [disabled]="isLoadingMotivation">Action</button>
+              <div *ngIf="isLoadingMotivation" class="loader">Loading...</div>
             </div>
             <div class="sub-block" *ngIf="motivation">
               <div class="d-flex sub-details">
@@ -146,8 +148,8 @@
           <div class="block-about col-md-4 col-sm-8" style="background-color: #FFFF;padding:20px;border-radius:8px;width:100%">
             <div class="d-flex align-items-center justify-content-between">
               <h3>Candidate CV</h3>
-              <button class="btn btn-action" (click)="action('CV')" [disabled]="isLoading">Action</button>
-              <div *ngIf="isLoading" class="loader">Loading...</div>
+              <button class="btn btn-action" (click)="action('Cv')" [disabled]="isLoadingCv">Action</button>
+              <div *ngIf="isLoadingCv" class="loader">Loading...</div>
             </div>
             <p class="cv mt-4" *ngIf="candidat?.cv">
               <a class="" [href]="nameCv" target="_blank">
@@ -164,8 +166,8 @@
         <div class="block-candidat work-block mt-4" style="background-color: #FFFF;padding:20px;border-radius:8px">
           <div class="d-flex align-items-center justify-content-between">
             <h3>Skills Passport</h3>
-              <button class="btn btn-action" (click)="action('Skills Passport')" [disabled]="isLoading">Action</button>
-              <div *ngIf="isLoading" class="loader">Loading...</div>
+              <button class="btn btn-action" (click)="action('Skills Passport')" [disabled]="isLoadingPassport">Action</button>
+              <div *ngIf="isLoadingPassport" class="loader">Loading...</div>
           </div>
           <div class="sub-block" *ngFor="let skill of candidat?.skills">
             <div class="d-flex sub-details">
@@ -182,8 +184,8 @@
         <div class="block-candidat" style="background-color: #FFFF;padding:20px;border-radius:8px">
           <div class="d-flex align-items-center justify-content-between">
             <h3>Education</h3>
-              <button class="btn btn-action" (click)="action('Education')" [disabled]="isLoading">Action</button>
-              <div *ngIf="isLoading" class="loader">Loading...</div>
+              <button class="btn btn-action" (click)="action('Education')" [disabled]="isLoadingEducation">Action</button>
+              <div *ngIf="isLoadingEducation" class="loader">Loading...</div>
           </div>
           <div class="sub-block" *ngFor="let education of candidat?.educations">
             <div class="d-flex sub-details">
@@ -202,8 +204,8 @@
         <div class="block-candidat work-block" style="background-color:#FFFF;padding: 20px;border-radius:8px">
           <div class="d-flex align-items-center justify-content-between">
             <h3>Work & Experience</h3>
-              <button class="btn btn-action" (click)="action('Work & Experience')" [disabled]="isLoading">Action</button>
-              <div *ngIf="isLoading" class="loader">Loading...</div>
+              <button class="btn btn-action" (click)="action('Work & Experience')" [disabled]="isLoadingWork">Action</button>
+              <div *ngIf="isLoadingWork" class="loader">Loading...</div>
           </div>
           <div class="sub-block" *ngFor="let experience of candidat?.experiences">
             <div class="d-flex sub-details">

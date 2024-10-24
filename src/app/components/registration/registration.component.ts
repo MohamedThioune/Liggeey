@@ -44,6 +44,7 @@ export class RegistrationComponent implements OnInit {
     });
     this.homeService.getCountries().subscribe(
       (data: any) => {
+        
         this.countries = data.sort((a: any, b: any) => a.name.common.localeCompare(b.name.common));
       },
       (error) => {
@@ -91,11 +92,19 @@ showEmployer() {
             this.homeService.sendNotification(usager.id,this.notificationTalent(usager.id,this.form.value)).subscribe();
           }
         },
-        error => {        
-          ToastNotification.open({
-            type: 'error',
-            message: error.error.code
-          });
+        error => {      
+          if (error.error.data.details.acf.message="acf[country] is not one of Netherlands, Senegal, Mali, Guinea, Ivory Coast, Gabon, Central African Republic, Togo, Congo Kinshasa, France, USA, Afghanistan, Portugal, Brasil, Russian, Ukrain, Cameroon, Burundi, Rwanda, Angola") {
+            ToastNotification.open({
+              type: 'error',
+              message: "This country is not accredited"
+            });
+          }else{
+            ToastNotification.open({
+              type: 'error',
+              message: error.error.message
+            });
+          }
+        
           this.isLoading = false;
         });
     } else {
@@ -216,9 +225,7 @@ notificationChief(idUser:number,user:any):any{
             this.homeService.sendNotification(usager.ID,this.notificationChief(usager.ID,this.formCompagny.value)).subscribe();
           }
         },
-        error => {   
-          console.log(error.error);
-                           
+        error => {                              
           ToastNotification.open({
             type: 'error',
             message: error.error.errors.errors.existing_user_email
