@@ -10,6 +10,7 @@ import { UsagerService } from 'src/app/services/usager.service';
 })
 export class LoginComponent implements OnInit {
   isLoading: boolean = false;
+  passwordFieldType: string = 'password'; // Default to 'password'
 
   constructor(private usagerService: UsagerService, private route: Router) { }
   username: string = '';
@@ -73,6 +74,10 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  togglePasswordVisibility() {
+    // Toggle the field type between 'password' and 'text'
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
+  }
   initForm() {
     this.username = '';
     this.password = '';

@@ -94,7 +94,10 @@
 
                 <p class="description-job"></p>
                 <div class="content-footer-card align-items-center">
-                  <button class="btn btn-apply-job" data-toggle="modal" [disabled]="!canAppl(item)" (click)="openApplyModal(item.ID,item.slug)" data-target="#modal-apply">
+                  <button class="btn btn-apply-job" style="  white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   " data-toggle="modal" [disabled]="!canAppl(item)" (click)="openApplyModal(item.ID,item.slug)" data-target="#modal-apply">
                     {{ canAppl(item) ? 'Apply Now' : 'Already Applied' }}
                   </button>
                   <a [routerLink]="['/detail-job',item.slug]" class="btn btn-view-job">View Details</a>
