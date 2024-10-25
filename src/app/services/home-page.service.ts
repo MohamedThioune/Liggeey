@@ -63,6 +63,9 @@ export class HomePageService {
     return this.http.get(`${this.baseUrl}/wp-json/custom/v1/tags`, { headers });
 
   }
+  getCandidates(): Observable<any>{
+    return this.http.get(`${this.baseUrl}/wp-json/custom/v1/candidates`);
+  }
   getDetailCandidate(id:number | null):Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'

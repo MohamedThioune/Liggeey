@@ -52,7 +52,6 @@ export class HomeComponent implements OnInit {
      }
     this.homeService.getInfoHomepage().subscribe((data:any)=>{
       this.categories=data.categories
-      this.candidates=data.candidates      
       this.article=data.artikels      
       this.currentCategories=data.jobs
       this.loading=false;
@@ -75,8 +74,13 @@ export class HomeComponent implements OnInit {
       //this.currentCategories=this.categories
     })
 
+    this.homeService.getCandidates().subscribe((data:any)=>{
+      this.candidates=data.candidates      
+    })
 
   }
+
+  
   redirectToWhatsApp(){
     this.homeService.redirectToWhatsApp()
   }

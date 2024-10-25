@@ -33,6 +33,15 @@ export class CandidatProfilDashboardComponent implements OnInit {
   subtopic: any[] = [];
   motivation:any
   skills:any
+  isLoadingMotivation: boolean = false;
+  isLoadingAbout: boolean = false;
+  isLoadingProfil: boolean = false;
+  isLoadingCv: boolean = false;
+  isLoadingPassport: boolean = false;
+  isLoadingEducation: boolean = false;
+  isLoadingWork: boolean = false;
+  profil:any
+  favourite:boolean = false
   constructor(private usagerService: UsagerService,private route : ActivatedRoute,private router :Router ,private HomePageService: HomePageService,private location: Location) { }
 
   ngOnInit(): void {
@@ -73,7 +82,17 @@ export class CandidatProfilDashboardComponent implements OnInit {
       
         this.HomePageService.getDetailJob( this.jobId).subscribe(job => {
           this.job=job;   
-          
+          const dateString = this.job.expired_at;
+
+          // Extract year, month, and day
+          const year = dateString.substring(0, 4);
+          const month = dateString.substring(4, 6);  // Note: Month in Date constructor is 0-indexed, so subtract 1 later
+          const day = dateString.substring(6, 8);
+
+          // Create a Date object
+          const dateObject = new Date(Number(year), Number(month) - 1, Number(day));
+          const formattedDate = `${year}-${month}-${day}`;
+          this.job.expired_at=formattedDate          
           if (Array.isArray(job.applied)) {
             const applicant = job.applied.find((applicant: any) => Number(applicant.ID) === Number(this.id));
             this.motivation = applicant?.motivation
@@ -100,7 +119,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
     });
   
     this.HomePageService.getDetailCandidate( this.id).subscribe(data=>{
-      this.candidat=data        
+      this.candidat=data  
+            
       this.urlCv=this.extractFileName( this.candidat.cv)        
       this.nameCv =this.candidat.cv 
       //this.candidat.skills = this.candidat.skills || [];
@@ -120,58 +140,102 @@ export class CandidatProfilDashboardComponent implements OnInit {
        console.error('User not logged in');
      }
     })    
- 
+    this.HomePageService.profilJob(this.userConnect.id).subscribe((data:any)=>{
+      this.profil = data;     
+      const candidateIdToCheck =parseInt( this.id );
+      const isCandidateIncluded = this.profil.favorites.some((candidate: any) => candidate.ID === candidateIdToCheck);
+
+      if (isCandidateIncluded) {
+        this.favourite = true
+      } else {
+        this.favourite = false
+      }      
+    })
     
   }
   goBack(): void {
     this.location.back();
   }
 
-  action(action: any) {
-    this.isLoading=true
-    try {
-      this.HomePageService.sendNotificationAction(
-        this.candidat.ID,
-        this.notificationCand(this.candidat.ID, this.userConnect.id, action, this.job)
-      ).subscribe({
-        next: (response) => {
-          let typeR = "error"
-              if (<any>response ) {
-                typeR = "success";
-                this.message= "Candidate request sended with success !."
-              //  return
-              }  
-          ToastNotification.open({
-            type: typeR,
-            message: this.message
+action(action: string) {
+  if (action === 'Motivation') {
+    this.isLoadingMotivation = true;
+  } else if (action === 'About') {
+    this.isLoadingAbout = true;
+  }
+  else if (action === 'Profil') {
+    this.isLoadingProfil = true;
+  } else if (action === 'Cv') {
+    this.isLoadingCv = true;
+  } else if (action === 'Education') {
+    this.isLoadingEducation = true;
+  } else if (action === 'Skills Passport') {
+    this.isLoadingPassport = true;
+  }else if (action === 'Work & Experience') {
+    this.isLoadingWork = true;
+  }
+  
 
-          });
-          this.isLoading=false
-          // Handle successful response here
-        },
-        error: (err) => {
-          //console.error('Error sending notification:', err);
-          // Handle error here, e.g., show an error message to the user
-          this.handleError(err);
-        },
-        complete: () => {
-          //console.log('Notification request completed.');
-          // Any cleanup or final actions can be performed here
-        }
-      });
-    } catch (exception) {
-      //console.error('Unexpected exception:', exception);
-      // Handle any unexpected exceptions that might not be caught in subscribe
-      this.handleUnexpectedError(exception);
-    }
+  try {
+    this.HomePageService.sendNotificationAction(
+      this.candidat.ID,
+      this.notificationCand(this.candidat.ID, this.userConnect.id, action, this.job)
+    ).subscribe({
+      next: (response) => this.handleSuccess(response, action),
+      error: (err) => this.handleError(err, action),
+      complete: () => this.resetLoadingState(action)
+    });
+  } catch (exception) {
+    this.resetLoadingState(action);  // Reset loading state for this action
+    this.handleUnexpectedError(exception);
   }
-  
-  // Optional: Separate error handling functions
-  handleError(err: any) {
-    // You can implement custom error handling logic here, e.g., displaying user-friendly error messages
-    alert('An error occurred while sending the notification. Please try again later.');
+}
+
+handleSuccess(response: any, action: string) {
+  let typeR = "error";
+  if (response) {
+    typeR = "success";
+    this.message = response;
   }
-  
+
+  ToastNotification.open({
+    type: typeR,
+    message: this.message
+  });
+
+  this.resetLoadingState(action);  // Reset loading after success
+}
+
+handleError(err: any, action: string) {
+  console.error('Error sending notification:', err);
+
+  this.message = 'An error occurred while sending the request. Please try again.';
+  ToastNotification.open({
+    type: 'error',
+    message: this.message
+  });
+
+  this.resetLoadingState(action);  // Reset loading after error
+}
+
+resetLoadingState(action: string) {
+  if (action === 'Motivation') {
+    this.isLoadingMotivation = false;
+  } else if (action === 'About') {
+    this.isLoadingAbout = false;
+  }  else if (action === 'Profil') {
+    this.isLoadingProfil = false;
+  } else if (action === 'Cv') {
+    this.isLoadingCv = false;
+  } else if (action === 'Education') {
+    this.isLoadingEducation = false;
+  } else if (action === 'Skills Passport') {
+    this.isLoadingPassport = false;
+  }else if (action === 'Work & Experience') {
+    this.isLoadingWork = false;
+  }
+}
+
   handleUnexpectedError(exception: any) {
     // Handle unexpected exceptions separately, if necessary
     alert('An unexpected error occurred. Please contact support.');
@@ -188,14 +252,13 @@ export class CandidatProfilDashboardComponent implements OnInit {
     Upon reviewing your application, we noticed that some required information is missing. To proceed with your application, could you please provide the following details:
     <strong>${action}</strong>.<br>
 
-    Kindly submit the above information at your earliest convenience, preferably within ${job.expired_at}.<br>
+    Kindly submit the above information at your earliest convenience.<br>
     If you have any questions or need further clarification, please don't hesitate to reach out.<br>
     We look forward to receiving the complete details and continuing with your application process.<br>
 
     Thank you for your attention to this matter.<br>
-    Best regards,<br>
     `,
-    trigger:"Livelearn",
+    trigger:"LIGGEEY",
     receiver_id:idUser2,
   }
   return notif; 
@@ -245,10 +308,10 @@ export class CandidatProfilDashboardComponent implements OnInit {
               }
             },
           // Gestion des erreurs
-          (error) => {            
+          (error) => {                        
             ToastNotification.open({
               type: 'error',
-              message: error.error
+              message: error.error.errors
             }); 
             this.isLoading=false
           }

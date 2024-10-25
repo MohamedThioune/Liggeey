@@ -26,7 +26,9 @@ export class ListCandidatesComponent implements OnInit {
   constructor(private homeService:HomePageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.homeService.getInfoHomepage().subscribe((data:any)=>{
+    this.homeService.getCandidates().subscribe((data:any)=>{
+      console.log(data);
+      
       this.candidates=data.candidates
     })
     
@@ -40,12 +42,12 @@ export class ListCandidatesComponent implements OnInit {
         window.location.reload();
       });
   }
-  get filteredJobs() {
+  get filteredCandidate() {
     if (this.searchCountry.trim() !== '' || this.searchName.trim() !== '' || this.searchCategori.trim() !== '') {
-      return this.candidates.filter((job: any) => {
-        const locationMatch = this.searchCountry.trim() === '' || job.country.toLowerCase().includes(this.searchCountry.toLowerCase());
-        const nameMatch = this.searchName.trim() === '' || job.first_name.toLowerCase().includes(this.searchName.toLowerCase());
-        const categoriMatch = this.searchCategori.trim() === '' || job.skills.some((skill: any) => skill.name.toLowerCase().includes(this.searchCategori.toLowerCase()));
+      return this.candidates.filter((candidat: any) => {
+        const locationMatch = this.searchCountry.trim() === '' || candidat.country.toLowerCase().includes(this.searchCountry.toLowerCase());
+        const nameMatch = this.searchName.trim() === '' || candidat.first_name.toLowerCase().includes(this.searchName.toLowerCase());
+        const categoriMatch = this.searchCategori.trim() === '' || candidat.skills.some((skill: any) => skill.name.toLowerCase().includes(this.searchCategori.toLowerCase()));
         return locationMatch && nameMatch && categoriMatch;
       });
     } else {

@@ -17,10 +17,22 @@
                         <label for="username">Email  </label>
                         <input class = "input" name="username" [(ngModel)]="username" id="username" type="text" placeholder="Enter your username " aria-label="default input example" id="cnx_user" required>
                     </div>
+                    <!--
                     <div class="my_container_input_2">
                         <label>Password</label>
                         <input class = "input" name="password" [(ngModel)]="password" type="password" placeholder="********" aria-label="default input example" id="cnx_pass" required>
                     </div>
+                    -->
+                    <div class="my_container_input_2">
+                        <label>Password</label>
+                        <div class="password-container">
+                          <input class="input" name="password" [(ngModel)]="password" [type]="passwordFieldType" placeholder="********" aria-label="default input example" id="cnx_pass" required>
+                          <span class="toggle-password" (click)="togglePasswordVisibility()">
+                            <i [ngClass]="passwordFieldType === 'password' ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                          </span>
+                        </div>
+                      </div>
+                      
                     <div class="remember">
                         <div class="remember_me">
                             <input class="checkbox" type="checkbox">

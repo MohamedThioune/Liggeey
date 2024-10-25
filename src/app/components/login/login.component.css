@@ -140,7 +140,28 @@ label  p {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+.password-container {
+    position: relative;
+  }
+  
+  .input {
+    width: 100%;
+    padding-right: 40px; /* Adjust padding for eye icon */
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 35%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .toggle-password i {
+    font-size: 25px;
+    color: #000; /* Adjust the color as needed */
+  }
+  
 @media all and (min-width: 300px) and (max-width: 767px){
     .container_form{
         width:100%;

@@ -43,7 +43,7 @@ export class ResetPasswordComponent implements OnInit {
       error =>{
         ToastNotification.open({
           type: 'error',
-          message: error.error 
+          message: error.error.message 
         });
        
       });
@@ -71,6 +71,8 @@ export class ResetPasswordComponent implements OnInit {
       }
     },
     error =>{
+      console.log(error);
+      
       ToastNotification.open({
         type: 'error',
         message:"error"
