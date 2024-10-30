@@ -108,9 +108,10 @@
               </div>
           </div>
         </div>
-        <div class="pagination" *ngIf="filteredCandidate > 9">
+        <div class="pagination" *ngIf="filteredCandidate.length > 9">
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
+        
     </div>
     </div>
 </section>

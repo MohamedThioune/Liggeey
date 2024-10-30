@@ -17,6 +17,7 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
   loading:boolean=true;
   userConnect:any;
   applicants:any;
+  applicant:any
   searchTitle:string="";
   searchLocation:string="";
   message: any = {
@@ -24,7 +25,7 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
     message: ''
   };
   identifiant:number | null = 0;
-
+  isLoading: { [key: string]: boolean } = {}; // Key-value to track loading per candidate ID
   constructor(private route : ActivatedRoute,private usagerService:UsagerService,private homeService:HomePageService, private router: Router) { }
 
   ngOnInit(): void {
@@ -44,8 +45,14 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
       this.loading=false;
       this.applicants=data       
      })
+     this.loadCandidates();
   }
-  
+  loadCandidates() {
+    this.homeService.getCandidatCompagny(this.userConnect.id).subscribe((data: any) => {
+      this.loading = false;
+      this.applicants = data;
+    });
+  }
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
     this.showButton = false;
@@ -62,44 +69,42 @@ export class CompagnyFavoriteCandidatComponent implements OnInit {
         window.location.reload();
       });
   }
-  trashFavoritesCandidat(idCandidate:string) {
+  
+  // Function to delete candidate and refresh the list
+  trashFavoritesCandidat(idCandidate: string) {
     if (confirm('Do you want to remove this candidate from your favorites?')) {
-    //return
-    
-    // Assurez-vous que this.userConnect et this.job sont définis
-    if (this.identifiant && idCandidate) {
-      // Utilisez le service pour postuler à l'emploi
-      this.homeService.trashFavoritesCandidat(this.identifiant, idCandidate)
-        .subscribe(
-          // Succès de la requête
-          (response) => {
-            let typeR = "error"
-            if (<any>response ) {              
-              typeR = "success";
-              this.message= "This Candidate is deleted to favorites."
+      this.isLoading[idCandidate] = true; // Start loader for this candidate
+      if (this.userConnect && this.userConnect.id && idCandidate) {
+        this.homeService.trashFavoritesCandidat(this.userConnect.id, idCandidate)
+          .subscribe(
+            (response) => {
+              ToastNotification.open({
+                type: response ? "success" : "error",
+                message: response
+              });
+  
+              // Refresh the candidate list after deletion
+              this.loadCandidates();
+              this.isLoading[idCandidate] = false; // Stop loader
+            },
+            (error) => {
+              ToastNotification.open({
+                type: 'error',
+                message: error.error.message
+              });
+              this.isLoading[idCandidate] = false; // Stop loader
             }
-            ToastNotification.open({
-              type: typeR,
-              message: this.message
-            });
-     
-          },
-          // Gestion des erreurs
-          (error) => {
-            ToastNotification.open({
-              type: 'error',
-              message: error.error.message
-            });
-            
-          }
-        );
-    }} else {
+          );
+      }
+    } else {
       ToastNotification.open({
         type: 'error',
-        message: "delete cancelled"
-      });      
+        message: "Deletion canceled"
+      });
     }
   }
+  
+  
   get filteredJobs() {
     if (this.searchTitle.trim() !== '' ) {
       return this.applicants.filter((job:any) => {

@@ -146,9 +146,9 @@
               </div>
             </ul>
           -->
-            <div class="text-center" *ngIf=" applicants.length== 0 ">
+            <div class="text-center" *ngIf=" filteredJobs.length== 0 ">
               <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" >
-              <p>No content avalable at the moment</p>
+              <p>No content available at the moment</p>
             </div>
             <table class="table" *ngIf="filteredJobs.length >0" style="margin: 4px auto; width: 98%;">
               <thead class="thead table_head">
@@ -213,10 +213,17 @@
                 </td>
                 -->
                 <td>
-                  <button style="padding:8px;" (click)="trashFavoritesCandidat(favorite.ID)">
-                    <img src="../../../assets/img/Icon_awesome-trash-alt.png" alt="">
+                  <button style="padding:8px;" (click)="trashFavoritesCandidat(favorite.ID)" [disabled]="isLoading[favorite.ID]">
+                    <ng-container *ngIf="!isLoading[favorite.ID]; else loading">
+                      <img src="../../../assets/img/Icon_awesome-trash-alt.png" alt="">
+                    </ng-container>
+                    <ng-template class="d-flex" #loading>
+                      <img src="../../../assets/img/Icon_awesome-trash-alt.png" alt="Loading" style="width: 20px; height: 20px;">
+                      <p>Loading...</p>
+                    </ng-template>
                   </button>
                 </td>
+                
               </tr>
               </tbody>
             </table>

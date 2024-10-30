@@ -101,17 +101,19 @@ export class ManageJobCompagnyComponent implements OnInit {
   },
   // Gestion des erreurs
   (error) => {
+    console.log(error);
+    
     ToastNotification.open({
-      type: 'delete failed',
+      type: 'deletion failed',
       message: error.error.message
     });
   }
 );
 } else {
-ToastNotification.open({
-type: 'delete failed',
-message: this.message.message
-});
+      ToastNotification.open({
+      type: 'error',
+      message: 'deletion canceled'
+      });
     }
   }
 
