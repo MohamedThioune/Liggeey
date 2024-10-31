@@ -19,7 +19,6 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   searchTitle:String="";
   slug:any;
   numberCandidat:any
-  isLoading=false;
   notification:any;
   candidat:any
   applyJobs:boolean=false
@@ -31,6 +30,8 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   isBookmarked: boolean = false;
   favourite: boolean = false
   profil:any
+  isLoad: { [key: string]: boolean } = {}; // Key-value to track loading per candidate ID
+
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService,private router: Router) { }
 
   ngOnInit(): void {
@@ -48,118 +49,64 @@ export class AppicantsAllCompagnyComponent implements OnInit {
      this. userConnect = JSON.parse(decodedToken);
    }
     this.homeService.getDetailJob(this.slug).subscribe((data:any)=>{
-      this.applicant = data                
+      this.applicant = data         
+      console.log(this.applicant);
+             
       this.numberCandidat =  this.applicant.applied.length      
       this.loading=false;            
      })
-
-  //   this.homeService.profilJob(this.userConnect.id).pipe(
-  //     switchMap((profilData: any) => {
-  //       this.profil = profilData;
+    this.homeService.profilJob(this.userConnect.id).pipe(
+      switchMap((profilData: any) => {
+        this.profil = profilData;
     
-  //       // Fetch job details after getting the profile
-  //       return this.homeService.getDetailJob(this.slug);
-  //     })
-  //   ).subscribe((jobDetailData: any) => {
-  //     this.applicant = jobDetailData;   
-       
-  //     // Iterate over `this.applicant.applied` and check if any are in `this.profil.favorites`
-  //     const favoritesIds = this.profil.favorites.map((fav: any) => fav.ID);
+        // Fetch job details after getting the profile
+        return this.homeService.getDetailJob(this.slug);
+      })
+    ).subscribe((jobDetailData: any) => {
+      this.applicant = jobDetailData;   
       
-  //     const matchingApplicants = this.applicant.applied.filter((applicant: any) => 
-  //       favoritesIds.includes(applicant.ID)
-  //     );
-  //     console.log(matchingApplicants)
-
-  //     if (matchingApplicants.length > 0) {
-  //       this.favourite = true;
-  //       console.log('Matching applicants:', matchingApplicants);
-  //     } else {
-  //       this.favourite = false;
-  //     }
+      // Get the list of favorite applicant IDs
+      const favoritesIds = this.profil.favorites.map((fav: any) => fav.ID);
     
-  //     this.loading = false;
-  //   }, (error) => {
-  //     console.error('Error:', error);
-  //     this.loading = false;
-  //   });
+      // Iterate over `applicant.applied` and check if they are in the favorites
+      this.applicant.applied = this.applicant.applied.map((applicant: any) => {
+        return {
+          ...applicant,
+          favourite: favoritesIds.includes(applicant.ID)
+        };
+      });
     
-  // }
-  // this.homeService.profilJob(this.userConnect.id).pipe(
-  //   switchMap((profilData: any) => {
-  //     this.profil = profilData;
-      
-  //     // Fetch job details after getting the profile
-  //     return this.homeService.getDetailJob(this.slug);
-  //   })
-  // ).subscribe((jobDetailData: any) => {
-  //   this.applicant = jobDetailData;   
+      // Iterate over `applicant.rejected` and check if they are in the favorites
+      this.applicant.rejected = this.applicant.rejected.map((applicant: any) => {
+        return {
+          ...applicant,
+          favourite: favoritesIds.includes(applicant.ID)
+        };
+      });
     
-  //   // Get the list of favorite applicant IDs
-  //   const favoritesIds = this.profil.favorites.map((fav: any) => fav.ID);
+      // Iterate over `applicant.approved` and check if they are in the favorites
+      this.applicant.approved = this.applicant.approved.map((applicant: any) => {
+        return {
+          ...applicant,
+          favourite: favoritesIds.includes(applicant.ID)
+        };
+      });
     
-  //   // Iterate over `this.applicant.applied` and check if they are in the favorites
-  //   this.applicant.applied = this.applicant.applied.map((applicant: any) => {
-      
-  //     // Add a 'favourite' property to each applicant based on the ID check
-  //     return {
-  //       ...applicant,
-  //       favourite: favoritesIds.includes(applicant.ID)
-  //     };
-  //   });
-  
-  //   console.log('Applicants with favourite flag:', this.applicant.applied);
-  
-  //   this.loading = false;
-  // }, (error) => {
-  //   console.error('Error:', error.error.errors);
-  //   this.loading = false;
-  // });
-  
-  // }
-  this.homeService.profilJob(this.userConnect.id).pipe(
-    switchMap((profilData: any) => {
-      this.profil = profilData;
-  
-      // Fetch job details after getting the profile
-      return this.homeService.getDetailJob(this.slug);
-    })
-  ).subscribe((jobDetailData: any) => {
-    this.applicant = jobDetailData;   
-    
-    // Get the list of favorite applicant IDs
-    const favoritesIds = this.profil.favorites.map((fav: any) => fav.ID);
-  
-    // Iterate over `applicant.applied` and check if they are in the favorites
-    this.applicant.applied = this.applicant.applied.map((applicant: any) => {
-      return {
-        ...applicant,
-        favourite: favoritesIds.includes(applicant.ID)
-      };
+      this.loading = false;
+    }, (error) => {
+      console.error('Error:', error.error.errors);
+      this.loading = false;
     });
-  
-    // Iterate over `applicant.rejected` and check if they are in the favorites
-    this.applicant.rejected = this.applicant.rejected.map((applicant: any) => {
-      return {
-        ...applicant,
-        favourite: favoritesIds.includes(applicant.ID)
-      };
-    });
-  
-    // Iterate over `applicant.approved` and check if they are in the favorites
-    this.applicant.approved = this.applicant.approved.map((applicant: any) => {
-      return {
-        ...applicant,
-        favourite: favoritesIds.includes(applicant.ID)
-      };
-    });
-  
-    this.loading = false;
-  }, (error) => {
-    console.error('Error:', error.error.errors);
-    this.loading = false;
-  });
   }  
+  loadCandidates() {
+    this.homeService.getDetailJob(this.slug).subscribe((data:any)=>{
+      this.applicant = data         
+      console.log(this.applicant);
+             
+      this.numberCandidat =  this.applicant.applied.length      
+      this.loading=false;            
+     })
+  }
   send_id(id: any, jobId: string) {
     this.homeService.setCandidatId(id);
     localStorage.setItem('candidatId', id); // Store the ID in localStorage
@@ -168,72 +115,12 @@ export class AppicantsAllCompagnyComponent implements OnInit {
         window.location.reload();
       });
   }
-  // favoritesCandidat(candidat:any) {
-  //   this.isLoading=true
-  //   if (candidat.favourite) {
-  //     alert('This candidate is already in your favorites!');
-  //     this.isLoading=false
-  //     return; // Stop execution if the job is already a favorite
-  //   }
-    
-  //   // Assurez-vous que this.userConnect et this.job sont définis
-  //   if (this.userConnect && candidat) {
-  //     // Utilisez le service pour ajouter l'emploi aux favoris
-  //     this.homeService.favoritesCandidat(this.userConnect.id,candidat.ID)
-  //       .subscribe(
-  //         // Succès de la requête
-  //           (response) => {
-  //             this.applyJobs=true ;
-  //             let typeR = "error"
-  //             if (<any>response ) {
-  //               console.log(response);
-                
-  //               typeR = "success";
-  //               this.message= response;
-  //             }
-  //             ToastNotification.open({
-  //               type: typeR,
-  //               message: this.message
-  //             })
-  //             ;
-  //             this.isLoading=false
-
-  //             // this.router.navigate(['/applicant-compagny'])
-  //             // .then(() => {
-  //             //   window.location.reload();
-  //             // });
-  //             // if (typeR == "success") {
-  //             //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
-  //             // }
-  //           },
-  //         // Gestion des erreurs
-  //         (error) => {
-  //           ToastNotification.open({
-  //             type: 'error',
-  //             message: error.error.message
-  //           });
-  //           this.isLoading=false
-  //         }
-          
-  //       );
-  //   } else {
-  //     ToastNotification.open({
-  //       type: 'error',
-  //       message: "please log in first"
-  //     });
-  //     this.isLoading=false
-
-  //     this.router.navigate(['/login']);
-
-  //   }
-  // }
   favoritesCandidat(candidat: any) {
-    this.isLoading = true;
-  
+    this.isLoad[candidat.ID] = true; // Start loader for this candidate
     // If the candidate is already a favorite, show an alert and stop execution
     if (candidat.favourite) {
       alert('This candidate is already in your favorites!');
-      this.isLoading = false;
+      this.isLoad[candidat.ID] = false; // Start loader for this candidate
       return;
     }
   
@@ -259,24 +146,25 @@ export class AppicantsAllCompagnyComponent implements OnInit {
               type: typeR,
               message: this.message
             });
-  
-            this.isLoading = false;
+            this.isLoad[candidat.ID] = false; // Start loader for this candidate
+
           },
           (error) => {
+            console.log(error);
+            
             ToastNotification.open({
               type: 'error',
-              message: error.error.errors
+              message: error.error
             });
-            this.isLoading = false;
+            this.isLoad[candidat.ID] = false; // Start loader for this candidate
+
           }
         );
     } else {
       ToastNotification.open({
         type: 'error',
         message: "please log in first"
-      });
-      this.isLoading = false;
-  
+      });  
       this.router.navigate(['/login']);
     }
   }
@@ -319,8 +207,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   
     if (this.searchTitle.trim() !== '') {
       return applicant.filter((applicant: any) => {
-        const titleMatch = applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
-        return titleMatch;
+        return applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
       });
     } else {
       return applicant; // Return the full list if no searchTitle is provided
@@ -328,14 +215,14 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   }
   
   rejectCandidatByCompany(candidat:any){
-    this.isLoading=true
+    this.isLoad[candidat.ID] = true; // Start loader for this candidate
+
     this.notification ={
       userApplyId:this.userConnect.id,
       title:"Response to your job application",
       content:"Your job application has been rejected",
       receiver_id:candidat.ID
     }
-    console.log(candidat,this.applicant.ID);
     
     if (candidat && this.applicant.ID ) {
       // Utilisez le service pour ajouter l'emploi aux favoris
@@ -350,7 +237,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
                 this.message= "User application rejected with success !."
               //  return
                 
-              this.homeService.sendNotification(candidat.ID,this.rejNotificationCand(candidat.ID,this.userConnect.id,this.applicant.ID)).subscribe();
+              this.homeService.sendNotification(candidat.ID,this.rejNotificationCand(candidat.ID,this.userConnect.id,this.applicant)).subscribe();
               this.homeService.sendNotification(this.userConnect.id,this.rejNotificationComp(this.userConnect.id,this.applicant,candidat)).subscribe();
               }          
               ToastNotification.open({
@@ -358,12 +245,9 @@ export class AppicantsAllCompagnyComponent implements OnInit {
                 message: this.message
 
               });
-              
-              this.isLoading=false
-              this.router.navigate(['/applicant-compagny',this.applicant.ID])
-              .then(() => {
-                window.location.reload();
-              });
+              this.isLoad[candidat.ID] = false; // Start loader for this candidate
+              this.loadCandidates();
+        
               if (typeR == "success") {
                 this.router.navigate(['/applicant-compagny',this.applicant.ID]);
                 
@@ -378,7 +262,8 @@ export class AppicantsAllCompagnyComponent implements OnInit {
               type: 'error',
               message: error.error.errors
             }); 
-            this.isLoading=false
+            this.isLoad[candidat.ID] = false; // Start loader for this candidate
+
           }
         );
     } else {      
@@ -386,7 +271,6 @@ export class AppicantsAllCompagnyComponent implements OnInit {
         type: 'error',
         message: this.message.message
       });  
-      this.isLoading=false      
     }
   }
   rejNotificationCand(idUser:number,idUser2:number,job:any):any{

@@ -26,6 +26,7 @@ export class CompagnyApplicantComponent implements OnInit {
   };
   applyJobs=false
   isBookmarked: boolean = false;
+  isLoad: { [key: string]: boolean } = {}; // Key-value to track loading per candidate ID
 
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService, private router: Router) {
 
@@ -47,7 +48,7 @@ export class CompagnyApplicantComponent implements OnInit {
     this. userConnect = JSON.parse(decodedToken);
   }
    this.homeService.getApplicantUser(this.userConnect.id).subscribe((data:any)=>{
-     this.applicant = data       
+     this.applicant = data            
      this.loading=false;          
     })    
  }
@@ -88,7 +89,7 @@ export class CompagnyApplicantComponent implements OnInit {
      return this.applicant; // Retournez le tableau complet d'applicants
    }
  }
- favoritesCandidat(candidat:any) {
+ favoritesCandidate(candidat:any) {
   // Assurez-vous que this.userConnect et this.job sont définis
   if (this.userConnect && candidat) {
     // Utilisez le service pour ajouter l'emploi aux favoris
@@ -129,7 +130,57 @@ export class CompagnyApplicantComponent implements OnInit {
 
   }
 }
+favoritesCandidat(candidat: any) {
+  this.isLoad[candidat.ID] = true; // Start loader for this candidate
+  // If the candidate is already a favorite, show an alert and stop execution
+  if (candidat.favourite) {
+    alert('This candidate is already in your favorites!');
+    this.isLoad[candidat.ID] = false; // Start loader for this candidate
+    return;
+  }
 
+  // Ensure user and candidat are defined
+  if (this.userConnect && candidat) {
+    this.homeService.favoritesCandidat(this.userConnect.id, candidat.ID)
+      .subscribe(
+        (response) => {
+          this.applyJobs = true;
+          let typeR = "error";
+          
+          if (response) {
+            console.log(response);
+            typeR = "success";
+            this.message = response;
+
+            // Update the candidate's favorite status locally
+            candidat.favourite = true;  // This will change the icon color
+          }
+
+          // Show a toast notification
+          ToastNotification.open({
+            type: typeR,
+            message: this.message
+          });
+          this.isLoad[candidat.ID] = false; // Start loader for this candidate
+
+        },
+        (error) => {
+          ToastNotification.open({
+            type: 'error',
+            message: error.error.errors
+          });
+          this.isLoad[candidat.ID] = false; // Start loader for this candidate
+
+        }
+      );
+  } else {
+    ToastNotification.open({
+      type: 'error',
+      message: "please log in first"
+    });  
+    this.router.navigate(['/login']);
+  }
+}
 
 
 }

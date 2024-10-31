@@ -10,10 +10,10 @@
       <div class="d-flex justify-content-between align-items-center">
         <h1 class="py-4">All applications</h1>
         <div class="d-flex vacancy justify-content-between align-items-center mr-4">
-          <a class="btn btn-view-vacancy mr-4">
+          <a class="btn btn-view-vacancy mr-4" routerLink="/job">
             See vacancy
           </a>
-          <a class="btn btn-view-vacancy">
+          <a class="btn btn-view-vacancy" routerLink="/post-compagny">
             Add a vacancy
           </a>
         </div>
@@ -169,20 +169,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let job of filteredApplicant | paginate: { itemsPerPage: 8, currentPage: p }">
+            <tr *ngFor="let job of filteredApplicant | paginate: { itemsPerPage: 6, currentPage: p }">
               <th scope="row">
                 <img [src]="job.image" alt="Logo">
               </th>
-              <td>
+              <td class="name-cv">
                 <a>
                   <div> {{ job.first_name}} </div>
 
                 </a>
               </td>
               <td>{{job.last_name}}</td>
-              <td>{{job.date_born ? job.date_born : "No available"}}</td>
-              <td>{{ job.education_level?.length > 0 ? job.education_level : "No available" }}</td>
-              <td>{{job.city ? job.city : "No available"}}</td>
+              <td class="name-cv">{{job.date_born ? job.date_born : "No available"}}</td>
+              <td class="name-cv">{{ job.education_level?.length > 0 ? job.education_level : "No available" }}</td>
+              <td class="name-cv">{{job.city ? job.city : "No available"}}</td>
               <td>{{job.country ? job.country : "No available"}}</td>
              <td class="name-cv">{{job.job.post_title}}</td>
              
@@ -214,18 +214,22 @@
         
               </td>
               -->
-              <td>
-                <button style="background-color: transparent;"(click)="favoritesCandidat(job)">
-                  <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
-                </button>
+              <td class="text-center">
+                <i class="fa fa-heart" (click)="favoritesCandidat(job)"  [disabled]="isLoad[job.ID]"
+                [ngClass]="{'image-favorite-bg': job.favourite, 'heart-icon': true}">
+                <ng-container *ngIf="!isLoad[job.ID]; else loading">
+                </ng-container>
+                <ng-template class="d-flex" #loading>
+                  <p>Loading...</p>
+                </ng-template>
+              </i>
               </td>
             </tr>
             </tbody>
           </table>
-          <div class="pagination mt-4" *ngIf="filteredApplicant.length > 8">
+          <div class="pagination mt-4" *ngIf="filteredApplicant.length > 6">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
-
         </div>
       </div>
     </div>

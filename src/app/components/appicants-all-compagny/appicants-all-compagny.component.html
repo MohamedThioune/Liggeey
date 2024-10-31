@@ -10,10 +10,10 @@
       <div class="d-flex justify-content-between align-items-center">
         <h1 class="py-4">Applications for {{applicant?.title}} ({{numberCandidat}}) </h1>
         <div class="d-flex vancancy justify-content-between align-items-center mr-4">
-          <a class="btn btn-view-vacancy mr-4">
+          <a class="btn btn-view-vacancy mr-4" routerLink="/job">
             See vacancy
           </a>
-          <a class="btn btn-view-vacancy">
+          <a class="btn btn-view-vacancy" routerLink="/post-compagny">
             Add a vacancy
           </a>
         </div>
@@ -77,7 +77,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let job of getFilteredApplicants('applied') | paginate: { itemsPerPage: 8, currentPage: p }">
+            <tr *ngFor="let job of getFilteredApplicants('applied') ">
               <th scope="row">
                 <img [src]="job.image" alt="Logo">
               </th>
@@ -98,22 +98,36 @@
                 </button>
               </td>
               <td class="text-center">
-                <button class="logo" (click)="rejectCandidatByCompany(job)">
+                <button class="logo" (click)="rejectCandidatByCompany(job)" [disabled]="isLoad[job.ID]">
                   <img src="../../../assets/img/Icon_metro-cross.png" alt="">
+                  <ng-container *ngIf="!isLoad[job.ID]; else loading">
+                    <img src="../../../assets/img/Icon_awesome-trash-alt.png" alt="">
+                  </ng-container>
+                  <ng-template class="d-flex" #loading>
+                    <img src="../../../assets/img/Icon_metro-cross.png" alt="Loading" style="width: 20px; height: 20px;">
+                    <p>Loading...</p>
+                  </ng-template>
                 </button>
         
               </td>
               <td class="text-center">
-                <i class="fa fa-heart" (click)="favoritesCandidat(job)"
+                <i class="fa fa-heart" (click)="favoritesCandidat(job)"  [disabled]="isLoad[job.ID]"
                   [ngClass]="{'image-favorite-bg': job.favourite, 'heart-icon': true}">
+                  <ng-container *ngIf="!isLoad[job.ID]; else loading">
+                  </ng-container>
+                  <ng-template class="d-flex" #loading>
+                    <p>Loading...</p>
+                  </ng-template>
                 </i>
               </td>
             </tr>
             </tbody>
           </table>
-          <div class="pagination mt-4" *ngIf="getFilteredApplicants('applied').length > 8">
+          <!--
+          <div class="pagination mt-4" *ngIf="getFilteredApplicants('applied').length > 6">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
+          -->
           <div class=" empty text-center" *ngIf="getFilteredApplicants('applied').length == 0">
             <img class="mb-4" src="../../../assets/img/empty-to-do-table.png" alt="image team" >
             <p>No matching data</p>          
@@ -275,14 +289,14 @@
                 </button>
               </td>
               <td class="text-center">
-                <!--
-                <button (click)="favoritesCandidat(job)" style="background-color: transparent;">
-                  <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
-                </button>
-                -->
-                <i class="fa fa-heart" (click)="favoritesCandidat(job)"
-                  [ngClass]="{'image-favorite-bg': job.favourite, 'heart-icon': true}">
-                </i>
+                <i class="fa fa-heart" (click)="favoritesCandidat(job)"  [disabled]="isLoad[job.ID]"
+                [ngClass]="{'image-favorite-bg': job.favourite, 'heart-icon': true}">
+                <ng-container *ngIf="!isLoad[job.ID]; else loading">
+                </ng-container>
+                <ng-template class="d-flex" #loading>
+                  <p>Loading...</p>
+                </ng-template>
+              </i>
               </td>
             </tr>
             </tbody>
@@ -392,13 +406,13 @@
                 </button>
               </td>
               <td class="text-center">
-                <!--
-                <button (click)="favoritesCandidat(job)" style="background-color: transparent;">
-                  <img src="../../../assets/img/Icon_material-favorite-border.png" alt="">
-                </button>
-                -->
-                <i class="fa fa-heart" (click)="favoritesCandidat(job)"
+                <i class="fa fa-heart" (click)="favoritesCandidat(job)"  [disabled]="isLoad[job.ID]"
                   [ngClass]="{'image-favorite-bg': job.favourite, 'heart-icon': true}">
+                  <ng-container *ngIf="!isLoad[job.ID]; else loading">
+                  </ng-container>
+                  <ng-template class="d-flex" #loading>
+                    <p>Loading...</p>
+                  </ng-template>
                 </i>
               </td>
             </tr>
