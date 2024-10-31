@@ -118,28 +118,28 @@ export class CandidatProfilDashboardComponent implements OnInit {
         });
     });
   
-    // this.HomePageService.getDetailCandidate( this.id).subscribe(data=>{
-    //   this.candidat=data  
+    this.HomePageService.getDetailCandidate( this.id).subscribe(data=>{
+      this.candidat=data  
             
-    //   this.urlCv=this.extractFileName( this.candidat.cv)        
-    //   this.nameCv =this.candidat.cv 
-    //   //this.candidat.skills = this.candidat.skills || [];
-    //    this.skills=this.candidat.skills
+      this.urlCv=this.extractFileName( this.candidat.cv)        
+      this.nameCv =this.candidat.cv 
+      //this.candidat.skills = this.candidat.skills || [];
+       this.skills=this.candidat.skills
        
        
-    //  if (this.candidat && this.candidat.ID) {
-    //    this.HomePageService.getSubtopic(this.candidat.ID).subscribe(
-    //      (data: any) => {
-    //        this.candidat.skills = data || [];                     
-    //      },
-    //      (error) => {
-    //        console.error('Error fetching subtopics', error);
-    //      }
-    //    );
-    //  } else {
-    //    console.error('User not logged in');
-    //  }
-    // })    
+     if (this.candidat && this.candidat.ID) {
+       this.HomePageService.getSubtopic(this.candidat.ID).subscribe(
+         (data: any) => {
+           this.candidat.skills = data || [];                     
+         },
+         (error) => {
+           console.error('Error fetching subtopics', error);
+         }
+       );
+     } else {
+       console.error('User not logged in');
+     }
+    })    
     this.HomePageService.profilJob(this.userConnect.id).subscribe((data:any)=>{
       this.profil = data;     
       const candidateIdToCheck =parseInt( this.id );
@@ -244,7 +244,7 @@ resetLoadingState(action: string) {
  notificationCand(idUser:number,idUser2:number,action:any,job:any):any{
   const notif={
     userApplyId:idUser,
-    title:action,
+    title: `${job.company.title}` + " needs your action !",
     content: `
     I hope this message finds you well.<br> 
     Thank you for your recent application for ${job.title} with ${job.company.title} . We appreciate your interest in joining our team.<br>
@@ -258,7 +258,7 @@ resetLoadingState(action: string) {
 
     Thank you for your attention to this matter.<br>
     `,
-    trigger:"LIGGEEY",
+    trigger:action + " is missing ! " ,
     receiver_id:idUser2,
   }
   return notif; 
