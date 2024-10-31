@@ -26,10 +26,10 @@ export class ListCandidatesComponent implements OnInit {
   constructor(private homeService:HomePageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.homeService.getCandidates().subscribe((data:any)=>{
-      console.log(data);
-      
-      this.candidates=data.candidates
+    this.homeService.getCandidates().subscribe((data:any)=>{      
+      this.candidates = data.candidates
+      console.log(this.candidates);
+
     })
     
   }

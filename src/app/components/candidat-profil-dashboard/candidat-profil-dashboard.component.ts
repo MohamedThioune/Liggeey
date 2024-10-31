@@ -157,39 +157,39 @@ export class CandidatProfilDashboardComponent implements OnInit {
     this.location.back();
   }
 
-action(action: string) {
-  if (action === 'Motivation') {
-    this.isLoadingMotivation = true;
-  } else if (action === 'About') {
-    this.isLoadingAbout = true;
-  }
-  else if (action === 'Profil') {
-    this.isLoadingProfil = true;
-  } else if (action === 'Cv') {
-    this.isLoadingCv = true;
-  } else if (action === 'Education') {
-    this.isLoadingEducation = true;
-  } else if (action === 'Skills Passport') {
-    this.isLoadingPassport = true;
-  }else if (action === 'Work & Experience') {
-    this.isLoadingWork = true;
-  }
-  
+  action(action: string) {
+    if (action === 'Motivation') {
+      this.isLoadingMotivation = true;
+    } else if (action === 'About') {
+      this.isLoadingAbout = true;
+    }
+    else if (action === 'Profil') {
+      this.isLoadingProfil = true;
+    } else if (action === 'Cv') {
+      this.isLoadingCv = true;
+    } else if (action === 'Education') {
+      this.isLoadingEducation = true;
+    } else if (action === 'Skills Passport') {
+      this.isLoadingPassport = true;
+    }else if (action === 'Work & Experience') {
+      this.isLoadingWork = true;
+    }
+    
 
-  try {
-    this.HomePageService.sendNotificationAction(
-      this.candidat.ID,
-      this.notificationCand(this.candidat.ID, this.userConnect.id, action, this.job)
-    ).subscribe({
-      next: (response) => this.handleSuccess(response, action),
-      error: (err) => this.handleError(err, action),
-      complete: () => this.resetLoadingState(action)
-    });
-  } catch (exception) {
-    this.resetLoadingState(action);  // Reset loading state for this action
-    this.handleUnexpectedError(exception);
+    try {
+      this.HomePageService.sendNotificationAction(
+        this.candidat.ID,
+        this.notificationCand(this.candidat.ID, this.userConnect.id, action, this.job)
+      ).subscribe({
+        next: (response) => this.handleSuccess(response, action),
+        error: (err) => this.handleError(err, action),
+        complete: () => this.resetLoadingState(action)
+      });
+    } catch (exception) {
+      this.resetLoadingState(action);  // Reset loading state for this action
+      this.handleUnexpectedError(exception);
+    }
   }
-}
 
 handleSuccess(response: any, action: string) {
   let typeR = "error";
@@ -244,7 +244,7 @@ resetLoadingState(action: string) {
  notificationCand(idUser:number,idUser2:number,action:any,job:any):any{
   const notif={
     userApplyId:idUser,
-    title:action,
+    title: `${job.company.title}` + " needs your action !",
     content: `
     I hope this message finds you well.<br> 
     Thank you for your recent application for ${job.title} with ${job.company.title} . We appreciate your interest in joining our team.<br>
@@ -258,7 +258,7 @@ resetLoadingState(action: string) {
 
     Thank you for your attention to this matter.<br>
     `,
-    trigger:"LIGGEEY",
+    trigger:action + " is missing ! " ,
     receiver_id:idUser2,
   }
   return notif; 
@@ -280,12 +280,16 @@ resetLoadingState(action: string) {
       content:"Your job application has been rejected",
       receiver_id:this.candidat.ID
     }
+    console.log(this.candidat,this.jobId);
+    
     if (this.candidat && this.jobId ) {
       // Utilisez le service pour ajouter l'emploi aux favoris
       this.HomePageService.rejectCandidatByCompany(this.candidat.ID, this.job.ID)
         .subscribe(
           // Succès de la requête
              (response) => {
+              console.log(response);
+              
               this.applyJobs=true ;
               let typeR = "error"
               if (<any>response ) {
@@ -308,7 +312,9 @@ resetLoadingState(action: string) {
               }
             },
           // Gestion des erreurs
-          (error) => {                        
+          (error) => {       
+            console.log(error);
+                             
             ToastNotification.open({
               type: 'error',
               message: error.error.errors
