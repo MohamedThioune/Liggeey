@@ -102,9 +102,12 @@
     align-items: center;
     padding-top: 50px;
  }
-
-
-
+ .name-cv{
+    white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     max-width:100%;
+  } 
 @media all and (min-width: 300px) and (max-width: 767px){
     .items_job{
         margin: 0;
@@ -127,6 +130,11 @@
 .description_job .all_info{
     padding-bottom: 15px;
 }
-
+.name-cv{
+    white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     max-width:47%;
+  } 
 
 }

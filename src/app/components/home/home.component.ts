@@ -61,11 +61,11 @@ export class HomeComponent implements OnInit {
 
       this.candidatsTab.push("../../../assets/img/fadel.jpg","../../../assets/img/khadim.jpg","assets/img/danel.jpg","assets/img/seydou.jpg","../../../assets/img/selle.jpeg",this.candidates[12].image,this.candidates[6].image,this.candidates[7].image)
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      this.article[0].short_description =   this.article[0].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      this.article[0].short_description =   this.article[0].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '').replace(/<(?!br\s*\/?)[^>]+>/g, '') // Remove all tags except <br>;
       this.article[1].post_title =   this.article[1].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      this.article[1].short_description =   this.article[1].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      this.article[2].short_description =   this.article[2].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      this.article[2].post_title =   this.article[2].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      this.article[1].short_description =   this.article[1].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '').replace(/<(?!br\s*\/?)[^>]+>/g, '') // Remove all tags except <br>;
+      this.article[2].short_description =   this.article[2].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')  .replace(/<(?!br\s*\/?)[^>]+>/g, '') // Remove all tags except <br>;
+      this.article[2].post_title =   this.article[2].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')  .replace(/<(?!br\s*\/?)[^>]+>/g, '') // Remove all tags except <br>;
     })
     this.homeService.getCategories().subscribe((data:any)=>{
       this.categoriesTab=data.categories;
