@@ -128,6 +128,12 @@ table tbody tr th svg{
   font-size: 18px;
   font-family: "Roboto-Bold";
 }
+table tbody tr td{
+  vertical-align: middle;
+}
+table tbody tr th{
+  vertical-align: middle  !important;
+}
 table tbody tr td button{
   border: none;
   margin-right: 9px;
@@ -138,6 +144,7 @@ tr th{
   font-size: 18px;
   font-family: "Roboto-Medium";
   font-weight: unset !important;
+  vertical-align: middle !important;
 }
 tr, th, td{
   padding: 23px 10px !important;
