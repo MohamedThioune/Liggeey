@@ -4,6 +4,7 @@ import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { Router } from '@angular/router';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-compagny-applicant',
@@ -27,7 +28,7 @@ export class CompagnyApplicantComponent implements OnInit {
   applyJobs=false
   isBookmarked: boolean = false;
   isLoad: { [key: string]: boolean } = {}; // Key-value to track loading per candidate ID
-
+  profil:any
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private usagerService: UsagerService, private router: Router) {
 
       this.userId = this.usagerService.getUserId();
@@ -36,7 +37,7 @@ export class CompagnyApplicantComponent implements OnInit {
 
   ngOnInit(): void {
     this.identifiant = +this.route.snapshot.params['id'];  
-
+    
     // Récupération du token depuis le local storage
   const storedToken = this.usagerService.getToken();
    
@@ -51,6 +52,32 @@ export class CompagnyApplicantComponent implements OnInit {
      this.applicant = data            
      this.loading=false;          
     })    
+    this.homeService.profilJob(this.userConnect.id).pipe(
+      switchMap((profilData: any) => {
+        this.profil = profilData;
+    
+        // Fetch job details after getting the profile
+        return this.homeService.getApplicantUser(this.userConnect.id);
+      })
+    ).subscribe((jobDetailData: any) => {
+     this.applicant = jobDetailData;   
+      console.log(this.applicant);
+      
+      // Get the list of favorite applicant IDs
+      const favoritesIds = this.profil.favorites.map((fav: any) => fav.ID);
+    
+      // Iterate over `applicant.applied` and check if they are in the favorites
+      this.applicant = this.applicant.map((applicant: any) => {        
+        return {
+          ...applicant,
+          favourite: favoritesIds.includes(applicant.ID)
+        };
+      });
+      this.loading = false;
+    }, (error) => {
+      console.error('Error:', error.error.errors);
+      this.loading = false;
+    });
  }
  send_id(id: any) {
   this.homeService.setCandidatId(id);
@@ -80,13 +107,13 @@ export class CompagnyApplicantComponent implements OnInit {
    }
  }
  get filteredApplicant() {
+  const applicant=this.applicant  
    if (this.searchTitle.trim() !== '') {
-     return this.applicant.filter((applicant: any) => {
-       const titleMatch = applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
-       return titleMatch;
+     return applicant.filter((applicant: any) => {
+      return applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
      });
    } else {
-     return this.applicant; // Retournez le tableau complet d'applicants
+     return applicant; // Retournez le tableau complet d'applicants
    }
  }
  favoritesCandidate(candidat:any) {
@@ -134,7 +161,8 @@ favoritesCandidat(candidat: any) {
   this.isLoad[candidat.ID] = true; // Start loader for this candidate
   // If the candidate is already a favorite, show an alert and stop execution
   if (candidat.favourite) {
-    alert('This candidate is already in your favorites!');
+    //alert('This candidate is already in your favorites!');
+    candidat.favourite = false
     this.isLoad[candidat.ID] = false; // Start loader for this candidate
     return;
   }
