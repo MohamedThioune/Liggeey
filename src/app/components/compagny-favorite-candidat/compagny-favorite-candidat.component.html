@@ -167,7 +167,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let favorite of filteredJobs | paginate: { itemsPerPage: 6, currentPage: p }">
+              <tr *ngFor="let favorite of filteredJobs | paginate: { itemsPerPage: 6, currentPage: p }" style="align-items:center;">
                 <th scope="row">
                   <img [src]="favorite.image" alt="Logo">
                 </th>
