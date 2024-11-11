@@ -49,22 +49,19 @@ export class AppicantsAllCompagnyComponent implements OnInit {
      this. userConnect = JSON.parse(decodedToken);
    }
     this.homeService.getDetailJob(this.slug).subscribe((data:any)=>{
-      this.applicant = data         
-      console.log(this.applicant);
-             
+      this.applicant = data                      
       this.numberCandidat =  this.applicant.applied.length      
       this.loading=false;            
      })
     this.homeService.profilJob(this.userConnect.id).pipe(
       switchMap((profilData: any) => {
         this.profil = profilData;
-    
+        
         // Fetch job details after getting the profile
         return this.homeService.getDetailJob(this.slug);
       })
     ).subscribe((jobDetailData: any) => {
-      this.applicant = jobDetailData;   
-      
+      this.applicant = jobDetailData;         
       // Get the list of favorite applicant IDs
       const favoritesIds = this.profil.favorites.map((fav: any) => fav.ID);
     
@@ -100,9 +97,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
   }  
   loadCandidates() {
     this.homeService.getDetailJob(this.slug).subscribe((data:any)=>{
-      this.applicant = data         
-      console.log(this.applicant);
-             
+      this.applicant = data                      
       this.numberCandidat =  this.applicant.applied.length      
       this.loading=false;            
      })
@@ -119,7 +114,8 @@ export class AppicantsAllCompagnyComponent implements OnInit {
     this.isLoad[candidat.ID] = true; // Start loader for this candidate
     // If the candidate is already a favorite, show an alert and stop execution
     if (candidat.favourite) {
-      alert('This candidate is already in your favorites!');
+      //alert('This candidate is already in your favorites!');
+      candidat.favourite = false
       this.isLoad[candidat.ID] = false; // Start loader for this candidate
       return;
     }
@@ -133,7 +129,6 @@ export class AppicantsAllCompagnyComponent implements OnInit {
             let typeR = "error";
             
             if (response) {
-              console.log(response);
               typeR = "success";
               this.message = response;
   
@@ -149,9 +144,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
             this.isLoad[candidat.ID] = false; // Start loader for this candidate
 
           },
-          (error) => {
-            console.log(error);
-            
+          (error) => {            
             ToastNotification.open({
               type: 'error',
               message: error.error
@@ -189,9 +182,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
       return this.applicant;
     }
   }
-  get filteredApplicant() {
-    console.log(this.searchTitle);
-    
+  get filteredApplicant() {    
     if (this.searchTitle.trim() !== '') {
       return this.applicant.applied.filter((applicant: any) => {
         const titleMatch = applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
@@ -209,7 +200,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
       return applicant.filter((applicant: any) => {
         return applicant.first_name.toLowerCase().includes(this.searchTitle.toLowerCase());
       });
-    } else {
+    } else {      
       return applicant; // Return the full list if no searchTitle is provided
     }
   }
@@ -255,9 +246,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
               
             },
           // Gestion des erreurs
-          (error) => {       
-            console.log(error);
-                 
+          (error) => {                        
             ToastNotification.open({
               type: 'error',
               message: error.error.errors

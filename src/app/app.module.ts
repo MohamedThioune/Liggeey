@@ -83,6 +83,7 @@ import { ItemAllJobComponent } from './components/item-all-job/item-all-job.comp
 import { HireCompanyComponent } from './components/hire-company/hire-company.component';
 import { HireCandidatComponent } from './components/hire-candidat/hire-candidat.component';
 import { SkeletonAllCandidatesPageLoaderComponent } from './skeleton-all-candidates-page-loader/skeleton-all-candidates-page-loader.component';
+import { SkeletonDashboardCandidateLoaderComponent } from './skeleton-dashboard-candidate-loader/skeleton-dashboard-candidate-loader.component';
 
 @NgModule({
   declarations: [
@@ -161,6 +162,7 @@ import { SkeletonAllCandidatesPageLoaderComponent } from './skeleton-all-candida
     HireCompanyComponent,
     HireCandidatComponent,
     SkeletonAllCandidatesPageLoaderComponent,
+    SkeletonDashboardCandidateLoaderComponent,
 
 
   ],

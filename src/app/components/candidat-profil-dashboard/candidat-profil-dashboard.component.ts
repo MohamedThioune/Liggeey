@@ -42,6 +42,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
   isLoadingWork: boolean = false;
   profil:any
   favourite:boolean = false
+  loading:boolean=true;
+
   constructor(private usagerService: UsagerService,private route : ActivatedRoute,private router :Router ,private HomePageService: HomePageService,private location: Location) { }
 
   ngOnInit(): void {
@@ -120,7 +122,8 @@ export class CandidatProfilDashboardComponent implements OnInit {
   
     this.HomePageService.getDetailCandidate( this.id).subscribe(data=>{
       this.candidat=data  
-            
+      this.loading = false;
+
       this.urlCv=this.extractFileName( this.candidat.cv)        
       this.nameCv =this.candidat.cv 
       //this.candidat.skills = this.candidat.skills || [];
