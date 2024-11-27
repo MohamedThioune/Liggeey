@@ -1,0 +1,694 @@
+h1 {
+    font-size: 25px;
+    margin-bottom: 40px;
+  }
+  .btnSaveSetting {
+      background: #043356;
+      color: white;
+      padding: 10px 40px;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 5px;
+      float: right;
+      width: fit-content;
+    }
+    .btnCloseSetting {
+      background: #043356;
+      color: white;
+      padding: 14px 40px;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 5px;
+      float: right;
+      width: fit-content;
+    }
+    .btnSeeStatic {
+      background: #1AC4A2;
+      color: white;
+      padding: 10px 40px;
+      border-radius: 8px;
+      font-size: 20px;
+      margin-top: 5px;
+      width: fit-content;
+    }
+    .group-input-settings {
+      display: grid;
+      margin-bottom: 20px;
+    }
+    .group-input-settings .statics p{
+      color:#043356 !important;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .group-input-settings label {
+      text-align: center;
+      font-size: 25px;
+      color: #1AC4A2;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    .group-input-settings input {
+      box-sizing: border-box;
+      border-radius: 11px;
+      padding: 15px 20px !important;
+      font-size: 15px !important;
+      color: #3c3c3c !important;
+      background: #F0F5F7 !important;
+      border: none;
+      margin-bottom: 10px;
+    }
+  .right_menu{
+      width: 100%;
+      margin-bottom: 121px;
+  }
+  .content_right_menu{
+      background-color: #FFF;
+      height: fit-content;
+      border-radius: 8px;
+      /*border: 1px solid #ECEDF2;*/
+      /* Shadow / 1 */
+      box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+  }
+  .content_right_menu span:first-child{
+    color:  #202124;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .map_menu{
+      border-radius: 8px;
+      border: 1px solid  #ECEDF2;
+      background: #FFF;
+      padding: 30px;
+      width: 100%;
+    }
+  
+  .applies_job,.alert_job , .favorites_job{
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      padding: 30px;
+      height: 140px;
+      border: 1px solid #ECEDF2;
+       /*background: #FFF;*/
+      background-color: #ddd;
+      animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+      margin-bottom: 16px
+  }
+  .map_menu .all{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 65px;
+      border: none;
+  }
+  .map_menu .all li .active{
+      color: #FFF;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background:  #1AC4A2;
+  }
+  .map_menu .all li a{
+      color: #3D4D59;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+      cursor: pointer;
+  }
+  .content_image_livraison_livraison{
+      width: 48px;
+      height: 48px;
+      margin: 35px 0 0 32px;
+  }
+  .content_image_livraison_livraison img{
+      width: 100%;
+      height: 100%;
+  }
+  .livraison .detail{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #47A99E;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 17px;
+  }
+  .livraison .detail a{
+      color: #47A99E;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+  }
+  .livraison .all_items{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: #ddd;
+      border-radius: 10px;
+      animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+      padding: 20px 0px 20px 15px;
+  }
+
+  .livraison .all_items .items p{
+    color: #043356;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #f0f0f0;
+    padding: 15px 40px;
+    margin: 5px;
+    border-radius: 60px;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+  }
+  
+  .content_image_document {
+      position: relative;
+      display: inline-block;
+  }
+  .content_image_document img {
+      width: 100%;
+      height: auto;
+  }
+  .background{
+    background-color: #ddd;
+  }
+  .progress-bar{
+      height: 23px;
+      line-height: 30px;
+      background-color: #f0f0f0;
+      color:white;
+      text-align: center;
+  }
+  .progress-container{
+      width: 100%;
+      background-color: #DDF6F1;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      overflow: hidden;
+  }
+  
+  
+  .progress-circle {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: conic-gradient(#007bff 0% 50%, #e0e0e0 50% 100%);
+      display: flex;
+    }
+    
+    .progress-circle-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+    
+    .progress-circle-left, .progress-circle-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      overflow: hidden;
+    }
+    
+    .progress-circle-left {
+      left: 0;
+    }
+    
+    .progress-circle-right {
+      right: 0;
+    }
+    
+    .progress-circle-bar {
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background: #007bff;
+      border-radius: 50%;
+      clip-path: inset(0 0 0 50%);
+      transform: rotate(0deg);
+      transform-origin: center left;
+      transition: transform 0.5s linear;
+    }
+    
+    .progress-circle[data-percent="100"] .progress-circle-bar {
+      transform: rotate(180deg);
+    }
+    
+    .progress-circle-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #000;
+    }
+    .progress-circle{
+      position: relative;             /* pour servir de référent */
+      box-sizing: border-box;         /* prise en compte bordure dans la dimension */
+      font-size: 6em;                 /* pour définir les dimensions */
+      width: 1em;                     /* fixe la largeur */
+      height: 1em;                    /* fixe la hauteur */
+      border-radius: 50%;             /* rendu aspect circulaire */
+      border: .15em solid #CDE;       /* couleur de fond de l'anneau */
+      background-color: #FFF;         /* couleur de fond de la progress bar */
+    }
+    .progress-masque {
+      position: absolute;
+      width: 1em;                     /* 100% de la largeur */
+      height: 1em;                    /* 100% de la hauteur */
+      left: -.15em;                   /* décalage de la largeur bordure de la gauge */
+      top: -.15em;                    /* décalage de la largeur bordure de la gauge */
+      clip: rect(0, 1em, 1em, .5em);  /* par défaut seule la partie droite est visible */
+    }
+    .progress-barre,
+  .progress-sup50 {
+    position: absolute;
+    box-sizing: border-box;         /* prise en compte bordure dans la dimension */
+    border-width: .15em;            /* largeur bordure de la gauge */
+    border-style: solid;
+    border-color: #069;
+    border-radius: 50%;             /* rendu aspect circulaire */
+    width: 1em;                     /* largeur à 100% */
+    height: 1em;                    /* hauteur à 100% */
+    clip: rect(0, .5em, 1em, 0);    /* on ne garde que la partie gauche */
+  }
+  .progress-sup50 {
+      display: none;
+      clip: rect(0, 1em, 1em, .5em);
+    }
+    .progress-circle:after {
+      content: attr(data-value) "%";  /* récup. valeur de progression */
+      font-size: 0.15em;              /* taille de la font en % du parent */
+      height: 100%;                   /* centrage dans le parent */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    
+      /*-- pour effet shadow intérieur --*/
+      border-radius: 50%;
+      box-shadow: 0 0 .5em rgba(0, 0, 0, .5) inset;
+    }
+         /* Apply css properties to h1 element */
+         h1 {
+          text-align: center;
+      }
+  
+      /* Create a container using CSS properties */
+      .container {
+          top: 30%;
+          left: 50%;
+          position: absolute;
+          text-align: center;
+          transform: translate(-50%, -50%);
+      }
+  
+      /* Apply CSS properties to ui-widgets class */
+      .ui-widgets {
+          position: relative;
+          display: inline-block;
+          width: 10rem;
+          height: 10rem;
+          border-radius: 9rem;
+          margin: 1.5rem;
+          border: 1.2rem solid palegreen;
+          box-shadow: inset 0 0 7px grey;
+          border-left-color: palegreen;
+          border-top-color: chartreuse;
+          border-right-color: darkgreen;
+          border-bottom-color: white;
+          text-align: center;
+          box-sizing: border-box;
+      }
+  
+      /*  Apply css properties to the second 
+          child of ui-widgets class */
+      .ui-widgets:nth-child(2) {
+          border-top-color: chartreuse;
+          border-right-color: white;
+          border-left-color: palegreen;
+          border-bottom-color: white;
+      }
+  
+      /*  Apply css properties to ui-widgets class 
+          and ui-values class*/
+      .ui-widgets .ui-values {
+          top: 40px;
+          position: absolute;
+          left: 10px;
+          right: 0;
+          font-weight: 700;
+          font-size: 2.0rem;
+  
+      }
+  
+      /*  Apply css properties to ui-widgets 
+          class and ui-labels class*/
+      .ui-widgets .ui-labels {
+  
+          left: 0;
+          bottom: -16px;
+          text-shadow: 0 0 4px grey;
+          color: black;
+          position: absolute;
+          width: 100%;
+          font-size: 16px;
+      }
+   @media all and (min-width: 300px) and (max-width: 767px){
+  .right_menu{
+      width: fit-content;
+      visibility: visible;
+      margin-bottom: 30px;
+      margin-left: 0;
+      margin-top: 60px;
+  }
+     h1 {
+       font-size: 20px;
+       margin-bottom: 25px;
+     }
+     .map_menu {
+       padding: 0px;
+       width: 100%;
+       border: none;
+     }
+     .applies_job{
+       margin-bottom: 35px;
+     }
+     .content_image_livraison-badge{
+       height: 91px !important;
+     }
+     .document {
+       margin: 0 10px 20px !important;
+       max-width: 45% !important;
+       flex: 44% !important;
+     }
+     .item_course{
+       max-width: 100% !important;
+       flex: 100% !important;
+       margin: 0 15px 30px !important;
+     }
+  .map_menu .all{
+      display: block;
+  }
+  .map_menu .all p{
+      padding: 16px 0;
+  }
+
+}
+  
+   /*****************************************************badge********************************************************/
+  .badge_certificate{
+      display: flex;
+      justify-content: space-between;
+      margin: 50px 0 13px;
+  }
+  .badge_certificate p:first-child{
+      color: #202124;
+      font-size: 19px;
+    font-family: "Roboto-Medium";
+  }
+  .badge_certificate a{
+      color:  #1AC4A2;
+      font-size: 16px;
+      font-weight: 400;
+      text-decoration: none;
+  }
+  .content-certificat{
+    border-radius: 5px;
+    border: 1px solid #ECEDF2;
+    background: #ddd;
+    text-align: center;
+    padding: 32px 12px 13px;
+    height: 110px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    max-width: 18%;
+    flex: 18%;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
+  }
+  .livraison{
+      border-radius: 4px;
+      background: #FFF;
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      border: 1px solid #ECEDF2;
+      padding: 25px 15px;
+  }
+  .content_image_livraison-badge{
+    width: 120px;
+    height: 120px;
+    margin-right: 25px;
+  }
+  .content_image_livraison-badge img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  .livraison .profil{
+      font-size: 18px;
+      font-weight: 500;
+      width: 100%;
+  }
+
+.livraison .profil p{
+    color: #868686;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.livraison .profil span{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+  .skeleton-text-1 {
+    background-color: rgb(155, 155, 155);
+    width: 50%; /* Width of the text skeleton */
+    height: 30px;
+    margin-left: 10px;
+}
+.skeleton-text-2 {
+    background-color: #ddd;
+    width: 30%; /* Width of the text skeleton */
+    height: 30px;
+    margin-left: 10px;
+}
+.skeleton-text-3 {
+  background-color: rgb(155, 155, 155);
+  width: 15%; /* Width of the text skeleton */
+  height: 30px;
+  margin-left: 10px;
+}
+.skeleton-text-4 {
+    background-color: #ddd;
+    width: 25%; /* Width of the text skeleton */
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+.skeleton-infos {
+    background-color: #ddd;
+    width: 60%; /* Width of the text skeleton */
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+  .livraison .detail-badge{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 17px;
+      font-weight: 600;
+  }
+  .livraison .detail-badge p:first-child{
+      color: #868686;
+    font-size: 16px;
+      font-weight: 500;
+  }
+  .livraison .detail-badge p:first-child span{
+      color: #043356;
+    font-size: 16px;
+  }
+  .livraison .detail-badge a{
+      color: #47A99E;
+    font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+  }
+  .livraison .detail-badge p{
+      margin: 0;
+  }
+  .livraison .items p{
+      color: rgba(33, 36, 44, 0.64);
+      font-size: 15px;
+      font-weight: 500;
+  }
+  
+   /**********************skills*************************************************/
+  .document{
+    border-radius: 5px;
+    border: 1px solid #ECEDF2;
+    background: #f0f0f0;
+    text-align: center;
+    padding: 32px 12px 13px;
+    margin-right: 20px;
+    max-width: 18%;
+    flex: 18%;
+    height: 150px;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
+  }
+  .document .content_image_document{
+      width: 95px;
+      height: 95px;
+      margin: 0 auto 22px;
+  }
+  .document .content_image_document img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  .document .content_image_document p{
+      color: #47A99E;
+      font-size: 20px;
+      font-weight: 600;
+  }
+  
+  .document p{
+      color: #051D2F;
+      font-size: 18px;
+      font-weight: 600;
+  }
+  
+   /**************************assessment**************************************************/
+  
+  .description_job_applies{
+      padding-left: 24px;
+  }
+  .description_job_applies p{
+      margin: 0;
+      background-color: #7F8897;
+      animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+      padding: 15px 40px;
+
+  }
+  .description_job_applies span{
+      color: #233D63;
+      font-size: 26px;
+      font-weight: 600;
+  }
+  
+  table tbody tr th {
+      /*color: red;*/
+      display: flex;
+    }
+    table tbody tr th p{
+      color: #696969;
+      font-size:14px;
+      font-weight:600
+    }
+    table tbody tr td button{
+      border: none;
+      margin-right: 9px;
+      border-radius: 8px;
+      background-color: transparent;
+    }
+    tr td:nth-child(2) {
+      font-size: 16px;
+      font-weight: 600;
+      color: #212121;
+    }
+    tr td:nth-child(3) {
+      color:#1AC4A2;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .table_head{
+      border-radius: 8px;
+      background: rgba(74, 160, 155, 0.05);  }
+    .table_head th{
+      color:  #000;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    thead th {
+      border: none; /* ou border: 0; ou border: initial; */
+      /* Ajoutez d'autres styles au besoin */
+    }
+  
+   /************************prefered course ***********************************/
+   
+  .item_course{
+     border: 1px solid #ECEDF2;
+    margin-bottom: 35px;
+    max-width: 30%;
+    flex: 30%;
+    margin-right: 20px;
+  }
+  .item_course p:nth-child(2){
+    color: #043356;
+    font-size: 17px;
+    font-family: "Roboto-Medium";
+  }
+  .item_course:nth-child(1){
+   margin-left: 0;
+  }
+  
+  .item_course .author{
+      display: flex;
+      justify-content: space-between;
+  }
+  .item_course .author span{
+      color: #043356;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+  }
+  .item_course .author span p{
+      color: #999;
+      font-size: 15px;
+      font-weight: 400;
+  }
+  .item_course .time{
+      display: flex;
+      justify-content: space-between;
+  }
+  .item_course .time p:nth-child(1){
+      color: #043356;
+      font-size: 20px;
+      font-weight: 600;
+  }
+  .item_course .time p:nth-child(2){
+      color: #47A99E;
+      font-size: 16px;
+      font-weight: 500;
+  }
+  .content_image_course{
+      height: 165px;
+      width: 100%;
+      border-radius: 8px;
+      margin: 0px 0px 10px 0px;
+  }
+  .content_image_course img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  .pagination{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+  }
+  
+  
+  
+  
+  

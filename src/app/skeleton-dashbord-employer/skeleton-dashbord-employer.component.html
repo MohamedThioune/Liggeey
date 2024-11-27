@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        
+        
+        /*.sidebar {
+            width: 250px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        */
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex-basis: calc(33.33% - 20px);
+            /* Adjust the width as needed */
+        }
+      
+        .card h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="all-content">
+        <div class="sidebar">
+            <div class="content-sidebar">
+                <div class="skeleton-sidebar"></div>
+                <div class="skeleton-sidebar"></div>
+                <div class="skeleton-sidebar"></div>
+                <div class="skeleton-sidebar"></div>
+                <div class="skeleton-sidebar"></div>
+                <div class="skeleton-sidebar"></div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="right_menu">
+                <div class="content_right_menu">
+                    <div class="row first_row">
+                        <div class="posted"></div>
+                        <div class="application"></div>
+                        <div class="favorite"></div>
+                    </div>
+                    <div class="map_menu for-img-download">
+                        <div class="content_map_menu">
+                          <img class="mb-4" src="../../../assets/img/welcome_little.png" alt="image team">
+                        </div>
+                        <div class="overlay-content">
+                          <p class="content_banner reduced-spacing">
+                            Unlock your dream job! <br> Download livelearn now and boost your job chances by 750%! don't miss out!
+                            <i class="fa fa-star" style="color: rgb(255,212,59);"></i> <i class="fa fa-mobile"></i><br>
+                          </p>
+                          <div class="d-flex justify-content-center align-items-center" >
+                            <a target="_blank" class="btn btn-download">
+                              Download now
+                            </a>
+                            <div class="icon-container ml-3 mt-3">
+                              <i class="fa fa-check-circle"></i>
+                            </div>
+                          </div>
+                          
+                       
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="applicants">
+                <div class="header_applicants">
+                    <span>Recent applicants</span>
+                </div>
+                <div class="row">
+                    <div class="skeleton-container-2">
+                        <div class="one-category">
+                            <div class="cat-img"></div>
+                                <div class="item_right">
+                                    <div class="cat-title"></div>
+                                    <div class="positions"></div>
+                                </div>
+                        </div>
+                        <div class="one-category">
+                            <div class="cat-img"></div>
+                                <div class="item_right">
+                                    <div class="cat-title"></div>
+                                    <div class="positions"></div>
+                                </div>
+                        </div>
+                        <div class="one-category">
+                            <div class="cat-img"></div>
+                                <div class="item_right">
+                                    <div class="cat-title"></div>
+                                    <div class="positions"></div>
+                                </div>
+                        </div>
+                        <div class="one-category">
+                            <div class="cat-img"></div>
+                                <div class="item_right">
+                                    <div class="cat-title"></div>
+                                    <div class="positions"></div>
+                                </div>
+                        </div>
+                        <div class="one-category">
+                            <div class="cat-img"></div>
+                                <div class="item_right">
+                                    <div class="cat-title"></div>
+                                    <div class="positions"></div>
+                                </div>
+                        </div>
+                        <div class="one-category">
+                            <div class="cat-img"></div>
+                                <div class="item_right">
+                                    <div class="cat-title"></div>
+                                    <div class="positions"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

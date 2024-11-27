@@ -1,0 +1,104 @@
+<app-header></app-header>
+<section class="content-page-dashboard">
+  <app-sidebar-candidat></app-sidebar-candidat>
+  <div class="right_menu">
+    <div class="content_right_menu">
+      <div class="map_menu">
+        <h1 class="title-page">My Resume</h1>
+        <div class="applicants">
+          <form>
+            <div class="card-body">
+              
+              <div class="bottom-element form-group-cv">
+                <div class=" default-img d-flex justify-content-between align-items-center mb-1">
+                  <label class="your-cv mb-0">
+                    Select Your CV
+                  </label>
+                </div>
+                <button style="float: right;" type="submit" class="btn btn-submit-resume">Upload CV</button>
+              </div>
+              <!--
+              <a  *ngIf="!safeCvUrl" style="float: right;padding:0px 50px 0px 50px;color:#1AC4A2;font-size:15px;font-weight:bold" [href]="nameCv" target="_blank">DownLoad CV</a>
+              -->
+              <div class="bottom-element header_applicants">
+                <span>Description</span>
+                <p></p>   
+              </div>
+              <div class="bottom-element education">
+                <div class="d-block">
+                    <div class="header_education justify-content-between align-items-center">
+                        <h2 class="sub-title-page">Education</h2>
+                        <div class="btn add">
+                          <div class="element-svg" data-toggle="modal" data-target="#exampleModalEdu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
+                              <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
+                              <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
+                            </svg>
+                          </div>
+                          <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalEdu">Add New Education</button>
+                        </div>
+                    </div>               
+                    <div class="one-category">
+                        <div class="skeleton-text-1"></div>
+                        <div class="skeleton-text-2"></div>
+                        <div class="skeleton-text-4"></div>
+                        <div class="skeleton-infos"></div>
+                    </div>
+                </div>
+              </div>
+              <div class="bottom-element education">
+                <div class="d-block">
+                    <div class="header_education justify-content-between align-items-center">
+                        <h2 class="sub-title-page">Work & Experience</h2>
+      
+                        <button class="btn add">
+                            <div class="element-svg" data-toggle="modal" data-target="#ModalWork">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
+                                <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
+                                <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
+                              </svg>
+                            </div>
+                            <button class="btn-add-element" data-toggle="modal" data-target="#ModalWork">Add Work</button>
+                        </button>
+      
+                      </div>                
+                    <div class="one-category">
+                    <div class="skeleton-text-1"></div>
+                    <div class="skeleton-text-2"></div>
+                    <div class="skeleton-text-4"></div>
+                    <div class="skeleton-infos"></div>
+                </div>
+                </div>
+              </div>
+              <div class="bottom-element skills">
+                <div class="header_education justify-content-between align-items-center">
+                  <h2 class="sub-title-page">Skills</h2>
+                  <button class="btn add">
+                    <div class="element-svg" data-toggle="modal" data-target="#exampleModalSkill">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
+                        <path d="M3.91139 0H4.94411V8H3.91139V0Z" fill="#D93025"/>
+                        <path d="M0.296875 4.5L0.296875 3.5L8.55863 3.5V4.5L0.296875 4.5Z" fill="#D93025"/>
+                      </svg>
+                    </div>
+                    <button class="btn-add-element" data-toggle="modal" data-target="#exampleModalSkill">Add Skills</button>
+                  </button>
+                </div>
+                <div class="content_skills">
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                </div>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footers></app-footers>
+
+

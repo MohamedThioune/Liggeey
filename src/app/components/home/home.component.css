@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     padding-top: 49px;
-    padding-bottom: 112px;
+    padding-bottom: 49px;
 }
 .hiring_work .hiring{
     padding: 14px 27px 13px 27px;
@@ -53,7 +53,12 @@
     font-weight: 400;
     padding-left: 15px;
 }
-
+#hubspot-form {
+    margin: 40px auto;
+    max-width: 600px; /* Largeur maximale du formulaire */
+    text-align: center; /* Centrer le contenu */
+  }
+  
 .number_candidates{
     font-weight: 700;
     padding-right: 20px;

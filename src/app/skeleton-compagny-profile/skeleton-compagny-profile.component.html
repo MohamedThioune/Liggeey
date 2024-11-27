@@ -1,0 +1,107 @@
+
+<section class="content-page-dashboard">
+  <app-sidebar-company></app-sidebar-company>
+  <form>
+  <div class="right_menu">
+    <div class="content_right_menu">
+      <h1 class="title-page">Company Profile</h1>
+      <p>Ready to jump back in?</p>
+      <div class="map_menu">
+          <div class="card-body">
+            <div class="image-container">
+              <div class="default-image" [style.backgroundImage]="''">
+              </div>
+              <input name="logo" type="file" id="fileInput" accept="image/*" style="display: none;">
+              <label for="fileInput" class="upload-button">
+                Upload an image
+              </label>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-sm-6 ">
+                <label for="email">
+                  Company name (optional)  <span class="important">*</span>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="title" formControlName="title" class="form-control" id="title">
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 ">
+                <label for="password">Email address  <span class="important">*</span>
+                </label>
+                <div class="input-group">
+                  <input type="email" name="email" formControlName="email" class="form-control" id="email">
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 ">
+                <label for="firstName">Website  <span class="important">*</span>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="website" formControlName="website" class="form-control" id="website">
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 ">
+                <label for="name"> Sector  <span class="important">*</span>
+                </label>
+                <div class="input-group">
+                  <input type="text" name="name" formControlName="sector" class="form-control" id="sector">
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 ">
+                <label for="name"> Team Size  <span class="important">*</span>
+                </label>
+                <div class="input-group">
+                  <input type="number" name="size"  formControlName="size" class="form-control" id="size" required>
+                </div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+      <div class="applicants">
+        <div class="header_applicants">
+          <h2 class="sub-title-page">About Company</h2>
+          <textarea  formControlName="biography" name="biography" id="biography" rows="8"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="contact">
+      <h2 class="sub-title-page">Contact Information</h2>
+        <div class="card-body">
+          <div class="row w-100">
+            <div class="col-md-6 col-sm-6">
+              <label for="email">
+                Country
+                <p>*</p>
+              </label>
+              <div class="input-group">
+                <select class="form-control fieldSelect" id="country" formControlName="country" name="country">
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 ">
+              <label for="password">City
+                <p>*</p>
+              </label>
+              <div class="input-group">
+                <div class="input-group">
+                  <input type="text" name="place" formControlName="place" class="form-control" id="place" readonly>
+              </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 p-2">
+              <label for="firstName">Complete Address
+                <p>*</p>
+              </label>
+              <div class="input-group">
+                <input type="text" formControlName="address" name="address" class="form-control" id="address">
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-outline-secondary create " type="submit"> Save </button>
+  </div>
+</form>
+</section>
