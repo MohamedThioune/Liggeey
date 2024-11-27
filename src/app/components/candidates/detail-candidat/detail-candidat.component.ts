@@ -24,18 +24,15 @@ export class DetailCandidatComponent implements OnInit {
   jobId!: any ; // Initialisé à null
   canApprove=false
   isBookmarked: boolean = false;
-  id:any
-  constructor(private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService, private router: Router) { }
+  id: any;
+    constructor(private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService, private router: Router) { 
+      const navigation = this.router.getCurrentNavigation();
+      this.id = navigation?.extras.state?.['id'];
+    }
   
   ngOnInit(): void {
 
     const storedToken = this.usagerService.getToken();
-    //this.identifiant = +this.route.snapshot.params['id'];
-    const storedId = localStorage.getItem('candidatId');
-    if (storedId) {
-        this.id = storedId;
-    }
-    
     if (storedToken) {
                 // Décodage de la base64
       const decodedToken = atob(storedToken);
@@ -56,17 +53,20 @@ export class DetailCandidatComponent implements OnInit {
     //       }
     //     });
     // });
-    if (this. userConnect && this. userConnect.id) {      
+    if (this. userConnect && this. userConnect.id && this.id) {      
       this.HomePageService.getOneCandidate(this.id, this.userConnect.id).subscribe(data=>{
         this.candidat=data;        
         this.loading=false;
       })
-    }else{
+    }else if(this.id && !this. userConnect){
       this.HomePageService.getDetailCandidate(this.id).subscribe(data=>{
         this.candidat=data;        
         this.loading=false;
             
       })
+    }else{
+      //console.error("L'ID n'a pas été trouvé dans les données de navigation.");
+      this.router.navigate(['']);
     }
   
     
@@ -128,9 +128,6 @@ export class DetailCandidatComponent implements OnInit {
                 type: typeR,
                 message: this.message
               });
-              // if (typeR == "success") {
-              //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
-              // }
             },
           // Gestion des erreurs
           (error) => {            
@@ -167,9 +164,6 @@ export class DetailCandidatComponent implements OnInit {
                 message: this.message
               });
               this.router.navigate(['/compagny-candidat'])
-              // if (typeR == "success") {
-              //   this.router.navigate(['/applies-candidat',this.userConnect.id]);
-              // }
             },
           // Gestion des erreurs
           (error) => {

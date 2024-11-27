@@ -1,0 +1,327 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  .all-content{
+    display: flex;
+    width: 100%;
+  }
+  .sidebar {
+      width: 17%;
+      height: 100vh; /* Hauteur de la barre latérale */
+      position: fixed;
+      left: 0;
+      background-color: #f0f0f0; /* Couleur de fond de la barre latérale */
+      animation: slideIn 0.5s ease-in-out; 
+  
+    }
+    .content-sidebar { 
+      margin-top: 30px;
+    }
+    .skeleton-sidebar {
+      width: 90%;
+      margin-left: 5%;
+      height: 50px; /* Hauteur de chaque élément du skeleton loader */
+      margin-bottom: 15px; /* Marge entre chaque élément */
+      background-color: #ddd; /* Couleur de fond du skeleton loader */
+      border-radius: 10px; /* Arrondi des coins */
+      animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+  }
+  
+  .main-content {
+       /* margin-left: 220px;*/
+      margin-top: 10px;
+      border-radius: 5px;
+      height: 100vh; 
+      width: 79%;
+      margin-left: 19%;
+      /*background-color: #e0dddd; */
+     /* animation: fadeIn 1s ease-in-out infinite; */
+  }
+  .posted,.application,.favorite{
+    background-color: #ddd;
+    width: 31%; /* Width of the text skeleton */
+    height: 100px;
+    margin-right: 2%;
+    border-radius: 8px;
+    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+  }
+  .post{
+    background-color: #ddd;
+    height: 100px;
+    margin: 2% 2% 1% 0;
+    width: 48%;
+    border-radius: 8px;
+    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+  }
+  .applicants{
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+    margin:0px 50px 500px 22px !important;
+  
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+  }
+  .header_applicants{
+    padding: 30px;
+  }
+  .header_applicants span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .one-category { 
+    display:flex;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 30%;
+    height: 70vh;
+    margin-bottom: 5vh;
+    margin-left: 2.5%;
+    flex-direction: column;
+    margin-top: 10vh;
+    align-items: start;
+    background-color: #f0f0f0; /* Background color of the page */  
+    
+}
+  .skeleton-container-2 {
+    display:flex;
+    flex-wrap: wrap;
+    width: 98%;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    background-color: #f0f0f0; /* Background color of the page */
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+    margin-left: 1% !important;
+}
+.card {
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 12vh; /* Width of the card */
+    height: 5vh !important; /* Height of the card */
+    background-color: #fff; /* Background color of the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
+    border-radius: 8px; /* Border radius for rounded corners */
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
+}
+.smallbtt {
+    display: flex;
+    width: 100%;
+    margin-top: 05px;
+    justify-content: center;
+}
+.skeleton-element {
+    background-color: #ddd; /* Background color of the skeleton */
+    width: 80px;
+    border-radius: 20px;
+    margin-right: 10px;
+    height: 30px; /* Height of each skeleton element */
+    margin-top: 35px; /* Margin between skeleton elements */
+}
+.skeleton-image {
+    background-color: #f0f0f0; /* Background color of the card */
+    width: 120px;
+    margin-left: 300px;
+    margin-top: 40px;
+    justify-self: center;
+    height: 120px; /* Height of the image skeleton */
+    border-radius: 50%; /* Border radius for top corners */
+}
+.skeleton-text {
+    background-color: rgb(155, 155, 155);
+    width: 20%; /* Width of the text skeleton */
+    height: 40px;
+    margin-top: 15vh;
+}
+.skeleton-text-1 {
+    background-color: rgb(155, 155, 155);
+    width: 50%; /* Width of the text skeleton */
+    height: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.skeleton-text-2 {
+    background-color: #ddd;
+    width: 40%; /* Width of the text skeleton */
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.skeleton-text-4 {
+    background-color: #ddd;
+    width: 30%; /* Width of the text skeleton */
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.skeleton-infos {
+    background-color: #ddd;
+    width: 60%; /* Width of the text skeleton */
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.skeleton-button {
+    width: 95%;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    background-color: #ddd;
+
+    height: 80px; /* Height of the button skeleton */
+    border-radius: 20px; /* Border radius for rounded corners */
+    
+}
+.btts{
+   width: 98%;
+   display: flex;
+   margin-top: 60px;
+   justify-content: center;
+   align-items: center;
+}
+.skeleton-btt{
+    width: 40%;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color:rgb(155, 155, 155) ;
+    height: 50px; /* Height of the button skeleton */
+    border-radius: 20px; /* Border radius for rounded corners */
+    
+}
+
+  
+ 
+  .dashboard{
+    background-color: #FFF;
+  }
+  .right_menu{
+    margin-bottom: 51px;
+  }
+  .content_right_menu{
+    background-color: #FFF;
+    height: fit-content;
+  }
+  .content_map_menu{
+    max-width: 1540px;
+    height: 275px;
+    border-radius: 16px;
+    border: 1px solid  #ECEDF2;
+    background: #FFF;
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+    
+  }
+  
+  .content_banner{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(24,49,83);
+    padding-bottom: 10px !important;
+  }
+  .reduced-spacing {
+    line-height: 1.2; /* Ajustez cette valeur selon vos besoins */
+    font-weight: bold;
+  }
+  
+  .map_menu a{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(24,49,83);
+    color: #FFF;
+    border-radius: 20px;
+  }
+  .map_menu {
+    position: relative; /* Make the parent container relative */
+  }
+  
+  .content_map_menu img {
+    width: 100%; /* Ensure the image takes up the full width */
+    height: 100%; /* Maintain aspect ratio */
+    border-radius: 16px;
+  
+  }
+  
+  .overlay-content {
+    position: absolute; /* Position the overlay content absolutely */
+    top: 50%; /* Position it in the middle of the parent */
+    left: 50%; /* Center the content horizontally */
+    transform: translate(-50%, -50%); /* Adjust the position to be perfectly centered */
+    text-align: center; /* Center the text inside the overlay */
+    color: white; /* Ensure the text is readable */
+    padding: 20px; /* Add some padding for better presentation */
+    border-radius: 10px; /* Optional: Add some rounded corners */
+  }
+  .for-img-download{
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 25px 45px 0px 30px;
+    border: none;
+  }
+  .for-img-download .overlay-content{
+   width: 58%;
+  }
+  .for-img-download .content_banner {
+   font-size: 23px;
+   font-weight: 700 !important;
+   color: rgb(24, 49, 83);
+   padding-bottom: 0px !important;
+   line-height: 36px !important;
+   margin-bottom: 5px;
+  }
+  .btn-download {
+   font-size: 18px !important;
+   font-weight: 500;
+   border-radius: 8px !important;
+   padding: 7px 20px 10px !important;
+  }
+  
+  .btn-download {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Change the color as needed */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; /* Optional: Add rounded corners to the button */
+  }
+  .icon-container i {
+    color: green;
+    font-size: 60px;
+  }
+  .first_row{
+    margin:30px 0 16px ;
+    padding-left: 30px;
+  }
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      background-color: #ddd;
+    }
+    100% {
+      background-color: #c0c0c0;
+    }
+  }
+    @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }

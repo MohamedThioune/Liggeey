@@ -120,6 +120,7 @@ export class ResumeCandidatComponent implements OnInit {
   safeCvUrl: SafeResourceUrl | null = null;  // Initialisé avec une valeur par défaut
   nameCv:any
   urlCv:any
+  loading: boolean = true; 
 
     //safeCvUrl!:SafeUrl 
   constructor(private fb: FormBuilder,private usagerService: UsagerService,private route : ActivatedRoute ,private HomePageService: HomePageService,private router: Router,private sanitizer: DomSanitizer,private http: HttpClient) {
@@ -772,6 +773,7 @@ export class ResumeCandidatComponent implements OnInit {
     this.HomePageService.getDetailCandidate(this.userConnect.id).subscribe(data => {
       if (data) {
           this.candidat = data;
+          this.loading =false
           localStorage.setItem('cachedCandidat', JSON.stringify(data));
       
       } 

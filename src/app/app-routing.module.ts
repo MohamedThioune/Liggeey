@@ -58,6 +58,9 @@ import { CandidateGuard } from './guards/candidate.guard';
 import { CompanyGuard } from './guards/company.guard';
 import { HireCompanyComponent } from './components/hire-company/hire-company.component';
 import { HireCandidatComponent } from './components/hire-candidat/hire-candidat.component';
+import { ListChallengesComponent } from './components/challenges/list-challenges/list-challenges.component';
+import { DetailChallengeComponent } from './components/challenges/detail-challenge/detail-challenge.component';
+import { AddChallengeComponent } from './components/challenges/add-challenge/add-challenge.component';
 
 const routes: Routes = [
 
@@ -132,6 +135,13 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
 
   { path: 'about', component: AboutComponent },
+
+  { path: 'challenges', component: ListChallengesComponent },
+  
+  { path: 'detail-challenge', component: DetailChallengeComponent },
+
+  { path: 'add-challenge', component: AddChallengeComponent },
+  
 
   { path: 'login', component: LoginComponent },
 

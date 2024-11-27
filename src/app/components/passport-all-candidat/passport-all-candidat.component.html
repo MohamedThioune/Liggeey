@@ -1,6 +1,6 @@
 <app-header></app-header>
 <ng-template #skeleton>
-  <app-skeleton-loader></app-skeleton-loader>
+  <app-skeleton-passport-candidate></app-skeleton-passport-candidate>
 </ng-template>
 <div *ngIf="!loading; else skeleton"><section class="content-page-dashboard">
   <app-sidebar-candidat></app-sidebar-candidat>
@@ -206,7 +206,7 @@
               <p>No content available at the moment </p>
             </div>
 
-      </div>
+        </div>
           <div class="map_menu" *ngIf="ongletSelectionne === 'Skills' || ongletSelectionne === 'All'">
               <div class="badge_certificate">
                 <p>Skills</p>
@@ -560,3 +560,4 @@
   </div>
 </section>
 </div>
+<app-footers *ngIf="!loading"></app-footers>
