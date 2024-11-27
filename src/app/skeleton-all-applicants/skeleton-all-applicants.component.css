@@ -1,0 +1,502 @@
+
+.right_menu{
+    margin-bottom: 121px;
+}
+.content_right_menu{
+    background-color: #FFF;
+    height: fit-content;
+    border-radius: 8px;
+    /*border: 1px solid #ECEDF2;*/
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.content_right_menu h1{
+  color:  #202124;
+  font-size: 26px;
+  font-weight: 600;
+}
+.map_menu{
+    border-radius: 8px;
+    margin-top: 38px;
+    border: 1px solid  #ECEDF2;
+    background: #FFF;
+    padding: 30px;
+    width: 97%;
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+  }
+.head_map_menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: 12px;
+}
+.head_map_menu span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: bold;
+}
+.head_map_menu p{
+  border-radius: 8px;
+  background: #F0F5F7;
+  color: #696969;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 15px 17px 14px 19px;
+  margin: 0;
+}
+#search{
+    border-radius: 8px;
+    background:  #F0F5F7;
+    border: none;
+    padding: 14px 100px 13px 37px;
+    color:  #696969;
+    font-size: 15px;
+    font-weight: 400;
+    margin-right: 14px;
+}
+input[type="search"]:focus 
+{
+    outline: none;
+}
+input[type="search"]::placeholder {
+  font-style: italic;
+  font-weight: bold;
+}
+table tbody tr {
+ background-color:#f0f0f0 !important;
+ animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
+   }
+table tbody tr th {
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+  background-color:#f0f0f0 !important;
+ }
+ table tbody tr th img{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 100%;
+ }
+ table tbody tr td{
+  vertical-align: middle;
+  text-align: center;
+
+}
+ table tbody tr td button{
+  border: none;
+  margin-right: 9px;
+  border-radius: 8px;
+}
+.name-cv{
+  white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-width: 100%;
+   text-align: center;
+
+}
+.logo{
+  width: 30px;
+  height: 30px;
+ border-radius: 8px;
+ overflow: hidden;
+ background-color: #EFEFEF;
+ text-align: center;
+}
+.logo img{
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+.heart-icon {
+  cursor: pointer;
+  padding: 10px;                       /* Optional: add some space around the icon */
+  border-radius: 50%;                 /* Keep the circular shape */
+  background-color: transparent;      /* No background color by default */
+  color: white;
+  font-weight: bold;                         /* Set the heart color to red */
+  text-shadow: 0px 0px 0px black,     /* Optional: initial shadow to offset */
+               1px 1px 0px black,     /* Right and bottom shadow */
+               -1px 1px 0px black,    /* Left and bottom shadow */
+               1px -1px 0px black,    /* Right and top shadow */
+               -1px -1px 0px black;   /* Left and top shadow */
+}
+
+
+.image-favorite-bg {
+  cursor: pointer;
+  color: black;              /* Change heart color to white for better contrast */
+}
+.map_menu .profil{
+    display: flex;
+    justify-content: space-between;
+    background-color:#F5F7FC;
+    padding:27px 31px 24px 20px;
+    margin-left:12px;
+    border-radius: 8px;
+
+}
+.map_menu .profil p{
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+.map_menu .profil p:first-child{
+    color:  #043356;
+}
+.map_menu .profil p:nth-child(2){
+    color:  #1AC4A2;
+    padding-left: 53px;
+    padding-right: 35px;
+}
+.map_menu .profil p:nth-child(3){
+    color:  #D93025;
+}
+
+input[type="search"]:focus {
+    outline: none;
+  }
+.input-group {
+    background-color: #F0F5F7;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    width: 112.333px;
+    height: 45px;
+  }
+
+.header_applicants p{
+  color: #202124;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.applicants ul{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+.header_applicants p{
+  color: #202124;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.btn-view-vacancy{
+  border-radius: 16px;
+  background-color:#1AC4A2 ;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFF !important;
+  padding: 11px 32px 11px 34px;
+}
+.applicants ul{
+    margin-left: 0px;
+    margin-right: 0px;
+    top: 0;
+    padding-left: 0;
+ }
+ .applicants ul li{
+   list-style: none;
+   cursor: pointer;
+ }
+ .applicants .job_list_1{
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    background-color: #FFF;
+ }
+ .applicants .job_list_1 :hover{
+  color:#1ac4a2 !important;
+}
+ .job_list_1 .content_job_list_1{
+    display: flex;
+   padding: 25px;
+ }
+ .pagination{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+ .description_job{
+   width: 85%;
+   margin-left: 15px;
+ }
+
+ .description_job_ span:first-child{
+    color:  #202124;
+    font-size: 18px;
+ } 
+ .description_job .bookmark{
+ }
+ .description_job .bookmark button{
+   text-align: center;
+   font-size: 16px; /* Ajustez la taille de la police au besoin */
+   border: none;
+   margin-right: 5px;
+   border-radius: 8px;
+  }
+ .description_job span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: bold;
+ }
+ .description_job .info{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+   margin-bottom: 15px;
+ }
+ .description_job .info .info_item{
+    display: flex;
+    margin-right: 12px;
+ }
+ .description_job .info .info_item svg{
+    margin-right: 11px;
+ }
+ .description_job .info .info_item p{
+    color: #696969;
+    font-size: 14px;
+    font-weight: bold;
+ }
+ .description_job .time .content_time{
+    background-color: #F0F5F7;
+    border-radius: 60px;
+    margin-right: 15px;
+    padding: 5px;
+ }
+ .description_job .time .content_time p{
+    margin: 0;
+    line-height: 1.5;
+    padding: 0px 29px 0px 30px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #043356;
+ }
+ .description_job .tags .content_tags{
+    background-color: #DDF6F1;
+    border-radius: 60px;
+    margin-right: 15px;
+    padding: 5px 10px;
+ }
+ .description_job .tags .content_tags p{
+    font-size: 13px;
+    font-weight: bold;
+    color: #1AC4A2;
+    margin: 0;
+    line-height: 1.5;
+ }
+ .description_job .all_info{
+    display: flex;
+ }
+ .show_sidebar{
+    visibility:hidden;
+}
+ .show_sidebar{
+    visibility:hidden;
+}
+.Search-applicant {
+  border-radius: 8px;
+  background: #F0F5F7;
+  border: none;
+  padding: 13px 20px 13px 40px;
+  min-width: 270px;
+  margin-right: 26px;
+}
+.fa-search{
+  position: absolute;
+  left: 14px;
+  color: #696969;
+  top: 16px;
+}
+input:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px !important;
+}
+.applicants .dropdown button {
+  border-radius: 8px;
+  background: #F0F5F7;
+  padding: 10px 25px;
+  margin-right: 10px;
+}
+
+.btn:focus, .btn.focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+.header_applicants {
+  margin-bottom: 35px;
+}
+.content-other-infos{
+  border-radius: 8px;
+  background: #F5F7FC;
+  padding: 20px 30px;
+}
+.content-other-infos p{
+  margin-bottom: 0;
+  color: black;
+  font-family: "Roboto-Medium";
+}
+.content-other-infos .title-post{
+  color: #043356;
+  font-size: 17px;
+}
+.content-other-infos .total{
+  margin-right: 25px;
+}
+.content-other-infos .approved{
+  color: #1AC4A2;
+  margin-right: 25px;
+}
+.content-other-infos .rejected{
+  color: #D93025;
+}
+.content-other-infos{
+  margin-bottom: 45px;
+}
+
+.skeleton-image {
+    background-color: #DDDDDD; /* Background color of the card */
+    width: 80px;
+    margin-left: 300px;
+    margin-top: 40px !important;
+    justify-self: center;
+    height: 80px; /* Height of the image skeleton */
+    border-radius: 50%; /* Border radius for top corners */
+}
+.skeleton-text {
+    background-color: rgb(155, 155, 155);
+    width: 20%; /* Width of the text skeleton */
+    height: 40px;
+    margin-top: 15vh;
+}
+.skeleton-text-1 {
+    background-color: rgb(155, 155, 155);
+    width: 90%; /* Width of the text skeleton */
+    height: 30px;
+    margin-left: 10px;
+}
+.skeleton-text-2 {
+    background-color: #ddd;
+    width: 40%; /* Width of the text skeleton */
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.skeleton-text-4 {
+    background-color: #ddd;
+    width: 30%; /* Width of the text skeleton */
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.skeleton-infos {
+    background-color: #ddd;
+    width: 60%; /* Width of the text skeleton */
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+ @media all and (min-width: 300px) and (max-width: 767px){
+  .vacancy{
+    display: none !important;
+  }
+.logo{
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .logo .content_logo{
+    border-radius: 8px;
+    overflow: hidden;
+  }
+.show_sidebar{
+    border: none;
+    border-radius: 8px;
+    padding: 10px 13px 8px 13px;
+    font-size: 16px;
+    font-weight: 600;
+    visibility:visible;
+    background-color: #DDF6F1;
+    margin-top: 30px;
+    color: #1AC4A2;
+}
+
+.close{
+    visibility: visible;
+    background-color: #F0F5F7;
+    margin-left: 27.5rem;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    line-height: 1.5;
+}
+.left_menu_show{
+    visibility: visible;
+    width: 100%;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+    margin: 30px 0 ;
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.right_menu{
+    visibility: visible;
+    margin-bottom: 30px;
+}
+   .header_applicants {
+     flex-wrap: wrap;
+   }
+   .element-search-filter {
+     flex-wrap: wrap;
+   }
+   .Search-applicant{
+     width: 100%;
+     margin-right: 0px;
+     margin-bottom: 25px;
+     min-width: unset;
+   }
+   .header_applicants p {
+     margin-bottom: 20px;
+   }
+   .header_applicants .position-relative {
+     width: 100%;
+   }
+   .content-other-infos{
+     padding: 20px 20px;
+     flex-wrap: wrap;
+   }
+   .content-other-infos .title-post{
+     margin-bottom: 10px;
+   }
+ .col-md-6{
+   padding-right: 0;
+   padding-left: 0;
+ }
+   .description_job .all_info {
+     flex-wrap: wrap;
+   }
+   .description_job .time .content_time {
+     margin-right: 5px;
+     padding: 5px;
+     margin-bottom: 18px;
+   }
+   .function-applicant{
+     min-width: 140px;
+     margin-bottom: 5px !important;
+   }
+   .job_list_1 .content_job_list_1 {
+     padding: 25px 15px;
+   }
+   .description_job .time .content_time p {
+     padding: 0px 25px;
+   }
+   .description_job{
+     width: 75%;
+   }
+ }

@@ -1,5 +1,8 @@
 <app-header></app-header>
-<section class="content-page-dashboard">
+<ng-template #skeleton>
+  <app-skeleton-resume-candidate></app-skeleton-resume-candidate>
+</ng-template>
+<section class="content-page-dashboard" *ngIf="!loading; else skeleton">
   <app-sidebar-candidat></app-sidebar-candidat>
   <div class="right_menu">
     <div class="content_right_menu">
@@ -289,9 +292,6 @@
     </div>
   </div>
 </section>
-
-
-
 <div class="modal modalEdu fade" id="exampleModalEdu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -453,6 +453,6 @@
     </div>
   </div>
 </div>
-
+<app-footers></app-footers>
 
 

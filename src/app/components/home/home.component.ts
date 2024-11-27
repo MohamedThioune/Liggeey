@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { Router } from '@angular/router';
-
+declare var hbspt: any; // Déclare la bibliothèque HubSpot Forms
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //this.loadHubspotForm();
 
      // Récupération du token depuis le local storage
      const storedToken = this.usagerService.getToken();
@@ -59,7 +60,7 @@ export class HomeComponent implements OnInit {
         element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       });
 
-      this.candidatsTab.push("../../../assets/img/fadel.jpg","../../../assets/img/khadim.jpg","assets/img/danel.jpg","assets/img/seydou.jpg","../../../assets/img/selle.jpeg",this.candidates[12].image,this.candidates[6].image,this.candidates[7].image)
+    //  this.candidatsTab.push("../../../assets/img/fadel.jpg","../../../assets/img/khadim.jpg","assets/img/danel.jpg","assets/img/seydou.jpg","../../../assets/img/selle.jpeg")
       this.article[0].post_title =   this.article[0].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
       this.article[0].short_description =   this.article[0].short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '').replace(/<(?!br\s*\/?)[^>]+>/g, '') // Remove all tags except <br>;
       this.article[1].post_title =   this.article[1].post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -77,21 +78,61 @@ export class HomeComponent implements OnInit {
     this.homeService.getCandidates().subscribe((data:any)=>{
       this.candidates=data.candidates      
     })
-
   }
-
+  ngAfterViewInit() {
+    setTimeout(() => {
+      (window as any).hbspt.forms.create({
+        portalId: '27242849',
+        formId: '8352015f-1898-47fe-a743-8c7e1a43e0f5',
+        target: '#hubspot-form'
+      });
+    }, 1000); // Ajustez le délai si nécessaire
+  }
+  
+  loadHubspotForm(): void {
+    this.loadHubspotScript()
+      .then(() => {
+        (window as any).hbspt.forms.create({
+          portalId: '27242849',
+          formId: '8352015f-1898-47fe-a743-8c7e1a43e0f5',
+          target: '#hubspot-form'
+        });
+      })
+      .catch(error => console.error(error));
+  }
+  
+  loadHubspotScript(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if ((window as any).hbspt) {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = '//js-eu1.hsforms.net/forms/embed/v2.js';
+      script.charset = 'utf-8';
+      script.type = 'text/javascript';
+      script.onload = () => resolve();
+      script.onerror = () => reject('Error loading HubSpot script');
+      document.body.appendChild(script);
+    });
+  }
+  
   
   redirectToWhatsApp(){
     this.homeService.redirectToWhatsApp()
   }
-  send_id(id: any) {
-    this.homeService.setCandidatId(id);
-    localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
-    this.router.navigate(['/detail-candidat'])
-      .then(() => {
-        window.location.reload();
-      });
-  }
+  // send_id(id: any) {
+  //   this.homeService.setCandidatId(id);
+  //   localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
+  //   this.router.navigate(['/detail-candidat'])
+  //     .then(() => {
+  //       window.location.reload();
+  //     });
+  // }
+  navigateToDetail(id: any) {
+  this.router.navigate(['detail-candidat'], { state: { id } });
+}
+
   selectCandidate(index: number) {
     this.selectedCandidateIndex = index;
   }

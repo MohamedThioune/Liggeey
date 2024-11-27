@@ -1,0 +1,259 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  .all-content{
+    display: flex;
+    width: 100%;
+  }
+  .sidebar {
+      width: 17%;
+      height: 100vh; /* Hauteur de la barre latérale */
+      position: fixed;
+      left: 0;
+      background-color: #f0f0f0; /* Couleur de fond de la barre latérale */
+      animation: slideIn 0.5s ease-in-out; 
+  
+    }
+    .content-sidebar { 
+      margin-top: 30px;
+    }
+    .skeleton-sidebar {
+      width: 90%;
+      margin-left: 5%;
+      height: 50px; /* Hauteur de chaque élément du skeleton loader */
+      margin-bottom: 15px; /* Marge entre chaque élément */
+      background-color: #ddd; /* Couleur de fond du skeleton loader */
+      border-radius: 10px; /* Arrondi des coins */
+      animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+  }
+  
+  .main-content {
+       /* margin-left: 220px;*/
+      margin-top: 10px;
+      border-radius: 5px;
+      height: 100vh; 
+      width: 79%;
+      margin-left: 19%;
+      /*background-color: #e0dddd; */
+     /* animation: fadeIn 1s ease-in-out infinite; */
+  }
+  .posted,.application,.favorite{
+    background-color: #ddd;
+    width: 31%; /* Width of the text skeleton */
+    height: 100px;
+    margin-right: 2%;
+    border-radius: 8px;
+    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+  }
+  .post{
+    background-color: #ddd;
+    height: 100px;
+    margin: 2% 2% 1% 0;
+    width: 48%;
+    border-radius: 8px;
+    animation: pulse 1.5s infinite alternate; /* Animation pour le skeleton loader */
+  }
+  .applicants{
+    border-radius: 8px;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+    margin:0px 50px 500px 22px !important;
+  
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+  }
+  .header_applicants{
+    padding: 30px;
+  }
+  .header_applicants span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .skeleton-container-2 {
+    display:flex;
+    flex-wrap: wrap;
+    width: 98%;
+    margin-left: 1%;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    background-color: #f0f0f0; /* Background color of the page */
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+  
+  }
+  
+  .one-category{
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    width: 78vh;
+    height: fit-content;
+    /*margin-left: 2.5%;*/
+    margin-right: 1%;
+    border: 1px solid #ECEDF2;
+    background: #FFF;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    /* Shadow / 1
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05); */
+  }
+  .cat-img {
+    background-color: #ddd;
+    width: 4vw; /* Width of the text skeleton */
+    height: 4vw;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin: 1% 10% 1% 1%;
+  }
+  .item_right {
+    min-width: 70%;
+    min-height: 50%;
+  }
+  
+  .item_right .cat-title {
+    background-color: #ddd;
+    width: 30%; /* Width of the text skeleton */
+    height: 30px;
+  }
+  .item_right .positions {
+    background-color: #ddd;
+    width: 50%; /* Width of the text skeleton */
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard{
+    background-color: #FFF;
+  }
+  .right_menu{
+    margin-bottom: 51px;
+  }
+  .content_right_menu{
+    background-color: #FFF;
+    height: fit-content;
+  }
+  .content_map_menu{
+    max-width: 1540px;
+    height: 275px;
+    border-radius: 16px;
+    border: 1px solid  #ECEDF2;
+    background: #FFF;
+    /* Shadow / 1 */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+    
+  }
+  
+  .content_banner{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(24,49,83);
+    padding-bottom: 10px !important;
+  }
+  .reduced-spacing {
+    line-height: 1.2; /* Ajustez cette valeur selon vos besoins */
+    font-weight: bold;
+  }
+  
+  .map_menu a{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(24,49,83);
+    color: #FFF;
+    border-radius: 20px;
+  }
+  .map_menu {
+    position: relative; /* Make the parent container relative */
+  }
+  
+  .content_map_menu img {
+    width: 100%; /* Ensure the image takes up the full width */
+    height: 100%; /* Maintain aspect ratio */
+    border-radius: 16px;
+  
+  }
+  
+  .overlay-content {
+    position: absolute; /* Position the overlay content absolutely */
+    top: 50%; /* Position it in the middle of the parent */
+    left: 50%; /* Center the content horizontally */
+    transform: translate(-50%, -50%); /* Adjust the position to be perfectly centered */
+    text-align: center; /* Center the text inside the overlay */
+    color: white; /* Ensure the text is readable */
+    padding: 20px; /* Add some padding for better presentation */
+    border-radius: 10px; /* Optional: Add some rounded corners */
+  }
+  .for-img-download{
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 25px 45px 0px 30px;
+    border: none;
+  }
+  .for-img-download .overlay-content{
+   width: 58%;
+  }
+  .for-img-download .content_banner {
+   font-size: 23px;
+   font-weight: 700 !important;
+   color: rgb(24, 49, 83);
+   padding-bottom: 0px !important;
+   line-height: 36px !important;
+   margin-bottom: 5px;
+  }
+  .btn-download {
+   font-size: 18px !important;
+   font-weight: 500;
+   border-radius: 8px !important;
+   padding: 7px 20px 10px !important;
+  }
+  
+  .btn-download {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Change the color as needed */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; /* Optional: Add rounded corners to the button */
+  }
+  .icon-container i {
+    color: green;
+    font-size: 60px;
+  }
+  .first_row{
+    margin:30px 0 16px ;
+    padding-left: 30px;
+  }
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      background-color: #ddd;
+    }
+    100% {
+      background-color: #c0c0c0;
+    }
+  }
+    @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }

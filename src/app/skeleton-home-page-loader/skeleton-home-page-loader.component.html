@@ -1,4 +1,5 @@
 <app-header></app-header>
+<!--
 <section class="description_home">
   <div class="container-fluid">
     <div class="content_home_">
@@ -35,7 +36,6 @@
 
   </div>
 </section>
-
 <section class="banner">
   <div class="container-fluid">
     <div class="row">
@@ -64,12 +64,115 @@
     </div>
   </div>
 </section>
+-->
+<section class="description_home css-selector">
+  <div class="container-fluid">
+    <div class="content_home_">
+      <div class="content_home">
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="new_remote">
+              <span>NEW</span>
+              <p>Your remote tech talent selected by real #skills</p>
+            </div>
+            <div class="text_home">
+              <h2>Build your remote digital workforce based on skills</h2>
+              <p class="definition_home">Embrace the future of work with our best digital talent, not just remotely but with the full support of the LIGGEEY team.</p>
+            </div>
+            <div class="hiring_work">
+              <a class="btn hiring" routerLink="hire-company" routerLinkActive="active_lien_navbar">Hire Digital Talent</a>
+              <a class="btn second-link" routerLink="hire-candidat" routerLinkActive="active_lien_navbar">Get Your Remote Job</a>
+              <!--<a class="work" routerLink="about" routerLinkActive="active_lien_navbar">How does it work</a>-->
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+              <div class="image_home">
+                <img src="../../../assets/img/images.png" alt="menu image">
+              </div>
+       
+          </div>
+         
+          
+        </div>
+      </div>
+    </div>
 
+  </div>
+</section>
+
+<section class="banner">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="banner_left">
+          <div class="description_banner left">
+            <span class="title_description">Employers</span>
+            <p class="content_description">Unlock a world of remote talent<br>click the button to register your company and discover the next level of skilled professionals for your team.</p>
+            <a class="btn" routerLink="hire-company" routerLinkActive="active_lien_navbar">Register Account</a>
+          </div>
+          <div class="image_banner">
+            <img src="../../../assets/img/banner_left.png" alt="banner left">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="banner_right">
+          <div class="description_banner right">
+            <span class="title_description">Candidate</span>
+            <p class="content_description">Find your next career opportunity <br>register as a candidate now to connect with remote jobs tailored to your skills and aspirations.</p>
+            <a class="btn" routerLink="/hire-candidat" routerLinkActive="active_lien_navbar">Register Account</a>
+          </div>
+          <div class="image_banner">
+            <img src="../../../assets/img/banner_right.png" alt="banner right">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="beneath">
+  <div class="container-fluid">
+    <div class="row up_remote">
+      <div class="col-md-3 remote">
+          <div class="content_image">
+            <img src="../../../assets/img/work-from-home.png" alt="">
+          </div>
+          <p class="work">Work Remotely</p>
+          <p>When hired by one of our clients, you will work remotely but not from home. We provide you with office space in your country to ensure  a professional work environment.</p>
+      </div>
+      <div class="col-md-3 remote">
+          <div class="content_image">
+            <img src="../../../assets/img/responsibility.png" alt="">
+          </div>
+          <p class="work">Social Benefits Included</p>
+          <p>We offer comprehensive health insurance, ensuring that you are covered in case of illness or inability to work. Your well-being is our priority.</p>
+      </div>
+      <div class="col-md-3 remote">
+          <div class="content_image">
+            <img src="../../../assets/img/check.png" alt="">
+          </div>
+          <p class="work">On Our Payroll</p>
+          <p>All Talent is placed on our payroll, giving you flexibility. We handle invoicing and management, making it easy for you to scale your team up or down.</p>
+      </div>
+      <div class="col-md-3 remote">
+          <div class="content_image">
+            <img src="../../../assets/img/help.png" alt="">
+          </div>
+          <p class="work">We Stay Involved</p>
+          <p>We provide ongoing support with a LiveLearn account for continuous learning and skill development. We also assist in setting up your remote workforce effectively.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
 <section class="jobs">
   <div class="container-fluid">
     <div class="most_jobs">
       <div class="header_popular_job">
-        <div class="popular-jobs"></div>
+      <!--  <div class="popular-jobs"></div>-->
+        <span>Most Popular Jobs</span>
+        <p>Discover popular remote jobs across diverse industries on our platform.</p>
         <div class="skeleton-container-2">
             <div class="one-job">
                 <div class="card"></div>
@@ -164,13 +267,14 @@
     </div>
   </div>
 </section>
-
 <section class="categories">
   <div class="container-fluid">
         <div class="content_categories">
           <div class="header_categories">
-             <div class="category"></div>
-             <div class="cat-p"></div>
+          <h2>Category</h2>
+          <p>Explore diverse job categories on our platform for a tailored remote career experience.</p>
+           <!--<div class="category"></div>
+             <div class="cat-p"></div>-->  
           </div>
           <div class="row">
             <div class="skeleton-container-2">
@@ -294,8 +398,14 @@
   <div class="container-fluid">
     <div class="articles">
       <div class="header_articles">
+        <div class="header_articles">
+          <span>Our recent articles</span>
+          <p>To help you stay informed about the latest news and updates, enabling a successful career.</p>
+        </div>
+        <!--  
         <div class="category"></div>
         <div class="cat-p"></div>
+        -->
       </div>
       <div class="row">
         <div class="col-md-4">
@@ -342,8 +452,23 @@
   <div class="container-fluid">
     <div class="featured">
       <div class="header_featured">
+        <!--
         <div class="feat-talents"></div>
         <div class="browser-all"></div>
+        -->
+      </div>
+      <div class="featured">
+        <div class="header_featured">
+          <h2>Featured Talent </h2>
+          <a [routerLink]="['/list-candidat']" class="browser">Browser All
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M9.33355 5.53176L3.9934 0.191706C3.86989 0.068097 3.70501 0 3.5292 0C3.3534 0 3.18852 0.068097 3.06501 0.191706L2.67175 0.584873C2.41585 0.841066 2.41585 1.25745 2.67175 1.51326L7.156 5.99751L2.66677 10.4867C2.54326 10.6104 2.47507 10.7751 2.47507 10.9508C2.47507 11.1267 2.54326 11.2915 2.66677 11.4152L3.06004 11.8083C3.18365 11.9319 3.34843 12 3.52423 12C3.70003 12 3.86491 11.9319 3.98842 11.8083L9.33355 6.46336C9.45735 6.33936 9.52535 6.1738 9.52496 5.99781C9.52535 5.82112 9.45735 5.65566 9.33355 5.53176Z" fill="#1AC4A2"/>
+              </svg>
+            </p>
+          </a>
+        </div>
+        <p>Meet our standout candidates – to ensure you have access to a pool of ready-to-work talent matching your requirements.</p>
       </div>
       <div class="meet-cand"></div>
     </div>
@@ -416,59 +541,7 @@
     </div>
   </div>
 </section>
-<section class="recruting">
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4 col-sm-4">
-            <div class="recruting_now one">
-                    <div class="recrutement">
-                        <div class="text_recruting">
-                            <div class="recrut-now"></div>
-                            <div class="recrut-btn"></div>
-                          </div>
-                        <div class="content_image_recruting">
-                        </div>
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="recruting_now two">
-              <div class="recrutement">
-                <div class="text_recruting">
-                    <div class="recrut-now"></div>
-                    <div class="recrut-btn"></div>
-                  </div>
-                <div class="content_image_recruting">
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="recruting_now tree">
-              <div class="recrutement">
-                <div class="text_recruting">
-                    <div class="recrut-now"></div>
-                    <div class="recrut-btn"></div>
-                  </div>
-                <div class="content_image_recruting">
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-<section class="mobile">
-  <div class="content-app-footer text-center">
-    <div class="container-fluid position-relative">
-      <div class="title-download"></div>
-      <div class="mob-description"></div>
-      <div class="content-btn-download d-flex justify-content-center">
-        <div class="mob-btn-apple"></div>
-        <div class="mob-btn-playstore"></div>
-      </div>
-    </div>
-    <div class="mob-img"></div>
-  </div>
-</section>
+
+<app-publication></app-publication>
+<app-app-mobile></app-app-mobile>
 <app-footers></app-footers>
