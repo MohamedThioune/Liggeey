@@ -181,17 +181,19 @@ input[type="search"]:focus {
    margin-left: 15px;
  }
  table tbody tr th {
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
+  height: 80px;
+  width: 80px;
   overflow: hidden;
  }
  table tbody tr th img{
   height: 100%;
   width: 100%;
   object-fit: contain;
-
+  border-radius: 100% !important;
  }
+ table tbody tr td{
+  vertical-align: middle;
+}
  table tbody tr td button{
   border: none;
   margin-right: 9px;

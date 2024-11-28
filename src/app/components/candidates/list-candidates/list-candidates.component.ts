@@ -23,13 +23,14 @@ export class ListCandidatesComponent implements OnInit {
   tabLevel=["Bac","Licence","Master"];
   filteredCandidates!:any
   selectedGender: string = '';
+  loading=true;
+
   constructor(private homeService:HomePageService, private router: Router) { }
 
   ngOnInit(): void {
     this.homeService.getCandidates().subscribe((data:any)=>{      
       this.candidates = data.candidates
-      console.log(this.candidates);
-
+      this.loading=false
     })
     
   }

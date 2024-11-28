@@ -1,5 +1,8 @@
 <app-header></app-header>
-<section class="content-page-dashboard content-page-view-candidat" style="background-color: #DFEBF2;">
+<ng-template #skeleton>
+  <app-skeleton-dashboard-candidate-loader></app-skeleton-dashboard-candidate-loader>
+</ng-template>
+<section class="content-page-dashboard content-page-view-candidat" style="background-color: #DFEBF2;" *ngIf="!loading; else skeleton">
   <app-sidebar-company></app-sidebar-company>
   <div class="right_menu">
     <div class="d-flex align-items-center">
