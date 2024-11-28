@@ -1,0 +1,301 @@
+
+.right_menu{
+    margin-bottom: 121px;
+}
+.content_right_menu{
+    background-color: #FFF;
+    height: fit-content;
+    border-radius: 8px;
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
+}
+.content_right_menu span:first-child{
+    color: #202124;
+    font-size: 30px;
+    font-weight: 600;
+}
+.content_right_menu p:nth-child(2){
+    color: #696969;
+    font-size: 15px;
+    font-weight: 600;
+}
+.social{
+  border-radius: 8px;
+  background: #FFF;
+  margin-top: 35px;
+  margin-bottom: 30px;
+}
+.social span{
+  color: #202124;
+  font-size: 18px;
+  font-weight: 700;
+  padding-left: 22px;
+}
+.social form a{
+    color: #FFF;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 8px;
+    background: #1AC4A2;
+    font-weight: 600;
+    width: 108.542px;
+    height: 50px;
+    margin-top: 47px;
+
+}
+.contact{
+  border-radius: 8px;
+  background: #FFF;
+}
+.contact span{
+  color: #202124;
+  font-size: 18px;
+  font-weight: 700;
+  padding-left: 22px;
+}
+.contact .content_map{
+  width: 100%;
+  height: 617px;
+}
+.contact .content_map img{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.map_menu{
+  border-radius: 8px;
+  background: #FFF;
+  margin-top: 35px;
+}
+.head_map_menu{
+    padding-bottom: 40px;
+}
+.content_map_menu{
+    margin-right: 25px;
+    width: 135px;
+    height: 135px;
+    padding-top:20px ;
+    padding-right: 20px;
+}
+
+/* Champ de saisie désactivé */
+input[disabled]:hover {
+  background-color: #f2f2f2; /* Couleur de fond grise */
+  cursor: not-allowed; /* Curseur indiquant que le champ n'est pas modifiable */
+}
+ textarea {
+  border-radius: 8px;
+  padding:17px 82px 15px 21px;
+  background-color: #F0F5F7;
+  margin-top: 15px;
+  border: none;
+  width: 100%;
+  min-height: 200px;
+  font-size: 16px;
+  font-weight: 400;
+ }
+.head_map_menu span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: 600;
+}
+.description_map{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.description_map p:first-child{
+    color: #1AC4A2;
+    background-color: #EFFBF8;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 17px 18px 15px 18px;
+    width: 171.32px;
+    text-align: center;
+}
+.description_map p{
+    color:  #696969;
+    font-size: 14px;
+    font-weight: 500;
+}
+/* form */
+   .card-body {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     margin-bottom: 15px;
+     width: 100%;
+     border: 1px solid #e4e4e4;
+     border-radius: 14px;
+     padding: 35px !important;
+   }
+   form{
+    /* border: 1px solid green; */
+   }
+   .footer {
+     display: flex;
+     justify-content: center;
+   }
+   .card-footer{
+     display: flex;
+     align-items: center;
+     border: none;
+     background: none;
+   }
+   .card-footer button{
+     border: none ;
+     background-color: #1AC4A2;
+     color: #FFFF;
+     width: 110px;
+     height: 50px;
+     font-weight: bold;
+     border-radius: 8px;
+   }
+   /* Form styling */
+   .form-control, textarea {
+     border-radius: 8px;
+     padding: 17px 82px 15px 21px;
+     height: 56px;
+   /*  background-color: #F0F5F7;*/
+     border: none;
+     width: 100%;
+     font-size: 16px;
+     margin-bottom: 34px !important;
+     animation: fadeIn 1s ease-in-out infinite; /* Animation d'apparition */
+     background-color: #e0dddd;
+   }
+   .form-control:focus {
+    border: 1px solid #1AC4A2;
+    background-color: transparent;
+  }
+   .input-group-text {
+     background-color: #f8f9fa;
+     border: 1px solid #ced4da;
+     border-radius: 0;
+     display: flex;
+   }
+
+   /* Label styling */
+   label {
+     font-weight: 500;
+     margin-bottom: 15px;
+     display: flex;
+     color: #202124;
+
+   }
+   /* Add margin and spacing */
+   .m-4 {
+     margin: 1.5rem;
+   }
+
+   /* Clear float */
+   .clear {
+     clear: both;
+   }
+   #password-employer, #confirm-password{
+     background-color:#F0F5F7 ;
+   }
+
+   /* Adjust spacing between buttons */
+   .btn {
+     margin: 0.3rem;
+     padding:15px ;
+     border-radius: 8px;
+     width: 80%;
+   }
+
+   /* Optional styles for the text with asterisk (*) */
+ label p {
+     font-weight: bold;
+     color: red;
+     margin: 1px 2px 0px 10px;
+   }
+
+.applicants{
+    border-radius: 8px;
+    background: #FFF;
+    margin-top: 48px;
+}
+
+.header_applicants span{
+    color: #202124;
+    font-size: 18px;
+    font-weight: 600;
+}
+.header_applicants p{
+  color:  #696969;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #F0F5F7;
+}
+.header_applicants a{
+  color: #FFF;
+  font-size: 15px;
+  border-radius: 8px;
+  background: #1AC4A2;
+  font-weight: 600;
+  width: 108.542px;
+  height: 50px;
+}
+ .show_sidebar{
+    visibility:hidden;
+}
+h2 {
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: 30px;
+}
+.social .card-body {
+  padding-bottom: 0px !important;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+}
+.image-container {
+  position: relative;
+  margin: 35px 0;
+}
+
+.default-image {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+  animation: fadeIn 1s ease-in-out infinite; /* Animation d'apparition */
+  background-color: #e0dddd;
+  border-radius: 10px;
+}
+.upload-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ecfef6;
+  color: #1ac4a2;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #1ac4a2;
+}
+
+.upload-button:hover {
+  background-color: #1ac4a2;
+  color: white;
+}
+ @media all and (min-width: 300px) and (max-width: 767px){
+    .right_menu{
+        width: fit-content;
+        visibility: visible;
+        margin-bottom: 30px;
+    }
+    .all_info{
+        margin-bottom: 25px;
+    }
+    .applicants ul{
+        margin: 0px;
+    }
+   .card-body {
+     padding: 1.25rem 15px !important;
+   }
+ }

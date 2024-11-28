@@ -17,12 +17,14 @@ export class ListCompagnyComponent implements OnInit {
   searchCountry: string = ''; 
   searchTitle: string = ''; 
   searchLocation:string ='';
+  loading :boolean=true;
 
   constructor(private homeService:HomePageService) { }
 
   ngOnInit(): void {
     this.homeService.getAllCompagny().subscribe((data:any)=>{
-      this.employers=data        
+      this.employers=data 
+      this.loading=false       
     })
   }
 

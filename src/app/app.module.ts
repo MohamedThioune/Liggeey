@@ -84,6 +84,23 @@ import { HireCompanyComponent } from './components/hire-company/hire-company.com
 import { HireCandidatComponent } from './components/hire-candidat/hire-candidat.component';
 import { SkeletonAllCandidatesPageLoaderComponent } from './skeleton-all-candidates-page-loader/skeleton-all-candidates-page-loader.component';
 import { SkeletonDashboardCandidateLoaderComponent } from './skeleton-dashboard-candidate-loader/skeleton-dashboard-candidate-loader.component';
+import { SkeletonAllCompaniesLoaderComponent } from './skeleton-all-companies-loader/skeleton-all-companies-loader.component';
+import { ChallengesComponent } from './components/challenges/challenges.component';
+import { ListChallengesComponent } from './components/challenges/list-challenges/list-challenges.component';
+import { DetailChallengeComponent } from './components/challenges/detail-challenge/detail-challenge.component';
+import { ItemAllChallengesComponent } from './components/item-all-challenges/item-all-challenges.component';
+import { AddChallengeComponent } from './components/challenges/add-challenge/add-challenge.component';
+import { SkeletonDashbordEmployerComponent } from './skeleton-dashbord-employer/skeleton-dashbord-employer.component';
+import { SkeletonCompagnyCandidatComponent } from './skeleton-compagny-candidat/skeleton-compagny-candidat.component';
+import { SkeletonCompagnyProfileComponent } from './skeleton-compagny-profile/skeleton-compagny-profile.component';
+import { SkeletonDashboardCandidateComponent } from './skeleton-dashboard-candidate/skeleton-dashboard-candidate.component';
+import { SkeletonResumeCandidateComponent } from './skeleton-resume-candidate/skeleton-resume-candidate.component';
+import { SkeletonPassportCandidateComponent } from './skeleton-passport-candidate/skeleton-passport-candidate.component';
+import { SkeletonManageCompanyComponent } from './skeleton-manage-company/skeleton-manage-company.component';
+import { SkeletonAllApplicantsComponent } from './skeleton-all-applicants/skeleton-all-applicants.component';
+import { SkeletonAppliesCandidatComponent } from './skeleton-applies-candidat/skeleton-applies-candidat.component';
+import { SkeletonAlertCandidatComponent } from './skeleton-alert-candidat/skeleton-alert-candidat.component';
+import { SkeletonFavoriteJobsComponent } from './skeleton-favorite-jobs/skeleton-favorite-jobs.component';
 
 @NgModule({
   declarations: [
@@ -163,6 +180,23 @@ import { SkeletonDashboardCandidateLoaderComponent } from './skeleton-dashboard-
     HireCandidatComponent,
     SkeletonAllCandidatesPageLoaderComponent,
     SkeletonDashboardCandidateLoaderComponent,
+    SkeletonAllCompaniesLoaderComponent,
+    ChallengesComponent,
+    ListChallengesComponent,
+    DetailChallengeComponent,
+    AddChallengeComponent,
+    ItemAllChallengesComponent,
+    SkeletonDashbordEmployerComponent,
+    SkeletonCompagnyCandidatComponent,
+    SkeletonCompagnyProfileComponent,
+    SkeletonDashboardCandidateComponent,
+    SkeletonResumeCandidateComponent,
+    SkeletonPassportCandidateComponent,
+    SkeletonManageCompanyComponent,
+    SkeletonAllApplicantsComponent,
+    SkeletonAppliesCandidatComponent,
+    SkeletonAlertCandidatComponent,
+    SkeletonFavoriteJobsComponent,
 
 
   ],
