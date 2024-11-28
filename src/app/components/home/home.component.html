@@ -22,6 +22,7 @@
               <a class="btn second-link" routerLink="hire-candidat" routerLinkActive="active_lien_navbar">Get Your Remote Job</a>
               <!--<a class="work" routerLink="about" routerLinkActive="active_lien_navbar">How does it work</a>-->
             </div>
+            <div id="hubspot-form"></div>
           </div>
           <div class="col-md-6 col-sm-6">
               <div class="image_home">
@@ -317,7 +318,7 @@
 
       <div class="row candidat_featured_">
         <div class="col-md-3 item" *ngFor="let candidate of candidates" style="cursor: pointer;">
-            <div class="content_candidate" (click)="send_id(candidate.ID)">
+            <div class="content_candidate" (click)="navigateToDetail(candidate.ID)">
               <div class="content_image_candidate">
                 <img [src]=candidate.image alt="Image Of Candidate">
               </div>
@@ -331,7 +332,7 @@
                   </svg>
                   <p>{{candidate.country}}</p>
                 </div>
-                <a class="btn" (click)="send_id(candidate.ID)" routerLinkActive="active_lien_navbar">See Candidate</a>
+                <a class="btn" (click)="navigateToDetail(candidate.ID)" routerLinkActive="active_lien_navbar">See Candidate</a>
               </div>
             </div>
         </div>

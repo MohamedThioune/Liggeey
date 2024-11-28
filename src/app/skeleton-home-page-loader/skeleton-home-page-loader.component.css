@@ -1,8 +1,32 @@
 
 /* section description home*/
-.description_home{
-    background: #f0f0f0;
-}
+/*.description_home{
+    background: #F5F7FC;
+}*/
+.whatsapp-icon-container {
+    width: 60px; /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+    background-color: #25D366; /* WhatsApp green background */
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white; /* White border */
+    position: fixed;
+    bottom: 150px;
+    right: 315px;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 1000; /* Ensure it is above other elements */
+  }
+
+  .whatsapp-icon-container svg {
+    width: 50%; /* Adjust size of the icon within the circle */
+    height: 50%;
+    fill: white; /* Make the SVG icon white */
+  }
 .definition_home {
     color: #202124;
     font-size: 20px;
@@ -21,6 +45,7 @@
     font-weight: 700;
     border: 1px solid  #FFF;
     background-color:  #1AC4A2;
+    margin-right: 5px;
 }
 .hiring_work .work{
     color: #696969;
@@ -30,12 +55,10 @@
 }
 
 .number_candidates{
-    background-color: #ddd;
-    height: 30px;
-    width: 10%;
-    margin-top: 10px;
-    border-radius: 5px;
-    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+    font-weight: 700;
+    padding-right: 20px;
+    margin: 0;
+    line-height: -1.5;
 }
 .jobholder{
     height: 50px;
@@ -45,16 +68,14 @@
 .content_users_1{
   width: 50px;
   height: 50px;
-  margin-left: 10px;
-  border-radius: 50%;
+  margin-right: -10px;
+  border-radius: 100%;
   display: block;
   overflow: hidden;
-  animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 }
-.content_users_1{
-    background-color: #ddd;
-    width: 5vw;
-    height: 5vw;
+.content_users_1 img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 .image_home{
@@ -63,19 +84,17 @@
     border-radius: 100%;
     margin: 0 auto;
 }
-.image_home{
-    background-color: #ddd;
-    width:30vw;
-    height: 30vw;
+.image_home img{
+    width:100%;
+    height: 100%;
     object-fit: contain;
     margin: auto;
-    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
 }
 .new_remote{
     display: flex;
     align-items: center;
     border-radius: 42px;
-    background-color: #cecece;
+    background-color: #1ac4a226;
     padding: 15px 30px 16px 15px;
     width: fit-content;
 
@@ -98,25 +117,6 @@
     line-height: 1.5; /* Ajuster la hauteur de ligne pour centrer verticalement le texte */
 
 }
-.text_home{
-    background-color: #ddd;
-    width: 70%;
-    border-radius: 30px;
-    height: 20vh;
-    margin-top: 10vh;
-    margin-left: 2%;
-    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
-}
-.text_home2{
-    background-color: #ddd;
-    width: 70%;
-    border-radius: 30px;
-    height: 10vh;
-    margin-top: 2vh;
-    margin-left: 2%;
-    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
-}
-
 .text_home h2{
     color: #202124;
     font-size: 47px;
@@ -133,37 +133,33 @@
 /*section banner*/
 .banner{
     margin-top: 160px;
-    background-color: #f0f0f0;
+    margin-bottom: 40px;
 }
 .banner_left,.banner_right{
     display: flex;
     border-radius: 8px;
     overflow: hidden;
-    background-color: #f0f0f0;
-    border: 2px solid #ddd;
-    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
-
 }
 .title_description{
-    background-color: #ddd;
-    height: 30px;
-    width: 40%;
-    border-radius: 5px;
+    color: #FFF;
+    font-size: 26px;
+    font-weight: bold;
 }
 .content_description{
- background-color: #ddd;
- height: 15vh;
- margin-top: 10px;
- width: 80%;
- border-radius: 10px;
+  color: #FFF;
+  font-size: 15px;
+  font-weight: bold;
+  padding-bottom: 17px;
+  padding-top: 13px;
+  line-height: 31px;
 }
 .description_banner{
   width: 55%;
-  background-color: #f0f0f0;
+  background-color: #202124;
   padding: 35px 25px 40px 25px;
 }
 .right{
-    background-color: #f0f0f0;
+    background-color: #1AC4A2;
 }
 .description_banner.left  a{
     border-radius: 8px;
@@ -185,13 +181,51 @@
 
 .image_banner{
     width: 45%;
-    background-color: #a9a5a5;
    /* height: fit-content;*/
 }
-.image_banner{
-    height: 52vh;
+.image_banner img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     margin: auto;
+}
+
+/* section beneath*/
+.beneath{
+    padding: 15px;
+}
+.beneath .up_remote{
+    border :1px solid #D5DBE4;
+    border-radius: 8px;
+    padding-top: 20px;
+}
+.beneath .up_remote .remote{
+
+    padding-bottom: 50px;
+}
+.beneath .content_image {
+    border-radius: 10px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 30px;
+}
+.beneath .content_image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.beneath .remote .under_remote{
+    background-color: #c2eae6;
+}
+.beneath .remote p{
+    color: #696969;
+    font-weight: 400;
+}
+.beneath .remote .work{
+  color:#202124;
+  font-weight: bold;
+  font-size: 20px;
 }
 /* section jobs*/
 .jobs{
@@ -611,6 +645,7 @@
     margin-top: 150px;
     margin-bottom: 100px;
 }
+/*
 .content_item{
     border-radius: 8px;
     width: 20vh;
@@ -620,8 +655,7 @@
     text-align: center;
     padding: 45px 15px;
     cursor:pointer
-    /* Shadow / 1
-    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05); */
+    box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05); 
 }
 
 .content_item .item_left{
@@ -645,7 +679,6 @@
     font-size: 30px;
 }
 .content_item .item_left svg{
-    /*color: #1AC4A2;*/
     font-size: 30px;
 }
 .content_item:hover {
@@ -653,7 +686,6 @@
     border: 1px solid  #ECEDF2;
     background: #FFF;
 
-    /* Shadow / 1 */
     box-shadow: 0px 6px 15px 0px rgba(64, 79, 104, 0.05);
 
 }
@@ -678,7 +710,7 @@
     font-size: 14px;
     font-weight: bold;
   margin-bottom: 0px;
-}
+}*/
 .header_categories{
     text-align: center;
     padding-bottom: 50px;
@@ -718,6 +750,13 @@
 .featured h2 {
   margin-bottom: 0;
   font-weight: 500;
+}
+.hiring_work a:last-child{
+    padding: 14px 17px 13px 17px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid  #FFF;
+    background-color: #1ac4a226;
 }
 @media all and (min-width: 300px) and (max-width: 767px){
     .new_remote{
@@ -1112,15 +1151,16 @@
     margin-top: 10px;
     height: 10px; 
 }
+/*
 .btn{
     width: 70%;
     margin-bottom: 10px;
     margin-top: 30px;
     background-color:rgb(155, 155, 155) ;
-    height: 30px; /* Height of the button skeleton */
-    border-radius: 20px; /* Border radius for rounded corners */
+    height: 30px; 
+    border-radius: 20px; 
     
-}
+}*/
 .register-btn{
     width: 80%;
     margin-bottom: 10px;

@@ -1,6 +1,6 @@
 <app-header></app-header>
 <ng-template #skeleton>
-  <app-skeleton-loader></app-skeleton-loader>
+  <app-skeleton-applies-candidat></app-skeleton-applies-candidat>
 </ng-template>
 <div *ngIf="!loading; else skeleton">
 <section class="content-page-dashboard">
@@ -118,4 +118,4 @@
   </div>
 </section>
 </div>
-
+<app-footers *ngIf="!loading"></app-footers>
