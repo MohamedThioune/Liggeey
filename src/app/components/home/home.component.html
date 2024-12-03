@@ -20,9 +20,21 @@
             <div class="hiring_work" *ngIf="!userConnect">
               <a class="btn hiring" routerLink="hire-company" routerLinkActive="active_lien_navbar">Hire Digital Talent</a>
               <a class="btn second-link" routerLink="hire-candidat" routerLinkActive="active_lien_navbar">Get Your Remote Job</a>
-              <!--<a class="work" routerLink="about" routerLinkActive="active_lien_navbar">How does it work</a>-->
             </div>
-            <div id="hubspot-form"></div>
+            <!--
+            <a class="work" (click)="showPopup()" routerLinkActive="active_lien_navbar">Receive new job alerts?</a>
+
+            <div  *ngIf="isPopupVisible" id="hubspot-form"></div>
+            -->
+            <a class="work" (click)="showPopup()">Receive new job alerts?</a>
+
+            <div *ngIf="isPopupVisible" class="popup-container">
+                <div class="popup-content">
+                    <span class="close" (click)="hidePopup()">&times;</span>
+                    <h3>Subscribe to Job Alerts</h3>
+                    <div id="hubspot-form"></div>
+                </div>
+            </div>          
           </div>
           <div class="col-md-6 col-sm-6">
               <div class="image_home">

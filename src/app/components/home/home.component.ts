@@ -88,6 +88,28 @@ export class HomeComponent implements OnInit {
       });
     }, 1000); // Ajustez le délai si nécessaire
   }
+  isPopupVisible: boolean = false;
+  isLoading: boolean = false;
+
+  showPopup() {
+    this.isPopupVisible = true;
+
+    // Utiliser un délai pour s'assurer que l'élément DOM est visible
+    setTimeout(() => {
+        if ((window as any).hbspt) {
+            (window as any).hbspt.forms.create({
+                region: "na1",
+                portalId: "27242849",
+                formId: "8352015f-1898-47fe-a743-8c7e1a43e0f5",
+                target: "#hubspot-form"
+            });
+        }
+    }, 100); // 100 ms pour que le DOM soit prêt
+}
+
+  hidePopup() {
+    this.isPopupVisible = false;
+  }
   
   loadHubspotForm(): void {
     this.loadHubspotScript()

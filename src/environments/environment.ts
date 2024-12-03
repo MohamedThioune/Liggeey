@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   login_url:"http://127.0.0.1:4200/login",
-  baseUrl:"https://Livelearn.nl",
+  baseUrl:"https://app.Livelearn.nl",
   //baseUrl:"https://wp12.influid.nl",
   
 };
