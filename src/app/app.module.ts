@@ -109,12 +109,9 @@ import { SkeletonAllApplicantsComponent } from './skeleton-all-applicants/skelet
 import { SkeletonAppliesCandidatComponent } from './skeleton-applies-candidat/skeleton-applies-candidat.component';
 import { SkeletonAlertCandidatComponent } from './skeleton-alert-candidat/skeleton-alert-candidat.component';
 import { SkeletonFavoriteJobsComponent } from './skeleton-favorite-jobs/skeleton-favorite-jobs.component';
-<<<<<<< HEAD
-=======
 // import { SkeletonListChallengesComponent } from './skeleton-list-challenges/skeleton-list-challenges.component';
 // import { SkeletonItemChallengesComponent } from './skeleton-item-challenges/skeleton-item-challenges.component';
 // import { SkeletonDetailChallengeComponent } from './skeleton-detail-challenge/skeleton-detail-challenge.component';
->>>>>>> origin/delate-challenge
 
 @NgModule({
   declarations: [
@@ -195,19 +192,11 @@ import { SkeletonFavoriteJobsComponent } from './skeleton-favorite-jobs/skeleton
     SkeletonAllCandidatesPageLoaderComponent,
     SkeletonDashboardCandidateLoaderComponent,
     SkeletonAllCompaniesLoaderComponent,
-<<<<<<< HEAD
-    ChallengesComponent,
-    ListChallengesComponent,
-    DetailChallengeComponent,
-    AddChallengeComponent,
-    ItemAllChallengesComponent,
-=======
     // ChallengesComponent,
     // ListChallengesComponent,
     // DetailChallengeComponent,
     // AddChallengeComponent,
     // ItemAllChallengesComponent,
->>>>>>> origin/delate-challenge
     SkeletonDashbordEmployerComponent,
     SkeletonCompagnyCandidatComponent,
     SkeletonCompagnyProfileComponent,
@@ -219,12 +208,9 @@ import { SkeletonFavoriteJobsComponent } from './skeleton-favorite-jobs/skeleton
     SkeletonAppliesCandidatComponent,
     SkeletonAlertCandidatComponent,
     SkeletonFavoriteJobsComponent,
-<<<<<<< HEAD
-=======
     // SkeletonListChallengesComponent,
     // SkeletonItemChallengesComponent,
     // SkeletonDetailChallengeComponent,
->>>>>>> origin/delate-challenge
 
 
   ],
