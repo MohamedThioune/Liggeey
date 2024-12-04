@@ -40,47 +40,5 @@ export class ItemAllChallengesComponent implements OnInit {
             }
           }
   }
-  canAppl(item: any): boolean {
-    if (!this.userConnect || !this.userConnect.id) {
-      return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
-  }
-
-    return !item.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id);
-  }
-  
-  openApplyModal(jobId: string,jobSlug:string) {
-    this.homeService.setSelectedJobId(jobId,jobSlug);    
-    const modalElement = document.getElementById('modal-apply');
-    if (modalElement) {
-      modalElement.click();
-    } else {
-      console.error("Modal element not found");
-    }
-  }
-
-  ngOnChanges() {
-    this.currentDate = new Date();
-    this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-    if (Array.isArray(this.category)) {
-      this.category.forEach((element: any) => {
-      const postedDate = new Date(element.posted_at);
-      if (!isNaN(postedDate.getTime())) { // Check if postedDate is a valid date
-        const postedDateFormatted = this.datePipe.transform(postedDate, 'yyyy-MM-dd');
-     //   element.posted_at = postedDateFormatted;
-        const differenceInMs = this.currentDate.getTime() - postedDate.getTime();
-        const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-  
-     
-        if (differenceInDays > 30) {
-          const differenceInMonths = Math.floor(differenceInDays / 30);
-          element.duration = differenceInMonths + ' month(s)';
-        } else {
-          element.duration = differenceInDays + ' day(s)';
-        }
-      }
-      });
-    }
-  }
-
 
 }

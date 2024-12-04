@@ -101,6 +101,9 @@ import { SkeletonAllApplicantsComponent } from './skeleton-all-applicants/skelet
 import { SkeletonAppliesCandidatComponent } from './skeleton-applies-candidat/skeleton-applies-candidat.component';
 import { SkeletonAlertCandidatComponent } from './skeleton-alert-candidat/skeleton-alert-candidat.component';
 import { SkeletonFavoriteJobsComponent } from './skeleton-favorite-jobs/skeleton-favorite-jobs.component';
+import { SkeletonListChallengesComponent } from './skeleton-list-challenges/skeleton-list-challenges.component';
+import { SkeletonItemChallengesComponent } from './skeleton-item-challenges/skeleton-item-challenges.component';
+import { SkeletonDetailChallengeComponent } from './skeleton-detail-challenge/skeleton-detail-challenge.component';
 
 @NgModule({
   declarations: [
@@ -197,6 +200,9 @@ import { SkeletonFavoriteJobsComponent } from './skeleton-favorite-jobs/skeleton
     SkeletonAppliesCandidatComponent,
     SkeletonAlertCandidatComponent,
     SkeletonFavoriteJobsComponent,
+    SkeletonListChallengesComponent,
+    SkeletonItemChallengesComponent,
+    SkeletonDetailChallengeComponent,
 
 
   ],

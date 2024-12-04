@@ -54,15 +54,15 @@
     .items_job{
         margin: 0;
     }
-.jobs{
-    margin-top: 80px;
-    margin-bottom: 60px;
-}
-.name-cv{
-    white-space: nowrap;
-     overflow: hidden;
-     text-overflow: ellipsis;
-     max-width:47%;
-  } 
+    .jobs{
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+    .name-cv{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width:47%;
+    } 
 
 }

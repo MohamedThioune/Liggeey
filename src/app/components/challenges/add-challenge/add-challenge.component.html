@@ -4,31 +4,88 @@
     <div class="container-fluid">
       <div class="color"></div>
       <h3>Youth unemployement in <br>Senegal,how to provide <br> more jobs </h3>
-      <form class="w-50" action="" style="position: absolute;display:block;padding:30px;border-radius:16px;background-color:#FFFF;border:1px solid #B1B1B1">
+      <form [formGroup]="form" class="form-container" action=""  (ngSubmit)="onSubmit()">
         <h4>Youth unemployement in senegal,how to provide more jobs</h4>
-        <input class="w-100" type="text" name="" id="" placeholder="Title of your solution">
-        <input class="w-100" type="text" name="" id="" placeholder="Short Description of your solution (summary)">
-        <input class="w-100" type="text" name="" id="" placeholder="Describe why you are the best person for delivering the solution">
-        <input class="w-100" type="text" name="" id="" placeholder="Fully describe the solution and gives examples">
-        <div class="row m-1">
-          <div class="custom-file-upload col-md-3">
+        <div class="form-group">
+          <label for="titel">
+            Title of your solution <span class="required">*</span>
+          </label>
+          <input 
+            class="w-100" 
+            type="text" 
+            name="titel" 
+            id="titel" 
+            formControlName="titel" 
+            placeholder="Title of your solution"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label for="short_description">
+            Short description of your solution <span class="required">*</span>
+          </label>
+          <textarea 
+            class="w-100" 
+            name="short_description" 
+            id="short_description" 
+            formControlName="short_description" 
+            placeholder="Short Description of your solution (summary)" 
+            required
+            rows="5">
+          </textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="short_description">
+            Motivation of your solution <span class="required">*</span>
+          </label>
+          <textarea 
+            class="w-100" 
+            name="motivation" 
+            id="motivation" 
+            formControlName="motivation" 
+            placeholder="Describe why you are the best person for delivering the solution" 
+            required
+            rows="5">
+          </textarea>
+        </div>
+        <div class="form-group">
+          <label for="short_description">
+            Long Description of your solution <span class="required">*</span>
+          </label>
+          <textarea 
+            class="w-100" 
+            name="long_description" 
+            id="long_description" 
+            formControlName="long_description" 
+            placeholder="Fully describe the solution and gives examples" 
+            required
+            rows="5">
+          </textarea>
+        </div>
+        <div class="row m-4 w-100">
+          <div class="custom-file-upload col-md-4">
             <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" type="file" style="display: none;">
+            <input id="fileInput" formArrayName="imageURLs" (change)="onFilesSelected($event,0)" type="file">
           </div>
-          <div class="custom-file-upload col-md-3">
+          <div class="custom-file-upload col-md-4">
             <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" type="file" style="display: none;">
+            <input id="fileInput" formArrayName="imageURLs" (change)="onFilesSelected($event,1)" type="file">
           </div>
-          <div class="custom-file-upload col-md-3">
+          <div class="custom-file-upload col-md-4">
             <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" type="file" style="display: none;">
+            <input id="fileInput" formArrayName="imageURLs" (change)="onFilesSelected($event,2)" type="file">
+          </div>
+          <div class="custom-file-upload col-md-4">
+            <label for="fileInput">Upload images of your solution</label>
+            <input id="fileInput" formArrayName="imageURLs" (change)="onFilesSelected($event,3)" type="file">
           </div>
         </div>
         <div class="custom-file-upload w-100 mt-4" style="height: 150px;padding:15px">
-          <label for="fileInput">Upload your PDF presentation of the project solution</label>
-          <input id="fileInput" type="file" style="display: none;">
+          <label for="fileInput">Upload your PDF presentation of the project solution <span class="required">*</span></label>
+          <input id="fileInput" (change)="onFileSelected($event)" accept="image/*"  name="pdfURL" formControlName="pdfURL" type="file">
         </div>
-        <a href="" class="btn w-100 mt-4" type="submit" style="background-color: #23BC9A;color:#FFF;font-weight:600;padding:15px;border-radius:16px">Apple for challenge</a>
+        <button class="btn w-100 mt-4" type="submit">Apple for challenge</button>
       </form>
     </div>
   </section>
