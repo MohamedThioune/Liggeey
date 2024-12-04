@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup ,Validators} from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup ,Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Challenge } from 'src/app/interfaces/challenge';
 import { HomePageService } from 'src/app/services/home-page.service';
@@ -114,13 +114,30 @@ export class AddChallengeComponent implements OnInit {
       console.log('File uploaded:', file);
     }
   }
+  onFilessSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+  
+    if (input.files && input.files.length > 0) {
+      const files = Array.from(input.files);
+      files.forEach(file => {
+        console.log('Selected file:', file.name);
+        // Traitez chaque fichier ici (ex. uploader ou stocker dans une variable)
+      });
+  
+      // Si vous utilisez un formulaire réactif pour stocker les fichiers :
+      const fileArray = this.form.get('imageURLs') as FormArray;
+      files.forEach(file => {
+        fileArray.push(new FormControl(file));
+      });
+    }
+  }
   
 
 onSubmit() {
   this.isLoading = true;
     // Utilisez le service pour postuler à l'emploi
-    console.log(this.form.value);
-    //return
+    console.log(this.form.value.imageURLs);
+    return
     if (this.validateFormJob(this.form.value)) {
 
     this.homeService.addChallenge(this.userConnect.id,this.form.value)
@@ -149,7 +166,7 @@ onSubmit() {
                  
           ToastNotification.open({
             type: 'error',
-            message: error.error.errors
+            message: error.errors
           });
           this.isLoading = false;
 
