@@ -111,14 +111,18 @@
         
               </td>
               <td class="text-center">
-                <i class="fa fa-heart" (click)="favoritesCandidat(job)"  [disabled]="isLoad[job.ID]"
-                  [ngClass]="{'image-favorite-bg': job.favourite, 'heart-icon': true}">
-                  <ng-container *ngIf="!isLoad[job.ID]; else loading">
-                  </ng-container>
-                  <ng-template class="d-flex" #loading>
-                    <p>Loading...</p>
-                  </ng-template>
-                </i>
+                <button 
+                class="fa fa-heart" 
+                (click)="favoritesCandidat(job)"  
+                [disabled]="isLoad[job.ID]"
+                [ngClass]="{'image-favorite-bg': job.favourite, 'heart-icon': true}">
+                <ng-container *ngIf="!isLoad[job.ID]; else loading">
+                </ng-container>
+                <ng-template class="d-flex" #loading>
+                  <p>Loading...</p>
+                </ng-template>
+              </button>
+              
               </td>
             </tr>
             </tbody>
@@ -289,15 +293,19 @@
                 </button>
               </td>
               <td class="text-center">
-                <i class="fa fa-heart" (click)="favoritesCandidat(job)"  [disabled]="isLoad[job.ID]"
-                [ngClass]="{'image-favorite-bg': job.favourite, 'heart-icon': true}">
-                <ng-container *ngIf="!isLoad[job.ID]; else loading">
-                </ng-container>
-                <ng-template class="d-flex" #loading>
-                  <p>Loading...</p>
-                </ng-template>
-              </i>
-              </td>
+                <td class="text-center">
+                  <i 
+                    class="fa fa-heart" 
+                    (click)="!isLoad[job.ID] && favoritesCandidat(job)"  
+                    [ngClass]="{'image-favorite-bg': job.favourite, 'heart-icon': true}">
+                    <ng-container *ngIf="!isLoad[job.ID]; else loading">
+                    </ng-container>
+                    <ng-template class="d-flex" #loading>
+                      <p>Loading...</p>
+                    </ng-template>
+                  </i>
+                </td>
+                
             </tr>
             </tbody>
           </table>

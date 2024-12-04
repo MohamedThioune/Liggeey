@@ -4,33 +4,6 @@
     <div class="container-fluid">
       <div class="color"></div>
       <h3>Youth unemployement in <br>Senegal,how to provide <br> more jobs </h3>
-<<<<<<< HEAD
-      <form class="w-50" action="" style="position: absolute;display:block;padding:30px;border-radius:16px;background-color:#FFFF;border:1px solid #B1B1B1">
-        <h4>Youth unemployement in senegal,how to provide more jobs</h4>
-        <input class="w-100" type="text" name="" id="" placeholder="Title of your solution">
-        <input class="w-100" type="text" name="" id="" placeholder="Short Description of your solution (summary)">
-        <input class="w-100" type="text" name="" id="" placeholder="Describe why you are the best person for delivering the solution">
-        <input class="w-100" type="text" name="" id="" placeholder="Fully describe the solution and gives examples">
-        <div class="row m-1">
-          <div class="custom-file-upload col-md-3">
-            <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" type="file" style="display: none;">
-          </div>
-          <div class="custom-file-upload col-md-3">
-            <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" type="file" style="display: none;">
-          </div>
-          <div class="custom-file-upload col-md-3">
-            <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" type="file" style="display: none;">
-          </div>
-        </div>
-        <div class="custom-file-upload w-100 mt-4" style="height: 150px;padding:15px">
-          <label for="fileInput">Upload your PDF presentation of the project solution</label>
-          <input id="fileInput" type="file" style="display: none;">
-        </div>
-        <a href="" class="btn w-100 mt-4" type="submit" style="background-color: #23BC9A;color:#FFF;font-weight:600;padding:15px;border-radius:16px">Apple for challenge</a>
-=======
       <form [formGroup]="form" class="form-container" action=""  (ngSubmit)="onSubmit()">
         <h4>Youth unemployement in senegal,how to provide more jobs</h4>
         <div class="form-group">
@@ -124,7 +97,6 @@
           <input id="fileInput" (change)="onFileSelected($event)" accept="image/*"  name="pdfURL" formControlName="pdfURL" type="file">
         </div>
         <button class="btn w-100 mt-4" type="submit">Apple for challenge</button>
->>>>>>> origin/delate-challenge
       </form>
     </div>
   </section>

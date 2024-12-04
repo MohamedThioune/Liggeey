@@ -13,11 +13,7 @@ export class ListChallengesComponent implements OnInit {
   someArrayOfThings!:any
   currentColor: string = '#ECEDF2';
   isClass1Visible = true;
-<<<<<<< HEAD
-  jobs:any;
-=======
   challenges:any;
->>>>>>> origin/delate-challenge
   job:any;
   p: number = 1;
   searchTitle: string = ''; // Variable pour stocker la valeur de recherche
@@ -51,16 +47,6 @@ export class ListChallengesComponent implements OnInit {
                 this.company=true
                 }
             }
-<<<<<<< HEAD
-        this.currentDate = new Date();
-        this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
-        this.homeService.getAllJob().subscribe((data:any)=>{
-          this.jobs=data
-          this.loading=false
-          //this.jobLoaded=true
-          this.jobs.forEach((element:any) => {
-            element.description= element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
-=======
           this.currentDate = new Date();
           this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
           this.homeService.getChallenges().subscribe((data:any)=>{
@@ -68,21 +54,11 @@ export class ListChallengesComponent implements OnInit {
           this.loading=false          
           this.challenges.forEach((element:any) => {
             element.content= element.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
->>>>>>> origin/delate-challenge
           });
         })
       }
       get filteredJobs() {
         if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
-<<<<<<< HEAD
-          return this.jobs.filter((job:any) => {
-            const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
-            const placeMatch = this.searchLocation.trim() === '' || job.country.toLowerCase().includes(this.searchLocation.toLowerCase());
-            return titleMatch && placeMatch;
-          });
-        } else {
-          return this.jobs;
-=======
           return this.challenges.filter((job:any) => {
             const titleMatch = this.searchTitle.trim() === '' || job.post_title.toLowerCase().includes(this.searchTitle.toLowerCase());
             const placeMatch = this.searchLocation.trim() === '' || job.company.title.toLowerCase().includes(this.searchLocation.toLowerCase());
@@ -90,7 +66,6 @@ export class ListChallengesComponent implements OnInit {
           });
         } else {
           return this.challenges;
->>>>>>> origin/delate-challenge
         }
   }
 

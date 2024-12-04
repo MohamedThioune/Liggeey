@@ -88,8 +88,6 @@ export class HomeComponent implements OnInit {
       });
     }, 1000); // Ajustez le délai si nécessaire
   }
-<<<<<<< HEAD
-=======
   isPopupVisible: boolean = false;
   isLoading: boolean = false;
 
@@ -132,7 +130,6 @@ showPopup() {
   hidePopup() {
     this.isPopupVisible = false;
   }
->>>>>>> origin/delate-challenge
   
   loadHubspotForm(): void {
     this.loadHubspotScript()
