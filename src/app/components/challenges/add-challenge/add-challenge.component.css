@@ -37,6 +37,19 @@
       font-weight: 500 !important;
       text-align: start !important;
    }
+   textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    textarea:focus,input[type="text"]:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    
    input[type="text"]:nth-child(3),input[type="text"]:nth-child(4),input[type="text"]:nth-child(5){
       text-align: start !important;
       padding: 50px !important;
