@@ -1,0 +1,127 @@
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+ }
+ .name-cv{
+    white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     max-width:100%;
+  } 
+  .card-emploie{
+    background-color: #F2F2F2;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
+  }
+  .card-emploie .content-img{
+    width: 100%;
+    height: 130px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 25px;
+  /*  background-color: #FDFDFD;*/
+    background-color: #fff; /* Background color of the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a little depth */
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+
+  }
+  .card-emploie .content-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .content-footer-card {
+    position: absolute;
+    width: 90%;
+  }
+  .card-emploie .description-job{
+    /*color: #6b6e6f !important;*/
+    font-size: 14px;
+    margin: 10px 0 0px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    text-transform: capitalize;
+    background-color: #ddd !important;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+  }
+  .card-emploie .name-companie{
+    color: #000 !important;
+    font-size: 17px !important;
+    margin-bottom: 10px !important;
+    margin-left: 10px !important;
+    font-family: "Roboto-Medium";
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+
+  }
+  .name-job{
+    background-color: #ddd !important;
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+  }
+  .skeleton-image {
+    background-color: #DDDDDD; /* Background color of the card */
+    width: 80px;
+    margin-left: 300px;
+    margin-top: 40px !important;
+    justify-self: center;
+    height: 80px; /* Height of the image skeleton */
+    border-radius: 50%; /* Border radius for top corners */
+}
+.skeleton-text {
+    background-color: rgb(155, 155, 155);
+    width: 20%; /* Width of the text skeleton */
+    height: 40px;
+    margin-top: 15vh;
+}
+.skeleton-text-1 {
+    background-color: rgb(155, 155, 155);
+    width: 100%; /* Width of the text skeleton */
+    height: 30px;
+}
+.skeleton-text-2 {
+    background-color: #ddd !important;
+    width: 110px; /* Width of the text skeleton */
+    height: 25px;
+    margin-top: 20px;
+    border-radius: 8px;
+    margin-left: 5px;
+}
+.skeleton-text-4 {
+    background-color: #ddd;
+    max-width: 100%; /* Width of the text skeleton */
+    height: 70px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+.skeleton-infos {
+    background-color: #ddd;
+    width:110px; /* Width of the text skeleton */
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 20px;
+}
+@media all and (min-width: 300px) and (max-width: 767px){
+    .items_job{
+        margin: 0;
+    }
+    .jobs{
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+    .name-cv{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width:47%;
+    } 
+
+}
