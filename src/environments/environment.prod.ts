@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   login_url: "https://liggeey.com/login",
-  baseUrl:"https://Livelearn.nl"
+  baseUrl:"https://app.Livelearn.nl"
 };
