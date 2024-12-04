@@ -5,6 +5,18 @@
      height: 480px;
     padding: 100px 0 0;
    }
+<<<<<<< HEAD
+=======
+   .image_menu_about h3{
+      font-size: 47px;
+      font-weight: 500;
+      color: #FFFFFF;
+      position: relative;
+      margin-bottom: 60px;
+      scale: 1.2;
+      left: 150px !important;
+   }
+>>>>>>> origin/delate-challenge
    .color{
      position: absolute;
      top: 0;
@@ -22,6 +34,7 @@
      text-overflow: ellipsis;
      max-width: 100%;
   }   
+<<<<<<< HEAD
     .search_about{
      display: flex;
      flex-wrap: wrap;
@@ -99,11 +112,15 @@
    .buttons svg{
      margin-right: 10px;
    }
+=======
+
+>>>>>>> origin/delate-challenge
    /* section jobs*/
    .jobs{
      margin-top: 15px !important;
      margin-bottom: 0px !important;
   }
+<<<<<<< HEAD
   .header_popular_job{
      text-align: center;
   }
@@ -423,6 +440,11 @@
  }
  
  
+=======
+ .row{
+    width: 100%;
+ }
+>>>>>>> origin/delate-challenge
  /*pagination*/
  .card-emploie{
    border: 1px solid #d5dbe4;
@@ -433,6 +455,7 @@
    min-height: 465px;
    position: relative;
  }
+<<<<<<< HEAD
  .pagination{
      padding-top: 100px;
      display: flex;
@@ -452,6 +475,9 @@
    align-items: center;
    padding-top: 50px;
 }
+=======
+
+>>>>>>> origin/delate-challenge
 .name-cv{
    white-space: nowrap;
     overflow: hidden;
@@ -507,13 +533,29 @@
    font-size: 20px;
    font-weight: 700;
  }
+<<<<<<< HEAD
 
+=======
+ .right-menu{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  padding: 15px 1px !important;
+ }
+ .participant{
+  width: 65% !important;
+ }
+ .topic{
+  width: 65%;
+ }
+>>>>>>> origin/delate-challenge
   @media all and (min-width: 300px) and (max-width: 767px){
  
     .jobs{
        margin-top: 80px;
        margin-bottom: 60px;
     }
+<<<<<<< HEAD
     .job_list_1 .content_job_list_1 .logo{
        margin: 32px 11px 74px 12px;
     }
@@ -562,4 +604,35 @@
    max-width:47%;
 } 
  }
+=======
+
+   .name-cv{
+   white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width:47%;
+   } 
+   .right-menu{
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 10;
+    position: relative;
+   }
+   .image_menu_about h3{
+    font-size: 27px;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: relative;
+    margin-bottom: 60px;
+    scale: 1;
+    text-align: center;
+    left: 10px !important;
+    top: 70px !important;
+  }
+  .participant{
+    width: 100% !important;
+   }
+}
+>>>>>>> origin/delate-challenge
  

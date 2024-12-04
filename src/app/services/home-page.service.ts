@@ -72,6 +72,26 @@ export class HomePageService {
     });
       return this.http.post(`${this.baseUrl}/wp-json/custom/v1/candidate/detail/?id=${id}`,{headers});
   }
+  getChallenges(): Observable<any>{
+    return this.http.get(`${this.baseUrl}/wp-json/custom/v1/challenges`);
+  }
+  getDetailChallenge(slug:string ):Observable<any>{
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/challenge/?slug=${slug}`,{})
+  }
+  
+  addChallenge(userId:string,challenge:any):Observable<any>{
+    const requestBody ={
+      challenge_id:2,
+      titel:challenge.titel,
+      short_description:challenge.short_description,
+      motivation:challenge.motivation,
+      long_description:challenge.long_description,
+      imageURLs:challenge.imageURLs,
+      pdfURL:challenge.pdfURL,
+      user_id:userId
+    }
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/challenge/start/`,requestBody);
+  }
   getOneCandidate(id:string,userId:string):Observable<any>{
     const requestBody ={
       id:id,
@@ -122,11 +142,8 @@ export class HomePageService {
     }
   }
 
-
-
   getDetailJob(id:string):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/?slug=${id}`,{});
-    //return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/job?slug=${id}`,{});
   }
   getOneJob(id:string,userId:string):Observable<any>{
     const requestBody ={
@@ -134,7 +151,6 @@ export class HomePageService {
       userID:userId
     }
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/job/`,requestBody);
-    //return this.http.post(`https://wp12.influid.nl/wp-json/custom/v1/job?slug=${id}`,{});
   }
   getDetailCategory(id:string):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/category/detail/?slug=${id}`,{});

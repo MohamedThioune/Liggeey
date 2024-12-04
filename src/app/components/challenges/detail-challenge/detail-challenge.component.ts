@@ -11,6 +11,7 @@ import { UsagerService } from 'src/app/services/usager.service';
 })
 export class DetailChallengeComponent implements OnInit {
 
+<<<<<<< HEAD
   someArrayOfThings!:any
   currentColor: string = '#ECEDF2';
   isClass1Visible = true;
@@ -26,11 +27,18 @@ export class DetailChallengeComponent implements OnInit {
   identifiant:number | null = 0;
   userConnect:any;
   appliedJob=false
+=======
+  challenge:any
+  loading:boolean=true;
+  slug:any;
+  userConnect:any;
+>>>>>>> origin/delate-challenge
   candidate=false
   company=false
   constructor(private homeService:HomePageService,private datePipe: DatePipe ,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) { }
 
   ngOnInit(): void {
+<<<<<<< HEAD
             // Récupération du token depuis le local storage
             const storedToken = this.usagerService.getToken();
             this.identifiant = +this.route.snapshot.params['id'];
@@ -71,4 +79,31 @@ export class DetailChallengeComponent implements OnInit {
         }
   }
 
+=======
+    // Récupération du token depuis le local storage
+    const storedToken = this.usagerService.getToken();
+    this.slug = this.route.snapshot.params['slug'];
+
+    if (storedToken) {
+                // Décodage de la base64
+      const decodedToken = atob(storedToken);
+
+      // Parse du JSON pour obtenir l'objet original
+      this. userConnect = JSON.parse(decodedToken);
+      if(this.userConnect.acf.is_liggeey == "candidate"){
+        this.candidate=true
+
+      } else if(this.userConnect.acf.is_liggeey == "chief"){
+        this.company=true
+      }
+    }      
+    this.homeService.getDetailChallenge(this.slug).subscribe((data:any)=>{
+    this.challenge=data
+    this.challenge.content=  this.challenge.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
+    this.loading=false
+    })
+  }
+
+
+>>>>>>> origin/delate-challenge
 }

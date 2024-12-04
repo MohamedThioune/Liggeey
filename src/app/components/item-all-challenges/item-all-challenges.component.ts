@@ -40,6 +40,7 @@ export class ItemAllChallengesComponent implements OnInit {
             }
           }
   }
+<<<<<<< HEAD
   canAppl(item: any): boolean {
     if (!this.userConnect || !this.userConnect.id) {
       return true; // Si l'utilisateur n'est pas connecté, autoriser l'application
@@ -82,5 +83,7 @@ export class ItemAllChallengesComponent implements OnInit {
     }
   }
 
+=======
+>>>>>>> origin/delate-challenge
 
 }

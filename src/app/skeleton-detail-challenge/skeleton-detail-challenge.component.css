@@ -1,0 +1,203 @@
+ /*section image menu about*/
+ .image_menu_about{
+    /* background-image: url("../../../assets/img/categorie.png"); */
+     position: relative;
+     height: 480px;
+    padding: 100px 0 0;
+   }
+   .image_menu_about h3{
+      font-size: 47px;
+      font-weight: 500;
+      color: #FFFFFF;
+      position: relative;
+      margin-bottom: 60px;
+      scale: 1.2;
+      left: 150px !important;
+   }
+   .color{
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../assets/img/Managers_starting_training.png"), lightgray 50% / cover no-repeat;
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center;
+  }
+  .name-cv{
+    white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     max-width: 100%;
+  }   
+
+   /* section jobs*/
+   .jobs{
+     margin-top: 15px !important;
+     margin-bottom: 0px !important;
+  }
+ .row{
+    width: 100%;
+ }
+ /*pagination*/
+ .card-emploie{
+   border: 1px solid #d5dbe4;
+   padding: 30px 20px;
+   margin-bottom: 30px;
+   text-align: left;
+   border-radius: 14px;
+   min-height: 465px;
+   position: relative;
+ }
+
+.name-cv{
+   white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width:100%;
+ } 
+ .card-emploie .content-img{
+   border: 1px solid #BDBDBD;
+   width: 100%;
+   height: 130px;
+   border-radius: 8px;
+   overflow: hidden;
+   margin-bottom: 25px;
+ }
+ .card-emploie .content-img img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+ }
+ .content-footer-card {
+   position: absolute;
+   width: 90%;
+   bottom: 10px;
+ }
+ .card-emploie .description-job{
+   color: #6b6e6f !important;
+   font-size: 14px;
+   margin: 10px 0 0px;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
+   text-align: left;
+   text-transform: capitalize;
+ }
+ .card-emploie .name-companie{
+   color: #000 !important;
+   font-size: 17px !important;
+   margin-bottom: 10px !important;
+   margin-left: 10px !important;
+   font-family: "Roboto-Medium";
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-width: 100%;
+ }
+ .card-emploie .content-title{
+   width: 100%;
+   height: 25px;
+   overflow: hidden;
+   margin-bottom: 25px;
+   text-align: center;
+   font-size: 20px;
+   font-weight: 700;
+ }
+ .right-menu{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  padding: 15px 1px !important;
+ }
+ .participant{
+  width: 65% !important;
+ }
+ .name-job{
+    /*background-color: #ddd !important;*/
+    animation: loading 1s infinite ease-in-out; /* Animation du skeleton */
+  }
+  .skeleton-image {
+    background-color: #DDDDDD; /* Background color of the card */
+    width: 80px;
+    margin-left: 300px;
+    margin-top: 40px !important;
+    justify-self: center;
+    height: 80px; /* Height of the image skeleton */
+    border-radius: 50%; /* Border radius for top corners */
+}
+.skeleton-text {
+    background-color: rgb(155, 155, 155);
+    width: 20%; /* Width of the text skeleton */
+    height: 40px;
+    margin-top: 15vh;
+}
+.skeleton-text-1 {
+    background-color: rgb(155, 155, 155);
+    width: 100%; /* Width of the text skeleton */
+    height: 30px;
+}
+.skeleton-text-2 {
+    background-color: #ddd !important;
+    width: 110px; /* Width of the text skeleton */
+    height: 25px;
+    margin-top: 20px;
+    border-radius: 8px;
+    margin-left: 5px;
+}
+.skeleton-text-4 {
+    background-color: #ddd;
+    max-width: 100%; /* Width of the text skeleton */
+    height: 70px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+.skeleton-infos {
+    background-color: #ddd;
+    width:110px; /* Width of the text skeleton */
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 20px;
+}
+.topic{
+    width: 65%;
+}
+  @media all and (min-width: 300px) and (max-width: 767px){
+ 
+    .jobs{
+       margin-top: 80px;
+       margin-bottom: 60px;
+    }
+
+   .name-cv{
+   white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width:47%;
+   } 
+   .right-menu{
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 10;
+    position: relative;
+   }
+   .image_menu_about h3{
+    font-size: 27px;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: relative;
+    margin-bottom: 60px;
+    scale: 1;
+    text-align: center;
+    left: 10px !important;
+    top: 70px !important;
+  }
+  .participant{
+    width: 100% !important;
+   }
+}
+ 

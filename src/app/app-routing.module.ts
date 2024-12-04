@@ -136,6 +136,7 @@ const routes: Routes = [
 
   { path: 'about', component: AboutComponent },
 
+<<<<<<< HEAD
   { path: 'challenges', component: ListChallengesComponent },
   
   { path: 'detail-challenge', component: DetailChallengeComponent },
@@ -143,6 +144,14 @@ const routes: Routes = [
   { path: 'add-challenge', component: AddChallengeComponent },
   
 
+=======
+  // { path: 'challenges', component: ListChallengesComponent },
+  
+  // { path: 'detail-challenge/:slug', component: DetailChallengeComponent },
+
+  // { path: 'add-challenge', component: AddChallengeComponent },
+  
+>>>>>>> origin/delate-challenge
   { path: 'login', component: LoginComponent },
 
   {

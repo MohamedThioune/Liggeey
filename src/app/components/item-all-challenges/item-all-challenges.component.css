@@ -54,6 +54,7 @@
     .items_job{
         margin: 0;
     }
+<<<<<<< HEAD
 .jobs{
     margin-top: 80px;
     margin-bottom: 60px;
@@ -64,5 +65,17 @@
      text-overflow: ellipsis;
      max-width:47%;
   } 
+=======
+    .jobs{
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+    .name-cv{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width:47%;
+    } 
+>>>>>>> origin/delate-challenge
 
 }

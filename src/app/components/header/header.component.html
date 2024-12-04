@@ -33,6 +33,8 @@
             <img height="70" src="../../../assets/img/logo-footer-white.png" alt="image pas encore insérer">
           </a>
         </li>
+      
+
         <li class="">
           <div class="dropdown dropdown-modife">
             <button class="dropdown-toggle" (click)="toggleDropdown()"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -56,11 +58,12 @@
         <li class=""><a routerLink="/challenges" routerLinkActive="active_lien_navbar">Challenges</a> </li>
         -->
         <ul class="cathegories">
-          <li class="job"><a routerLink="/job" routerLinkActive="active_lien_navbar">Find Job</a> </li>
-          <li class="job"><a routerLink="/list-candidat" routerLinkActive="active_lien_navbar">All Candidates</a> </li>
-          <li class="about"><a routerLink="/about" routerLinkActive="active_lien_navbar">About</a></li>
-          <li class="app"><a routerLink="/app" routerLinkActive="active_lien_navbar">Our App</a></li>
-          <li class="skills"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills First</a></li>
+          <li class="job  name-cv"><a routerLink="/job" routerLinkActive="active_lien_navbar">Find Job</a> </li>
+          <li class="job  name-cv"><a routerLink="/list-candidat" routerLinkActive="active_lien_navbar">All Candidates</a> </li>
+          <li class="about  name-cv"><a routerLink="/about" routerLinkActive="active_lien_navbar">About</a></li>
+          <li class="app  name-cv"><a routerLink="/app" routerLinkActive="active_lien_navbar">Our App</a></li>
+          <li class="skills  name-cv"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills First</a></li>
+        <!--  <li class="skills  name-cv"><a routerLink="/challenges" routerLinkActive="active_lien_navbar">Challenges</a></li>-->
         </ul>
       </ul>
       <div class="join" *ngIf="!userConnect">
@@ -223,6 +226,8 @@
               <li class="about"><a routerLink="/about" routerLinkActive="active_lien_navbar">About</a></li>
               <li class="app"><a routerLink="/app" routerLinkActive="active_lien_navbar">Our App</a></li>
               <li class="skills"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills First</a></li>
+             <!-- <li class="skills  name-cv"><a routerLink="/challenges" routerLinkActive="active_lien_navbar">Challenges</a></li>-->
+
             </ul>
             <ul class="join cathegories" *ngIf="!userConnect">
               <li class="job"><a class="btn nav-connecte name-cv" routerLink="/hire-candidat" routerLinkActive="active_lien_navbar">Apply as a remote specialist</a></li>

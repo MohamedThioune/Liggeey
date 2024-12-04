@@ -47,11 +47,68 @@
     background-color:  #1AC4A2;
     margin-right: 5px;
 }
-.hiring_work .work{
-    color: #696969;
-    font-size: 15px;
+.work{
+    color: #000;
+    font-size: 18px;
     font-weight: 400;
-    padding-left: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#hubspot-form {
+    margin: 40px auto 40px 0px;
+    max-width: 600px; /* Largeur maximale du formulaire */
+    text-align: center; /* Centrer le contenu */
+  }
+  .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    height: fit-content;
+}
+.loading {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
 }
 #hubspot-form {
     margin: 40px auto;

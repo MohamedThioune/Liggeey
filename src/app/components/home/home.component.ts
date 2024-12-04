@@ -88,6 +88,51 @@ export class HomeComponent implements OnInit {
       });
     }, 1000); // Ajustez le délai si nécessaire
   }
+<<<<<<< HEAD
+=======
+  isPopupVisible: boolean = false;
+  isLoading: boolean = false;
+
+//   showPopup() {
+//     this.isPopupVisible = true;
+
+//     // Utiliser un délai pour s'assurer que l'élément DOM est visible
+//     setTimeout(() => {
+//         if ((window as any).hbspt) {
+//             (window as any).hbspt.forms.create({
+//                 region: "na1",
+//                 portalId: "27242849",
+//                 formId: "8352015f-1898-47fe-a743-8c7e1a43e0f5",
+//                 target: "#hubspot-form"
+//             });
+//         }
+//     }, 100); // 100 ms pour que le DOM soit prêt
+// }
+showPopup() {
+  this.isPopupVisible = true;
+  this.isLoading = true;
+
+  // Charger le formulaire HubSpot
+  setTimeout(() => {
+    if ((window as any).hbspt) {
+      (window as any).hbspt.forms.create({
+        region: "na1",
+        portalId: "27242849",
+        formId: "8352015f-1898-47fe-a743-8c7e1a43e0f5",
+        target: "#hubspot-form",
+        onFormReady: () => {
+          this.isLoading = false; // Arrêter le chargement une fois que le formulaire est prêt
+        }
+      });
+    }
+  }, 100); // Retard pour s'assurer que le DOM est prêt
+}
+
+
+  hidePopup() {
+    this.isPopupVisible = false;
+  }
+>>>>>>> origin/delate-challenge
   
   loadHubspotForm(): void {
     this.loadHubspotScript()

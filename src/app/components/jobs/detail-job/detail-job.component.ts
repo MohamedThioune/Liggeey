@@ -49,7 +49,7 @@ export class DetailJobComponent implements OnInit {
 
         } else if(this.userConnect.acf.is_liggeey == "chief"){
           this.company=true
-          }
+        }
     }
     this.slug = this.route.snapshot.params['slug'];
     if (this.userConnect && this.userConnect.id) {
@@ -60,7 +60,7 @@ export class DetailJobComponent implements OnInit {
        //this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
        //this.job.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       this.job.other_jobs.forEach((element:any) => {
-          element.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
+      element.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
 
       });
 
@@ -76,7 +76,7 @@ export class DetailJobComponent implements OnInit {
        //this.job.description = this.job.description.replace(/<[^>]*>|[#&]/g, '');
        //this.job.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       this.job.other_jobs.forEach((element:any) => {
-          element.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
+      element.description= this.job.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
 
       });
 
