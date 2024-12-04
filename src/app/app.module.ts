@@ -85,19 +85,11 @@ import { HireCandidatComponent } from './components/hire-candidat/hire-candidat.
 import { SkeletonAllCandidatesPageLoaderComponent } from './skeleton-all-candidates-page-loader/skeleton-all-candidates-page-loader.component';
 import { SkeletonDashboardCandidateLoaderComponent } from './skeleton-dashboard-candidate-loader/skeleton-dashboard-candidate-loader.component';
 import { SkeletonAllCompaniesLoaderComponent } from './skeleton-all-companies-loader/skeleton-all-companies-loader.component';
-<<<<<<< HEAD
-import { ChallengesComponent } from './components/challenges/challenges.component';
-import { ListChallengesComponent } from './components/challenges/list-challenges/list-challenges.component';
-import { DetailChallengeComponent } from './components/challenges/detail-challenge/detail-challenge.component';
-import { ItemAllChallengesComponent } from './components/item-all-challenges/item-all-challenges.component';
-import { AddChallengeComponent } from './components/challenges/add-challenge/add-challenge.component';
-=======
 // import { ChallengesComponent } from './components/challenges/challenges.component';
 // import { ListChallengesComponent } from './components/challenges/list-challenges/list-challenges.component';
 // import { DetailChallengeComponent } from './components/challenges/detail-challenge/detail-challenge.component';
 // import { ItemAllChallengesComponent } from './components/item-all-challenges/item-all-challenges.component';
 // import { AddChallengeComponent } from './components/challenges/add-challenge/add-challenge.component';
->>>>>>> origin/delate-challenge
 import { SkeletonDashbordEmployerComponent } from './skeleton-dashbord-employer/skeleton-dashbord-employer.component';
 import { SkeletonCompagnyCandidatComponent } from './skeleton-compagny-candidat/skeleton-compagny-candidat.component';
 import { SkeletonCompagnyProfileComponent } from './skeleton-compagny-profile/skeleton-compagny-profile.component';
