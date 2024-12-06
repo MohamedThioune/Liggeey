@@ -28,16 +28,15 @@ export class AddChallengeComponent implements OnInit {
   imageId!: any ;
   uploadedImage: string | null = null;
   isLoading: boolean = false;
-
+  slug:any;
+  challenge:any
   constructor(private homeService:HomePageService,private datePipe: DatePipe ,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router,private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.initForm()
-//console.log(this.form.value);
-
+      this.initForm()
        // Récupération du token depuis le local storage
        const storedToken = this.usagerService.getToken();
-       this.identifiant = +this.route.snapshot.params['id'];
+       this.slug = this.route.snapshot.params['slug'];
 
        if (storedToken) {
                    // Décodage de la base64
@@ -52,33 +51,14 @@ export class AddChallengeComponent implements OnInit {
            this.company=true
           }
        }
-  }
-  uploadFile() {
-    if (this.selectedFile) {
-      this.homeService.getImageUser(this.selectedFile).pipe(
-        switchMap((imageResponse: any) => {
-          const imageId = imageResponse.id; // Supposons que l'ID est dans la réponse
-          this.imageId = imageId;          
-          return this.homeService.uploadFile(imageId,this.userConnect.id);
+       this.homeService.getDetailChallenge(this.slug).subscribe((data:any)=>{
+        this.challenge=data
+        //console.log(this.challenge);
+        this.challenge.content=  this.challenge.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
+        this.loading=false
         })
-      ).subscribe(
-        (response: any) => {
-         // this.updateCachedData(response.id)
-
-          this.router.navigate(['/dashboard-candidat']);
-        },
-        (error) => {
-          ToastNotification.open({
-            type: 'error',
-            message: error.error.message
-          });
-        }
-      );
-    } else {
-      this.router.navigate(['/dashboard-candidat']);
-    }
   }
-  onFileSelected(event: any) {
+  onFileSelectede(event: any) {
     const file: File = event.target.files[0];    
     if (file) {
       this.selectedFile = file; // Stocke le fichier sélectionné
@@ -87,99 +67,100 @@ export class AddChallengeComponent implements OnInit {
       reader.onload = (e: any) => {
         this.uploadedImage = e.target.result;
         this.form.get('pdfURL')?.setValue(file); // Met à jour le contrôle du formulaire
+        
       };
     }    
   }
+ 
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0]; // Récupère le fichier sélectionné
+    if (file) {
+      // Si vous avez besoin de stocker le chemin local, faites-le comme ceci :
+      const filePath = event.target.value; // Contient le chemin local (ex: C:\\fakepath\\...)  
+      // Vous pouvez stocker des informations sur le fichier dans votre formulaire
+      this.form.get('pdfURL')?.setValue(filePath);
+  
+      // Si vous souhaitez obtenir une URL de prévisualisation, utilisez FileReader (pas le chemin local)
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.uploadedImage = e.target.result; // Contient l'URL de prévisualisation (base64)
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   onFilesSelected(event: any, index: number) {
     const file: File = event.target.files[0];
-    const fileArray = this.form.get('imageURLs') as FormArray;
+    const fileArray = this.form.get('imageURLs') as FormArray; // Typage explicite
   
-    // Vérifiez que l'index est valide
-    if (!fileArray || index >= fileArray.length) {
-      console.error('Invalid index for FormArray');
+    if (!fileArray) {
+      //console.error('FormArray "imageURLs" is not defined.');
+      return;
+    }
+  
+    if (index >= fileArray.length) {
+      //console.error('Invalid index for FormArray');
       return;
     }
   
     if (file) {
-      // Stocke le fichier dans le FormArray
-      fileArray.at(index).setValue(file);
+      const filePath = event.target.value; // Obtenir le chemin fictif
+     // console.log(`File path for input ${index}:`, filePath);
   
-      // Facultatif : Lecture pour prévisualisation
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = (e: any) => {
-        //console.log(`Preview for input ${index}:`, e.target.result);
-      };
-  
-      console.log('File uploaded:', file);
-    }
-  }
-  onFilessSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-  
-    if (input.files && input.files.length > 0) {
-      const files = Array.from(input.files);
-      files.forEach(file => {
-        console.log('Selected file:', file.name);
-        // Traitez chaque fichier ici (ex. uploader ou stocker dans une variable)
-      });
-  
-      // Si vous utilisez un formulaire réactif pour stocker les fichiers :
-      const fileArray = this.form.get('imageURLs') as FormArray;
-      files.forEach(file => {
-        fileArray.push(new FormControl(file));
-      });
+      // Mettre à jour le FormArray avec le chemin fictif
+      fileArray.at(index).setValue(filePath);
     }
   }
   
+  onSubmit() {
+    this.isLoading = true;
+      // Utilisez le service pour postuler à l'emploi
+      const imageURLsArray = this.form.get('imageURLs')?.value as string[];
+      if (Array.isArray(imageURLsArray)) {
+        const imageURLs = imageURLsArray.filter(url => url !== "").join(',');
+        this.form.value.imageURLs = imageURLs;
+      }      
+      if (this.validateFormJob(this.form.value)) {
 
-onSubmit() {
-  this.isLoading = true;
-    // Utilisez le service pour postuler à l'emploi
-    console.log(this.form.value.imageURLs);
-    return
-    if (this.validateFormJob(this.form.value)) {
+      this.homeService.addChallenge(this.userConnect.id,this.form.value,this.challenge.ID)
+        .subscribe(
+          // Succès de la requête
+          (response) => {
 
-    this.homeService.addChallenge(this.userConnect.id,this.form.value)
-      .subscribe(
-        // Succès de la requête
-        (response) => {
+            let typeR = "error"
+            if (<any>response ) {              
+              typeR = "success";
+              this.message= "Challenge posted !!"
+            }
+            ToastNotification.open({
+              type: typeR,
+              message: this.message
+            });
+            this.isLoading = false;
+            if (typeR == "success") {
+              this.router.navigate(['/detail-challenge',this.challenge.post_slug]);
+            }
 
-          let typeR = "error"
-          if (<any>response ) {
-            typeR = "success";
-            this.message= "Job created successfully."
+          },
+          // Gestion des erreurs
+          (error) => {
+            ToastNotification.open({
+              type: 'error',
+              message: error.error.errors || 'An unexpected error occurred'
+            });
+            this.isLoading = false;
           }
-          ToastNotification.open({
-            type: typeR,
-            message: this.message
-          });
-          this.isLoading = false;
-          if (typeR == "success") {
-            this.router.navigate(['/challenges']);
-          }
-
-        },
-        // Gestion des erreurs
-        (error) => {   
-          console.log(error);
-                 
-          ToastNotification.open({
-            type: 'error',
-            message: error.errors
-          });
-          this.isLoading = false;
-
-        }
-      );
-  } else {
-    ToastNotification.open({
-      type: 'error',
-      message: this.message.message
-    });
-    this.isLoading = false;
+          
+        );
+    }
+    else {
+      ToastNotification.open({
+        type: 'error',
+        message: this.message.message
+      });
+      this.isLoading = false;
+    }
   }
-}
   
   initForm() {
     this.form = this.fb.group({
@@ -188,14 +169,11 @@ onSubmit() {
       motivation: this.fb.control("", Validators.required),
       long_description: this.fb.control("", Validators.required),
       // imageURLs: this.fb.control("", []),
-      imageURLs: this.fb.array([null, null, null]), // Pour stocker les trois fichiers
-      pdfURL: this.fb.control("", []),
+      imageURLs: this.fb.array([this.fb.control(''), this.fb.control(''), this.fb.control(''), this.fb.control('')]),      pdfURL: this.fb.control("", []),
     });
   }
   validateFormJob(challenge: Challenge): boolean {
     const { titel, short_description,motivation,long_description,imageURLs,pdfURL,challenge_id,user_id } = challenge;
- 
-
     return true;
   }
 

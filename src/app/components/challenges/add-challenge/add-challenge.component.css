@@ -67,8 +67,9 @@
       margin-right: 10px;
       margin-bottom: 15px;
   }
+  
   input[type="file"]{
-    /*display: none;*/
+    display: none;
    }
    button[type="submit"]{
       background-color: #23BC9A;
@@ -110,45 +111,22 @@
       font-weight: bold;
       margin-left: 4px;
    }
+   .row{
+      margin-left: 10px;
+      justify-content: center;
+      margin-top: 10px !important;
+   }
+   .upload-pdf{
+      height: 150px !important;
+      padding:25px !important;
+      margin-left: 12px !important;
+      margin-right: 12px !important;
+   }
     @media all and (min-width: 300px) and (max-width: 767px){
  
     .jobs{
        margin-top: 80px;
        margin-bottom: 60px;
-    }
-    .job_list_1 .content_job_list_1 .logo{
-       margin: 32px 11px 74px 12px;
-    }
-    .description_job span{
-       font-size: 14px;
-    }
-    .description_job .info{
-       display: flex;
-       flex-wrap: wrap;
-       padding-bottom: 20px;
-    }
-    .description_job .all_info{
-       padding-bottom: 15px;
-    }
-    .search_about {
-       padding-top:20px ;
-       padding-bottom: 20px;
-    }
-    .search_about button{
-       padding: 17px 22px 15px 20px;
-     }
-    .image_menu_about h2{
-       font-size: 27px;
-    }
-    .search_about .keywords, .search_about .location{
-      width: 100%;
-    }
-    .search_about .limit{
-      display: none;
-    }
-    .jobs{
-    margin-top: 80px;
-    margin-bottom: 60px;
     }
     .image_menu_about h3{
       font-size: 27px;
@@ -157,16 +135,20 @@
       position: relative;
       margin-bottom: 60px;
       scale: 1.1;
-      /*left: 5px !important;*/
+      left: 5px !important;
       text-align: center;
+      display: none;
    }
    form{
       width: 99%;
       margin-left: -15px!important;
    }
    .custom-file-upload{
-      padding: 50px 10px;
+      padding: 50px 22px;
       width: 100% !important;
+   }
+   .row{
+      margin-left: 10px;
    }
  }
  

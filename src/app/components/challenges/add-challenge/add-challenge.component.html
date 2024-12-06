@@ -63,40 +63,31 @@
             rows="5">
           </textarea>
         </div>
-        <!---->
-        <div class="row m-4 w-100">
+        <div class="row w-100">
           <div class="custom-file-upload col-md-4">
             <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" formArrayName="imageURLs" (change)="onFilesSelected($event,0)" type="file">
+            <input id="fileInput" name="imageURLs" (change)="onFilesSelected($event,0)" type="file">
           </div>
           <div class="custom-file-upload col-md-4">
             <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" formArrayName="imageURLs" (change)="onFilesSelected($event,1)" type="file">
+            <input id="fileInput" name="imageURLs" (change)="onFilesSelected($event,1)" type="file">
           </div>
           <div class="custom-file-upload col-md-4">
             <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" formArrayName="imageURLs" (change)="onFilesSelected($event,2)" type="file">
+            <input id="fileInput" name="imageURLs" (change)="onFilesSelected($event,2)" type="file">
           </div>
           <div class="custom-file-upload col-md-4">
             <label for="fileInput">Upload images of your solution</label>
-            <input id="fileInput" formArrayName="imageURLs" (change)="onFilesSelected($event,3)" type="file">
+            <input id="fileInput" name="imageURLs" (change)="onFilesSelected($event,3)" type="file">
           </div>
         </div>
-        <div class="form-group">
-          <label for="fileInput">Upload your files</label>
-          <input 
-            type="file" 
-            id="fileInput" 
-            (change)="onFileSelected($event)" 
-            multiple 
-          >
+        <div class="custom-file-upload upload-pdf w-100 mt-4">
+          <label for="fileInpute">Upload your PDF presentation of the project solution <span class="required">*</span></label>
+          <input id="fileInpute" (change)="onFileSelected($event)" accept="application/pdf"  name="pdfURL" type="file">
         </div>
-        
-        <div class="custom-file-upload w-100 mt-4" style="height: 150px;padding:15px">
-          <label for="fileInput">Upload your PDF presentation of the project solution <span class="required">*</span></label>
-          <input id="fileInput" (change)="onFileSelected($event)" accept="image/*"  name="pdfURL" formControlName="pdfURL" type="file">
-        </div>
-        <button class="btn w-100 mt-4" type="submit">Apple for challenge</button>
+        <button class="btn w-100 mt-4" type="submit" [disabled]="isLoading">Apple for challenge</button>
+        <div *ngIf="isLoading" class="loader">Loading...</div>
+
       </form>
     </div>
   </section>

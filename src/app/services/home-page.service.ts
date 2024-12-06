@@ -79,9 +79,9 @@ export class HomePageService {
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/challenge/?slug=${slug}`,{})
   }
   
-  addChallenge(userId:string,challenge:any):Observable<any>{
+  addChallenge(userId:string,challenge:any,id:string):Observable<any>{
     const requestBody ={
-      challenge_id:2,
+      challenge_id:id,
       titel:challenge.titel,
       short_description:challenge.short_description,
       motivation:challenge.motivation,
@@ -90,7 +90,9 @@ export class HomePageService {
       pdfURL:challenge.pdfURL,
       user_id:userId
     }
-    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/challenge/start/`,requestBody);
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/challenge/start/`, requestBody, {
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
   getOneCandidate(id:string,userId:string):Observable<any>{
     const requestBody ={

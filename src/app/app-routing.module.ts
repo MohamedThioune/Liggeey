@@ -140,7 +140,7 @@ const routes: Routes = [
   
   { path: 'detail-challenge/:slug', component: DetailChallengeComponent },
 
-  { path: 'add-challenge', component: AddChallengeComponent },
+  { path: 'add-challenge/:slug', component: AddChallengeComponent },
   
   { path: 'login', component: LoginComponent },
 
