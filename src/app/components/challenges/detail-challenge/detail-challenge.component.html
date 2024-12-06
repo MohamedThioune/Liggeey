@@ -63,7 +63,7 @@
       <div class="container-fluid mt-4" >
         <div class="topic" style="border: 1px solid #BDBDBD;border-radius:8px;padding:10px 20px;">
           <p style="font-weight:bold ;font-size:14px;margin:0">Topic for this challenge</p>
-          <hr class="container-fluid" style="color: #BDBDBD;margin-left:10px">
+          <hr class="container-fluid" style="color: #BDBDBD;margin-left:10px;">
           <div class="d-flex" *ngFor="let skill of challenge.skills">
             <p style="font-weight:bold ;font-size:14px;background-color:#DFEBF2;padding:5px 15px;border-radius:8px;margin-right:20px">{{skill.name}}
             <button style="border: 1px solid #BDBDBD;background-color:transparent;font-size:14px;padding:4px 14px;border-radius:8px;text-align:right">Follow</button>
@@ -96,7 +96,7 @@
 
             </div>
             <hr style="color: #696969">
-            <a href="" class="btn w-100 mt-1" style="color: #FFF;background-color:#23BC9A;padding:10px;border-radius:8px;font-weight:500">Start this challenge</a>
+            <a [routerLink]="['/add-challenge',challenge.post_slug]" class="btn w-100 mt-1" style="color: #FFF;background-color:#23BC9A;padding:10px;border-radius:8px;font-weight:500">Start this challenge</a>
           </div>
 
         </div>

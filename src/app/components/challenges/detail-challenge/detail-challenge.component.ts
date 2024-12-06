@@ -38,7 +38,7 @@ export class DetailChallengeComponent implements OnInit {
       }
     }      
     this.homeService.getDetailChallenge(this.slug).subscribe((data:any)=>{
-    this.challenge=data
+    this.challenge=data    
     this.challenge.content=  this.challenge.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
     this.loading=false
     })
