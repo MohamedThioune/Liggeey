@@ -79,75 +79,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   selectedSkill: any ;
   form!:FormGroup;
   subtopic: any[] = [];
-  skillsTabs:any=[   
-    {
-      "cat_ID": 590,
-      "cat_name": "Afas",
-      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-      "open_position": 0
-  },
-  {
-      "cat_ID": 589,
-      "cat_name": "Freshworks",
-      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-      "open_position": 0
-  },
-  {
-      "cat_ID": 633,
-      "cat_name": "Google",
-      "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/google.png",
-      "open_position": 0
-  },
-  {
-    "cat_ID": 587,
-    "cat_name": "Google Workspace",
-    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-    "open_position": 0
-},
-{
-    "cat_ID": 640,
-    "cat_name": "HubSpot",
-    "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/hubspot_logo.jpeg",
-    "open_position": 0
-},
-{
-    "cat_ID": 593,
-    "cat_name": "Microsoft 360",
-    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-    "open_position": 0
-},
-{
-  "cat_ID": 634,
-  "cat_name": "Odoo",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
-{
-  "cat_ID": 588,
-  "cat_name": "Salesforce",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
-{
-  "cat_ID": 641,
-  "cat_name": "Exact",
-  "cat_image": "https://livelearn.nl/wp-content/uploads/2024/05/Exact.jpeg",
-  "open_position": 0
-},
-// {
-//   "cat_ID": 636,
-//   "cat_name": "web-programming",
-//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-//   "open_position": 0
-// },
-// {
-//   "cat_ID": 637,
-//   "cat_name": "Webflow",
-//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-//   "open_position": 0
-// },
-    
-    ]
+ 
   constructor(private fb: FormBuilder,private location: Location,private usagerService: UsagerService,private homeService:HomePageService,private route : ActivatedRoute ,private router: Router, private elementRef: ElementRef,private cdr: ChangeDetectorRef,private sanitizer: DomSanitizer,private http: HttpClient) {
     this.isMobile = window.innerWidth < 768;
     this.dropdownOpen = false;

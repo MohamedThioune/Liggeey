@@ -109,6 +109,10 @@
     margin-left: 5px;
     margin-top: 20px;
 }
+hr{
+  color: #696969;
+  padding-top:30px
+}
 @media all and (min-width: 300px) and (max-width: 767px){
     .items_job{
         margin: 0;

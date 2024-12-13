@@ -82,7 +82,7 @@
         <div class="candidat_featured">
           <div class="row" style="margin-bottom: 100px;" >
             <div class="col-md-4 item" *ngFor="let candidate of filteredCandidate | paginate: { itemsPerPage: 9, currentPage: p }"  >
-                <div class="content_candidate" (click)="send_id(candidate.ID)"   >
+                <div class="content_candidate" (click)="send_id(candidate.ID)">
                   <div class="content_image_candidate">
                     <img [src]=candidate.image alt="Image Of Candidate">
                   </div>
