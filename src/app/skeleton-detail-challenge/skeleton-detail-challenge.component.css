@@ -59,6 +59,7 @@
  } 
  .card-emploie .content-img{
    border: 1px solid #BDBDBD;
+   background-color: #FFFFFF;
    width: 100%;
    height: 130px;
    border-radius: 8px;
@@ -109,7 +110,7 @@
  .right-menu{
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 64%;
   padding: 15px 1px !important;
  }
  .participant{
@@ -140,12 +141,17 @@
     height: 30px;
 }
 .skeleton-text-2 {
-    background-color: #ddd !important;
-    width: 110px; /* Width of the text skeleton */
-    height: 25px;
-    margin-top: 20px;
+    background-color: #123455 !important;
+    width: 200px; /* Width of the text skeleton */
     border-radius: 8px;
     margin-left: 5px;
+    font-weight:bold ;
+    font-size:14px;
+    padding:5px 15px;
+    margin-right:20px;
+    text-align: end;
+    animation: loading 1s infinite ease-in-out !important; /* Animation du skeleton */
+
 }
 .skeleton-text-4 {
     background-color: #ddd;
@@ -153,6 +159,17 @@
     height: 70px;
     margin-top: 20px;
     border-radius: 8px;
+    padding: 5px 75px;
+    margin-left: 5px;
+    animation: loading 1s infinite ease-in-out !important; /* Animation du skeleton */
+}
+.skeleton-text-5 {
+  background-color: #ddd;
+  max-width: 100%; /* Width of the text skeleton */
+  border-radius: 8px;
+  padding: 15px 25px;
+  margin-left: 2px;
+  animation: loading 1s infinite ease-in-out !important; /* Animation du skeleton */
 }
 .skeleton-infos {
     background-color: #ddd;
@@ -164,6 +181,14 @@
 }
 .topic{
     width: 65%;
+}
+.mt{
+ margin-top:20px !important
+}
+.soulign{
+  width: 65%;
+  margin-right:35%;
+  color:#BDBDBD;
 }
   @media all and (min-width: 300px) and (max-width: 767px){
  
@@ -198,9 +223,17 @@
   }
   .participant{
     width: 100% !important;
-   }
+  }
    .topic{
     width: 100%;
-}
+  }
+  .pass{
+    margin-bottom: 100px !important;
+    padding-bottom: 120px;
+   }
+   .soulign{
+    margin-right:0;
+    width: 100%;
+  }
 }
  

@@ -53,41 +53,30 @@ export class AddChallengeComponent implements OnInit {
        }
        this.homeService.getDetailChallenge(this.slug).subscribe((data:any)=>{
         this.challenge=data
-        //console.log(this.challenge);
         this.challenge.content=  this.challenge.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
         this.loading=false
         })
   }
-  onFileSelectede(event: any) {
-    const file: File = event.target.files[0];    
-    if (file) {
+ 
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    console.log(file);
+    
+    if (event.target.files && file) {
       this.selectedFile = file; // Stocke le fichier sélectionné
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (e: any) => {
         this.uploadedImage = e.target.result;
-        this.form.get('pdfURL')?.setValue(file); // Met à jour le contrôle du formulaire
+        //console.log(this.selectedFileName);
         
+        //this.form.controls['file']?.setValue(file ? file.name : ''); // Met à jour le contrôle du formulaire
+
+      this.form.get('pdfURL')?.setValue(file ); // Met à jour le contrôle du formulaire
       };
-    }    
-  }
- 
-  onFileSelected(event: any) {
-    const file: File = event.target.files[0]; // Récupère le fichier sélectionné
-    if (file) {
-      // Si vous avez besoin de stocker le chemin local, faites-le comme ceci :
-      const filePath = event.target.value; // Contient le chemin local (ex: C:\\fakepath\\...)  
-      // Vous pouvez stocker des informations sur le fichier dans votre formulaire
-      this.form.get('pdfURL')?.setValue(filePath);
-  
-      // Si vous souhaitez obtenir une URL de prévisualisation, utilisez FileReader (pas le chemin local)
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.uploadedImage = e.target.result; // Contient l'URL de prévisualisation (base64)
-      };
-      reader.readAsDataURL(file);
     }
   }
+  
 
   onFilesSelected(event: any, index: number) {
     const file: File = event.target.files[0];

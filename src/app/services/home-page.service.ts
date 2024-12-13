@@ -78,6 +78,13 @@ export class HomePageService {
   getDetailChallenge(slug:string ):Observable<any>{
     return this.http.post(`${this.baseUrl}/wp-json/custom/v1/challenge/?slug=${slug}`,{})
   }
+  getDetailChallengeWithUserID(slug:string ,userID:string):Observable<any>{
+    const requestBody ={
+      slug:slug,
+      userID:userID
+    }
+    return this.http.post(`${this.baseUrl}/wp-json/custom/v1/challenge/`,requestBody);
+  }
   
   addChallenge(userId:string,challenge:any,id:string):Observable<any>{
     const requestBody ={

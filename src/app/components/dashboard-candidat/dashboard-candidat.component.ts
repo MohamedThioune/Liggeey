@@ -64,8 +64,6 @@ export class DashboardCandidatComponent implements OnInit {
       this.downloadLink = 'https://play.google.com/store/apps/details?id=com.livelearn.livelearn_mobile_app&pli=1';
     }
   }
-
-
   ngOnChanges() {
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');

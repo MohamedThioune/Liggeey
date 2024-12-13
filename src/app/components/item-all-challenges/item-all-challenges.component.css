@@ -10,7 +10,7 @@
      overflow: hidden;
      text-overflow: ellipsis;
      max-width:100%;
-  } 
+  }
   .card-emploie .content-img{
     border: 1px solid #BDBDBD;
     width: 100%;
@@ -49,6 +49,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+  }
+  hr{
+    color:#696969 ;
   }
 @media all and (min-width: 300px) and (max-width: 767px){
     .items_job{

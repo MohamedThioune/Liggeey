@@ -48,6 +48,7 @@
    border-radius: 14px;
    min-height: 465px;
    position: relative;
+   background-color:#FFF
  }
 .name-cv{
    white-space: nowrap;
@@ -107,7 +108,7 @@
  .right-menu{
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 64%;
   padding: 15px 1px !important;
  }
  .participant{
@@ -116,6 +117,23 @@
  .topic{
   width: 65%;
  }
+hr{
+  color: #696969;
+}
+.soulign{
+  width: 65%;
+  margin-right:35%;
+  color:#BDBDBD;
+}
+.align{
+  display: flex;
+  align-items: center !important;
+}
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
   @media all and (min-width: 300px) and (max-width: 767px){
  
     .jobs{
@@ -152,6 +170,10 @@
    }
    .topic{
     width: 100% !important;
+   }
+   .pass{
+    margin-bottom: 100px !important;
+    padding-bottom: 120px;
    }
 }
  

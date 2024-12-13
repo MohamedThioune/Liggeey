@@ -36,13 +36,9 @@ export class ListCandidatesComponent implements OnInit {
   }
 
   send_id(id: any) {
-    this.homeService.setCandidatId(id);
-    localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
-    this.router.navigate(['/detail-candidat'])
-      .then(() => {
-        window.location.reload();
-      });
+    this.router.navigate(['detail-candidat'], { state: { id } });
   }
+  
   get filteredCandidate() {
     if (this.searchCountry.trim() !== '' || this.searchName.trim() !== '' || this.searchCategori.trim() !== '') {
       return this.candidates.filter((candidat: any) => {
