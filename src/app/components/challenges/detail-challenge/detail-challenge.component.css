@@ -8,7 +8,7 @@
    .image_menu_about h3{
       font-size: 47px;
       font-weight: 500;
-      color: #FFFFFF;
+      color: #FFFF;
       position: relative;
       margin-bottom: 60px;
       scale: 1.2;
@@ -20,17 +20,21 @@
      left: 0;
      width: 100%;
      height: 100%;
-     background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../../assets/img/Managers_starting_training.png"), lightgray 50% / cover no-repeat;
+    /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), url("../../../../assets/img/Managers_starting_training.png"), lightgray 50% / cover no-repeat;*/
      background-size: cover;
      background-repeat: no-repeat;
      background-position: center;
   }
+
   .name-cv{
     white-space: nowrap;
      overflow: hidden;
      text-overflow: ellipsis;
      max-width: 100%;
-  }   
+  }  
+  .description-text {
+    font-weight: 500;
+  }
    /* section jobs*/
    .jobs{
      margin-top: 15px !important;
@@ -69,6 +73,17 @@
    height: 100%;
    object-fit: cover;
  }
+  .content-img-participants{
+  width: 100%;
+  height: 50px;
+  margin-right: 12px;
+  overflow: hidden;
+}
+.content-img-participants img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
  .content-footer-card {
    position: absolute;
    width: 90%;
@@ -125,6 +140,9 @@ hr{
   margin-right:35%;
   color:#BDBDBD;
 }
+.separate-text{
+  margin-bottom: 10px!important;
+}
 .align{
   display: flex;
   align-items: center !important;
@@ -142,10 +160,10 @@ hr{
     }
 
    .name-cv{
-   white-space: nowrap;
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width:47%;
+      max-width:100%;
    } 
    .right-menu{
     bottom: 0;
@@ -168,12 +186,18 @@ hr{
   .participant{
     width: 100% !important;
    }
+   .content-img-participants{
+    margin-right: 0px;
+  }
    .topic{
     width: 100% !important;
    }
    .pass{
     margin-bottom: 100px !important;
     padding-bottom: 120px;
+   }
+   .soulign{
+    width: 100%;
    }
 }
  

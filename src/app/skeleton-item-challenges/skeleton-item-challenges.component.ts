@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./skeleton-item-challenges.component.css']
 })
 export class SkeletonItemChallengesComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
