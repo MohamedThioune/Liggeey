@@ -36,6 +36,7 @@
       color: #000000;
       font-weight: 500 !important;
       text-align: start !important;
+      padding: 5px;
    }
    textarea {
       padding: 8px;
@@ -61,15 +62,19 @@
       cursor: pointer;
       border: 1px solid #ccc;
       border-radius: 8px;
-      text-align: center;
       font-weight: 500;
-      padding: 50px 70px;
-      margin-right: 10px;
+      padding: 40px 70px;
       margin-bottom: 15px;
+      max-width: 24%;
+      /*flex: 1;*/
+      margin-right: 8px;
   }
+  .custom-file-upload label{
+      width: 100% !important;
+   }
   
   input[type="file"]{
-    /*display: none;*/
+    display: none;
    }
    button[type="submit"]{
       background-color: #23BC9A;
@@ -81,14 +86,15 @@
   .custom-file-upload:hover {
       background-color: #e0e0e0;
   }
-  
+ /* 
   .custom-file-upload label {
       cursor: pointer;
       padding: 10px;
   }
   label{
    padding: 5px 10px;
-}
+}*/
+   
   form{
    position: absolute;
    display:block;
@@ -98,7 +104,7 @@
    top: 20%;
    background-color: #fff; /* Ajoute un fond blanc pour rendre le formulaire lisible */
    padding: 30px 40px 30px 20px;
-   width: 45%;
+   width: 50%;
    margin-left: 6%;
    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre pour un effet élégant */
    border-radius: 8px; /* Arrondit les coins */
@@ -107,13 +113,12 @@
    padding: 10px;
   }
    .required {
-      color: red;
+      color: red !important;
       font-weight: bold;
       margin-left: 4px;
    }
    .row{
       margin-left: 10px;
-      justify-content: center;
       margin-top: 10px !important;
    }
    .upload-pdf{
@@ -121,6 +126,8 @@
       padding:25px !important;
       margin-left: 12px !important;
       margin-right: 12px !important;
+      max-width: 100%;
+      text-align: center;
    }
     @media all and (min-width: 300px) and (max-width: 767px){
  
@@ -144,9 +151,14 @@
       margin-left: -15px!important;
    }
    .custom-file-upload{
-      padding: 50px 22px;
-      width: 100% !important;
+      max-width: 100% !important;
    }
+   .custom-file-upload label{
+      width: 100% !important;
+      text-align: start;
+      display: flex;
+   }
+  
    .row{
       margin-left: 10px;
    }

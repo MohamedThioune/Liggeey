@@ -76,6 +76,17 @@
    width: 90%;
    bottom: 10px;
  }
+ .content-img-participants{
+  width: 100%;
+  height: 50px;
+  margin-right: 10px;
+  overflow: hidden;
+}
+.content-img-participants img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
  .card-emploie .description-job{
    color: #6b6e6f !important;
    font-size: 14px;
@@ -235,5 +246,12 @@
     margin-right:0;
     width: 100%;
   }
+  .content-img-participants{
+    margin-right: 0px;
+  }
+  .skeleton-text-5{
+    max-width: 40%;
+  }
+ 
 }
  

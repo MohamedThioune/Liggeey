@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
-
+import { interval } from 'rxjs';
 @Component({
   selector: 'app-detail-challenge',
   templateUrl: './detail-challenge.component.html',
@@ -27,7 +27,8 @@ export class DetailChallengeComponent implements OnInit {
   username: string = '';
   password: string = '';
   isLoading = false;
-
+  remainingTime: string = '';
+  
   constructor(private homeService:HomePageService,private datePipe: DatePipe ,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) { }
 
   ngOnInit(): void {
@@ -52,7 +53,6 @@ export class DetailChallengeComponent implements OnInit {
     if(this.userConnect && this.userConnect.id && this.slug){
         this.homeService.getDetailChallengeWithUserID(this.slug,this.userConnect.id).subscribe((data:any)=>{
         this.challenge=data  
-        //console.log( this.challenge.steps);
         const elementToCheck=1 || 3
         this.challenge.steps.forEach((element:any) => {          
           if (element==1) {
@@ -64,57 +64,36 @@ export class DetailChallengeComponent implements OnInit {
           }
           const valuesToCheck = [1, 3]; // Les valeurs à vérifier
           if (valuesToCheck.every(value => this.challenge.steps.includes(value))) {
-           // console.log('Le tableau contient toutes les valeurs:', valuesToCheck);
             this.allStep = true;
-            console.log(this.challenge.steps);
           } else {
             console.log('Le tableau ne contient pas toutes les valeurs:', valuesToCheck);
           }          
         });
-            // Input date string
-        const inputDate = this.challenge.deadline;
-    
-        // Convert to a Date object
-        const date = new Date(inputDate);
-    
-        // Extract date components
-        const year = date.getFullYear();
-        const month = date.toLocaleString('default', { month: 'long' }); // Get full month name
-        const day = date.getDate();
-        const hours = date.getHours();
-    
-        // Format the date
-        const formattedDate = `${year} | ${month} ${day} | ${hours} hours `;
-    
-        this.challenge.deadline=formattedDate
+        this.updateRemainingTime();
+
+        // Met à jour toutes les secondes
+        interval(1000).subscribe(() => {
+          this.updateRemainingTime();
+        });
         this.challenge.content=  this.challenge.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
         this.loading=false
         })
     }else{
       this.homeService.getDetailChallenge(this.slug).subscribe((data:any)=>{
       this.challenge=data          
-          // Input date string
-      const inputDate = this.challenge.deadline;
+      this.updateRemainingTime();
 
-      // Convert to a Date object
-      const date = new Date(inputDate);
-
-      // Extract date components
-      const year = date.getFullYear();
-      const month = date.toLocaleString('default', { month: 'long' }); // Get full month name
-      const day = date.getDate();
-      const hours = date.getHours();
-
-      // Format the date
-      const formattedDate = `${year} | ${month} ${day} | ${hours} hours `;
-
-      this.challenge.deadline=formattedDate
+      // Met à jour toutes les secondes
+      interval(1000).subscribe(() => {
+        this.updateRemainingTime();
+      });
       this.challenge.content=  this.challenge.content.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '')
       this.loading=false
       })
     }
+    
     this.setDownloadLink();
-
+ 
   }
   setDownloadLink() {
     const userAgent = window.navigator.userAgent.toLowerCase();
@@ -152,6 +131,24 @@ export class DetailChallengeComponent implements OnInit {
     }
  
    }
+   updateRemainingTime(): void {
+    console.log(this.challenge.deadline);
+    
+    const now = new Date();
+    const deadline = new Date(this.challenge.deadline);
+    const timeDifference = deadline.getTime() - now.getTime();
+
+    if (timeDifference > 0) {
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      this.remainingTime = `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+    } else {
+      this.remainingTime = 'Challenge closed';
+    }
+  }
    switchToApplyBlock() {
     this.isLoading = true;
 
