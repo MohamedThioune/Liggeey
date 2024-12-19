@@ -66,7 +66,7 @@ export class DetailChallengeComponent implements OnInit {
           if (valuesToCheck.every(value => this.challenge.steps.includes(value))) {
             this.allStep = true;
           } else {
-            console.log('Le tableau ne contient pas toutes les valeurs:', valuesToCheck);
+           // console.log('Le tableau ne contient pas toutes les valeurs:', valuesToCheck);
           }          
         });
         this.updateRemainingTime();
@@ -132,7 +132,6 @@ export class DetailChallengeComponent implements OnInit {
  
    }
    updateRemainingTime(): void {
-    console.log(this.challenge.deadline);
     
     const now = new Date();
     const deadline = new Date(this.challenge.deadline);
