@@ -7,7 +7,8 @@ import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { switchMap } from 'rxjs/operators';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
-
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-add-challenge',
   templateUrl: './add-challenge.component.html',
@@ -25,7 +26,8 @@ export class AddChallengeComponent implements OnInit {
     message: ''
   };
   selectedFile: File | null = null;
-  imageId!: any ;
+  selectedFiles: File[] = [];
+  imageLink!: any ;
   uploadedImage: string | null = null;
   isLoading: boolean = false;
   slug:any;
@@ -60,93 +62,142 @@ export class AddChallengeComponent implements OnInit {
  
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
-    console.log(file);
     
     if (event.target.files && file) {
-      this.selectedFile = file; // Stocke le fichier sélectionné
+      this.selectedFile = file;
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (e: any) => {
         this.uploadedImage = e.target.result;
-        //console.log(this.selectedFileName);
-        
-        //this.form.controls['file']?.setValue(file ? file.name : ''); // Met à jour le contrôle du formulaire
-
-      this.form.get('pdfURL')?.setValue(file ); // Met à jour le contrôle du formulaire
+        this.form.get('pdfURL')?.setValue(file );
       };
     }
   }
   
+  uploadFile(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (this.selectedFile) {
+        this.homeService.getImageUser(this.selectedFile).subscribe(
+          (imageResponse: any) => {
+            this.imageLink = imageResponse.source_url;
+            resolve(this.imageLink);           
+          },
+          (error) => {
+            ToastNotification.open({
+              type: 'error',
+              message: error.error.message
+            });
+            reject(error);
+          }
+        );
+      } else {
+        resolve("");
+      }
+    });
+  }
+  
 
+  uploadFiles(): Promise<string[]> {
+    return new Promise((resolve, reject) => {
+      if (!this.selectedFiles || this.selectedFiles.length === 0) {
+        resolve([]);
+        return;
+      }
+      const validFiles = this.selectedFiles.filter((file) => file instanceof File);
+      if (validFiles.length === 0) {
+        resolve([]);
+        return;
+      }
+      const uploadRequests = validFiles.map((file) =>
+        this.homeService.getImageUser(file).pipe(
+          map((response: any) => response.source_url)
+        )
+      );
+  
+      forkJoin(uploadRequests).subscribe(
+        (urls: string[]) => {
+          resolve(urls);
+        },
+        (error) => {
+          ToastNotification.open({
+            type: 'error',
+            message: 'An error occurred while uploading files.',
+          });
+          reject(error);
+        }
+      );
+    });
+  }
+  
+  
+  
+  
+
+  
   onFilesSelected(event: any, index: number) {
     const file: File = event.target.files[0];
-    const fileArray = this.form.get('imageURLs') as FormArray; // Typage explicite
-  
+    const fileArray = this.form.get('imageURLs') as FormArray;
     if (!fileArray) {
-      //console.error('FormArray "imageURLs" is not defined.');
       return;
     }
   
     if (index >= fileArray.length) {
-      //console.error('Invalid index for FormArray');
       return;
     }
   
     if (file) {
-      const filePath = event.target.value; // Obtenir le chemin fictif
-     // console.log(`File path for input ${index}:`, filePath);
-  
-      // Mettre à jour le FormArray avec le chemin fictif
-      fileArray.at(index).setValue(filePath);
+      const filePath = event.target.value;  
+      fileArray.at(index).setValue(file);
     }
+    this.selectedFiles[index] = file;
   }
   
-  onSubmit() {
+  async onSubmit() {
     this.isLoading = true;
-      // Utilisez le service pour postuler à l'emploi
-      const imageURLsArray = this.form.get('imageURLs')?.value as string[];
+  
+    try {
+      const pdfURL = await this.uploadFile();      
+      this.form.value.pdfURL = pdfURL;
+      const imageURLsArray = await this.uploadFiles();      
       if (Array.isArray(imageURLsArray)) {
         const imageURLs = imageURLsArray.filter(url => url !== "").join(',');
         this.form.value.imageURLs = imageURLs;
-      }      
+      }
+  
       if (this.validateFormJob(this.form.value)) {
-
-      this.homeService.addChallenge(this.userConnect.id,this.form.value,this.challenge.ID)
-        .subscribe(
-          // Succès de la requête
-          (response) => {
-
-            let typeR = "error"
-            if (<any>response ) {              
-              typeR = "success";
-              this.message= "Challenge posted !!"
+        this.homeService.addChallenge(this.userConnect.id, this.form.value, this.challenge.ID)
+          .subscribe(
+            (response) => {
+              let typeR = "error";
+              if (<any>response) {
+                typeR = "success";
+                this.message = "Challenge posted !!";
+              }
+              ToastNotification.open({
+                type: typeR,
+                message: this.message
+              });
+              this.isLoading = false;
+              if (typeR === "success") {
+                this.router.navigate(['/detail-challenge', this.challenge.post_slug]);
+              }
+            },
+            (error) => {
+              ToastNotification.open({
+                type: 'error',
+                message: error.error.errors || 'An unexpected error occurred'
+              });
+              this.isLoading = false;
             }
-            ToastNotification.open({
-              type: typeR,
-              message: this.message
-            });
-            this.isLoading = false;
-            if (typeR == "success") {
-              this.router.navigate(['/detail-challenge',this.challenge.post_slug]);
-            }
-
-          },
-          // Gestion des erreurs
-          (error) => {
-            ToastNotification.open({
-              type: 'error',
-              message: error.error.errors || 'An unexpected error occurred'
-            });
-            this.isLoading = false;
-          }
-          
-        );
-    }
-    else {
-      ToastNotification.open({
-        type: 'error',
-        message: this.message.message
-      });
+          );
+      } else {
+        ToastNotification.open({
+          type: 'error',
+          message: this.message.message
+        });
+        this.isLoading = false;
+      }
+    } catch (error) {
       this.isLoading = false;
     }
   }
@@ -157,8 +208,8 @@ export class AddChallengeComponent implements OnInit {
       short_description: this.fb.control("", Validators.required),
       motivation: this.fb.control("", Validators.required),
       long_description: this.fb.control("", Validators.required),
-      // imageURLs: this.fb.control("", []),
-      imageURLs: this.fb.array([this.fb.control(''), this.fb.control(''), this.fb.control(''), this.fb.control('')]),      pdfURL: this.fb.control("", []),
+      imageURLs: this.fb.array([this.fb.control(''), this.fb.control(''), this.fb.control(''), this.fb.control('')]),   
+      pdfURL: this.fb.control("", []),
     });
   }
   validateFormJob(challenge: Challenge): boolean {
