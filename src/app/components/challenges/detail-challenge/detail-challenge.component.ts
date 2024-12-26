@@ -57,11 +57,11 @@ export class DetailChallengeComponent implements OnInit {
         this.challenge.steps.forEach((element:any) => {          
           if (element==1) {
             this.step1 = !this.step1
-          }else if(element==2){
-            this.step2 = !this.step2
-          }else if(element==3){
-            this.step3 = !this.step3
-          }
+          }// else if(element==2){
+          //   this.step2 = !this.step2
+          // } // else if(element==3){
+          //   this.step3 = !this.step3
+          // }
           const valuesToCheck = [1, 3]; // Les valeurs à vérifier
           if (valuesToCheck.every(value => this.challenge.steps.includes(value))) {
             this.allStep = true;
