@@ -5,7 +5,7 @@
       <div class="color"></div>
       <h3>Youth unemployement in <br>Senegal,how to provide <br> more jobs </h3>
       <form [formGroup]="form" class="form-container" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
-        <h4>Youth unemployement in senegal,how to provide more jobs</h4>
+        <h4>Youth unemployement in senegal,how to provide more jobs?</h4>
         <div class="form-group">
           <!--
           <label for="titel">
@@ -18,7 +18,7 @@
             name="titel" 
             id="titel" 
             formControlName="titel" 
-            placeholder="Title of your solution"
+            placeholder="Title of your solution *"
             required
           >
         </div>
@@ -33,7 +33,7 @@
             name="short_description" 
             id="short_description" 
             formControlName="short_description" 
-            placeholder="Short Description of your solution (summary)" 
+            placeholder="Short Description of your solution (summary) *" 
             required
             rows="5">
           </textarea>
@@ -50,7 +50,7 @@
             name="motivation" 
             id="motivation" 
             formControlName="motivation" 
-            placeholder="Describe why you are the best person for delivering the solution" 
+            placeholder="Describe why you are the best person for delivering the solution *" 
             required
             rows="5">
           </textarea>
@@ -66,25 +66,25 @@
             name="long_description" 
             id="long_description" 
             formControlName="long_description" 
-            placeholder="Fully describe the solution and gives examples" 
+            placeholder="Fully describe the solution and gives examples *" 
             required
             rows="5">
           </textarea>
         </div>
         <div class="row">
-          <div class="custom-file-upload w-100 col-md-3">
+          <div class="custom-file-upload imagesURLs w-100 col-md-3">
             <label for="fileInput">Upload images of your solution</label>
             <input id="fileInput" name="imageURLs" (change)="onFilesSelected($event,0)" type="file">
           </div>
-          <div class="custom-file-upload col-md-3">
+          <div class="custom-file-upload imagesURLs col-md-3">
             <label for="fileInput">Upload images of your solution</label>
             <input id="fileInput" name="imageURLs" (change)="onFilesSelected($event,1)" type="file">
           </div>
-          <div class="custom-file-upload col-md-3">
+          <div class="custom-file-upload imagesURLs col-md-3">
             <label for="fileInput">Upload images of your solution</label>
             <input id="fileInput" name="imageURLs" (change)="onFilesSelected($event,2)" type="file">
           </div>
-          <div class="custom-file-upload col-md-3">
+          <div class="custom-file-upload imagesURLs col-md-3">
             <label for="fileInput">Upload images of your solution</label>
             <input id="fileInput" name="imageURLs" (change)="onFilesSelected($event,3)" type="file">
           </div>
