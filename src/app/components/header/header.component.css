@@ -900,10 +900,10 @@ font-family: "Roboto-Medium";
         margin: 0;
     }
     .dropdown-menu-right{
-      padding: 25px 0 25px;
-      top: 51px !important;
-      left: -100px !important;
-      right: 0px !important;
+      padding: 25px 0;
+      top: 39px !important;
+      left: -215px !important;
+      right: 0 !important;
       float: right;
     }
 
