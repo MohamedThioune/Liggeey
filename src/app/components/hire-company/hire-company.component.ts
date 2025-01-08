@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HireCompanyComponent implements OnInit {
   userConnect:any;
-
+  categories:any;
   constructor(private homeService:HomePageService,private usagerService: UsagerService,private router: Router) { }
 
   ngOnInit(): void {
@@ -24,6 +24,9 @@ export class HireCompanyComponent implements OnInit {
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
     }
+    this.homeService.getInfoHomepage().subscribe((data:any)=>{
+      this.categories=data.categories
+  })
   }
   redirectToWhatsApp(){
     this.homeService.redirectToWhatsApp()
@@ -40,7 +43,11 @@ export class HireCompanyComponent implements OnInit {
     }else{
       this.router.navigate(['post-company'])
     } 
- 
- 
-   }
+  }
+  send_id(id: any) {
+    this.router.navigate(['detail-category',id])
+      .then(() => {
+        window.location.reload();
+      });
+  }
 }

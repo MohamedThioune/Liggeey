@@ -53,22 +53,7 @@ export class DetailChallengeComponent implements OnInit {
     if(this.userConnect && this.userConnect.id && this.slug){
         this.homeService.getDetailChallengeWithUserID(this.slug,this.userConnect.id).subscribe((data:any)=>{
         this.challenge=data  
-        const elementToCheck=1 || 3
-        this.challenge.steps.forEach((element:any) => {          
-          if (element==1) {
-            this.step1 = !this.step1
-          }// else if(element==2){
-          //   this.step2 = !this.step2
-          // } // else if(element==3){
-          //   this.step3 = !this.step3
-          // }
-          const valuesToCheck = [1, 3]; // Les valeurs à vérifier
-          if (valuesToCheck.every(value => this.challenge.steps.includes(value))) {
-            this.allStep = true;
-          } else {
-           // console.log('Le tableau ne contient pas toutes les valeurs:', valuesToCheck);
-          }          
-        });
+        this.allStep = this.challenge.steps.includes(1);
         this.updateRemainingTime();
 
         // Met à jour toutes les secondes
@@ -108,29 +93,27 @@ export class DetailChallengeComponent implements OnInit {
       this.downloadLink = 'https://play.google.com/store/apps/details?id=com.livelearn.livelearn_mobile_app&pli=1';
     }
   }
-  postSolution(challenge:any){
-
+  postSolution(challenge: any) {
     if (!this.userConnect) {
       ToastNotification.open({
         type: 'error',
         message: 'Please log in first before posting your solution.'
       });
-
-      return; 
-    }else if(this.userConnect && this.userConnect.id && challenge.participants){
-      challenge.participants.forEach((element:any) => {
-        if (element.data.ID==this.userConnect.id) {
-          ToastNotification.open({
-            type: 'error',
-            message: 'you can only post your challenge once.'
-          });
-        }
-      });
-    }else {
-      this.router.navigate(['/add-challenge',challenge.post_slug])
+      return;
     }
- 
-   }
+    const userId = String(this.userConnect.id);
+    const hasParticipated = challenge.participants.some((participant: any) => participant.data.ID === userId);
+  
+    if (hasParticipated) {      
+      ToastNotification.open({
+        type: 'error',
+        message: 'You can only post your challenge once.'
+      });
+    } else {      
+      this.router.navigate(['/add-challenge', challenge.post_slug]);
+    }
+  }
+  
    updateRemainingTime(): void {
     
     const now = new Date();

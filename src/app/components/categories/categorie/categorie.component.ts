@@ -35,6 +35,10 @@ export class CategorieComponent implements OnInit {
   sentDate: any;
   canApply=true;
   slug:any
+  selectedSkillsText: string = '';
+  skills: string[] = ['Google','Google Workspace', 'Microsoft', 'Account management', 'Accounting', 'Acquiring', 'Administration', 'Administration and Reporting',];
+  selectedSkills: string[] = [];
+  showDropdownSkills: boolean = false
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
@@ -77,7 +81,6 @@ export class CategorieComponent implements OnInit {
     })
     this.homeService.getDetailCategory(this.slug).subscribe((data:any)=>{
       this.category = data
-
       this.category.articles.forEach((element:any) => {
         element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
         element.title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
@@ -109,11 +112,12 @@ export class CategorieComponent implements OnInit {
   //   }
   // }
   get filteredItems() {
-    if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
+    if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '' || this.selectedSkillsText.trim() !=='') {
       const filteredJobs = this.category.jobs.filter((job: any) => {
         const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
         const placeMatch = this.searchLocation.trim() === '' || job.company.place.toLowerCase().includes(this.searchLocation.toLowerCase());
-        return titleMatch && placeMatch;
+        const skills = this.selectedSkillsText.trim() === '' || job.skills.some((skill: any) => skill.name.toLowerCase().includes(this.selectedSkillsText.toLowerCase()));
+        return titleMatch && placeMatch && skills;
       });
   
       const filteredArticles = this.category.articles.filter((article: any) => {
@@ -143,7 +147,27 @@ export class CategorieComponent implements OnInit {
   }
   
   
+  toggleDropdownSkills() {
+      this.showDropdownSkills = !this.showDropdownSkills;
+  }
 
+  onSkillChange(skill: string, event: Event) {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    if (isChecked) {
+      this.selectedSkills.push(skill);
+    } else {
+      this.selectedSkills = this.selectedSkills.filter(s => s !== skill);
+    }
+    this.updateSelectedSkillsText();
+  }
+
+  isSelected(skill: string): boolean {
+    return this.selectedSkills.includes(skill);
+  }
+
+  updateSelectedSkillsText() {
+    this.selectedSkillsText = this.selectedSkills.join(', ');
+  }
   canAppl(item: any): boolean {
     if (!this.userConnect || !this.userConnect.id) {
       return true; // Si l'utilisateur n'est pas connecté, autoriser l'application

@@ -27,6 +27,11 @@ export class JobOneComponent implements OnInit {
   appliedJob=false
   candidate=false
   company=false
+  selectedSkillsText: string = '';
+  selectedSkills: string[] = [];
+  showDropdownSkills: boolean = false
+  skills: any[] = ['Google','English','Google Workspace', 'Microsoft', 'Account management', 'Accounting', 'Acquiring', 'Administration', 'Administration and Reporting',];
+
   constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) {}
   ngOnInit(): void {
         // Récupération du token depuis le local storage
@@ -46,6 +51,9 @@ export class JobOneComponent implements OnInit {
             this.company=true
             }
         }
+        this.homeService.getInfoHomepage().subscribe((data:any)=>{
+          this.skills=data.categories          
+      })
     this.currentDate = new Date();
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.homeService.getAllJob().subscribe((data:any)=>{
@@ -58,11 +66,16 @@ export class JobOneComponent implements OnInit {
     })
   }
   get filteredJobs() {
-    if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {
+    if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '' || this.selectedSkillsText.trim() !== '') {
       return this.jobs.filter((job:any) => {
         const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
         const placeMatch = this.searchLocation.trim() === '' || job.country.toLowerCase().includes(this.searchLocation.toLowerCase());
-        return titleMatch && placeMatch;
+        const jobSkills = Array.isArray(job.skills) ? job.skills : [];
+        const skills = this.selectedSkillsText.trim() === '' || jobSkills.some((skill: any) =>
+          skill.name.toLowerCase().includes(this.selectedSkillsText.toLowerCase())
+        );
+
+        return titleMatch && placeMatch && skills;
       });
     } else {
       return this.jobs;
@@ -98,6 +111,27 @@ export class JobOneComponent implements OnInit {
 
   toggleClass() {
     this.isClass1Visible = !this.isClass1Visible;
+  }
+  toggleDropdownSkills() {
+    this.showDropdownSkills = !this.showDropdownSkills;
+  }
+
+  onSkillChange(skill: string, event: Event) {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    if (isChecked) {
+      this.selectedSkills.push(skill);
+    } else {
+      this.selectedSkills = this.selectedSkills.filter(s => s !== skill);
+    }
+    this.updateSelectedSkillsText();
+  }
+
+  isSelected(skill: string): boolean {
+    return this.selectedSkills.includes(skill);
+  }
+
+  updateSelectedSkillsText() {
+    this.selectedSkillsText = this.selectedSkills.join(', ');
   }
 
 }
