@@ -80,7 +80,7 @@
       margin-top: 25%;
   }
   input[type="file"]{
-    display: none;
+    /*display: none;*/
    }
    button[type="submit"]{
       background-color: #23BC9A;

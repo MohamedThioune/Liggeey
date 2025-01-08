@@ -58,7 +58,7 @@
   .search_about input{
    border-radius: 4px;
    font-size:16px;
-   width:100%;
+  /* width:100%;*/
    border:none;
    background-color: transparent;
    padding: 10px 19px 8px 24px;
@@ -67,7 +67,9 @@
 input[type="search"]:focus {
    outline: none;
  }
-
+ input[type="search"] {
+   width:100%;
+ }
    .image_menu_about h2{
      font-size: 47px;
      font-weight: 700;
@@ -429,6 +431,30 @@ font-weight: 400;
    border-radius: 30px;
    background: #D4E1F6;
  }
+ .dropdowns {
+   position: absolute;
+   top: 100%;
+   right: 0;
+   width: 50%;
+   max-height: 180px;
+   overflow-y: auto;
+   border: 1px solid #ccc;
+   background-color: white;
+   z-index: 1000;
+   padding: 5px;
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .dropdown-item {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+ }
+ 
+ input[type="checkbox"] {
+   margin: 0;
+   flex-shrink: 0;
+ }
  @media all and (min-width: 300px) and (max-width: 767px){
 
    .jobs{
@@ -468,5 +494,8 @@ font-weight: 400;
    .most_jobs .row {
      margin-right: 0px !important;
      margin-left: 0px !important;
+   }
+   .dropdowns{
+      width: 100%;
    }
 }
