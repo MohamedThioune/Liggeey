@@ -196,8 +196,13 @@ export class HeaderComponent implements OnInit,OnDestroy {
     
       this.homeService.getInfoHomepage().subscribe((data:any)=>{
         this.categories=data.categories
-        
     })
+    // this.homeService.getSkillsAll().subscribe((data:any)=>{        
+    //   this.categories = data.topics
+    //   .filter((element: any) => [321, 655, 400,459,648,326,649,456,322,376,650,457,651,652,653].includes(element.cat_ID))
+    //   .map((element: any) => element); // Exemple : extraire seulement cat_ID et name      
+    // })
+    
     // this.homeService.getSkills().subscribe(data=>{
     //   this.skillsTabs = data
     //   console.log( this.skillsTabs);
