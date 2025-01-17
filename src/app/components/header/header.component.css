@@ -234,7 +234,7 @@ input[type="text"]:focus {
 
 
 .dropdown.dropdown-modife .dropdown-menu{
-margin-top: 25px;
+  margin-top: 25px;
   background-color: #FFF;
   padding-left: 50px;
 }
@@ -898,11 +898,12 @@ font-family: "Roboto-Medium";
     }
     .categories .dropdown-menu{
         margin: 0;
+        left: -73px;
     }
     .dropdown-menu-right{
       padding: 25px 0;
-      top: 39px !important;
-      left: -215px !important;
+      top: 41px !important;
+      left: -320px !important;
       right: 0 !important;
       float: right;
     }

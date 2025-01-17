@@ -6,6 +6,7 @@ import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { log } from 'console';
 
 @Component({
   selector: 'app-edit-job-company',
@@ -28,6 +29,9 @@ export class EditJobCompanyComponent implements OnInit {
   };
   slug:any
   langues: string[] = ['French', 'English', 'Dutch'];
+  topics:any = []
+  isLoading: boolean = false;
+
   public Editor = ClassicEditor;
   public editorConfig = {
     toolbar: ['bold', 'italic', 'bulletedList', 'numberedList', 'link'], // Ajoutez 'insertImage' à la barre d'outils
@@ -38,76 +42,6 @@ export class EditJobCompanyComponent implements OnInit {
       }
     }
   };
-  skillsTabs:any=[   
-    {
-      "cat_ID": 590,
-      "cat_name": "Afas",
-      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-      "open_position": 0
-  },
-  {
-      "cat_ID": 589,
-      "cat_name": "Freshworks",
-      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-      "open_position": 0
-  },
-  {
-      "cat_ID": 633,
-      "cat_name": "Google",
-      "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/google.png",
-      "open_position": 0
-  },
-  {
-    "cat_ID": 587,
-    "cat_name": "Google Workspace",
-    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-    "open_position": 0
-},
-{
-    "cat_ID": 640,
-    "cat_name": "HubSpot",
-    "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/hubspot_logo.jpeg",
-    "open_position": 0
-},
-{
-    "cat_ID": 593,
-    "cat_name": "Microsoft 360",
-    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-    "open_position": 0
-},
-{
-  "cat_ID": 634,
-  "cat_name": "Odoo",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
-{
-  "cat_ID": 588,
-  "cat_name": "Salesforce",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
-{
-  "cat_ID": 641,
-  "cat_name": "Exact",
-  "cat_image": "https://livelearn.nl/wp-content/uploads/2024/05/Exact.jpeg",
-  "open_position": 0
-},
-// {
-//   "cat_ID": 636,
-//   "cat_name": "web-programming",
-//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-//   "open_position": 0
-// },
-// {
-//   "cat_ID": 637,
-//   "cat_name": "Webflow",
-//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-//   "open_position": 0
-// },
-    
-    ]
-    
 
   constructor(private route : ActivatedRoute,private router:Router,private fb : FormBuilder , private homeService : HomePageService,private usagerService:UsagerService) {
 
@@ -143,6 +77,9 @@ export class EditJobCompanyComponent implements OnInit {
      // Parse du JSON pour obtenir l'objet original
      this. userConnect = JSON.parse(decodedToken);
    }
+   this.homeService.getSkillsAll().subscribe((data:any)=>{
+    this.topics = data.topics 
+  })
 
 
   }
@@ -193,7 +130,7 @@ removeSkill(term_id: any) {
   this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
 }
 getSkillName(skillId: any): string {
-  const skill = this.skillsTabs.find((skill:any) => skill.cat_ID === skillId);
+  const skill = this.topics.find((skill:any) => skill.cat_ID === skillId);
   return skill ? skill.cat_name : '';
 }
 getskillsFormArray() {
@@ -203,8 +140,8 @@ getSkills(tabSkillsId:any) {
   const allSkills:any = [];
   if (Array.isArray(tabSkillsId)) {
     tabSkillsId.forEach(skillID => {
-      if (Array.isArray(this.skillsTabs)) {
-        this.skillsTabs.forEach(skill => {
+      if (Array.isArray(this.topics)) {
+        this.topics.forEach(skill => {
           if (skillID==skill.cat_ID) {
             allSkills.push(skill);
           }
@@ -236,6 +173,7 @@ return allSkills;
 
 
   onSubmit(){
+    this.isLoading = true;
     if (this.validateFormJob(this.form.value)) {
     this.form.value.skills=this.selectedSkills;
     this.homeService.editJob(this.form.value,this.userConnect.id)
@@ -252,6 +190,7 @@ return allSkills;
             type: typeR,
             message: this.message
           });
+          this.isLoading = false;
           if (typeR == "success") {
         //    alert("Job edited successfully.")
             this.router.navigate(['/manage-compagny/']);
@@ -263,6 +202,7 @@ return allSkills;
             type: 'error',
             message: "edit failed"
           });
+          this.isLoading = false;
         }
       );
   } else {
@@ -270,6 +210,7 @@ return allSkills;
       type: 'error',
       message: "edit failed"
     });
+    this.isLoading = false;
   }
   }
   validateDate(event: any): void {
@@ -298,7 +239,7 @@ return allSkills;
     this.dateError = false;
   }
 
-
+  
 
 }
 

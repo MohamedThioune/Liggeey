@@ -18,8 +18,8 @@
               </label>
               <ckeditor  name="description"  formControlName="description" [editor]="Editor" [config]="editorConfig" ></ckeditor>
             </div>
-            <div class="form-group col-50">
-              <label for="level_of_experience">Level of experience  <span class="important">*</span>
+            <div class="form-group col-50 application">
+              <label class="name-cv" for="level_of_experience">Level of experience  <span class="important">*</span>
               </label>
               <div class="input-group">
                 <input type="number" min="1" name="level_of_experience" formControlName="level_of_experience" class="form-control" id="level_of_experience" placeholder="Take a number value by 'years'">
@@ -38,7 +38,7 @@
                 <input type="text" name="skills" *ngFor="let skill of job.skills"  formControlName="skills" class="form-control" id="email" >
               </div>
             </div>   -->
-            <div class="form-group col-50">
+            <div class="form-group col-50 application">
               <label for="job_langues">Languages  <span class="important">*</span>
               </label>
               <div class="input-group">
@@ -47,7 +47,7 @@
                 </select>
             </div>
             </div>
-            <div class="form-group col-50">
+            <div class="form-group col-50 application">
               <label for="job_application_deadline">Application deadline  <span class="important">*</span>
               </label>
               <div class="input-group">
@@ -71,7 +71,7 @@
                 </button>
                               <!-- Affichage des cases à cocher -->
                 <div class="dropdown-menu col-md-6" aria-labelledby="dropdownMenuButton">
-                  <div class="form-check" *ngFor="let skill of skillsTabs">
+                  <div class="form-check" *ngFor="let skill of topics">
                     <input class="form-check-input checkbox" formArrayName="skills" type="checkbox" [value]="skill.cat_ID" (change)="toggleSkill(skill.cat_ID)" [checked]="selectedSkills.includes(skill.cat_ID)">
                     <label class="form-check-label">
                       {{skill.cat_name}}
@@ -92,7 +92,9 @@
               </div>
             </div>
 
-            <button class="btn btn-save create" type="submit"> Save </button>
+            <button class="btn btn-save create" type="submit" [disabled]="isLoading"> Save </button>
+            <div *ngIf="isLoading" class="loader">Loading...</div>
+
           </div>
 
         </form>

@@ -434,4 +434,7 @@ input[type="text"] {
    .card-body{
      padding: 25px 15px !important;
    }
+   .application{
+    width: 100% !important;
+   }
  }

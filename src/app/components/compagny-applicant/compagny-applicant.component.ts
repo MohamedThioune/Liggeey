@@ -79,14 +79,18 @@ export class CompagnyApplicantComponent implements OnInit {
       this.loading = false;
     });
  }
- send_id(id: any) {
-  this.homeService.setCandidatId(id);
-  localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
-  this.router.navigate(['/detail-candidat'])
-    .then(() => {
-      window.location.reload();
-    });
+//  send_id(id: any) {
+//   this.homeService.setCandidatId(id);
+//   localStorage.setItem('candidatId', id); // Stocker l'ID dans le localStorage
+//   this.router.navigate(['/detail-candidat'])
+//     .then(() => {
+//       window.location.reload();
+//     });
+// }
+send_id(id: any) {
+  this.router.navigate(['detail-candidat'], { state: { id } });
 }
+
  toggleSidebar() {
    this.isSidebarVisible = !this.isSidebarVisible;
    this.showButton = false;
