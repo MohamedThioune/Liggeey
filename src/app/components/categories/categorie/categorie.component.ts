@@ -4,6 +4,7 @@ import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { DatePipe } from '@angular/common';
+import { log } from 'console';
 
 @Component({
   selector: 'app-categorie',
@@ -36,7 +37,7 @@ export class CategorieComponent implements OnInit {
   canApply=true;
   slug:any
   selectedSkillsText: string = '';
-  skills: string[] = ['Google','Google Workspace', 'Microsoft', 'Account management', 'Accounting', 'Acquiring', 'Administration', 'Administration and Reporting',];
+  skills: any[] = ['Google','Google Workspace', 'Microsoft', 'Account management', 'Accounting', 'Acquiring', 'Administration', 'Administration and Reporting',];
   selectedSkills: string[] = [];
   showDropdownSkills: boolean = false
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
@@ -99,6 +100,9 @@ export class CategorieComponent implements OnInit {
       // Parse du JSON pour obtenir l'objet original
       this. userConnect = JSON.parse(decodedToken);
     }
+    this.homeService.getInfoHomepage().subscribe((data:any)=>{
+      this.skills=data.categories
+  })
   }
   // get filteredJobs() {
   //   if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '') {

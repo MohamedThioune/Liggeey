@@ -508,6 +508,7 @@
 }
 .featured .browser{
     display: flex;
+    align-items: center;
     color: #1AC4A2;
     font-size: 14px;
     font-weight: bold;
@@ -515,7 +516,7 @@
 }
 
 .featured .browser p{
-    margin-left: 7px;
+    margin: 0 0 0 7px;
 }
 
 .card-body span{
@@ -914,6 +915,20 @@
   }
   .image_banner{
     display: none;
+  }
+  .meet{
+    display: none;
+  }
+  .featured .header_featured{
+    align-items: center !important;
+    width: 100%;
+  }
+  .header_featured a{
+    display: flex;
+    align-items: center;
+  }
+  .header_featured a p{
+   margin: 0;
   }
 }
 

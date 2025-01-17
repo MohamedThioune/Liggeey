@@ -101,7 +101,7 @@ export class ManageJobCompagnyComponent implements OnInit {
   },
   // Gestion des erreurs
   (error) => {
-    console.log(error);
+   // console.log(error);
     
     ToastNotification.open({
       type: 'deletion failed',

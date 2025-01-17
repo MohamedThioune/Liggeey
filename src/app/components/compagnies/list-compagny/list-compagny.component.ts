@@ -24,6 +24,7 @@ export class ListCompagnyComponent implements OnInit {
   ngOnInit(): void {
     this.homeService.getAllCompagny().subscribe((data:any)=>{
       this.employers=data 
+      console.log(this.employers)
       this.loading=false       
     })
   }

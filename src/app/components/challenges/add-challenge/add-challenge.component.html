@@ -93,7 +93,7 @@
           <label for="fileInpute">Upload your PDF presentation of the project solution <span class="required">*</span></label>
           <input id="fileInpute" (change)="onFileSelected($event)" accept="application/pdf" formControlName="pdfURL"  name="pdfURL" type="file">
         </div>
-        <button class="btn w-100 mt-4" type="submit" [disabled]="isLoading">Apple for challenge</button>
+        <button class="btn w-100 mt-4" type="submit" [disabled]="isLoading">Apply for a challenge</button>
         <div *ngIf="isLoading" class="loader">Loading...</div>
 
       </form>

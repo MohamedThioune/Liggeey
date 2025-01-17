@@ -96,7 +96,10 @@
       -->
         <div class="candidat_featured">
           <div class="row justify-content-center" style="margin-bottom: 100px;" >
-            <img class="mb-4 text-align-center" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf=" filteredCandidate.length==0">
+            <div *ngIf=" filteredCandidate.length==0">
+              <img class="mb-4 text-align-center" src="../../../assets/img/empty-badge.png" alt="image team">
+              <p>No content available at the moment</p>
+            </div>
             <div class="col-md-4 item" *ngFor="let candidate of filteredCandidate | paginate: { itemsPerPage: 9, currentPage: p }"  >
                 <div class="content_candidate" (click)="send_id(candidate.ID)">
                   <div class="content_image_candidate">

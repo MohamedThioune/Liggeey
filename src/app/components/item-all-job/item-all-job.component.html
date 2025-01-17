@@ -1,8 +1,10 @@
 <div class="items_job">
     <div class="content-emploi">
       <div class="row justify-content-center">
-        <img class="mb-4" src="../../../assets/img/empty-badge.png" alt="image team" *ngIf=" category.length==0">
-
+        <div *ngIf=" category.length==0">
+          <img class="mb-4 text-align-center" src="../../../assets/img/empty-badge.png" alt="image team">
+          <p>No content available at the moment</p>
+        </div>
         <div class="col-md-4" *ngFor="let categorie of category | paginate: { itemsPerPage: 9, currentPage: p }" >
           <div class="card-emploie">
             <div class="content-img a">
