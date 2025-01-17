@@ -44,8 +44,8 @@
               (click)="toggleDropdownSkills()" readonly>
               <div *ngIf="showDropdownSkills" class="dropdowns">
                 <label *ngFor="let skill of skills" class="dropdown-item">
-                  <input type="checkbox" [checked]="isSelected(skill)" (change)="onSkillChange(skill, $event)">
-                  {{ skill }}
+                  <input type="checkbox" [checked]="isSelected(skill)" (change)="onSkillChange(skill.cat_name, $event)">
+                  {{ skill.cat_name }}
                 </label>
               </div>
             </div>

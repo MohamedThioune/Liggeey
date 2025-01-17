@@ -33,6 +33,7 @@
             <div class="form-group mt-4 mb-4">
               <label>
                 Key Responsibilities
+                <span class="important">*</span>
               </label>
               <ckeditor  name="responsibilities"  formControlName="responsibilities" [editor]="Editor" [config]="editorConfig" ></ckeditor>
             </div>
@@ -40,7 +41,7 @@
       
             <div class="form-group motivation mt-4 mb-4">
               <input type="checkbox" id="motivation" name="motivation" value="true" formControlName="motivation" />
-              <label for="motivation">Yes, the cover letter is mandatory</label>
+              <label for="motivation">Motivation letter is mandatory</label>
             </div>
             
 
@@ -54,7 +55,7 @@
             </div>
             -->
             <div class="form-group mb-4 ">
-              <label>Skills & Experiences</label>
+              <label>Categories</label>
               <div class="chips-container">
                 <div class="chip" *ngFor="let skillControl of skillsExperiences.controls; let i = index">
                   {{ skillControl.value }}
@@ -70,7 +71,7 @@
                 />
               </div>
             </div>
-            <div class="form-group col-50">
+            <div class="form-group col-50 application">
               <label for="email">
                 Contract type
               </label>
@@ -85,14 +86,14 @@
                 </select>
             </div>
             </div>
-            <div class="form-group col-50">
+            <div class="form-group col-50 application">
               <label for="job_level_of_experience">Level of experience  <span class="important">*</span>
               </label>
               <div class="input-group">
                 <input type="number" min="1" name="job_level_of_experience" formControlName="job_level_of_experience" class="form-control" id="job_level_of_experience" placeholder="Take a number value by 'years'">
               </div>
             </div>
-            <div class="form-group col-50">
+            <div class="form-group col-50 application">
               <label for="job_langues">Languages <span class="important">*</span></label>
               <div class="input-group">
                   <select name="job_langues" formControlName="job_langues" class="form-control" id="job_langues">
@@ -100,7 +101,7 @@
                   </select>
               </div>
             </div>
-          <div class="form-group col-50">
+          <div class="form-group col-50 application">
             <label for="job_application_deadline">Application deadline  <span class="important">*</span>
             </label>
             <div class="input-group">
@@ -108,7 +109,7 @@
             </div>
           </div>
           <div class="form-group col-100">
-            <label for="job_langues">Skills</label>
+            <label for="job_langues">Skills<span class="important">*</span></label>
             <div class="input-group " >
               <!--
                 <select name="skills" formControlName="skills" class="form-control" id="skills" >
