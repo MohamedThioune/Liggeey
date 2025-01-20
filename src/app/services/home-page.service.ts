@@ -434,7 +434,7 @@ getSubtopic(user:string): Observable<any> {
       job_responsibilities:job.responsibilities,
       job_skills_experiences:job.skills_experiences,
       job_langues:job.job_langues,
-      job_application_deadline:job. job_application_deadline,
+      job_expiration_date:job.job_application_deadline,
       skills:job.skills,
       motivation:job.motivation,
 

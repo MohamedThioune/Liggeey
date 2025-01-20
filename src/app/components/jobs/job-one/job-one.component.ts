@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { log } from 'console';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 
@@ -30,7 +31,7 @@ export class JobOneComponent implements OnInit {
   selectedSkillsText: string = '';
   selectedSkills: string[] = [];
   showDropdownSkills: boolean = false
-  skills: any[] = ['Google','English','Google Workspace', 'Microsoft', 'Account management', 'Accounting', 'Acquiring', 'Administration', 'Administration and Reporting',];
+  skills: any[] = [];
 
   constructor(private homeService:HomePageService,private datePipe: DatePipe,private usagerService: UsagerService,private route : ActivatedRoute ,private router: Router) {}
   ngOnInit(): void {
@@ -88,7 +89,7 @@ export class JobOneComponent implements OnInit {
     if (modalElement) {
       modalElement.click();
     } else {
-      console.error("Modal element not found");
+      //console.error("Modal element not found");
     }
   }
   canAppl(item: any): boolean {

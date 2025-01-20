@@ -121,3 +121,18 @@ label p {
   color: #000;
   text-align: right;
 }
+.dropdown-menu{
+  padding: 16px;
+}
+
+@media all and (min-width: 300px) and (max-width: 767px){
+  .application{
+    width: 100% !important;
+  }
+  .name-cv{
+    white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     max-width: 100%;
+  }  
+}

@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HomePageService } from 'src/app/services/home-page.service';
 import { UsagerService } from 'src/app/services/usager.service';
 import { Router } from '@angular/router';
+import { log } from 'console';
 declare var hbspt: any; // Déclare la bibliothèque HubSpot Forms
 @Component({
   selector: 'app-home',
