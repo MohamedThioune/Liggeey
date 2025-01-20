@@ -61,6 +61,7 @@ import { HireCandidatComponent } from './components/hire-candidat/hire-candidat.
 import { ListChallengesComponent } from './components/challenges/list-challenges/list-challenges.component';
 import { DetailChallengeComponent } from './components/challenges/detail-challenge/detail-challenge.component';
 import { AddChallengeComponent } from './components/challenges/add-challenge/add-challenge.component';
+import {InvestorLandingPageComponent} from "./investor-landing-page/investor-landing-page.component";
 
 const routes: Routes = [
 
@@ -111,7 +112,7 @@ const routes: Routes = [
   { path: 'course', component: CourseCandidatComponent },
 
   { path: 'skills', component: SkillsCandidatComponent },
-  
+
   { path: 'resume-candidat', component: ResumeCandidatComponent ,canActivate: [CandidateGuard]},
 
   { path: 'profil-candidat', component: ProfilCandidatComponent,canActivate: [AuthGuard] },
@@ -127,7 +128,7 @@ const routes: Routes = [
   { path: 'sidebar', component: SidebarCandidatComponent },
 
   { path: 'detail-candidat', component: DetailCandidatComponent },
-  
+
   { path: 'job', component: JobOneComponent },
 
   { path: 'joba', component: JobTwoComponent },
@@ -137,22 +138,22 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
 
   { path: 'challenges', component: ListChallengesComponent },
-  
+
   { path: 'detail-challenge/:slug', component: DetailChallengeComponent },
 
   { path: 'add-challenge/:slug', component: AddChallengeComponent },
-  
+
   { path: 'login', component: LoginComponent },
 
   {
     path: 'register',
     component: RegistrationComponent,
-    data: { employer: false } 
+    data: { employer: false }
   },
   {
     path: 'register/employer',
     component: RegistrationComponent,
-    data: { employer: true } 
+    data: { employer: true }
   },
 
   { path: 'courses', component: CoursesComponent },
@@ -183,7 +184,9 @@ const routes: Routes = [
 
   { path:'hire-company',component: HireCompanyComponent},
 
-  { path:'hire-candidat',component: HireCandidatComponent}
+  { path:'hire-candidat',component: HireCandidatComponent},
+
+  { path:'investitor',component: InvestorLandingPageComponent}
 
 
 ];

@@ -104,6 +104,7 @@ import { SkeletonListChallengesComponent } from './skeleton-list-challenges/skel
 import { SkeletonItemChallengesComponent } from './skeleton-item-challenges/skeleton-item-challenges.component';
 import { SkeletonDetailChallengeComponent } from './skeleton-detail-challenge/skeleton-detail-challenge.component';
 import { ChallengesComponent } from './components/challenges/challenges.component';
+import { InvestorLandingPageComponent } from './investor-landing-page/investor-landing-page.component';
 
 @NgModule({
   declarations: [
@@ -203,6 +204,7 @@ import { ChallengesComponent } from './components/challenges/challenges.componen
     SkeletonListChallengesComponent,
     SkeletonItemChallengesComponent,
     SkeletonDetailChallengeComponent,
+    InvestorLandingPageComponent,
 
 
   ],

@@ -7,18 +7,18 @@
       </li>
     </ul>
       <!-- <ul>
-      
+
       <li class="Language dropdown">
         <!-- <i class="fa fa-language"></i>
         <p  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</p>
-       
+
         <i class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="fa fa-caret-down"></i>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">English</a>
           <a class="dropdown-item" href="#">Frensh</a>
           <a class="dropdown-item" href="#">Deutsh</a>
         </div>
-        
+
 
       </li>
     </ul>
@@ -33,7 +33,7 @@
             <img height="70" src="../../../assets/img/logo-footer-white.png" alt="image pas encore insérer">
           </a>
         </li>
-      
+
 
         <li class="">
           <div class="dropdown dropdown-modife">
@@ -42,13 +42,12 @@
               <path d="M7 20C8.65685 20 10 18.6569 10 17C10 15.3431 8.65685 14 7 14C5.34315 14 4 15.3431 4 17C4 18.6569 5.34315 20 7 20Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M14 14H20V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H15C14.7348 20 14.4804 19.8946 14.2929 19.7071C14.1054 19.5196 14 19.2652 14 19V14ZM4 4H10V9C10 9.26522 9.89464 9.51957 9.70711 9.70711C9.51957 9.89464 9.26522 10 9 10H5C4.73478 10 4.48043 9.89464 4.29289 9.70711C4.10536 9.51957 4 9.26522 4 9V4Z" stroke="#696969" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>Categories</button>
-            <div class="dropdown-menu" [class.show]="dropdownOpen">
-               
+            <div class="dropdown-menu menu-category" [class.show]="dropdownOpen">
+
               <a class="dropdown-item" style="cursor: pointer;" (click)="send_id(categori.cat_slug)"     *ngFor="let categori of categories" routerLinkActive="active_lien_navbar">
                 <div class="content_image">
                   <img [src]="categori.cat_image" alt="Image Of Categorie">
                 </div>
-              
                 <p> {{categori.cat_name}} </p>
               </a>
             </div>
@@ -81,10 +80,10 @@
             </clipPath>
             </defs>
           </svg>
-            
+
         <!--  <span class="badge badge-danger position-absolute top-0 start-100 translate-middle">{{myNotif}}</span>-->
         </div>
-        
+
         <div class="content_image">
           <img [src]=avatar alt="Image User Connect">
         </div>
@@ -202,7 +201,7 @@
                 <p> {{categori.cat_name}} </p>
               </a>
             </div>
-           
+
           </div>
         </li>
         <li class="dropdown menuH">
@@ -288,13 +287,13 @@
                 <label>Last Name</label>
                 <input class = "input" name="last_name"  type="text" placeholder="" aria-label="default input example" id="last_name" value="{{last_name}}" required>
               </div>
-              
+
               <div class="my_container_input_2 form-group">
                 <label>Role</label>
                 <input class = "input" name=""  type="email" placeholder="" aria-label="default input example" id="Email" value="{{work_as}}" required>
               </div>
             </div>
-            
+
             <div *ngIf="showSecondStep" class="second-step">
               <form [formGroup]="myForm" (ngSubmit)="uploadFile()">
 
@@ -308,7 +307,7 @@
                 <label for="">Or Upload a new one</label>
                 <div class="input-group">
                    <input type="file" (change)="onFileSelected($event)"   accept="application/pdf"  name="file" class="form-control" id="file" placeholder="My CV"
-                   formControlName="file" required/>  
+                   formControlName="file" required/>
                </div>
                 <button (click)="goToSecondStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Next</button>
               </div>
@@ -335,7 +334,7 @@
                     <img src="../../../assets/img/empty-topic.png" alt="image team">
                     <p>No content available at the moment </p>
                   </div>
-      
+
               </div>
             <button (click)="goToThirdStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Next</button>
             </div>
@@ -361,7 +360,7 @@
                     </div>
                     <input type="checkbox" name="check" id="" class="large-checkbox">
                   </div>
-                  </div>  
+                  </div>
                 </div>
                 <div class="required">
                   <p class="mt-4">Pass this assessement / test</p>
@@ -369,7 +368,7 @@
                     <div class="col-md-4 mb-2 text-center left-required d-flex justify-content-center align-items-center">
                       <i class="fa fa-eye fa-3x"></i>
                   </div>
-                  
+
                       <div class="col-md-8 d-flex justify-content-between align-items-center">
                         <div class="text-required text-left">
                           <p>Test on hubspot sales navigator</p>
@@ -377,7 +376,7 @@
                         </div>
                         <input type="checkbox" name="check" id="" class="large-checkbox">
                       </div>
-                  </div>  
+                  </div>
                 </div>
                 <div class="required">
                   <p class="mt-4">Spend and least...</p>
@@ -385,7 +384,7 @@
                     <div class="col-md-4 mb-2 text-center left-required d-flex justify-content-center align-items-center">
                       <p>12h 45m</p>
                     </div>
-                  
+
                       <div class="col-md-8 d-flex justify-content-between align-items-center ">
                         <div class="text-required text-left">
                           <p>On the topic hubspot</p>
@@ -393,10 +392,10 @@
                         </div>
                         <input type="checkbox" name="check" id="" class="large-checkbox">
                       </div>
-                  </div>  
+                  </div>
                 </div>
                 </div>
-              
+
               <button (click)="goToFourStep()" type="submit" id="apply" class="btn mt-4 btn-forgeet-passwoord">Next</button>
 
             </div>
@@ -452,7 +451,7 @@
                 You can now discover other opportunities.</p>
               <a href="/job" class="btn btn-other-opportunuties">Others opportunities</a>
             </div>
-        
+
 
           </form>
         </div>
