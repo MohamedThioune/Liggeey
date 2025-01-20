@@ -7,6 +7,7 @@ import { ToastNotification } from 'src/app/notification/ToastNotification';
 import { JobCompagny } from 'src/app/interfaces/job-compagny';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CKFinder } from '@ckeditor/ckeditor5-ckfinder';
+import { log } from 'console';
 
 @Component({
   selector: 'app-post-new-job-compagny',
@@ -33,75 +34,7 @@ export class PostNewJobCompagnyComponent implements OnInit {
   skills: string[] = [];
   showRemove: boolean = false;
   topics:any = []
-  skillsTabs:any=[   
-    {
-      "cat_ID": 590,
-      "cat_name": "Afas",
-      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-      "open_position": 0
-  },
-  {
-      "cat_ID": 589,
-      "cat_name": "Freshworks",
-      "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-      "open_position": 0
-  },
-  {
-      "cat_ID": 633,
-      "cat_name": "Google",
-      "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/google.png",
-      "open_position": 0
-  },
-  {
-    "cat_ID": 587,
-    "cat_name": "Google Workspace",
-    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-    "open_position": 0
-},
-{
-    "cat_ID": 640,
-    "cat_name": "HubSpot",
-    "cat_image": "https://livelearn.nl/wp-content/uploads/2024/04/hubspot_logo.jpeg",
-    "open_position": 0
-},
-{
-    "cat_ID": 593,
-    "cat_name": "Microsoft 360",
-    "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-    "open_position": 0
-},
-{
-  "cat_ID": 634,
-  "cat_name": "Odoo",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
-{
-  "cat_ID": 588,
-  "cat_name": "Salesforce",
-  "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-  "open_position": 0
-},
-{
-  "cat_ID": 641,
-  "cat_name": "Exact",
-  "cat_image": "https://livelearn.nl/wp-content/uploads/2024/05/Exact.jpeg",
-  "open_position": 0
-},
-// {
-//   "cat_ID": 636,
-//   "cat_name": "web-programming",
-//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-//   "open_position": 0
-// },
-// {
-//   "cat_ID": 637,
-//   "cat_name": "Webflow",
-//   "cat_image": "https://livelearn.nl/wp-content/themes/fluidify-child/img/placeholder.png",
-//   "open_position": 0
-// },
-    
-    ]
+  categories:any = []
 
 editorData = '<p>Hello, world!</p>';
 public editorConfig = {
@@ -130,7 +63,6 @@ selectedSkills: any[] = [];
 tabContrast=['Full Time', 'Partial Time','Remote']
 toggleSkill(term_id: any) {
   const skillsArray = this.form.get('skills') as FormArray;
-
   if (this.selectedSkills.includes(term_id)) {
     this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
     const index = skillsArray.value.indexOf(term_id);
@@ -145,7 +77,7 @@ removeSkill(term_id: any) {
   this.selectedSkills = this.selectedSkills.filter(skill => skill !== term_id);
 }
 getSkillName(skillId: any): string {
-  const skill = this.skillsTabs.find((skill:any) => skill.cat_ID === skillId);
+  const skill = this.topics.find((skill:any) => skill.cat_ID === skillId);
   return skill ? skill.cat_name : '';
 }
 get skillsFormArray() {
@@ -193,15 +125,17 @@ removeSkills(index: number): void {
       // });
       this.form.get('motivation')?.valueChanges.subscribe(value => {
         if (value === true) {
-          console.log('Motivation: Yes');
+          //console.log('Motivation: Yes');
         } else if (value === false) {
-          console.log('Motivation: No');
+          //console.log('Motivation: No');
         }
       });
       this.homeService.getSkillsAll().subscribe((data:any)=>{
-        this.topics = data.topics        
+        this.topics = data.topics 
       })
-
+      this.homeService.getInfoHomepage().subscribe((data:any)=>{
+        this.categories=data.categories
+    })
       
 }
 
@@ -232,7 +166,9 @@ onSubmit() {
 
         },
         // Gestion des erreurs
-        (error) => {          
+        (error) => {    
+          console.log(error);
+                
           ToastNotification.open({
             type: 'error',
             message: error.error.errors
@@ -268,7 +204,7 @@ onSubmit() {
       skills_experiences:this.fb.array([]) ,
       newSkill: this.fb.control("") ,// FormControl for capturing a new skill
       job_langues: this.fb.control("", Validators.required),
-      job_application_deadline: this.fb.control("", [Validators.email, Validators.required]),
+      job_application_deadline: this.fb.control("", [Validators.required]),
       skills: this.fb.array([]),
       motivation :this.fb.control(false, [])
     });
@@ -291,10 +227,10 @@ onSubmit() {
       this.message.message = 'Job responsibilities is mandatory';
       return false;
     }
-    if (skills_experiences =="") {
-      this.message.message = 'Skills experience is mandatory';
-      return false;
-    }
+    // if (skills_experiences =="") {
+    //   this.message.message = 'Skills experience is mandatory';
+    //   return false;
+    // }
     
     
     // if (job_contract == "") {

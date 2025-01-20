@@ -54,6 +54,10 @@
         </div>  -->
         <div class="candidat_featured">
           <div class="row" style="margin-bottom: 100px;">
+            <div *ngIf="filteredJobs.length==0">
+              <img class="mb-4 text-align-center" src="../../../assets/img/empty-badge.png" alt="image team">
+              <p>No content available at the moment</p>
+            </div>
             <div class="col-md-3 item" style="cursor: pointer;" *ngFor="let employer of filteredJobs | paginate: { itemsPerPage: 12, currentPage: p }"  >
                 <div class="content_candidate" [routerLink]="['/detail-compagny',employer.post_slug]">
                   <!--

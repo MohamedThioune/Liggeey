@@ -64,7 +64,12 @@ a{
 input[type="search"]:focus {
    outline: none;
  }
-
+ input[type="search"]:focus {
+     width:100%;
+}
+.d-block{
+  display: block;
+}
    .image_menu_about h2{
      font-size: 47px;
      font-weight: 700;
