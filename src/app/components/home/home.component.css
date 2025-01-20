@@ -85,7 +85,7 @@
     text-align: center;
     margin: 20px 0;
   }
-  
+
   .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-top: 4px solid #3498db;
@@ -94,7 +94,7 @@
     height: 40px;
     animation: spin 1s linear infinite;
   }
-  
+
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -103,7 +103,7 @@
       transform: rotate(360deg);
     }
   }
-  
+
 
 .close {
     float: right;
@@ -115,7 +115,7 @@
     max-width: 600px; /* Largeur maximale du formulaire */
     text-align: center; /* Centrer le contenu */
   }
-  
+
 .number_candidates{
     font-weight: 700;
     padding-right: 20px;
@@ -187,7 +187,7 @@
 }
 
 .content_home{
-    padding-top:96px ;
+    padding-top:82px;
 }
 .content_home_{
     padding-bottom: 73px;
@@ -625,7 +625,7 @@
     cursor: pointer;
     flex: 1;
   }
-  
+
 
  /* section categories */
  .categories{
@@ -746,10 +746,39 @@
     border: 1px solid  #FFF;
     background-color: #1ac4a226;
 }
+.for-investitor{
+  background: #ffd754;
+  margin-top: -1px;
+  padding: 20px;
+  gap: 25px;
+  align-items: center;
+}
+.for-investitor p{
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+.for-investitor a {
+  color: black;
+  border: 1px solid;
+  padding: 6px 24px;
+  border-radius: 9px;
+  height: 38px;
+}
+.for-investitor a:hover {
+  background: black;
+  color: white;
+  text-decoration: none;
+  border: none;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
     .content-home{
         margin-top: 70px;
     }
+  .for-investitor{
+    margin-top: -11px;
+    flex-wrap: wrap;
+  }
     .new_remote{
         display: flex;
         align-items: center;
