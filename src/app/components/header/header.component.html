@@ -53,13 +53,17 @@
             </div>
           </div>
         </li>
-        <ul class="cathegories">
-          <li class="job  name-cv"><a routerLink="/job" routerLinkActive="active_lien_navbar">Find Job</a> </li>
-          <li class="job  name-cv"><a routerLink="/list-candidat" routerLinkActive="active_lien_navbar">All Candidates</a> </li>
-          <li class="about  name-cv"><a routerLink="/about" routerLinkActive="active_lien_navbar">About</a></li>
-          <li class="app  name-cv"><a routerLink="/app" routerLinkActive="active_lien_navbar">Our App</a></li>
-          <li class="skills  name-cv"><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills First</a></li>
-          <li class="skills  name-cv"><a routerLink="/challenges" routerLinkActive="active_lien_navbar">Challenges</a></li>
+        <ul class="cathegories element-header">
+          <li class="job"><a routerLink="/job" routerLinkActive="active_lien_navbar">Find Job</a></li>
+          <li class="job"><a routerLink="/list-candidat" routerLinkActive="active_lien_navbar">All Candidates</a></li>
+          <li class="about">
+            <a routerLink="/about" routerLinkActive="active_lien_navbar">About</a>
+            <ul class="submenu">
+              <li><a routerLink="/app" routerLinkActive="active_lien_navbar">Our App</a></li>
+              <li><a routerLink="/skills-first" routerLinkActive="active_lien_navbar">Skills First</a></li>
+            </ul>
+          </li>
+          <li class="skills name-cv"><a routerLink="/challenges" routerLinkActive="active_lien_navbar">Challenges</a></li>
         </ul>
       </ul>
       <div class="join" *ngIf="!userConnect">

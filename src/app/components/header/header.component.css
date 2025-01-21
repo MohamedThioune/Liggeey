@@ -832,6 +832,48 @@ font-family: "Roboto-Medium";
   border-radius: 5px;
   overflow: hidden;
 }
+
+
+.element-header{
+  list-style: none;
+  padding: 0;
+}
+
+.element-header li {
+  position: relative;
+  display: inline-block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.element-header li:hover .submenu {
+  display: block !important;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 13px 15px;
+  text-align: left;
+  min-width: 140px;
+  width: fit-content;
+}
+.submenu{
+  display: none !important;
+}
+.submenu li {
+  display: block;
+  margin-bottom: 15px;
+}
+.submenu li:last-child {
+  margin-bottom: 0px;
+}
+
 @media all and (min-width: 300px) and (max-width: 767px){
   .second-nav {
     width: 100%;
