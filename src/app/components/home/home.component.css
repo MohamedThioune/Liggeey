@@ -778,6 +778,7 @@
   .for-investitor{
     margin-top: -11px;
     flex-wrap: wrap;
+    gap: 15px;
   }
     .new_remote{
         display: flex;
@@ -958,6 +959,12 @@
   }
   .header_featured a p{
    margin: 0;
+  }
+  .for-investitor p{
+    margin-bottom: 0;
+    font-size: 14px;
+    font-family: "Italic";
+    font-weight: 600;
   }
 }
 
