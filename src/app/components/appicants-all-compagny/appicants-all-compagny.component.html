@@ -1,6 +1,6 @@
 <app-header></app-header>
 <ng-template #skeleton>
-  <app-skeleton-loader></app-skeleton-loader>
+  <app-skeleton-all-applicants></app-skeleton-all-applicants>
 </ng-template>
 <div *ngIf="!loading; else skeleton">
 <section class="content-page-dashboard">
@@ -309,7 +309,7 @@
             </tr>
             </tbody>
           </table>
-          <div class="pagination mt-4" *ngIf="applicant.approved.lenght > 8">
+          <div class="pagination mt-4" *ngIf="applicant.approved.length > 8">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
           <div class=" empty text-center" *ngIf="getFilteredApplicants('approved').length == 0">
@@ -426,7 +426,7 @@
             </tr>
             </tbody>
           </table>
-          <div class="pagination mt-4" *ngIf="applicant.rejected.lenght > 8">
+          <div class="pagination mt-4" *ngIf="applicant.rejected.length > 8">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
           <div class=" empty text-center" *ngIf="getFilteredApplicants('rejected').length === 0">

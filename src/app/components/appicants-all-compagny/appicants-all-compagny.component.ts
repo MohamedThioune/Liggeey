@@ -50,7 +50,7 @@ export class AppicantsAllCompagnyComponent implements OnInit {
    }
     this.homeService.getDetailJob(this.slug).subscribe((data:any)=>{
       this.applicant = data                      
-      this.numberCandidat =  this.applicant.applied.length      
+      this.numberCandidat =  this.applicant?.applied.length      
       this.loading=false;            
      })
     this.homeService.profilJob(this.userConnect.id).pipe(
