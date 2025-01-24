@@ -103,7 +103,7 @@ header .header_container_logo p {
   white-space: nowrap;
    overflow: hidden;
    max-width: 100%;
-} 
+}
 /*second nav */
 .second-nav{
     display: flex;
@@ -271,7 +271,7 @@ nav ul li span{
 .dropdown.dropdown-modife .dropdown-menu a .content_image{
   height: 24px;
   width: 24px;
- 
+
 }
 .join{
     display: flex;
@@ -816,6 +816,64 @@ font-family: "Roboto-Medium";
   height: 100%;
   object-fit: cover;
 }
+.menu-category.show{
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: auto;
+  min-width: 750px;
+}
+.menu-category a{
+  width: 48% !important;
+}
+.menu-category a .content_image {
+  height: 45px !important;
+  width: 45px !important;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+.element-header{
+  list-style: none;
+  padding: 0;
+}
+
+.element-header li {
+  position: relative;
+  display: inline-block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.element-header li:hover .submenu {
+  display: block !important;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 13px 15px;
+  text-align: left;
+  min-width: 140px;
+  width: fit-content;
+}
+.submenu{
+  display: none !important;
+}
+.submenu li {
+  display: block;
+  margin-bottom: 15px;
+}
+.submenu li:last-child {
+  margin-bottom: 0px;
+}
+
 @media all and (min-width: 300px) and (max-width: 767px){
   .second-nav {
     width: 100%;

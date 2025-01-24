@@ -4,6 +4,10 @@
 </ng-template>
 <div class="content-home" *ngIf="!loading; else skeleton">
 <section class="description_home css-selector">
+  <div class="for-investitor d-flex justify-content-center">
+    <p>Invest in LIGGÉEY: Investing in the Workforce of the future !</p>
+    <a routerLink="/investor">See investor page</a>
+  </div>
   <div class="container-fluid">
     <div class="content_home_">
       <div class="content_home">
@@ -385,7 +389,7 @@
               </div>
             </div>
         </div>
-      
+
       </div>
       <!--
       <span class="bullet" appPrev>
@@ -403,7 +407,7 @@
           <circle *ngFor="let candidate of candidates; let i = index" [attr.cx]="4 + i * 18" cy="4.15625" r="8" [attr.fill]="i === selectedCandidateIndex ? '#202124' : '#BFC8CB'" (click)="selectCandidate(i)"/>
         </svg>
       </span>
-  
+
     </div>
   </div>
 </section>
