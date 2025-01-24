@@ -211,22 +211,22 @@ onSubmit() {
   }
   validateFormJob(job: JobCompagny): boolean {
     const { title, job_level_of_experience, job_langues, job_contract,responsibilities,skills_experiences, job_application_deadline } = job;
-    if (title == "") {
-      this.message.message = 'Title is mandatory';
-      return false;
-    }
-    if (job_level_of_experience == 0) {
-      this.message.message = 'Experience level is mandatory';
-      return false;
-    }
-    if (job_langues == "") {
-      this.message.message = 'Language is mandatory';
-      return false;
-    }
-    if (responsibilities == "") {
-      this.message.message = 'Job responsibilities is mandatory';
-      return false;
-    }
+    // if (title == "") {
+    //   this.message.message = 'Title is mandatory';
+    //   return false;
+    // }
+    // if (job_level_of_experience == 0) {
+    //   this.message.message = 'Experience level is mandatory';
+    //   return false;
+    // }
+    // if (job_langues == "") {
+    //   this.message.message = 'Language is mandatory';
+    //   return false;
+    // }
+    // if (responsibilities == "") {
+    //   this.message.message = 'Job responsibilities is mandatory';
+    //   return false;
+    // }
     // if (skills_experiences =="") {
     //   this.message.message = 'Skills experience is mandatory';
     //   return false;
