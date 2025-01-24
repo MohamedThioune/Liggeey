@@ -40,6 +40,7 @@ export class CategorieComponent implements OnInit {
   skills: any[] = ['Google','Google Workspace', 'Microsoft', 'Account management', 'Accounting', 'Acquiring', 'Administration', 'Administration and Reporting',];
   selectedSkills: string[] = [];
   showDropdownSkills: boolean = false
+  jobs:any[]=[]
   constructor(private homeService:HomePageService,private route : ActivatedRoute,private router: Router,private usagerService: UsagerService,private cdr: ChangeDetectorRef,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
@@ -49,9 +50,17 @@ export class CategorieComponent implements OnInit {
     this.sentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.homeService.getDetailCategory( this.slug).subscribe(data=>{
       this.category = data
+      this.jobs=this.category.jobs
       this.loading=false;
-
-      this.category.jobs.forEach((element:any) => {
+      this.category.articles.forEach((element:any) => {
+        element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+        element.title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+        element.description =   element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      });
+      this.jobs.forEach((element:any) => {
+        element.description =   element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
+      });
+      this.jobs.forEach((element:any) => {
          // Vérifier si l'utilisateur est contenu dans applied[] pour cet élément
           if (element.applied.some((appliedItem: any) => appliedItem.ID === this.userConnect.id)) {
             // Si l'utilisateur est trouvé, canApply devient false
@@ -77,17 +86,6 @@ export class CategorieComponent implements OnInit {
           element.duration = differenceInDays + ' day(s)';
         }
       });
-
-
-    })
-    this.homeService.getDetailCategory(this.slug).subscribe((data:any)=>{
-      this.category = data
-      this.category.articles.forEach((element:any) => {
-        element.short_description =   element.short_description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-        element.title =   element.post_title.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-        element.description =   element.description.replace(/<[^>]*>/g, '').replace(/[^\w\s]/gi, '');
-      });
-
     })
 
     // Récupération du token depuis le local storage
@@ -117,7 +115,7 @@ export class CategorieComponent implements OnInit {
   // }
   get filteredItems() {
     if (this.searchTitle.trim() !== '' || this.searchLocation.trim() !== '' || this.selectedSkillsText.trim() !=='') {
-      const filteredJobs = this.category.jobs.filter((job: any) => {
+      const filteredJobs = this.jobs.filter((job: any) => {
         const titleMatch = this.searchTitle.trim() === '' || job.title.toLowerCase().includes(this.searchTitle.toLowerCase());
         const placeMatch = this.searchLocation.trim() === '' || job.company.place.toLowerCase().includes(this.searchLocation.toLowerCase());
         const skills = this.selectedSkillsText.trim() === '' || job.skills.some((skill: any) => skill.name.toLowerCase().includes(this.selectedSkillsText.toLowerCase()));

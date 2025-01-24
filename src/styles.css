@@ -213,7 +213,7 @@
    -webkit-line-clamp: 3;
    -webkit-box-orient: vertical;
    text-align: left;
-   text-transform: capitalize;
+   /*text-transform: capitalize;*/
  }
  .card-emploie .btn-apply-job{
    background: #1ac4a2;
