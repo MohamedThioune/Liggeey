@@ -186,7 +186,7 @@ const routes: Routes = [
 
   { path:'hire-candidat',component: HireCandidatComponent},
 
-  { path:'investitor',component: InvestorLandingPageComponent}
+  { path:'investor',component: InvestorLandingPageComponent}
 
 
 ];

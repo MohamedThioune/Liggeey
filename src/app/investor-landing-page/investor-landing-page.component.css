@@ -826,7 +826,7 @@ video {
     margin-bottom: 40px;
   }
   .hero-buttons .btn {
-    min-width: 48%;
+    min-width: 46%;
   }
   .img-fluid{
     height: 56px;
@@ -838,13 +838,17 @@ video {
     flex-wrap: wrap;
   }
   .section-profil img {
-    height: 77px;
+    height: 71px;
+  }
+
+  .section-profil .text-rofil{
+    flex-wrap: wrap;
   }
   .section-profil .text-rofil p{
     color: white;
-    font-size: 10px;
+    font-size: 13px;
     text-align: center;
-    width: 9%;
+    width: 17%;
     font-weight: 500;
   }
   .map-image {
@@ -854,7 +858,7 @@ video {
     max-width: 100% !important;
   }
   .illustration img {
-    height: 338px;
+    height: 304px;
     margin: 0 auto;
     display: block;
   }
@@ -862,7 +866,7 @@ video {
     display: none;
   }
   .promise1{
-    height: 285px;
+    height: 249px;
     z-index: 999;
     position: relative;
     margin: 1px auto -19px;
@@ -1007,7 +1011,7 @@ video {
     margin-bottom: 24px;
   }
   video {
-    height: 402px;
+    height: 363px;
   }
   .esg-section h2 {
     font-size: 30px;
@@ -1149,5 +1153,6 @@ video {
   .hero-image{
     object-fit: contain;
   }
+
 
 }
