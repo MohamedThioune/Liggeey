@@ -329,6 +329,18 @@ getSubtopic(user:string): Observable<any> {
     };
     return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/notification/create`,requestBody);
   }
+  sendNotificationInvestor(idUser:number,notification:Notification): Observable<any> {
+    const requestBody = {
+      userApplyId:idUser,
+      title:notification.title,
+      content:notification.content,
+      trigger:notification.trigger,
+      author_trigger:notification.receiver_id,
+      is_livelearn:true,
+      to_admin:true
+    };
+    return this.http.post<any>(`${this.baseUrl}/wp-json/custom/v1/notification/create`,requestBody);
+  }
   favoritesJob(idUser: number,idJob:number): Observable<any> {
     const requestBody = {
       userApplyId:idUser,

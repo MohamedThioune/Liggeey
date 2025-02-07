@@ -131,21 +131,21 @@
         <div class="col-md-4">
           <div class="investment-option for-form">
             <p class="title">Fill in the form and we directly will contacy you</p>
-            <form>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="First name">
+                <input type="text" formControlName="firstName" class="form-control" placeholder="First name">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Last name">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Last name">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" formControlName="email" placeholder="Email *" required>
               </div>
               <div class="form-group">
-                <input type="tel" class="form-control" placeholder="Phone">
+                <input type="text" class="form-control" formControlName="phone" placeholder="Phone *" required>
               </div>
               <div class="form-group">
-                <select class="form-control">
+                <select class="form-control" formControlName="option">
                   <option>Interested in</option>
                   <option>Option 1</option>
                   <option>Option 2</option>
@@ -153,9 +153,11 @@
                 </select>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Estimated Amount">
+                <input type="number" formControlName="amount" class="form-control" placeholder="Estimated Amount *" required>
               </div>
-              <button type="submit" class="btn btn-block">Submit</button>
+              <button type="submit" class="btn btn-block" [disabled]="isLoading">Submit</button>
+              <div *ngIf="isLoading" class="loader">Loading...</div>
+
             </form>
           </div>
         </div>
