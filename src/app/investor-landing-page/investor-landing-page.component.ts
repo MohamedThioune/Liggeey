@@ -103,7 +103,7 @@ export class InvestorLandingPageComponent implements OnInit {
     accNotificationCand(idUser:number,idUser2:number,investor:any):any{
       const notif={
         userApplyId:idUser,
-        title:"Get in touch with an investor !",
+        title:"Get in touch with an investor  !",
         content: `
         <p>Hello Daniel,
           You have received a new notification concerning an investor<p>.<br> 
