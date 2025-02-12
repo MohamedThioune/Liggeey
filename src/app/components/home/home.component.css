@@ -871,6 +871,12 @@
         padding-right: 20px;
         margin: 0;
     }
+    .candidates{
+        flex-wrap: wrap;
+    }
+    .candidates p{
+        margin: 15px 0px 15px 0px;
+    }
     .title_description{
         color: #FFF;
         font-size: 21px;
