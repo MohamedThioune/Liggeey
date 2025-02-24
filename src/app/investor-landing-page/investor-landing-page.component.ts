@@ -47,15 +47,15 @@ export class InvestorLandingPageComponent implements OnInit {
   }
   onSubmit(){
     this.isLoading = true;
-    if (!this.userConnect) {
-      ToastNotification.open({
-        type: 'error',
-        message: 'Please log in first before posting a investor.'
-      });
-      this.isLoading = false;
+    // if (!this.userConnect) {
+    //   ToastNotification.open({
+    //     type: 'error',
+    //     message: 'Please log in first before posting a investor.'
+    //   });
+    //   this.isLoading = false;
 
-      return; 
-    }   
+    //   return; 
+    // }   
     if (this.validateFormJob(this.form.value)) {
         this.HomePageService.sendNotificationInvestor(5,this.accNotificationCand(5,this.userConnect.id,this.form.value))
         .subscribe(
