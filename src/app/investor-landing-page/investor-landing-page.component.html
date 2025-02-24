@@ -130,7 +130,7 @@
         </div>
         <div class="col-md-4">
           <div class="investment-option for-form">
-            <p class="title">Fill in the form and we directly will contacy you</p>
+            <p class="title">Fill in the form and we will contacy you directly</p>
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
               <div class="form-group">
                 <input type="text" formControlName="firstName" class="form-control" placeholder="First name">
@@ -147,9 +147,9 @@
               <div class="form-group">
                 <select class="form-control" formControlName="option">
                   <option>Interested in</option>
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
+                  <option>Venture Debt</option>
+                  <option>Equity</option>
+                  <option>Hire talent</option>
                 </select>
               </div>
               <div class="form-group">
@@ -541,7 +541,13 @@
       <div class="row">
         <div class="col-lg-6 col-md-6">
           <h2>Contact us</h2>
-          <button class="btn btn-outline-dark mb-4">SCHEDULE A MEETING</button>
+        <!-- <button class="btn btn-outline-dark mb-4">SCHEDULE A MEETING</button> --> 
+          <a href="https://calendar.google.com/calendar/u/0/r/eventedit?dates=20250225T100000Z/20250225T110000Z&text=Meeting" 
+            target="_blank" 
+            class="btn btn-outline-dark mb-4">
+            SCHEDULE A MEETING
+          </a>
+
           <div class="contact-info">
             <p>Singel 542, Amsterdam<br>
               1017 AA<br>
